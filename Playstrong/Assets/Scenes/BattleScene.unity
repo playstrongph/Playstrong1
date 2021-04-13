@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -513,6 +513,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
+    - target: {fileID: 6182876176124551385, guid: f3723e11275f7d24f9a92da9f5ed919b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6182876176708484265, guid: f3723e11275f7d24f9a92da9f5ed919b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -594,6 +599,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.37607765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.70895505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1.2607635
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6334877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.257
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.26814586
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.7534431
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630453, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.75651157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710646053681630454, guid: dc519980941a8db47acd0390da2bcba0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4393896177352261060, guid: c42fb6fa755a21c419aca501b2efa7c5,
+        type: 3}
     - target: {fileID: 3710646054034869843, guid: dc519980941a8db47acd0390da2bcba0,
         type: 3}
       propertyPath: m_Name
@@ -654,5 +705,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3710646054877849039, guid: dc519980941a8db47acd0390da2bcba0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc519980941a8db47acd0390da2bcba0, type: 3}

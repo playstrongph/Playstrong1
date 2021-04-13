@@ -141,10 +141,10 @@ TextureImporter:
       name: FrameTaunt_1
       rect:
         serializedVersion: 2
-        x: 1144
-        y: 94
-        width: 1356
-        height: 1824
+        x: 1063
+        y: 38
+        width: 1512
+        height: 1935
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
