@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TauntFrameGlow
+  m_Name: ActionTauntFrameGlow
   m_Shader: {fileID: -6465566751694194690, guid: 86fe897ee98abd646bdb509f0c32f4fc,
     type: 3}
   m_ShaderKeywords: 
@@ -27,4 +27,4 @@ Material:
     m_Floats:
     - Vector1_528092AF: 0.0104
     m_Colors:
-    - Color_CD03CC53: {r: 0.34509805, g: 4, b: 0, a: 1}
+    - Color_CD03CC53: {r: 0.178377, g: 4.867144, b: 0, a: 1}
