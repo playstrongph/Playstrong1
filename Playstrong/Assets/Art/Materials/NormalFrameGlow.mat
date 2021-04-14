@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NormalFrame
-  m_Shader: {fileID: -6465566751694194690, guid: abf32a0feb361d54f97af98259bae559,
+  m_Name: NormalFrameGlow
+  m_Shader: {fileID: -6465566751694194690, guid: 2451355fff180fc4ba14c2cf2777aeb0,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -25,6 +25,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_528092AF: 0.0346
+    - Vector1_528092AF: 0.0287
     m_Colors:
-    - Color_CD03CC53: {r: 0.1521896, g: 3.482202, b: 0, a: 1}
+    - Color_CD03CC53: {r: 0.178377, g: 4.867144, b: 0, a: 1}
