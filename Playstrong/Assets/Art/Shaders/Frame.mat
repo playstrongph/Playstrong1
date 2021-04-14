@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline
+  m_Name: Frame
   m_Shader: {fileID: -6465566751694194690, guid: abf32a0feb361d54f97af98259bae559,
     type: 3}
   m_ShaderKeywords: 
@@ -24,5 +24,7 @@ Material:
         m_Texture: {fileID: 2800000, guid: c42fb6fa755a21c419aca501b2efa7c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - Vector1_528092AF: 0.03
+    m_Colors:
+    - Color_CD03CC53: {r: 0.1521896, g: 3.482202, b: 0, a: 1}
