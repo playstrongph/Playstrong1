@@ -263,8 +263,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516515630638415}
   - component: {fileID: 1353516515630638414}
+  - component: {fileID: 467193811371803878}
   m_Layer: 8
-  m_Name: Health
+  m_Name: HealthVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,6 +300,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516515630638408}
   m_CullTransparentMesh: 0
+--- !u!114 &467193811371803878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516515630638408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21e5ba6581bd6d4aa6fb68a20a48df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1353516517092976483}
+  text: {fileID: 2353710406809357561}
 --- !u!1 &1353516515718142394
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,8 +399,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516515845197471}
   - component: {fileID: 1353516515845197470}
+  - component: {fileID: 467193811371803883}
   m_Layer: 8
-  m_Name: Energy
+  m_Name: EnergyVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,6 +437,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516515845197464}
   m_CullTransparentMesh: 0
+--- !u!114 &467193811371803883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516515845197464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf217e0b13c517a4686dd0d8bc1f2913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barBackGround: {fileID: 1353516516942035901}
+  barFill: {fileID: 1353516515927292666}
+  text: {fileID: 6597236138970788143}
 --- !u!1 &1353516515858574925
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +462,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516515858574924}
   - component: {fileID: 1353516515858574931}
+  - component: {fileID: 4064436109223131615}
   m_Layer: 8
-  m_Name: Armor
+  m_Name: ArmorVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,6 +499,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516515858574925}
   m_CullTransparentMesh: 0
+--- !u!114 &4064436109223131615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516515858574925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521272b394bf2834cb788073f6110227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1353516517380192470}
+  text: {fileID: 2353710406379738554}
 --- !u!1 &1353516515921731283
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,14 +696,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516516006753128}
   - component: {fileID: 1353516516006753134}
-  - component: {fileID: 1353516516006753135}
+  - component: {fileID: 3417637578866463660}
   m_Layer: 8
   m_Name: TauntFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1353516516006753128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -689,7 +735,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516516006753129}
   m_CullTransparentMesh: 0
---- !u!114 &1353516516006753135
+--- !u!114 &3417637578866463660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -698,27 +744,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353516516006753129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bea67b3d5163ae40916d9d4d404204c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 5503666241368904826, guid: e836198a90d0cb345bfdb4df24d648a4,
-    type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  allyGlowFrame: {fileID: 1353516517637588898}
+  enemyGlowFrame: {fileID: 1353516517040571557}
+  actionGlowFrame: {fileID: 1353516516331082868}
+  frame: {fileID: 1353516516330940223}
 --- !u!1 &1353516516019946072
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353516516019946079}
+  - component: {fileID: 467193811371803873}
   m_Layer: 0
   m_Name: HeroObjectPrefab
   m_TagString: Untagged
@@ -752,6 +785,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467193811371803873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516516019946072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68dda5ec778650a4d935be29ee087f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroVisual: {fileID: 467193811371803872}
+  buffsVisual: {fileID: 2294197495022228301}
+  heroPreviewVisual: {fileID: 76305040793227081}
 --- !u!1 &1353516516147286996
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516516192115987}
   - component: {fileID: 1353516516192115986}
+  - component: {fileID: 467193811371803869}
   m_Layer: 8
   m_Name: HeroGraphic
   m_TagString: Untagged
@@ -963,6 +1012,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516516192115980}
   m_CullTransparentMesh: 0
+--- !u!114 &467193811371803869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516516192115980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83ff6a7b708e2f4e8de48ce7e05bb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroGraphic: {fileID: 1353516517118784990}
 --- !u!1 &1353516516258638831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1353516516330940222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1271,6 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516516532892081}
   - component: {fileID: 1353516516532892080}
+  - component: {fileID: 467193811371803868}
   m_Layer: 8
   m_Name: NormalFrame
   m_TagString: Untagged
@@ -1309,6 +1372,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516516532892082}
   m_CullTransparentMesh: 0
+--- !u!114 &467193811371803868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516516532892082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11311c30cb0e117418398af7fa099379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allyGlowFrame: {fileID: 1353516515585020511}
+  enemyGlowFrame: {fileID: 1353516516147286996}
+  actionGlowFrame: {fileID: 1353516517143644969}
+  frame: {fileID: 1353516516424651235}
 --- !u!1 &1353516516581544792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,8 +2234,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516517477745306}
   - component: {fileID: 1353516517477745305}
+  - component: {fileID: 467193811371803870}
   m_Layer: 8
-  m_Name: Attack
+  m_Name: AttackVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2191,6 +2271,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516517477745307}
   m_CullTransparentMesh: 0
+--- !u!114 &467193811371803870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353516517477745307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c44572cc98b19d49aac1be7fd7ceccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1353516515718142392}
+  text: {fileID: 2353710405613978554}
 --- !u!1 &1353516517637588898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,8 +2370,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2353710404790322494}
+  - component: {fileID: 467193811371803872}
   m_Layer: 0
-  m_Name: Hero
+  m_Name: HeroVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2298,6 +2393,27 @@ Transform:
   m_Father: {fileID: 1353516516019946079}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467193811371803872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353710404790322489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878a96297dfdab946bf3ba43a25e9eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroObjectReferences: {fileID: 467193811371803873}
+  heroCanvas: {fileID: 1353516515517023405}
+  tauntFrame: {fileID: 3417637578866463660}
+  normalFrame: {fileID: 467193811371803868}
+  heroGraphic: {fileID: 467193811371803869}
+  attackVisual: {fileID: 467193811371803870}
+  armorVisual: {fileID: 4064436109223131615}
+  healthVisual: {fileID: 467193811371803878}
+  energyVisual: {fileID: 467193811371803883}
 --- !u!1 &2353710405613978548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2426,7 @@ GameObject:
   - component: {fileID: 2353710405613978555}
   - component: {fileID: 2353710405613978554}
   m_Layer: 8
-  m_Name: Text
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2444,7 +2560,7 @@ GameObject:
   - component: {fileID: 2353710406379738555}
   - component: {fileID: 2353710406379738554}
   m_Layer: 8
-  m_Name: Text
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2575,8 +2691,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2353710406567279736}
+  - component: {fileID: 2294197495022228301}
   m_Layer: 0
-  m_Name: Buffs
+  m_Name: BuffsVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2597,6 +2714,19 @@ Transform:
   m_Father: {fileID: 1353516516019946079}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2294197495022228301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353710406567279739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772ce66002c8fcb4897b0b79a9c045ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroObjectReferences: {fileID: 467193811371803873}
 --- !u!1 &2353710406809357563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,7 +2739,7 @@ GameObject:
   - component: {fileID: 2353710406809357566}
   - component: {fileID: 2353710406809357561}
   m_Layer: 8
-  m_Name: Text
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2743,7 +2873,7 @@ GameObject:
   - component: {fileID: 5424380703160739241}
   - component: {fileID: 5424380703160739240}
   m_Layer: 8
-  m_Name: Text
+  m_Name: FixedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3011,7 +3141,7 @@ GameObject:
   - component: {fileID: 5424380703654897700}
   - component: {fileID: 5424380703654897701}
   m_Layer: 8
-  m_Name: Text
+  m_Name: FixedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3145,7 +3275,7 @@ GameObject:
   - component: {fileID: 5424380703926214029}
   - component: {fileID: 5424380703926214028}
   m_Layer: 8
-  m_Name: Value
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3279,7 +3409,7 @@ GameObject:
   - component: {fileID: 5424380703947956690}
   - component: {fileID: 5424380703947956691}
   m_Layer: 8
-  m_Name: Value
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3413,7 +3543,7 @@ GameObject:
   - component: {fileID: 5424380704244920919}
   - component: {fileID: 5424380704244920918}
   m_Layer: 8
-  m_Name: Value
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3547,7 +3677,7 @@ GameObject:
   - component: {fileID: 5424380704248050740}
   - component: {fileID: 5424380704248050741}
   m_Layer: 8
-  m_Name: Value
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3681,7 +3811,7 @@ GameObject:
   - component: {fileID: 5424380704507288876}
   - component: {fileID: 5424380704507288877}
   m_Layer: 8
-  m_Name: Text
+  m_Name: FixedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3815,7 +3945,7 @@ GameObject:
   - component: {fileID: 5424380704599967201}
   - component: {fileID: 5424380704599967200}
   m_Layer: 8
-  m_Name: Text
+  m_Name: FixedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3949,7 +4079,7 @@ GameObject:
   - component: {fileID: 6597236138970788142}
   - component: {fileID: 6597236138970788143}
   m_Layer: 8
-  m_Name: Text
+  m_Name: ValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4187,7 +4317,7 @@ GameObject:
   - component: {fileID: 9035254090702401875}
   - component: {fileID: 9035254090702401878}
   m_Layer: 8
-  m_Name: Attack
+  m_Name: PreviewAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4233,7 +4363,7 @@ GameObject:
   - component: {fileID: 9035254091098412167}
   - component: {fileID: 9035254091098412184}
   m_Layer: 8
-  m_Name: Speed
+  m_Name: PreviewSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,7 +4499,7 @@ GameObject:
   - component: {fileID: 9035254091157819063}
   - component: {fileID: 9035254091157819016}
   m_Layer: 8
-  m_Name: PreviewGraphic
+  m_Name: HeroPreviewGraphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4513,7 +4643,7 @@ GameObject:
   - component: {fileID: 9035254091342622326}
   - component: {fileID: 9035254091342622281}
   m_Layer: 8
-  m_Name: Name
+  m_Name: PreviewName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4556,13 +4686,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9035254091457465609}
+  - component: {fileID: 76305040793227081}
   m_Layer: 0
-  m_Name: HeroPreview
+  m_Name: HeroPreviewVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9035254091457465609
 Transform:
   m_ObjectHideFlags: 0
@@ -4571,7 +4702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9035254091457465608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.1, y: 0, z: 0}
+  m_LocalPosition: {x: -110.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9035254090648240294}
@@ -4579,6 +4710,27 @@ Transform:
   m_Father: {fileID: 1353516516019946079}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76305040793227081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035254091457465608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486e56953512bdb46b20d30367c310bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroObjectReferences: {fileID: 467193811371803873}
+  previewCanvas: {fileID: 9035254090648240313}
+  frameGraphic: {fileID: 9035254091560341649}
+  previewGraphic: {fileID: 9035254092531572890}
+  previewNameText: {fileID: 5424380703316381073}
+  previewAttackText: {fileID: 5424380703926214028}
+  previewHealthText: {fileID: 5424380704248050741}
+  previewSpeedText: {fileID: 5424380703947956691}
+  previewChanceText: {fileID: 5424380704244920918}
 --- !u!1 &9035254091468904877
 GameObject:
   m_ObjectHideFlags: 0
@@ -4764,7 +4916,7 @@ GameObject:
   - component: {fileID: 9035254091902995271}
   - component: {fileID: 9035254091902995288}
   m_Layer: 8
-  m_Name: Health
+  m_Name: PreviewHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4884,7 +5036,7 @@ GameObject:
   - component: {fileID: 9035254092593059071}
   - component: {fileID: 9035254092593059056}
   m_Layer: 8
-  m_Name: Chance
+  m_Name: PreviewChance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

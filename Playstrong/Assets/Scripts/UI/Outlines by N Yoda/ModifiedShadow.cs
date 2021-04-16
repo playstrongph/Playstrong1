@@ -1,14 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
-/// <summary>
-/// The behaviour of this class is almost the same as the original except:
-/// 1. It absorbs version differences.
-/// 2. It corrects the calculation of vertex list capacity (Unity 5.3 or older).
-/// </summary>
-public class ModifiedShadow : Shadow
+namespace Assets.Scripts.UI.Outlines_by_N_Yoda
 {
+    /// <summary>
+    /// The behaviour of this class is almost the same as the original except:
+    /// 1. It absorbs version differences.
+    /// 2. It corrects the calculation of vertex list capacity (Unity 5.3 or older).
+    /// </summary>
+    public class ModifiedShadow : Shadow
+    {
 #if !UNITY_5_4_OR_NEWER
     protected new void ApplyShadow(List<UIVertex> verts, Color32 color, int start, int end, float x, float y)
     {
@@ -53,28 +55,29 @@ public class ModifiedShadow : Shadow
 
 #if !(UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1)
 #if UNITY_5_2_1pX || UNITY_5_3_OR_NEWER
-    public override void ModifyMesh(VertexHelper vh)
+        public override void ModifyMesh(VertexHelper vh)
 #else
     public void ModifyMesh(VertexHelper vh)
 #endif
-    {
-        if (!this.IsActive())
-            return;
+        {
+            if (!this.IsActive())
+                return;
 
-        var list = ListPool<UIVertex>.Get();
-        vh.GetUIVertexStream(list);
+            var list = ListPool<UIVertex>.Get();
+            vh.GetUIVertexStream(list);
 
-        ModifyVertices(list);
+            ModifyVertices(list);
 
 #if UNITY_5_2_1pX || UNITY_5_3_OR_NEWER
-        vh.Clear();
+            vh.Clear();
 #endif
-        vh.AddUIVertexTriangleStream(list);
-        ListPool<UIVertex>.Release(list);
-    }
+            vh.AddUIVertexTriangleStream(list);
+            ListPool<UIVertex>.Release(list);
+        }
 
-    public virtual void ModifyVertices(List<UIVertex> verts)
-    {
-    }
+        public virtual void ModifyVertices(List<UIVertex> verts)
+        {
+        }
 #endif
+    }
 }
