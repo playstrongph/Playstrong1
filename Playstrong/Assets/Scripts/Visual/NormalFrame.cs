@@ -1,29 +1,51 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class NormalFrame : MonoBehaviour
     {
        
         [SerializeField]
-        private GameObject _allyGlowFrame;
-        public GameObject AllyGlowFrame
-        {
-            get { return _allyGlowFrame; }
-        }
+        private GameObject enemyGlowFrame;
         
         [SerializeField]
-        private GameObject _enemyGlowFrame;
-        public GameObject EnemyGlowFrame
+        private GameObject allyGlowFrame;
+       
+        [SerializeField]
+        private GameObject actionGlowFrame;
+       
+       
+
+        public void ShowAllyGlowFrame()
         {
-            get { return _enemyGlowFrame; }
+            allyGlowFrame.SetActive(true);
+        }
+
+        public void HideAllyGlowFrame()
+        {
+            allyGlowFrame.SetActive(false);
+                
         }
         
-        [SerializeField]
-        private GameObject _actionGlowFrame;
-        public GameObject ActionGlowFrame
+        public void ShowEnemyGlowFrame()
         {
-            get { return _actionGlowFrame; }
+            enemyGlowFrame.SetActive(true);
+        }
+
+        public void HideEnemyGlowFrame()
+        {
+            enemyGlowFrame.SetActive(false);
+                
+        }
+        public void ShowActionGlowFrame()
+        {
+            actionGlowFrame.SetActive(true);
+        }
+
+        public void HideActionGlowFrame()
+        {
+            actionGlowFrame.SetActive(false);
+                
         }
 
        

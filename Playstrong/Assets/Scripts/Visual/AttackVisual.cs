@@ -1,9 +1,8 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class AttackVisual : MonoBehaviour
     {

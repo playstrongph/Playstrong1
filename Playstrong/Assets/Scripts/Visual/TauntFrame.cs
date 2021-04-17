@@ -1,38 +1,74 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
-    public class TauntFrame : MonoBehaviour
+    public class TauntFrame : MonoBehaviour 
     {
        
         [SerializeField]
-        private GameObject _allyGlowFrame;
-        public GameObject AllyGlowFrame
-        {
-            get { return _allyGlowFrame; }
-        }
+        private GameObject allyGlowFrame;
+       
         
         [SerializeField]
-        private GameObject _enemyGlowFrame;
-        public GameObject EnemyGlowFrame
-        {
-            get { return _enemyGlowFrame; }
-        }
+        private GameObject enemyGlowFrame;
+       
 
         [SerializeField]
-        private GameObject _actionGlowFrame;
-        public GameObject ActionGlowFrame
-        {
-            get { return _actionGlowFrame; }
-        }
+        private GameObject actionGlowFrame;
+       
         
         [SerializeField]
-        private GameObject _frame;
-        public GameObject Frame
+        private GameObject frame;
+       
+
+        public void ShowAllyGlowFrame()
         {
-            get { return _frame; }
+            allyGlowFrame.SetActive(true);
         }
+
+        public void HideAllyGlowFrame()
+        {
+            allyGlowFrame.SetActive(false);
+                
+        }
+        
+        public void ShowEnemyGlowFrame()
+        {
+            enemyGlowFrame.SetActive(true);
+        }
+
+        public void HideEnemyGlowFrame()
+        {
+            enemyGlowFrame.SetActive(false);
+                
+        }
+        public void ShowActionGlowFrame()
+        {
+            actionGlowFrame.SetActive(true);
+        }
+
+        public void HideActionGlowFrame()
+        {
+            actionGlowFrame.SetActive(false);
+                
+        }
+
+        public void ShowFrame()
+        {
+            frame.SetActive(true);
+            
+        }
+        
+        public void HideFrame()
+        {
+            frame.SetActive(false);
+            
+        }
+
+
+
+
+
 
     }
 }

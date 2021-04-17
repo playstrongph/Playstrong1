@@ -1,78 +1,53 @@
 ﻿using Assets.Scripts.References;
+using Assets.Scripts.Visual;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class HeroVisual : MonoBehaviour
     {
         [SerializeField]
-        private HeroObjectReferences _heroObjectReferences;   
+        private HeroObjectReferences heroObjectReferences;   
         
         [SerializeField]
-        private Canvas _heroCanvas;
+        private Canvas heroCanvas;
+        public Canvas HeroCanvas => heroCanvas;
 
-        public Canvas HeroCanvas
-        {
-            get { return _heroCanvas; }
-        }
-        
 
         [SerializeField]
-        private TauntFrame _tauntFrame;
+        private TauntFrame tauntFrame;
+        public TauntFrame TauntFrame => tauntFrame;
 
-        public TauntFrame TauntFrame
-        {
-            get { return _tauntFrame; }
-        }
-        
         [SerializeField]
-        private NormalFrame _normalFrame;
+        private NormalFrame normalFrame;
 
-        public NormalFrame NormalFrame
-        {
-            get { return _normalFrame; }
-        }
-        
+        public NormalFrame NormalFrame => normalFrame;
+
         [SerializeField]
-        private Image _heroGraphic;
+        private Image heroGraphic;
 
         public Sprite HeroGraphic
         {
-            set { _heroGraphic.sprite = value; }
+            set => heroGraphic.sprite = value;
         }
-        
         
         [SerializeField]
-        private AttackVisual _attackVisual;
-        public AttackVisual AttackVisual
-        {
-            get { return _attackVisual; }
-        }
+        private AttackVisual attackVisual;
+        public AttackVisual AttackVisual => attackVisual;
 
         [SerializeField]
-        private ArmorVisual _armorVisual;
-        public ArmorVisual ArmorVisual
-        {
-            get { return _armorVisual; }
-        }
-        
-        
-        [SerializeField]
-        private HealthVisual _healthVisual;
-        public HealthVisual HealthVisual
-        {
-            get { return _healthVisual; }
-        }
-        
-        [SerializeField]
-        private EnergyVisual _energyVisual;
-        public EnergyVisual EnergyVisual
-        {
-            get { return _energyVisual; }
-        }
+        private ArmorVisual armorVisual;
+        public ArmorVisual ArmorVisual => armorVisual;
 
-       
 
+        [SerializeField]
+        private HealthVisual healthVisual;
+        public HealthVisual HealthVisual => healthVisual;
+
+        [SerializeField]
+        private EnergyVisual energyVisual;
+        public EnergyVisual EnergyVisual => energyVisual;
     }
 }

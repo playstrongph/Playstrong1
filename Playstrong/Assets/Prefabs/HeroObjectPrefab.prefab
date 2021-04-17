@@ -746,10 +746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bea67b3d5163ae40916d9d4d404204c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allyGlowFrame: {fileID: 1353516517637588898}
-  _enemyGlowFrame: {fileID: 1353516517040571557}
-  _actionGlowFrame: {fileID: 1353516516331082868}
-  _frame: {fileID: 1353516516330940223}
+  allyGlowFrame: {fileID: 1353516517637588898}
+  enemyGlowFrame: {fileID: 1353516517040571557}
+  actionGlowFrame: {fileID: 1353516516331082868}
+  frame: {fileID: 1353516516330940223}
 --- !u!1 &1353516516019946072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,9 +1383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11311c30cb0e117418398af7fa099379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allyGlowFrame: {fileID: 1353516515585020511}
-  _enemyGlowFrame: {fileID: 1353516516147286996}
-  _actionGlowFrame: {fileID: 1353516517143644969}
+  enemyGlowFrame: {fileID: 1353516516147286996}
+  allyGlowFrame: {fileID: 1353516515585020511}
+  actionGlowFrame: {fileID: 1353516517143644969}
 --- !u!1 &1353516516581544792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,15 +2403,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878a96297dfdab946bf3ba43a25e9eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroObjectReferences: {fileID: 467193811371803873}
-  _heroCanvas: {fileID: 1353516515517023405}
-  _tauntFrame: {fileID: 3417637578866463660}
-  _normalFrame: {fileID: 467193811371803868}
-  _heroGraphic: {fileID: 1353516517118784990}
-  _attackVisual: {fileID: 467193811371803870}
-  _armorVisual: {fileID: 4064436109223131615}
-  _healthVisual: {fileID: 467193811371803878}
-  _energyVisual: {fileID: 467193811371803883}
+  heroObjectReferences: {fileID: 467193811371803873}
+  heroCanvas: {fileID: 1353516515517023405}
+  tauntFrame: {fileID: 3417637578866463660}
+  normalFrame: {fileID: 467193811371803868}
+  heroGraphic: {fileID: 1353516517118784990}
+  attackVisual: {fileID: 467193811371803870}
+  armorVisual: {fileID: 4064436109223131615}
+  healthVisual: {fileID: 467193811371803878}
+  energyVisual: {fileID: 467193811371803883}
 --- !u!1 &2353710405613978548
 GameObject:
   m_ObjectHideFlags: 0

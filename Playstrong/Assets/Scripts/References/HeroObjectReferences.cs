@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Visual;
 using UnityEngine;
+using Visual;
 
 namespace Assets.Scripts.References
 {
