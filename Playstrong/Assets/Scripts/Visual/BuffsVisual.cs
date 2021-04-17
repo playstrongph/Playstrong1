@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.References;
+﻿using References;
 using UnityEngine;
 
 namespace Assets.Scripts.Visual

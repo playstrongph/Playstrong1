@@ -1,12 +1,13 @@
 ﻿using Assets.Scripts.Visual;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Visual;
 
-namespace Assets.Scripts.References
+namespace References
 {
     public class HeroObjectReferences : MonoBehaviour
     {
-        public HeroVisual heroVisual;
+        public HeroVisualReferences heroVisualReferences;
         public BuffsVisual buffsVisual;
         public HeroPreviewVisual heroPreviewVisual;
     }

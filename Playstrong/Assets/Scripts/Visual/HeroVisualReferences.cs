@@ -1,12 +1,12 @@
-﻿using Assets.Scripts.References;
-using Assets.Scripts.Visual;
+﻿using Assets.Scripts.Visual;
+using References;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Visual
 {
-    public class HeroVisual : MonoBehaviour
+    public class HeroVisualReferences : MonoBehaviour
     {
         [SerializeField]
         private HeroObjectReferences heroObjectReferences;   
@@ -14,6 +14,8 @@ namespace Visual
         [SerializeField]
         private Canvas heroCanvas;
         public Canvas HeroCanvas => heroCanvas;
+        
+        
 
     }
 }

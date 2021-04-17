@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dda5ec778650a4d935be29ee087f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroVisual: {fileID: 467193811371803872}
+  heroVisualReferences: {fileID: 9118610988808071803}
   buffsVisual: {fileID: 2294197495022228301}
   heroPreviewVisual: {fileID: 76305040793227081}
 --- !u!1 &1353516516147286996
@@ -2261,7 +2261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2353710404790322494}
-  - component: {fileID: 467193811371803872}
+  - component: {fileID: 9118610988808071803}
   - component: {fileID: 41292698}
   - component: {fileID: 904248099232998415}
   - component: {fileID: 1861301782167131134}
@@ -2291,7 +2291,7 @@ Transform:
   m_Father: {fileID: 1353516516019946079}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &467193811371803872
+--- !u!114 &9118610988808071803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -66,9 +66,5 @@ namespace Visual
         }
 
 
-
-
-
-
     }
 }

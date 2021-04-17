@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.Scripts.References;
+using References;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
