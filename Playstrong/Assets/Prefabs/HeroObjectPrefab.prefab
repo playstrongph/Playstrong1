@@ -4720,15 +4720,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486e56953512bdb46b20d30367c310bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroObjectReferences: {fileID: 467193811371803873}
-  previewCanvas: {fileID: 9035254090648240313}
-  frameGraphic: {fileID: 9035254091560341649}
-  previewGraphic: {fileID: 9035254092531572890}
-  previewNameText: {fileID: 5424380703316381073}
-  previewAttackText: {fileID: 5424380703926214028}
-  previewHealthText: {fileID: 5424380704248050741}
-  previewSpeedText: {fileID: 5424380703947956691}
-  previewChanceText: {fileID: 5424380704244920918}
+  _heroObjectReferences: {fileID: 467193811371803873}
+  _previewCanvas: {fileID: 9035254090648240313}
+  _frameGraphic: {fileID: 9035254091560341649}
+  _previewGraphic: {fileID: 9035254092531572890}
+  _previewNameText: {fileID: 5424380703316381073}
+  _previewAttackText: {fileID: 5424380703926214028}
+  _previewHealthText: {fileID: 5424380704248050741}
+  _previewSpeedText: {fileID: 5424380703947956691}
+  _previewChanceText: {fileID: 5424380704244920918}
 --- !u!1 &9035254091468904877
 GameObject:
   m_ObjectHideFlags: 0
