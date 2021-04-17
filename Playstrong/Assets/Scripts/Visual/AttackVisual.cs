@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Visual
@@ -7,23 +8,23 @@ namespace Visual
     public class AttackVisual : MonoBehaviour
     {
         [SerializeField]
-        private Image _icon;
+        private Image icon;
         public Sprite IconSprite
         {
-            set { _icon.sprite = value; }
+            set => icon.sprite = value;
         }
         
         [SerializeField]
-        private TextMeshProUGUI _text;
+        private TextMeshProUGUI text;
 
         public string TextString
         {
-            set { _text.text = value; }
+            set => text.text = value;
         }
 
         public Color TextColor
         {
-            set { _text.color = value; }
+            set => text.color = value;
         }
 
         

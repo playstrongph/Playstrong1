@@ -312,8 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21e5ba6581bd6d4aa6fb68a20a48df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 1353516517092976483}
-  _text: {fileID: 2353710406809357561}
+  icon: {fileID: 1353516517092976483}
+  text: {fileID: 2353710406809357561}
 --- !u!1 &1353516515718142394
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,8 +510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521272b394bf2834cb788073f6110227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 1353516517380192470}
-  _text: {fileID: 2353710406379738554}
+  icon: {fileID: 1353516517380192470}
+  text: {fileID: 2353710406379738554}
 --- !u!1 &1353516515921731283
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +975,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516516192115987}
   - component: {fileID: 1353516516192115986}
-  - component: {fileID: 467193811371803869}
   m_Layer: 8
   m_Name: HeroGraphic
   m_TagString: Untagged
@@ -1011,19 +1010,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516516192115980}
   m_CullTransparentMesh: 0
---- !u!114 &467193811371803869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353516516192115980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83ff6a7b708e2f4e8de48ce7e05bb09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heroSprite: {fileID: 1353516517118784990}
 --- !u!1 &1353516516258638831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,7 +2218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353516517477745306}
   - component: {fileID: 1353516517477745305}
-  - component: {fileID: 467193811371803870}
+  - component: {fileID: 7660846555706925250}
   m_Layer: 8
   m_Name: AttackVisual
   m_TagString: Untagged
@@ -2269,7 +2255,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353516517477745307}
   m_CullTransparentMesh: 0
---- !u!114 &467193811371803870
+--- !u!114 &7660846555706925250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2281,8 +2267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c44572cc98b19d49aac1be7fd7ceccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 1353516515718142392}
-  _text: {fileID: 2353710405613978554}
+  icon: {fileID: 1353516515718142392}
+  text: {fileID: 2353710405613978554}
 --- !u!1 &1353516517637588898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2408,7 +2394,7 @@ MonoBehaviour:
   tauntFrame: {fileID: 3417637578866463660}
   normalFrame: {fileID: 467193811371803868}
   heroGraphic: {fileID: 1353516517118784990}
-  attackVisual: {fileID: 467193811371803870}
+  attackVisual: {fileID: 0}
   armorVisual: {fileID: 4064436109223131615}
   healthVisual: {fileID: 467193811371803878}
   energyVisual: {fileID: 467193811371803883}
