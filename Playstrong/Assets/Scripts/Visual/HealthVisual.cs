@@ -2,28 +2,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
-    public class HealthVisual : MonoBehaviour
+    public class HealthVisual : MonoBehaviour, ISetHealthVisual
     {
-        [SerializeField]
-        private Image icon;
-        public Sprite IconSprite
-        {
-            set => icon.sprite = value;
-        }
         
         [SerializeField]
         private TextMeshProUGUI text;
 
-        public string TextString
+        public void SetHealthText(string healthValue)
         {
-            set => text.text = value;
+            text.text = healthValue;
         }
 
-        public Color TextColor
+        public void SetHealthTextColor(Color textColor)
         {
-            set => text.color = value;
+            text.color = textColor;
         }
 
 

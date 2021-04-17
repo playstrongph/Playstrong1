@@ -1,31 +1,40 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
-    public class ArmorVisual : MonoBehaviour
+    public class ArmorVisual : MonoBehaviour, ISetArmorVisual
     {
         [SerializeField]
         private Image icon;
-        public Sprite IconSprite
-        {
-            set => icon.sprite = value;
-        }
-        
+
         [SerializeField]
         private TextMeshProUGUI text;
 
-        public string TextString
+        public void SetArmorText(string armorValue)
         {
-            set => text.text = value;
+            text.text = armorValue;
         }
 
-        public Color TextColor
+        public void SetArmorTextColor(Color textColor)
         {
-            set => text.color = value;
+            text.color = textColor;
         }
+
+        public void HideArmorIcon()
+        {   
+            icon.gameObject.SetActive(false);
+            text.gameObject.SetActive(false);
+        }
+        
+        public void ShowArmorIcon()
+        {   
+            icon.gameObject.SetActive(true);
+            text.gameObject.SetActive(true);
+        }
+
+
 
 
 

@@ -347,6 +347,11 @@ PrefabInstance:
       propertyPath: heroVisualReferences
       value: 
       objectReference: {fileID: 886080588}
+    - target: {fileID: 1353516515718142394, guid: b573354c7017e654a862a1a2ed1eb652,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1353516516019946072, guid: b573354c7017e654a862a1a2ed1eb652,
         type: 3}
       propertyPath: m_Name
@@ -406,6 +411,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353516517380192464, guid: b573354c7017e654a862a1a2ed1eb652,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353710406379738548, guid: b573354c7017e654a862a1a2ed1eb652,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b573354c7017e654a862a1a2ed1eb652, type: 3}

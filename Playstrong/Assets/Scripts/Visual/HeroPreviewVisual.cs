@@ -1,11 +1,10 @@
 ﻿using System;
-using References;
+using Assets.Scripts.References;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
     public class HeroPreviewVisual : MonoBehaviour
     {

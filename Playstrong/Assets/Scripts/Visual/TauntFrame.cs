@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Visual.Interfaces;
+using UnityEngine;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
-    public class TauntFrame : MonoBehaviour 
+    public class TauntFrame : MonoBehaviour, ITauntFrameAndGlow
     {
-       
+ 
         [SerializeField]
         private GameObject allyGlowFrame;
        
@@ -19,7 +20,7 @@ namespace Visual
         
         [SerializeField]
         private GameObject frame;
-       
+        
 
         public void ShowAllyGlowFrame()
         {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
    public class HeroGraphic : MonoBehaviour
    {

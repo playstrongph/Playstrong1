@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
-    public class NormalFrame : MonoBehaviour
+    public class NormalFrame : MonoBehaviour, INormalFrameAndGlow
     {
        
         [SerializeField]

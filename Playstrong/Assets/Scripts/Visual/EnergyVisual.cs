@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
     public class EnergyVisual : MonoBehaviour
     {
@@ -29,6 +29,11 @@ namespace Visual
         public Color TextColor
         {
             set => text.color = value;
+        }
+
+        public void SetEnergyText()
+        {
+            
         }
 
 

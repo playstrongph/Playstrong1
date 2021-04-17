@@ -1,33 +1,27 @@
-﻿using TMPro;
+﻿using Assets.Scripts.Visual.Interfaces;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Visual
+namespace Assets.Scripts.Visual
 {
-    public class AttackVisual : MonoBehaviour
+    public class AttackVisual : MonoBehaviour, ISetAttackVisual
     {
-        [SerializeField]
-        private Image icon;
-        public Sprite IconSprite
-        {
-            set => icon.sprite = value;
-        }
-        
+       
         [SerializeField]
         private TextMeshProUGUI text;
 
-        public string TextString
+        public void SetAttackText(string attackValue)
         {
-            set => text.text = value;
+            text.text = attackValue;
         }
 
-        public Color TextColor
+        public void SetAttackTextColor(Color textColor)
         {
-            set => text.color = value;
+            text.color = textColor;
         }
 
-        
+
 
 
 

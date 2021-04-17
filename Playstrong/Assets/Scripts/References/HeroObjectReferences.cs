@@ -1,9 +1,7 @@
 ﻿using Assets.Scripts.Visual;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Visual;
 
-namespace References
+namespace Assets.Scripts.References
 {
     public class HeroObjectReferences : MonoBehaviour
     {
