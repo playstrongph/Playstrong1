@@ -2403,15 +2403,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878a96297dfdab946bf3ba43a25e9eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroObjectReferences: {fileID: 467193811371803873}
-  heroCanvas: {fileID: 1353516515517023405}
-  tauntFrame: {fileID: 3417637578866463660}
-  normalFrame: {fileID: 467193811371803868}
-  heroGraphic: {fileID: 467193811371803869}
-  attackVisual: {fileID: 467193811371803870}
-  armorVisual: {fileID: 4064436109223131615}
-  healthVisual: {fileID: 467193811371803878}
-  energyVisual: {fileID: 467193811371803883}
+  _heroObjectReferences: {fileID: 467193811371803873}
+  _heroCanvas: {fileID: 1353516515517023405}
+  _tauntFrame: {fileID: 3417637578866463660}
+  _normalFrame: {fileID: 467193811371803868}
+  _heroGraphic: {fileID: 1353516517118784990}
+  _attackVisual: {fileID: 467193811371803870}
+  _armorVisual: {fileID: 4064436109223131615}
+  _healthVisual: {fileID: 467193811371803878}
+  _energyVisual: {fileID: 467193811371803883}
 --- !u!1 &2353710405613978548
 GameObject:
   m_ObjectHideFlags: 0

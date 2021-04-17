@@ -7,12 +7,10 @@ namespace Assets.Scripts.Visual
 {
     public class EnergyVisual : MonoBehaviour
     {
-        public Image _barFill;
-        public TextMeshProUGUI _text;
-
+        [SerializeField]
+        private Image _barFill;
         public float BarFillAmount
         {
-            
             //specified in Energy points
             set { _barFill.fillAmount = value / 100; }
         }
@@ -21,7 +19,9 @@ namespace Assets.Scripts.Visual
         {
             set { _barFill.color = value; }
         }
-
+ 
+        [SerializeField]
+        private TextMeshProUGUI _text;
         public string TextString
         {
             set { _text.text = value +"%"; }

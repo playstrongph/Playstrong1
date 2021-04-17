@@ -9,14 +9,13 @@ namespace Assets.Scripts.Visual
     {
         [SerializeField]
         private Image _icon;
-        
-        [SerializeField]
-        private TextMeshProUGUI _text;
-
         public Sprite IconSprite
         {
             set { _icon.sprite = value; }
         }
+        
+        [SerializeField]
+        private TextMeshProUGUI _text;
 
         public string TextString
         {
