@@ -312,8 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21e5ba6581bd6d4aa6fb68a20a48df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1353516517092976483}
-  text: {fileID: 2353710406809357561}
+  _icon: {fileID: 1353516517092976483}
+  _text: {fileID: 2353710406809357561}
 --- !u!1 &1353516515718142394
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,9 +449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf217e0b13c517a4686dd0d8bc1f2913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barBackGround: {fileID: 1353516516942035901}
-  barFill: {fileID: 1353516515927292666}
-  text: {fileID: 6597236138970788143}
+  _barFill: {fileID: 1353516515927292666}
+  _text: {fileID: 6597236138970788143}
 --- !u!1 &1353516515858574925
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,8 +510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521272b394bf2834cb788073f6110227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1353516517380192470}
-  text: {fileID: 2353710406379738554}
+  _icon: {fileID: 1353516517380192470}
+  _text: {fileID: 2353710406379738554}
 --- !u!1 &1353516515921731283
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +680,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.54
+  m_FillAmount: 0.52
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -747,10 +746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bea67b3d5163ae40916d9d4d404204c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyGlowFrame: {fileID: 1353516517637588898}
-  enemyGlowFrame: {fileID: 1353516517040571557}
-  actionGlowFrame: {fileID: 1353516516331082868}
-  frame: {fileID: 1353516516330940223}
+  _allyGlowFrame: {fileID: 1353516517637588898}
+  _enemyGlowFrame: {fileID: 1353516517040571557}
+  _actionGlowFrame: {fileID: 1353516516331082868}
+  _frame: {fileID: 1353516516330940223}
 --- !u!1 &1353516516019946072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83ff6a7b708e2f4e8de48ce7e05bb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroGraphic: {fileID: 1353516517118784990}
+  _heroSprite: {fileID: 1353516517118784990}
 --- !u!1 &1353516516258638831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,10 +1383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11311c30cb0e117418398af7fa099379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyGlowFrame: {fileID: 1353516515585020511}
-  enemyGlowFrame: {fileID: 1353516516147286996}
-  actionGlowFrame: {fileID: 1353516517143644969}
-  frame: {fileID: 1353516516424651235}
+  _allyGlowFrame: {fileID: 1353516515585020511}
+  _enemyGlowFrame: {fileID: 1353516516147286996}
+  _actionGlowFrame: {fileID: 1353516517143644969}
 --- !u!1 &1353516516581544792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,8 +2281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c44572cc98b19d49aac1be7fd7ceccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1353516515718142392}
-  text: {fileID: 2353710405613978554}
+  _icon: {fileID: 1353516515718142392}
+  _text: {fileID: 2353710405613978554}
 --- !u!1 &1353516517637588898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,7 +4700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9035254091457465608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -110.8, y: 0, z: 0}
+  m_LocalPosition: {x: -95.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9035254090648240294}

@@ -17,11 +17,7 @@ namespace Assets.Scripts.Visual
         public HealthVisual healthVisual;
         public EnergyVisual energyVisual;
 
-
-
-
-
-
+       
 
     }
 }

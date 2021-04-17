@@ -664,16 +664,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
-    - target: {fileID: 76305040793227081, guid: b573354c7017e654a862a1a2ed1eb652,
-        type: 3}
-      propertyPath: heroObjectReferences
-      value: 
-      objectReference: {fileID: 467193811371803873}
-    - target: {fileID: 467193811371803872, guid: b573354c7017e654a862a1a2ed1eb652,
-        type: 3}
-      propertyPath: heroObjectReferences
-      value: 
-      objectReference: {fileID: 467193811371803873}
     - target: {fileID: 1353516515517023405, guid: b573354c7017e654a862a1a2ed1eb652,
         type: 3}
       propertyPath: m_Camera
@@ -739,11 +729,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2294197495022228301, guid: b573354c7017e654a862a1a2ed1eb652,
-        type: 3}
-      propertyPath: heroObjectReferences
-      value: 
-      objectReference: {fileID: 467193811371803873}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b573354c7017e654a862a1a2ed1eb652, type: 3}
 --- !u!4 &467193811371803866 stripped
@@ -752,15 +737,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 467193811371803865}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &467193811371803873 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 467193811371803873, guid: b573354c7017e654a862a1a2ed1eb652,
-    type: 3}
-  m_PrefabInstance: {fileID: 467193811371803865}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68dda5ec778650a4d935be29ee087f8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
