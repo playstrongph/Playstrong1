@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.Visual
 {
-   public class HeroGraphic : MonoBehaviour, ISetHeroGraphic
+   public class HeroGraphic : MonoBehaviour
    {
       [SerializeField] 
       private Image heroGraphic;
 
-      public void SetHeroGraphic(Sprite heroGraphicSprite)
+      public Sprite HeroGraphicSprite
       {
-         heroGraphic.sprite = heroGraphicSprite;
+         set => heroGraphic.sprite = value;
       }
 
 
