@@ -2361,7 +2361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c44572cc98b19d49aac1be7fd7ceccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1353516515718142392}
   text: {fileID: 2353710405613978554}
 --- !u!114 &41292700
 MonoBehaviour:
@@ -2389,7 +2388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21e5ba6581bd6d4aa6fb68a20a48df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1353516517092976483}
   text: {fileID: 2353710406809357561}
 --- !u!114 &41292705
 MonoBehaviour:

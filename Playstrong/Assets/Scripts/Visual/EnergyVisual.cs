@@ -1,39 +1,33 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Visual
 {
-    public class EnergyVisual : MonoBehaviour
+    public class EnergyVisual : MonoBehaviour, ISetEnergyVisual
     {
         [SerializeField]
         private Image barFill;
-        public float BarFillAmount
-        {
-            //specified in Energy points
-            set => barFill.fillAmount = value / 100;
-        }
-
-        public Color BarfillColor
-        {
-            set => barFill.color = value;
-        }
- 
+       
         [SerializeField]
         private TextMeshProUGUI text;
-        public string TextString
+        
+       
+        public void SetEnergyTextAndBarFill(int energyValue)
         {
-            set => text.text = value +"%";
+            text.text = energyValue.ToString() +"%";
+            barFill.fillAmount = energyValue / 100;
         }
 
-        public Color TextColor
+        public void SetEnergyTextColor(Color textColor)
         {
-            set => text.color = value;
+            text.color = textColor;
         }
 
-        public void SetEnergyText()
+        public void SetBarFillColor(Color energyBarColor)
         {
-            
+            barFill.color = energyBarColor;
         }
 
 
