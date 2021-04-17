@@ -2,37 +2,35 @@
 using Assets.Scripts.References;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class HeroPreviewVisual : MonoBehaviour
     {
         [SerializeField]
-        private HeroObjectReferences _heroObjectReferences;
+        private HeroObjectReferences heroObjectReferences;
         
         [SerializeField]
-        private Canvas _previewCanvas;
+        private Canvas previewCanvas;
 
-        public Canvas PreviewCanvas
-        {
-            get { return _previewCanvas; }
-        }
-        
+        public Canvas PreviewCanvas => previewCanvas;
+
         [SerializeField]
-        private Image _frameGraphic;
+        private Image frameGraphic;
 
         public Sprite FrameGraphic
         {
-            set { _frameGraphic.sprite = value; }
+            set => frameGraphic.sprite = value;
         }
         
         [SerializeField]
-        private Image _previewGraphic;
+        private Image previewGraphic;
 
         public Sprite PreviewGraphic
         {
-            set { _previewGraphic.sprite = value; }
+            set => previewGraphic.sprite = value;
         }
         
         [SerializeField]
