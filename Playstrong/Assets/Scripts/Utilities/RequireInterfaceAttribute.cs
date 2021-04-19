@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Editor
+namespace Assets.Scripts.Editor
 {
     /// <summary>
     /// Attribute that require implementation of the provided interface.
@@ -11,7 +11,7 @@ namespace Assets.Editor
         public System.Type requiredType { get; private set; }
 
         /// <summary>
-        /// Requiring implementation of the <see cref="T:Assets.Editor.RequireInterfaceAttribute"/> interface.
+        /// Requiring implementation of the <see cref="T:Assets.Scripts.Editor.RequireInterfaceAttribute"/> interface.
         /// </summary>
         /// <param name="type">Interface type.</param>
         public RequireInterfaceAttribute(System.Type type)
