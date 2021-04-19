@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Visual.Interfaces;
+﻿using Interfaces;
 using UnityEngine;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class TauntFrame : MonoBehaviour, ITauntFrameAndGlow
     {

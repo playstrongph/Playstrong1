@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Utilities;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
+using Utilities;
 
 namespace Assets.Scripts.Editor
 {

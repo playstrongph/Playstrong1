@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.UI.Outlines_by_N_Yoda
+namespace UI.Outlines_by_N_Yoda
 {
     public class CircleOutline : ModifiedShadow
     {

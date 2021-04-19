@@ -1,46 +1,78 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using Assets.Scripts.Utilities;
+using Interfaces;
 using UnityEngine;
-using Object = System.Object;
+using Utilities;
 
 
-namespace Assets.Scripts.ScriptableObjects
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Hero", menuName = "SO's/New Hero")]
     public class HeroAsset : ScriptableObject
     {
 
-        [SerializeField] [RequireInterface(typeof(IRarityEnum))]
-        private ScriptableObject _rarity;
-        public IRarityEnum Rarity => _rarity as IRarityEnum;
+        
+        
+        [Header("Hero Name")] 
+        [SerializeField]
+        private string _name;
+        public string Name => _name;
+        
+        [SerializeField]
+        private string _description;
+        public string Description => _description;
 
-        [Header("Hero Name")] [SerializeField] private string _name;
-        public string Name { get => _name; set => _name = value; }
+        [Header("Hero Graphic")] 
+        [SerializeField]
+        private Sprite _heroSprite;
+        public Sprite HeroSprite => _heroSprite;
 
         [Header("Hero Stats")] 
         [SerializeField]
         private int _health;
-        public int Health { get => _health; set => _health = value; }
+        public int Health => _health; 
         
         [SerializeField]
         private int _attack;
-        public int Attack { get => _attack; set => _attack = value; }
+        public int Attack => _attack;
         
         [SerializeField]
         private int _speed;
-        public int Speed { get => _speed; set => _speed = value; }
+        public int Speed  => _speed; 
         
         [SerializeField]
         private int _chance;
-        public int Chance { get => _chance; set => _chance = value; }
+        public int Chance => _chance; 
         
         [SerializeField]
         private int _armor;
-        public int Armor { get => _armor; set => _armor = value; }
+        public int Armor => _armor;
+        
+        [Header("Other Hero Attributes")]
+        [SerializeField] [RequireInterface(typeof(IRarityEnumAsset))]
+        private ScriptableObject _rarity;
+        public IRarityEnumAsset Rarity => _rarity as IRarityEnumAsset;
+        
+        [SerializeField] [RequireInterface(typeof(IFactionEnumAsset))]
+        private ScriptableObject _faction;
+        public IFactionEnumAsset Faction => _faction as IFactionEnumAsset;
+        
+        [SerializeField] [RequireInterface(typeof(ICreatureTypeEnumAsset))]
+        private ScriptableObject _creatureType;
+        public ICreatureTypeEnumAsset CreatureType => _rarity as ICreatureTypeEnumAsset;
+        
+        [SerializeField] [RequireInterface(typeof(ITauntEnumAsset))]
+        private ScriptableObject _taunt;
+        public ITauntEnumAsset Taunt => _taunt as ITauntEnumAsset;
+        
+        
 
-              
 
+        [Header("Skills")] 
+        [SerializeField]
+        [RequireInterface(typeof(IHeroSkillAsset))]
+        private List<ScriptableObject> _heroSkills = new List<ScriptableObject>();
+        public IHeroSkillAsset HeroSkills => _heroSkills as IHeroSkillAsset;
+        
 
 
 

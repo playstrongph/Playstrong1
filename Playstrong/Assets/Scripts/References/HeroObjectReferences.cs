@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Visual;
-using UnityEngine;
+﻿using UnityEngine;
+using Visual;
 
-namespace Assets.Scripts.References
+namespace References
 {
     public class HeroObjectReferences : MonoBehaviour
     {

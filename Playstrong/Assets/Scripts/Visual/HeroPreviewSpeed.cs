@@ -1,7 +1,8 @@
-﻿using TMPro;
+﻿using Interfaces;
+using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class HeroPreviewSpeed : MonoBehaviour, IHeroPreviewSpeed
     {

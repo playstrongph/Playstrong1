@@ -1,8 +1,8 @@
-﻿using TMPro;
+﻿using Interfaces;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class HealthVisual : MonoBehaviour, ISetHealthVisual
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts.UI.Outlines_by_N_Yoda
+namespace UI.Outlines_by_N_Yoda
 {
     public class ObjectPool<T> where T : new()
     {

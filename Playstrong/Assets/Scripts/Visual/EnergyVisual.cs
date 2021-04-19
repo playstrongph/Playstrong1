@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class EnergyVisual : MonoBehaviour, ISetEnergyVisual
     {

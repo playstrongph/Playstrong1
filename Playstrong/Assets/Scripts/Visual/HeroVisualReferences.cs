@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Remoting;
-using Assets.Scripts.References;
-using Assets.Scripts.Utilities;
-using Assets.Scripts.Visual.Interfaces;
+﻿using Interfaces;
+using References;
 using UnityEngine;
+using Utilities;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class HeroVisualReferences : MonoBehaviour
     {

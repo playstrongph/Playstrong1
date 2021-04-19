@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Scripts.UI.Outlines_by_N_Yoda
+namespace UI.Outlines_by_N_Yoda
 {
     static class ListPool<T>
     {

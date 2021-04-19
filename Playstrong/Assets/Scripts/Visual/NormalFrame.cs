@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
 
-namespace Assets.Scripts.Visual
+namespace Visual
 {
     public class NormalFrame : MonoBehaviour, INormalFrameAndGlow
     {
