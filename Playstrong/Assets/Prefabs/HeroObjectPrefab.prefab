@@ -2305,6 +2305,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroObjectReferences: {fileID: 467193811371803873}
   heroCanvas: {fileID: 1353516515517023405}
+  _tauntFrameAndGlow:
+    id: 0
+  _normalFrameAndGlow:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!114 &41292698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,10 +2325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bea67b3d5163ae40916d9d4d404204c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyGlowFrame: {fileID: 1353516517637588898}
-  enemyGlowFrame: {fileID: 1353516517040571557}
-  actionGlowFrame: {fileID: 1353516516331082868}
-  frame: {fileID: 1353516516330940223}
+  _allyGlowFrame: {fileID: 1353516517637588898}
+  _enemyGlowFrame: {fileID: 1353516517040571557}
+  _actionGlowFrame: {fileID: 1353516516331082868}
+  _frame: {fileID: 1353516516330940223}
 --- !u!114 &904248099232998415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2333,9 +2341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11311c30cb0e117418398af7fa099379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGlowFrame: {fileID: 1353516516147286996}
-  allyGlowFrame: {fileID: 1353516515585020511}
-  actionGlowFrame: {fileID: 1353516517143644969}
+  _enemyGlowFrame: {fileID: 1353516516147286996}
+  _allyGlowFrame: {fileID: 1353516515585020511}
+  _actionGlowFrame: {fileID: 1353516517143644969}
 --- !u!114 &1861301782167131134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2348,7 +2356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83ff6a7b708e2f4e8de48ce7e05bb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroGraphic: {fileID: 1353516517118784990}
+  _heroGraphic: {fileID: 1353516517118784990}
 --- !u!114 &8195085061444337640
 MonoBehaviour:
   m_ObjectHideFlags: 0

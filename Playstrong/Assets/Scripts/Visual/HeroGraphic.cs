@@ -6,11 +6,11 @@ namespace Assets.Scripts.Visual
    public class HeroGraphic : MonoBehaviour, ISetHeroGraphic
    {
       [SerializeField] 
-      private Image heroGraphic;
+      private Image _heroGraphic;
 
       public void SetHeroGraphic(Sprite heroGraphicSprite)
       {
-         heroGraphic.sprite = heroGraphicSprite;
+         _heroGraphic.sprite = heroGraphicSprite;
       }
 
 

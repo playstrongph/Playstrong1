@@ -7,62 +7,59 @@ namespace Assets.Scripts.Visual
     {
  
         [SerializeField]
-        private GameObject allyGlowFrame;
-       
-        
-        [SerializeField]
-        private GameObject enemyGlowFrame;
-       
+        private GameObject _allyGlowFrame;
 
         [SerializeField]
-        private GameObject actionGlowFrame;
-       
+        private GameObject _enemyGlowFrame;
+
+        [SerializeField]
+        private GameObject _actionGlowFrame;
         
         [SerializeField]
-        private GameObject frame;
-        
+        private GameObject _frame;
+
 
         public void ShowAllyGlowFrame()
         {
-            allyGlowFrame.SetActive(true);
+            _allyGlowFrame.SetActive(true);
         }
 
         public void HideAllyGlowFrame()
         {
-            allyGlowFrame.SetActive(false);
+            _allyGlowFrame.SetActive(false);
                 
         }
         
         public void ShowEnemyGlowFrame()
         {
-            enemyGlowFrame.SetActive(true);
+            _enemyGlowFrame.SetActive(true);
         }
 
         public void HideEnemyGlowFrame()
         {
-            enemyGlowFrame.SetActive(false);
+            _enemyGlowFrame.SetActive(false);
                 
         }
         public void ShowActionGlowFrame()
         {
-            actionGlowFrame.SetActive(true);
+            _actionGlowFrame.SetActive(true);
         }
 
         public void HideActionGlowFrame()
         {
-            actionGlowFrame.SetActive(false);
+            _actionGlowFrame.SetActive(false);
                 
         }
 
         public void ShowFrame()
         {
-            frame.SetActive(true);
+            _frame.SetActive(true);
             
         }
         
         public void HideFrame()
         {
-            frame.SetActive(false);
+            _frame.SetActive(false);
             
         }
 
