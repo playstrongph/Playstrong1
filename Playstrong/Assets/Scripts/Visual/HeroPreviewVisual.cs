@@ -1,8 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Runtime.Remoting;
 using Assets.Scripts.References;
-using TMPro;
+using Assets.Scripts.Utilities;
+using Assets.Scripts.Visual.Interfaces;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Visual
 {
@@ -14,63 +15,25 @@ namespace Assets.Scripts.Visual
         [SerializeField]
         private Canvas previewCanvas;
 
-        public Canvas PreviewCanvas => previewCanvas;
+        [SerializeField] [RequireInterface(typeof(IHeroPreviewGraphic))]
+        private Object _heroPreviewGraphic;
+        public IHeroPreviewGraphic HeroPreviewGraphic => _heroPreviewGraphic as IHeroPreviewGraphic;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPreviewName))]
+        private Object _heroPreviewName;
+        public IHeroPreviewName HeroPreviewName => _heroPreviewName as IHeroPreviewName;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPreviewAttack))]
+        private Object _heroPreviewAttack;
+        public IHeroPreviewAttack HeroPreviewAttack => _heroPreviewAttack as IHeroPreviewAttack;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPreviewHealth))]
+        private Object _heroPreviewHealth;
+        public IHeroPreviewHealth HeroPreviewHealth => _heroPreviewHealth as IHeroPreviewHealth;
 
-        [SerializeField]
-        private Image frameGraphic;
 
-        public Sprite FrameGraphic
-        {
-            set => frameGraphic.sprite = value;
-        }
-        
-        [SerializeField]
-        private Image previewGraphic;
 
-        public Sprite PreviewGraphic
-        {
-            set => previewGraphic.sprite = value;
-        }
-        
-        [SerializeField]
-        private TextMeshProUGUI _previewNameText;
 
-        public String PreviewNameText
-        {
-            set { _previewNameText.text = value; }
-        }
-        
-        [SerializeField]
-        private TextMeshProUGUI _previewAttackText;
-        public String PreviewAttackText
-        {
-            set { _previewAttackText.text = value; }
-        }
-        
-        [SerializeField]
-        private TextMeshProUGUI _previewHealthText;
-        public String PreviewHealthText
-        {
-            set { _previewHealthText.text = value; }
-        }
-        
-        [SerializeField]
-        private TextMeshProUGUI _previewSpeedText;
-        public String PreviewSpeedText
-        {
-            set { _previewSpeedText.text = value; }
-        }
-        
-        [SerializeField]
-        private TextMeshProUGUI _previewChanceText;
-        public String PreviewChanceText
-        {
-            set { _previewChanceText.text = value; }
-        }
-        
-        
-        
-        
-        
+
     }
 }
