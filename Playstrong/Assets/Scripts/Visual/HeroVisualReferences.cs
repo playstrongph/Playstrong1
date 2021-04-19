@@ -21,7 +21,7 @@ namespace Assets.Scripts.Visual
         [RequireInterface(typeof(ITauntFrameAndGlow))]
         private Object _tauntFrameAndGlow;
         public ITauntFrameAndGlow TauntFrameAndGlow => _tauntFrameAndGlow as ITauntFrameAndGlow;
-
+        
         [SerializeField] 
         [RequireInterface(typeof(INormalFrameAndGlow))]
         private Object _normalFrameAndGlow;
