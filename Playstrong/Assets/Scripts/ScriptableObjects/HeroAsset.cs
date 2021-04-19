@@ -13,5 +13,7 @@ namespace Assets.Scripts.ScriptableObjects
         private ScriptableObject _rarity;
         public IRarityEnum Rarity => _rarity as IRarityEnum;
 
+        
+
     }
 }
