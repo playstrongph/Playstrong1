@@ -30,8 +30,14 @@ namespace Assets.Scripts.Visual
         [SerializeField] [RequireInterface(typeof(IHeroPreviewHealth))]
         private Object _heroPreviewHealth;
         public IHeroPreviewHealth HeroPreviewHealth => _heroPreviewHealth as IHeroPreviewHealth;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPreviewSpeed))]
+        private Object _heroPreviewSpeed;
+        public IHeroPreviewSpeed HeroPreviewSpeed => _heroPreviewSpeed as IHeroPreviewSpeed;
 
-
+        [SerializeField] [RequireInterface(typeof(IHeroPreviewChance))]
+        private Object _heroPreviewChance;
+        public IHeroPreviewChance HeroPreviewChance => _heroPreviewHealth as IHeroPreviewChance;
 
 
 
