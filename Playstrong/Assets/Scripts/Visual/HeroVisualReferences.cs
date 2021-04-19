@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.References;
+﻿using System.Collections.Generic;
+using Assets.Scripts.References;
+using Assets.Scripts.Utilities;
 using Assets.Scripts.Visual.Interfaces;
 using UnityEngine;
 
@@ -13,13 +15,13 @@ namespace Assets.Scripts.Visual
         private Canvas heroCanvas;
         public Canvas HeroCanvas => heroCanvas;
 
-        [SerializeReference] private ITauntFrameAndGlow _tauntFrameAndGlow;
+        [SerializeReference, SubclassSelector(typeof(ITauntFrameAndGlow))]  private ITauntFrameAndGlow _tauntFrameAndGlow;
         public ITauntFrameAndGlow TauntFrameAndGlow => _tauntFrameAndGlow as ITauntFrameAndGlow;
 
         [SerializeReference] private INormalFrameAndGlow _normalFrameAndGlow;
         public INormalFrameAndGlow NormalFrameAndGlow => _normalFrameAndGlow as INormalFrameAndGlow;
 
-        [SerializeReference] private ISetHeroGraphic _heroGraphic;
+        [SerializeReference, SubclassSelector(typeof(ISetHeroGraphic))]  private ISetHeroGraphic _heroGraphic;
         public ISetHeroGraphic HeroGraphic => _heroGraphic as ISetHeroGraphic;
 
 
