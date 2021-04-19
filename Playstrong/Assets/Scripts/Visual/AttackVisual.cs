@@ -11,6 +11,8 @@ namespace Assets.Scripts.Visual
         [SerializeField]
         private TextMeshProUGUI text;
 
+        
+
         public void SetAttackText(string attackValue)
         {
             text.text = attackValue;
