@@ -30,6 +30,11 @@ namespace Assets.Scripts.Editor
                 // Draw property field.
                 property.objectReferenceValue = EditorGUI.ObjectField(position, label, property.objectReferenceValue, requiredAttribute.requiredType, true);
 
+                UnityEngine.Object obj = EditorGUI.ObjectField(position, label, property.objectReferenceValue, typeof(UnityEngine.Object), true);
+                
+                if(obj is GameObject g) property.objectReferenceValue = g.GetComponent(requiredAttribute.requiredType);
+                
+
                 // Finish drawing property field.
                 EditorGUI.EndProperty();
             }

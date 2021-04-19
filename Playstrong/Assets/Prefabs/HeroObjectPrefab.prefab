@@ -2305,14 +2305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroObjectReferences: {fileID: 467193811371803873}
   heroCanvas: {fileID: 1353516515517023405}
-  _tauntFrameAndGlow:
-    id: 0
-  _normalFrameAndGlow:
-    id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
+  _tauntFrameAndGlow: {fileID: 41292698}
 --- !u!114 &41292698
 MonoBehaviour:
   m_ObjectHideFlags: 0
