@@ -63,9 +63,6 @@ namespace ScriptableObjects
         [SerializeField] [RequireInterface(typeof(ITauntEnumAsset))]
         private ScriptableObject _taunt;
         public ITauntEnumAsset Taunt => _taunt as ITauntEnumAsset;
-        
-        
-
 
         [Header("Skills")] 
         [SerializeField]

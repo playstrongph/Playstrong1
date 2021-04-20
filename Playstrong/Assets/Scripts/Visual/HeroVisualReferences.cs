@@ -54,8 +54,11 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-        
 
+        public void LoadHeroVisuals()
+        {
+            
+        }
 
 
 
