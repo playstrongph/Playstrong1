@@ -39,7 +39,7 @@ namespace Visual
 
         [SerializeField] [RequireInterface(typeof(ISetAttackVisual))]
         private Object _attackVisual;
-        public ISetAttackVisual AttackVisual => _attackVisual as ISetAttackVisual;
+        public ISetAttackVisual AttackVisual1 => _attackVisual as ISetAttackVisual;
         
         [SerializeField] [RequireInterface(typeof(ISetArmorVisual))]
         private Object _armorVisual;
@@ -54,7 +54,10 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-        
+        private void LoadVisuals()
+        {
+            
+        }
 
 
 

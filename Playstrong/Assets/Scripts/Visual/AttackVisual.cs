@@ -10,8 +10,6 @@ namespace Visual
         [SerializeField]
         private TextMeshProUGUI text;
 
-        
-
         public void SetAttackText(string attackValue)
         {
             text.text = attackValue;
@@ -21,13 +19,14 @@ namespace Visual
         {
             text.color = textColor;
         }
+        
+        public void SetAttackTextColor1(Color textColor)
+        {
+            text.color = textColor;
+        }
+        
+        
 
-
-
-
-
-
-
-
+        
     }
 }
