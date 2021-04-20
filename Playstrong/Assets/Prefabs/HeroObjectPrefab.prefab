@@ -4895,8 +4895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486e56953512bdb46b20d30367c310bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroObjectReferences: {fileID: 467193811371803873}
-  previewCanvas: {fileID: 9035254090648240313}
+  _heroObjectReferences: {fileID: 467193811371803873}
+  _previewCanvas: {fileID: 9035254090648240313}
   _heroPreviewGraphic: {fileID: 1898933577}
   _heroPreviewName: {fileID: 2014023417}
   _heroPreviewAttack: {fileID: 1344195767}
