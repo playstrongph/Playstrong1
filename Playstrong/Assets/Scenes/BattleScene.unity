@@ -621,11 +621,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9118610988808071803, guid: b573354c7017e654a862a1a2ed1eb652,
+        type: 3}
+      propertyPath: _heroCanvas
+      value: 
+      objectReference: {fileID: 1493468349}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b573354c7017e654a862a1a2ed1eb652, type: 3}
 --- !u!4 &1493468348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1353516516019946079, guid: b573354c7017e654a862a1a2ed1eb652,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493468347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1493468349 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1353516515517023405, guid: b573354c7017e654a862a1a2ed1eb652,
     type: 3}
   m_PrefabInstance: {fileID: 1493468347}
   m_PrefabAsset: {fileID: 0}

@@ -15,11 +15,10 @@ namespace Visual
         private Object _heroObjectReferences;
         public IHeroObjectReferences HeroObjectReferences => _heroObjectReferences as IHeroObjectReferences;
         
-        
-        
+
         [SerializeField]
-        private Canvas heroCanvas;
-        public Canvas HeroCanvas => heroCanvas;
+        private Canvas _heroCanvas;
+        public Canvas HeroCanvas => _heroCanvas;
 
         
         [SerializeField]
@@ -54,19 +53,7 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-        /// <summary>
-        /// Temp.  This should be on a loader objcet
-        /// </summary>
-        public void LoadHeroVisuals()
-        {
-            var heroVisuals = HeroObjectReferences.HeroAsset;
-            
-            HeroGraphic.SetHeroGraphic(heroVisuals.HeroSprite);
-            AttackVisual.SetAttackText(heroVisuals.Attack.ToString());
-            ArmorVisual.SetArmorText(heroVisuals.Armor.ToString());
-            HealthVisual.SetHealthText(heroVisuals.Health.ToString());
-
-        }
+       
 
 
 

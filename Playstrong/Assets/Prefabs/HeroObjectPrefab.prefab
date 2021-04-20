@@ -1782,7 +1782,6 @@ MonoBehaviour:
   _heroVisualReferences: {fileID: 9118610988808071803}
   _buffsVisual: {fileID: 2294197495022228301}
   _heroPreviewVisual: {fileID: 76305040793227081}
-  _heroAsset: {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
 --- !u!1 &1353516516147286996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,7 +3387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroObjectReferences: {fileID: 467193811371803873}
-  heroCanvas: {fileID: 1353516515517023405}
+  _heroCanvas: {fileID: 1353516515517023405}
   _tauntFrameAndGlow: {fileID: 886080593}
   _normalFrameAndGlow: {fileID: 886080592}
   _heroGraphic: {fileID: 7653022869920257579}

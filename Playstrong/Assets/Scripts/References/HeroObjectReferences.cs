@@ -23,22 +23,7 @@ namespace References
         private Object _heroPreviewVisual;
         public IHeroPreviewVisual HeroPreviewVisual => _heroPreviewVisual as IHeroPreviewVisual;
 
-        /// <summary>
-        /// For Testing Purposes Only
-        /// </summary>
-        /// <returns></returns>
-        [SerializeField] [RequireInterface(typeof(IHeroAsset))]
-        private Object _heroAsset;
-        public IHeroAsset HeroAsset => _heroAsset as IHeroAsset;
         
-        /// <summary>
-        /// Temp Script
-        /// </summary>
-        private void Awake()
-        {
-            HeroVisualReferences.LoadHeroVisuals();
-            
-            
-        }
+       
     }
 }
