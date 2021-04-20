@@ -57,7 +57,13 @@ namespace Visual
 
         public void LoadHeroVisuals()
         {
+            var heroVisuals = HeroObjectReferences.HeroAsset;
             
+            HeroGraphic.SetHeroGraphic(heroVisuals.HeroSprite);
+            AttackVisual.SetAttackText(heroVisuals.Attack.ToString());
+            ArmorVisual.SetArmorText(heroVisuals.Armor.ToString());
+            HealthVisual.SetHealthText(heroVisuals.Health.ToString());
+
         }
 
 

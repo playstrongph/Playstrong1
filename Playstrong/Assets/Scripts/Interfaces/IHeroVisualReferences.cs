@@ -2,6 +2,6 @@
 {
     public interface IHeroVisualReferences
     {
-        
+        void LoadHeroVisuals();
     }
 }

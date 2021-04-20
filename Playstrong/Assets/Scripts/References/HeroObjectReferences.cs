@@ -1,7 +1,9 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 using Visual;
+using Object = UnityEngine.Object;
 
 
 namespace References
@@ -28,7 +30,15 @@ namespace References
         [SerializeField] [RequireInterface(typeof(IHeroAsset))]
         private Object _heroAsset;
         public IHeroAsset HeroAsset => _heroAsset as IHeroAsset;
-
-
+        
+        /// <summary>
+        /// Temp Script
+        /// </summary>
+        private void Awake()
+        {
+            HeroVisualReferences.LoadHeroVisuals();
+            
+            HeroPreviewVisual.
+        }
     }
 }
