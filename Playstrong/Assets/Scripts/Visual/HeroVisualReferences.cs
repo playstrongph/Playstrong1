@@ -54,7 +54,9 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-
+        /// <summary>
+        /// Temp.  This should be on a loader objcet
+        /// </summary>
         public void LoadHeroVisuals()
         {
             var heroVisuals = HeroObjectReferences.HeroAsset;

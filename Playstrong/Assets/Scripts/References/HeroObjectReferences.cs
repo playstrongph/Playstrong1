@@ -38,7 +38,7 @@ namespace References
         {
             HeroVisualReferences.LoadHeroVisuals();
             
-            HeroPreviewVisual.
+            
         }
     }
 }
