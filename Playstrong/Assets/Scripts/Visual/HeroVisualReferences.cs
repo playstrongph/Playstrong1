@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Visual
 {
-    public class HeroVisualReferences : MonoBehaviour
+    public class HeroVisualReferences : MonoBehaviour, IHeroVisualReferences
     {
         [SerializeField]
         private HeroObjectReferences heroObjectReferences;   
@@ -47,7 +47,7 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-
+        
 
 
 

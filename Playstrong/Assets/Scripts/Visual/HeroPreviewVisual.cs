@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Visual
 {
-    public class HeroPreviewVisual : MonoBehaviour
+    public class HeroPreviewVisual : MonoBehaviour, IHeroPreviewVisual
     {
         [SerializeField]
         private HeroObjectReferences heroObjectReferences;

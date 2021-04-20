@@ -1,4 +1,4 @@
-﻿namespace ScriptableObjects
+﻿namespace Interfaces
 {
     public interface IFactionEnumAsset
     {
