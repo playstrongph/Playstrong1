@@ -4,10 +4,6 @@ namespace Interfaces
 {
     public interface IHeroAsset
     {
-        /// <summary>
-        /// Expose Properties for external access
-        /// </summary>
-        
         string Name { get; }
 
         string Description { get; }

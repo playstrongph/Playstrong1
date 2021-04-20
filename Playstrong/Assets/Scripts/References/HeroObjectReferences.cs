@@ -23,7 +23,5 @@ namespace References
         private Object _heroPreviewVisual;
         public IHeroPreviewVisual HeroPreviewVisual => _heroPreviewVisual as IHeroPreviewVisual;
 
-        
-       
     }
 }
