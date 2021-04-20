@@ -2,7 +2,7 @@
 using UnityEngine;
 using Utilities;
 
-namespace Assets.Scripts.Editor
+namespace Editor
 {
     /// <summary>
     /// Drawer for the RequireInterface attribute.

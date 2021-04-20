@@ -7,8 +7,15 @@ namespace Visual
 {
     public class HeroVisualReferences : MonoBehaviour, IHeroVisualReferences
     {
+        // [SerializeField]
+        // private HeroObjectReferences heroObjectReferences;
+
         [SerializeField]
-        private HeroObjectReferences heroObjectReferences;   
+        [RequireInterface(typeof(IHeroObjectReferences))]
+        private Object _heroObjectReferences;
+        public IHeroObjectReferences HeroObjectReferences => _heroObjectReferences as IHeroObjectReferences;
+        
+        
         
         [SerializeField]
         private Canvas heroCanvas;

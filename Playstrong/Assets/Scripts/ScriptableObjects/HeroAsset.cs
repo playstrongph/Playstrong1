@@ -7,7 +7,7 @@ using Utilities;
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Hero", menuName = "SO's/New Hero")]
-    public class HeroAsset : ScriptableObject
+    public class HeroAsset : ScriptableObject, IHeroAsset
     {
 
         
