@@ -29,11 +29,6 @@ namespace References
         private Object _heroAsset;
         public IHeroAsset HeroAsset => _heroAsset as IHeroAsset;
 
-        public void TestMethod()
-        {
-            
-        }
-
 
     }
 }
