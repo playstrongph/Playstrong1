@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Outlines_by_N_Yoda
+namespace zzzMisc.UI.Outlines_by_N_Yoda
 {
     /// <summary>
     /// The behaviour of this class is almost the same as the original except:
