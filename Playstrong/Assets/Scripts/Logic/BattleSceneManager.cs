@@ -18,8 +18,15 @@ namespace Logic
         [SerializeField]
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
         public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
-        
-        
-        
+
+        private void Awake()
+        {
+            ///Initialize Coroutine Tree and Queue
+            CoroutineQueue coroutineQueue = new CoroutineQueue();
+            coroutineQueue.CoroutineRunner(this);
+            CoroutineTree coroutineTree = new CoroutineTree();
+            coroutineTree.CoroutineRunner(this);
+        }
+
     }
 }
