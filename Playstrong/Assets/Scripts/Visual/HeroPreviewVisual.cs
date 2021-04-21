@@ -38,7 +38,7 @@ namespace Visual
 
         [SerializeField] [RequireInterface(typeof(IHeroPreviewChance))]
         private Object _heroPreviewChance;
-        public IHeroPreviewChance HeroPreviewChance => _heroPreviewHealth as IHeroPreviewChance;
+        public IHeroPreviewChance HeroPreviewChance => _heroPreviewChance as IHeroPreviewChance;
 
 
 

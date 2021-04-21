@@ -1782,6 +1782,7 @@ MonoBehaviour:
   _heroVisualReferences: {fileID: 9118610988808071803}
   _buffsVisual: {fileID: 2294197495022228301}
   _heroPreviewVisual: {fileID: 76305040793227081}
+  _heroAsset: {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
 --- !u!1 &1353516516147286996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,7 +3926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ganymede
+  m_text: Sample Hero
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 409f2555f6e9bca45bf9e5f7e6624da0, type: 2}
   m_sharedMaterial: {fileID: 4491592743849078351, guid: 409f2555f6e9bca45bf9e5f7e6624da0,
@@ -5179,7 +5180,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b2345ed5e94e284aa67721d56ad4e7c, type: 3}
+  m_Sprite: {fileID: 5503666241368904826, guid: 2abbaeaabb9dbeb48818110381d4a09d,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

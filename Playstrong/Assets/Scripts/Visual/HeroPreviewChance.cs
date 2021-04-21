@@ -12,7 +12,7 @@ namespace Visual
 
         public void SetHeroPreviewChance(string previewChance)
         {
-            _text.text = previewChance+"%";
+            _text.text = $"{previewChance}%";
         }
     }
 }

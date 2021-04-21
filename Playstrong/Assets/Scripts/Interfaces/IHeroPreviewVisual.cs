@@ -4,6 +4,7 @@ namespace Interfaces
 {
     public interface IHeroPreviewVisual
     {
+        
         IHeroObjectReferences HeroObjectReferences { get; }
         Canvas PreviewCanvas { get; }
         IHeroPreviewGraphic HeroPreviewGraphic { get; }
@@ -11,7 +12,9 @@ namespace Interfaces
         IHeroPreviewAttack HeroPreviewAttack { get; }
         IHeroPreviewHealth HeroPreviewHealth { get; }
         IHeroPreviewSpeed HeroPreviewSpeed { get; }
+
         IHeroPreviewChance HeroPreviewChance { get; }
-        
+
+
     }
 }
