@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 namespace Logic
@@ -17,19 +18,20 @@ namespace Logic
         /// Does not contain an actual coroutine.
         /// Main parent or origin point for the family of coroutines
         /// </summary>
-        public CoroutineNode Root { get; private set; }
+        private CoroutineNode Root { get; set; }
 
-        public static CoroutineTree logicTree = new CoroutineTree();
+        public static CoroutineTree LogicTree = new CoroutineTree();
+        public static CoroutineTree VisualTree = new CoroutineTree();
 
-        private MonoBehaviour mono; 
+        private MonoBehaviour _mono; 
         
         /// <summary>
         /// Node which is currently being executed.
         /// Points to Root when the tree is empty.
         /// </summary>
-        public CoroutineNode CurrentNode { get; private set; }
+        private CoroutineNode CurrentNode { get; set; }
 
-        public CoroutineQueue CorQ = new CoroutineQueue();
+        private CoroutineQueue _coroutineQueue = new CoroutineQueue();
 
         public CoroutineTree()
         {
@@ -40,18 +42,16 @@ namespace Logic
         
         public void CoroutineRunner(MonoBehaviour mono)
         {
-            this.mono = mono;
+            this._mono = mono;
         }
         
-    
-
         /// <summary>
         /// Start processing of the tree.
         /// Called during the Ctor initialization "new CoroutineTree"
         /// </summary>
         public void Start()
         {
-            GlobalSettings.Instance.StartCoroutine(UpdateTree());
+            _mono.StartCoroutine(UpdateTree());
         }
 
     
@@ -84,7 +84,7 @@ namespace Logic
         /// <param name="seconds"></param>
         public void AddCurrentWait(float seconds)
         {        
-            CurrentNode.AddChild(GlobalSettings.Instance.Wait(seconds));
+            CurrentNode.AddChild(_mono.GetComponent<IClassCoroutineRunner>().Wait(seconds));
         }
 
         /// <summary>
@@ -93,16 +93,13 @@ namespace Logic
         /// <param name="seconds"></param>
         public void AddRootWait(float seconds)
         {
-            Root.AddChild(GlobalSettings.Instance.Wait(seconds));
+            Root.AddChild(_mono.GetComponent<IClassCoroutineRunner>().Wait(seconds));
         }
      
         /// <summary>
         /// Returns true if the tree is empty, false otherwise.
         /// </summary>
-        public bool Empty
-        {
-            get { return Root == CurrentNode && Root.ChildrenCount <= 0; }
-        }
+        public bool Empty => Root == CurrentNode && Root.ChildrenCount <= 0;
 
 
         /// <summary>
@@ -124,7 +121,7 @@ namespace Logic
 
                 //new CTCommandLogic(node[i].Value).AddToQueue();
 
-                CorQ.AddToCorQ(node[i].Value);
+                _coroutineQueue.AddToCorQ(node[i].Value);
 
                 yield return null;
 
@@ -133,7 +130,7 @@ namespace Logic
                 if(node[i].ChildrenCount > 0)
                 {
                     // Recursion on children.
-                    yield return GlobalSettings.Instance.StartCoroutine(ProcessChildrenOfNode(node[i]));
+                    yield return _mono.StartCoroutine(ProcessChildrenOfNode(node[i]));
 
                 
                 }                
@@ -159,7 +156,7 @@ namespace Logic
             {
                 if(CurrentNode == Root && Root.ChildrenCount > 0)
                 {
-                    yield return GlobalSettings.Instance.StartCoroutine(ProcessChildrenOfNode(Root));
+                    yield return _mono.StartCoroutine(ProcessChildrenOfNode(Root));
                 }
                 else
                 {
@@ -207,24 +204,12 @@ namespace Logic
             /// </summary>
             /// <param name="i">Index of wanted child.</param>
             /// <returns></returns>
-            public CoroutineNode this[int i]
-            {
-                get { return _children[i]; }
-            }
-
-            /// <summary>
-            /// Parent node.
-            /// Is null for root of a tree.
-            /// </summary>
-            public CoroutineNode Parent { get; private set; }
+            public CoroutineNode this[int i] => _children[i];
 
             /// <summary>
             /// Number of children this node has.
             /// </summary>
-            public int ChildrenCount
-            {
-                get { return _children.Count; }
-            }
+            public int ChildrenCount => _children.Count;
 
 
             /// <summary>
@@ -234,7 +219,7 @@ namespace Logic
             /// <returns></returns>
             public CoroutineNode AddChild(IEnumerator coroutine)
             {
-                var node = new CoroutineNode(coroutine) { Parent = this };
+                var node = new CoroutineNode(coroutine) { };
                 _children.Add(node);
                 return node;
             }
@@ -247,11 +232,7 @@ namespace Logic
                 _children.Clear();
             }
 
-        }  /// <summary> End of CoroutineNode class </summary>
-
-
-
-
+        }
     }
 }
 
