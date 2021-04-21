@@ -5,8 +5,7 @@ namespace Visual
 {
     public class LoadHeroVisuals : MonoBehaviour, ILoadHeroVisuals
     {
-        [SerializeReference]
-        private IHeroAsset _heroAsset;
+       
 
         [SerializeReference]
         private IHeroVisualReferences _heroVisualReferences;
@@ -19,12 +18,10 @@ namespace Visual
         
         public void LoadHeroVisualsFromHeroAsset(IHeroAsset heroAsset)
         {
-            _heroAsset = heroAsset;
-            
-            _heroVisualReferences.HeroGraphic.SetHeroGraphic(_heroAsset.HeroSprite);
-            _heroVisualReferences.AttackVisual.SetAttackText(_heroAsset.Attack.ToString());
-            _heroVisualReferences.ArmorVisual.SetArmorText(_heroAsset.Armor.ToString());
-            _heroVisualReferences.HealthVisual.SetHealthText(_heroAsset.Health.ToString());
+            _heroVisualReferences.HeroGraphic.SetHeroGraphic(heroAsset.HeroSprite);
+            _heroVisualReferences.AttackVisual.SetAttackText(heroAsset.Attack.ToString());
+            _heroVisualReferences.ArmorVisual.SetArmorText(heroAsset.Armor.ToString());
+            _heroVisualReferences.HealthVisual.SetHealthText(heroAsset.Health.ToString());
 
         }
 

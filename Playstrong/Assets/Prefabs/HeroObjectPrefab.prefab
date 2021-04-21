@@ -3408,8 +3408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16709344fa70d1c4e9f6f9054201acf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroAsset:
-    id: 0
   _heroVisualReferences:
     id: 0
   references:
@@ -4881,6 +4879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9035254091457465609}
   - component: {fileID: 76305040793227081}
+  - component: {fileID: 176358349381704074}
   m_Layer: 0
   m_Name: HeroPreviewVisual
   m_TagString: Untagged
@@ -4924,6 +4923,24 @@ MonoBehaviour:
   _heroPreviewHealth: {fileID: 2930272603304789959}
   _heroPreviewSpeed: {fileID: 5860762427615316398}
   _heroPreviewChance: {fileID: 3025673152997017588}
+--- !u!114 &176358349381704074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035254091457465608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5216410ed167104b8aeaa8fd9f9c2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroPreviewVisualReferences:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!1 &9035254091468904877
 GameObject:
   m_ObjectHideFlags: 0
