@@ -1,34 +1,34 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Interfaces;
+﻿using Interfaces;
 using UnityEngine;
-using Utilities;
-using Object = UnityEngine.Object;
 
-public class LoadHeroVisuals : MonoBehaviour
+namespace Visual
 {
-    [SerializeReference]
-    private IHeroAsset _heroAsset;
-
-    [SerializeReference]
-    private IHeroVisualReferences _heroVisualReferences;
-
-    private void Awake()
+    public class LoadHeroVisuals : MonoBehaviour, ILoadHeroVisuals
     {
-        _heroVisualReferences = GetComponent<IHeroVisualReferences>();
+        [SerializeReference]
+        private IHeroAsset _heroAsset;
+
+        [SerializeReference]
+        private IHeroVisualReferences _heroVisualReferences;
+
+        private void Awake()
+        {
+            _heroVisualReferences = GetComponent<IHeroVisualReferences>();
+        }
+        
+        
+        public void LoadHeroVisualsFromHeroAsset(IHeroAsset heroAsset)
+        {
+            _heroAsset = heroAsset;
+            
+            _heroVisualReferences.HeroGraphic.SetHeroGraphic(_heroAsset.HeroSprite);
+            _heroVisualReferences.AttackVisual.SetAttackText(_heroAsset.Attack.ToString());
+            _heroVisualReferences.ArmorVisual.SetArmorText(_heroAsset.Armor.ToString());
+            _heroVisualReferences.HealthVisual.SetHealthText(_heroAsset.Health.ToString());
+
+        }
+
+
+
     }
-
-    public void SetHeroAsset(IHeroAsset heroAsset)
-    {
-        _heroAsset = heroAsset;
-    }
-
-    public void LoadHeroVisualsFromHeroAsset()
-    {
-           
-    }
-
-
-
 }

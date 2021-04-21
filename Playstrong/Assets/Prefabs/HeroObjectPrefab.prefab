@@ -3352,6 +3352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2353710404790322494}
   - component: {fileID: 9118610988808071803}
+  - component: {fileID: 1493468350}
   m_Layer: 0
   m_Name: HeroVisual
   m_TagString: Untagged
@@ -3395,6 +3396,26 @@ MonoBehaviour:
   _armorVisual: {fileID: 1801694436376874053}
   _healthVisual: {fileID: 3833428321810689205}
   _energyVisual: {fileID: 886080591}
+--- !u!114 &1493468350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353710404790322489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16709344fa70d1c4e9f6f9054201acf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroAsset:
+    id: 0
+  _heroVisualReferences:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!1 &2353710405613978548
 GameObject:
   m_ObjectHideFlags: 0
