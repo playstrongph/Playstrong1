@@ -35,9 +35,12 @@ namespace References
             var loadHeroVisuals = GetComponentInChildren<ILoadHeroVisuals>();
             var loadHeroPreviewVisuals = GetComponentInChildren<ILoadHeroPreviewVisuals>();
             
+            
             loadHeroVisuals.LoadHeroVisualsFromHeroAsset(HeroAsset);       
             loadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset(HeroAsset);
 
         }
+        
+        
     }
 }

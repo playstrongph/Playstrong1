@@ -1,6 +1,7 @@
-﻿using Interfaces;
-
-public interface ILoadHeroPreviewVisuals
+﻿namespace Interfaces
 {
-    void LoadHeroPreviewVisualsFromAsset(IHeroAsset heroAsset);
+    public interface ILoadHeroPreviewVisuals
+    {
+        void LoadHeroPreviewVisualsFromAsset(IHeroAsset heroAsset);
+    }
 }
