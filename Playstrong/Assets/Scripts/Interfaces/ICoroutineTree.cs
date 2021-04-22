@@ -62,5 +62,7 @@ namespace Interfaces
         /// Removes all pending coroutines.
         /// </summary>
         void CleanUp();
+
+        void EndSequence();
     }
 }

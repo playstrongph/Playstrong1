@@ -515,6 +515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battleSceneSettings: {fileID: 609915806}
+  AllyHeroesBoardLocation: {fileID: 7085916704793985036}
+  EnemyHeroesBoardLocation: {fileID: 1012606843374099078}
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0

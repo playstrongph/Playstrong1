@@ -32,7 +32,13 @@ namespace Logic
         /// </summary>
         public ICoroutineNode CurrentNode { get; private set; }
 
-        public ICoroutineQueue CorQ = new CoroutineQueue();
+        private ICoroutineQueue CorQ => new CoroutineQueue();
+
+        public void EndSequence()
+        {
+            CorQ.CoroutineCompleted();
+        }
+
 
         public CoroutineTree()
         {
@@ -41,6 +47,8 @@ namespace Logic
             CurrentNode = Root;
         
         }
+        
+        
         
         public void CoroutineRunner(MonoBehaviour mono)
         {
