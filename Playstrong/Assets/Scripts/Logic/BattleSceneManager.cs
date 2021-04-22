@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using GameSettings;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 
@@ -6,27 +7,17 @@ namespace Logic
 {
     public class BattleSceneManager : MonoBehaviour
     {
-        [SerializeField] private GameObject _heroObjectPrefab;
-        public GameObject HeroObjectPrefab => _heroObjectPrefab;
+        [SerializeField] [RequireInterface(typeof(IBattleSceneSettings))]
+        private Object _battleSceneSettings;
 
-        [SerializeField] private GameObject _skillObjectPrefab;
-        public GameObject SkillObjectPrefab => _skillObjectPrefab;
-        [SerializeField]
-        [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _playerTeamHeroesAsset;
-        public ITeamHeroesAsset PlayerTeamHeroesAsset => _playerTeamHeroesAsset as ITeamHeroesAsset;
-        
-        [SerializeField]
-        [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
-        public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
+        public IBattleSceneSettings BattleSceneSettings => _battleSceneSettings as IBattleSceneSettings;
+
+        public ICoroutineTree LogicTree { get; set; }
 
         private void Awake()
         {
-            ///Initialize Coroutine Tree and Queue
-            CoroutineQueue coroutineQueue = new CoroutineQueue();
-            coroutineQueue.CoroutineRunner(this);
-            CoroutineTree coroutineTree = new CoroutineTree();
-            coroutineTree.CoroutineRunner(this);
+            LogicTree = BattleSceneSettings.BranchLogic.LogicTree;
+            
         }
-
     }
 }

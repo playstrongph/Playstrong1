@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Logic
+namespace Interfaces
 {
     public interface ICoroutineQueue
     {

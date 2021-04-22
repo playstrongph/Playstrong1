@@ -268,6 +268,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14328a5b21392784cae7bf407289dccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _branchLogic: {fileID: 609915808}
+  _heroObjectPrefab: {fileID: 1353516516019946072, guid: b573354c7017e654a862a1a2ed1eb652,
+    type: 3}
+  _skillObjectPrefab: {fileID: 909735037445820596, guid: c7b837ccbf72eb44e8906a4cf16e918e,
+    type: 3}
+  _playerTeamHeroesAsset: {fileID: 11400000, guid: 312514aa75981ed49ac86dbdb8b97319,
+    type: 2}
+  _enemyTeamHeroesAsset: {fileID: 11400000, guid: 312514aa75981ed49ac86dbdb8b97319,
+    type: 2}
 --- !u!4 &609915807
 Transform:
   m_ObjectHideFlags: 0
@@ -505,14 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad3ee186db771446b63d39afa7f1d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroObjectPrefab: {fileID: 1353516516019946072, guid: b573354c7017e654a862a1a2ed1eb652,
-    type: 3}
-  _skillObjectPrefab: {fileID: 909735037445820596, guid: c7b837ccbf72eb44e8906a4cf16e918e,
-    type: 3}
-  _playerTeamHeroesAsset: {fileID: 11400000, guid: 312514aa75981ed49ac86dbdb8b97319,
-    type: 2}
-  _enemyTeamHeroesAsset: {fileID: 11400000, guid: 312514aa75981ed49ac86dbdb8b97319,
-    type: 2}
+  _battleSceneSettings: {fileID: 609915806}
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0

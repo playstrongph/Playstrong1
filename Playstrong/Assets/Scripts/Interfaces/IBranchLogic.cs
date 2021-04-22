@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Logic
+namespace Interfaces
 {
     public interface IBranchLogic
     {

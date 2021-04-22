@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
@@ -8,15 +9,19 @@ namespace Logic
 {
     public class BranchLogic : MonoBehaviour, IBranchLogic
     {
-        public ICoroutineTree LogicTree { get; set; }
+        public ICoroutineTree LogicTree { get; private set; }
 
-        public ICoroutineTree VisualTree { get; set; }
+        public ICoroutineTree VisualTree { get; private set; }
 
 
         private void Awake()
         {
             LogicTree = new CoroutineTree();
+            LogicTree.CoroutineRunner(this);
+            
             VisualTree = new CoroutineTree();
+            VisualTree.CoroutineRunner(this);
+
         }
 
 

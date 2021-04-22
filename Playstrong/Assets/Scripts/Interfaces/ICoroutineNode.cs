@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using Logic;
 
-namespace Logic
+namespace Interfaces
 {
     public interface ICoroutineNode
     {
