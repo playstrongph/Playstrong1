@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 

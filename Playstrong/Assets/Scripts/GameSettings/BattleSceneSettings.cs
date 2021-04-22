@@ -22,6 +22,16 @@ namespace GameSettings
         [SerializeField]
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
         public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
+        
+        [SerializeField]
+        private Transform _allyHeroesBoardLocation;
+
+        public Transform AllyHeroesBoardLocation => _allyHeroesBoardLocation;
+
+        [SerializeField] 
+        private Transform _enemyHeroesBoardLocation;
+
+        public Transform EnemyHeroesBoardLocation => _enemyHeroesBoardLocation;
 
 
 

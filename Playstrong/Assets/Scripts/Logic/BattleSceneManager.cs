@@ -18,10 +18,6 @@ namespace Logic
         public ICoroutineTree LogicTree { get; set; }
         public ICoroutineTree VisualTree { get; set; }
 
-        [SerializeField] private Transform AllyHeroesBoardLocation;
-
-        [SerializeField] private Transform EnemyHeroesBoardLocation;
-
         private void Awake()
         {
             LogicTree = BattleSceneSettings.BranchLogic.LogicTree;

@@ -1,9 +1,9 @@
 ﻿using Interfaces;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Enums
 {
-    [CreateAssetMenu(fileName = "Rarity Enum", menuName = "SO's/Rarity Enum")]
+    [CreateAssetMenu(fileName = "Rarity Enum", menuName = "SO's/Scriptable Enums/Rarity Enum")]
     public class RarityEnumAsset : ScriptableObject, IRarityEnumAsset
     {
 

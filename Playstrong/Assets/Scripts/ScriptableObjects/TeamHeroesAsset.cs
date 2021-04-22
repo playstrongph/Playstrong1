@@ -3,7 +3,6 @@ using Interfaces;
 using UnityEngine;
 using Utilities;
 
-
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "New Team", menuName = "SO's/New Team Heroes")]
