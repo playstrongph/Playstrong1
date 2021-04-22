@@ -17,23 +17,26 @@ namespace Logic
         /// Does not contain an actual coroutine.
         /// Main parent or origin point for the family of coroutines
         /// </summary>
-        public CoroutineNode Root { get; private set; }
+        public ICoroutineNode Root { get; private set; }
 
-        public static CoroutineTree logicTree = new CoroutineTree();
-
+        /// <summary>
+        /// Use to start coroutines
+        /// and Wait function
+        /// </summary>
         private MonoBehaviour mono; 
         
         /// <summary>
         /// Node which is currently being executed.
         /// Points to Root when the tree is empty.
         /// </summary>
-        public CoroutineNode CurrentNode { get; private set; }
+        public ICoroutineNode CurrentNode { get; private set; }
 
-        public CoroutineQueue CorQ = new CoroutineQueue();
+        public ICoroutineQueue CorQ = new CoroutineQueue();
 
         public CoroutineTree()
         {
             Root = new CoroutineNode(null);
+
             CurrentNode = Root;
         
         }
@@ -107,7 +110,7 @@ namespace Logic
         /// Note that Coroutines get started without waiting for the others to finish
         /// This needs to be modified <ToDo> "queue" processing of coroutines
         /// </summary>
-        private IEnumerator ProcessChildrenOfNode(CoroutineNode node)
+        private IEnumerator ProcessChildrenOfNode(ICoroutineNode node)
         {
             int i = 0;
             while(i < node.ChildrenCount)

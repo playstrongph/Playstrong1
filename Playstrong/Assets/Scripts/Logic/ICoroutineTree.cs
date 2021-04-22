@@ -10,13 +10,15 @@ namespace Logic
         /// Does not contain an actual coroutine.
         /// Main parent or origin point for the family of coroutines
         /// </summary>
-        CoroutineNode Root { get; }
+        ICoroutineNode Root { get; }
+        
 
         /// <summary>
         /// Node which is currently being executed.
         /// Points to Root when the tree is empty.
         /// </summary>
-        CoroutineNode CurrentNode { get; }
+        ICoroutineNode CurrentNode { get; }
+        
 
         /// <summary>
         /// Returns true if the tree is empty, false otherwise.

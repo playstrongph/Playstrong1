@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 
-public interface IBranchLogic
+namespace Logic
 {
-    IEnumerator Wait(float seconds);
+    public interface IBranchLogic
+    {
+        IEnumerator Wait(float seconds);
+    }
 }
