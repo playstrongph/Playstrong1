@@ -11,7 +11,7 @@ namespace Logic
     /// I.e. node -> children -> siblings.
     /// </summary>
 
-    public class CoroutineTree
+    public class CoroutineTree : ICoroutineTree
     {
         /// <summary>
         /// Artificial root node.
@@ -20,8 +20,11 @@ namespace Logic
         /// </summary>
         private CoroutineNode Root { get; set; }
 
-        public static CoroutineTree LogicTree = new CoroutineTree();
-        public static CoroutineTree VisualTree = new CoroutineTree();
+        private static CoroutineTree _logicTree = new CoroutineTree();
+        public CoroutineTree LogicTree => _logicTree;
+        
+        private static CoroutineTree _visualTree = new CoroutineTree();
+        public CoroutineTree VisualTree => _visualTree;
 
         private MonoBehaviour _mono; 
         
@@ -31,7 +34,7 @@ namespace Logic
         /// </summary>
         private CoroutineNode CurrentNode { get; set; }
 
-        private CoroutineQueue _coroutineQueue = new CoroutineQueue();
+        private ICoroutineQueue _coroutineQueue = new CoroutineQueue();
 
         public CoroutineTree()
         {
@@ -175,12 +178,9 @@ namespace Logic
         }
 
 
-        /// <summary>
-        /// Data structure representing one coroutine as a node of a tree
-        /// Class used in CoroutineTree
-        /// <summary>
+        
 
-        public class CoroutineNode
+        public class CoroutineNode : ICoroutineNode
         {
     
             /// <summary>

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class CoroutineQueue
+    public class CoroutineQueue : ICoroutineQueue
     {
     
         private Queue<IEnumerator> _queue;
