@@ -20,9 +20,19 @@ namespace Logic
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
         public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
 
-       
+        public ICoroutineTree LogicTree;
 
-        
+        void Start()
+        {
+            LogicTree = LogicTree.NewStaticCoroutineTree();
+            
+           
+            
+        }
+
+
+
+
 
     }
 }

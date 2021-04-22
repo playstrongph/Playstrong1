@@ -20,11 +20,9 @@ namespace Logic
         /// </summary>
         private CoroutineNode Root { get; set; }
 
-        private static CoroutineTree _logicTree = new CoroutineTree();
-        public CoroutineTree LogicTree => _logicTree;
+        public static CoroutineTree LogicTree { get; } = new CoroutineTree();
+
         
-        private static CoroutineTree _visualTree = new CoroutineTree();
-        public CoroutineTree VisualTree => _visualTree;
 
         private MonoBehaviour _mono; 
         
@@ -42,7 +40,12 @@ namespace Logic
             CurrentNode = Root;
         
         }
-        
+
+        public CoroutineTree NewStaticCoroutineTree()
+        {
+            return LogicTree;
+        }
+
         public void CoroutineRunner(MonoBehaviour mono)
         {
             this._mono = mono;

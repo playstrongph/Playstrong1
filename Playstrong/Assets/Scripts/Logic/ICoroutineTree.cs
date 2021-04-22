@@ -5,8 +5,10 @@ namespace Logic
 {
     public interface ICoroutineTree
     {
-        CoroutineTree LogicTree { get; }
-        CoroutineTree VisualTree { get; }
+
+     
+
+        CoroutineTree NewStaticCoroutineTree();
 
         /// <summary>
         /// Returns true if the tree is empty, false otherwise.
