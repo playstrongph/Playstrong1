@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using Logic;
 using UnityEngine;
 using Utilities;
 using Visual;
@@ -10,6 +11,10 @@ namespace References
 {
     public class HeroObjectReferences : MonoBehaviour, IHeroObjectReferences
     {
+
+        [SerializeField] [RequireInterface(typeof(IHeroLogicReferences))]
+        private Object _heroLogicReferences;
+        public IHeroLogicReferences HeroLogicReferences => _heroLogicReferences as IHeroLogicReferences;
         
         [SerializeField] [RequireInterface(typeof(IHeroVisualReferences))]
         private Object _heroVisualReferences;

@@ -1338,7 +1338,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4630084308383053714}
+  - component: {fileID: 1415162985567311865}
   - component: {fileID: 7654239269592334425}
+  - component: {fileID: 5674186033855441364}
   m_Layer: 0
   m_Name: HeroLogic
   m_TagString: Untagged
@@ -1360,6 +1362,18 @@ Transform:
   m_Father: {fileID: 5105534376102517271}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1415162985567311865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398499905147870583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae0d95e261f76344acfc27890f09dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7654239269592334425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1370,6 +1384,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 126eb764b138aa647be2900b503fc8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attack: 0
+  _baseAttack: 0
+  _health: 0
+  _baseHealth: 0
+  _armor: 0
+  _baseArmor: 0
+  _speed: 0
+  _baseSpeed: 0
+  _chance: 0
+  _baseChance: 0
+  _energy: 0
+--- !u!114 &5674186033855441364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398499905147870583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d289024b00799594198bc19f478088e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5540575476907866609
@@ -1424,6 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dda5ec778650a4d935be29ee087f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroLogicReferences: {fileID: 1415162985567311865}
   _heroVisualReferences: {fileID: 2352968570935955922}
   _buffsVisual: {fileID: 4754143574374688996}
   _heroPreviewVisual: {fileID: 6855511163894396128}
@@ -4787,12 +4825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16709344fa70d1c4e9f6f9054201acf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroVisualReferences:
-    id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
 --- !u!1 &9117171547288123421
 GameObject:
   m_ObjectHideFlags: 0

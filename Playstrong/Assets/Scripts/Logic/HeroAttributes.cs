@@ -1,98 +1,100 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Interfaces;
 using UnityEngine;
 
-public class HeroAttributes : MonoBehaviour
+namespace Logic
 {
-    [SerializeField] private int _attack;
-
-    public int Attack
+    public class HeroAttributes : MonoBehaviour, IHeroAttributes
     {
-        get { return _attack; }
-        set { _attack = value; }
-    }
-    
-    [SerializeField] private int _baseAttack;
+        [SerializeField] private int _attack;
 
-    public int BaseAttack
-    {
-        get { return _baseAttack; }
-        set { _baseAttack = value; }
-    }
+        public int Attack
+        {
+            get { return _attack; }
+            set { _attack = value; }
+        }
     
-    
-    [SerializeField] private int _health;
+        [SerializeField] private int _baseAttack;
 
-    public int Health
-    {
-        get { return _health; }
-        set { _health = value; }
-    }
+        public int BaseAttack
+        {
+            get { return _baseAttack; }
+            set { _baseAttack = value; }
+        }
     
-    [SerializeField] private int _baseHealth;
+    
+        [SerializeField] private int _health;
 
-    public int BaseHealth
-    {
-        get { return _baseHealth; }
-        set { _baseHealth = value; }
-    }
+        public int Health
+        {
+            get { return _health; }
+            set { _health = value; }
+        }
     
-    [SerializeField] private int _armor;
+        [SerializeField] private int _baseHealth;
 
-    public int Armor
-    {
-        get { return _armor; }
-        set { _armor = value; }
-    }
+        public int BaseHealth
+        {
+            get { return _baseHealth; }
+            set { _baseHealth = value; }
+        }
     
-    [SerializeField] private int _baseArmor;
+        [SerializeField] private int _armor;
 
-    public int BaseArmor
-    {
-        get { return _baseArmor; }
-        set { _baseArmor = value; }
-    }
+        public int Armor
+        {
+            get { return _armor; }
+            set { _armor = value; }
+        }
     
-    [SerializeField] private int _speed;
+        [SerializeField] private int _baseArmor;
 
-    public int Speed
-    {
-        get { return _speed; }
-        set { _speed = value; }
-    }
+        public int BaseArmor
+        {
+            get { return _baseArmor; }
+            set { _baseArmor = value; }
+        }
     
-    [SerializeField] private int _baseSpeed;
+        [SerializeField] private int _speed;
 
-    public int BaseSpeed
-    {
-        get { return _baseSpeed; }
-        set { _baseSpeed = value; }
-    }
+        public int Speed
+        {
+            get { return _speed; }
+            set { _speed = value; }
+        }
+    
+        [SerializeField] private int _baseSpeed;
 
-    [SerializeField] private int _chance;
+        public int BaseSpeed
+        {
+            get { return _baseSpeed; }
+            set { _baseSpeed = value; }
+        }
 
-    public int Chance
-    {
-        get { return _chance; }
-        set { _chance = value; }
-    }
-    
-    [SerializeField] private int _baseChance;
+        [SerializeField] private int _chance;
 
-    public int BaseChance
-    {
-        get { return _baseChance; }
-        set { _baseChance = value; }
-    }
+        public int Chance
+        {
+            get { return _chance; }
+            set { _chance = value; }
+        }
     
-    [SerializeField] private int _energy;
+        [SerializeField] private int _baseChance;
 
-    public int Energy
-    {
-        get { return _energy; }
-        set { _energy = value; }
+        public int BaseChance
+        {
+            get { return _baseChance; }
+            set { _baseChance = value; }
+        }
+    
+        [SerializeField] private int _energy;
+
+        public int Energy
+        {
+            get { return _energy; }
+            set { _energy = value; }
+        }
+    
+    
+    
     }
-    
-    
-    
 }
