@@ -19,8 +19,10 @@ namespace Interfaces
 
         ISetHealthVisual HealthVisual { get; }
         ISetEnergyVisual EnergyVisual { get; }
-        
-        
+
+        ILoadHeroVisuals LoadHeroVisuals { get; }
+
+
 
     }
 }

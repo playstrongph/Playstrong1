@@ -32,7 +32,10 @@ namespace Logic
         /// </summary>
         public ICoroutineNode CurrentNode { get; private set; }
 
-        private ICoroutineQueue CorQ => new CoroutineQueue();
+        //private ICoroutineQueue CorQ => new CoroutineQueue();
+        private ICoroutineQueue CorQ;
+
+        
 
         public void EndSequence()
         {
@@ -63,6 +66,8 @@ namespace Logic
         /// </summary>
         public void Start()
         {
+            CorQ = new CoroutineQueue();
+            CorQ.CoroutineRunner(mono);
             mono.StartCoroutine(UpdateTree());
         }
 
@@ -131,6 +136,7 @@ namespace Logic
 
                 //new CTCommandLogic(node[i].Value).AddToQueue();
 
+              
                 CorQ.AddToCorQ(node[i].Value);
 
                 yield return null;

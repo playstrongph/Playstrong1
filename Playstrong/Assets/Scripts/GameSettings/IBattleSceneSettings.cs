@@ -10,5 +10,9 @@ namespace GameSettings
         GameObject SkillObjectPrefab { get; }
         ITeamHeroesAsset PlayerTeamHeroesAsset { get; }
         ITeamHeroesAsset EnemyTeamHeroesAsset { get; }
+
+        Transform AllyHeroesBoardLocation { get; }
+        Transform EnemyHeroesBoardLocation { get; }
+        
     }
 }

@@ -1,11 +1,14 @@
-﻿using Interfaces;
+﻿using System;
+using System.Collections;
+using Interfaces;
+using References;
 using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 
 namespace Logic
 {
-    public class Player : MonoBehaviour
+    public class PlayerReferences : MonoBehaviour, IPlayerReferences
     {
         [SerializeField] [RequireInterface(typeof(IPlayerControllerEnumAsset))]
         private ScriptableObject _playerControllerEnum;
@@ -15,9 +18,12 @@ namespace Logic
         private ScriptableObject _playerTypeEnum;
         public IPlayerTypeEnumAsset PlayerTypeEnum => _playerTypeEnum as IPlayerTypeEnumAsset;
 
+        [SerializeField] private IInitializePlayerHeroes _initializePlayerHeroes;
+        public IInitializePlayerHeroes InitializePlayerHeroes => _initializePlayerHeroes;
 
-
-
-
+        private void Awake()
+        {
+            _initializePlayerHeroes = GetComponent<IInitializePlayerHeroes>();
+        }
     }
 }

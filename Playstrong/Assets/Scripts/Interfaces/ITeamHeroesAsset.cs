@@ -1,9 +1,11 @@
-﻿using UnityEditorInternal.Profiling.Memory.Experimental;
+﻿using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
+using UnityEngine;
 
 namespace Interfaces
 {
     public interface ITeamHeroesAsset
     {
-        IHeroAsset ListTeamHeroesAsset { get; }
+        List<ScriptableObject> TeamHeroes();
     }
 }

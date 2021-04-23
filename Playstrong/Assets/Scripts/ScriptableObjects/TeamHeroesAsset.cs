@@ -13,6 +13,14 @@ namespace ScriptableObjects
         private List<ScriptableObject> _teamHeroesAsset = new List<ScriptableObject>();
         public IHeroAsset ListTeamHeroesAsset => _teamHeroesAsset as IHeroAsset;
 
+        private List<ScriptableObject> _teamHeroes;
+
+        public List<ScriptableObject> TeamHeroes()
+        {
+            _teamHeroes = _teamHeroesAsset; 
+            return _teamHeroes;
+        }
+
 
     }
 }

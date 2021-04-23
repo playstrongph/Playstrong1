@@ -18,6 +18,16 @@ namespace Logic
         public ICoroutineTree LogicTree { get; set; }
         public ICoroutineTree VisualTree { get; set; }
 
+        [SerializeField] [RequireInterface(typeof(IPlayerReferences))]
+        private Object _mainPlayer;
+
+        public IPlayerReferences MainPlayer => _mainPlayer as IPlayerReferences;
+        
+        [SerializeField] [RequireInterface(typeof(IPlayerReferences))]
+        private Object _enemyPlayer;
+
+        public IPlayerReferences EnemyPlayer => _enemyPlayer as IPlayerReferences;
+
         private void Awake()
         {
             LogicTree = BattleSceneSettings.BranchLogic.LogicTree;
@@ -49,9 +59,21 @@ namespace Logic
         
         private IEnumerator InitHeroes()
         {
+            var heroPrefab = BattleSceneSettings.HeroObjectPrefab;
+
+            var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
+            var mainTeamTransform = BattleSceneSettings.AllyHeroesBoardLocation;
+            LogicTree.AddCurrent(MainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform));
+
+            //var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
+            //var enemyTeamTransform = BattleSceneSettings.EnemyHeroesBoardLocation;
+            //LogicTree.AddCurrent(EnemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform));
+
             yield return null;
             LogicTree.EndSequence();
         }
+        
+        
 
         
     }

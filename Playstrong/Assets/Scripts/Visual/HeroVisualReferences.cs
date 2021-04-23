@@ -1,7 +1,9 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using References;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Visual
 {
@@ -53,9 +55,12 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-       
+        [SerializeField] private ILoadHeroVisuals _loadHeroVisuals;
+        public ILoadHeroVisuals LoadHeroVisuals => _loadHeroVisuals;
 
-
-
+        private void Awake()
+        {
+            _loadHeroVisuals = GetComponent<ILoadHeroVisuals>();
+        }
     }
 }
