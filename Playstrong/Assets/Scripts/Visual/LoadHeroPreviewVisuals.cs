@@ -6,7 +6,7 @@ namespace Visual
     public class LoadHeroPreviewVisuals : MonoBehaviour, ILoadHeroPreviewVisuals
     {
    
-        [SerializeReference]
+       
         private IHeroPreviewVisual _heroPreviewVisualReferences;
 
         private void Awake()

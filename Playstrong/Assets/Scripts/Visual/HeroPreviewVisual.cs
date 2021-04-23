@@ -1,7 +1,9 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using References;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Visual
 {
@@ -40,7 +42,12 @@ namespace Visual
         private Object _heroPreviewChance;
         public IHeroPreviewChance HeroPreviewChance => _heroPreviewChance as IHeroPreviewChance;
 
+        private ILoadHeroPreviewVisuals _loadHeroPreviewVisuals;
+        public ILoadHeroPreviewVisuals LoadHeroPreviewVisuals => _loadHeroPreviewVisuals;
 
-
+        private void Awake()
+        {
+            _loadHeroPreviewVisuals = GetComponent<ILoadHeroPreviewVisuals>();
+        }
     }
 }

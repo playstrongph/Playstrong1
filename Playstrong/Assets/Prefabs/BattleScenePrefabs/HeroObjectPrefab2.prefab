@@ -763,7 +763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2544278336063994639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2544278336320616096
 Transform:
   m_ObjectHideFlags: 0
@@ -991,12 +991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5216410ed167104b8aeaa8fd9f9c2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroPreviewVisualReferences:
-    id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
 --- !u!1 &2544278336348955140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2544278336459873450
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1465,7 +1459,6 @@ MonoBehaviour:
   _heroVisualReferences: {fileID: 2352968570935955922}
   _buffsVisual: {fileID: 4754143574374688996}
   _heroPreviewVisual: {fileID: 6855511163894396128}
-  _heroAsset: {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
 --- !u!1 &5540575476912736448
 GameObject:
   m_ObjectHideFlags: 0

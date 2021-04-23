@@ -15,6 +15,8 @@ namespace Interfaces
 
         IHeroPreviewChance HeroPreviewChance { get; }
 
+        ILoadHeroPreviewVisuals LoadHeroPreviewVisuals { get; }
+
 
     }
 }

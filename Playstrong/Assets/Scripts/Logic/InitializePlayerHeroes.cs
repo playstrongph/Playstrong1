@@ -19,7 +19,9 @@ namespace Logic
                 hero.name = heroAsset.name;
 
                 hero.GetComponent<HeroObjectReferences>().HeroLogicReferences.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
+                
                 hero.GetComponent<HeroObjectReferences>().HeroVisualReferences.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
+                hero.GetComponent<HeroObjectReferences>().HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset);
                 
 
             }
