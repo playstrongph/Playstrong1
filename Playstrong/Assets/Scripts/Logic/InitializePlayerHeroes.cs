@@ -7,7 +7,7 @@ namespace Logic
 {
     public class InitializePlayerHeroes : MonoBehaviour, IInitializePlayerHeroes
     {
-        public IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab, Transform boardLocation)
+        public IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab, Transform boardLocation, ICoroutineTree tree)
         {
             
             foreach (var heroAsset in teamHeroesAsset.TeamHeroes())
@@ -20,11 +20,12 @@ namespace Logic
 
                 hero.GetComponent<HeroObjectReferences>().HeroLogicReferences.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
                 hero.GetComponent<HeroObjectReferences>().HeroVisualReferences.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
-                    
-                    
+                
+
             }
 
             yield return null;
+            tree.EndSequence();
 
         }
     }

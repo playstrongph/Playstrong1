@@ -28,23 +28,9 @@ namespace References
         private Object _heroPreviewVisual;
         public IHeroPreviewVisual HeroPreviewVisual => _heroPreviewVisual as IHeroPreviewVisual;
         
-        //Temp Script
-        [SerializeField] [RequireInterface(typeof(IHeroAsset))]
-        private Object _heroAsset;
-
-        public IHeroAsset HeroAsset => _heroAsset as IHeroAsset;
+       
         
         
-        private void Awake()
-        {
-            var loadHeroVisuals = GetComponentInChildren<ILoadHeroVisuals>();
-            var loadHeroPreviewVisuals = GetComponentInChildren<ILoadHeroPreviewVisuals>();
-            
-            
-            loadHeroVisuals.LoadHeroVisualsFromHeroAsset(HeroAsset);       
-            loadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset(HeroAsset);
-
-        }
         
         
     }
