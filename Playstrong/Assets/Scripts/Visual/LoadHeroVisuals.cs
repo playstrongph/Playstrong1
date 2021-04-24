@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace Visual
@@ -7,19 +8,32 @@ namespace Visual
     {
         
         private IHeroVisualReferences _heroVisualReferences;
+        private IHeroAttributes _heroAttributes;
+        
+        private int _initialEnergy = 0;
 
         private void Awake()
         {
             _heroVisualReferences = GetComponent<IHeroVisualReferences>();
+            _heroAttributes = _heroVisualReferences.HeroObjectReferences.HeroLogicReferences.HeroAttributes;
+
         }
-        
-        
+
+        private void Start()
+        {
+           
+        }
+
+
         public void LoadHeroVisualsFromHeroAsset(IHeroAsset heroAsset)
         {
             _heroVisualReferences.HeroGraphic.SetHeroGraphic(heroAsset.HeroSprite);
-            _heroVisualReferences.AttackVisual.SetAttackText(heroAsset.Attack.ToString());
-            _heroVisualReferences.ArmorVisual.SetArmorText(heroAsset.Armor.ToString());
-            _heroVisualReferences.HealthVisual.SetHealthText(heroAsset.Health.ToString());
+            
+            _heroVisualReferences.AttackVisual.SetAttackText(_heroAttributes.Attack.ToString());
+            _heroVisualReferences.ArmorVisual.SetArmorText(_heroAttributes.Armor.ToString());
+            _heroVisualReferences.HealthVisual.SetHealthText(_heroAttributes.Health.ToString());
+            _heroVisualReferences.EnergyVisual.SetEnergyTextAndBarFill(_initialEnergy);
+            
 
         }
 

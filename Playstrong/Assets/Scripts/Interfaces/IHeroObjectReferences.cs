@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using Logic;
+using ScriptableObjects;
 
 namespace Interfaces
 {
@@ -7,5 +8,9 @@ namespace Interfaces
         IHeroVisualReferences HeroVisualReferences { get; }
         IBuffsVisual BuffsVisual { get; }
         IHeroPreviewVisual HeroPreviewVisual { get; }
+
+        IHeroLogicReferences HeroLogicReferences { get; }
+
+
     }
 }
