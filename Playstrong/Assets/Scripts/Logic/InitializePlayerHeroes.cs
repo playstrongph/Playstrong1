@@ -9,11 +9,11 @@ namespace Logic
     public class InitializePlayerHeroes : MonoBehaviour, IInitializePlayerHeroes
     {
 
-        private IHeroesList _heroesList;
+        private IHeroesListReference _heroesList;
 
         private void Awake()
         {
-            _heroesList = GetComponent<IHeroesList>();
+            _heroesList = GetComponent<IHeroesListReference>();
         }
 
         public IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab, Transform boardLocation, ICoroutineTree tree)
@@ -26,7 +26,7 @@ namespace Logic
                 hero.transform.SetParent(boardLocation);
                 hero.transform.SetAsFirstSibling();
                 hero.name = heroAsset.name;
-                _heroesList.HeroList.Add(hero);
+                _heroesList.LivingHeroes.HeroList.Add(hero);
                 
                 
 

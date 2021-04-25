@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using Interfaces;
 using UnityEngine;
 
-namespace Logic
+namespace Interfaces
 {
     public interface IInitializePlayerHeroes
     {

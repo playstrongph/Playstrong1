@@ -1,6 +1,4 @@
-using Interfaces;
-
-namespace Logic
+namespace Interfaces
 {
     public interface IHeroLogicReferences
     {

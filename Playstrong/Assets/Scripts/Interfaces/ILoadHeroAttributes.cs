@@ -1,7 +1,4 @@
-﻿using Interfaces;
-using UnityEngine;
-
-namespace Logic
+﻿namespace Interfaces
 {
     public interface ILoadHeroAttributes
     {
