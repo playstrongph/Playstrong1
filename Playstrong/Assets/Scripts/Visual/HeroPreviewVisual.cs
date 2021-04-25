@@ -45,9 +45,13 @@ namespace Visual
         private ILoadHeroPreviewVisuals _loadHeroPreviewVisuals;
         public ILoadHeroPreviewVisuals LoadHeroPreviewVisuals => _loadHeroPreviewVisuals;
 
+        private Transform _previewTransform;
+        public Transform PreviewTransform => _previewTransform;
+
         private void Awake()
         {
             _loadHeroPreviewVisuals = GetComponent<ILoadHeroPreviewVisuals>();
+            _previewTransform = this.transform;
         }
     }
 }

@@ -17,6 +17,8 @@ namespace Interfaces
 
         ILoadHeroPreviewVisuals LoadHeroPreviewVisuals { get; }
 
+        Transform PreviewTransform { get; }
+
 
     }
 }

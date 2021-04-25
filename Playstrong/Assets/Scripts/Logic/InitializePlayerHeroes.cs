@@ -11,10 +11,12 @@ namespace Logic
     {
 
         private IHeroesListReference _heroesList;
+        private int _heroIndex;
 
         private void Awake()
         {
             _heroesList = GetComponent<IHeroesListReference>();
+            _heroIndex = 0;
         }
 
         public IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab, Transform boardLocation, List<Transform> previewLocations, ICoroutineTree tree)
@@ -35,8 +37,13 @@ namespace Logic
                 
                 hero.GetComponent<IHeroObjectReferences>().HeroVisualReferences.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
                 hero.GetComponent<IHeroObjectReferences>().HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset, previewLocations);
-                
-                
+
+                hero.GetComponent<IHeroObjectReferences>().HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].position;
+                _heroIndex++;
+
+
+
+
 
             }
 
