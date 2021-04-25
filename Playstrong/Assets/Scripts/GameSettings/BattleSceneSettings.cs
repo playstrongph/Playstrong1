@@ -34,8 +34,10 @@ namespace GameSettings
 
         public Transform EnemyHeroesBoardLocation => _enemyHeroesBoardLocation;
 
-        [SerializeField] private List<Transform> _previewLocations;
-        public List<Transform> PreviewLocations => _previewLocations;
+        [SerializeField] private List<Transform> _heroPreviewLocations;
+        public List<Transform> HeroPreviewLocations => _heroPreviewLocations;
+        
+       
 
 
 

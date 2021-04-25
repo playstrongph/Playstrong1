@@ -367,7 +367,7 @@ MonoBehaviour:
     type: 2}
   _allyHeroesBoardLocation: {fileID: 7085916704793985036}
   _enemyHeroesBoardLocation: {fileID: 1012606843374099078}
-  _previewLocations:
+  _heroPreviewLocations:
   - {fileID: 689565207}
   - {fileID: 689565207}
   - {fileID: 971031635}
@@ -510,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 689565207}
   m_Layer: 0
-  m_Name: PreviewLocation1
+  m_Name: LeftHeroPreviewArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,7 +532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260, y: 25}
+  m_AnchoredPosition: {x: -240, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &770716308
@@ -670,7 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 971031635}
   m_Layer: 0
-  m_Name: PreviewLocation2
+  m_Name: RightHeroPreviewArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: 25}
+  m_AnchoredPosition: {x: 170, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1009161112

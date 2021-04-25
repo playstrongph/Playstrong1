@@ -60,15 +60,16 @@ namespace Logic
         private IEnumerator InitHeroes()
         {
             var heroPrefab = BattleSceneSettings.HeroObjectPrefab;
-            var previewLocations = BattleSceneSettings.PreviewLocations;
+            var heroPreviewLocations = BattleSceneSettings.HeroPreviewLocations;
+           
 
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var mainTeamTransform = BattleSceneSettings.AllyHeroesBoardLocation;
-            LogicTree.AddCurrent(MainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform, previewLocations, LogicTree));
+            LogicTree.AddCurrent(MainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform, heroPreviewLocations, LogicTree));
 
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
             var enemyTeamTransform = BattleSceneSettings.EnemyHeroesBoardLocation;
-            LogicTree.AddCurrent(EnemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform, previewLocations, LogicTree));
+            LogicTree.AddCurrent(EnemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform, heroPreviewLocations, LogicTree));
 
             yield return null;
             LogicTree.EndSequence();

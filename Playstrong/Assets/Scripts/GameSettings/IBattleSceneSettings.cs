@@ -15,7 +15,9 @@ namespace GameSettings
         Transform AllyHeroesBoardLocation { get; }
         Transform EnemyHeroesBoardLocation { get; }
 
-        List<Transform> PreviewLocations { get; }
+        List<Transform> HeroPreviewLocations { get; }
+        
+        
 
     }
 }
