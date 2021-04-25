@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teamHeroesAsset:
   - {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
-  - {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
-  - {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
-  - {fileID: 11400000, guid: 1486454f564119b468842007e9a53d86, type: 2}
+  - {fileID: 11400000, guid: 3668770e8095a354eb2aebd79db000d9, type: 2}
+  - {fileID: 11400000, guid: f4e46e1d2d3d0e54c9ca6126af3fb4ee, type: 2}
+  - {fileID: 11400000, guid: f0104fdc07571d7459e38e7d0d9c51f0, type: 2}
