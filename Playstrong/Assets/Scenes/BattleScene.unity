@@ -279,6 +279,14 @@ MonoBehaviour:
     type: 2}
   _allyHeroesBoardLocation: {fileID: 7085916704793985036}
   _enemyHeroesBoardLocation: {fileID: 1012606843374099078}
+  _previewLocations:
+  - {fileID: 971031635}
+  - {fileID: 971031635}
+  - {fileID: 971031635}
+  - {fileID: 689565207}
+  - {fileID: 689565207}
+  - {fileID: 689565207}
+  - {fileID: 689565207}
 --- !u!4 &609915807
 Transform:
   m_ObjectHideFlags: 0
@@ -450,6 +458,7 @@ GameObject:
   - component: {fileID: 770716309}
   - component: {fileID: 770716310}
   - component: {fileID: 770716311}
+  - component: {fileID: 770716312}
   m_Layer: 0
   m_Name: MainPlayer
   m_TagString: Untagged
@@ -499,6 +508,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be87aa8318f8254b96e53d2004213bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &770716312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770716308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceae3a8ae3bb1104da17398d2e0f5725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroList: []
 --- !u!1 &877077465
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +837,7 @@ GameObject:
   - component: {fileID: 1587527227}
   - component: {fileID: 1587527228}
   - component: {fileID: 1587527229}
+  - component: {fileID: 1587527230}
   m_Layer: 0
   m_Name: EnemyPlayer
   m_TagString: Untagged
@@ -864,6 +887,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be87aa8318f8254b96e53d2004213bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1587527230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587527226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceae3a8ae3bb1104da17398d2e0f5725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroList: []
 --- !u!1 &1646982093
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1646982094
 Transform:
   m_ObjectHideFlags: 0

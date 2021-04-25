@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 
@@ -32,6 +33,9 @@ namespace GameSettings
         private Transform _enemyHeroesBoardLocation;
 
         public Transform EnemyHeroesBoardLocation => _enemyHeroesBoardLocation;
+
+        [SerializeField] private List<Transform> _previewLocations;
+        public List<Transform> PreviewLocations => _previewLocations;
 
 
 
