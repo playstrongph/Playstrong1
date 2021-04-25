@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace Visual
            
         }
 
-        public void LoadHeroPreviewVisualsFromAsset(IHeroAsset heroAsset)
+        public void LoadHeroPreviewVisualsFromAsset(IHeroAsset heroAsset, List<Transform> previewLocations)
         {
        
             _heroPreviewVisualReferences.HeroPreviewGraphic.SetHeroPreviewGraphic(heroAsset.HeroSprite);
@@ -32,8 +33,10 @@ namespace Visual
             _heroPreviewVisualReferences.HeroPreviewHealth.SetHeroPreviewHealth(_heroAttributes.Health.ToString());
             _heroPreviewVisualReferences.HeroPreviewSpeed.SetHeroPreviewSpeed(_heroAttributes.Speed.ToString());
             _heroPreviewVisualReferences.HeroPreviewChance.SetHeroPreviewChance(_heroAttributes.Chance.ToString());
+            
         
         }
 
+        
     }
 }

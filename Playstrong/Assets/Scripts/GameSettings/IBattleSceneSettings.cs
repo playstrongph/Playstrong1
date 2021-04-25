@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 namespace GameSettings
@@ -13,6 +14,8 @@ namespace GameSettings
 
         Transform AllyHeroesBoardLocation { get; }
         Transform EnemyHeroesBoardLocation { get; }
-        
+
+        List<Transform> PreviewLocations { get; }
+
     }
 }
