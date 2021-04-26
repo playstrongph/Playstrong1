@@ -14,6 +14,10 @@ namespace Visual
       private Object _heroObjectReferences;
       public IHeroObjectReferences HeroObjectReferences => _heroObjectReferences as IHeroObjectReferences;
 
+      [SerializeField] [RequireInterface(typeof(ITargetVisualReferences))]
+      private Object _targetVisualReferences;
+      public ITargetVisualReferences TargetVisualReferences => _targetVisualReferences as ITargetVisualReferences;
+
       //Variables initialized at Awake or Start
       private IHeroPreviewVisual _heroPreviewVisual;
       private Coroutine _showPreview;
