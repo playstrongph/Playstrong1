@@ -7,6 +7,8 @@ namespace Interfaces
         
         IHeroObjectReferences HeroObjectReferences { get; }
         Canvas PreviewCanvas { get; }
+
+        Canvas StatusCanvas { get; }
         IHeroPreviewGraphic HeroPreviewGraphic { get; }
         IHeroPreviewName HeroPreviewName { get; }
         IHeroPreviewAttack HeroPreviewAttack { get; }

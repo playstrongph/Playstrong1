@@ -18,6 +18,9 @@ namespace Visual
         private Canvas _previewCanvas;
         public Canvas PreviewCanvas => _previewCanvas;
 
+        [SerializeField] private Canvas _statusCanvas;
+        public Canvas StatusCanvas => _statusCanvas;
+
         [SerializeField] [RequireInterface(typeof(IHeroPreviewGraphic))]
         private Object _heroPreviewGraphic;
         public IHeroPreviewGraphic HeroPreviewGraphic => _heroPreviewGraphic as IHeroPreviewGraphic;

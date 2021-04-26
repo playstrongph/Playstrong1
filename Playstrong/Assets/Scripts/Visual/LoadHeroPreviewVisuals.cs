@@ -27,16 +27,22 @@ namespace Visual
         {
        
             _heroPreviewVisualReferences.HeroPreviewGraphic.SetHeroPreviewGraphic(heroAsset.HeroSprite);
-            
             _heroPreviewVisualReferences.HeroPreviewName.SetHeroPreviewName(heroAsset.Name);
+            
+            UpdateHeroPreviewAttributes();
+            
+        
+        }
+
+        public void UpdateHeroPreviewAttributes()
+        {
             _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttack(_heroAttributes.Attack.ToString());
             _heroPreviewVisualReferences.HeroPreviewHealth.SetHeroPreviewHealth(_heroAttributes.Health.ToString());
             _heroPreviewVisualReferences.HeroPreviewSpeed.SetHeroPreviewSpeed(_heroAttributes.Speed.ToString());
             _heroPreviewVisualReferences.HeroPreviewChance.SetHeroPreviewChance(_heroAttributes.Chance.ToString());
             
-        
         }
 
-        
+
     }
 }
