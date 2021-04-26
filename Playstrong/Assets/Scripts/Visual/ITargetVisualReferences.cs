@@ -6,8 +6,8 @@ namespace Visual
     public interface ITargetVisualReferences
     {
         Canvas TargetCanvas { get; }
-        Image TargetCrossHair { get; }
-        Image TargetTriangle { get; }
+        GameObject TargetCrossHair { get; }
+        GameObject TargetTriangle { get; }
         LineRenderer TargetLineR { get; }
     }
 }

@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetCanvas: {fileID: 814066801}
-  _targetCrossHair: {fileID: 1189452316}
-  _targetTriangle: {fileID: 1946955300}
+  _targetCrossHair: {fileID: 1189452314}
+  _targetTriangle: {fileID: 1946955298}
   _targetLineR: {fileID: 1467969162}
 --- !u!1 &814066797
 GameObject:
@@ -66,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &814066798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1189452315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1467969161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1946955299
 RectTransform:
   m_ObjectHideFlags: 0
