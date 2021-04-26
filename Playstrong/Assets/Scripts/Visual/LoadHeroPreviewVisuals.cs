@@ -23,7 +23,7 @@ namespace Visual
            
         }
 
-        public void LoadHeroPreviewVisualsFromAsset(IHeroAsset heroAsset, List<Transform> previewLocations)
+        public void LoadHeroPreviewVisualsFromAsset(IHeroAsset heroAsset)
         {
        
             _heroPreviewVisualReferences.HeroPreviewGraphic.SetHeroPreviewGraphic(heroAsset.HeroSprite);
