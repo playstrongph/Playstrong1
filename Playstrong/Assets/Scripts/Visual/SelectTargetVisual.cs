@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using Utilities;
 using Object = UnityEngine.Object;
 
@@ -54,8 +55,10 @@ namespace Visual
             var notNormalized = transform.position - transform.parent.position;
             var direction = notNormalized.normalized;
 
+            var y = _targetTriangle.GetComponent<Image>();
+
             float rotZ = Mathf.Atan2(notNormalized.y, notNormalized.x) * Mathf.Rad2Deg;
-            _targetLine.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
+            _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
         }
         
         private void EnableTargetVisuals()
