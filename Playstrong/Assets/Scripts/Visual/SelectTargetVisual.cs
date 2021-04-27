@@ -5,7 +5,7 @@ using Object = UnityEngine.Object;
 
 namespace Visual
 {
-    public class SelectTargetVisual : MonoBehaviour
+    public class SelectTargetVisual : MonoBehaviour, ISelectTargetVisual
     {
         [SerializeField] [RequireInterface(typeof(ITargetVisualReferences))]
         private Object _targetVisualReferences;
@@ -17,8 +17,7 @@ namespace Visual
         private LineRenderer _targetLine;
         private IDraggable _draggable;
 
-        private float _zDisplacement;
-        private Vector3 _pointerDisplacement;
+      
 
         private void Awake()
         {
@@ -28,64 +27,49 @@ namespace Visual
             _targetLine = TargetVisualReferences.TargetLineR;
             _draggable = GetComponent<IDraggable>();
             _draggable.DisableDraggable();
-            
-          
 
         }
 
-        private void OnMouseDrag()
+        private void OnMouseDown()
         {
             transform.localPosition = Vector3.zero;
-            SetTargetVisuals(true);
+            EnableTargetVisuals();
             _draggable.EnableDraggable();
             ShowLineAndTarget();
+            
         }
         
         private void OnMouseUp()
         {
             transform.localPosition = Vector3.zero;
-            SetTargetVisuals(false);
+            DisableTargetVisuals();
             _draggable.DisableDraggable();
         }
-        
-        
-        private void OnMouseOver()
-        {
-            SetTargetVisuals(false);
-        }
 
-        private void SetTargetVisuals(bool status)
+        public void ShowLineAndTarget()
         {
-            _targetCrossHair.SetActive(status);
-            _targetTriangle.SetActive(status);
-            _targetLine.gameObject.SetActive(status);
-        }
-
-        private void ShowLineAndTarget()
-        {
-            _zDisplacement = -Camera.main.transform.position.z + transform.position.z;
-            _pointerDisplacement = -transform.position + MouseInWorldCoords();
-            _draggable.SetDsiplacement(_zDisplacement, _pointerDisplacement);
+            _targetLine.SetPositions(new Vector3[]{ transform.parent.position, transform.position});
+            _targetTriangle.transform.position = transform.position;
             
             var notNormalized = transform.position - transform.parent.position;
             var direction = notNormalized.normalized;
-            
-            //enable draggable script for Update
-            
-            _targetLine.SetPositions(new Vector3[]{ transform.parent.position, transform.position});
-            
-            _targetTriangle.transform.position = transform.position;
-            
+
             float rotZ = Mathf.Atan2(notNormalized.y, notNormalized.x) * Mathf.Rad2Deg;
             _targetLine.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
         }
         
-        private Vector3 MouseInWorldCoords()
+        private void EnableTargetVisuals()
         {
-            var screenMousePos = Input.mousePosition;
-            //Debug.Log(screenMousePos);
-            screenMousePos.z = _zDisplacement;
-            return Camera.main.ScreenToWorldPoint(screenMousePos);
+            _targetCrossHair.SetActive(true);
+            _targetTriangle.SetActive(true);
+            _targetLine.gameObject.SetActive(true);
+        }
+        
+        private void DisableTargetVisuals()
+        {
+            _targetCrossHair.SetActive(false);
+            _targetTriangle.SetActive(false);
+            _targetLine.gameObject.SetActive(false);
         }
 
     }

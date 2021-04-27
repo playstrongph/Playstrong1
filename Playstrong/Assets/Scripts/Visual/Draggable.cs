@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Visual
 {
@@ -11,17 +12,27 @@ namespace Visual
         // distance from camera to mouse on Z axis 
         private float _zDisplacement;
 
+        private ISelectTargetVisual _selectTargetVisual;
 
-        public void SetDsiplacement(float zDisplacement, Vector3 pointerDisplacement)
+        private void Awake()
         {
-            _zDisplacement = zDisplacement;
-            _pointerDisplacement = pointerDisplacement;
+            _selectTargetVisual = GetComponent<ISelectTargetVisual>();
+            
+        }
+
+        private void OnEnable()
+        {
+            _zDisplacement = -Camera.main.transform.position.z + transform.position.z;
+            _pointerDisplacement = -transform.position + MouseInWorldCoords();
         }
 
         private void Update()
         {
-            var mousePos = MouseInWorldCoords();            
+            var mousePos = MouseInWorldCoords();    
+            
             transform.position = new Vector3(mousePos.x - _pointerDisplacement.x, mousePos.y - _pointerDisplacement.y, transform.position.z);
+            
+            _selectTargetVisual.ShowLineAndTarget();
         
         }
     
