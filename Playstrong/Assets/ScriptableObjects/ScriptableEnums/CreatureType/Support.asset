@@ -11,4 +11,4 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: Support
-  m_EditorClassIdentifier: Assembly-CSharp:ScriptableObjects:CreatureTypeEnumAsset
+  m_EditorClassIdentifier: Assembly-CSharp:ScriptableObjects.Enums:CreatureTypeEnumAsset

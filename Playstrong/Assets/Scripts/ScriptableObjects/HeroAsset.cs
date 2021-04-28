@@ -58,7 +58,7 @@ namespace ScriptableObjects
         
         [SerializeField] [RequireInterface(typeof(ICreatureTypeEnumAsset))]
         private ScriptableObject _creatureType;
-        public ICreatureTypeEnumAsset CreatureType => _rarity as ICreatureTypeEnumAsset;
+        public ICreatureTypeEnumAsset CreatureType => _creatureType as ICreatureTypeEnumAsset;
         
         [SerializeField] [RequireInterface(typeof(ITauntEnumAsset))]
         private ScriptableObject _taunt;
