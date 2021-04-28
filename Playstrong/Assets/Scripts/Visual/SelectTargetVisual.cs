@@ -60,12 +60,12 @@ namespace Visual
             _targetLine.enabled = false;
 
             var difference = notNormalized.magnitude - distanceFromHero;
-            difference = Mathf.RoundToInt(difference);
-            difference = Mathf.Clamp(difference, 0, 1);
+            var intDifference = Mathf.RoundToInt(difference);
+            intDifference = Mathf.Clamp(intDifference, 0, 1);
             
             
             
-            if (difference > 0)
+            if (intDifference > 0)
             {
                 _targetLine.enabled = true;
                 _targetTriangle.SetActive(true);
