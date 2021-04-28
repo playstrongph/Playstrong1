@@ -17,6 +17,7 @@ namespace Visual
         private GameObject _targetTriangle;
         private LineRenderer _targetLine;
         private IDraggable _draggable;
+        private ITargetHeroPreview _targetHeroPreview;
 
        
         private void OnEnable()
@@ -26,6 +27,7 @@ namespace Visual
             _targetTriangle = TargetVisualReferences.TargetTriangle;
             _targetLine = TargetVisualReferences.TargetLineR;
             _draggable = GetComponent<IDraggable>();
+            _targetHeroPreview = GetComponent<ITargetHeroPreview>();
             _draggable.DisableDraggable();
 
         }
@@ -57,7 +59,13 @@ namespace Visual
             _targetTriangle.SetActive(false);
             _targetLine.enabled = false;
 
-            if (notNormalized.magnitude > distanceFromHero)
+            var difference = notNormalized.magnitude - distanceFromHero;
+            difference = Mathf.RoundToInt(difference);
+            difference = Mathf.Clamp(difference, 0, 1);
+            
+            
+            
+            if (difference > 0)
             {
                 _targetLine.enabled = true;
                 _targetTriangle.SetActive(true);
@@ -69,7 +77,7 @@ namespace Visual
                 _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
                 
                 //Disable Hero Preview Here
-
+                _targetHeroPreview.HideHeroPreview();
             }
             
 

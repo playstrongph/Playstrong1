@@ -36,19 +36,17 @@ namespace Visual
 
       private void OnMouseUp()
       {
-         StopCoroutine(_showPreview);
-         _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(false);
+         HideHeroPreview();
       }
-
-      private void OnMouseExit()
-      {
-         StopCoroutine(_showPreview);
-         _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(false);
-      }
-
       private void ShowHeroPreview()
       {
          _showPreview = StartCoroutine(ShowHeroPreviewCoroutine());
+      }
+
+      public void HideHeroPreview()
+      {
+         StopCoroutine(_showPreview);
+         _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(false);  
       }
 
       private IEnumerator ShowHeroPreviewCoroutine()
