@@ -18,9 +18,8 @@ namespace Visual
         private LineRenderer _targetLine;
         private IDraggable _draggable;
 
-      
-
-        private void Awake()
+       
+        private void OnEnable()
         {
             _targetVisualCanvas = TargetVisualReferences.TargetCanvas;
             _targetCrossHair = TargetVisualReferences.TargetCrossHair;
@@ -49,16 +48,31 @@ namespace Visual
 
         public void ShowLineAndTarget()
         {
-            _targetLine.SetPositions(new Vector3[]{ transform.parent.position, transform.position});
-            _targetTriangle.transform.position = transform.position;
             
             var notNormalized = transform.position - transform.parent.position;
             var direction = notNormalized.normalized;
+            float distanceFromHero = (direction*50f).magnitude;
+            
+            //Hide Triangle and Line while target is close to HeroObject
+            _targetTriangle.SetActive(false);
+            _targetLine.enabled = false;
 
-            var y = _targetTriangle.GetComponent<Image>();
+            if (notNormalized.magnitude > distanceFromHero)
+            {
+                _targetLine.enabled = true;
+                _targetTriangle.SetActive(true);
+                
+                _targetLine.SetPositions(new Vector3[]{ transform.parent.position, transform.position - direction*20f});
+                _targetTriangle.transform.position = transform.position - 15f*direction;
+                
+                float rotZ = Mathf.Atan2(notNormalized.y, notNormalized.x) * Mathf.Rad2Deg;
+                _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
+                
+                //Disable Hero Preview Here
 
-            float rotZ = Mathf.Atan2(notNormalized.y, notNormalized.x) * Mathf.Rad2Deg;
-            _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
+            }
+            
+
         }
         
         private void EnableTargetVisuals()
