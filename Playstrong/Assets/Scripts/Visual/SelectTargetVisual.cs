@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -19,7 +20,17 @@ namespace Visual
         private IDraggable _draggable;
         private ITargetHeroPreview _targetHeroPreview;
 
-       
+        private delegate void DisplayAction(Vector3 x, Vector3 y);
+
+        private List<DisplayAction> _displayActions = new List<DisplayAction>();
+
+        private void Start()
+        {   
+             _displayActions.Add(NoAction);
+            _displayActions.Add(DisplayLineAndTriangle);
+        }
+
+
         private void OnEnable()
         {
             _targetVisualCanvas = TargetVisualReferences.TargetCanvas;
@@ -29,7 +40,6 @@ namespace Visual
             _draggable = GetComponent<IDraggable>();
             _targetHeroPreview = GetComponent<ITargetHeroPreview>();
             _draggable.DisableDraggable();
-
         }
 
         private void OnMouseDown()
@@ -53,6 +63,7 @@ namespace Visual
             
             var notNormalized = transform.position - transform.parent.position;
             var direction = notNormalized.normalized;
+            
             float distanceFromHero = (direction*50f).magnitude;
             
             //Hide Triangle and Line while target is close to HeroObject
@@ -61,28 +72,30 @@ namespace Visual
 
             var difference = notNormalized.magnitude - distanceFromHero;
             var intDifference = Mathf.RoundToInt(difference);
-            intDifference = Mathf.Clamp(intDifference, 0, 1);
-            
-            
-            
-            if (intDifference > 0)
-            {
-                _targetLine.enabled = true;
-                _targetTriangle.SetActive(true);
-                
-                _targetLine.SetPositions(new Vector3[]{ transform.parent.position, transform.position - direction*20f});
-                _targetTriangle.transform.position = transform.position - 15f*direction;
-                
-                float rotZ = Mathf.Atan2(notNormalized.y, notNormalized.x) * Mathf.Rad2Deg;
-                _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
-                
-                //Disable Hero Preview Here
-                _targetHeroPreview.HideHeroPreview();
-            }
-            
+            var index = Mathf.Clamp(intDifference, 0, 1);
+
+
+            _displayActions[index](notNormalized, direction);
 
         }
-        
+
+        private void DisplayLineAndTriangle(Vector3 notNormalized, Vector3 direction)
+        {
+            _targetLine.enabled = true;
+            _targetTriangle.SetActive(true);
+                
+            _targetLine.SetPositions(new Vector3[]{ transform.parent.position, transform.position - direction*20f});
+            _targetTriangle.transform.position = transform.position - 15f*direction;
+                
+            float rotZ = Mathf.Atan2(notNormalized.y, notNormalized.x) * Mathf.Rad2Deg;
+            _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
+                
+            //Disable Hero Preview Here
+            _targetHeroPreview.HideHeroPreview();
+        }
+
+       
+
         private void EnableTargetVisuals()
         {
             _targetCrossHair.SetActive(true);
@@ -96,6 +109,9 @@ namespace Visual
             _targetTriangle.SetActive(false);
             _targetLine.gameObject.SetActive(false);
         }
+
+        private void NoAction(Vector3 notNormalized, Vector3 direction){}
+
 
     }
     
