@@ -8,6 +8,6 @@ namespace References
     {
         ISkillLogicReferences SkillLogicReferences { get; }
         ISkillVisualReferences SkillVisualReferences { get; }
-        ISkillPreviewVisual HeroPreviewVisual { get; }
+        ISkillPreviewVisual SkillPreviewVisual { get; }
     }
 }

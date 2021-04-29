@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections;
 using Interfaces;
+using References;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
 
 namespace Visual
 {
-   public class TargetHeroPreview : MonoBehaviour, ITargetPreview
+   public class TargetSkillPreview : MonoBehaviour, ITargetPreview
    {
       [SerializeField]
-      [RequireInterface(typeof(IHeroObjectReferences))]
-      private Object _heroObjectReferences;
-      public IHeroObjectReferences HeroObjectReferences => _heroObjectReferences as IHeroObjectReferences;
+      [RequireInterface(typeof(ISkillObjectReferences))]
+      private Object _skillObjectReferences;
+      public ISkillObjectReferences SkillObjectReferences => _skillObjectReferences as ISkillObjectReferences;
 
       //Variables initialized at Awake or Start
-      private IHeroPreviewVisual _heroPreviewVisual;
+      private ISkillPreviewVisual _skillPreviewVisual;
       private Coroutine _showPreview;
       private float _displayDelay;
      
 
       private void Awake()
       {
-         _heroPreviewVisual = HeroObjectReferences.HeroPreviewVisual;
+         _skillPreviewVisual = SkillObjectReferences.SkillPreviewVisual;
          _displayDelay = 0.5f;
          
          //prevents null reference error for _showPreview
@@ -31,30 +32,29 @@ namespace Visual
 
       private void OnMouseDown()
       {
-         ShowHeroPreview();
+         ShowPreview();
       }
 
       private void OnMouseUp()
       {
          HidePreview();
       }
-      private void ShowHeroPreview()
+      private void ShowPreview()
       {
-         _showPreview = StartCoroutine(ShowHeroPreviewCoroutine());
+         _showPreview = StartCoroutine(ShowPreviewCoroutine());
       }
 
       public void HidePreview()
       {
          StopCoroutine(_showPreview);
-         _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(false);  
+         _skillPreviewVisual.PreviewCanvas.gameObject.SetActive(false);  
       }
 
-      private IEnumerator ShowHeroPreviewCoroutine()
+      private IEnumerator ShowPreviewCoroutine()
       {
          yield return new WaitForSeconds(_displayDelay);
-         _heroPreviewVisual.LoadHeroPreviewVisuals.UpdateHeroPreviewAttributes();
-         _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(true);
-         yield return null;
+        _skillPreviewVisual.PreviewCanvas.gameObject.SetActive(true);
+        yield return null;
 
       }
 

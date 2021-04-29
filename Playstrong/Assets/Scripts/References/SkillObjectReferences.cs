@@ -22,7 +22,7 @@ namespace References
         
         [SerializeField] [RequireInterface(typeof(ISkillPreviewVisual))]
         private Object _skillPreviewVisual;
-        public ISkillPreviewVisual HeroPreviewVisual => _skillPreviewVisual as ISkillPreviewVisual;
+        public ISkillPreviewVisual SkillPreviewVisual => _skillPreviewVisual as ISkillPreviewVisual;
         
        
         

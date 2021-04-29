@@ -19,7 +19,7 @@ namespace Visual
         private GameObject _targetTriangle;
         private LineRenderer _targetLine;
         private IDraggable _draggable;
-        private ITargetHeroPreview _targetHeroPreview;
+        private ITargetPreview _targetHeroPreview;
 
         private delegate void DisplayAction(Vector3 x, Vector3 y);
 
@@ -39,7 +39,7 @@ namespace Visual
             _targetTriangle = TargetVisualReferences.TargetTriangle;
             _targetLine = TargetVisualReferences.TargetLineR;
             _draggable = GetComponent<IDraggable>();
-            _targetHeroPreview = GetComponent<ITargetHeroPreview>();
+            _targetHeroPreview = GetComponent<ITargetPreview>();
             _draggable.DisableDraggable();
         }
 
@@ -92,7 +92,7 @@ namespace Visual
             _targetTriangle.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
                 
             //Disable Hero Preview Here
-            _targetHeroPreview.HideHeroPreview();
+            _targetHeroPreview.HidePreview();
         }
 
        
