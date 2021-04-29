@@ -574,24 +574,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 604770575}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &604770577 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8006510684059166541, guid: b6d7288e9ef47884a8263e4025abd6b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 604770575}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &604770578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604770577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f72f4ea077bc6549a09c1cd8df12964, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &609915805
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +617,8 @@ MonoBehaviour:
     type: 2}
   _allyHeroesBoardLocation: {fileID: 7085916704793985036}
   _enemyHeroesBoardLocation: {fileID: 1012606843374099078}
+  _allySkillsBoardLocation: {fileID: 1157545568}
+  _enemySkillsBoardLocation: {fileID: 1000815495}
   _heroPreviewLocations:
   - {fileID: 689565207}
   - {fileID: 689565207}

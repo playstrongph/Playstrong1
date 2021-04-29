@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using Utilities;
@@ -10,7 +11,6 @@ namespace Logic
         [SerializeField] private List<GameObject> _heroList = new List<GameObject>();
         public List<GameObject> HeroList => _heroList;
 
-
-
+        
     }
 }

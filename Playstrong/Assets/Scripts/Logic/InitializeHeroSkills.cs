@@ -18,13 +18,14 @@ namespace Logic
             _index = 0;
         }
 
-        public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, GameObject skillObjectPrefab, Transform boardLocation, ICoroutineTree tree)
+        public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, GameObject skillObjectPrefab,
+            Transform boardLocation, ICoroutineTree tree)
         {
             foreach (var heroAssetSO in teamHeroesAsset.TeamHeroes())
             {
                 var skillPanelObject = Instantiate(skillPanelPrefab, boardLocation);
                 skillPanelObject.transform.SetParent(boardLocation);
-                skillObjectPrefab.transform.SetAsFirstSibling();
+                skillPanelObject.transform.SetAsFirstSibling();
                 skillPanelObject.name = heroAssetSO.name + "Skills";
                 _heroesList.HeroSkillsList.HeroList.Add(skillPanelObject);
                 
@@ -34,7 +35,7 @@ namespace Logic
                 foreach (var heroSkill in heroAsset.GetHeroSkills())
                 {
                     var skillObject = Instantiate(skillObjectPrefab, skillPanelObject.transform);
-                    skillObject.transform.SetParent(skillObjectPrefab.transform);
+                    skillObject.transform.SetParent(skillPanelObject.transform);
                     skillObject.transform.SetAsFirstSibling();
                     skillObject.name = heroSkill.name;
                     skillPanelObject.GetComponent<ISkillsList>().SkillList.Add(skillObject);
@@ -49,11 +50,6 @@ namespace Logic
                     skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skill);
                     skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skill);
                     skillLogicReferences.LoadSkillAttributes.LoadSkillAttributesFromAsset(skill);
-
-
-
-
-
 
                 }
 
