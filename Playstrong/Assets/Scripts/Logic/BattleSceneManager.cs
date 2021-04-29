@@ -74,9 +74,19 @@ namespace Logic
             yield return null;
             LogicTree.EndSequence();
         }
-        
-        
 
-        
+        private IEnumerator InitSkills()
+        {
+            
+            
+            yield return null;
+            
+        }
+
+
+
+
+
+
     }
 }

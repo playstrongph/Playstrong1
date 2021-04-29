@@ -16,6 +16,11 @@ namespace GameSettings
 
         [SerializeField] private GameObject _skillObjectPrefab;
         public GameObject SkillObjectPrefab => _skillObjectPrefab;
+
+        [SerializeField] private GameObject _skillPanelPrefab;
+        public GameObject SkillPanelPrefab => _skillPanelPrefab;
+
+
         [SerializeField]
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _playerTeamHeroesAsset;
         public ITeamHeroesAsset PlayerTeamHeroesAsset => _playerTeamHeroesAsset as ITeamHeroesAsset;

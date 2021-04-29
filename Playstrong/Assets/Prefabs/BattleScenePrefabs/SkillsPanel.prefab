@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4757393120680548152}
   - component: {fileID: 4757393120680548151}
+  - component: {fileID: -8521523275943503991}
   m_Layer: 0
   m_Name: SkillsPanel
   m_TagString: Untagged
@@ -60,3 +61,16 @@ MonoBehaviour:
   m_Spacing: {x: -85.87, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &-8521523275943503991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757393120680548153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7066523c81cb154b811a6c26519a663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillList: []

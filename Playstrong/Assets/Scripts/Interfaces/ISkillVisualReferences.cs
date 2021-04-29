@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Visual;
 
 namespace Interfaces
 {
@@ -16,5 +17,7 @@ namespace Interfaces
         Image SkillGraphic { get; }
 
         TextMeshProUGUI CooldownText { get; }
+
+        ILoadSkillVisuals LoadSkillVisuals { get; }
     }
 }

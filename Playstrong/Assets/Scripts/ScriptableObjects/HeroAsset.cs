@@ -69,7 +69,14 @@ namespace ScriptableObjects
         [RequireInterface(typeof(IHeroSkillAsset))]
         private List<ScriptableObject> _heroSkills = new List<ScriptableObject>();
         public IHeroSkillAsset HeroSkills => _heroSkills as IHeroSkillAsset;
-        
+
+        private List<ScriptableObject> _getHeroSkills;
+        public List<ScriptableObject> GetHeroSkills()
+        {
+            _getHeroSkills = _heroSkills;
+            return _getHeroSkills;
+        }
+
 
 
 

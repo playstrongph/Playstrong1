@@ -14,8 +14,12 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(IHeroesList))]
         private Object _deadHeroes;
         public IHeroesList DeadHeroes => _deadHeroes as IHeroesList;
-        
-        
+
+        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        private Object _heroSkillsList;
+        public IHeroesList HeroSkillsList => _heroSkillsList as IHeroesList;
+
+
 
 
 

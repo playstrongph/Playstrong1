@@ -29,8 +29,12 @@ namespace Visual
         [SerializeField] private TextMeshProUGUI _cooldownText;
         public TextMeshProUGUI CooldownText => _cooldownText;
 
+        private ILoadSkillVisuals _loadSkillVisuals;
+        public ILoadSkillVisuals LoadSkillVisuals => _loadSkillVisuals;
 
-
-
+        private void Awake()
+        {
+            _loadSkillVisuals = GetComponent<ILoadSkillVisuals>();
+        }
     }
 }
