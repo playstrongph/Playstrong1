@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 
@@ -9,7 +10,34 @@ namespace ScriptableObjects
     public class HeroSkillAsset : ScriptableObject, IHeroSkillAsset
     {
 
-       
+        [Header("Skill Info")] 
+        [SerializeField]
+        private string _name;
+
+        public String Name => _name;
+
+        [TextArea(2, 3)] 
+        [SerializeField] 
+        private string _description;
+        public String Description => _description;
+
+        [Header("Skill Graphic")] 
+        [SerializeField]
+        private Sprite _skillIcon;
+
+        public Sprite SkillIcon => _skillIcon;
+
+        [Header("Skill Cooldown")]
+        [SerializeField]
+        private int _cooldown;
+
+        public int Cooldown => _cooldown;
+        
+        //TODO
+        //Skill Logic Asset
+        //Other Skill Attributes: SKillType(Active), SkillTarget(Any), DragType(SkillAttack)
+        
+
 
 
     }

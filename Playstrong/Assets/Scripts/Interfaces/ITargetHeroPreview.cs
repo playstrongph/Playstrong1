@@ -1,4 +1,4 @@
-﻿namespace Visual
+﻿namespace Interfaces
 {
     public interface ITargetHeroPreview
     {

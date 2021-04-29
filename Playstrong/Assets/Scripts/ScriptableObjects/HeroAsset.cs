@@ -12,7 +12,7 @@ namespace ScriptableObjects
 
         
         
-        [Header("Hero Name")] 
+        [Header("Hero Info")] 
         [SerializeField]
         private string _name;
         public string Name => _name;

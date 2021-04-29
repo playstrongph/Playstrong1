@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Visual
+﻿namespace Interfaces
 {
     public interface IDraggable
     {

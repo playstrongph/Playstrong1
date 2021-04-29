@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using Interfaces;
+using Logic;
 using Visual;
 
 namespace References

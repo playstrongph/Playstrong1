@@ -1,4 +1,4 @@
-﻿namespace Logic
+﻿namespace Interfaces
 {
     public interface ISkillAttributes
     {

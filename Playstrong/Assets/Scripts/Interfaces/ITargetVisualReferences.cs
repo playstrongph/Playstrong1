@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-namespace Visual
+namespace Interfaces
 {
     public interface ITargetVisualReferences
     {

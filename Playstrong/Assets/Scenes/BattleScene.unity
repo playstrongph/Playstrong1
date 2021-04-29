@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 104836354}
+    - target: {fileID: 295050947787154717, guid: ae504ec535576444091b96fb348269ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 432796401160558577, guid: ae504ec535576444091b96fb348269ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -420,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0862b0bf83a009945ac07530f6114c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillAttributes: {fileID: 0}
 --- !u!114 &283624685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2270250553509525591}
   - component: {fileID: 2270250553509525585}
+  - component: {fileID: 2270250553509525586}
   m_Layer: 0
   m_Name: SkillVisual
   m_TagString: Untagged
@@ -2371,6 +2378,18 @@ MonoBehaviour:
   _skillGlow: {fileID: 1893681693}
   _skillGraphic: {fileID: 2270250554727212598}
   _cooldownText: {fileID: 2270250554897434631}
+--- !u!114 &2270250553509525586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270250553509525584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43038efcd5c4cee42823cfbf04b9e314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2270250553509525591
 RectTransform:
   m_ObjectHideFlags: 0
