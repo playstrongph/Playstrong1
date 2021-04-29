@@ -39,8 +39,17 @@ namespace GameSettings
 
         public Transform EnemyHeroesBoardLocation => _enemyHeroesBoardLocation;
 
+        [SerializeField] private Transform _allySkillsBoardLocaton;
+        public Transform AllySkillsBoardLocation => _allyHeroesBoardLocation;
+
+        [SerializeField] private Transform _enemySkillsBoardLocation;
+        public Transform EnemySkillsBoardLocation => _enemySkillsBoardLocation;
+        
+
         [SerializeField] private List<Transform> _heroPreviewLocations;
         public List<Transform> HeroPreviewLocations => _heroPreviewLocations;
+        
+       
         
        
 

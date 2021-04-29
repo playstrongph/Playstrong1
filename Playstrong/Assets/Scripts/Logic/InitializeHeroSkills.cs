@@ -18,7 +18,8 @@ namespace Logic
             _index = 0;
         }
 
-        public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, GameObject skillObjectPrefab, Transform boardLocation, ICoroutineTree tree)
+        public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, 
+            GameObject skillObjectPrefab, Transform boardLocation, ICoroutineTree tree)
         {
             foreach (var heroAssetSO in teamHeroesAsset.TeamHeroes())
             {

@@ -18,12 +18,16 @@ namespace Logic
         private ScriptableObject _playerTypeEnum;
         public IPlayerTypeEnumAsset PlayerTypeEnum => _playerTypeEnum as IPlayerTypeEnumAsset;
 
-        [SerializeField] private IInitializePlayerHeroes _initializePlayerHeroes;
+        private IInitializePlayerHeroes _initializePlayerHeroes;
         public IInitializePlayerHeroes InitializePlayerHeroes => _initializePlayerHeroes;
+
+        private IInitializeHeroSkills _initializeHeroSkills;
+        public IInitializeHeroSkills InitializeHeroSkills => _initializeHeroSkills;
 
         private void Awake()
         {
             _initializePlayerHeroes = GetComponent<IInitializePlayerHeroes>();
+            _initializeHeroSkills = GetComponent<IInitializeHeroSkills>();
         }
     }
 }

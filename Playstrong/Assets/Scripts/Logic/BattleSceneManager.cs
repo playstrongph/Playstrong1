@@ -46,6 +46,7 @@ namespace Logic
         {
             LogicTree.AddCurrent(InitPlayers());
             LogicTree.AddCurrent(InitHeroes());
+            LogicTree.AddCurrent(InitSkills());
             
             yield return null;
             LogicTree.EndSequence();
@@ -61,8 +62,7 @@ namespace Logic
         {
             var heroPrefab = BattleSceneSettings.HeroObjectPrefab;
             var heroPreviewLocations = BattleSceneSettings.HeroPreviewLocations;
-           
-
+            
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var mainTeamTransform = BattleSceneSettings.AllyHeroesBoardLocation;
             LogicTree.AddCurrent(MainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform, heroPreviewLocations, LogicTree));
@@ -77,9 +77,16 @@ namespace Logic
 
         private IEnumerator InitSkills()
         {
+            var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
+            var skillPanelPrefab = BattleSceneSettings.SkillPanelPrefab;
+            var skillObjectPrefab = BattleSceneSettings.SkillObjectPrefab;
+            var mainBoardLocation = BattleSceneSettings.AllySkillsBoardLocation;
             
+            LogicTree.AddCurrent(MainPlayer.InitializeHeroSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, LogicTree));
+           
             
             yield return null;
+            LogicTree.EndSequence();
             
         }
 
