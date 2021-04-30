@@ -24,10 +24,14 @@ namespace Logic
         private IInitializeHeroSkills _initializeHeroSkills;
         public IInitializeHeroSkills InitializeHeroSkills => _initializeHeroSkills;
 
+        private ICreateHeroSkillReferences _createHeroSkillReferences;
+        public ICreateHeroSkillReferences CreateHeroSkillReferences => _createHeroSkillReferences;
+
         private void Awake()
         {
             _initializePlayerHeroes = GetComponent<IInitializePlayerHeroes>();
             _initializeHeroSkills = GetComponent<IInitializeHeroSkills>();
+            _createHeroSkillReferences = GetComponent<ICreateHeroSkillReferences>();
         }
     }
 }

@@ -16,6 +16,11 @@ namespace References
         private Object _heroLogicReferences;
         public IHeroLogicReferences HeroLogicReferences => _heroLogicReferences as IHeroLogicReferences;
         
+        [SerializeField] [RequireInterface(typeof(IHeroSkillsReference))]
+        private Object _skillsReference;
+
+        public IHeroSkillsReference SkillsReference => _skillsReference as IHeroSkillsReference;
+        
         [SerializeField] [RequireInterface(typeof(IHeroVisualReferences))]
         private Object _heroVisualReferences;
         public IHeroVisualReferences HeroVisualReferences => _heroVisualReferences as IHeroVisualReferences;
@@ -27,11 +32,13 @@ namespace References
         [SerializeField] [RequireInterface(typeof(IHeroPreviewVisual))]
         private Object _heroPreviewVisual;
         public IHeroPreviewVisual HeroPreviewVisual => _heroPreviewVisual as IHeroPreviewVisual;
+
         
-       
-        
-        
-        
-        
+
+
+
+
+
+
     }
 }

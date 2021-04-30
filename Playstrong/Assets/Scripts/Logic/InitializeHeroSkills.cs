@@ -25,7 +25,7 @@ namespace Logic
             {
                 var skillPanelObject = Instantiate(skillPanelPrefab, boardLocation);
                 skillPanelObject.transform.SetParent(boardLocation);
-                skillPanelObject.transform.SetAsFirstSibling();
+                skillPanelObject.transform.SetAsLastSibling();
                 skillPanelObject.name = heroAssetSO.name + "Skills";
                 _heroesList.HeroSkillsList.HeroList.Add(skillPanelObject);
                 
@@ -36,7 +36,7 @@ namespace Logic
                 {
                     var skillObject = Instantiate(skillObjectPrefab, skillPanelObject.transform);
                     skillObject.transform.SetParent(skillPanelObject.transform);
-                    skillObject.transform.SetAsFirstSibling();
+                    skillObject.transform.SetAsLastSibling();
                     skillObject.name = heroSkill.name;
                     skillPanelObject.GetComponent<ISkillsList>().SkillList.Add(skillObject);
 

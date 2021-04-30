@@ -83,7 +83,7 @@ namespace Logic
             var mainBoardLocation = BattleSceneSettings.AllySkillsBoardLocation;
             
             LogicTree.AddCurrent(MainPlayer.InitializeHeroSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, LogicTree));
-           
+            LogicTree.AddCurrent(MainPlayer.CreateHeroSkillReferences.CreateReferences(LogicTree));
             
             yield return null;
             LogicTree.EndSequence();

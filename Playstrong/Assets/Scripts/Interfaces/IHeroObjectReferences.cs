@@ -11,6 +11,8 @@ namespace Interfaces
 
         IHeroLogicReferences HeroLogicReferences { get; }
 
+        IHeroSkillsReference SkillsReference { get; }
+
 
     }
 }

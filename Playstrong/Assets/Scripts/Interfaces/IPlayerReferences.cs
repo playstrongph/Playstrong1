@@ -9,5 +9,7 @@ namespace Interfaces
         IInitializePlayerHeroes InitializePlayerHeroes { get; }
 
         IInitializeHeroSkills InitializeHeroSkills { get; }
+
+        ICreateHeroSkillReferences CreateHeroSkillReferences { get; }
     }
 }

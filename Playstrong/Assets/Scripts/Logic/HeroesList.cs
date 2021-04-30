@@ -10,6 +10,11 @@ namespace Logic
         [SerializeField] private List<GameObject> _heroList = new List<GameObject>();
         public List<GameObject> HeroList => _heroList;
 
+        public List<GameObject> GetList()
+        {
+            return HeroList;
+        }
+
 
 
     }

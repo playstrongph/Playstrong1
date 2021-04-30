@@ -24,7 +24,7 @@ namespace Interfaces
                 var hero = Instantiate(heroObjectPrefab, boardLocation);
                     
                 hero.transform.SetParent(boardLocation);
-                hero.transform.SetAsFirstSibling();
+                hero.transform.SetAsLastSibling();
                 hero.name = heroAsset.name;
                 _heroesList.LivingHeroes.HeroList.Add(hero);
                 
