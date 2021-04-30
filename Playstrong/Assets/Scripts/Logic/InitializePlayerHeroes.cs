@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
-namespace Interfaces
+namespace Logic
 {
     public class InitializePlayerHeroes : MonoBehaviour, IInitializePlayerHeroes
     {
@@ -37,11 +38,8 @@ namespace Interfaces
 
                 hero.GetComponent<IHeroObjectReferences>().HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].localPosition;
                 _heroIndex++;
-
-
-
-
-
+                
+                
             }
 
             yield return null;

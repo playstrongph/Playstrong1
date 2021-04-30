@@ -11,7 +11,9 @@ namespace GameSettings
         GameObject SkillObjectPrefab { get; }
 
         GameObject SkillPanelPrefab { get; }
-        
+
+        GameObject HeroPortraitPrefab { get; }
+
         ITeamHeroesAsset PlayerTeamHeroesAsset { get; }
         ITeamHeroesAsset EnemyTeamHeroesAsset { get; }
 

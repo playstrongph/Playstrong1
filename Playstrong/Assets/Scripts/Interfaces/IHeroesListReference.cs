@@ -9,6 +9,8 @@ namespace Interfaces
 
         IHeroesList HeroSkillsList { get; }
 
+        IHeroPortraitList HeroPortraitList { get; }
+
 
     }
 }

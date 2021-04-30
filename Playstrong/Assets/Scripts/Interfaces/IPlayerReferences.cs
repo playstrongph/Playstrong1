@@ -11,5 +11,7 @@ namespace Interfaces
         IInitializeHeroSkills InitializeHeroSkills { get; }
 
         ICreateHeroSkillReferences CreateHeroSkillReferences { get; }
+
+        IInitializeHeroPortraits InitializeHeroPortraits { get; }
     }
 }

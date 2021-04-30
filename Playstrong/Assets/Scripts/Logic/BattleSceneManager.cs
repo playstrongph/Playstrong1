@@ -63,14 +63,21 @@ namespace Logic
             var heroPrefab = BattleSceneSettings.HeroObjectPrefab;
             var heroPreviewLocations = BattleSceneSettings.HeroPreviewLocations;
             
+            var heroPortraitPrefab = BattleSceneSettings.HeroPortraitPrefab;
+            var heroPortraitLocation = BattleSceneSettings.MainHeroPortraitLocation;
+            
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var mainTeamTransform = BattleSceneSettings.AllyHeroesBoardLocation;
+            
             LogicTree.AddCurrent(MainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform, heroPreviewLocations, LogicTree));
-
+            LogicTree.AddCurrent(MainPlayer.InitializeHeroPortraits.InitializePortraits(mainTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
+            
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
             var enemyTeamTransform = BattleSceneSettings.EnemyHeroesBoardLocation;
+            
             LogicTree.AddCurrent(EnemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform, heroPreviewLocations, LogicTree));
-
+            
+            
             yield return null;
             LogicTree.EndSequence();
         }

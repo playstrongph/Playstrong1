@@ -7,10 +7,13 @@ namespace GameSettings
 {
     public class BattleSceneSettings : MonoBehaviour, IBattleSceneSettings
     {
+        [Header("Script Components")]
         [SerializeField] [RequireInterface(typeof(IBranchLogic))]
         private Object _branchLogic;
         public IBranchLogic BranchLogic => _branchLogic as IBranchLogic;
         
+        
+        [Header("Prefabs")]
         [SerializeField] private GameObject _heroObjectPrefab;
         public GameObject HeroObjectPrefab => _heroObjectPrefab;
 
@@ -20,7 +23,10 @@ namespace GameSettings
         [SerializeField] private GameObject _skillPanelPrefab;
         public GameObject SkillPanelPrefab => _skillPanelPrefab;
 
+        [SerializeField] private GameObject _heroPortraitPrefab;
+        public GameObject HeroPortraitPrefab => _heroObjectPrefab;
 
+        [Header("SO Assets")]
         [SerializeField]
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _playerTeamHeroesAsset;
         public ITeamHeroesAsset PlayerTeamHeroesAsset => _playerTeamHeroesAsset as ITeamHeroesAsset;
@@ -29,6 +35,7 @@ namespace GameSettings
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
         public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
         
+        [Header("Transforms")]
         [SerializeField]
         private Transform _allyHeroesBoardLocation;
 
