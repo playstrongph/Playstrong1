@@ -8,5 +8,7 @@ namespace Logic
         List<GameObject> GetList();
 
         List<GameObject> HeroList { get; }
+
+        Transform GetTransform();
     }
 }

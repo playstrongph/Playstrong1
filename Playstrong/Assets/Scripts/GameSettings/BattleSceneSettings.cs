@@ -24,7 +24,7 @@ namespace GameSettings
         public GameObject SkillPanelPrefab => _skillPanelPrefab;
 
         [SerializeField] private GameObject _heroPortraitPrefab;
-        public GameObject HeroPortraitPrefab => _heroObjectPrefab;
+        public GameObject HeroPortraitPrefab => _heroPortraitPrefab;
 
         [Header("SO Assets")]
         [SerializeField]

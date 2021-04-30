@@ -507,7 +507,7 @@ MonoBehaviour:
     type: 2}
   _allyHeroesBoardLocation: {fileID: 7085916704793985036}
   _enemyHeroesBoardLocation: {fileID: 1012606843374099078}
-  _mainHeroPortraitLocation: {fileID: 1461301122}
+  _mainHeroPortraitLocation: {fileID: 2102637765}
   _previewPortraitLocation: {fileID: 1461301122}
   _allySkillsBoardLocaton: {fileID: 1157545568}
   _enemySkillsBoardLocation: {fileID: 1000815495}
@@ -842,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroList: []
+  _heroPortraitTransform: {fileID: 0}
 --- !u!1 &877077465
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroList: []
+  _heroPortraitTransform: {fileID: 0}
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0

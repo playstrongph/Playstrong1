@@ -9,9 +9,22 @@ namespace Logic
     
         public List<GameObject> HeroList => _heroList;
 
+        [SerializeField] private Transform _heroPortraitTransform;
+        public Transform HeroPortraitTransform => _heroPortraitTransform;
+        
+
         public List<GameObject> GetList()
         {
             return HeroList;
         }
+
+        public Transform GetTransform()
+        {
+            _heroPortraitTransform = this.transform;
+            return _heroPortraitTransform;
+
+        }
+
+
     }
 }
