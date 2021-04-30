@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1edaf1aa2b49ac747839bd797e6d4b11
+guid: c736082db2ef3944ca08de065082e848
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5345027291958428750
-    second: HeroPortraitMask_0
+      213: -565268278295169304
+    second: HeroPanelFrame_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -126,22 +126,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeroPortraitMask_0
+      name: HeroPanelFrame_0
       rect:
         serializedVersion: 2
-        x: 428
-        y: 190
-        width: 928
-        height: 1062
+        x: 399
+        y: 70
+        width: 1093
+        height: 1277
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4443fbb00a5d2a40800000000000000
-      internalID: 5345027291958428750
+      spriteID: 8e67b6dee73c728f0800000000000000
+      internalID: -565268278295169304
       vertices: []
       indices: 
       edges: []

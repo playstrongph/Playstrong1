@@ -18,6 +18,10 @@ namespace GameSettings
         Transform AllyHeroesBoardLocation { get; }
         Transform EnemyHeroesBoardLocation { get; }
 
+        Transform MainHeroPortraitLocation { get; }
+
+        Transform PreviewPortraitLocation { get; }
+
         Transform AllySkillsBoardLocation { get; }
 
         Transform EnemySkillsBoardLocation { get; }
