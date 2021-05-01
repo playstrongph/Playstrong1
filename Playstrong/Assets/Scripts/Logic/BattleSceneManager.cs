@@ -86,12 +86,22 @@ namespace Logic
         private IEnumerator InitSkills()
         {
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
+            var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
+            
+            var mainBoardLocation = BattleSceneSettings.AllySkillsBoardLocation;
+            var enemyBoardLocation = BattleSceneSettings.EnemySkillsBoardLocation;
+            
+            
             var skillPanelPrefab = BattleSceneSettings.SkillPanelPrefab;
             var skillObjectPrefab = BattleSceneSettings.SkillObjectPrefab;
-            var mainBoardLocation = BattleSceneSettings.AllySkillsBoardLocation;
+            
+         
             
             LogicTree.AddCurrent(MainPlayer.InitializeHeroSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, LogicTree));
             LogicTree.AddCurrent(MainPlayer.CreateHeroSkillReferences.CreateReferences(LogicTree));
+            
+            LogicTree.AddCurrent(EnemyPlayer.InitializeHeroSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, LogicTree));
+            LogicTree.AddCurrent(EnemyPlayer.CreateHeroSkillReferences.CreateReferences(LogicTree));
             
             yield return null;
             LogicTree.EndSequence();

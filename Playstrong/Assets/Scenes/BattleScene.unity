@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 907802310}
   - component: {fileID: 907802311}
   m_Layer: 0
-  m_Name: HeroPreviewPortrait
+  m_Name: HeroPortraits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,7 +1005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87, y: 149}
+  m_AnchoredPosition: {x: 87, y: -144}
   m_SizeDelta: {x: 161, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000815496
