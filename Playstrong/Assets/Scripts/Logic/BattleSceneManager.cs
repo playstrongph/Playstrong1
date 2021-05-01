@@ -76,6 +76,7 @@ namespace Logic
             var enemyTeamTransform = BattleSceneSettings.EnemyHeroesBoardLocation;
             
             LogicTree.AddCurrent(EnemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform, heroPreviewLocations, LogicTree));
+            LogicTree.AddCurrent(EnemyPlayer.InitializeHeroPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
             
             
             yield return null;

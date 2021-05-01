@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Visual;
 
 namespace Interfaces
 {
@@ -21,6 +22,8 @@ namespace Interfaces
         ISetEnergyVisual EnergyVisual { get; }
 
         ILoadHeroVisuals LoadHeroVisuals { get; }
+
+        IHeroPortraitReferences HeroPortrait { get; }
 
 
 

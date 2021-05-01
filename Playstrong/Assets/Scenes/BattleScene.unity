@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 872470242}
   - component: {fileID: 872470243}
   m_Layer: 0
-  m_Name: HeroPortrait
+  m_Name: HeroPortraits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
