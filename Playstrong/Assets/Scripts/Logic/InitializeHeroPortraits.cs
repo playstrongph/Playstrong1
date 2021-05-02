@@ -11,13 +11,18 @@ namespace Logic
     {
 
         private IHeroPortraitList _heroPortraitList;
-        private Transform _heroesLisTransform;
+        
+        private Transform _heroesListTransform;
+       
 
         private void Awake()
         {
             var heroesListReferences = GetComponent<IHeroesListReference>();
+            
             _heroPortraitList = heroesListReferences.HeroPortraitList;
-            _heroesLisTransform = _heroPortraitList.GetTransform();
+            
+            _heroesListTransform = _heroPortraitList.GetTransform();
+            
         }
 
         public IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation, ICoroutineTree tree)
@@ -27,15 +32,14 @@ namespace Logic
             {
                 var heroPortrait = Instantiate(heroPortraitPrefab, boardLocation);
                
-                heroPortrait.transform.SetParent(_heroesLisTransform);
+                heroPortrait.transform.SetParent(_heroesListTransform);
                 heroPortrait.transform.SetAsLastSibling();
                 heroPortrait.name = heroAsset.name;
                 _heroPortraitList.HeroList.Add(heroPortrait);
 
                 var iHeroAsset = heroAsset as IHeroAsset;
                 heroPortrait.GetComponent<IHeroPortraitReferences>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;
-                
-
+               
             }
 
             yield return null;

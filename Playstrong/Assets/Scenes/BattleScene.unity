@@ -850,6 +850,8 @@ MonoBehaviour:
   _deadHeroes: {fileID: 597801378}
   _heroSkillsList: {fileID: 1157545570}
   _heroPortraitList: {fileID: 872470243}
+  _panelSkillsList: {fileID: 2094770624}
+  _panelPortraitList: {fileID: 1789215514}
 --- !u!114 &770716313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,6 +1669,8 @@ MonoBehaviour:
   _deadHeroes: {fileID: 498559384}
   _heroSkillsList: {fileID: 1000815496}
   _heroPortraitList: {fileID: 907802311}
+  _panelSkillsList: {fileID: 1098379029}
+  _panelPortraitList: {fileID: 1196796708}
 --- !u!114 &1587527231
 MonoBehaviour:
   m_ObjectHideFlags: 0
