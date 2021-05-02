@@ -1,5 +1,6 @@
 ﻿using Logic;
 using ScriptableObjects;
+using Visual;
 
 namespace Interfaces
 {
@@ -12,6 +13,8 @@ namespace Interfaces
         IHeroLogicReferences HeroLogicReferences { get; }
 
         IHeroSkillsReference SkillsReference { get; }
+
+        IHeroPortrait HeroPortrait { get; }
 
 
     }

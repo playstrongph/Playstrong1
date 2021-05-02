@@ -33,7 +33,10 @@ namespace References
         private Object _heroPreviewVisual;
         public IHeroPreviewVisual HeroPreviewVisual => _heroPreviewVisual as IHeroPreviewVisual;
 
-        
+        [SerializeField] [RequireInterface(typeof(IHeroPortrait))]
+        private Object _heroPortrait;
+
+        public IHeroPortrait HeroPortrait => _heroPortrait as IHeroPortrait;
 
 
 

@@ -30,12 +30,16 @@ namespace Logic
         private IInitializeHeroPortraits _initializeHeroPortraits;
         public IInitializeHeroPortraits InitializeHeroPortraits => _initializeHeroPortraits;
 
+        private ICreateHeroPortraitReferences _createHeroPortraitReferences;
+        public ICreateHeroPortraitReferences CreateHeroPortraitReferences => _createHeroPortraitReferences;
+
         private void Awake()
         {
             _initializePlayerHeroes = GetComponent<IInitializePlayerHeroes>();
             _initializeHeroSkills = GetComponent<IInitializeHeroSkills>();
             _createHeroSkillReferences = GetComponent<ICreateHeroSkillReferences>();
             _initializeHeroPortraits = GetComponent<InitializeHeroPortraits>();
+            _createHeroPortraitReferences = GetComponent<ICreateHeroPortraitReferences>();
         }
     }
 }
