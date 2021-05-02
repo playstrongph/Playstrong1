@@ -22,6 +22,14 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
         private Object _heroPortraitList;
         public IHeroPortraitList HeroPortraitList => _heroPortraitList as IHeroPortraitList;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        private Object _panelSkillsList;
+        public IHeroesList PanelSkillsList => _panelSkillsList as IHeroesList;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
+        private Object _panelPortraitList;
+        public IHeroPortraitList PanelPortraitList => _panelPortraitList as IHeroPortraitList;
 
 
 

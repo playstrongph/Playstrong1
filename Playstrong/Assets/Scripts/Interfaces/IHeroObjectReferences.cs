@@ -16,6 +16,10 @@ namespace Interfaces
 
         IHeroPortrait HeroPortrait { get; }
 
+        IHeroPortrait PanelHeroPortrait { get; }
+
+        IHeroSkillsReference PanelSkillsReference { get; }
+
 
     }
 }

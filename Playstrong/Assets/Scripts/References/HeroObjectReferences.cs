@@ -37,8 +37,16 @@ namespace References
         private Object _heroPortrait;
 
         public IHeroPortrait HeroPortrait => _heroPortrait as IHeroPortrait;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPortrait))]
+        private Object _panelHeroPortrait;
 
+        public IHeroPortrait PanelHeroPortrait => _panelHeroPortrait as IHeroPortrait;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroSkillsReference))]
+        private Object _panelSkillsReference;
 
+        public IHeroSkillsReference PanelSkillsReference => _panelSkillsReference as IHeroSkillsReference;
 
 
 

@@ -49,8 +49,8 @@ namespace GameSettings
         [SerializeField] private Transform _mainHeroPortraitLocation;
         public Transform MainHeroPortraitLocation => _mainHeroPortraitLocation;
 
-        [SerializeField] private Transform _previewPortraitLocation;
-        public Transform PreviewPortraitLocation => _previewPortraitLocation;
+        [SerializeField] private Transform _panelPortraitLocation;
+        public Transform PanelPortraitLocation => _panelPortraitLocation;
         
         
         
@@ -60,6 +60,9 @@ namespace GameSettings
 
         [SerializeField] private Transform _enemySkillsBoardLocation;
         public Transform EnemySkillsBoardLocation => _enemySkillsBoardLocation;
+        
+        [SerializeField] private Transform _panelSkillsLocation;
+        public Transform PanelSkillsLocation => _panelSkillsLocation;
         
 
         [SerializeField] private List<Transform> _heroPreviewLocations;

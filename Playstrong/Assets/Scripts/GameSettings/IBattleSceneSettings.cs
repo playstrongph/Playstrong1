@@ -22,15 +22,19 @@ namespace GameSettings
 
         Transform MainHeroPortraitLocation { get; }
 
-        Transform PreviewPortraitLocation { get; }
+        Transform PanelPortraitLocation { get; }
 
         Transform AllySkillsBoardLocation { get; }
 
         Transform EnemySkillsBoardLocation { get; }
+        
+        Transform PanelSkillsLocation { get; }
 
         List<Transform> HeroPreviewLocations { get; }
-        
-        
+
+       
+
+
 
     }
 }
