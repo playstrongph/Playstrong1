@@ -11,5 +11,17 @@ namespace Visual
             get { return  _heroPortrait;}
             set { _heroPortrait = value; }
         }
+
+        public void ShowPortraitImage()
+        {
+            var heroPortrait = PortraitReference.GetComponent<IHeroPortraitReferences>();
+            var portraitImage = heroPortrait.HeroPortraitImage.enabled = true;
+        }
+        
+        public void HidePortraitImage()
+        {
+            var heroPortrait = PortraitReference.GetComponent<IHeroPortraitReferences>();
+            var portraitImage = heroPortrait.HeroPortraitImage.enabled = false;
+        }
     }
 }
