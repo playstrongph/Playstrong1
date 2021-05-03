@@ -5,6 +5,7 @@ using References;
 using ScriptableObjects;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
@@ -33,6 +34,24 @@ namespace Logic
         private ICreateHeroPortraitReferences _createHeroPortraitReferences;
         public ICreateHeroPortraitReferences CreateHeroPortraitReferences => _createHeroPortraitReferences;
 
+        [SerializeField] [RequireInterface(typeof(IInitializePanelPortraits))]
+        private Object _initializePanelPortraits;
+
+        public IInitializePanelPortraits InitializePanelPortraits
+        {
+            get { return _initializePanelPortraits as InitializePanelPortraits; }
+            set { _initializePanelPortraits = value as Object; }
+        }
+
+        [SerializeField] [RequireInterface(typeof(ICreatePanelPortraitReferences))]
+        private Object _createPanelPortraitReferences;
+
+        public ICreatePanelPortraitReferences CreatePanelPortraitReferences
+        {
+            get { return _createPanelPortraitReferences as ICreatePanelPortraitReferences;}
+            set { _createPanelPortraitReferences = value as Object;}
+        }
+
         private void Awake()
         {
             _initializePlayerHeroes = GetComponent<IInitializePlayerHeroes>();
@@ -40,6 +59,9 @@ namespace Logic
             _createHeroSkillReferences = GetComponent<ICreateHeroSkillReferences>();
             _initializeHeroPortraits = GetComponent<InitializeHeroPortraits>();
             _createHeroPortraitReferences = GetComponent<ICreateHeroPortraitReferences>();
+            
+            InitializePanelPortraits = GetComponent<IInitializePanelPortraits>();
+            CreatePanelPortraitReferences = GetComponent<ICreatePanelPortraitReferences>();
         }
     }
 }

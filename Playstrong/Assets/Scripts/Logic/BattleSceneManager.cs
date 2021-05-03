@@ -45,9 +45,13 @@ namespace Logic
         private IEnumerator InitBattle()
         {
             LogicTree.AddCurrent(InitPlayers());
-            LogicTree.AddCurrent(InitHeroes());
-            LogicTree.AddCurrent(InitSkills());
             
+            LogicTree.AddCurrent(InitHeroes());
+            LogicTree.AddCurrent(InitHeroPortraits());
+            LogicTree.AddCurrent(InitPanelPortraits());
+
+            LogicTree.AddCurrent(InitSkills());
+
             yield return null;
             LogicTree.EndSequence();
         }
@@ -62,36 +66,62 @@ namespace Logic
         {
             var heroPrefab = BattleSceneSettings.HeroObjectPrefab;
             var heroPreviewLocations = BattleSceneSettings.HeroPreviewLocations;
-            
-            var heroPortraitPrefab = BattleSceneSettings.HeroPortraitPrefab;
-            var heroPortraitLocation = BattleSceneSettings.MainHeroPortraitLocation;
-            
+
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var mainTeamTransform = BattleSceneSettings.AllyHeroesBoardLocation;
             
             LogicTree.AddCurrent(MainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform, heroPreviewLocations, LogicTree));
-            LogicTree.AddCurrent(MainPlayer.InitializeHeroPortraits.InitializePortraits(mainTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
-            
-            //TODO: Initialize PanelPortraits
-            
-            LogicTree.AddCurrent(MainPlayer.CreateHeroPortraitReferences.CreateReferences(LogicTree));
-            
-            //TODO: CreatePanelPortrait References
-           
-            
-            
+
+
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
             var enemyTeamTransform = BattleSceneSettings.EnemyHeroesBoardLocation;
             
             LogicTree.AddCurrent(EnemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform, heroPreviewLocations, LogicTree));
-            LogicTree.AddCurrent(EnemyPlayer.InitializeHeroPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
-            LogicTree.AddCurrent(EnemyPlayer.CreateHeroPortraitReferences.CreateReferences(LogicTree));
-          
-            
-            
+
             yield return null;
             LogicTree.EndSequence();
         }
+        
+        private IEnumerator InitHeroPortraits()
+        {
+           
+            var heroPortraitPrefab = BattleSceneSettings.HeroPortraitPrefab;
+            var heroPortraitLocation = BattleSceneSettings.MainHeroPortraitLocation;
+            
+            var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
+
+            LogicTree.AddCurrent(MainPlayer.InitializeHeroPortraits.InitializePortraits(mainTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
+            LogicTree.AddCurrent(MainPlayer.CreateHeroPortraitReferences.CreateReferences(LogicTree));
+
+            var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
+
+            LogicTree.AddCurrent(EnemyPlayer.InitializeHeroPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
+            LogicTree.AddCurrent(EnemyPlayer.CreateHeroPortraitReferences.CreateReferences(LogicTree));
+
+            yield return null;
+            LogicTree.EndSequence();
+        }
+        
+        private IEnumerator InitPanelPortraits()
+        {
+            var heroPortraitPrefab = BattleSceneSettings.HeroPortraitPrefab;
+            var panelPortraitLocation = BattleSceneSettings.PanelPortraitLocation;
+            
+            var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
+
+            LogicTree.AddCurrent(MainPlayer.InitializePanelPortraits.InitializePortraits(mainTeamHeroAsset, heroPortraitPrefab, panelPortraitLocation, LogicTree));
+            //LogicTree.AddCurrent(MainPlayer.CreatePanelPortraitReferences.CreateReferences(LogicTree));
+
+            var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
+            
+            LogicTree.AddCurrent(EnemyPlayer.InitializeHeroPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, panelPortraitLocation, LogicTree));
+            LogicTree.AddCurrent(EnemyPlayer.CreatePanelPortraitReferences.CreateReferences(LogicTree));
+
+            yield return null;
+            LogicTree.EndSequence();
+        }
+        
+        
 
         private IEnumerator InitSkills()
         {
@@ -112,14 +142,13 @@ namespace Logic
             
             LogicTree.AddCurrent(EnemyPlayer.InitializeHeroSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, LogicTree));
             LogicTree.AddCurrent(EnemyPlayer.CreateHeroSkillReferences.CreateReferences(LogicTree));
-            
-           
-            
-            
+
             yield return null;
             LogicTree.EndSequence();
             
         }
+        
+        
 
 
 

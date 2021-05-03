@@ -7,7 +7,7 @@ using Visual;
 
 namespace Logic
 {
-    public class InitializePanelPortraits : MonoBehaviour
+    public class InitializePanelPortraits : MonoBehaviour, IInitializePanelPortraits
     {
 
        private IHeroPortraitList _panelPortraitList;

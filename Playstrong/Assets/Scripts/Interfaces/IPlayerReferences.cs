@@ -15,5 +15,9 @@ namespace Interfaces
         IInitializeHeroPortraits InitializeHeroPortraits { get; }
 
         ICreateHeroPortraitReferences CreateHeroPortraitReferences { get; }
+        
+        IInitializePanelPortraits InitializePanelPortraits { get; }
+
+        ICreatePanelPortraitReferences CreatePanelPortraitReferences { get; }
     }
 }
