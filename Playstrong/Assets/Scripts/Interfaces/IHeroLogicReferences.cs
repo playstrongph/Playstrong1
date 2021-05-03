@@ -2,9 +2,9 @@ namespace Interfaces
 {
     public interface IHeroLogicReferences
     {
-        IHeroAttributes HeroAttributes { get; }
+        IHeroAttributes HeroAttributes { get; set; }
 
-        ILoadHeroAttributes LoadHeroAttributes { get; }
+        ILoadHeroAttributes LoadHeroAttributes { get; set; }
 
     }
 }

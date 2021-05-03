@@ -1,21 +1,50 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 using Interfaces;
 using UnityEngine;
+using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
     public class HeroLogicReferences : MonoBehaviour, IHeroLogicReferences
     {
-        private IHeroAttributes _heroAttributes;
-        public IHeroAttributes HeroAttributes => _heroAttributes;
+        [SerializeField] [RequireInterface(typeof(IHeroObjectReferences))]
+        private Object _heroObjectReferences;
 
-        private ILoadHeroAttributes _loadHeroAttributes;
-        public ILoadHeroAttributes LoadHeroAttributes => _loadHeroAttributes; 
+        public IHeroObjectReferences HeroObjectReferences
+        {
+            get => _heroObjectReferences as IHeroObjectReferences;
+            set => _heroObjectReferences = value as Object;
+        }
+
+
+        [SerializeField]
+        [RequireInterface(typeof(IHeroAttributes))]
+        private Object _heroAttributes;
+
+        public IHeroAttributes HeroAttributes
+        {
+            get => _heroAttributes as IHeroAttributes;
+            set => _heroAttributes = value as Object;
+        }
+
+        [SerializeField]
+        [RequireInterface(typeof(ILoadHeroAttributes))]
+        private Object _loadHeroAttributes;
+
+        public ILoadHeroAttributes LoadHeroAttributes
+        {
+            get => _loadHeroAttributes as ILoadHeroAttributes;
+            set => _loadHeroAttributes = value as Object;
+        }
+    
 
         private void Awake()
         {
-            _heroAttributes = GetComponent<IHeroAttributes>();
-            _loadHeroAttributes = GetComponent<ILoadHeroAttributes>();
+            HeroObjectReferences = GetComponentInParent<IHeroObjectReferences>();
+            HeroAttributes = GetComponent<IHeroAttributes>();
+            LoadHeroAttributes = GetComponent<ILoadHeroAttributes>();
         }
         
         
