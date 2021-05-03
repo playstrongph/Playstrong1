@@ -110,11 +110,11 @@ namespace Logic
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
 
             LogicTree.AddCurrent(MainPlayer.InitializePanelPortraits.InitializePortraits(mainTeamHeroAsset, heroPortraitPrefab, panelPortraitLocation, LogicTree));
-            //LogicTree.AddCurrent(MainPlayer.CreatePanelPortraitReferences.CreateReferences(LogicTree));
+            LogicTree.AddCurrent(MainPlayer.CreatePanelPortraitReferences.CreateReferences(LogicTree));
 
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
             
-            LogicTree.AddCurrent(EnemyPlayer.InitializeHeroPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, panelPortraitLocation, LogicTree));
+            LogicTree.AddCurrent(EnemyPlayer.InitializePanelPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, panelPortraitLocation, LogicTree));
             LogicTree.AddCurrent(EnemyPlayer.CreatePanelPortraitReferences.CreateReferences(LogicTree));
 
             yield return null;

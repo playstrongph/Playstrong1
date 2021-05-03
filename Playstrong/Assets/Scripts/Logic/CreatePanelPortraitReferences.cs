@@ -42,9 +42,6 @@ namespace Logic
             {
                 _panelHeroPortraits.Add(portrait);
             }
-            
-           
-            
         }
         
         /// <summary>
