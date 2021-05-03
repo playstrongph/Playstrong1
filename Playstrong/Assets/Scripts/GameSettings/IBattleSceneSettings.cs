@@ -32,9 +32,13 @@ namespace GameSettings
         
         Transform EnemyPanelSkillsLocation { get; }
 
+        Transform SkillPreviewLocation { get; }
+
         List<Transform> HeroPreviewLocations { get; }
 
-       
+        Transform PanelSkillPreviewLocation { get; }
+
+
 
 
 

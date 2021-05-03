@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using GameSettings;
 using Interfaces;
 using References;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace Logic
         }
 
         public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, 
-            GameObject skillObjectPrefab, Transform boardLocation, ICoroutineTree tree)
+            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree)
         {
             foreach (var heroAssetSO in teamHeroesAsset.TeamHeroes())
             {
@@ -43,7 +44,11 @@ namespace Logic
                     var skillVisualReferences = 
                         skillObject.GetComponent<ISkillObjectReferences>().SkillVisualReferences;
                     var skillLogicReferences = skillObject.GetComponent<ISkillObjectReferences>().SkillLogicReferences;
+                    
                     var skillPreviewVisual = skillObject.GetComponent<ISkillObjectReferences>().SkillPreviewVisual;
+                    skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
+                    
+                    
 
                     var skill = heroSkill as IHeroSkillAsset;
                     

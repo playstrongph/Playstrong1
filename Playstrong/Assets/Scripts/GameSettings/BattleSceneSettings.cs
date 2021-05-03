@@ -67,7 +67,12 @@ namespace GameSettings
         [SerializeField] private Transform _enemyPanelSkillsLocation;
         public Transform EnemyPanelSkillsLocation => _enemyPanelSkillsLocation;
         
-
+        [SerializeField] private Transform _skillPreviewLocation;
+        public Transform SkillPreviewLocation => _skillPreviewLocation;
+        
+        [SerializeField] private Transform _panelSkillPreviewLocation;
+        public Transform PanelSkillPreviewLocation => _panelSkillPreviewLocation;
+        
         [SerializeField] private List<Transform> _heroPreviewLocations;
         public List<Transform> HeroPreviewLocations => _heroPreviewLocations;
         

@@ -22,7 +22,7 @@ namespace Interfaces
 
         ILoadSkillPreviewVisuals LoadSkillPreviewVisuals { get; }
         
-        Transform PreviewTransform { get; }
+        Transform PreviewTransform { get; set; }
 
     }
 }

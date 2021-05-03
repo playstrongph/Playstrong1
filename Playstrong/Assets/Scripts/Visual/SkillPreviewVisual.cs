@@ -35,7 +35,12 @@ namespace Visual
         public ILoadSkillPreviewVisuals LoadSkillPreviewVisuals => _loadSkillPreviewVisuals;
 
         private Transform _previewTransform;
-        public Transform PreviewTransform => _previewTransform;
+
+        public Transform PreviewTransform
+        {
+            get { return _previewTransform; }
+            set { _previewTransform = value; }
+        }
 
         private void Awake()
         {
