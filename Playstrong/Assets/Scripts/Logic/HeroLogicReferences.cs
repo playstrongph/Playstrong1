@@ -20,7 +20,7 @@ namespace Logic
         public IHeroObjectReferences HeroObjectReferences
         {
             get => _heroObjectReferences as IHeroObjectReferences;
-            set => _heroObjectReferences = value as Object;
+           
         }
         
         [SerializeField]
@@ -30,7 +30,7 @@ namespace Logic
         public IHeroAttributes HeroAttributes
         {
             get => _heroAttributes as IHeroAttributes;
-            set => _heroAttributes = value as Object;
+           
         }
 
         [SerializeField]
@@ -40,7 +40,7 @@ namespace Logic
         public ILoadHeroAttributes LoadHeroAttributes
         {
             get => _loadHeroAttributes as ILoadHeroAttributes;
-            set => _loadHeroAttributes = value as Object;
+        
         }
 
 

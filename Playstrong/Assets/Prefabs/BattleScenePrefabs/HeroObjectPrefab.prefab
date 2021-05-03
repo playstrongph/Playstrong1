@@ -4291,6 +4291,7 @@ MonoBehaviour:
   _armorVisual: {fileID: 24801494367588717}
   _healthVisual: {fileID: 3200909139577794973}
   _energyVisual: {fileID: 1826486006882752871}
+  _loadHeroVisuals: {fileID: 1826486008412363158}
 --- !u!114 &1826486008412363158
 MonoBehaviour:
   m_ObjectHideFlags: 0

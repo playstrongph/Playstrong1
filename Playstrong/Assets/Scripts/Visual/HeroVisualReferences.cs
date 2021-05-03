@@ -9,9 +9,7 @@ namespace Visual
 {
     public class HeroVisualReferences : MonoBehaviour, IHeroVisualReferences
     {
-        // [SerializeField]
-        // private HeroObjectReferences heroObjectReferences;
-
+       
         [SerializeField]
         [RequireInterface(typeof(IHeroObjectReferences))]
         private Object _heroObjectReferences;
@@ -55,13 +53,10 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
-        [SerializeField] private ILoadHeroVisuals _loadHeroVisuals;
-        public ILoadHeroVisuals LoadHeroVisuals => _loadHeroVisuals;
-
         
-        private void Awake()
-        {
-            _loadHeroVisuals = GetComponent<ILoadHeroVisuals>();
-        }
+        [SerializeField] [RequireInterface(typeof(ILoadHeroVisuals))]
+        private Object _loadHeroVisuals;
+
+        public ILoadHeroVisuals LoadHeroVisuals => _loadHeroVisuals as ILoadHeroVisuals;
     }
 }
