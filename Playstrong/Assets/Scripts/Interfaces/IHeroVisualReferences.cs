@@ -23,9 +23,7 @@ namespace Interfaces
 
         ILoadHeroVisuals LoadHeroVisuals { get; }
 
-        IHeroPortraitReferences HeroPortrait { get; }
-
-
+        
 
     }
 }

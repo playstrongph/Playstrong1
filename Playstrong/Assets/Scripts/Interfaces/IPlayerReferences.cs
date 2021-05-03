@@ -19,5 +19,9 @@ namespace Interfaces
         IInitializePanelPortraits InitializePanelPortraits { get; }
 
         ICreatePanelPortraitReferences CreatePanelPortraitReferences { get; }
+
+        IInitializePanelSkills InitializePanelSkills { get; }
+
+        ICreatePanelSkillReferences CreatePanelSkillReferences { get; }
     }
 }

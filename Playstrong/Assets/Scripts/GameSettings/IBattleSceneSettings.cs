@@ -27,8 +27,10 @@ namespace GameSettings
         Transform AllySkillsBoardLocation { get; }
 
         Transform EnemySkillsBoardLocation { get; }
+
+        Transform AllyPanelSkillsLocation { get; }
         
-        Transform PanelSkillsLocation { get; }
+        Transform EnemyPanelSkillsLocation { get; }
 
         List<Transform> HeroPreviewLocations { get; }
 

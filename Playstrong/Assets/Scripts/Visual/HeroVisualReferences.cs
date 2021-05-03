@@ -58,13 +58,7 @@ namespace Visual
         [SerializeField] private ILoadHeroVisuals _loadHeroVisuals;
         public ILoadHeroVisuals LoadHeroVisuals => _loadHeroVisuals;
 
-        [SerializeField]
-        [RequireInterface(typeof(IHeroPortraitReferences))]
-        private Object _heroPortrait;
-        public IHeroPortraitReferences HeroPortrait =>_heroPortrait as IHeroPortraitReferences;
-
-       
-
+        
         private void Awake()
         {
             _loadHeroVisuals = GetComponent<ILoadHeroVisuals>();

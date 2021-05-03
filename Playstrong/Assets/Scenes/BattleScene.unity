@@ -545,7 +545,8 @@ MonoBehaviour:
   _panelPortraitLocation: {fileID: 1461301122}
   _allySkillsBoardLocaton: {fileID: 1157545568}
   _enemySkillsBoardLocation: {fileID: 1000815495}
-  _panelSkillsLocation: {fileID: 104730556}
+  _allyPanelSkillsLocation: {fileID: 2094770623}
+  _enemyPanelSkillsLocation: {fileID: 1098379028}
   _heroPreviewLocations:
   - {fileID: 971031635}
   - {fileID: 971031635}
@@ -732,6 +733,8 @@ GameObject:
   - component: {fileID: 770716316}
   - component: {fileID: 770716317}
   - component: {fileID: 770716318}
+  - component: {fileID: 770716319}
+  - component: {fileID: 770716320}
   m_Layer: 0
   m_Name: MainPlayer
   m_TagString: Untagged
@@ -776,6 +779,7 @@ MonoBehaviour:
   _playerTypeEnum: {fileID: 11400000, guid: d337f0f234b52ce4eb460e8f09fb9670, type: 2}
   _initializePanelPortraits: {fileID: 0}
   _createPanelPortraitReferences: {fileID: 0}
+  _initializePanelSkils: {fileID: 0}
 --- !u!114 &770716311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +880,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d555a8c4a69d12f45b25b7eff618dc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &770716319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770716308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7144051ed47480c4ab69755840056b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &770716320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770716308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d269423e822bf54396807cb0d97a6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &872470241
@@ -1200,7 +1228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87, y: -144}
+  m_AnchoredPosition: {x: 87, y: 145}
   m_SizeDelta: {x: 161, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098379029
@@ -1516,6 +1544,8 @@ GameObject:
   - component: {fileID: 1587527234}
   - component: {fileID: 1587527235}
   - component: {fileID: 1587527236}
+  - component: {fileID: 1587527237}
+  - component: {fileID: 1587527238}
   m_Layer: 0
   m_Name: EnemyPlayer
   m_TagString: Untagged
@@ -1560,6 +1590,7 @@ MonoBehaviour:
   _playerTypeEnum: {fileID: 11400000, guid: f8795635863e38948b6ddf6ed786aa5d, type: 2}
   _initializePanelPortraits: {fileID: 0}
   _createPanelPortraitReferences: {fileID: 0}
+  _initializePanelSkils: {fileID: 0}
 --- !u!114 &1587527229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,6 +1691,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d555a8c4a69d12f45b25b7eff618dc2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1587527237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587527226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7144051ed47480c4ab69755840056b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1587527238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587527226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d269423e822bf54396807cb0d97a6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1646982093
@@ -1858,7 +1913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 87, y: -144}
+  m_AnchoredPosition: {x: 87, y: 145}
   m_SizeDelta: {x: 161, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094770624
