@@ -5985,6 +5985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae0d95e261f76344acfc27890f09dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroObjectReferences: {fileID: 2243695397223832009}
+  _heroAttributes: {fileID: 3264288688341378776}
+  _loadHeroAttributes: {fileID: 705522981016948565}
 --- !u!114 &3264288688341378776
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,11 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
+    
+    /// <summary>
+    /// HeroLogic Reference Scripts
+    /// Objects are set in the Inspector
+    /// </summary>
     public class HeroLogicReferences : MonoBehaviour, IHeroLogicReferences
     {
         [SerializeField] [RequireInterface(typeof(IHeroObjectReferences))]
@@ -17,8 +22,7 @@ namespace Logic
             get => _heroObjectReferences as IHeroObjectReferences;
             set => _heroObjectReferences = value as Object;
         }
-
-
+        
         [SerializeField]
         [RequireInterface(typeof(IHeroAttributes))]
         private Object _heroAttributes;
@@ -38,15 +42,8 @@ namespace Logic
             get => _loadHeroAttributes as ILoadHeroAttributes;
             set => _loadHeroAttributes = value as Object;
         }
-    
 
-        private void Awake()
-        {
-            HeroObjectReferences = GetComponentInParent<IHeroObjectReferences>();
-            HeroAttributes = GetComponent<IHeroAttributes>();
-            LoadHeroAttributes = GetComponent<ILoadHeroAttributes>();
-        }
-        
-        
+
+
     }
 }
