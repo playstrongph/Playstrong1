@@ -9,12 +9,12 @@ using Object = UnityEngine.Object;
 
 namespace References
 {
-    public class HeroObjectReferences : MonoBehaviour, IHeroObjectReferences
+    public class HeroPrefab : MonoBehaviour, IHeroPrefab
     {
 
         [SerializeField] [RequireInterface(typeof(IHeroLogic))]
-        private Object _heroLogicReferences;
-        public IHeroLogic HeroLogic => _heroLogicReferences as IHeroLogic;
+        private Object _heroLogic;
+        public IHeroLogic HeroLogic => _heroLogic as IHeroLogic;
         
         [SerializeField] [RequireInterface(typeof(IHeroSkillsReference))]
         private Object _skillsReference;

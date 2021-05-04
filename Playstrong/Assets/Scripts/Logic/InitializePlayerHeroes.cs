@@ -31,12 +31,12 @@ namespace Logic
                 
                 
 
-                hero.GetComponent<IHeroObjectReferences>().HeroLogic.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
+                hero.GetComponent<IHeroPrefab>().HeroLogic.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
                 
-                hero.GetComponent<IHeroObjectReferences>().HeroVisualReferences.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
-                hero.GetComponent<IHeroObjectReferences>().HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset);
+                hero.GetComponent<IHeroPrefab>().HeroVisualReferences.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
+                hero.GetComponent<IHeroPrefab>().HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset);
 
-                hero.GetComponent<IHeroObjectReferences>().HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].localPosition;
+                hero.GetComponent<IHeroPrefab>().HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].localPosition;
                 _heroIndex++;
                 
                 

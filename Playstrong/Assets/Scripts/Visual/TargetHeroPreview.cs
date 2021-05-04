@@ -10,9 +10,9 @@ namespace Visual
    public class TargetHeroPreview : MonoBehaviour, ITargetPreview
    {
       [SerializeField]
-      [RequireInterface(typeof(IHeroObjectReferences))]
-      private Object _heroObjectReferences;
-      public IHeroObjectReferences HeroObjectReferences => _heroObjectReferences as IHeroObjectReferences;
+      [RequireInterface(typeof(IHeroPrefab))]
+      private Object _heroPrefab;
+      public IHeroPrefab HeroPrefab => _heroPrefab as IHeroPrefab;
 
       //Variables initialized at Awake or Start
       private IHeroPreviewVisual _heroPreviewVisual;
@@ -22,7 +22,7 @@ namespace Visual
 
       private void Awake()
       {
-         _heroPreviewVisual = HeroObjectReferences.HeroPreviewVisual;
+         _heroPreviewVisual = HeroPrefab.HeroPreviewVisual;
          _displayDelay = 0.5f;
          
          //prevents null reference error for _showPreview

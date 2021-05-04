@@ -7,7 +7,7 @@ namespace Visual
     public class BuffsVisual : MonoBehaviour, IBuffsVisual
     {
 
-        public HeroObjectReferences heroObjectReferences;
+        public IHeroPrefab heroPrefab;
 
     }
 }

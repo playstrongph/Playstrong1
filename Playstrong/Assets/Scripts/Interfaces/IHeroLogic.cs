@@ -3,7 +3,7 @@ namespace Interfaces
     public interface IHeroLogic
     {
 
-        IHeroObjectReferences HeroObjectReferences { get; }
+        IHeroPrefab HeroPrefab { get; }
         IHeroAttributes HeroAttributes { get;}
 
         ILoadHeroAttributes LoadHeroAttributes { get; }
