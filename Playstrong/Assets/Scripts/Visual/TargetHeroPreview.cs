@@ -13,6 +13,10 @@ namespace Visual
       [RequireInterface(typeof(IHeroPrefab))]
       private Object _heroPrefab;
       public IHeroPrefab HeroPrefab => _heroPrefab as IHeroPrefab;
+      
+      [SerializeField] [RequireInterface(typeof(ITargetVisual))]
+      private Object _targetVisual;
+      public ITargetVisual TargetVisual => _targetVisual as ITargetVisual;
 
       //Variables initialized at Awake or Start
       private IHeroPreviewVisual _heroPreviewVisual;

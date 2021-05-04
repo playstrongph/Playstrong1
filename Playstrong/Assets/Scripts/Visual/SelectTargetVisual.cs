@@ -10,9 +10,9 @@ namespace Visual
 {
     public class SelectTargetVisual : MonoBehaviour, ISelectTargetVisual
     {
-        [SerializeField] [RequireInterface(typeof(ITargetVisualReferences))]
-        private Object _targetVisualReferences;
-        public ITargetVisualReferences TargetVisualReferences => _targetVisualReferences as ITargetVisualReferences;
+        [SerializeField] [RequireInterface(typeof(ITargetPreview))]
+        private Object _targetPreview;
+        public ITargetPreview TargetPreview => _targetPreview as ITargetPreview;
 
         private Canvas _targetVisualCanvas;
         private GameObject _targetCrossHair;
@@ -34,10 +34,10 @@ namespace Visual
 
         private void OnEnable()
         {
-            _targetVisualCanvas = TargetVisualReferences.TargetCanvas;
-            _targetCrossHair = TargetVisualReferences.TargetCrossHair;
-            _targetTriangle = TargetVisualReferences.TargetTriangle;
-            _targetLine = TargetVisualReferences.TargetLineR;
+            _targetVisualCanvas = TargetPreview.TargetVisual.TargetCanvas;
+            _targetCrossHair = TargetPreview.TargetVisual.TargetCrossHair;
+            _targetTriangle = TargetPreview.TargetVisual.TargetTriangle;
+            _targetLine = TargetPreview.TargetVisual.TargetLineR;
             _draggable = GetComponent<IDraggable>();
             _targetHeroPreview = GetComponent<ITargetPreview>();
             _draggable.DisableDraggable();

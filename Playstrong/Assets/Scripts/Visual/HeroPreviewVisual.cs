@@ -45,16 +45,15 @@ namespace Visual
         private Object _heroPreviewChance;
         public IHeroPreviewChance HeroPreviewChance => _heroPreviewChance as IHeroPreviewChance;
 
-        private ILoadHeroPreviewVisuals _loadHeroPreviewVisuals;
-        public ILoadHeroPreviewVisuals LoadHeroPreviewVisuals => _loadHeroPreviewVisuals;
+        [SerializeField]
+        [RequireInterface(typeof(ILoadHeroPreviewVisuals))]
+        private Object _loadHeroPreviewVisuals;
+        public ILoadHeroPreviewVisuals LoadHeroPreviewVisuals => _loadHeroPreviewVisuals as ILoadHeroPreviewVisuals;
 
+        [SerializeField]
         private Transform _previewTransform;
         public Transform PreviewTransform => _previewTransform;
 
-        private void Awake()
-        {
-            _loadHeroPreviewVisuals = GetComponent<ILoadHeroPreviewVisuals>();
-            _previewTransform = this.transform;
-        }
+        
     }
 }

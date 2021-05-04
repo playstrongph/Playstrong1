@@ -7,15 +7,15 @@ namespace Visual
     public class LoadHeroVisuals : MonoBehaviour, ILoadHeroVisuals
     {
         
-        private IHeroVisual _heroVisualReferences;
+        private IHeroVisual _heroVisual;
         private IHeroAttributes _heroAttributes;
         
         private int _initialEnergy = 0;
 
         private void Awake()
         {
-            _heroVisualReferences = GetComponent<IHeroVisual>();
-            _heroAttributes = _heroVisualReferences.HeroPrefab.HeroLogic.HeroAttributes;
+            _heroVisual = GetComponent<IHeroVisual>();
+            _heroAttributes = _heroVisual.HeroPrefab.HeroLogic.HeroAttributes;
 
         }
 
@@ -28,12 +28,12 @@ namespace Visual
         public void LoadHeroVisualsFromHeroAsset(IHeroAsset heroAsset)
         {
             
-            _heroVisualReferences.HeroGraphic.HeroImage.sprite = heroAsset.HeroSprite;
+            _heroVisual.HeroGraphic.HeroImage.sprite = heroAsset.HeroSprite;
             
-            _heroVisualReferences.AttackVisual.SetAttackText(_heroAttributes.Attack.ToString());
-            _heroVisualReferences.ArmorVisual.SetArmorText(_heroAttributes.Armor.ToString());
-            _heroVisualReferences.HealthVisual.SetHealthText(_heroAttributes.Health.ToString());
-            _heroVisualReferences.EnergyVisual.SetEnergyTextAndBarFill(_initialEnergy);
+            _heroVisual.AttackVisual.SetAttackText(_heroAttributes.Attack.ToString());
+            _heroVisual.ArmorVisual.SetArmorText(_heroAttributes.Armor.ToString());
+            _heroVisual.HealthVisual.SetHealthText(_heroAttributes.Health.ToString());
+            _heroVisual.EnergyVisual.SetEnergyTextAndBarFill(_initialEnergy);
             
 
         }

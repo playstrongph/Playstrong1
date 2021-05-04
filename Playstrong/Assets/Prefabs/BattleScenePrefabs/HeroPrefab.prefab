@@ -3821,6 +3821,8 @@ MonoBehaviour:
   _heroPreviewHealth: {fileID: 3820792405327403878}
   _heroPreviewSpeed: {fileID: 3820792405614648420}
   _heroPreviewChance: {fileID: 3820792407466641968}
+  _loadHeroPreviewVisuals: {fileID: 3820792406921377147}
+  _previewTransform: {fileID: 3820792406921377148}
 --- !u!114 &3820792406921377147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5727,6 +5729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroPrefab: {fileID: 1729355933}
+  _targetVisual: {fileID: 3820792406484607035}
 --- !u!114 &3820792407395522589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5739,7 +5742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196d945fa79b6aa4083dbf367dfe8fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetVisualReferences: {fileID: 3820792406484607035}
+  _targetPreview: {fileID: 3820792407395522590}
 --- !u!114 &3820792407395522588
 MonoBehaviour:
   m_ObjectHideFlags: 0

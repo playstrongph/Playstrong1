@@ -14,6 +14,10 @@ namespace Visual
       [RequireInterface(typeof(ISkillObjectReferences))]
       private Object _skillObjectReferences;
       public ISkillObjectReferences SkillObjectReferences => _skillObjectReferences as ISkillObjectReferences;
+      
+      [SerializeField] [RequireInterface(typeof(ITargetVisual))]
+      private Object _targetVisual;
+      public ITargetVisual TargetVisual => _targetVisual as ITargetVisual;
 
       //Variables initialized at Awake or Start
       private ISkillPreviewVisual _skillPreviewVisual;

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Visual
 {
-    public class TargetVisualReferences : MonoBehaviour, ITargetVisualReferences
+    public class TargetVisual : MonoBehaviour, ITargetVisual
     {
         [SerializeField] private Canvas _targetCanvas;
         public Canvas TargetCanvas => _targetCanvas;

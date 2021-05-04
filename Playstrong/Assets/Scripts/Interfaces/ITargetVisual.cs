@@ -2,7 +2,7 @@
 
 namespace Interfaces
 {
-    public interface ITargetVisualReferences
+    public interface ITargetVisual
     {
         Canvas TargetCanvas { get; }
         GameObject TargetCrossHair { get; }
