@@ -3,7 +3,7 @@ using Visual;
 
 namespace Interfaces
 {
-    public interface IHeroVisualReferences
+    public interface IHeroVisual
     {
         IHeroPrefab HeroPrefab { get; }
         Canvas HeroCanvas { get; }

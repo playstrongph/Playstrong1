@@ -47,10 +47,10 @@ namespace Logic
             foreach (var hero in heroes)
             {
                 var heroObjectReference = hero.GetComponent<IHeroPrefab>();
-                var skillsReference = heroObjectReference.SkillsReference;
+                var skillsReference = heroObjectReference.Skills;
                 
                 //set the reference here
-                skillsReference.HeroSkills = _heroSkill[_index];
+                skillsReference.Skills = _heroSkill[_index];
                 _index++;
 
             }

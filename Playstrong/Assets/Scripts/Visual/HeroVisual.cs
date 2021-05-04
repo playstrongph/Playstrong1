@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 namespace Visual
 {
-    public class HeroVisualReferences : MonoBehaviour, IHeroVisualReferences
+    public class HeroVisual : MonoBehaviour, IHeroVisual
     {
        
         [SerializeField]

@@ -7,14 +7,14 @@ namespace Visual
     public class LoadHeroVisuals : MonoBehaviour, ILoadHeroVisuals
     {
         
-        private IHeroVisualReferences _heroVisualReferences;
+        private IHeroVisual _heroVisualReferences;
         private IHeroAttributes _heroAttributes;
         
         private int _initialEnergy = 0;
 
         private void Awake()
         {
-            _heroVisualReferences = GetComponent<IHeroVisualReferences>();
+            _heroVisualReferences = GetComponent<IHeroVisual>();
             _heroAttributes = _heroVisualReferences.HeroPrefab.HeroLogic.HeroAttributes;
 
         }

@@ -39,7 +39,7 @@ namespace Logic
             foreach (var skill in panelSkills)
             {
                 _panelSkill.Add(skill);
-                Debug.Log("Panel Skill: " +skill.name);
+                
 
             }
             
@@ -60,13 +60,13 @@ namespace Logic
                 var panelSkillsReference = heroObjectReference.PanelSkillsReference;
                 
                 //set the reference here
-                panelSkillsReference.HeroSkills = _panelSkill[_index];
+                panelSkillsReference.Skills = _panelSkill[_index];
                 _index++;
                 
 
             }
 
-            Debug.Log("Index: " +_index.ToString());
+            
         }
 
         
