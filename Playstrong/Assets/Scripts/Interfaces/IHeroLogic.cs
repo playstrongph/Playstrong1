@@ -1,6 +1,6 @@
 namespace Interfaces
 {
-    public interface IHeroLogicReferences
+    public interface IHeroLogic
     {
 
         IHeroObjectReferences HeroObjectReferences { get; }

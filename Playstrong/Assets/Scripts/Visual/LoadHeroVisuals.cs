@@ -15,7 +15,7 @@ namespace Visual
         private void Awake()
         {
             _heroVisualReferences = GetComponent<IHeroVisualReferences>();
-            _heroAttributes = _heroVisualReferences.HeroObjectReferences.HeroLogicReferences.HeroAttributes;
+            _heroAttributes = _heroVisualReferences.HeroObjectReferences.HeroLogic.HeroAttributes;
 
         }
 

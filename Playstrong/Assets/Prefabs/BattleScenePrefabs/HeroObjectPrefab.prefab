@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dda5ec778650a4d935be29ee087f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroLogicReferences: {fileID: 6113615017155309944}
+  _heroLogicReferences: {fileID: 464689699285991136}
   _skillsReference: {fileID: 553763765169553927}
   _heroVisualReferences: {fileID: 7481370931672627027}
   _buffsVisual: {fileID: 472415271576096357}
@@ -5950,7 +5950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 519350391784362259}
-  - component: {fileID: 6113615017155309944}
+  - component: {fileID: 464689699285991136}
   - component: {fileID: 3264288688341378776}
   - component: {fileID: 705522981016948565}
   m_Layer: 0
@@ -5974,7 +5974,7 @@ Transform:
   m_Father: {fileID: 121253306087423126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6113615017155309944
+--- !u!114 &464689699285991136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

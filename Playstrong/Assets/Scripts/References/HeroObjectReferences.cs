@@ -12,9 +12,9 @@ namespace References
     public class HeroObjectReferences : MonoBehaviour, IHeroObjectReferences
     {
 
-        [SerializeField] [RequireInterface(typeof(IHeroLogicReferences))]
+        [SerializeField] [RequireInterface(typeof(IHeroLogic))]
         private Object _heroLogicReferences;
-        public IHeroLogicReferences HeroLogicReferences => _heroLogicReferences as IHeroLogicReferences;
+        public IHeroLogic HeroLogic => _heroLogicReferences as IHeroLogic;
         
         [SerializeField] [RequireInterface(typeof(IHeroSkillsReference))]
         private Object _skillsReference;

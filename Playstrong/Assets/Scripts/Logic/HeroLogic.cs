@@ -12,7 +12,7 @@ namespace Logic
     /// HeroLogic Reference Scripts
     /// Objects are set in the Inspector
     /// </summary>
-    public class HeroLogicReferences : MonoBehaviour, IHeroLogicReferences
+    public class HeroLogic : MonoBehaviour, IHeroLogic
     {
         [SerializeField] [RequireInterface(typeof(IHeroObjectReferences))]
         private Object _heroObjectReferences;

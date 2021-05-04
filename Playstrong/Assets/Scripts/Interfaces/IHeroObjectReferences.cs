@@ -10,7 +10,7 @@ namespace Interfaces
         IBuffsVisual BuffsVisual { get; }
         IHeroPreviewVisual HeroPreviewVisual { get; }
 
-        IHeroLogicReferences HeroLogicReferences { get; }
+        IHeroLogic HeroLogic { get; }
 
         IHeroSkillsReference SkillsReference { get; }
 
