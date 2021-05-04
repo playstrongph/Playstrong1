@@ -1,14 +1,12 @@
-﻿namespace Interfaces
+﻿using UnityEngine;
+
+namespace Interfaces
 {
     public interface ITauntFrameAndGlow
     {
-        void ShowAllyGlowFrame();
-        void HideAllyGlowFrame();
-        void ShowEnemyGlowFrame();
-        void HideEnemyGlowFrame();
-        void ShowActionGlowFrame();
-        void HideActionGlowFrame();
-        void ShowFrame();
-        void HideFrame();
+        GameObject AllyGlowFrame { get; }
+        GameObject EnemyGlowFrame { get; }
+        GameObject ActionGlowFrame { get; }
+        GameObject Frame { get; }
     }
 }

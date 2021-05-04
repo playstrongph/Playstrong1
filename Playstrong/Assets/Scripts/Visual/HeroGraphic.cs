@@ -7,12 +7,11 @@ namespace Visual
    public class HeroGraphic : MonoBehaviour, ISetHeroGraphic
    {
       [SerializeField] 
-      private Image _heroGraphic;
+      private Image _heroImage;
 
-      public void SetHeroGraphic(Sprite heroGraphicSprite)
-      {
-         _heroGraphic.sprite = heroGraphicSprite;
-      }
+      public Image HeroImage => _heroImage;
+
+     
 
 
 

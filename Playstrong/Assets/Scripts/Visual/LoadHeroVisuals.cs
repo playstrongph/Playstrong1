@@ -27,7 +27,8 @@ namespace Visual
 
         public void LoadHeroVisualsFromHeroAsset(IHeroAsset heroAsset)
         {
-            _heroVisualReferences.HeroGraphic.SetHeroGraphic(heroAsset.HeroSprite);
+            
+            _heroVisualReferences.HeroGraphic.HeroImage.sprite = heroAsset.HeroSprite;
             
             _heroVisualReferences.AttackVisual.SetAttackText(_heroAttributes.Attack.ToString());
             _heroVisualReferences.ArmorVisual.SetArmorText(_heroAttributes.Armor.ToString());

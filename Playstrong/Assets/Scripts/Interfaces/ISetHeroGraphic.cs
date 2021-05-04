@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Interfaces
 {
     public interface ISetHeroGraphic
     {
-        void SetHeroGraphic(Sprite heroGraphicSprite);
+        Image HeroImage { get; }
     }
 }
