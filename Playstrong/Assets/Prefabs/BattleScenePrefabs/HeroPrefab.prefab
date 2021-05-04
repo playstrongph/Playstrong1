@@ -5664,7 +5664,7 @@ GameObject:
   - component: {fileID: 3820792407395522589}
   - component: {fileID: 3820792407395522588}
   m_Layer: 0
-  m_Name: TargetController
+  m_Name: TargetHeroPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5755,6 +5755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c030db5ae1e435f4bbba28e6254a84b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _selectTargetVisual: {fileID: 3820792407395522589}
 --- !u!1 &3820792407405065746
 GameObject:
   m_ObjectHideFlags: 0

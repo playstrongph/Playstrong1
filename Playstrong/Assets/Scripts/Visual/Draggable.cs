@@ -1,6 +1,8 @@
 ﻿using System;
 using Interfaces;
 using UnityEngine;
+using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Visual
 {
@@ -13,13 +15,11 @@ namespace Visual
         // distance from camera to mouse on Z axis 
         private float _zDisplacement;
 
-        private ISelectTargetVisual _selectTargetVisual;
+        [SerializeField]
+        [RequireInterface(typeof(ISelectTargetVisual))]
+        private Object _selectTargetVisual;
+        public ISelectTargetVisual SelectTargetVisual => _selectTargetVisual as ISelectTargetVisual;
 
-        private void Awake()
-        {
-            _selectTargetVisual = GetComponent<ISelectTargetVisual>();
-            
-        }
 
         private void OnEnable()
         {
@@ -33,7 +33,7 @@ namespace Visual
             
             transform.position = new Vector3(mousePos.x - _pointerDisplacement.x, mousePos.y - _pointerDisplacement.y, transform.position.z);
             
-            _selectTargetVisual.ShowLineAndTarget();
+            SelectTargetVisual.ShowLineAndTarget();
         
         }
     
