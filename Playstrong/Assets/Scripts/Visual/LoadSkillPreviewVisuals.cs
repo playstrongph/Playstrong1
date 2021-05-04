@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 
@@ -8,6 +9,11 @@ namespace Visual
     {
         
         private ISkillPreviewVisual _skillPreviewVisual;
+
+        private void Awake()
+        {
+            _skillPreviewVisual = GetComponent<ISkillPreviewVisual>();
+        }
 
         public void LoadSkillPreviewVisualsFromAsset(IHeroSkillAsset skillAsset)
         {
