@@ -11,7 +11,7 @@ namespace Visual
         private void Awake()
         {
             _skillPreviewVisual = GetComponent<ISkillPreviewVisual>();
-            _skillAttributes = _skillPreviewVisual.SkillPrefab.SkillLogicReferences.SkillAttributes;
+            _skillAttributes = _skillPreviewVisual.SkillPrefab.SkillLogic.SkillAttributes;
         
         }
 

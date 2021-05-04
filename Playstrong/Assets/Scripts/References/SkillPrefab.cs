@@ -12,9 +12,9 @@ namespace References
     public class SkillPrefab : MonoBehaviour, ISkillPrefab
     {
 
-        [SerializeField] [RequireInterface(typeof(ISkillLogicReferences))]
-        private Object _skillLogicReferences;
-        public ISkillLogicReferences SkillLogicReferences => _skillLogicReferences as ISkillLogicReferences;
+        [SerializeField] [RequireInterface(typeof(ISkillLogic))]
+        private Object _skillLogic;
+        public ISkillLogic SkillLogic => _skillLogic as ISkillLogic;
         
         [SerializeField] [RequireInterface(typeof(ISkillVisualReferences))]
         private Object _skillVisualReferences;

@@ -5,12 +5,12 @@ namespace Visual
 {
     public class LoadSkillAttributes : MonoBehaviour, ILoadSkillAttributes
     {
-        private ISkillLogicReferences _skillLogicReferences;
+        private ISkillLogic _skillLogicReferences;
         private ISkillAttributes _skillAttributes;
 
         private void Awake()
         {
-            _skillLogicReferences = GetComponent<ISkillLogicReferences>();
+            _skillLogicReferences = GetComponent<ISkillLogic>();
             _skillAttributes = _skillLogicReferences.SkillAttributes;
         
         }

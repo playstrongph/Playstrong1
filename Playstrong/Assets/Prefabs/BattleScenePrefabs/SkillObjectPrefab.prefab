@@ -2096,7 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4426f64eb0523394b85cb292aaf921ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillLogicReferences: {fileID: 956212357985600032}
+  _skillLogic: {fileID: 956212357985600032}
   _skillVisualReferences: {fileID: 1352393578959371933}
   _skillPreviewVisual: {fileID: 1352393577901692879}
 --- !u!1 &1352393578608415743

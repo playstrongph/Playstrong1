@@ -42,7 +42,7 @@ namespace Logic
 
                     var skillVisualReferences = 
                         skillObject.GetComponent<ISkillPrefab>().SkillVisualReferences;
-                    var skillLogicReferences = skillObject.GetComponent<ISkillPrefab>().SkillLogicReferences;
+                    var skillLogicReferences = skillObject.GetComponent<ISkillPrefab>().SkillLogic;
                     var skillPreviewVisual = skillObject.GetComponent<ISkillPrefab>().SkillPreviewVisual;
                     skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
 

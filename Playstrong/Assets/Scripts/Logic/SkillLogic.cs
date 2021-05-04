@@ -7,10 +7,8 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class SkillLogicReferences : MonoBehaviour, ISkillLogicReferences
+    public class SkillLogic : MonoBehaviour, ISkillLogic
     {
-
-         
         private ISkillAttributes _skillAttributes;
         public ISkillAttributes SkillAttributes => _skillAttributes as ISkillAttributes;
 

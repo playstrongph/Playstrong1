@@ -2,7 +2,7 @@
 
 namespace Interfaces
 {
-    public interface ISkillLogicReferences
+    public interface ISkillLogic
     {
         ISkillAttributes SkillAttributes { get; }
 

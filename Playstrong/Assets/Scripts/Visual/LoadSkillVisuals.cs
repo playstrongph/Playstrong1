@@ -11,7 +11,7 @@ namespace Visual
         private void Awake()
         {
             _skillVisualReferences = GetComponent<ISkillVisualReferences>();
-            _skillAttributes = _skillVisualReferences.SkillPrefab.SkillLogicReferences.SkillAttributes;
+            _skillAttributes = _skillVisualReferences.SkillPrefab.SkillLogic.SkillAttributes;
         }
 
         public void LoadSkillVisualsFromSkillAsset(IHeroSkillAsset heroSkillAsset)
