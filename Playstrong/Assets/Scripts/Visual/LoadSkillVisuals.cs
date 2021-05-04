@@ -1,23 +1,23 @@
 ﻿using Interfaces;
 using UnityEngine;
+using Utilities;
 
 namespace Visual
 {
     public class LoadSkillVisuals : MonoBehaviour, ILoadSkillVisuals
     {
-        private ISkillVisual _skillVisual;
-        private ISkillAttributes _skillAttributes;
+        [SerializeField]
+        [RequireInterface(typeof(ISkillVisual))]
+        private Object _skillVisual;
+        public ISkillVisual SkillVisual => _skillVisual as ISkillVisual;
 
-        private void Awake()
-        {
-            _skillVisual = GetComponent<ISkillVisual>();
-            _skillAttributes = _skillVisual.SkillPrefab.SkillLogic.SkillAttributes;
-        }
 
         public void LoadSkillVisualsFromSkillAsset(IHeroSkillAsset heroSkillAsset)
         {
-            _skillVisual.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
-            _skillVisual.CooldownText.text = _skillAttributes.Cooldown.ToString();
+            var skillAttributes = SkillVisual.SkillPrefab.SkillLogic.SkillAttributes;
+            
+            SkillVisual.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
+            SkillVisual.CooldownText.text = skillAttributes.Cooldown.ToString();
         }
     }
 }

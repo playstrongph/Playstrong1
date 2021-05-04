@@ -1,26 +1,23 @@
 ﻿using Interfaces;
 using UnityEngine;
+using Utilities;
 
 namespace Visual
 {
     public class LoadSkillPreviewVisuals : MonoBehaviour, ILoadSkillPreviewVisuals
     {
-        private ISkillPreviewVisual _skillPreviewVisual;
-        private ISkillAttributes _skillAttributes;
+        [SerializeField]
+        [RequireInterface(typeof(ISkillPreviewVisual))]
+        private Object _skillPreviewVisual;
 
-        private void Awake()
-        {
-            _skillPreviewVisual = GetComponent<ISkillPreviewVisual>();
-            _skillAttributes = _skillPreviewVisual.SkillPrefab.SkillLogic.SkillAttributes;
-        
-        }
+        public ISkillPreviewVisual SkillPreviewVisual => _skillPreviewVisual as ISkillPreviewVisual;
 
         public void LoadSkillPreviewVisualsFromAsset(IHeroSkillAsset skillAsset)
         {
-            _skillPreviewVisual.PreviewImage.sprite = skillAsset.SkillIcon;
-            _skillPreviewVisual.Cooldown.text = skillAsset.Cooldown.ToString();
-            _skillPreviewVisual.PreviewName.text = skillAsset.Name;
-            _skillPreviewVisual.Description.text = skillAsset.Description;
+            SkillPreviewVisual.PreviewImage.sprite = skillAsset.SkillIcon;
+            SkillPreviewVisual.Cooldown.text = skillAsset.Cooldown.ToString();
+            SkillPreviewVisual.PreviewName.text = skillAsset.Name;
+            SkillPreviewVisual.Description.text = skillAsset.Description;
         }
         
         

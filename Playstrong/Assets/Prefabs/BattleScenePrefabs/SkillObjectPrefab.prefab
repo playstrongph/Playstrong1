@@ -1809,6 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e941cf81560924fb3e707c435550f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillPreviewVisual: {fileID: 1352393577901692879}
 --- !u!1 &1352393578027147517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43038efcd5c4cee42823cfbf04b9e314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillVisual: {fileID: 1352393578959371933}
 --- !u!1 &1352393579021286423
 GameObject:
   m_ObjectHideFlags: 0
