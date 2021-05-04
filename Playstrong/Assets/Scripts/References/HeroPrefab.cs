@@ -44,9 +44,9 @@ namespace References
         public IHeroPortrait PanelHeroPortrait => _panelHeroPortrait as IHeroPortrait;
         
         [SerializeField] [RequireInterface(typeof(IHeroSkills))]
-        private Object _panelSkillsReference;
+        private Object _panelHeroSkills;
 
-        public IHeroSkills PanelSkillsReference => _panelSkillsReference as IHeroSkills;
+        public IHeroSkills PanelHeroSkills => _panelHeroSkills as IHeroSkills;
 
 
 
