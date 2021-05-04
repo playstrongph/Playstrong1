@@ -9,16 +9,16 @@ namespace Logic
 {
     public class SkillLogic : MonoBehaviour, ISkillLogic
     {
-        private ISkillAttributes _skillAttributes;
+        [SerializeField]
+        [RequireInterface(typeof(ISkillAttributes))]
+        private Object _skillAttributes;
         public ISkillAttributes SkillAttributes => _skillAttributes as ISkillAttributes;
 
-        private ILoadSkillAttributes _loadSkillAttributes;
-        public ILoadSkillAttributes LoadSkillAttributes => _loadSkillAttributes;
+        [SerializeField]
+        [RequireInterface(typeof(ILoadSkillAttributes))]
+        private Object _loadSkillAttributes;
+        public ILoadSkillAttributes LoadSkillAttributes => _loadSkillAttributes as ILoadSkillAttributes;
 
-        private void Awake()
-        {
-            _skillAttributes = GetComponent<ISkillAttributes>();
-            _loadSkillAttributes = GetComponent<ILoadSkillAttributes>();
-        }
+        
     }
 }

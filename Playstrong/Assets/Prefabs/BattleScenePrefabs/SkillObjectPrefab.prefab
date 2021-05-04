@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0862b0bf83a009945ac07530f6114c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillAttributes: {fileID: 956212357985600033}
+  _loadSkillAttributes: {fileID: 7086960578826695801}
 --- !u!114 &956212357985600033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f72f4ea077bc6549a09c1cd8df12964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillLogic: {fileID: 956212357985600032}
 --- !u!1 &956212358033504289
 GameObject:
   m_ObjectHideFlags: 0
