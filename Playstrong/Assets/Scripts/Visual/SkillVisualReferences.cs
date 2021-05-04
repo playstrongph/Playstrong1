@@ -12,10 +12,10 @@ namespace Visual
 {
     public class SkillVisualReferences : MonoBehaviour, ISkillVisualReferences
     {
-        [SerializeField] [RequireInterface(typeof(SkillObjectReferences))]
-        private Object _skillObjectReferences;
+        [SerializeField] [RequireInterface(typeof(ISkillPrefab))]
+        private Object _skillPrefab;
 
-        public ISkillObjectReferences SkillObjectReferences => _skillObjectReferences as ISkillObjectReferences;
+        public ISkillPrefab SkillPrefab => _skillPrefab as ISkillPrefab;
 
         [SerializeField] private Canvas _skillCanvas;
         public Canvas SkillCanvas => _skillCanvas;

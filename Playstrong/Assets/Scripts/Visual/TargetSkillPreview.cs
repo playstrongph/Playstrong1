@@ -11,9 +11,9 @@ namespace Visual
    public class TargetSkillPreview : MonoBehaviour, ITargetPreview
    {
       [SerializeField]
-      [RequireInterface(typeof(ISkillObjectReferences))]
-      private Object _skillObjectReferences;
-      public ISkillObjectReferences SkillObjectReferences => _skillObjectReferences as ISkillObjectReferences;
+      [RequireInterface(typeof(ISkillPrefab))]
+      private Object _skillPrefab;
+      public ISkillPrefab SkillPrefab => _skillPrefab as ISkillPrefab;
       
       [SerializeField] [RequireInterface(typeof(ITargetVisual))]
       private Object _targetVisual;
@@ -27,7 +27,7 @@ namespace Visual
 
       private void Awake()
       {
-         _skillPreviewVisual = SkillObjectReferences.SkillPreviewVisual;
+         _skillPreviewVisual = SkillPrefab.SkillPreviewVisual;
          _displayDelay = 0.5f;
          
          //prevents null reference error for _showPreview

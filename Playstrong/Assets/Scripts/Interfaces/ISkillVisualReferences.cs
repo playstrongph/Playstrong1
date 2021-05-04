@@ -8,7 +8,7 @@ namespace Interfaces
 {
     public interface ISkillVisualReferences
     {
-        ISkillObjectReferences SkillObjectReferences { get; }
+        ISkillPrefab SkillPrefab { get; }
 
         Canvas SkillCanvas { get; }
 

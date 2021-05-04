@@ -41,9 +41,9 @@ namespace Logic
                     skillPanelObject.GetComponent<ISkillsList>().SkillList.Add(skillObject);
 
                     var skillVisualReferences = 
-                        skillObject.GetComponent<ISkillObjectReferences>().SkillVisualReferences;
-                    var skillLogicReferences = skillObject.GetComponent<ISkillObjectReferences>().SkillLogicReferences;
-                    var skillPreviewVisual = skillObject.GetComponent<ISkillObjectReferences>().SkillPreviewVisual;
+                        skillObject.GetComponent<ISkillPrefab>().SkillVisualReferences;
+                    var skillLogicReferences = skillObject.GetComponent<ISkillPrefab>().SkillLogicReferences;
+                    var skillPreviewVisual = skillObject.GetComponent<ISkillPrefab>().SkillPreviewVisual;
                     skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
 
                     var skill = heroSkill as IHeroSkillAsset;
