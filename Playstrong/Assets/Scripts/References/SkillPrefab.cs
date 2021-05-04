@@ -16,9 +16,9 @@ namespace References
         private Object _skillLogic;
         public ISkillLogic SkillLogic => _skillLogic as ISkillLogic;
         
-        [SerializeField] [RequireInterface(typeof(ISkillVisualReferences))]
-        private Object _skillVisualReferences;
-        public ISkillVisualReferences SkillVisualReferences => _skillVisualReferences as ISkillVisualReferences;
+        [SerializeField] [RequireInterface(typeof(ISkillVisual))]
+        private Object _skillVisual;
+        public ISkillVisual SkillVisual => _skillVisual as ISkillVisual;
         
         [SerializeField] [RequireInterface(typeof(ISkillPreviewVisual))]
         private Object _skillPreviewVisual;

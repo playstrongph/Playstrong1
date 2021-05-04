@@ -5,19 +5,19 @@ namespace Visual
 {
     public class LoadSkillVisuals : MonoBehaviour, ILoadSkillVisuals
     {
-        private ISkillVisualReferences _skillVisualReferences;
+        private ISkillVisual _skillVisual;
         private ISkillAttributes _skillAttributes;
 
         private void Awake()
         {
-            _skillVisualReferences = GetComponent<ISkillVisualReferences>();
-            _skillAttributes = _skillVisualReferences.SkillPrefab.SkillLogic.SkillAttributes;
+            _skillVisual = GetComponent<ISkillVisual>();
+            _skillAttributes = _skillVisual.SkillPrefab.SkillLogic.SkillAttributes;
         }
 
         public void LoadSkillVisualsFromSkillAsset(IHeroSkillAsset heroSkillAsset)
         {
-            _skillVisualReferences.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
-            _skillVisualReferences.CooldownText.text = _skillAttributes.Cooldown.ToString();
+            _skillVisual.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
+            _skillVisual.CooldownText.text = _skillAttributes.Cooldown.ToString();
         }
     }
 }

@@ -1755,7 +1755,7 @@ GameObject:
   - component: {fileID: 1352393577901692879}
   - component: {fileID: 1352393577901692872}
   m_Layer: 0
-  m_Name: SkillPreview
+  m_Name: SkillPreviewVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _skillLogic: {fileID: 956212357985600032}
-  _skillVisualReferences: {fileID: 1352393578959371933}
+  _skillVisual: {fileID: 1352393578959371933}
   _skillPreviewVisual: {fileID: 1352393577901692879}
 --- !u!1 &1352393578608415743
 GameObject:

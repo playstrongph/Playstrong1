@@ -7,7 +7,7 @@ namespace References
     public interface ISkillPrefab
     {
         ISkillLogic SkillLogic { get; }
-        ISkillVisualReferences SkillVisualReferences { get; }
+        ISkillVisual SkillVisual { get; }
         ISkillPreviewVisual SkillPreviewVisual { get; }
     }
 }

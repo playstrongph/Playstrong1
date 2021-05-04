@@ -6,7 +6,7 @@ using Visual;
 
 namespace Interfaces
 {
-    public interface ISkillVisualReferences
+    public interface ISkillVisual
     {
         ISkillPrefab SkillPrefab { get; }
 

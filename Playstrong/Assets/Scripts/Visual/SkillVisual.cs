@@ -10,7 +10,7 @@ using Object = UnityEngine.Object;
 
 namespace Visual
 {
-    public class SkillVisualReferences : MonoBehaviour, ISkillVisualReferences
+    public class SkillVisual : MonoBehaviour, ISkillVisual
     {
         [SerializeField] [RequireInterface(typeof(ISkillPrefab))]
         private Object _skillPrefab;
