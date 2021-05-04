@@ -6,18 +6,15 @@ namespace Visual
 {
     public class LoadSkillPreviewVisuals : MonoBehaviour, ILoadSkillPreviewVisuals
     {
-        [SerializeField]
-        [RequireInterface(typeof(ISkillPreviewVisual))]
-        private Object _skillPreviewVisual;
-
-        public ISkillPreviewVisual SkillPreviewVisual => _skillPreviewVisual as ISkillPreviewVisual;
+        
+        private ISkillPreviewVisual _skillPreviewVisual;
 
         public void LoadSkillPreviewVisualsFromAsset(IHeroSkillAsset skillAsset)
         {
-            SkillPreviewVisual.PreviewImage.sprite = skillAsset.SkillIcon;
-            SkillPreviewVisual.Cooldown.text = skillAsset.Cooldown.ToString();
-            SkillPreviewVisual.PreviewName.text = skillAsset.Name;
-            SkillPreviewVisual.Description.text = skillAsset.Description;
+            _skillPreviewVisual.PreviewImage.sprite = skillAsset.SkillIcon;
+            _skillPreviewVisual.Cooldown.text = skillAsset.Cooldown.ToString();
+            _skillPreviewVisual.PreviewName.text = skillAsset.Name;
+            _skillPreviewVisual.Description.text = skillAsset.Description;
         }
         
         

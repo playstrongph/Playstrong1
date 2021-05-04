@@ -1,19 +1,24 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Visual
 {
     public class LoadSkillAttributes : MonoBehaviour, ILoadSkillAttributes
     {
-        [SerializeField]
-        [RequireInterface(typeof(ISkillLogic))]
-        private Object _skillLogic;
-        public ISkillLogic SkillLogic => _skillLogic as ISkillLogic;
+       
+        private ISkillLogic _skillLogic;
+
+        private void Awake()
+        {
+            _skillLogic = GetComponent<ISkillLogic>();
+        }
 
         public void LoadSkillAttributesFromAsset(IHeroSkillAsset skillAsset)
         {
-            var skillAttributes = SkillLogic.SkillAttributes;
+            var skillAttributes = _skillLogic.SkillAttributes;
             
             skillAttributes.Cooldown = skillAsset.Cooldown;
             skillAttributes.BaseCooldown = skillAsset.Cooldown;

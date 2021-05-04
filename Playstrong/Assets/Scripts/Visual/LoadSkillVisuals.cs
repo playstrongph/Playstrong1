@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 using Utilities;
 
@@ -6,18 +7,21 @@ namespace Visual
 {
     public class LoadSkillVisuals : MonoBehaviour, ILoadSkillVisuals
     {
-        [SerializeField]
-        [RequireInterface(typeof(ISkillVisual))]
-        private Object _skillVisual;
-        public ISkillVisual SkillVisual => _skillVisual as ISkillVisual;
+       
+        private ISkillVisual _skillVisual;
+
+        private void Awake()
+        {
+            _skillVisual = GetComponent<ISkillVisual>();
+        }
 
 
         public void LoadSkillVisualsFromSkillAsset(IHeroSkillAsset heroSkillAsset)
         {
-            var skillAttributes = SkillVisual.SkillPrefab.SkillLogic.SkillAttributes;
+            var skillAttributes = _skillVisual.SkillPrefab.SkillLogic.SkillAttributes;
             
-            SkillVisual.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
-            SkillVisual.CooldownText.text = skillAttributes.Cooldown.ToString();
+            _skillVisual.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
+            _skillVisual.CooldownText.text = skillAttributes.Cooldown.ToString();
         }
     }
 }
