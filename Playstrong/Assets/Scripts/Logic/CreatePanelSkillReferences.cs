@@ -8,15 +8,15 @@ namespace Logic
 {
     public class CreatePanelSkillReferences : MonoBehaviour, ICreatePanelSkillReferences
     {
-        private IPlayerChildrenReferences _playerChildrenReferences;
-        private IPlayerChildrenReferences PlayerChildrenReferences => _playerChildrenReferences;
+        private IPlayer _player;
+        private IPlayer Player => _player;
 
         private int _index;
         private List<GameObject> _panelSkill;
 
         private void Awake()
         {
-            _playerChildrenReferences = GetComponent<IPlayerChildrenReferences>();
+            _player = GetComponent<IPlayer>();
             _index = 0;
             _panelSkill = new List<GameObject>();
         }
@@ -35,7 +35,7 @@ namespace Logic
         /// </summary>
         private void GetSkillReference()
         {
-            var panelSkills = PlayerChildrenReferences.PanelSkillsList.GetList();
+            var panelSkills = Player.PanelSkillsList.GetList();
             foreach (var skill in panelSkills)
             {
                 _panelSkill.Add(skill);
@@ -51,7 +51,7 @@ namespace Logic
         
         private void LoadSkillReference()
         {
-            var heroes = PlayerChildrenReferences.LivingHeroes.GetList();
+            var heroes = Player.LivingHeroes.GetList();
           
 
             foreach (var hero in heroes)
