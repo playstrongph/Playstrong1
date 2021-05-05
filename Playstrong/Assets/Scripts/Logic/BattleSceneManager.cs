@@ -28,14 +28,12 @@ namespace Logic
 
         public IPlayerReferences EnemyPlayer => _enemyPlayer as IPlayerReferences;
 
-        private void Awake()
+        
+        private void Start()
         {
             LogicTree = BattleSceneSettings.BranchLogic.LogicTree;
             VisualTree = BattleSceneSettings.BranchLogic.VisualTree;
-        }
-
-        private void Start()
-        {
+            
             LogicTree.Start();
             VisualTree.Start();
             
