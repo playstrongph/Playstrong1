@@ -2,7 +2,7 @@
 
 namespace Interfaces
 {
-    public interface IPlayerReferences
+    public interface IPlayer
     {
         IPlayerControllerEnumAsset PlayerControllerEnum { get; }
         IPlayerTypeEnumAsset PlayerTypeEnum { get; }

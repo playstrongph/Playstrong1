@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class PlayerReferences : MonoBehaviour, IPlayerReferences
+    public class Player : MonoBehaviour, IPlayer
     {
         [SerializeField] [RequireInterface(typeof(IPlayerControllerEnumAsset))]
         private ScriptableObject _playerControllerEnum;

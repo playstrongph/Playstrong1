@@ -18,15 +18,15 @@ namespace Logic
         public ICoroutineTree LogicTree { get; set; }
         public ICoroutineTree VisualTree { get; set; }
 
-        [SerializeField] [RequireInterface(typeof(IPlayerReferences))]
+        [SerializeField] [RequireInterface(typeof(IPlayer))]
         private Object _mainPlayer;
 
-        public IPlayerReferences MainPlayer => _mainPlayer as IPlayerReferences;
+        public IPlayer MainPlayer => _mainPlayer as IPlayer;
         
-        [SerializeField] [RequireInterface(typeof(IPlayerReferences))]
+        [SerializeField] [RequireInterface(typeof(IPlayer))]
         private Object _enemyPlayer;
 
-        public IPlayerReferences EnemyPlayer => _enemyPlayer as IPlayerReferences;
+        public IPlayer EnemyPlayer => _enemyPlayer as IPlayer;
 
         
         private void Start()
