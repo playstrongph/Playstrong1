@@ -16,9 +16,9 @@ namespace Logic
 
         private void Awake()
         {
-            var playerChildrenReferences = GetComponent<IPlayerChildrenReferences>();
+            var player = GetComponent<IPlayer>();
             
-           _panelPortraitList = playerChildrenReferences.PanelPortraitList;
+           _panelPortraitList = player.PanelPortraitList;
             
            _portraitListTransform = _panelPortraitList.GetTransform();
         }

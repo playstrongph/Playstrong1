@@ -8,12 +8,12 @@ namespace Logic
     public class InitializePlayerHeroes : MonoBehaviour, IInitializePlayerHeroes
     {
 
-        private IPlayerChildrenReferences _playerChildrenReferences;
+        private IPlayer _player;
         private int _heroIndex;
 
         private void Awake()
         {
-            _playerChildrenReferences = GetComponent<IPlayerChildrenReferences>();
+            _player = GetComponent<IPlayer>();
             _heroIndex = 0;
         }
 
@@ -27,7 +27,7 @@ namespace Logic
                 hero.transform.SetParent(boardLocation);
                 hero.transform.SetAsLastSibling();
                 hero.name = heroAsset.name;
-                _playerChildrenReferences.LivingHeroes.HeroList.Add(hero);
+                _player.LivingHeroes.HeroList.Add(hero);
                 
                 
 

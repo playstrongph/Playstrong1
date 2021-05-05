@@ -8,15 +8,15 @@ namespace Logic
 {
     public class CreateHeroSkillReferences : MonoBehaviour, ICreateHeroSkillReferences
     {
-        private IPlayerChildrenReferences _playerChildrenReferences;
-        private IPlayerChildrenReferences PlayerChildrenReferences => _playerChildrenReferences;
+        private IPlayer _player;
+        private IPlayer Player => _player;
 
         private int _index;
         private List<GameObject> _heroSkill;
 
         private void Awake()
         {
-            _playerChildrenReferences = GetComponent<IPlayerChildrenReferences>();
+            _player = GetComponent<IPlayer>();
             _index = 0;
             _heroSkill = new List<GameObject>();
         }
@@ -32,7 +32,7 @@ namespace Logic
 
         private void GetSkillReference()
         {
-            var heroSkills = PlayerChildrenReferences.HeroSkillsList.GetList();
+            var heroSkills = Player.HeroSkillsList.GetList();
             foreach (var skill in heroSkills)
             {
                 _heroSkill.Add(skill);
@@ -41,7 +41,7 @@ namespace Logic
         
         private void LoadSkillReference()
         {
-            var heroes = PlayerChildrenReferences.LivingHeroes.GetList();
+            var heroes = Player.LivingHeroes.GetList();
           
 
             foreach (var hero in heroes)

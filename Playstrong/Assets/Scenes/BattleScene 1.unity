@@ -719,12 +719,12 @@ MonoBehaviour:
   _playerControllerEnum: {fileID: 11400000, guid: fb94f981b08fb8b42bafc8ad63fba58b,
     type: 2}
   _playerTypeEnum: {fileID: 11400000, guid: d337f0f234b52ce4eb460e8f09fb9670, type: 2}
-  _livingHeroes: {fileID: 0}
-  _deadHeroes: {fileID: 0}
-  _heroSkillsList: {fileID: 0}
-  _heroPortraitList: {fileID: 0}
-  _panelSkillsList: {fileID: 0}
-  _panelPortraitList: {fileID: 0}
+  _livingHeroes: {fileID: 7085916704793985039}
+  _deadHeroes: {fileID: 597801378}
+  _heroSkillsList: {fileID: 1157545570}
+  _heroPortraitList: {fileID: 872470243}
+  _panelSkillsList: {fileID: 2094770624}
+  _panelPortraitList: {fileID: 1789215514}
 --- !u!114 &770716311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1638,12 +1638,12 @@ MonoBehaviour:
   _playerControllerEnum: {fileID: 11400000, guid: fb94f981b08fb8b42bafc8ad63fba58b,
     type: 2}
   _playerTypeEnum: {fileID: 11400000, guid: f8795635863e38948b6ddf6ed786aa5d, type: 2}
-  _livingHeroes: {fileID: 0}
-  _deadHeroes: {fileID: 0}
-  _heroSkillsList: {fileID: 0}
-  _heroPortraitList: {fileID: 0}
-  _panelSkillsList: {fileID: 0}
-  _panelPortraitList: {fileID: 0}
+  _livingHeroes: {fileID: 171382152660290830}
+  _deadHeroes: {fileID: 498559384}
+  _heroSkillsList: {fileID: 1000815496}
+  _heroPortraitList: {fileID: 907802311}
+  _panelSkillsList: {fileID: 1098379029}
+  _panelPortraitList: {fileID: 1196796708}
 --- !u!114 &1587527229
 MonoBehaviour:
   m_ObjectHideFlags: 0
