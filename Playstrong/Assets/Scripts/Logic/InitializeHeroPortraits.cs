@@ -17,7 +17,7 @@ namespace Logic
 
         private void Awake()
         {
-            var heroesListReferences = GetComponent<IHeroesListReference>();
+            var heroesListReferences = GetComponent<IPlayerChildrenReferences>();
             
             _heroPortraitList = heroesListReferences.HeroPortraitList;
             

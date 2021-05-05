@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Logic
 {
-    public class HeroesListReference : MonoBehaviour, IHeroesListReference
+    public class PlayerChildrenReferences : MonoBehaviour, IPlayerChildrenReferences
     {
         [SerializeField] [RequireInterface(typeof(IHeroesList))]
         private Object _livingHeroes;

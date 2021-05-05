@@ -10,12 +10,12 @@ namespace Logic
     public class InitializeHeroSkills : MonoBehaviour, IInitializeHeroSkills
     {
         
-        private IHeroesListReference _heroesList;
+        private IPlayerChildrenReferences _playerChildrenReferences;
         private int _index;
 
         private void Awake()
         {
-            _heroesList = GetComponent<IHeroesListReference>();
+            _playerChildrenReferences = GetComponent<IPlayerChildrenReferences>();
             _index = 0;
         }
 
@@ -28,7 +28,7 @@ namespace Logic
                 skillPanelObject.transform.SetParent(boardLocation);
                 skillPanelObject.transform.SetAsLastSibling();
                 skillPanelObject.name = heroAssetSO.name + "Skills";
-                _heroesList.HeroSkillsList.HeroList.Add(skillPanelObject);
+                _playerChildrenReferences.HeroSkillsList.HeroList.Add(skillPanelObject);
                 
                 
                 var heroAsset = heroAssetSO as IHeroAsset;

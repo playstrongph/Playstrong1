@@ -9,6 +9,17 @@ namespace Interfaces
         IInitializePlayerHeroes InitializePlayerHeroes { get; }
 
         IInitializeHeroSkills InitializeHeroSkills { get; }
+        
+        IHeroesList LivingHeroes { get; }
+        IHeroesList DeadHeroes { get; }
+
+        IHeroesList HeroSkillsList { get; }
+
+        IHeroPortraitList HeroPortraitList { get; }
+
+        IHeroesList PanelSkillsList { get; }
+
+        IHeroPortraitList PanelPortraitList { get; }
 
         ICreateHeroSkillReferences CreateHeroSkillReferences { get; }
 

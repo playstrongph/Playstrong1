@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104730556}
   m_Layer: 0
-  m_Name: PanelSkillsLocation
+  m_Name: PanelSkillsPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,12 +273,82 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &173046899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173046900}
+  m_Layer: 0
+  m_Name: PanelSkillsPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &173046900
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173046899}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1198110727}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 87, y: 145}
+  m_SizeDelta: {x: 161, y: 161}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &283836399 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1352393578515258590, guid: 56e131b938c74ed419c39d368a67580d,
     type: 3}
   m_PrefabInstance: {fileID: 904411644}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &331064514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331064515}
+  m_Layer: 0
+  m_Name: HeroSkillsPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &331064515
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331064514}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1198110727}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 87, y: -144}
+  m_SizeDelta: {x: 161, y: 161}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &498559382
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,13 +507,13 @@ MonoBehaviour:
   _enemyTeamHeroesAsset: {fileID: 11400000, guid: 312514aa75981ed49ac86dbdb8b97319,
     type: 2}
   _allyHeroesBoardLocation: {fileID: 7085916704793985036}
+  _allySkillsBoardLocaton: {fileID: 1157545568}
+  _allyPanelSkillsLocation: {fileID: 2094770623}
   _enemyHeroesBoardLocation: {fileID: 1012606843374099078}
+  _enemySkillsBoardLocation: {fileID: 1000815495}
+  _enemyPanelSkillsLocation: {fileID: 1098379028}
   _mainHeroPortraitLocation: {fileID: 2102637765}
   _panelPortraitLocation: {fileID: 1461301122}
-  _allySkillsBoardLocaton: {fileID: 1157545568}
-  _enemySkillsBoardLocation: {fileID: 1000815495}
-  _allyPanelSkillsLocation: {fileID: 2094770623}
-  _enemyPanelSkillsLocation: {fileID: 1098379028}
   _skillPreviewLocation: {fileID: 2055685621}
   _panelSkillPreviewLocation: {fileID: 2055685621}
   _heroPreviewLocations:
@@ -467,7 +537,7 @@ GameObject:
   - component: {fileID: 619465961}
   - component: {fileID: 619465960}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: GraphicCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,7 +633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 689565207}
   m_Layer: 0
-  m_Name: LeftHeroPreviewArea
+  m_Name: LeftHeroPreviewPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,7 +668,6 @@ GameObject:
   m_Component:
   - component: {fileID: 770716309}
   - component: {fileID: 770716310}
-  - component: {fileID: 770716312}
   - component: {fileID: 770716311}
   - component: {fileID: 770716313}
   - component: {fileID: 770716314}
@@ -650,10 +719,12 @@ MonoBehaviour:
   _playerControllerEnum: {fileID: 11400000, guid: fb94f981b08fb8b42bafc8ad63fba58b,
     type: 2}
   _playerTypeEnum: {fileID: 11400000, guid: d337f0f234b52ce4eb460e8f09fb9670, type: 2}
-  _initializePanelPortraits: {fileID: 0}
-  _createPanelPortraitReferences: {fileID: 0}
-  _initializePanelSkils: {fileID: 0}
-  _createPanelSkillReferences: {fileID: 0}
+  _livingHeroes: {fileID: 0}
+  _deadHeroes: {fileID: 0}
+  _heroSkillsList: {fileID: 0}
+  _heroPortraitList: {fileID: 0}
+  _panelSkillsList: {fileID: 0}
+  _panelPortraitList: {fileID: 0}
 --- !u!114 &770716311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,24 +737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be87aa8318f8254b96e53d2004213bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &770716312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770716308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2806472fdd58ecc4ab573009b6f737b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _livingHeroes: {fileID: 7085916704793985039}
-  _deadHeroes: {fileID: 597801378}
-  _heroSkillsList: {fileID: 1157545570}
-  _heroPortraitList: {fileID: 872470243}
-  _panelSkillsList: {fileID: 2094770624}
-  _panelPortraitList: {fileID: 1789215514}
 --- !u!114 &770716313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,7 +1101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 971031635}
   m_Layer: 0
-  m_Name: RightHeroPreviewArea
+  m_Name: RightHeroPreviewPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1413,6 +1466,10 @@ Transform:
   - {fileID: 1461301122}
   - {fileID: 104730556}
   - {fileID: 2055685621}
+  - {fileID: 1612610368}
+  - {fileID: 2078305371}
+  - {fileID: 331064515}
+  - {fileID: 173046900}
   m_Father: {fileID: 877077466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1500,7 +1557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1461301122}
   m_Layer: 0
-  m_Name: PanelHeroPortraitLocation
+  m_Name: PanelHeroPortraitPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1531,7 +1588,6 @@ GameObject:
   - component: {fileID: 1587527227}
   - component: {fileID: 1587527228}
   - component: {fileID: 1587527229}
-  - component: {fileID: 1587527230}
   - component: {fileID: 1587527231}
   - component: {fileID: 1587527232}
   - component: {fileID: 1587527233}
@@ -1582,10 +1638,12 @@ MonoBehaviour:
   _playerControllerEnum: {fileID: 11400000, guid: fb94f981b08fb8b42bafc8ad63fba58b,
     type: 2}
   _playerTypeEnum: {fileID: 11400000, guid: f8795635863e38948b6ddf6ed786aa5d, type: 2}
-  _initializePanelPortraits: {fileID: 0}
-  _createPanelPortraitReferences: {fileID: 0}
-  _initializePanelSkils: {fileID: 0}
-  _createPanelSkillReferences: {fileID: 0}
+  _livingHeroes: {fileID: 0}
+  _deadHeroes: {fileID: 0}
+  _heroSkillsList: {fileID: 0}
+  _heroPortraitList: {fileID: 0}
+  _panelSkillsList: {fileID: 0}
+  _panelPortraitList: {fileID: 0}
 --- !u!114 &1587527229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,24 +1656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be87aa8318f8254b96e53d2004213bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1587527230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587527226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2806472fdd58ecc4ab573009b6f737b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _livingHeroes: {fileID: 171382152660290830}
-  _deadHeroes: {fileID: 498559384}
-  _heroSkillsList: {fileID: 1000815496}
-  _heroPortraitList: {fileID: 907802311}
-  _panelSkillsList: {fileID: 1098379029}
-  _panelPortraitList: {fileID: 1196796708}
 --- !u!114 &1587527231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,6 +1752,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d269423e822bf54396807cb0d97a6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1612610367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1612610368}
+  m_Layer: 0
+  m_Name: MainPlayerLivingHeroesPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1612610368
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612610367}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1198110727}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -53.3}
+  m_SizeDelta: {x: 140, y: 180}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1646982093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055685621}
   m_Layer: 0
-  m_Name: SkillsPreviewArea
+  m_Name: SkillsPreviewPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1907,6 +1982,41 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 60, y: -107}
   m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2078305370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078305371}
+  m_Layer: 0
+  m_Name: EnemyPlayerLivingHeroesPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2078305371
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078305370}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1198110727}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 64.5}
+  m_SizeDelta: {x: 140, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2094770622
 GameObject:
@@ -1968,7 +2078,7 @@ GameObject:
   - component: {fileID: 2102637765}
   - component: {fileID: 2102637766}
   m_Layer: 0
-  m_Name: MainHeroPortraitLocation
+  m_Name: MainHeroPortraitPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,7 +2,7 @@
 
 namespace Interfaces
 {
-    public interface IHeroesListReference
+    public interface IPlayerChildrenReferences
     {
         IHeroesList LivingHeroes { get; }
         IHeroesList DeadHeroes { get; }

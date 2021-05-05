@@ -8,15 +8,15 @@ namespace Logic
 {
     public class CreateHeroPortraitReferences : MonoBehaviour, ICreateHeroPortraitReferences
     {
-        private IHeroesListReference _heroesListReference;
-        private IHeroesListReference HeroesListReference => _heroesListReference;
+        private IPlayerChildrenReferences _playerChildrenReferences;
+        private IPlayerChildrenReferences PlayerChildrenReferences => _playerChildrenReferences;
 
         private int _index;
         private List<GameObject> _heroPortraits;
 
         private void Awake()
         {
-            _heroesListReference = GetComponent<IHeroesListReference>();
+            _playerChildrenReferences = GetComponent<IPlayerChildrenReferences>();
             _heroPortraits = new List<GameObject>();
             _index = 0;
            
@@ -33,7 +33,7 @@ namespace Logic
 
         private void GetPortraitsReference()
         {
-            var heroPortraits = HeroesListReference.HeroPortraitList.GetList();
+            var heroPortraits = PlayerChildrenReferences.HeroPortraitList.GetList();
             foreach (var portrait in heroPortraits)
             {
                 _heroPortraits.Add(portrait);
@@ -42,7 +42,7 @@ namespace Logic
         }
         private void LoadPortraitReference()
         {
-            var heroes = HeroesListReference.LivingHeroes.GetList();
+            var heroes = PlayerChildrenReferences.LivingHeroes.GetList();
             
             foreach (var hero in heroes)
             {

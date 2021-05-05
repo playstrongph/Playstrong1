@@ -11,12 +11,42 @@ namespace Logic
 {
     public class Player : MonoBehaviour, IPlayer
     {
+        
         [SerializeField] [RequireInterface(typeof(IPlayerControllerEnumAsset))]
         private ScriptableObject _playerControllerEnum;
         public IPlayerControllerEnumAsset PlayerControllerEnum => _playerControllerEnum as IPlayerControllerEnumAsset;
         
         [SerializeField] [RequireInterface(typeof(IPlayerTypeEnumAsset))]
         private ScriptableObject _playerTypeEnum;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        private Object _livingHeroes;
+        public IHeroesList LivingHeroes => _livingHeroes as IHeroesList;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        private Object _deadHeroes;
+        public IHeroesList DeadHeroes => _deadHeroes as IHeroesList;
+
+        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        private Object _heroSkillsList;
+        public IHeroesList HeroSkillsList => _heroSkillsList as IHeroesList;
+
+        [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
+        private Object _heroPortraitList;
+        public IHeroPortraitList HeroPortraitList => _heroPortraitList as IHeroPortraitList;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        private Object _panelSkillsList;
+        public IHeroesList PanelSkillsList => _panelSkillsList as IHeroesList;
+        
+        [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
+        private Object _panelPortraitList;
+        public IHeroPortraitList PanelPortraitList => _panelPortraitList as IHeroPortraitList;
+        
+        
+        
+        
+        
         public IPlayerTypeEnumAsset PlayerTypeEnum => _playerTypeEnum as IPlayerTypeEnumAsset;
 
         private IInitializePlayerHeroes _initializePlayerHeroes;
@@ -34,7 +64,7 @@ namespace Logic
         private ICreateHeroPortraitReferences _createHeroPortraitReferences;
         public ICreateHeroPortraitReferences CreateHeroPortraitReferences => _createHeroPortraitReferences;
 
-        [SerializeField] [RequireInterface(typeof(IInitializePanelPortraits))]
+        [RequireInterface(typeof(IInitializePanelPortraits))]
         private Object _initializePanelPortraits;
 
         public IInitializePanelPortraits InitializePanelPortraits
@@ -43,7 +73,7 @@ namespace Logic
             private set => _initializePanelPortraits = value as Object;
         }
 
-        [SerializeField] [RequireInterface(typeof(ICreatePanelPortraitReferences))]
+        [RequireInterface(typeof(ICreatePanelPortraitReferences))]
         private Object _createPanelPortraitReferences;
 
         public ICreatePanelPortraitReferences CreatePanelPortraitReferences
@@ -52,22 +82,22 @@ namespace Logic
             private set => _createPanelPortraitReferences = value as Object;
         }
 
-        [SerializeField] [RequireInterface(typeof(IInitializePanelSkills))]
-        private Object _initializePanelSkils;
+       [RequireInterface(typeof(IInitializePanelSkills))]
+        private Object _initializePanelSkills;
 
         public IInitializePanelSkills InitializePanelSkills
         {
-            get => _initializePanelSkils as IInitializePanelSkills;
-            set => _initializePanelSkils = value as Object;
+            get => _initializePanelSkills as IInitializePanelSkills;
+            private set => _initializePanelSkills = value as Object;
         }
 
-        [SerializeField] [RequireInterface(typeof(ICreatePanelSkillReferences))]
+        [RequireInterface(typeof(ICreatePanelSkillReferences))]
         private Object _createPanelSkillReferences;
 
         public ICreatePanelSkillReferences CreatePanelSkillReferences
         {
             get => _createPanelSkillReferences as ICreatePanelSkillReferences;
-            set => _createPanelSkillReferences = value as Object;
+            private set => _createPanelSkillReferences = value as Object;
         }
 
         private void Awake()
