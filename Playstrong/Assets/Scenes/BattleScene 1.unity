@@ -494,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _branchLogic: {fileID: 609915808}
+  _player: {fileID: 7400215138559013072, guid: 1822fca7f2a8d374ab5964893e81f9d5, type: 3}
   _heroObjectPrefab: {fileID: 3820792405746686396, guid: 55d0158ae4095ed459b6c7d1bccedb52,
     type: 3}
   _skillObjectPrefab: {fileID: 1352393578515258591, guid: 56e131b938c74ed419c39d368a67580d,
@@ -512,6 +513,7 @@ MonoBehaviour:
   _enemyHeroesBoardLocation: {fileID: 1012606843374099078}
   _enemySkillsBoardLocation: {fileID: 1000815495}
   _enemyPanelSkillsLocation: {fileID: 1098379028}
+  _battleSceneManagerTransform: {fileID: 877077466}
   _mainHeroPortraitLocation: {fileID: 2102637765}
   _panelPortraitLocation: {fileID: 1461301122}
   _skillPreviewLocation: {fileID: 2055685621}

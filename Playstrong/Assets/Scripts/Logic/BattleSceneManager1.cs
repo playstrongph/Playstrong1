@@ -58,6 +58,16 @@ namespace Logic
 
         private IEnumerator InitPlayers()
         {
+            var playerPrefab = BattleSceneSettings.Player;
+            var playersParent = BattleSceneSettings.BattleSceneManagerTransform;
+
+            var mainPlayer = Instantiate(playerPrefab, playersParent);
+            mainPlayer.name = "NewMainPlayer";
+              
+            //playerPrefab.transform.SetParent(playersParent);
+
+
+
             yield return null;
             LogicTree.EndSequence();
         }

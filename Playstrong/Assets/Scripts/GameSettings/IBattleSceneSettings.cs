@@ -7,6 +7,8 @@ namespace GameSettings
     public interface IBattleSceneSettings
     {
         IBranchLogic BranchLogic { get; }
+
+        GameObject Player { get; }
         GameObject HeroObjectPrefab { get; }
         GameObject SkillObjectPrefab { get; }
 
@@ -16,6 +18,8 @@ namespace GameSettings
 
         ITeamHeroesAsset PlayerTeamHeroesAsset { get; }
         ITeamHeroesAsset EnemyTeamHeroesAsset { get; }
+
+        Transform BattleSceneManagerTransform { get; }
 
         Transform AllyHeroesBoardLocation { get; }
         Transform EnemyHeroesBoardLocation { get; }

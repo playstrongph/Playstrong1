@@ -14,6 +14,9 @@ namespace GameSettings
         
         
         [Header("Prefabs")]
+        [SerializeField] private GameObject _player;
+
+        public GameObject Player => _player;
         [SerializeField] private GameObject _heroObjectPrefab;
         public GameObject HeroObjectPrefab => _heroObjectPrefab;
 
@@ -34,8 +37,14 @@ namespace GameSettings
         [SerializeField]
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
         public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
-        
+
         [Header("Transforms")]
+        
+        [SerializeField]
+        private Transform _battleSceneManagerTransform;
+        public Transform BattleSceneManagerTransform => _battleSceneManagerTransform;
+
+
         [SerializeField]
         private Transform _allyHeroesBoardLocation;
 
@@ -51,9 +60,7 @@ namespace GameSettings
 
         [SerializeField] private Transform _panelPortraitLocation;
         public Transform PanelPortraitLocation => _panelPortraitLocation;
-        
-        
-        
+
 
         [SerializeField] private Transform _allySkillsBoardLocaton;
         public Transform AllySkillsBoardLocation => _allySkillsBoardLocaton;
@@ -75,6 +82,10 @@ namespace GameSettings
         
         [SerializeField] private List<Transform> _heroPreviewLocations;
         public List<Transform> HeroPreviewLocations => _heroPreviewLocations;
+        
+        
+        
+       
         
        
         

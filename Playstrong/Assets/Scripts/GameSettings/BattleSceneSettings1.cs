@@ -7,13 +7,20 @@ namespace GameSettings
 {
     public class BattleSceneSettings1 : MonoBehaviour, IBattleSceneSettings
     {
+        
+        
         [Header("Script Components")]
         [SerializeField] [RequireInterface(typeof(IBranchLogic))]
         private Object _branchLogic;
         public IBranchLogic BranchLogic => _branchLogic as IBranchLogic;
+
+
+
+        [Header("Prefabs")] 
+        [SerializeField] private GameObject _player;
+
+        public GameObject Player => _player;
         
-        
-        [Header("Prefabs")]
         [SerializeField] private GameObject _heroObjectPrefab;
         public GameObject HeroObjectPrefab => _heroObjectPrefab;
 
@@ -47,6 +54,7 @@ namespace GameSettings
         public Transform AllyPanelSkillsLocation => _allyPanelSkillsLocation;
 
         [Header("Enemy Player Transforms")]
+
         [SerializeField] 
         private Transform _enemyHeroesBoardLocation;
 
@@ -59,6 +67,10 @@ namespace GameSettings
         public Transform EnemyPanelSkillsLocation => _enemyPanelSkillsLocation;
         
         [Header("Common Transforms")]
+        
+        [SerializeField]
+        private Transform _battleSceneManagerTransform;
+        public Transform BattleSceneManagerTransform => _battleSceneManagerTransform;
         
         [SerializeField] private Transform _mainHeroPortraitLocation;
         public Transform MainHeroPortraitLocation => _mainHeroPortraitLocation;
