@@ -35,7 +35,7 @@ namespace Logic
         /// </summary>
         private void GetSkillReference()
         {
-            var panelSkills = Player.PanelSkillsList.GetList();
+            var panelSkills = Player.PanelSkillsList.ThisList;
             foreach (var skill in panelSkills)
             {
                 _panelSkill.Add(skill);
@@ -51,7 +51,7 @@ namespace Logic
         
         private void LoadSkillReference()
         {
-            var heroes = Player.LivingHeroes.GetList();
+            var heroes = Player.LivingHeroes.ThisList;
           
 
             foreach (var hero in heroes)

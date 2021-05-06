@@ -4,16 +4,12 @@ namespace Interfaces
 {
     public interface IPlayerChildrenReferences
     {
-        IHeroesList LivingHeroes { get; }
-        IHeroesList DeadHeroes { get; }
-
-        IHeroesList HeroSkillsList { get; }
-
-        IHeroPortraitList HeroPortraitList { get; }
-
-        IHeroesList PanelSkillsList { get; }
-
+        IObjectList LivingHeroes { get; }
+        IObjectList DeadHeroes { get; }
+        IObjectList HeroSkillsList { get; }
+        IObjectList PanelSkillsList { get; }
         IHeroPortraitList PanelPortraitList { get; }
+        IHeroPortraitList HeroPortraitList { get; }
 
 
     }

@@ -19,29 +19,29 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(IPlayerTypeEnumAsset))]
         private ScriptableObject _playerTypeEnum;
         
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _livingHeroes;
-        public IHeroesList LivingHeroes => _livingHeroes as IHeroesList;
+        public IObjectList LivingHeroes => _livingHeroes as IObjectList;
         
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _deadHeroes;
-        public IHeroesList DeadHeroes => _deadHeroes as IHeroesList;
+        public IObjectList DeadHeroes => _deadHeroes as IObjectList;
 
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _heroSkillsList;
-        public IHeroesList HeroSkillsList => _heroSkillsList as IHeroesList;
+        public IObjectList HeroSkillsList => _heroSkillsList as IObjectList;
 
-        [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _heroPortraitList;
-        public IHeroPortraitList HeroPortraitList => _heroPortraitList as IHeroPortraitList;
+        public IObjectList HeroPortraitList => _heroPortraitList as IObjectList;
         
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _panelSkillsList;
-        public IHeroesList PanelSkillsList => _panelSkillsList as IHeroesList;
+        public IObjectList PanelSkillsList => _panelSkillsList as IObjectList;
         
-        [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _panelPortraitList;
-        public IHeroPortraitList PanelPortraitList => _panelPortraitList as IHeroPortraitList;
+        public IObjectList PanelPortraitList => _panelPortraitList as IObjectList;
         
         
         

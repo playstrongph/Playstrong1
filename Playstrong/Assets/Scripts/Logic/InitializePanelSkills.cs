@@ -27,7 +27,7 @@ namespace Logic
                 skillPanelObject.transform.SetParent(boardLocation);
                 skillPanelObject.transform.SetAsLastSibling();
                 skillPanelObject.name = heroAssetSO.name + "Skills";
-                _player.PanelSkillsList.HeroList.Add(skillPanelObject);
+                _player.PanelSkillsList.ThisList.Add(skillPanelObject);
                 
                 
                 var heroAsset = heroAssetSO as IHeroAsset;

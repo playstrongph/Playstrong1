@@ -7,25 +7,25 @@ namespace Logic
 {
     public class PlayerChildrenReferences : MonoBehaviour, IPlayerChildrenReferences
     {
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _livingHeroes;
-        public IHeroesList LivingHeroes => _livingHeroes as IHeroesList;
+        public IObjectList LivingHeroes => _livingHeroes as IObjectList;
         
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _deadHeroes;
-        public IHeroesList DeadHeroes => _deadHeroes as IHeroesList;
+        public IObjectList DeadHeroes => _deadHeroes as IObjectList;
 
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _heroSkillsList;
-        public IHeroesList HeroSkillsList => _heroSkillsList as IHeroesList;
+        public IObjectList HeroSkillsList => _heroSkillsList as IObjectList;
 
         [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
         private Object _heroPortraitList;
         public IHeroPortraitList HeroPortraitList => _heroPortraitList as IHeroPortraitList;
         
-        [SerializeField] [RequireInterface(typeof(IHeroesList))]
+        [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _panelSkillsList;
-        public IHeroesList PanelSkillsList => _panelSkillsList as IHeroesList;
+        public IObjectList PanelSkillsList => _panelSkillsList as IObjectList;
         
         [SerializeField] [RequireInterface(typeof(IHeroPortraitList))]
         private Object _panelPortraitList;

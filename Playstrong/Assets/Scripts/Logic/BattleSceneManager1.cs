@@ -58,7 +58,7 @@ namespace Logic
             mainPlayerGameObject.name = "MainPlayer";
 
             var mainPlayer = mainPlayerGameObject.GetComponent<IPlayer>();
-            mainPlayer.LivingHeroes.GetTransform().position = BattleSceneSettings.AllyHeroesBoardLocation.position;
+            mainPlayer.LivingHeroes.Transform.position = BattleSceneSettings.AllyHeroesBoardLocation.position;
 
             _mainPlayer = mainPlayer;
             
@@ -66,7 +66,7 @@ namespace Logic
             enemyPlayerGameObject.name = "EnemyPlayer";
 
             var enemyPlayer = enemyPlayerGameObject.GetComponent<IPlayer>();
-            enemyPlayer.LivingHeroes.GetTransform().position = BattleSceneSettings.EnemyHeroesBoardLocation.position;
+            enemyPlayer.LivingHeroes.Transform.position = BattleSceneSettings.EnemyHeroesBoardLocation.position;
 
             _enemyPlayer = enemyPlayer;
 
@@ -80,18 +80,12 @@ namespace Logic
             var heroPreviewLocations = BattleSceneSettings.HeroPreviewLocations;
 
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
-            
-            //var mainTeamTransform = BattleSceneSettings.AllyHeroesBoardLocation;
-            var mainTeamTransform = _mainPlayer.LivingHeroes.GetTransform();
-            
+            var mainTeamTransform = _mainPlayer.LivingHeroes.Transform;
             LogicTree.AddCurrent(_mainPlayer.InitializePlayerHeroes.InitializeHeroes(mainTeamHeroAsset, heroPrefab, mainTeamTransform, heroPreviewLocations, LogicTree));
 
 
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
-            
-            //var enemyTeamTransform = BattleSceneSettings.EnemyHeroesBoardLocation;
-            var enemyTeamTransform = _enemyPlayer.LivingHeroes.GetTransform();
-            
+            var enemyTeamTransform = _enemyPlayer.LivingHeroes.Transform;
             LogicTree.AddCurrent(_enemyPlayer.InitializePlayerHeroes.InitializeHeroes(enemyTeamHeroAsset, heroPrefab, enemyTeamTransform, heroPreviewLocations, LogicTree));
 
             yield return null;
@@ -143,19 +137,14 @@ namespace Logic
         {
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
-            
-            //var mainBoardLocation = BattleSceneSettings.AllySkillsBoardLocation;
-            //var enemyBoardLocation = BattleSceneSettings.EnemySkillsBoardLocation;
 
-            var mainBoardLocation = _mainPlayer.HeroSkillsList.GetTransform();
-            var enemyBoardLocation = _enemyPlayer.HeroSkillsList.GetTransform();
+            var mainBoardLocation = _mainPlayer.HeroSkillsList.Transform;
+            var enemyBoardLocation = _enemyPlayer.HeroSkillsList.Transform;
 
             var skillPanelPrefab = BattleSceneSettings.SkillPanelPrefab;
             var skillObjectPrefab = BattleSceneSettings.SkillObjectPrefab;
             var skillPreviewLocation = BattleSceneSettings.SkillPreviewLocation;
-            
-         
-            
+
             LogicTree.AddCurrent(_mainPlayer.InitializeHeroSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation,  skillPreviewLocation, LogicTree));
             LogicTree.AddCurrent(_mainPlayer.CreateHeroSkillReferences.CreateReferences(LogicTree));
             
@@ -171,20 +160,15 @@ namespace Logic
         {
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
-            
-            //var mainBoardLocation = BattleSceneSettings.AllyPanelSkillsLocation;
-            //var enemyBoardLocation = BattleSceneSettings.EnemyPanelSkillsLocation;
-            
-            var mainBoardLocation = _mainPlayer.PanelSkillsList.GetTransform();
-            var enemyBoardLocation = _enemyPlayer.PanelSkillsList.GetTransform();
+
+            var mainBoardLocation = _mainPlayer.PanelSkillsList.Transform;
+            var enemyBoardLocation = _enemyPlayer.PanelSkillsList.Transform;
             
             
             var skillPanelPrefab = BattleSceneSettings.SkillPanelPrefab;
             var skillObjectPrefab = BattleSceneSettings.SkillObjectPrefab;
             var skillPreviewLocation = BattleSceneSettings.PanelSkillPreviewLocation;
-            
-         
-            
+
             LogicTree.AddCurrent(_mainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, skillPreviewLocation, LogicTree));
             LogicTree.AddCurrent(_mainPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
             

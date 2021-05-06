@@ -10,7 +10,7 @@ namespace Logic
     public class InitializePanelPortraits : MonoBehaviour, IInitializePanelPortraits
     {
 
-       private IHeroPortraitList _panelPortraitList;
+       private IObjectList _panelPortraitList;
         
        private Transform _portraitListTransform;
 
@@ -20,7 +20,7 @@ namespace Logic
             
            _panelPortraitList = player.PanelPortraitList;
             
-           _portraitListTransform = _panelPortraitList.GetTransform();
+           _portraitListTransform = _panelPortraitList.Transform;
         }
 
         public IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation, ICoroutineTree tree)
@@ -33,7 +33,7 @@ namespace Logic
                 panelPortrait.transform.SetParent(_portraitListTransform);
                 panelPortrait.transform.SetAsLastSibling();
                 panelPortrait.name = heroAsset.name;
-                _panelPortraitList.HeroList.Add(panelPortrait);
+                _panelPortraitList.ThisList.Add(panelPortrait);
                 
                 var iHeroAsset = heroAsset as IHeroAsset;
                 panelPortrait.GetComponent<IHeroPortraitReferences>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;

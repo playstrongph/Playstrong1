@@ -37,7 +37,7 @@ namespace Logic
         /// </summary>
         private void GetPortraitsReference()
         {
-            var heroPortraits = Player.PanelPortraitList.GetList();
+            var heroPortraits = Player.PanelPortraitList.ThisList;
             foreach (var portrait in heroPortraits)
             {
                 _panelHeroPortraits.Add(portrait);
@@ -50,7 +50,7 @@ namespace Logic
         /// </summary>
         private void LoadPortraitReference()
         {
-            var heroes = Player.LivingHeroes.GetList();
+            var heroes = Player.LivingHeroes.ThisList;
 
             foreach (var hero in heroes)
             {
