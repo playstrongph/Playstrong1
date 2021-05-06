@@ -34,5 +34,6 @@ namespace Interfaces
         IInitializePanelSkills InitializePanelSkills { get; }
 
         ICreatePanelSkillReferences CreatePanelSkillReferences { get; }
+       
     }
 }

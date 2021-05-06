@@ -61,12 +61,21 @@ namespace Logic
             var playerPrefab = BattleSceneSettings.Player;
             var playersParent = BattleSceneSettings.BattleSceneManagerTransform;
 
-            var mainPlayer = Instantiate(playerPrefab, playersParent);
-            mainPlayer.name = "NewMainPlayer";
-              
-            //playerPrefab.transform.SetParent(playersParent);
+            var mainPlayerGameObject = Instantiate(playerPrefab, playersParent);
+            mainPlayerGameObject.name = "NewMainPlayer";
 
+            var mainPlayer = mainPlayerGameObject.GetComponent<IPlayer>();
+            mainPlayer.LivingHeroes.GetTransform().position = BattleSceneSettings.AllyHeroesBoardLocation.position;
 
+            _mainPlayer = mainPlayerGameObject;
+            
+            var enemyPlayerGameObject = Instantiate(playerPrefab, playersParent);
+            enemyPlayerGameObject.name = "NewEnemyPlayer";
+
+            var enemyPlayer = enemyPlayerGameObject.GetComponent<IPlayer>();
+            enemyPlayer.LivingHeroes.GetTransform().position = BattleSceneSettings.EnemyHeroesBoardLocation.position;
+
+            _enemyPlayer = enemyPlayerGameObject;
 
             yield return null;
             LogicTree.EndSequence();

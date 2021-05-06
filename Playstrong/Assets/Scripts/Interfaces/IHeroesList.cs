@@ -8,5 +8,7 @@ namespace Interfaces
         List<GameObject> HeroList { get; }
 
         List<GameObject> GetList();
+
+        Transform GetTransform();
     }
 }

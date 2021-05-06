@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroList: []
+  _transform: {fileID: 0}
 --- !u!114 &352657112800133705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroList: []
+  _transform: {fileID: 0}
 --- !u!1 &7400215137498579292
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroList: []
+  _transform: {fileID: 0}
 --- !u!1 &7400215138559013072
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroList: []
+  _transform: {fileID: 0}
 --- !u!1 &7400215138952271013
 GameObject:
   m_ObjectHideFlags: 0

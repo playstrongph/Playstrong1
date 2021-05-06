@@ -100,6 +100,10 @@ namespace Logic
             private set => _createPanelSkillReferences = value as Object;
         }
 
+        
+        
+        
+
         private void Awake()
         {
             _initializePlayerHeroes = GetComponent<IInitializePlayerHeroes>();
@@ -111,6 +115,9 @@ namespace Logic
             CreatePanelPortraitReferences = GetComponent<ICreatePanelPortraitReferences>();
             InitializePanelSkills = GetComponent<IInitializePanelSkills>();
             CreatePanelSkillReferences = GetComponent<ICreatePanelSkillReferences>();
+            
+            
+           
 
         }
     }
