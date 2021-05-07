@@ -16,11 +16,15 @@ namespace References
         private Object _heroLogic;
         public IHeroLogic HeroLogic => _heroLogic as IHeroLogic;
         
-        [SerializeField] [RequireInterface(typeof(IHeroSkills))]
+        [SerializeField] [RequireInterface(typeof(ISkillsList))]
         private Object _skills;
 
-        public IHeroSkills Skills => _skills as IHeroSkills;
-        
+        public ISkillsList Skills
+        {
+            get { return _skills as ISkillsList;}
+            set { _skills = value as Object;}
+        }
+
         [SerializeField] [RequireInterface(typeof(IHeroVisual))]
         private Object _heroVisual;
         public IHeroVisual HeroVisual => _heroVisual as IHeroVisual;

@@ -13,7 +13,7 @@ namespace Interfaces
 
         IHeroLogic HeroLogic { get; }
 
-        IHeroSkills Skills { get; }
+        ISkillsList Skills { get; set; }
 
         IHeroPortrait HeroPortrait { get; }
 
