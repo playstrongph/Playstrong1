@@ -10,8 +10,8 @@ namespace Interfaces
 
         IInitializeHeroSkills InitializeHeroSkills { get; }
         
-        IObjectList LivingHeroes { get; }
-        IObjectList DeadHeroes { get; }
+        ILivingHeroes LivingHeroes { get; }
+        IDeadHeroes DeadHeroes { get; }
 
         IObjectList HeroSkillsList { get; }
 

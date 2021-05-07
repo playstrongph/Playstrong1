@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
+    - target: {fileID: 4228853710048405496, guid: 1822fca7f2a8d374ab5964893e81f9d5,
+        type: 3}
+      propertyPath: _transform
+      value: 
+      objectReference: {fileID: 901158116}
     - target: {fileID: 7400215138559013072, guid: 1822fca7f2a8d374ab5964893e81f9d5,
         type: 3}
       propertyPath: m_Name
@@ -839,6 +844,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battleSceneSettings: {fileID: 609915809}
+--- !u!4 &901158116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7400215138723609573, guid: 1822fca7f2a8d374ab5964893e81f9d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 24418348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &912163075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7400215138559013073, guid: 1822fca7f2a8d374ab5964893e81f9d5,

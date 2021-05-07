@@ -27,7 +27,7 @@ namespace Logic
                 hero.transform.SetParent(boardLocation);
                 hero.transform.SetAsLastSibling();
                 hero.name = heroAsset.name;
-                _player.LivingHeroes.ThisList.Add(hero);
+                _player.LivingHeroes.HeroesList.Add(hero);
                 
                 
 

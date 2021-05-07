@@ -51,7 +51,7 @@ namespace Logic
         
         private void LoadSkillReference()
         {
-            var heroes = Player.LivingHeroes.ThisList;
+            var heroes = Player.LivingHeroes.HeroesList;
           
 
             foreach (var hero in heroes)

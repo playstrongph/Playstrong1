@@ -19,13 +19,13 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(IPlayerTypeEnumAsset))]
         private ScriptableObject _playerTypeEnum;
         
-        [SerializeField] [RequireInterface(typeof(IObjectList))]
+        [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
         private Object _livingHeroes;
-        public IObjectList LivingHeroes => _livingHeroes as IObjectList;
+        public ILivingHeroes LivingHeroes => _livingHeroes as ILivingHeroes;
         
-        [SerializeField] [RequireInterface(typeof(IObjectList))]
+        [SerializeField] [RequireInterface(typeof(IDeadHeroes))]
         private Object _deadHeroes;
-        public IObjectList DeadHeroes => _deadHeroes as IObjectList;
+        public IDeadHeroes DeadHeroes => _deadHeroes as IDeadHeroes;
 
         [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _heroSkillsList;
