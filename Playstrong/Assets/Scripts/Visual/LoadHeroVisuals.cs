@@ -15,7 +15,7 @@ namespace Visual
         private void Awake()
         {
             _heroVisual = GetComponent<IHeroVisual>();
-            _heroAttributes = _heroVisual.HeroPrefab.HeroLogic.HeroAttributes;
+            _heroAttributes = _heroVisual.Hero.HeroLogic.HeroAttributes;
 
         }
 

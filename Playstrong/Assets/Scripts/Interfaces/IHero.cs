@@ -4,7 +4,7 @@ using Visual;
 
 namespace Interfaces
 {
-    public interface IHeroPrefab
+    public interface IHero
     {
         IHeroVisual HeroVisual { get; }
         IBuffsVisual BuffsVisual { get; }

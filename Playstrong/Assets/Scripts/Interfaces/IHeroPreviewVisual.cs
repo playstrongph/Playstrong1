@@ -5,7 +5,7 @@ namespace Interfaces
     public interface IHeroPreviewVisual
     {
         
-        IHeroPrefab HeroPrefab { get; }
+        IHero Hero { get; }
         Canvas PreviewCanvas { get; }
 
         Canvas StatusCanvas { get; }

@@ -14,12 +14,12 @@ namespace Logic
     /// </summary>
     public class HeroLogic : MonoBehaviour, IHeroLogic
     {
-        [SerializeField] [RequireInterface(typeof(IHeroPrefab))]
-        private Object _heroPrefab;
+        [SerializeField] [RequireInterface(typeof(IHero))]
+        private Object _hero;
 
-        public IHeroPrefab HeroPrefab
+        public IHero Hero
         {
-            get => _heroPrefab as IHeroPrefab;
+            get => _hero as IHero;
            
         }
         

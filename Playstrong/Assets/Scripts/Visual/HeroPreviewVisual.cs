@@ -10,9 +10,9 @@ namespace Visual
     public class HeroPreviewVisual : MonoBehaviour, IHeroPreviewVisual
     {
         [SerializeField]
-        [RequireInterface(typeof(IHeroPrefab))]
-        private Object _heroPrefab;
-        public IHeroPrefab HeroPrefab => _heroPrefab as IHeroPrefab; 
+        [RequireInterface(typeof(IHero))]
+        private Object _hero;
+        public IHero Hero => _hero as IHero; 
         
         [SerializeField]
         private Canvas _previewCanvas;

@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace References
 {
-    public class HeroPrefab : MonoBehaviour, IHeroPrefab
+    public class Hero : MonoBehaviour, IHero
     {
 
         [SerializeField] [RequireInterface(typeof(IHeroLogic))]

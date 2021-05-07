@@ -46,7 +46,7 @@ namespace Logic
             
             foreach (var hero in heroes)
             {
-                var heroObjectReference = hero.GetComponent<IHeroPrefab>();
+                var heroObjectReference = hero.GetComponent<IHero>();
                 var portraitReference = heroObjectReference.HeroPortrait;
                 
                 //set the reference here

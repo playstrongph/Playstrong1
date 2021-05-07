@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878a96297dfdab946bf3ba43a25e9eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroPrefab: {fileID: 1729355933}
+  _hero: {fileID: 1729355933}
   _heroCanvas: {fileID: 3820792407044158220}
   _tauntFrameAndGlow: {fileID: 3820792407077922094}
   _normalFrameAndGlow: {fileID: 3820792406563672982}
@@ -2996,7 +2996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae0d95e261f76344acfc27890f09dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroPrefab: {fileID: 1729355933}
+  _hero: {fileID: 1729355933}
   _heroAttributes: {fileID: 3820792406562021603}
   _loadHeroAttributes: {fileID: 3820792406562021602}
 --- !u!114 &3820792406562021603
@@ -3812,7 +3812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486e56953512bdb46b20d30367c310bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroPrefab: {fileID: 1729355933}
+  _hero: {fileID: 1729355933}
   _previewCanvas: {fileID: 3820792405816531815}
   _statusCanvas: {fileID: 3820792407318535584}
   _heroPreviewGraphic: {fileID: 3820792406433659938}
@@ -5728,7 +5728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4dc6add1d765b4f98b1b6858be96c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroPrefab: {fileID: 1729355933}
+  _hero: {fileID: 1729355933}
   _targetVisual: {fileID: 3820792406484607035}
 --- !u!114 &3820792407395522589
 MonoBehaviour:
