@@ -4,7 +4,7 @@ using Visual;
 
 namespace References
 {
-    public interface ISkillPrefab
+    public interface ISkill
     {
         ISkillLogic SkillLogic { get; }
         ISkillVisual SkillVisual { get; }
