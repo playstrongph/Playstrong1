@@ -1,9 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using GameSettings;
 using Interfaces;
 using References;
-using UnityEditor;
 using UnityEngine;
 using Visual;
 
@@ -15,10 +13,6 @@ namespace Logic
         private IPlayer _player;
         private int _index;
 
-        private Transform _skillParentObject;
-
-      
-
         private void Awake()
         {
             _player = GetComponent<IPlayer>();
@@ -26,24 +20,18 @@ namespace Logic
         }
 
         public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, 
-            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree, List<GameObject> heroesList)
+            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree)
         {
             foreach (var heroAssetSO in teamHeroesAsset.TeamHeroes())
             {
                 var skillPanelObject = Instantiate(skillPanelPrefab, boardLocation);
-                //skillPanelObject.transform.SetParent(boardLocation);
+                skillPanelObject.transform.SetParent(boardLocation);
                 skillPanelObject.transform.SetAsLastSibling();
                 skillPanelObject.name = heroAssetSO.name + "Skills";
                 _player.HeroSkillsList.ThisList.Add(skillPanelObject);
                 
+                
                 var heroAsset = heroAssetSO as IHeroAsset;
-                
-                //Test Start: Parent to Hero after Instantiating at the correct position
-                _skillParentObject = heroesList[_index].GetComponent<HeroPrefab>().Transform;
-                skillPanelObject.transform.SetParent(_skillParentObject);
-                _index++;
-                //Test End
-                
                 
                 foreach (var heroSkill in heroAsset.GetHeroSkills())
                 {

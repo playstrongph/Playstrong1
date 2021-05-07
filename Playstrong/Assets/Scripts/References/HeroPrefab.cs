@@ -47,9 +47,6 @@ namespace References
         private Object _panelHeroSkills;
 
         public IHeroSkills PanelHeroSkills => _panelHeroSkills as IHeroSkills;
-        
-        [SerializeField] private Transform _transform;
-        public Transform Transform => _transform;
 
 
 

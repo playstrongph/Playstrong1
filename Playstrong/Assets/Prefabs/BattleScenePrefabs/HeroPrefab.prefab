@@ -1078,7 +1078,6 @@ MonoBehaviour:
   _heroPortrait: {fileID: 3820792407297609701}
   _panelHeroPortrait: {fileID: 3820792406943615628}
   _panelHeroSkills: {fileID: 3820792407114594714}
-  _transform: {fileID: 3820792407251447775}
 --- !u!1 &3820792405767808349
 GameObject:
   m_ObjectHideFlags: 0

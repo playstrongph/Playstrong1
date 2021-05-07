@@ -1,6 +1,5 @@
 ﻿using Logic;
 using ScriptableObjects;
-using UnityEngine;
 using Visual;
 
 namespace Interfaces
@@ -20,8 +19,6 @@ namespace Interfaces
         IHeroPortrait PanelHeroPortrait { get; }
 
         IHeroSkills PanelHeroSkills { get; }
-        
-        Transform Transform { get; }
 
 
     }
