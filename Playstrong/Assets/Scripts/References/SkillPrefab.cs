@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace References
 {
-    public class Skill : MonoBehaviour, ISkill
+    public class SkillPrefab : MonoBehaviour, ISkillPrefab
     {
 
         [SerializeField] [RequireInterface(typeof(ISkillLogic))]

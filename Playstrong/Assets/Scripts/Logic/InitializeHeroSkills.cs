@@ -42,10 +42,10 @@ namespace Logic
                     skillPanelObject.GetComponent<ISkillsList>().SkillList.Add(skillObject);
 
                     var skillVisualReferences = 
-                        skillObject.GetComponent<ISkill>().SkillVisual;
-                    var skillLogicReferences = skillObject.GetComponent<ISkill>().SkillLogic;
+                        skillObject.GetComponent<ISkillPrefab>().SkillVisual;
+                    var skillLogicReferences = skillObject.GetComponent<ISkillPrefab>().SkillLogic;
                     
-                    var skillPreviewVisual = skillObject.GetComponent<ISkill>().SkillPreviewVisual;
+                    var skillPreviewVisual = skillObject.GetComponent<ISkillPrefab>().SkillPreviewVisual;
                     skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
                     
                     
