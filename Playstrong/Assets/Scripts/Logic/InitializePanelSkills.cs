@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using Interfaces;
 using References;
 using UnityEngine;
@@ -12,8 +11,6 @@ namespace Logic
         
         private IPlayer _player;
         private int _index;
-        
-        private IHeroPrefab _heroParent;
 
         private void Awake()
         {
@@ -22,27 +19,18 @@ namespace Logic
         }
 
         public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, 
-            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree, List<GameObject> heroesList)
+            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree)
         {
             foreach (var heroAssetSO in teamHeroesAsset.TeamHeroes())
             {
                 var skillPanelObject = Instantiate(skillPanelPrefab, boardLocation);
-                //skillPanelObject.transform.SetParent(boardLocation);
+                skillPanelObject.transform.SetParent(boardLocation);
                 skillPanelObject.transform.SetAsLastSibling();
-                skillPanelObject.name = heroAssetSO.name + "PanelSkills";
-                //_player.PanelSkillsList.ThisList.Add(skillPanelObject);
+                skillPanelObject.name = heroAssetSO.name + "Skills";
+                _player.PanelSkillsList.ThisList.Add(skillPanelObject);
                 
                 
                 var heroAsset = heroAssetSO as IHeroAsset;
-                
-                //Test Start: Parent to Hero after Instantiating at the correct position
-                _heroParent = heroesList[_index].GetComponent<IHeroPrefab>();
-                skillPanelObject.transform.SetParent(_heroParent.Transform);
-                _heroParent.PanelSkills = skillPanelObject.GetComponent<ISkillsList>();
-                
-                
-                _index++;
-                //Test End
                 
                 foreach (var heroSkill in heroAsset.GetHeroSkills())
                 {
