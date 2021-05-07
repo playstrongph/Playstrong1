@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2581422609688063456}
   - component: {fileID: 2581422609688063457}
   m_Layer: 0
-  m_Name: HeroPortraitPrefab
+  m_Name: PortraitPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

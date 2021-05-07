@@ -38,7 +38,7 @@ namespace Logic
                 _heroPortraitList.ThisList.Add(heroPortrait);
 
                 var iHeroAsset = heroAsset as IHeroAsset;
-                heroPortrait.GetComponent<IHeroPortraitReferences>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;
+                heroPortrait.GetComponent<IPortrait>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;
                
             }
 

@@ -57,7 +57,7 @@ namespace Logic
                 var heroObjectReference = hero.GetComponent<IHero>();
                 var panelPortraitReference = heroObjectReference.PanelHeroPortrait;
 
-                panelPortraitReference.PortraitReference = _panelHeroPortraits[_index];
+                panelPortraitReference.Portrait = _panelHeroPortraits[_index];
                 _index++;
 
             }

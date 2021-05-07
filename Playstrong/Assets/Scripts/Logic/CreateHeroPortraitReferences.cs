@@ -50,7 +50,7 @@ namespace Logic
                 var portraitReference = heroObjectReference.HeroPortrait;
                 
                 //set the reference here
-                portraitReference.PortraitReference = _heroPortraits[_index];
+                portraitReference.Portrait = _heroPortraits[_index];
                 _index++;
 
             }

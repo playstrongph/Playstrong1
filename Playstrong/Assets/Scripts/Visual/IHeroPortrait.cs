@@ -4,6 +4,6 @@ namespace Visual
 {
     public interface IHeroPortrait
     {
-        GameObject PortraitReference { get; set; }
+        GameObject Portrait { get; set; }
     }
 }
