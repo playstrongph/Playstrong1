@@ -170,19 +170,26 @@ namespace Logic
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
 
-            var mainBoardLocation = _mainPlayer.PanelSkillsList.Transform;
-            var enemyBoardLocation = _enemyPlayer.PanelSkillsList.Transform;
+            var allyPanelSkillsLocation = BattleSceneSettings.AllyPanelSkillsLocation;
+            var enemyPanelSkillsLocation = BattleSceneSettings.EnemyPanelSkillsLocation;
             
             
             var skillPanelPrefab = BattleSceneSettings.SkillPanelPrefab;
             var skillObjectPrefab = BattleSceneSettings.SkillObjectPrefab;
             var skillPreviewLocation = BattleSceneSettings.PanelSkillPreviewLocation;
-
-            LogicTree.AddCurrent(_mainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, skillPreviewLocation, LogicTree));
-            LogicTree.AddCurrent(_mainPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
             
-            LogicTree.AddCurrent(_enemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, skillPreviewLocation, LogicTree));
-            LogicTree.AddCurrent(_enemyPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
+            //test
+            var mainPlayerHeroList = _mainPlayer.LivingHeroes.ThisList;
+            var enemyPlayerHeroList = _enemyPlayer.LivingHeroes.ThisList;
+            
+
+            LogicTree.AddCurrent(_mainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, 
+                allyPanelSkillsLocation, skillPreviewLocation, LogicTree, mainPlayerHeroList));
+            //LogicTree.AddCurrent(_mainPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
+            
+            LogicTree.AddCurrent(_enemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, 
+                enemyPanelSkillsLocation, skillPreviewLocation, LogicTree, enemyPlayerHeroList));
+            //LogicTree.AddCurrent(_enemyPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
 
             yield return null;
             LogicTree.EndSequence();

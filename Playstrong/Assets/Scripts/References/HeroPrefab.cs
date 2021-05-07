@@ -47,10 +47,14 @@ namespace References
 
         public IHeroPortrait PanelHeroPortrait => _panelHeroPortrait as IHeroPortrait;
         
-        [SerializeField] [RequireInterface(typeof(IHeroSkills))]
-        private Object _panelHeroSkills;
+        [SerializeField] [RequireInterface(typeof(ISkillsList))]
+        private Object _panelSkills;
 
-        public IHeroSkills PanelHeroSkills => _panelHeroSkills as IHeroSkills;
+        public  ISkillsList PanelSkills
+        {
+            get { return _panelSkills as ISkillsList;}
+            set { _panelSkills = value as Object;}
+        }
         
         [SerializeField] private Transform _transform;
         public Transform Transform => _transform;

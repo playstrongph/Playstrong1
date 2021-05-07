@@ -164,10 +164,10 @@ namespace Logic
             
          
             
-            LogicTree.AddCurrent(MainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, skillPreviewLocation, LogicTree));
+            //LogicTree.AddCurrent(MainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, skillPreviewLocation, LogicTree));
             LogicTree.AddCurrent(MainPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
             
-            LogicTree.AddCurrent(EnemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, skillPreviewLocation, LogicTree));
+            //LogicTree.AddCurrent(EnemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, skillPreviewLocation, LogicTree));
             LogicTree.AddCurrent(EnemyPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
 
             yield return null;

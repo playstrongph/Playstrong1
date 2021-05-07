@@ -19,10 +19,14 @@ namespace Interfaces
 
         IHeroPortrait PanelHeroPortrait { get; }
 
-        IHeroSkills PanelHeroSkills { get; }
-        
+        ISkillsList PanelSkills { get; set; }
+
         Transform Transform { get; }
 
 
+    }
+
+    public interface IISkillsList
+    {
     }
 }
