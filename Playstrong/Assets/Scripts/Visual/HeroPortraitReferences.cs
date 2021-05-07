@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Visual
 {
-    public class HeroPortrait : MonoBehaviour, IHeroPortrait
+    public class HeroPortraitReferences : MonoBehaviour, IHeroPortraitReferences
     {
         [SerializeField] private Image _heroPortraitImage;
         public Image HeroPortraitImage => _heroPortraitImage;

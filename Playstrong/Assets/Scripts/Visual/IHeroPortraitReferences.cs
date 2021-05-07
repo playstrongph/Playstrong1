@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Visual
 {
-    public interface IHeroPortrait
+    public interface IHeroPortraitReferences
     {
         Image HeroPortraitImage { get; }
 

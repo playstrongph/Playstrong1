@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f72f4ea077bc6549a09c1cd8df12964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillLogic: {fileID: 956212357985600032}
 --- !u!1 &956212358033504289
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765504ac371d3a948aba0c5492987f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 1352393578515258584}
+  _skillPrefab: {fileID: 1352393578515258584}
   _targetVisual: {fileID: 956212358772889639}
 --- !u!114 &646772054308493208
 MonoBehaviour:
@@ -1790,7 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4b4e50a3143534da6bb16c769951a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 1352393578515258584}
+  _skillprefab: {fileID: 1352393578515258584}
   _previewCanvas: {fileID: 1352393576979069932}
   _previewImage: {fileID: 1352393577459106565}
   _cooldown: {fileID: 1352393577030701754}
@@ -1808,6 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e941cf81560924fb3e707c435550f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillPreviewVisual: {fileID: 1352393577901692879}
 --- !u!1 &1352393578027147517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,7 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8b6b8d43505e74e8d432fb56b7d5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 1352393578515258584}
+  _skillPrefab: {fileID: 1352393578515258584}
   _skillCanvas: {fileID: 1352393577512910691}
   _skillGlow: {fileID: 956212357450337489}
   _skillGraphic: {fileID: 1352393578027147514}
@@ -2319,6 +2321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43038efcd5c4cee42823cfbf04b9e314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillVisual: {fileID: 1352393578959371933}
 --- !u!1 &1352393579021286423
 GameObject:
   m_ObjectHideFlags: 0

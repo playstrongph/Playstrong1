@@ -18,7 +18,7 @@ namespace Visual
 
         public void LoadSkillVisualsFromSkillAsset(IHeroSkillAsset heroSkillAsset)
         {
-            var skillAttributes = _skillVisual.Skill.SkillLogic.SkillAttributes;
+            var skillAttributes = _skillVisual.SkillPrefab.SkillLogic.SkillAttributes;
             
             _skillVisual.SkillGraphic.sprite = heroSkillAsset.SkillIcon;
             _skillVisual.CooldownText.text = skillAttributes.Cooldown.ToString();
