@@ -75,6 +75,56 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!1 &7400215137066007579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7400215137066007588}
+  - component: {fileID: 7400215137066007590}
+  m_Layer: 0
+  m_Name: HeroSkills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7400215137066007588
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400215137066007579}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7400215138559013073}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 87, y: -144}
+  m_SizeDelta: {x: 161, y: 161}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7400215137066007590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400215137066007579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceae3a8ae3bb1104da17398d2e0f5725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisList: []
+  _transform: {fileID: 7400215137066007588}
 --- !u!1 &7400215137498579292
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7400215138559013073}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3016666017227565300
 MonoBehaviour:
@@ -149,7 +199,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7400215138559013073}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -182,6 +232,7 @@ GameObject:
   - component: {fileID: 7400215138559013074}
   - component: {fileID: 7400215138559013075}
   - component: {fileID: 7400215138559013085}
+  - component: {fileID: 7400215138559013086}
   - component: {fileID: 7400215138559013087}
   - component: {fileID: 7400215138559013080}
   - component: {fileID: 7400215138559013081}
@@ -208,6 +259,7 @@ Transform:
   m_Children:
   - {fileID: 352657112800133704}
   - {fileID: 7400215138723609573}
+  - {fileID: 7400215137066007588}
   - {fileID: 7400215138952271014}
   - {fileID: 7400215137739385851}
   - {fileID: 7400215137498579293}
@@ -231,7 +283,7 @@ MonoBehaviour:
   _playerTypeEnum: {fileID: 11400000, guid: d337f0f234b52ce4eb460e8f09fb9670, type: 2}
   _livingHeroes: {fileID: 352657112800133707}
   _deadHeroes: {fileID: 7400215138723609574}
-  _heroSkillsList: {fileID: 0}
+  _heroSkillsList: {fileID: 7400215137066007590}
   _heroPortraitList: {fileID: 6320544804128998822}
   _panelSkillsList: {fileID: 7400215137739385732}
   _panelPortraitList: {fileID: 3016666017227565300}
@@ -257,6 +309,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e62ad7e891058f447902cbfcf6440fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7400215138559013086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400215138559013072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff232df19e82ba84fb2dfcb1b76c301a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7400215138559013087
@@ -405,7 +469,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7400215138559013073}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6320544804128998822
 MonoBehaviour:

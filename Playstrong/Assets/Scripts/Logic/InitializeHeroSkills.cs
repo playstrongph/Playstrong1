@@ -15,7 +15,7 @@ namespace Logic
         private IPlayer _player;
         private int _index;
 
-        private IHeroPrefab _heroParent;
+        private Transform _skillParentObject;
 
       
 
@@ -34,16 +34,13 @@ namespace Logic
                 //skillPanelObject.transform.SetParent(boardLocation);
                 skillPanelObject.transform.SetAsLastSibling();
                 skillPanelObject.name = heroAssetSO.name + "Skills";
-                //_player.HeroSkillsList.ThisList.Add(skillPanelObject);
+                _player.HeroSkillsList.ThisList.Add(skillPanelObject);
                 
                 var heroAsset = heroAssetSO as IHeroAsset;
                 
                 //Test Start: Parent to Hero after Instantiating at the correct position
-                _heroParent = heroesList[_index].GetComponent<IHeroPrefab>();
-                skillPanelObject.transform.SetParent(_heroParent.Transform);
-                _heroParent.Skills = skillPanelObject.GetComponent<ISkillsList>();
-                
-                
+                _skillParentObject = heroesList[_index].GetComponent<HeroPrefab>().Transform;
+                skillPanelObject.transform.SetParent(_skillParentObject);
                 _index++;
                 //Test End
                 

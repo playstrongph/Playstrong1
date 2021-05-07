@@ -6,11 +6,6 @@ using UnityEngine;
 
 namespace Logic
 {
-    
-    /// <summary>
-    /// This Script to be deleted.  Obsolete.
-    /// </summary>
-    
     public class CreateHeroSkillReferences : MonoBehaviour, ICreateHeroSkillReferences
     {
         private IPlayer _player;
@@ -55,7 +50,7 @@ namespace Logic
                 var skillsReference = heroObjectReference.Skills;
                 
                 //set the reference here
-                //skillsReference.Skills = _heroSkill[_index];
+                skillsReference.Skills = _heroSkill[_index];
                 _index++;
 
             }
