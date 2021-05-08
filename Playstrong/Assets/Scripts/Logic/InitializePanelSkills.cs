@@ -38,7 +38,7 @@ namespace Logic
                     skillObject.transform.SetParent(skillPanelObject.transform);
                     skillObject.transform.SetAsLastSibling();
                     skillObject.name = heroSkill.name;
-                    skillPanelObject.GetComponent<ISkillsList>().SkillList.Add(skillObject);
+                    skillPanelObject.GetComponent<ISkillsPanel>().SkillList.Add(skillObject);
 
                     var skillVisualReferences = 
                         skillObject.GetComponent<ISkill>().SkillVisual;

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4757393120680548152}
   - component: {fileID: 4757393120680548151}
-  - component: {fileID: -8521523275943503991}
+  - component: {fileID: 2261422646311337527}
   m_Layer: 0
-  m_Name: SkillsPanel
+  m_Name: SkillsPanelPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4757393120680548153}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Spacing: {x: -85.87, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
---- !u!114 &-8521523275943503991
+--- !u!114 &2261422646311337527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4757393120680548153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7066523c81cb154b811a6c26519a663, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a54f51dc7389044aa063fca7ad2f82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _skillList: []
