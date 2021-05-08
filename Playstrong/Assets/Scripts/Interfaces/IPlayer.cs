@@ -15,9 +15,9 @@ namespace Interfaces
 
         IHeroesSkills HeroesSkills { get; }
 
-        IObjectList HeroPortraitList { get; }
+        IHeroesPortraits HeroesPortraits { get; }
 
-        IObjectList PanelSkillsList { get; }
+        IPanelSkills PanelSkills { get; }
 
         IObjectList PanelPortraitList { get; }
 

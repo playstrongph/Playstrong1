@@ -161,8 +161,8 @@ namespace Logic
             var mainTeamHeroAsset = BattleSceneSettings.PlayerTeamHeroesAsset;
             var enemyTeamHeroAsset = BattleSceneSettings.EnemyTeamHeroesAsset;
 
-            var mainBoardLocation = _mainPlayer.PanelSkillsList.Transform;
-            var enemyBoardLocation = _enemyPlayer.PanelSkillsList.Transform;
+            var mainBoardLocation = _mainPlayer.PanelSkills.Transform;
+            var enemyBoardLocation = _enemyPlayer.PanelSkills.Transform;
             
             
             var skillPanelPrefab = BattleSceneSettings.SkillPanelPrefab;

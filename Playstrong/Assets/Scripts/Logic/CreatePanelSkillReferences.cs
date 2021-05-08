@@ -35,7 +35,7 @@ namespace Logic
         /// </summary>
         private void GetSkillReference()
         {
-            var panelSkills = Player.PanelSkillsList.ThisList;
+            var panelSkills = Player.PanelSkills.List;
             foreach (var skill in panelSkills)
             {
                 _panelSkill.Add(skill);

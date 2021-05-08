@@ -33,7 +33,7 @@ namespace Logic
 
         private void GetPortraitsReference()
         {
-            var heroPortraits = Player.HeroPortraitList.ThisList;
+            var heroPortraits = Player.HeroesPortraits.List;
             foreach (var portrait in heroPortraits)
             {
                 _heroPortraits.Add(portrait);

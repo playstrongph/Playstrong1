@@ -31,13 +31,13 @@ namespace Logic
         private Object _heroesSkills;
         public IHeroesSkills HeroesSkills => _heroesSkills as IHeroesSkills;
 
-        [SerializeField] [RequireInterface(typeof(IObjectList))]
-        private Object _heroPortraitList;
-        public IObjectList HeroPortraitList => _heroPortraitList as IObjectList;
+        [SerializeField] [RequireInterface(typeof(IHeroesPortraits))]
+        private Object _heroesPortrait;
+        public IHeroesPortraits HeroesPortraits => _heroesPortrait as IHeroesPortraits;
         
-        [SerializeField] [RequireInterface(typeof(IObjectList))]
-        private Object _panelSkillsList;
-        public IObjectList PanelSkillsList => _panelSkillsList as IObjectList;
+        [SerializeField] [RequireInterface(typeof(IPanelSkills))]
+        private Object _panelSkills;
+        public IPanelSkills PanelSkills => _panelSkills as IPanelSkills;
         
         [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _panelPortraitList;

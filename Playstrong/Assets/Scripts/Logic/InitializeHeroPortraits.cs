@@ -10,7 +10,7 @@ namespace Logic
     public class InitializeHeroPortraits : MonoBehaviour, IInitializeHeroPortraits
     {
 
-        private IObjectList _heroPortraitList;
+        private IHeroesPortraits _heroesPortraits;
         
         private Transform _heroesListTransform;
        
@@ -18,10 +18,10 @@ namespace Logic
         private void Awake()
         {
             var player = GetComponent<IPlayer>();
-            
-            _heroPortraitList = player.HeroPortraitList;
 
-            _heroesListTransform = _heroPortraitList.Transform;
+            _heroesPortraits = player.HeroesPortraits;
+
+            _heroesListTransform = _heroesPortraits.Transform;
 
         }
 
@@ -35,7 +35,7 @@ namespace Logic
                 heroPortrait.transform.SetParent(_heroesListTransform);
                 heroPortrait.transform.SetAsLastSibling();
                 heroPortrait.name = heroAsset.name;
-                _heroPortraitList.ThisList.Add(heroPortrait);
+                _heroesPortraits.List.Add(heroPortrait);
 
                 var iHeroAsset = heroAsset as IHeroAsset;
                 heroPortrait.GetComponent<IPortrait>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;
