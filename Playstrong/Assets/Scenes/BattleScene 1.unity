@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: _transform
       value: 
       objectReference: {fileID: 901158116}
+    - target: {fileID: 7400215137066007579, guid: 1822fca7f2a8d374ab5964893e81f9d5,
+        type: 3}
+      propertyPath: m_Name
+      value: HeroesSkills
+      objectReference: {fileID: 0}
     - target: {fileID: 7400215138559013072, guid: 1822fca7f2a8d374ab5964893e81f9d5,
         type: 3}
       propertyPath: m_Name

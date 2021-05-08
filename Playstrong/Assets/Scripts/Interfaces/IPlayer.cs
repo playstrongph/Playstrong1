@@ -13,7 +13,7 @@ namespace Interfaces
         ILivingHeroes LivingHeroes { get; }
         IDeadHeroes DeadHeroes { get; }
 
-        IObjectList HeroSkillsList { get; }
+        IHeroesSkills HeroesSkills { get; }
 
         IObjectList HeroPortraitList { get; }
 

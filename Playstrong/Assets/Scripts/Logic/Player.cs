@@ -27,9 +27,9 @@ namespace Logic
         private Object _deadHeroes;
         public IDeadHeroes DeadHeroes => _deadHeroes as IDeadHeroes;
 
-        [SerializeField] [RequireInterface(typeof(IObjectList))]
-        private Object _heroSkillsList;
-        public IObjectList HeroSkillsList => _heroSkillsList as IObjectList;
+        [SerializeField] [RequireInterface(typeof(IHeroesSkills))]
+        private Object _heroesSkills;
+        public IHeroesSkills HeroesSkills => _heroesSkills as IHeroesSkills;
 
         [SerializeField] [RequireInterface(typeof(IObjectList))]
         private Object _heroPortraitList;
