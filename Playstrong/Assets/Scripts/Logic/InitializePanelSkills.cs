@@ -53,9 +53,14 @@ namespace Logic
                     skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skill);
                     
                 }
+                
+                //Hide Panel Skills after loading
+                skillPanelObject.SetActive(false);
 
 
             }
+            
+            
 
             yield return null;
             tree.EndSequence();

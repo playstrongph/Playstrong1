@@ -177,6 +177,8 @@ namespace Logic
             
             LogicTree.AddCurrent(_mainPlayer.PanelSkills.DisablePanelSkillTargetVisual(LogicTree));
             LogicTree.AddCurrent(_enemyPlayer.PanelSkills.DisablePanelSkillTargetVisual(LogicTree));
+            
+            
 
             yield return null;
             LogicTree.EndSequence();

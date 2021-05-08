@@ -11,6 +11,16 @@ namespace Logic
             get { return  _panelSkills;}
             set { _panelSkills = value; }
         }
-    
-    }
+
+        public void ShowPanelSkills()
+        {
+            PanelSkills.SetActive(true);
+        }
+        
+        public void HidePanelSkills()
+        {
+            PanelSkills.SetActive(true);
+        }
+
+   }
 }

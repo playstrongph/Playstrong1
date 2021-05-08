@@ -37,7 +37,9 @@ namespace Logic
                 
                 var iHeroAsset = heroAsset as IHeroAsset;
                 panelPortrait.GetComponent<IPortrait>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;
-
+                
+                //Hide Panel Portraits after loading
+                panelPortrait.SetActive(false);
 
             }
 

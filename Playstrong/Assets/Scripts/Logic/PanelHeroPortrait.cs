@@ -14,16 +14,14 @@ namespace Logic
             set { _portrait = value; }
         }
 
-        public void ShowPortraitImage()
+        public void ShowPanelPortrait()
         {
-            var heroPortrait = Portrait.GetComponent<IPortrait>();
-            var portraitImage = heroPortrait.HeroPortraitImage.enabled = true;
+            Portrait.SetActive(true);
         }
         
-        public void HidePortraitImage()
+        public void HidePanelPortrait()
         {
-            var heroPortrait = Portrait.GetComponent<IPortrait>();
-            var portraitImage = heroPortrait.HeroPortraitImage.enabled = false;
+            Portrait.SetActive(true);
         }
     }
 }
