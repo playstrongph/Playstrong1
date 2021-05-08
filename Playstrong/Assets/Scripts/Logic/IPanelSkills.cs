@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 namespace Logic
@@ -7,5 +9,8 @@ namespace Logic
     {
         List<GameObject> List { get; }
         Transform Transform { get; }
+
+        IEnumerator DisablePanelSkillTargetVisual(ICoroutineTree tree);
+
     }
 }

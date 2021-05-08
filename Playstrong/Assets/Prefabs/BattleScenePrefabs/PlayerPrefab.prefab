@@ -180,6 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7400215137739385851}
   - component: {fileID: 663722578}
+  - component: {fileID: 7594411324976896558}
   m_Layer: 0
   m_Name: PanelSkills
   m_TagString: Untagged
@@ -220,6 +221,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _list: []
   _transform: {fileID: 7400215137739385851}
+--- !u!114 &7594411324976896558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400215137739385850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43664d48871f5143a2fbb480aaf548b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7400215138559013072
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +253,7 @@ GameObject:
   - component: {fileID: 7400215138559013083}
   - component: {fileID: 7400215138559013092}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

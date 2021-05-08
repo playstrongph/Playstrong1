@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 namespace Logic
@@ -10,5 +13,21 @@ namespace Logic
 
         [SerializeField] private Transform _transform;
         public Transform Transform => _transform;
+
+
+        private IDisablePanelTargetVisual _disablePanelTargetVisual;
+
+        private void Awake()
+        {
+            _disablePanelTargetVisual = GetComponent<IDisablePanelTargetVisual>();
+            
+        }
+        public IEnumerator DisablePanelSkillTargetVisual(ICoroutineTree tree)
+        {
+            _disablePanelTargetVisual.DisableTarget();
+
+            yield return null;
+            tree.EndSequence();
+        }
     }
 }
