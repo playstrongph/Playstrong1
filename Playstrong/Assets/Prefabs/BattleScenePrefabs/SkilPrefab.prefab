@@ -2057,7 +2057,7 @@ GameObject:
   - component: {fileID: 1352393578515258590}
   - component: {fileID: 1352393578515258584}
   m_Layer: 0
-  m_Name: SkillObjectPrefab
+  m_Name: SkilPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

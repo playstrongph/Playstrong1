@@ -60,7 +60,7 @@ namespace Logic
                 var panelSkillsReference = heroObjectReference.PanelHeroSkills;
                 
                 //set the reference here
-                panelSkillsReference.Skills = _panelSkill[_index];
+                panelSkillsReference.PanelSkills = _panelSkill[_index];
                 _index++;
                 
 
