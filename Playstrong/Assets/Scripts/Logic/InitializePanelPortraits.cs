@@ -10,17 +10,17 @@ namespace Logic
     public class InitializePanelPortraits : MonoBehaviour, IInitializePanelPortraits
     {
 
-       private IObjectList _panelPortraitList;
+       private IPanelPortraits _panelPortraits;
         
-       private Transform _portraitListTransform;
+       private Transform _panelPortraitsTransform;
 
         private void Awake()
         {
             var player = GetComponent<IPlayer>();
             
-           _panelPortraitList = player.PanelPortraitList;
+            _panelPortraits = player.PanelPortraits;
             
-           _portraitListTransform = _panelPortraitList.Transform;
+            _panelPortraitsTransform = _panelPortraits.Transform;
         }
 
         public IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation, ICoroutineTree tree)
@@ -30,10 +30,10 @@ namespace Logic
             {
                 var panelPortrait = Instantiate(heroPortraitPrefab, boardLocation);
                 
-                panelPortrait.transform.SetParent(_portraitListTransform);
+                panelPortrait.transform.SetParent(_panelPortraitsTransform);
                 panelPortrait.transform.SetAsLastSibling();
                 panelPortrait.name = heroAsset.name;
-                _panelPortraitList.ThisList.Add(panelPortrait);
+                _panelPortraits.List.Add(panelPortrait);
                 
                 var iHeroAsset = heroAsset as IHeroAsset;
                 panelPortrait.GetComponent<IPortrait>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;

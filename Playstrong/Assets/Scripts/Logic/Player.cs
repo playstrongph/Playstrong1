@@ -39,9 +39,9 @@ namespace Logic
         private Object _panelSkills;
         public IPanelSkills PanelSkills => _panelSkills as IPanelSkills;
         
-        [SerializeField] [RequireInterface(typeof(IObjectList))]
-        private Object _panelPortraitList;
-        public IObjectList PanelPortraitList => _panelPortraitList as IObjectList;
+        [SerializeField] [RequireInterface(typeof(IPanelPortraits))]
+        private Object _panelPortraits;
+        public IPanelPortraits PanelPortraits => _panelPortraits as IPanelPortraits;
         
         
         

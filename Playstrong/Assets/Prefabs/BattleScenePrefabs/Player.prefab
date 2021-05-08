@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7400215137498579293}
-  - component: {fileID: 3016666017227565300}
+  - component: {fileID: 842706165069560148}
   m_Layer: 0
   m_Name: PanelPortraits
   m_TagString: Untagged
@@ -156,7 +156,7 @@ Transform:
   m_Father: {fileID: 7400215138559013073}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3016666017227565300
+--- !u!114 &842706165069560148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,10 +165,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7400215137498579292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceae3a8ae3bb1104da17398d2e0f5725, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ae71192e829c424fa385bddc28bf628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _thisList: []
+  _list: []
   _transform: {fileID: 7400215137498579293}
 --- !u!1 &7400215137739385850
 GameObject:
@@ -179,7 +179,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7400215137739385851}
-  - component: {fileID: 7400215137739385732}
   - component: {fileID: 663722578}
   m_Layer: 0
   m_Name: PanelSkills
@@ -207,20 +206,6 @@ RectTransform:
   m_AnchoredPosition: {x: 87, y: 145}
   m_SizeDelta: {x: 161, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7400215137739385732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7400215137739385850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceae3a8ae3bb1104da17398d2e0f5725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _thisList: []
-  _transform: {fileID: 7400215137739385851}
 --- !u!114 &663722578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +286,7 @@ MonoBehaviour:
   _heroesSkills: {fileID: 547490703340572784}
   _heroesPortrait: {fileID: 1823352796}
   _panelSkills: {fileID: 663722578}
-  _panelPortraitList: {fileID: 3016666017227565300}
+  _panelPortraits: {fileID: 842706165069560148}
 --- !u!114 &7400215138559013075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +449,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7400215138952271014}
-  - component: {fileID: 6320544804128998822}
   - component: {fileID: 1823352796}
   m_Layer: 0
   m_Name: HeroesPortraits
@@ -487,20 +471,6 @@ Transform:
   m_Father: {fileID: 7400215138559013073}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6320544804128998822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7400215138952271013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceae3a8ae3bb1104da17398d2e0f5725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _thisList: []
-  _transform: {fileID: 7400215138952271014}
 --- !u!114 &1823352796
 MonoBehaviour:
   m_ObjectHideFlags: 0

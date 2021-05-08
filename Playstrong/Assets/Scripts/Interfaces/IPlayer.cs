@@ -19,7 +19,7 @@ namespace Interfaces
 
         IPanelSkills PanelSkills { get; }
 
-        IObjectList PanelPortraitList { get; }
+        IPanelPortraits PanelPortraits { get; }
 
         ICreateHeroSkillReferences CreateHeroSkillReferences { get; }
 
