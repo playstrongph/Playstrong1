@@ -2101,6 +2101,7 @@ MonoBehaviour:
   _skillLogic: {fileID: 956212357985600032}
   _skillVisual: {fileID: 1352393578959371933}
   _skillPreviewVisual: {fileID: 1352393577901692879}
+  _targetSkillPreview: {fileID: 5050559291917950268}
 --- !u!1 &1352393578608415743
 GameObject:
   m_ObjectHideFlags: 0

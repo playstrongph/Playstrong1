@@ -24,6 +24,11 @@ namespace References
         private Object _skillPreviewVisual;
         public ISkillPreviewVisual SkillPreviewVisual => _skillPreviewVisual as ISkillPreviewVisual;
         
+          
+        [SerializeField] [RequireInterface(typeof(ITargetPreview))]
+        private Object _targetSkillPreview;
+        public ITargetPreview TargetSkillPreview => _targetSkillPreview as ITargetPreview;
+        
        
         
     }

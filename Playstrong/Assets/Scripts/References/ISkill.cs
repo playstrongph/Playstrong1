@@ -9,5 +9,7 @@ namespace References
         ISkillLogic SkillLogic { get; }
         ISkillVisual SkillVisual { get; }
         ISkillPreviewVisual SkillPreviewVisual { get; }
+
+        ITargetPreview TargetSkillPreview { get; }
     }
 }
