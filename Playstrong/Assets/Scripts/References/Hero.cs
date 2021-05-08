@@ -38,10 +38,10 @@ namespace References
 
         public IHeroPortrait HeroPortrait => _heroPortrait as IHeroPortrait;
         
-        [SerializeField] [RequireInterface(typeof(IHeroPortrait))]
+        [SerializeField] [RequireInterface(typeof(IPanelHeroPortrait))]
         private Object _panelHeroPortrait;
 
-        public IHeroPortrait PanelHeroPortrait => _panelHeroPortrait as IHeroPortrait;
+        public IPanelHeroPortrait PanelHeroPortrait => _panelHeroPortrait as IPanelHeroPortrait;
         
         [SerializeField] [RequireInterface(typeof(IHeroSkills))]
         private Object _panelHeroSkills;
