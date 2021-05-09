@@ -25,7 +25,7 @@ MonoBehaviour:
   _creatureType: {fileID: 0}
   _taunt: {fileID: 11400000, guid: 6ec22b47f9985dd4abc38814bd2deee3, type: 2}
   _heroSkills:
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
+  - {fileID: 11400000, guid: 7c1e0734ba887cd42be03960c368abe0, type: 2}
+  - {fileID: 11400000, guid: 7c1e0734ba887cd42be03960c368abe0, type: 2}
+  - {fileID: 11400000, guid: 7c1e0734ba887cd42be03960c368abe0, type: 2}
+  - {fileID: 11400000, guid: 7c1e0734ba887cd42be03960c368abe0, type: 2}
