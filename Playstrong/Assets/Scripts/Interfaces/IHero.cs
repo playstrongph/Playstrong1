@@ -20,6 +20,8 @@ namespace Interfaces
 
         PanelHeroSkills PanelHeroSkills { get; }
 
+        ILivingHeroes LivingHeroesReference { get; }
+
 
     }
 }

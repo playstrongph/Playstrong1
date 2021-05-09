@@ -48,8 +48,21 @@ namespace References
 
         public PanelHeroSkills PanelHeroSkills => _panelHeroSkills as PanelHeroSkills;
 
+        [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
+        private Object _livingHeroesReference;
 
+        public ILivingHeroes LivingHeroesReference
+        {
+            get { return _livingHeroesReference as ILivingHeroes; }
+            private set
+            {
+                _livingHeroesReference = value as Object;
+            }
+        }
 
-
+        private void Awake()
+        {
+            _livingHeroesReference = GetComponentInParent<ILivingHeroes>() as Object;
+        }
     }
 }

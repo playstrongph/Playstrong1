@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 352657112800133704}
   - component: {fileID: 352657112800133705}
   - component: {fileID: 2887697347661910497}
+  - component: {fileID: 268666578273567848}
   m_Layer: 0
   m_Name: LivingHeroes
   m_TagString: Untagged
@@ -75,6 +76,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroesList: []
   _transform: {fileID: 352657112800133704}
+  _panelPortaitAndSkillDisplay: {fileID: 0}
+--- !u!114 &268666578273567848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352657112800133706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dcfb532649d524d938bdee9c286499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panelPortrait: {fileID: 5072365578150823185}
+  _panelSkills: {fileID: 5072365578150823185}
+--- !u!1 &5072365578150823185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481161937310090714}
+  m_Layer: 0
+  m_Name: DummyGO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481161937310090714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072365578150823185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7400215138559013073}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7400215137066007579
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +322,7 @@ Transform:
   - {fileID: 7400215138952271014}
   - {fileID: 7400215137739385851}
   - {fileID: 7400215137498579293}
+  - {fileID: 481161937310090714}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

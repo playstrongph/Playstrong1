@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Visual;
 
 namespace Logic
 {
@@ -7,5 +8,7 @@ namespace Logic
     {
         List<GameObject> HeroesList { get; }
         Transform Transform { get; }
+
+        IPanelPortaitAndSkillDisplay PanelPortaitAndSkillDisplay { get; }
     }
 }
