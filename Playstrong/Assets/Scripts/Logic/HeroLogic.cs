@@ -33,6 +33,13 @@ namespace Logic
            
         }
 
+        [SerializeField] [RequireInterface(typeof(IHeroTimer))]
+        private Object _heroTimer;
+
+        public IHeroTimer HeroTimer => _heroTimer as IHeroTimer;
+        
+        
+
         [SerializeField]
         [RequireInterface(typeof(ILoadHeroAttributes))]
         private Object _loadHeroAttributes;

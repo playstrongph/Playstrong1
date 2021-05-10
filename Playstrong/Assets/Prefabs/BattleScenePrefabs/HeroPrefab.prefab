@@ -2963,6 +2963,7 @@ GameObject:
   - component: {fileID: 3820792406562021604}
   - component: {fileID: 3820792406562021601}
   - component: {fileID: 3820792406562021603}
+  - component: {fileID: 7231591812556641881}
   - component: {fileID: 3820792406562021602}
   m_Layer: 0
   m_Name: HeroLogic
@@ -2999,6 +3000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 1729355933}
   _heroAttributes: {fileID: 3820792406562021603}
+  _heroTimer: {fileID: 7231591812556641881}
   _loadHeroAttributes: {fileID: 3820792406562021602}
 --- !u!114 &3820792406562021603
 MonoBehaviour:
@@ -3023,6 +3025,20 @@ MonoBehaviour:
   _chance: 0
   _baseChance: 0
   _energy: 0
+--- !u!114 &7231591812556641881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c66a30c00a345b4b83ecc86de3bc43c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerValue: 0
+  _timerValuePercentage: 0
 --- !u!114 &3820792406562021602
 MonoBehaviour:
   m_ObjectHideFlags: 0

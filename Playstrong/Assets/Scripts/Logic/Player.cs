@@ -11,7 +11,7 @@ namespace Logic
 {
     public class Player : MonoBehaviour, IPlayer
     {
-        
+
         [SerializeField] [RequireInterface(typeof(IPlayerControllerEnumAsset))]
         private ScriptableObject _playerControllerEnum;
         public IPlayerControllerEnumAsset PlayerControllerEnum => _playerControllerEnum as IPlayerControllerEnumAsset;
