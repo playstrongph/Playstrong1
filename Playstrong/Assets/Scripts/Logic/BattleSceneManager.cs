@@ -21,6 +21,11 @@ namespace Logic
         private IPlayer _mainPlayer;
         private IPlayer _enemyPlayer;
 
+        [SerializeField]
+        [RequireInterface(typeof(ITurnController))]
+        private Object _turnController;
+        public ITurnController TurnController => _turnController as ITurnController;
+
         
         private void Start()
         {
@@ -31,6 +36,7 @@ namespace Logic
             VisualTree.Start();
             
             LogicTree.AddRoot(InitBattle());
+
         }
 
         private IEnumerator InitBattle()
@@ -44,6 +50,8 @@ namespace Logic
 
             LogicTree.AddCurrent(InitSkills());
             LogicTree.AddCurrent(InitPanelSkills());
+                
+            LogicTree.AddCurrent(InitHeroTimers());    
 
             yield return null;
             LogicTree.EndSequence();
@@ -107,6 +115,7 @@ namespace Logic
 
             LogicTree.AddCurrent(_enemyPlayer.InitializeHeroPortraits.InitializePortraits(enemyTeamHeroAsset, heroPortraitPrefab, heroPortraitLocation, LogicTree));
             LogicTree.AddCurrent(_enemyPlayer.CreateHeroPortraitReferences.CreateReferences(LogicTree));
+          
 
             yield return null;
             LogicTree.EndSequence();
@@ -184,10 +193,35 @@ namespace Logic
             LogicTree.EndSequence();
             
         }
-        
-        
-        
-        
+
+        private IEnumerator InitHeroTimers()
+        {
+            foreach (var heroGameObject in _mainPlayer.LivingHeroes.HeroesList)
+            {
+                var heroTimer = heroGameObject.GetComponent<IHero>().HeroLogic.HeroTimer;
+                
+                TurnController.HeroTimers.Add(heroTimer as Object);
+            }
+            
+            foreach (var heroGameObject in _enemyPlayer.LivingHeroes.HeroesList)
+            {
+                var heroTimer = heroGameObject.GetComponent<IHero>().HeroLogic.HeroTimer;
+                
+                TurnController.HeroTimers.Add(heroTimer as Object);
+            }
+            
+            //TEMP
+            TurnController.LogicTree = LogicTree;
+            TurnController.StartTick();
+            
+            yield return null;
+            LogicTree.EndSequence();
+            
+        }
+
+
+
+
 
 
 

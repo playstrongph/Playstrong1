@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class TurnController : MonoBehaviour
+    public class TurnController : MonoBehaviour, ITurnController
     {
 
         [SerializeField] 
@@ -55,6 +55,12 @@ namespace Logic
                 UpdateHeroTimers();
             }
             
+            //TEMP
+            _freezeTick = false;
+            _activeHeroes.Clear();
+            StartTick();
+            //TEMP
+            
             //TODO: allowHeroActions
             
             yield return null;
@@ -64,6 +70,7 @@ namespace Logic
 
         private void UpdateHeroTimers()
         {
+           
             foreach (var heroTimerObject in _heroTimers)
             {
                 var heroTimer = heroTimerObject as IHeroTimer;
@@ -77,7 +84,21 @@ namespace Logic
                 //TODO: this needs to be queued in the Visual Logic Tree (put this in an IEnumerator)
                 heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
 
+                if (heroTimer.TimerValue >= _timerFull)
+                {
+                    _freezeTick = true;
+                    _activeHeroes.Add(heroTimerObject);
+                    
+                    //TEMP
+                    heroTimer.TimerValue = 0;
+                    heroTimer.TimerValuePercentage = 0;
+                    heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
+                    //TEMP
+                }
+
             }
+            
+            
         }
 
 

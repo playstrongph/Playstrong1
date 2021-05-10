@@ -17,7 +17,7 @@ namespace Visual
         public void SetEnergyTextAndBarFill(int energyValue)
         {
             text.text = energyValue.ToString() +"%";
-            barFill.fillAmount = energyValue / 100;
+            barFill.fillAmount = energyValue/100f;
         }
 
         public void SetEnergyTextColor(Color textColor)

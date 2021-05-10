@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerFull: 1000
-  speedConstant: 5
+  _speedConstant: 5
   _freezeTick: 0
   _heroTimers: []
   _activeHeroes: []
@@ -900,6 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battleSceneSettings: {fileID: 609915809}
+  _turnController: {fileID: 456131801}
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0

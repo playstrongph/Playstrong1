@@ -1,3 +1,5 @@
+using Logic;
+
 namespace Interfaces
 {
     public interface IHeroLogic
@@ -7,6 +9,8 @@ namespace Interfaces
         IHeroAttributes HeroAttributes { get;}
 
         ILoadHeroAttributes LoadHeroAttributes { get; }
+
+        IHeroTimer HeroTimer { get; }
 
     }
 }
