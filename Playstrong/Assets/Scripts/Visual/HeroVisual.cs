@@ -58,5 +58,11 @@ namespace Visual
         private Object _loadHeroVisuals;
 
         public ILoadHeroVisuals LoadHeroVisuals => _loadHeroVisuals as ILoadHeroVisuals;
+
+        [SerializeField] [RequireInterface(typeof(ISelectActiveHeroFrame))]
+        private Object _selectActiveheroFrame;
+
+        public ISelectActiveHeroFrame SelectActiveHeroFrame => _selectActiveheroFrame as ISelectActiveHeroFrame;
+
     }
 }

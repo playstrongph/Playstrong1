@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Visual
 {
-    public class TauntFrame : MonoBehaviour, ITauntFrameAndGlow
+    public class TauntFrame : MonoBehaviour, ITauntFrameAndGlow, IFrameAndGlow
     {
  
         [SerializeField]

@@ -7,6 +7,6 @@ namespace Logic
     public interface ISetHeroActive
     {
 
-        IEnumerator SetActive(ICoroutineTree logicTree);
+        IEnumerator SetActive(ICoroutineTree logicTree, ICoroutineTree visualTree);
     }
 }
