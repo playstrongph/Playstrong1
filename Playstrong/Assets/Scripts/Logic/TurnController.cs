@@ -41,8 +41,10 @@ namespace Logic
         
         public void StartTick()
         {
-            _logicTree.Start();
-            _logicTree.AddRoot(RunTick());
+            //_logicTree.Start();
+            //_logicTree.AddRoot(RunTick());
+            
+            _logicTree.AddCurrent(RunTick());
         }
 
         private IEnumerator RunTick()
