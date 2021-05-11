@@ -44,11 +44,14 @@ namespace Logic
         [RequireInterface(typeof(ILoadHeroAttributes))]
         private Object _loadHeroAttributes;
 
-        public ILoadHeroAttributes LoadHeroAttributes
-        {
-            get => _loadHeroAttributes as ILoadHeroAttributes;
-        
-        }
+        public ILoadHeroAttributes LoadHeroAttributes => _loadHeroAttributes as ILoadHeroAttributes;
+
+        [SerializeField] [RequireInterface(typeof(ISetHeroActive))]
+        private Object _setHeroActive;
+        public ISetHeroActive SetHeroActive => _setHeroActive as ISetHeroActive;
+
+
+
 
 
 

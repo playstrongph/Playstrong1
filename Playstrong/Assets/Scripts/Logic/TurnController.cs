@@ -54,7 +54,7 @@ namespace Logic
                 UpdateHeroTimers();
             }
 
-           _logicTree.AddCurrent(AllowHeroActions());
+            _logicTree.AddCurrent(AllowHeroActions());
             
             yield return null;
             _logicTree.EndSequence();
@@ -95,7 +95,7 @@ namespace Logic
         {
             _logicTree.AddCurrent(SortActiveHeroesByEnergy());
             
-            //_logicTree.AddCurrent(SetActiveHero());
+            _logicTree.AddCurrent(SetActiveHero());
             
             yield return null;
             _logicTree.EndSequence();
@@ -122,10 +122,18 @@ namespace Logic
             var x = i1.TimerValue.CompareTo(i2.TimerValue);
             return x;
         }
-        
-        
-        
-        
+
+        private IEnumerator SetActiveHero()
+        {
+            int activeHeroIndex = ActiveHeroes.Count - 1;
+            var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
+            var activeHeroLogic = activeHeroTimer.HeroLogic;
+            
+            //_logicTree.AddCurrent(activeHeroLogic.SetHeroActive.)
+            
+             yield return null;
+            _logicTree.EndSequence(); 
+        }
 
 
 

@@ -2965,6 +2965,7 @@ GameObject:
   - component: {fileID: 3820792406562021603}
   - component: {fileID: 7231591812556641881}
   - component: {fileID: 3820792406562021602}
+  - component: {fileID: 496897106965534642}
   m_Layer: 0
   m_Name: HeroLogic
   m_TagString: Untagged
@@ -3002,6 +3003,7 @@ MonoBehaviour:
   _heroAttributes: {fileID: 3820792406562021603}
   _heroTimer: {fileID: 7231591812556641881}
   _loadHeroAttributes: {fileID: 3820792406562021602}
+  _setHeroActive: {fileID: 496897106965534642}
 --- !u!114 &3820792406562021603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,6 +3039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c66a30c00a345b4b83ecc86de3bc43c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroLogic: {fileID: 0}
   _timerValue: 0
   _timerValuePercentage: 0
 --- !u!114 &3820792406562021602
@@ -3049,6 +3052,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d289024b00799594198bc19f478088e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &496897106965534642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cbaddf59d045940a33892c24974de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3820792406563672979
