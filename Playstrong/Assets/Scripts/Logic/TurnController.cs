@@ -79,12 +79,6 @@ namespace Logic
                 {
                     _freezeTick = true;
                     _activeHeroes.Add(heroTimerObject);
-                    
-                    //TEMP
-                    heroTimer.TimerValue = 0;
-                    heroTimer.TimerValuePercentage = 0;
-                    heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
-                    //TEMP
                 }
 
             }
@@ -125,11 +119,11 @@ namespace Logic
 
         private IEnumerator SetActiveHero()
         {
-            int activeHeroIndex = ActiveHeroes.Count - 1;
+            var activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
             var activeHeroLogic = activeHeroTimer.HeroLogic;
-            
-            //_logicTree.AddCurrent(activeHeroLogic.SetHeroActive.)
+
+            _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree));
             
              yield return null;
             _logicTree.EndSequence(); 
@@ -139,6 +133,8 @@ namespace Logic
 
         public void EndTurn()
         {
+            //TODO: NextActiveHero
+            
             //TEMP
             _freezeTick = false;
             _activeHeroes.Clear();
