@@ -54,13 +54,7 @@ namespace Logic
                 yield return null;
                 UpdateHeroTimers();
             }
-            
-            //TEMP
-            _freezeTick = false;
-            _activeHeroes.Clear();
-            StartTick();
-            //TEMP
-            
+
             //TODO: allowHeroActions
             
             yield return null;
@@ -99,6 +93,16 @@ namespace Logic
             }
             
             
+        }
+
+        public void EndTurn()
+        {
+            //TEMP
+            _freezeTick = false;
+            _activeHeroes.Clear();
+            StartTick();
+            //TEMP
+
         }
 
 

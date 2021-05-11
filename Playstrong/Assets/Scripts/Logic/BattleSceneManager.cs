@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class BattleSceneManager : MonoBehaviour
+    public class BattleSceneManager : MonoBehaviour, IBattleSceneManager
     {
         [SerializeField] [RequireInterface(typeof(IBattleSceneSettings))]
         private Object _battleSceneSettings;

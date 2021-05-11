@@ -11,5 +11,7 @@ namespace Logic
         ICoroutineTree LogicTree { set; }
         ICoroutineTree VisualTree { set; }
         void StartTick();
+
+        void EndTurn();
     }
 }
