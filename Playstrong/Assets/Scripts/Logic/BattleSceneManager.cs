@@ -74,6 +74,8 @@ namespace Logic
             LogicTree.AddCurrent(InitPanelSkills());
                 
             LogicTree.AddCurrent(InitHeroTimers());    
+            
+            LogicTree.AddCurrent(StartBattle());
 
             yield return null;
             LogicTree.EndSequence();
@@ -232,14 +234,22 @@ namespace Logic
                 TurnController.HeroTimers.Add(heroTimer as Object);
             }
             
-            //TEMP
+            yield return null;
+            LogicTree.EndSequence();
+            
+        }
+
+        private IEnumerator StartBattle()
+        {
+            TurnController.VisualTree = VisualTree;
             TurnController.LogicTree = LogicTree;
             TurnController.StartTick();
             
             yield return null;
             LogicTree.EndSequence();
-            
         }
+
+
 
 
 

@@ -76,10 +76,8 @@ namespace Logic
                 heroTimer.TimerValue += heroSpeed * Time.deltaTime * SpeedConstant;
                 heroTimer.TimerValuePercentage = Mathf.FloorToInt(heroTimer.TimerValue * 100 / _timerFull);
                 
-                //visual Update
-                //TODO: this needs to be queued in the Visual Logic Tree (put this in an IEnumerator)
                 heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
-
+                
                 if (heroTimer.TimerValue >= _timerFull)
                 {
                     _freezeTick = true;
@@ -93,9 +91,10 @@ namespace Logic
                 }
 
             }
-            
-            
+
         }
+
+        
 
         public void EndTurn()
         {
