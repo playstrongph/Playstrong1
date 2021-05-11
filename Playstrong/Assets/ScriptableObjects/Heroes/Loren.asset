@@ -17,12 +17,12 @@ MonoBehaviour:
   _heroSprite: {fileID: 21300000, guid: c4d6adea9d99e42409597e26936743cb, type: 3}
   _health: 105
   _attack: 9
-  _speed: 102
+  _speed: 105
   _chance: 55
   _armor: 36
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
-  _creatureType: {fileID: 0}
+  _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
   _taunt: {fileID: 11400000, guid: 6ec22b47f9985dd4abc38814bd2deee3, type: 2}
   _heroSkills:
   - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
