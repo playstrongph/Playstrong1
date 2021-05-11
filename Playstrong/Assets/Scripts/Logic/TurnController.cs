@@ -41,9 +41,6 @@ namespace Logic
         
         public void StartTick()
         {
-            //_logicTree.Start();
-            //_logicTree.AddRoot(RunTick());
-            
             _logicTree.AddCurrent(RunTick());
         }
 
@@ -57,7 +54,7 @@ namespace Logic
                 UpdateHeroTimers();
             }
 
-            //TODO: allowHeroActions
+           _logicTree.AddCurrent(AllowHeroActions());
             
             yield return null;
             _logicTree.EndSequence();
@@ -94,7 +91,43 @@ namespace Logic
 
         }
 
+        private IEnumerator AllowHeroActions()
+        {
+            _logicTree.AddCurrent(SortActiveHeroesByEnergy());
+            
+            //_logicTree.AddCurrent(SetActiveHero());
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
         
+        
+        IEnumerator SortActiveHeroesByEnergy()
+        {
+           var returnList = new List<IHeroTimer>();
+
+           foreach (var activeHero in ActiveHeroes)
+           {
+               returnList.Add(activeHero as IHeroTimer);
+           }
+            
+           returnList.Sort(CompareListByATB);
+
+           yield return returnList;
+           _logicTree.EndSequence(); 
+        }
+        
+        private int CompareListByATB(IHeroTimer i1, IHeroTimer i2)
+        {
+            var x = i1.TimerValue.CompareTo(i2.TimerValue);
+            return x;
+        }
+        
+        
+        
+        
+
+
 
         public void EndTurn()
         {
