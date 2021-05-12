@@ -29,6 +29,15 @@ namespace Logic
             logicTree.EndSequence();
         }
 
+        private IEnumerator VisualHeroGlow(ICoroutineTree visualTree)
+        {
+            
+
+            yield return null;
+            visualTree.EndSequence();
+        }
+
+
         private void ResetHeroTimer()
         {
             var heroEnergyVisual = _heroTimer.HeroLogic.Hero.HeroVisual.EnergyVisual;
@@ -37,6 +46,8 @@ namespace Logic
             _heroTimer.TimerValuePercentage = 0;
             heroEnergyVisual.SetEnergyTextAndBarFill((int)_heroTimer.TimerValuePercentage);
         }
+
+       
 
     }
 }
