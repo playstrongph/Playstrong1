@@ -26,37 +26,11 @@ namespace Logic
         private Object _turnController;
         public ITurnController TurnController => _turnController as ITurnController;
 
-        private void Awake()
+       
+        private void Start()
         {
             LogicTree = BattleSceneSettings.BranchLogic.LogicTree;
             VisualTree = BattleSceneSettings.BranchLogic.VisualTree;
-            
-            LogicTree.Start();
-            VisualTree.Start();
-            
-            InitCoroutineTrees();
-        }
-        
-        private void InitCoroutineTrees()
-        {
-            LogicTree.AddRoot(LogicTreeMain());
-            LogicTree.AddRoot(VisualTreeMain());
-        }
-
-        private IEnumerator LogicTreeMain()
-        {
-            yield return null;
-            LogicTree.EndSequence();
-        }
-        
-        private IEnumerator VisualTreeMain()
-        {
-            yield return null;
-            LogicTree.EndSequence();
-        }
-
-        private void Start()
-        {
             LogicTree.AddCurrent(InitBattle());
 
         }

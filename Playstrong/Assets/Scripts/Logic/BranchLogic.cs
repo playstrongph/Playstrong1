@@ -16,12 +16,38 @@ namespace Logic
 
         private void Awake()
         {
+            InitLogicTree();
+            InitVisualTree();
+           
+        }
+
+        private void InitLogicTree()
+        {
             LogicTree = new CoroutineTree();
             LogicTree.CoroutineRunner(this);
+            LogicTree.Start();
+            LogicTree.AddRoot(LogicTreeMain());
             
+        }
+
+        private void InitVisualTree()
+        {
             VisualTree = new CoroutineTree();
             VisualTree.CoroutineRunner(this);
+            VisualTree.Start();
+            VisualTree.AddRoot(VisualTreeMain());
+        }
 
+        private IEnumerator LogicTreeMain()
+        {
+            yield return null;
+            LogicTree.EndSequence();
+        }
+        
+        private IEnumerator VisualTreeMain()
+        {
+            yield return null;
+            VisualTree.EndSequence();
         }
 
 
