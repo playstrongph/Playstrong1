@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Visual
 {
-    public class NormalFrame : MonoBehaviour, INormalFrameAndGlow, IFrameAndGlow
+    public class NormalFrame : MonoBehaviour, INormalFrameAndGlow
     {
        
         [SerializeField]
@@ -20,11 +20,6 @@ namespace Visual
         private GameObject _actionGlowFrame;
 
         public GameObject ActionGlowFrame => _actionGlowFrame;
-        
-        [SerializeField]
-        private GameObject _frame;
-
-        public GameObject Frame => _frame;
 
 
 
