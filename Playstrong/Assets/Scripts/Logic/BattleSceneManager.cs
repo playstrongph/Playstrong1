@@ -241,9 +241,7 @@ namespace Logic
 
         private IEnumerator StartBattle()
         {
-            TurnController.VisualTree = VisualTree;
-            TurnController.LogicTree = LogicTree;
-            TurnController.StartTick();
+            TurnController.StartTick(LogicTree, VisualTree);
             
             yield return null;
             LogicTree.EndSequence();

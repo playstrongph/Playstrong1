@@ -10,7 +10,7 @@ namespace Logic
         List<Object> ActiveHeroes { get; }
         ICoroutineTree LogicTree { set; }
         ICoroutineTree VisualTree { set; }
-        void StartTick();
+        void StartTick(ICoroutineTree logicTree, ICoroutineTree visualTree);
 
         void EndTurn();
     }

@@ -39,8 +39,11 @@ namespace Logic
         }
         
         
-        public void StartTick()
+        public void StartTick(ICoroutineTree logicTree, ICoroutineTree visualTree)
         {
+            LogicTree = logicTree;
+            VisualTree = visualTree;
+            
             _logicTree.AddCurrent(RunTick());
         }
 
@@ -138,7 +141,7 @@ namespace Logic
             //TEMP
             _freezeTick = false;
             _activeHeroes.Clear();
-            StartTick();
+            StartTick(_logicTree, _visualTree);
             //TEMP
 
         }
