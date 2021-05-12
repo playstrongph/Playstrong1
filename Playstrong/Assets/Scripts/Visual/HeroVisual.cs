@@ -58,5 +58,9 @@ namespace Visual
         private Object _loadHeroVisuals;
 
         public ILoadHeroVisuals LoadHeroVisuals => _loadHeroVisuals as ILoadHeroVisuals;
+
+        [SerializeField] [RequireInterface(typeof(ISetHeroFrameAndGlow))]
+        private Object _setHeroFrameAndGlow;
+        public ISetHeroFrameAndGlow SetHeroFrameAndGlow => _setHeroFrameAndGlow as ISetHeroFrameAndGlow;
     }
 }
