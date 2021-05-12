@@ -6,6 +6,10 @@ namespace Interfaces
     {
         IPlayerControllerEnumAsset PlayerControllerEnum { get; }
         IPlayerTypeEnumAsset PlayerTypeEnum { get; }
+
+        ICoroutineTree LogicTree { get; set; }
+        ICoroutineTree VisualTree { get; set; }
+
         IInitializePlayerHeroes InitializePlayerHeroes { get; }
 
         IInitializeHeroSkills InitializeHeroSkills { get; }

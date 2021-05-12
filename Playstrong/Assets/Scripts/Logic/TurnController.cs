@@ -29,22 +29,23 @@ namespace Logic
         private ICoroutineTree _logicTree;
         public ICoroutineTree LogicTree
         {
+            get => _logicTree;
             set => _logicTree = value;
         }
         
         private ICoroutineTree _visualTree;
         public ICoroutineTree VisualTree
         {
+            get => _visualTree;
             set => _visualTree = value;
         }
+
+        private IBattleSceneManager _battleSceneManager;
         
         
-        public void StartTick(ICoroutineTree logicTree, ICoroutineTree visualTree)
+        public void StartTick()
         {
-            LogicTree = logicTree;
-            VisualTree = visualTree;
-            
-            _logicTree.AddCurrent(RunTick());
+            LogicTree.AddCurrent(RunTick());
         }
 
         private IEnumerator RunTick()
@@ -57,10 +58,10 @@ namespace Logic
                 UpdateHeroTimers();
             }
 
-            _logicTree.AddCurrent(AllowHeroActions());
+            LogicTree.AddCurrent(AllowHeroActions());
             
             yield return null;
-            _logicTree.EndSequence();
+            LogicTree.EndSequence();
         }
 
 
@@ -90,12 +91,12 @@ namespace Logic
 
         private IEnumerator AllowHeroActions()
         {
-            _logicTree.AddCurrent(SortActiveHeroesByEnergy());
+            LogicTree.AddCurrent(SortActiveHeroesByEnergy());
             
-            _logicTree.AddCurrent(SetActiveHero());
+            LogicTree.AddCurrent(SetActiveHero());
             
             yield return null;
-            _logicTree.EndSequence();
+            LogicTree.EndSequence();
         }
         
         
@@ -111,7 +112,7 @@ namespace Logic
            returnList.Sort(CompareListByATB);
 
            yield return returnList;
-           _logicTree.EndSequence(); 
+           LogicTree.EndSequence(); 
         }
         
         private int CompareListByATB(IHeroTimer i1, IHeroTimer i2)
@@ -126,10 +127,10 @@ namespace Logic
             var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
             var activeHeroLogic = activeHeroTimer.HeroLogic;
 
-            _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree));
+            LogicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree));
             
              yield return null;
-            _logicTree.EndSequence(); 
+             LogicTree.EndSequence(); 
         }
 
 
@@ -141,7 +142,7 @@ namespace Logic
             //TEMP
             _freezeTick = false;
             _activeHeroes.Clear();
-            StartTick(_logicTree, _visualTree);
+            StartTick();
             //TEMP
 
         }

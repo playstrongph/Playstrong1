@@ -21,6 +21,7 @@ namespace Logic
         private IPlayer _mainPlayer;
         private IPlayer _enemyPlayer;
 
+
         [SerializeField]
         [RequireInterface(typeof(ITurnController))]
         private Object _turnController;
@@ -31,6 +32,7 @@ namespace Logic
         {
             LogicTree = BattleSceneSettings.BranchLogic.LogicTree;
             VisualTree = BattleSceneSettings.BranchLogic.VisualTree;
+            
             LogicTree.AddCurrent(InitBattle());
 
         }
@@ -47,7 +49,7 @@ namespace Logic
             LogicTree.AddCurrent(InitSkills());
             LogicTree.AddCurrent(InitPanelSkills());
                 
-            LogicTree.AddCurrent(InitHeroTimers());    
+            LogicTree.AddCurrent(InitTurnController());    
             
             LogicTree.AddCurrent(StartBattle());
 
@@ -67,6 +69,8 @@ namespace Logic
             mainPlayer.LivingHeroes.Transform.position = BattleSceneSettings.AllyHeroesBoardLocation.position;
 
             _mainPlayer = mainPlayer;
+            _mainPlayer.LogicTree = LogicTree;
+            _mainPlayer.VisualTree = VisualTree;
             
             var enemyPlayerGameObject = Instantiate(playerPrefab, playersParent);
             enemyPlayerGameObject.name = "EnemyPlayer";
@@ -75,6 +79,9 @@ namespace Logic
             enemyPlayer.LivingHeroes.Transform.position = BattleSceneSettings.EnemyHeroesBoardLocation.position;
 
             _enemyPlayer = enemyPlayer;
+            _enemyPlayer.LogicTree = LogicTree;
+            _enemyPlayer.VisualTree = VisualTree;
+            
 
             yield return null;
             LogicTree.EndSequence();
@@ -192,7 +199,7 @@ namespace Logic
             
         }
 
-        private IEnumerator InitHeroTimers()
+        private IEnumerator InitTurnController()
         {
             foreach (var heroGameObject in _mainPlayer.LivingHeroes.HeroesList)
             {
@@ -207,6 +214,9 @@ namespace Logic
                 
                 TurnController.HeroTimers.Add(heroTimer as Object);
             }
+
+            TurnController.LogicTree = LogicTree;
+            TurnController.VisualTree = VisualTree;
             
             yield return null;
             LogicTree.EndSequence();
@@ -215,7 +225,7 @@ namespace Logic
 
         private IEnumerator StartBattle()
         {
-            TurnController.StartTick(LogicTree, VisualTree);
+            TurnController.StartTick();
             
             yield return null;
             LogicTree.EndSequence();

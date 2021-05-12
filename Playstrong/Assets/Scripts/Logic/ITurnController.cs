@@ -8,9 +8,9 @@ namespace Logic
     {
         List<Object> HeroTimers { get; }
         List<Object> ActiveHeroes { get; }
-        ICoroutineTree LogicTree { set; }
-        ICoroutineTree VisualTree { set; }
-        void StartTick(ICoroutineTree logicTree, ICoroutineTree visualTree);
+        ICoroutineTree LogicTree { get; set; }
+        ICoroutineTree VisualTree { get; set; }
+        void StartTick();
 
         void EndTurn();
     }
