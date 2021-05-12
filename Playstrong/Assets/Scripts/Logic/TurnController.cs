@@ -123,7 +123,7 @@ namespace Logic
             var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
             var activeHeroLogic = activeHeroTimer.HeroLogic;
 
-            _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree, _visualTree));
+            _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree));
             
              yield return null;
             _logicTree.EndSequence(); 

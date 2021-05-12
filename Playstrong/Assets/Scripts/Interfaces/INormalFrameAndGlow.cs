@@ -4,9 +4,8 @@ namespace Interfaces
 {
     public interface INormalFrameAndGlow
     {
-        GameObject AllyGlowFrame { get; }
         GameObject EnemyGlowFrame { get; }
+        GameObject AllyGlowFrame { get; }
         GameObject ActionGlowFrame { get; }
-        GameObject Frame { get; }
     }
 }
