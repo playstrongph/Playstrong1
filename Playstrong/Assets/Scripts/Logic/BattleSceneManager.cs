@@ -217,9 +217,6 @@ namespace Logic
                 
                 TurnController.HeroTimers.Add(heroTimer as Object);
             }
-
-            TurnController.LogicTree = LogicTree;
-            TurnController.VisualTree = VisualTree;
             
             yield return null;
             LogicTree.EndSequence();

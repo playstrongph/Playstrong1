@@ -1,12 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
+using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
     public class TurnController : MonoBehaviour, ITurnController
     {
+        
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private Object _globalTrees;
+        public ICoroutineTreesAsset GlobalTrees => _globalTrees as ICoroutineTreesAsset;
 
         [SerializeField] 
         private int _timerFull = 1000;
@@ -25,27 +33,22 @@ namespace Logic
         [SerializeField] 
         private List<Object> _activeHeroes = new List<Object>();
         public List<Object> ActiveHeroes => _activeHeroes as List<Object>;
+        
+        
 
         private ICoroutineTree _logicTree;
-        public ICoroutineTree LogicTree
-        {
-            get => _logicTree;
-            set => _logicTree = value;
-        }
-        
         private ICoroutineTree _visualTree;
-        public ICoroutineTree VisualTree
+       
+        private void Start()
         {
-            get => _visualTree;
-            set => _visualTree = value;
+            _logicTree = GlobalTrees.MainLogicTree;
+            _visualTree = GlobalTrees.MainVisualTree;
         }
 
-        private IBattleSceneManager _battleSceneManager;
-        
-        
+
         public void StartTick()
         {
-            LogicTree.AddCurrent(RunTick());
+            _logicTree.AddCurrent(RunTick());
         }
 
         private IEnumerator RunTick()
@@ -58,10 +61,10 @@ namespace Logic
                 UpdateHeroTimers();
             }
 
-            LogicTree.AddCurrent(AllowHeroActions());
+            _logicTree.AddCurrent(AllowHeroActions());
             
             yield return null;
-            LogicTree.EndSequence();
+            _logicTree.EndSequence();
         }
 
 
@@ -91,12 +94,12 @@ namespace Logic
 
         private IEnumerator AllowHeroActions()
         {
-            LogicTree.AddCurrent(SortActiveHeroesByEnergy());
+            _logicTree.AddCurrent(SortActiveHeroesByEnergy());
             
-            LogicTree.AddCurrent(SetActiveHero());
+            _logicTree.AddCurrent(SetActiveHero());
             
             yield return null;
-            LogicTree.EndSequence();
+            _logicTree.EndSequence();
         }
         
         
@@ -112,7 +115,7 @@ namespace Logic
            returnList.Sort(CompareListByATB);
 
            yield return returnList;
-           LogicTree.EndSequence(); 
+           _logicTree.EndSequence(); 
         }
         
         private int CompareListByATB(IHeroTimer i1, IHeroTimer i2)
@@ -127,10 +130,10 @@ namespace Logic
             var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
             var activeHeroLogic = activeHeroTimer.HeroLogic;
 
-            LogicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree));
+            _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive(_logicTree));
             
              yield return null;
-             LogicTree.EndSequence(); 
+             _logicTree.EndSequence(); 
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using GameSettings;
 using Interfaces;
+using ScriptableObjects;
 
 namespace Logic
 {
@@ -9,5 +10,8 @@ namespace Logic
         ICoroutineTree LogicTree { get; set; }
         ICoroutineTree VisualTree { get; set; }
         ITurnController TurnController { get; }
+
+        ICoroutineTreesAsset GlobalTrees { get; }
+
     }
 }

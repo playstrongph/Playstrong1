@@ -79,6 +79,8 @@ namespace Logic
         public void AddCurrent(IEnumerator value)
         {
             CurrentNode.AddChild(value);
+            
+            
         }
 
         /// <summary>
@@ -88,6 +90,8 @@ namespace Logic
         public void AddRoot(IEnumerator value)
         {
             Root.AddChild(value);
+            
+            
         }
 
         /// <summary>

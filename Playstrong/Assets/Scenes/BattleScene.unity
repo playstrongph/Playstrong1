@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea20e2f5ba108a4d8d935a9583fe38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
   _timerFull: 1000
   _speedConstant: 5
   _freezeTick: 0
@@ -893,18 +894,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7400215138559013074, guid: 1822fca7f2a8d374ab5964893e81f9d5,
-        type: 3}
-      propertyPath: _globalTrees
-      value: 
-      objectReference: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
-        type: 2}
-    - target: {fileID: 7400215138559013075, guid: 1822fca7f2a8d374ab5964893e81f9d5,
-        type: 3}
-      propertyPath: _globalTrees
-      value: 
-      objectReference: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1822fca7f2a8d374ab5964893e81f9d5, type: 3}
 --- !u!4 &652862788 stripped
