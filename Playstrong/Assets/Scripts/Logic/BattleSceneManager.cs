@@ -186,14 +186,14 @@ namespace Logic
             var skillObjectPrefab = BattleSceneSettings.SkillObjectPrefab;
             var skillPreviewLocation = BattleSceneSettings.PanelSkillPreviewLocation;
 
-            LogicTree.AddCurrent(_mainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, skillPreviewLocation, LogicTree));
-            LogicTree.AddCurrent(_mainPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
+            LogicTree.AddCurrent(_mainPlayer.InitializePanelSkills.InitializeSkills(mainTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, mainBoardLocation, skillPreviewLocation));
+            LogicTree.AddCurrent(_mainPlayer.CreatePanelSkillReferences.CreateReferences());
             
-            LogicTree.AddCurrent(_enemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, skillPreviewLocation, LogicTree));
-            LogicTree.AddCurrent(_enemyPlayer.CreatePanelSkillReferences.CreateReferences(LogicTree));
+            LogicTree.AddCurrent(_enemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, skillPreviewLocation));
+            LogicTree.AddCurrent(_enemyPlayer.CreatePanelSkillReferences.CreateReferences());
             
-            LogicTree.AddCurrent(_mainPlayer.PanelSkills.DisablePanelSkillTargetVisual(LogicTree));
-            LogicTree.AddCurrent(_enemyPlayer.PanelSkills.DisablePanelSkillTargetVisual(LogicTree));
+            LogicTree.AddCurrent(_mainPlayer.PanelSkills.DisablePanelSkillTargetVisual());
+            LogicTree.AddCurrent(_enemyPlayer.PanelSkills.DisablePanelSkillTargetVisual());
             
             
 

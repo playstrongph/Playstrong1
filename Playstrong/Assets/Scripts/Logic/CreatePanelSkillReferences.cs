@@ -13,6 +13,10 @@ namespace Logic
 
         private int _index;
         private List<GameObject> _panelSkill;
+        
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
+
 
         private void Awake()
         {
@@ -20,13 +24,19 @@ namespace Logic
             _index = 0;
             _panelSkill = new List<GameObject>();
         }
+        
+        private void Start()
+        {
+            _logicTree = _player.GlobalTrees.MainLogicTree;
+            _visualTree = _player.GlobalTrees.MainVisualTree;
+        }
 
-        public IEnumerator CreateReferences(ICoroutineTree tree)
+        public IEnumerator CreateReferences( )
         {
             GetSkillReference();
             LoadSkillReference();
             yield return null;
-            tree.EndSequence();
+            _logicTree.EndSequence();
         }
 
         

@@ -13,21 +13,34 @@ namespace Logic
 
         [SerializeField] private Transform _transform;
         public Transform Transform => _transform;
+        
+        private IPlayer _player;
+        
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
+
 
 
         private IDisablePanelTargetVisual _disablePanelTargetVisual;
 
         private void Awake()
         {
+            _player = GetComponentInParent<IPlayer>();
             _disablePanelTargetVisual = GetComponent<IDisablePanelTargetVisual>();
             
         }
-        public IEnumerator DisablePanelSkillTargetVisual(ICoroutineTree tree)
+        private void Start()
+        {
+            _logicTree = _player.GlobalTrees.MainLogicTree;
+            _visualTree = _player.GlobalTrees.MainVisualTree;
+        }
+        
+        public IEnumerator DisablePanelSkillTargetVisual( )
         {
             _disablePanelTargetVisual.DisableTarget();
 
             yield return null;
-            tree.EndSequence();
+            _logicTree.EndSequence();
         }
     }
 }

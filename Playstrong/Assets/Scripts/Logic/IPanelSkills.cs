@@ -10,7 +10,7 @@ namespace Logic
         List<GameObject> List { get; }
         Transform Transform { get; }
 
-        IEnumerator DisablePanelSkillTargetVisual(ICoroutineTree tree);
+        IEnumerator DisablePanelSkillTargetVisual( );
 
     }
 }
