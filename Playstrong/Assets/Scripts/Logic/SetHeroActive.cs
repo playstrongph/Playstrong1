@@ -42,20 +42,40 @@ namespace Logic
             //TODO: Visual: Clear all existing Hero Glows
             
             //TODO: Visual: Display HeroGlow, HeroSkills, HeroPortrait
-            _visualTree.AddCurrent(VisualHeroGlow());
-            
-            
+            _visualTree.AddCurrent(VisualActionHeroGlow());
+            _visualTree.AddCurrent(VisualHeroPortrait());
+            _visualTree.AddCurrent(VisualHeroSkills());
+
             //TODO: Visual: Display Valid Target Glows - Implement this on basicAttack/Skill OnMouseDown
 
             yield return null;
             _logicTree.EndSequence();
         }
 
-        private IEnumerator VisualHeroGlow()
+        private IEnumerator VisualActionHeroGlow()
         {
             var actionGlowFrame = _heroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.ActionGlowFrame;
             actionGlowFrame.SetActive(true);
 
+            yield return null;
+            _visualTree.EndSequence();
+        }
+
+        private IEnumerator VisualHeroPortrait()
+        {
+            var heroPortrait = _hero.HeroPortrait;
+            heroPortrait.Portrait.SetActive(true);
+           
+            
+            yield return null;
+            _visualTree.EndSequence();
+        }
+
+        private IEnumerator VisualHeroSkills()
+        {
+            var heroSkills = _hero.Skills;
+            heroSkills.Skills.SetActive(true);
+            
             yield return null;
             _visualTree.EndSequence();
         }

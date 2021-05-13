@@ -49,6 +49,9 @@ namespace Logic
 
                 var iHeroAsset = heroAsset as IHeroAsset;
                 heroPortrait.GetComponent<IPortrait>().HeroPortraitImage.sprite = iHeroAsset.HeroSprite;
+                
+                //Hide portrait after initializing
+                heroPortrait.SetActive(false);
                
             }
 

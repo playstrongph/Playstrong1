@@ -68,6 +68,9 @@ namespace Logic
                     skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skill);
                     
                 }
+                
+                //Hide SkillPanel after Initializing
+                skillPanelObject.SetActive(false);
 
 
             }
