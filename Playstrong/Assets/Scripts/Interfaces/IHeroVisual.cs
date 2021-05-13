@@ -23,7 +23,9 @@ namespace Interfaces
 
         ILoadHeroVisuals LoadHeroVisuals { get; }
 
-        
+        ISetHeroFrameAndGlow SetHeroFrameAndGlow { get; }
+
+
 
     }
 }

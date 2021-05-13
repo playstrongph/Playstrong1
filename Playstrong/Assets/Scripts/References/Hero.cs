@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using Logic;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 using Visual;
@@ -50,6 +51,10 @@ namespace References
 
         [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
         private Object _livingHeroesReference;
+        
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private Object _coroutineTreeAsset;
+        public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreeAsset as ICoroutineTreesAsset;
 
         public ILivingHeroes LivingHeroesReference
         {

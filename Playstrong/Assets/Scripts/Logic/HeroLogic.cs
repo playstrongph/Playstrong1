@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Remoting.Messaging;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
@@ -14,6 +15,7 @@ namespace Logic
     /// </summary>
     public class HeroLogic : MonoBehaviour, IHeroLogic
     {
+
         [SerializeField] [RequireInterface(typeof(IHero))]
         private Object _hero;
 

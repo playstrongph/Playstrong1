@@ -8,33 +8,56 @@ namespace Logic
     public class SetHeroActive : MonoBehaviour, ISetHeroActive
     {
         private IHeroTimer _heroTimer;
+        private IHeroLogic _heroLogic;
+        private IHero _hero;
 
+        private IHeroVisual _heroVisual;
+
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
+        
         private void Awake()
         {
-            _heroTimer = GetComponent<IHeroTimer>();
+            _heroLogic = GetComponent<IHeroLogic>();
+            
+            _heroTimer = _heroLogic.HeroTimer;
+            _hero = _heroLogic.Hero;
+            _heroVisual = _hero.HeroVisual;
+
         }
 
-        public IEnumerator SetActive(ICoroutineTree logicTree)
+        private void Start()
         {
-            //isActive = true;
+            _logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = _hero.CoroutineTreesAsset.MainVisualTree;
+        }
+
+
+        public IEnumerator SetActive()
+        {
+            //TODO: isActive = true;
             
             ResetHeroTimer();
             
             //TODO: Visual: Clear all existing Hero Glows
+            
             //TODO: Visual: Display HeroGlow, HeroSkills, HeroPortrait
+            _visualTree.AddCurrent(VisualHeroGlow());
+            
             
             //TODO: Visual: Display Valid Target Glows - Implement this on basicAttack/Skill OnMouseDown
 
             yield return null;
-            logicTree.EndSequence();
+            _logicTree.EndSequence();
         }
 
-        private IEnumerator VisualHeroGlow(ICoroutineTree visualTree)
+        private IEnumerator VisualHeroGlow()
         {
-            
+            var actionGlowFrame = _heroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.ActionGlowFrame;
+            actionGlowFrame.SetActive(true);
 
             yield return null;
-            visualTree.EndSequence();
+            _visualTree.EndSequence();
         }
 
 

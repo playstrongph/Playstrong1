@@ -1094,6 +1094,8 @@ MonoBehaviour:
   _panelHeroPortrait: {fileID: 1921258135}
   _panelHeroSkills: {fileID: 1966082655604056712}
   _livingHeroesReference: {fileID: 0}
+  _coroutineTreeAsset: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
+    type: 2}
 --- !u!1 &3820792405767808349
 GameObject:
   m_ObjectHideFlags: 0

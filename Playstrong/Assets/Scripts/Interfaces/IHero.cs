@@ -22,6 +22,8 @@ namespace Interfaces
 
         ILivingHeroes LivingHeroesReference { get; }
 
+        ICoroutineTreesAsset CoroutineTreesAsset { get; }
+
 
     }
 }
