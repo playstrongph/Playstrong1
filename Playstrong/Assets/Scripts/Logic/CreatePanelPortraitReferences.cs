@@ -13,6 +13,9 @@ namespace Logic
 
         private int _index = 0;
         private List<GameObject> _panelHeroPortraits;
+        
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
 
         
         private void Awake()
@@ -20,15 +23,20 @@ namespace Logic
             _player = GetComponent<IPlayer>();
             _panelHeroPortraits = new List<GameObject>();
         }
+        private void Start()
+        {
+            _logicTree = _player.GlobalTrees.MainLogicTree;
+            _visualTree = _player.GlobalTrees.MainVisualTree;
+        }
         
         
-        public IEnumerator CreateReferences(ICoroutineTree tree)
+        public IEnumerator CreateReferences()
         {
             GetPortraitsReference();
             LoadPortraitReference();
             
             yield return null;
-            tree.EndSequence();
+            _logicTree.EndSequence();
         }
 
         /// <summary>

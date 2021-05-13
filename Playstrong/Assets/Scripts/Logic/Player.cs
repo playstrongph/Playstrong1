@@ -18,25 +18,11 @@ namespace Logic
         
         [SerializeField] [RequireInterface(typeof(IPlayerTypeEnumAsset))]
         private ScriptableObject _playerTypeEnum;
-
-      
-        private ICoroutineTree _logicTree;
-        public ICoroutineTree LogicTree
-        {
-            get { return _logicTree;}
-            set { _logicTree = value;}
-        }
+        public IPlayerTypeEnumAsset PlayerTypeEnum => _playerTypeEnum as IPlayerTypeEnumAsset;
         
-       
-        private ICoroutineTree _visualTree;
-        public ICoroutineTree VisualTree
-        {
-            get { return _visualTree;}
-            set { _visualTree = value;}
-        }
-        
-        
-
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private Object _globalTrees;
+        public ICoroutineTreesAsset GlobalTrees => _globalTrees as ICoroutineTreesAsset;
 
 
         [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
@@ -67,7 +53,7 @@ namespace Logic
         
         
         
-        public IPlayerTypeEnumAsset PlayerTypeEnum => _playerTypeEnum as IPlayerTypeEnumAsset;
+       
 
         private IInitializePlayerHeroes _initializePlayerHeroes;
         public IInitializePlayerHeroes InitializePlayerHeroes => _initializePlayerHeroes;

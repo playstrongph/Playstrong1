@@ -5,6 +5,6 @@ namespace Logic
 {
     public interface ICreatePanelPortraitReferences
     {
-        IEnumerator CreateReferences(ICoroutineTree tree);
+        IEnumerator CreateReferences();
     }
 }

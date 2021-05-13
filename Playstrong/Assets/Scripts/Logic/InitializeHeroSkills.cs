@@ -12,15 +12,26 @@ namespace Logic
         
         private IPlayer _player;
         private int _index;
+        
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
 
         private void Awake()
         {
             _player = GetComponent<IPlayer>();
             _index = 0;
         }
+        
+        private void Start()
+        {
+            _logicTree = _player.GlobalTrees.MainLogicTree;
+            _visualTree = _player.GlobalTrees.MainVisualTree;
+        }
+        
+        
 
         public IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, 
-            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree)
+            GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation)
         {
             foreach (var heroAssetSO in teamHeroesAsset.TeamHeroes())
             {
@@ -62,7 +73,7 @@ namespace Logic
             }
 
             yield return null;
-            tree.EndSequence();
+            _logicTree.EndSequence();
         }
 
 

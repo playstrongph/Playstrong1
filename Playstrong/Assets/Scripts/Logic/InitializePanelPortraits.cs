@@ -13,17 +13,28 @@ namespace Logic
        private IPanelPortraits _panelPortraits;
         
        private Transform _panelPortraitsTransform;
+       
+       private IPlayer _player;
+       
+       private ICoroutineTree _logicTree;
+       private ICoroutineTree _visualTree;
 
         private void Awake()
         {
-            var player = GetComponent<IPlayer>();
+            _player = GetComponent<IPlayer>();
             
-            _panelPortraits = player.PanelPortraits;
+            _panelPortraits = _player.PanelPortraits;
             
             _panelPortraitsTransform = _panelPortraits.Transform;
         }
+        
+        private void Start()
+        {
+            _logicTree = _player.GlobalTrees.MainLogicTree;
+            _visualTree = _player.GlobalTrees.MainVisualTree;
+        }
 
-        public IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation, ICoroutineTree tree)
+        public IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation)
         {
             
             foreach (var heroAsset in teamHeroesAsset.TeamHeroes())
@@ -44,7 +55,7 @@ namespace Logic
             }
 
             yield return null;
-            tree.EndSequence();
+            _logicTree.EndSequence();
 
         }
     }

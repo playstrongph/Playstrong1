@@ -5,6 +5,6 @@ namespace Logic
 {
     public interface ICreateHeroSkillReferences
     {
-        IEnumerator CreateReferences(ICoroutineTree tree);
+        IEnumerator CreateReferences();
     }
 }

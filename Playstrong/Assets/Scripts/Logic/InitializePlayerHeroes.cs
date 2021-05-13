@@ -1,15 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
+using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
     public class InitializePlayerHeroes : MonoBehaviour, IInitializePlayerHeroes
     {
-
         private IPlayer _player;
         private int _heroIndex;
+        
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
 
         private void Awake()
         {
@@ -17,8 +23,16 @@ namespace Logic
             _heroIndex = 0;
         }
 
-        public IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab, Transform boardLocation, List<Transform> previewLocations, ICoroutineTree tree)
+        private void Start()
         {
+
+            _logicTree = _player.GlobalTrees.MainLogicTree;
+            _visualTree = _player.GlobalTrees.MainVisualTree;
+        }
+
+        public IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab, Transform boardLocation, List<Transform> previewLocations)
+        {
+            
             
             foreach (var heroAsset in teamHeroesAsset.TeamHeroes())
             {
@@ -43,7 +57,7 @@ namespace Logic
             }
 
             yield return null;
-            tree.EndSequence();
+            _logicTree.EndSequence();
 
         }
     }

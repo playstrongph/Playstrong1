@@ -7,6 +7,6 @@ namespace Interfaces
     public interface IInitializePlayerHeroes
     {
         IEnumerator InitializeHeroes(ITeamHeroesAsset teamHeroesAsset, GameObject heroObjectPrefab,
-            Transform boardLocation, List<Transform> previewLocations, ICoroutineTree tree);
+            Transform boardLocation, List<Transform> previewLocations);
     }
 }

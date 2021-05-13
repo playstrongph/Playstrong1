@@ -341,6 +341,7 @@ MonoBehaviour:
   _playerControllerEnum: {fileID: 11400000, guid: fb94f981b08fb8b42bafc8ad63fba58b,
     type: 2}
   _playerTypeEnum: {fileID: 11400000, guid: d337f0f234b52ce4eb460e8f09fb9670, type: 2}
+  _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
   _livingHeroes: {fileID: 2887697347661910497}
   _deadHeroes: {fileID: 4228853710048405496}
   _heroesSkills: {fileID: 547490703340572784}

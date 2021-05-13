@@ -6,6 +6,6 @@ namespace Logic
 {
     public interface IInitializeHeroPortraits
     {
-        IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation, ICoroutineTree tree);
+        IEnumerator InitializePortraits(ITeamHeroesAsset teamHeroesAsset, GameObject heroPortraitPrefab, Transform boardLocation);
     }
 }

@@ -6,6 +6,6 @@ namespace Logic
 {
     public interface IInitializeHeroSkills
     {
-        IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation, ICoroutineTree tree);
+        IEnumerator InitializeSkills(ITeamHeroesAsset teamHeroesAsset, GameObject skillPanelPrefab, GameObject skillObjectPrefab, Transform boardLocation, Transform skillPreviewLocation);
     }
 }
