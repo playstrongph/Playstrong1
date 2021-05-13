@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 
@@ -41,7 +42,17 @@ namespace GameSettings
         [SerializeField]
         [RequireInterface(typeof(ITeamHeroesAsset))] private ScriptableObject _enemyTeamHeroesAsset;
         public ITeamHeroesAsset EnemyTeamHeroesAsset => _enemyTeamHeroesAsset as ITeamHeroesAsset;
-        
+
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private Object _coroutineTreesAsset;
+
+        public ICoroutineTreesAsset CoroutineTreesAsset
+        {
+            get => _coroutineTreesAsset as ICoroutineTreesAsset;
+            set => _coroutineTreesAsset = value as Object;
+        }
+
+
         [Header("Main Player Transforms")]
         [SerializeField]
         private Transform _allyHeroesBoardLocation;

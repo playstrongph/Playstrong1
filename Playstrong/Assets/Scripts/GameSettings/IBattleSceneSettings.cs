@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace GameSettings
@@ -18,6 +19,8 @@ namespace GameSettings
 
         ITeamHeroesAsset PlayerTeamHeroesAsset { get; }
         ITeamHeroesAsset EnemyTeamHeroesAsset { get; }
+
+        ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
 
         Transform BattleSceneManagerTransform { get; }
 

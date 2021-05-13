@@ -29,15 +29,20 @@ namespace Logic
 
        
         private void Start()
-        {
-            LogicTree = BattleSceneSettings.BranchLogic.LogicTree;
-            VisualTree = BattleSceneSettings.BranchLogic.VisualTree;
-            
-            LogicTree.AddCurrent(InitBattle());
-
+       { 
+           InitGlobalCoroutineTrees();
+           LogicTree.AddCurrent(InitBattle());
         }
 
-        private IEnumerator InitBattle()
+       private void InitGlobalCoroutineTrees()
+       {
+           LogicTree = BattleSceneSettings.CoroutineTreesAsset.MainLogicTree;
+           VisualTree = BattleSceneSettings.CoroutineTreesAsset.MainVisualTree;
+       }
+
+
+
+       private IEnumerator InitBattle()
         {
             LogicTree.AddCurrent(InitPlayers());
             

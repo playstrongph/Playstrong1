@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using GameSettings;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
@@ -13,29 +15,39 @@ namespace Logic
 
         public ICoroutineTree VisualTree { get; private set; }
 
+        private IBattleSceneSettings _battleSceneSettings;
+
 
         private void Awake()
         {
-            InitLogicTree();
-            InitVisualTree();
-           
-        }
+            _battleSceneSettings = GetComponent<IBattleSceneSettings>();
+            
+            InitGlobalLogicTree();
+            InitGlobVisualTree();
 
-        private void InitLogicTree()
+        }
+        
+        
+        private void InitGlobalLogicTree()
         {
             LogicTree = new CoroutineTree();
             LogicTree.CoroutineRunner(this);
             LogicTree.Start();
             LogicTree.AddRoot(LogicTreeMain());
             
+            //Global Logic Tree
+            _battleSceneSettings.CoroutineTreesAsset.MainLogicTree = LogicTree;
         }
 
-        private void InitVisualTree()
+        private void InitGlobVisualTree()
         {
             VisualTree = new CoroutineTree();
             VisualTree.CoroutineRunner(this);
             VisualTree.Start();
             VisualTree.AddRoot(VisualTreeMain());
+            
+            //Global Visual Tree
+            _battleSceneSettings.CoroutineTreesAsset.MainVisualTree = VisualTree;
         }
 
         private IEnumerator LogicTreeMain()
