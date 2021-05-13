@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _battleSceneSettings: {fileID: 609915809}
   _turnController: {fileID: 456131801}
+  _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0

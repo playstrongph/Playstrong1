@@ -13,7 +13,7 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "CoroutineTrees", menuName = "SO's/Coroutine Trees")]
     public class CoroutineTreesAsset : ScriptableObject, ICoroutineTreesAsset
     {
-       private ICoroutineTree _logicTree;
+        private ICoroutineTree _logicTree;
 
         public ICoroutineTree MainLogicTree
         {

@@ -2,6 +2,7 @@
 using System.Collections;
 using GameSettings;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
@@ -27,20 +28,22 @@ namespace Logic
         private Object _turnController;
         public ITurnController TurnController => _turnController as ITurnController;
 
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private Object _globalTrees;
+        public ICoroutineTreesAsset GlobalTrees => _globalTrees as ICoroutineTreesAsset;
        
         private void Start()
        { 
-           InitGlobalCoroutineTrees();
+           InitCoroutineTrees();
+           
            LogicTree.AddCurrent(InitBattle());
         }
 
-       private void InitGlobalCoroutineTrees()
+       private void InitCoroutineTrees()
        {
-           LogicTree = BattleSceneSettings.CoroutineTreesAsset.MainLogicTree;
-           VisualTree = BattleSceneSettings.CoroutineTreesAsset.MainVisualTree;
+           LogicTree = GlobalTrees.MainLogicTree;
+           VisualTree = GlobalTrees.MainVisualTree;
        }
-
-
 
        private IEnumerator InitBattle()
         {
