@@ -52,9 +52,8 @@ namespace Logic
         private IInitPanelPortraits _initPanelPortraits;
         private IInitSkills _initSkills;
         private IInitPanelSkills _initPanelSkills;
-
-        
-
+        private IInitTurnController _initTurnController;
+        private IStartBattle _startBattle;
 
         private void Awake()
         {
@@ -64,13 +63,14 @@ namespace Logic
             _initPanelPortraits = GetComponent<IInitPanelPortraits>();
             _initSkills = GetComponent<IInitSkills>();
             _initPanelSkills = GetComponent<IInitPanelSkills>();
+            _initTurnController = GetComponent<IInitTurnController>();
+            _startBattle = GetComponent<IStartBattle>();
         }
 
 
         private void Start()
        { 
            InitCoroutineTrees();
-           
            LogicTree.AddCurrent(InitBattle());
         }
 
@@ -88,42 +88,16 @@ namespace Logic
             LogicTree.AddCurrent(_initPanelPortraits.InitializePortraits());
             LogicTree.AddCurrent(_initSkills.InitializeSkills());
             LogicTree.AddCurrent(_initPanelSkills.InitializePanelSkills());
-            
-            LogicTree.AddCurrent(InitTurnController()); 
-            LogicTree.AddCurrent(StartBattle());
+            LogicTree.AddCurrent(_initTurnController.InitializeTurnController());
+            LogicTree.AddCurrent(_startBattle.BattleStart());
 
             yield return null;
             LogicTree.EndSequence();
         }
 
-       private IEnumerator InitTurnController()
-        {
-            foreach (var heroGameObject in _mainPlayer.LivingHeroes.HeroesList)
-            {
-                var heroTimer = heroGameObject.GetComponent<IHero>().HeroLogic.HeroTimer;
-                
-                TurnController.HeroTimers.Add(heroTimer as Object);
-            }
-            
-            foreach (var heroGameObject in _enemyPlayer.LivingHeroes.HeroesList)
-            {
-                var heroTimer = heroGameObject.GetComponent<IHero>().HeroLogic.HeroTimer;
-                
-                TurnController.HeroTimers.Add(heroTimer as Object);
-            }
-            
-            yield return null;
-            LogicTree.EndSequence();
-            
-        }
+       
 
-        private IEnumerator StartBattle()
-        {
-            TurnController.StartTick();
-            
-            yield return null;
-            LogicTree.EndSequence();
-        }
+        
 
 
 
