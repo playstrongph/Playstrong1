@@ -1068,6 +1068,10 @@ GameObject:
   - component: {fileID: 877077468}
   - component: {fileID: 877077467}
   - component: {fileID: 877077469}
+  - component: {fileID: 877077470}
+  - component: {fileID: 877077471}
+  - component: {fileID: 877077472}
+  - component: {fileID: 877077473}
   m_Layer: 0
   m_Name: BattleSceneManager
   m_TagString: Untagged
@@ -1128,6 +1132,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 901a214969c3a984fad5c26bd59793eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &877077470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877077465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af69dcf81ae9675419802c39b89b2e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &877077471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877077465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e1cc784a30f9945ade58572cb86aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &877077472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877077465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7f0f903841fac4c81c59842b8d6e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &877077473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877077465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89f8d3ce3ab46cc8491ef2452275abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &971031634
