@@ -39,14 +39,14 @@ namespace Logic
             
             ResetHeroTimer();
             
-            //TODO: Visual: Clear all existing Hero Glows
+            //TODO: Visual: Clear all existing Hero Glows?
             
             //TODO: Visual: Display HeroGlow, HeroSkills, HeroPortrait
             _visualTree.AddCurrent(VisualActionHeroGlow());
             _visualTree.AddCurrent(VisualHeroPortrait());
             _visualTree.AddCurrent(VisualHeroSkills());
 
-            //TODO: Visual: Display Valid Target Glows - Implement this on basicAttack/Skill OnMouseDown
+            //TODO: Visual: Display Valid Target Glows - Implement this on basicAttack/Skill OnMouseDown?
 
             yield return null;
             _logicTree.EndSequence();

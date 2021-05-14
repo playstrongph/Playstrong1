@@ -1066,6 +1066,8 @@ GameObject:
   m_Component:
   - component: {fileID: 877077466}
   - component: {fileID: 877077468}
+  - component: {fileID: 877077467}
+  - component: {fileID: 877077469}
   m_Layer: 0
   m_Name: BattleSceneManager
   m_TagString: Untagged
@@ -1089,6 +1091,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877077467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877077465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2ae5e28448883429eb5a251835dee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &877077468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,6 +1118,18 @@ MonoBehaviour:
   _battleSceneSettings: {fileID: 609915809}
   _turnController: {fileID: 456131801}
   _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
+--- !u!114 &877077469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877077465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901a214969c3a984fad5c26bd59793eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0

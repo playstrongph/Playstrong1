@@ -20,7 +20,21 @@ namespace Logic
         public ICoroutineTree VisualTree { get; set; }
         
         private IPlayer _mainPlayer;
+
+        public IPlayer MainPlayer
+        {
+            get => _mainPlayer;
+            set => _mainPlayer = value;
+        }
+
+
         private IPlayer _enemyPlayer;
+
+        public IPlayer EnemyPlayer
+        {
+            get => _enemyPlayer;
+            set => _enemyPlayer = value;
+        }
 
 
         [SerializeField]
@@ -31,7 +45,19 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
         private Object _globalTrees;
         public ICoroutineTreesAsset GlobalTrees => _globalTrees as ICoroutineTreesAsset;
-       
+
+        private IInitPlayers _initPlayers;
+        private IInitHeroes _initHeroes;
+
+        
+
+        private void Awake()
+        {
+            _initPlayers = GetComponent<IInitPlayers>();
+            _initHeroes = GetComponent<IInitHeroes>();
+        }
+
+
         private void Start()
        { 
            InitCoroutineTrees();
@@ -47,9 +73,9 @@ namespace Logic
 
        private IEnumerator InitBattle()
         {
-            LogicTree.AddCurrent(InitPlayers());
+            LogicTree.AddCurrent(_initPlayers.InitializePlayers());
             
-            LogicTree.AddCurrent(InitHeroes());
+            LogicTree.AddCurrent(_initHeroes.InitializeHeroes());
             
             LogicTree.AddCurrent(InitHeroPortraits());
             LogicTree.AddCurrent(InitPanelPortraits());
@@ -65,30 +91,6 @@ namespace Logic
             LogicTree.EndSequence();
         }
 
-        private IEnumerator InitPlayers()
-        {
-            var playerPrefab = BattleSceneSettings.Player;
-            var playersParent = BattleSceneSettings.BattleSceneManagerTransform;
-
-            var mainPlayerGameObject = Instantiate(playerPrefab, playersParent);
-            mainPlayerGameObject.name = "MainPlayer";
-
-            var mainPlayer = mainPlayerGameObject.GetComponent<IPlayer>();
-            mainPlayer.LivingHeroes.Transform.position = BattleSceneSettings.AllyHeroesBoardLocation.position;
-
-            _mainPlayer = mainPlayer;
-
-            var enemyPlayerGameObject = Instantiate(playerPrefab, playersParent);
-            enemyPlayerGameObject.name = "EnemyPlayer";
-
-            var enemyPlayer = enemyPlayerGameObject.GetComponent<IPlayer>();
-            enemyPlayer.LivingHeroes.Transform.position = BattleSceneSettings.EnemyHeroesBoardLocation.position;
-
-            _enemyPlayer = enemyPlayer;
-
-            yield return null;
-            LogicTree.EndSequence();
-        }
         
         private IEnumerator InitHeroes()
         {

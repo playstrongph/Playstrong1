@@ -13,5 +13,9 @@ namespace Logic
 
         ICoroutineTreesAsset GlobalTrees { get; }
 
+        IPlayer MainPlayer { get; set; }
+
+        IPlayer EnemyPlayer { get; set; }
+
     }
 }
