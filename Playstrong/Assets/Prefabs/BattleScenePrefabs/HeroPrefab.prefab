@@ -3016,6 +3016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae0d95e261f76344acfc27890f09dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroStatus: {fileID: 11400000, guid: 504bceddd0d881e43b8c185d4ffe92d3, type: 2}
   _hero: {fileID: 1729355933}
   _heroAttributes: {fileID: 3820792406562021603}
   _heroTimer: {fileID: 7231591812556641881}

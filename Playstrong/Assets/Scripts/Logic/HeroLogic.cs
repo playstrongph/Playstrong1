@@ -16,6 +16,15 @@ namespace Logic
     public class HeroLogic : MonoBehaviour, IHeroLogic
     {
 
+       [SerializeField] [RequireInterface(typeof(IHeroStatusAsset))]
+        private ScriptableObject _heroStatus;
+
+        public IHeroStatusAsset HeroStatus
+        {
+            get { return _heroStatus as IHeroStatusAsset;}
+            set { _heroStatus = value as ScriptableObject;}
+        }
+        
         [SerializeField] [RequireInterface(typeof(IHero))]
         private Object _hero;
 
@@ -24,7 +33,7 @@ namespace Logic
             get => _hero as IHero;
            
         }
-        
+
         [SerializeField]
         [RequireInterface(typeof(IHeroAttributes))]
         private Object _heroAttributes;
