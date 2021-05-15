@@ -32,17 +32,12 @@ namespace ScriptableObjects.HeroStatus
 
         private IEnumerator SetActive()
         {
-            ResetHeroTimer();
-            
-            //TODO: Visual: Clear all existing Hero Glows?
-            
-            //TODO: Visual: Display HeroGlow, HeroSkills, HeroPortrait
+           _heroLogic.HeroTimer.ResetHeroTimer();
+
             _visualTree.AddCurrent(VisualActionHeroGlow());
             _visualTree.AddCurrent(VisualHeroPortrait());
             _visualTree.AddCurrent(VisualHeroSkills());
-
-            //TODO: Visual: Display Valid Target Glows - Implement this on basicAttack/Skill OnMouseDown?
-
+            
             yield return null;
             _logicTree.EndSequence();
         }
@@ -76,14 +71,7 @@ namespace ScriptableObjects.HeroStatus
         }
 
 
-        private void ResetHeroTimer()
-        {
-            var heroEnergyVisual = _heroLogic.HeroTimer.HeroLogic.Hero.HeroVisual.EnergyVisual;
-            
-            _heroLogic.HeroTimer.TimerValue = 0;
-            _heroLogic.HeroTimer.TimerValuePercentage = 0;
-            heroEnergyVisual.SetEnergyTextAndBarFill((int)_heroLogic.HeroTimer.TimerValuePercentage);
-        }
+        
         
         
 

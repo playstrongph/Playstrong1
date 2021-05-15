@@ -8,5 +8,7 @@ namespace Logic
         float TimerValuePercentage { get; set; }
 
         IHeroLogic HeroLogic { get; }
+
+        void ResetHeroTimer();
     }
 }

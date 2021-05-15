@@ -35,5 +35,14 @@ namespace Logic
         {
             _heroLogic = GetComponent<IHeroLogic>() as Object;
         }
+        
+        public void ResetHeroTimer()
+        {
+            var heroEnergyVisual = HeroLogic.Hero.HeroVisual.EnergyVisual;
+            
+           TimerValue = 0;
+           TimerValuePercentage = 0;
+           heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
+        }
     }
 }
