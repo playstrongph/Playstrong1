@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using System;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 
@@ -18,7 +19,16 @@ namespace Logic
         private ScriptableObject _heroDead;
         public IHeroStatusAsset HeroDead => _heroDead as IHeroStatusAsset;
 
+        private ITurnController _turnController;
 
-
+        private void Awake()
+        {
+            _turnController = GetComponent<ITurnController>();
+            
+            HeroActive.InitializeTurnController(_turnController);
+            HeroInactive.InitializeTurnController(_turnController);
+            HeroDead.InitializeTurnController(_turnController);
+            
+        }
     }
 }

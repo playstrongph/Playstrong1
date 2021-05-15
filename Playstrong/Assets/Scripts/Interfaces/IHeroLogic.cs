@@ -15,7 +15,7 @@ namespace Interfaces
 
         IHeroTimer HeroTimer { get; }
 
-        ISetHeroActive SetHeroActive { get; }
+       
 
     }
 }

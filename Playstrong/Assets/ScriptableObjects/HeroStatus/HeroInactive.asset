@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d8edb2de4ddbc14d84a707f3cc84653, type: 3}
-  m_Name: Active
+  m_Script: {fileID: 11500000, guid: 1c13e8aa58befc34186705e7ca82cd79, type: 3}
+  m_Name: HeroInactive
   m_EditorClassIdentifier: 

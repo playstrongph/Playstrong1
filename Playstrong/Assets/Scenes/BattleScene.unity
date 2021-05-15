@@ -551,9 +551,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd35be7df1a806949993d516bcdeedde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroActive: {fileID: 11400000, guid: b016a73778d382049905bafefaa838d2, type: 2}
-  _heroInactive: {fileID: 11400000, guid: 504bceddd0d881e43b8c185d4ffe92d3, type: 2}
-  _heroDead: {fileID: 11400000, guid: bdbad067002dc8543a959080dc1fa469, type: 2}
+  _heroActive: {fileID: 11400000, guid: 5c95577b77b93d24a8600b58cd9ae3f0, type: 2}
+  _heroInactive: {fileID: 11400000, guid: 32e55a20d153eda49b643aa09e043c27, type: 2}
+  _heroDead: {fileID: 11400000, guid: 12b3227bf1359b349901139f0d8fe841, type: 2}
 --- !u!1 &548051216
 GameObject:
   m_ObjectHideFlags: 0

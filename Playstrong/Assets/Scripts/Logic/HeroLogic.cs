@@ -48,8 +48,6 @@ namespace Logic
         private Object _heroTimer;
 
         public IHeroTimer HeroTimer => _heroTimer as IHeroTimer;
-        
-        
 
         [SerializeField]
         [RequireInterface(typeof(ILoadHeroAttributes))]
@@ -57,14 +55,8 @@ namespace Logic
 
         public ILoadHeroAttributes LoadHeroAttributes => _loadHeroAttributes as ILoadHeroAttributes;
 
-        [SerializeField] [RequireInterface(typeof(ISetHeroActive))]
-        private Object _setHeroActive;
-        public ISetHeroActive SetHeroActive => _setHeroActive as ISetHeroActive;
+       
 
-
-
-
-
-
+        
     }
 }

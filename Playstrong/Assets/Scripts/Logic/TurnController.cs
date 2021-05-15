@@ -137,10 +137,9 @@ namespace Logic
             var activeHeroLogic = activeHeroTimer.HeroLogic;
 
             activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
-            
-            _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive());
-            
-             yield return null;
+            activeHeroLogic.HeroStatus.StatusAction(activeHeroLogic);
+
+            yield return null;
              _logicTree.EndSequence(); 
         }
 
