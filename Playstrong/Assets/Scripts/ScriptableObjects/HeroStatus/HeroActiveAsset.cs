@@ -36,9 +36,9 @@ namespace ScriptableObjects.HeroStatus
             
             _logicTree.AddCurrent(EnableTargetHeroPreview());
             
-            _visualTree.AddCurrent(VisualActionHeroGlow());
-            _visualTree.AddCurrent(VisualHeroPortrait());
-            _visualTree.AddCurrent(VisualHeroSkills());
+            _visualTree.AddCurrent(VisualEnableActionHeroGlow());
+            _visualTree.AddCurrent(VisualEnableHeroPortrait());
+            _visualTree.AddCurrent(VisualEnableHeroSkills());
             
             yield return null;
             _logicTree.EndSequence();
@@ -52,7 +52,7 @@ namespace ScriptableObjects.HeroStatus
             _logicTree.EndSequence();
         }
 
-        private IEnumerator VisualActionHeroGlow()
+        private IEnumerator VisualEnableActionHeroGlow()
         {
             var actionGlowFrame = _heroLogic.Hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.ActionGlowFrame;
             actionGlowFrame.SetActive(true);
@@ -61,7 +61,7 @@ namespace ScriptableObjects.HeroStatus
             _visualTree.EndSequence();
         }
 
-        private IEnumerator VisualHeroPortrait()
+        private IEnumerator VisualEnableHeroPortrait()
         {
             var heroPortrait = _heroLogic.Hero.HeroPortrait;
             heroPortrait.Portrait.SetActive(true);
@@ -71,7 +71,7 @@ namespace ScriptableObjects.HeroStatus
             _visualTree.EndSequence();
         }
 
-        private IEnumerator VisualHeroSkills()
+        private IEnumerator VisualEnableHeroSkills()
         {
             var heroSkills = _heroLogic.Hero.Skills;
             heroSkills.Skills.SetActive(true);
