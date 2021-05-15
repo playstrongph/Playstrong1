@@ -49,13 +49,14 @@ namespace References
 
         public PanelHeroSkills PanelHeroSkills => _panelHeroSkills as PanelHeroSkills;
 
+        [SerializeField] [RequireInterface(typeof(ITargetPreview))]
+        private Object _targetHeroPreview;
+        public ITargetPreview TargetHeroPreview => _targetHeroPreview as ITargetPreview;
+        
+
         [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
         private Object _livingHeroesReference;
         
-        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
-        private Object _coroutineTreeAsset;
-        public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreeAsset as ICoroutineTreesAsset;
-
         public ILivingHeroes LivingHeroesReference
         {
             get { return _livingHeroesReference as ILivingHeroes; }
@@ -64,6 +65,10 @@ namespace References
                 _livingHeroesReference = value as Object;
             }
         }
+        
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private Object _coroutineTreeAsset;
+        public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreeAsset as ICoroutineTreesAsset;
 
         private void Awake()
         {

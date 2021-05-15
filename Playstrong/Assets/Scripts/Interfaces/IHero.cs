@@ -24,6 +24,8 @@ namespace Interfaces
 
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
 
+        ITargetPreview TargetHeroPreview { get; }
+
 
     }
 }

@@ -33,10 +33,20 @@ namespace ScriptableObjects.HeroStatus
         private IEnumerator SetActive()
         {
            _heroLogic.HeroTimer.ResetHeroTimer();
-
+            
+            _logicTree.AddCurrent(EnableTargetHeroPreview());
+            
             _visualTree.AddCurrent(VisualActionHeroGlow());
             _visualTree.AddCurrent(VisualHeroPortrait());
             _visualTree.AddCurrent(VisualHeroSkills());
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+
+        private IEnumerator EnableTargetHeroPreview()
+        {
+            _heroLogic.Hero.TargetHeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
             
             yield return null;
             _logicTree.EndSequence();
