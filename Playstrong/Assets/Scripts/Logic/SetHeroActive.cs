@@ -35,7 +35,7 @@ namespace Logic
 
         public IEnumerator SetActive()
         {
-            //TODO: isActive = true;
+            //TODO: isActive = true? TurnController does this
             
             ResetHeroTimer();
             

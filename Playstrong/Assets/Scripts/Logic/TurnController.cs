@@ -38,7 +38,13 @@ namespace Logic
 
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
-       
+        private ISetHeroStatus _setHeroStatus;
+
+        private void Awake()
+        {
+            _setHeroStatus = GetComponent<ISetHeroStatus>();
+        }
+
         private void Start()
         {
             _logicTree = GlobalTrees.MainLogicTree;
@@ -130,6 +136,8 @@ namespace Logic
             var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
             var activeHeroLogic = activeHeroTimer.HeroLogic;
 
+            activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
+            
             _logicTree.AddCurrent(activeHeroLogic.SetHeroActive.SetActive());
             
              yield return null;
