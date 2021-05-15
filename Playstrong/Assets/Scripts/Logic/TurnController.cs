@@ -52,12 +52,12 @@ namespace Logic
         }
 
 
-        public void StartTick()
+        public void StartHeroTurns()
         {
-            _logicTree.AddCurrent(RunTick());
+            _logicTree.AddCurrent(RunHeroTimers());
         }
 
-        private IEnumerator RunTick()
+        private IEnumerator RunHeroTimers()
         {
             _freezeTick = false;
 
@@ -152,7 +152,7 @@ namespace Logic
             //TEMP
             _freezeTick = false;
             _activeHeroes.Clear();
-            StartTick();
+            StartHeroTurns();
             //TEMP
 
         }

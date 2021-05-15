@@ -9,7 +9,7 @@ namespace Logic
         List<Object> HeroTimers { get; }
         List<Object> ActiveHeroes { get; }
         
-        void StartTick();
+        void StartHeroTurns();
 
         void EndTurn();
     }
