@@ -40,6 +40,8 @@ namespace Logic
         private ICoroutineTree _visualTree;
         private ISetHeroStatus _setHeroStatus;
 
+        private IHeroLogic _activeHeroLogic;
+
         private void Awake()
         {
             _setHeroStatus = GetComponent<ISetHeroStatus>();
@@ -134,10 +136,11 @@ namespace Logic
         {
             var activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
-            var activeHeroLogic = activeHeroTimer.HeroLogic;
+            
+            _activeHeroLogic = activeHeroTimer.HeroLogic;
 
-            activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
-            activeHeroLogic.HeroStatus.StatusAction(activeHeroLogic);
+            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
+            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
 
             yield return null;
              _logicTree.EndSequence(); 
@@ -147,9 +150,13 @@ namespace Logic
 
         public void EndTurn()
         {
+            //TEMP
+            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
+            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            
             //TODO: NextActiveHero
             
-            //TEMP
+           
             _freezeTick = false;
             _activeHeroes.Clear();
             StartTurnTimer();

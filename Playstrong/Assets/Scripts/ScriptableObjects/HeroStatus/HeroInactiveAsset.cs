@@ -26,6 +26,8 @@ namespace ScriptableObjects.HeroStatus
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
             
+            _logicTree.AddCurrent(SetInactive());
+            
         }
 
         private IEnumerator SetInactive()
