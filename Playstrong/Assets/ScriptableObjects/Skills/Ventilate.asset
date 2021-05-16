@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
-  m_Name: HeroSkill1
+  m_Name: Ventilate
   m_EditorClassIdentifier: 
-  _name: Noble Agreement
-  _description: Noble Agreement Sample Description
-  _skillIcon: {fileID: 21300000, guid: edc2b01d55b302b4fbba061e0b53a610, type: 3}
-  _cooldown: 5
+  _name: Ventilate
+  _description: "Refresh the skills of another ally.  This skill's cooldown can't
+    be manipulated. \r\n"
+  _skillIcon: {fileID: 21300000, guid: 0dfad3c6a4390ff48bd7c844d50c729a, type: 3}
+  _cooldown: 3
