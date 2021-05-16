@@ -8,6 +8,12 @@ namespace Logic
     public interface ITurnController
     {
         List<Object> HeroTimers { get; }
+
+        int SpeedConstant { get; }
+
+        int TimerFull { get; }
+
+        bool FreezeTick { get; set; }
         List<Object> ActiveHeroes { get; }
         
         void StartHeroTurns();
