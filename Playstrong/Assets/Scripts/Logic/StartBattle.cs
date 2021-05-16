@@ -15,7 +15,7 @@ namespace Logic
         
         public IEnumerator BattleStart()
         {
-            _battleSceneManager.TurnController.StartTurnTimer();
+            _battleSceneManager.TurnController.StartHeroTurns();
 
             var logicTree = _battleSceneManager.GlobalTrees.MainLogicTree;
             

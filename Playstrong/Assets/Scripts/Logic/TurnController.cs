@@ -55,7 +55,7 @@ namespace Logic
         }
 
 
-        public void StartTurnTimer()
+        public void StartHeroTurns()
         {
             _logicTree.AddCurrent(RunHeroTimers());
         }
@@ -151,40 +151,41 @@ namespace Logic
         {
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
-            
-            
 
-            //var activeHero = _activeHeroLogic.Hero as Object;
-            //_activeHeroes.Remove(_activeHeroLogic as Object);
-            
+            var i = _activeHeroes.Count - 1;
+            _activeHeroes.RemoveAt(i);
+
             yield return null;
             _logicTree.EndSequence(); 
         }
 
-        private IEnumerator NextActiveHero()
+        private IEnumerator StartNextTurn()
         {
             _logicTree.AddCurrent(SetHeroInactive());
-            _logicTree.AddCurrent(SetHeroActive());
+            
+            _logicTree.AddCurrent(NextActiveHero());
             
             yield return null;
             _logicTree.EndSequence();
         }
 
+        private IEnumerator NextActiveHero()
+        {
+            if (_activeHeroes.Count > 0)
+                _logicTree.AddCurrent(SetHeroActive());
+
+            else
+                _logicTree.AddCurrent(RunHeroTimers());
+
+            yield return null;
+            _logicTree.EndSequence();
+            
+        }
 
 
         public void EndTurn()
         {
-            //SetHeroInactive
-            _logicTree.AddCurrent(SetHeroInactive());
-           
-            
-            //TODO: NextActiveHero
-            
-           
-            _freezeTick = false;
-            _activeHeroes.Clear();
-            StartTurnTimer();
-            //TEMP
+            _logicTree.AddCurrent(StartNextTurn());
 
         }
 
