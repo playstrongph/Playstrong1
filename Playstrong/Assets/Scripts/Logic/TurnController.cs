@@ -41,6 +41,7 @@ namespace Logic
         private ISetHeroStatus _setHeroStatus;
 
         private IHeroLogic _activeHeroLogic;
+        private int _activeHeroIndex;
 
         private void Awake()
         {
@@ -104,7 +105,7 @@ namespace Logic
         {
             _logicTree.AddCurrent(SortActiveHeroesByEnergy());
             
-            _logicTree.AddCurrent(SetActiveHero());
+            _logicTree.AddCurrent(SetHeroActive());
             
             yield return null;
             _logicTree.EndSequence();
@@ -132,10 +133,10 @@ namespace Logic
             return x;
         }
 
-        private IEnumerator SetActiveHero()
+        private IEnumerator SetHeroActive()
         {
-            var activeHeroIndex = ActiveHeroes.Count - 1;
-            var activeHeroTimer = ActiveHeroes[activeHeroIndex] as IHeroTimer;
+            _activeHeroIndex = ActiveHeroes.Count - 1;
+            var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
             
             _activeHeroLogic = activeHeroTimer.HeroLogic;
 
@@ -143,16 +144,39 @@ namespace Logic
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
 
             yield return null;
-             _logicTree.EndSequence(); 
+            _logicTree.EndSequence(); 
+        }
+
+        private IEnumerator SetHeroInactive()
+        {
+            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
+            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            
+            
+
+            //var activeHero = _activeHeroLogic.Hero as Object;
+            //_activeHeroes.Remove(_activeHeroLogic as Object);
+            
+            yield return null;
+            _logicTree.EndSequence(); 
+        }
+
+        private IEnumerator NextActiveHero()
+        {
+            _logicTree.AddCurrent(SetHeroInactive());
+            _logicTree.AddCurrent(SetHeroActive());
+            
+            yield return null;
+            _logicTree.EndSequence();
         }
 
 
 
         public void EndTurn()
         {
-            //TEMP
-            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
-            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            //SetHeroInactive
+            _logicTree.AddCurrent(SetHeroInactive());
+           
             
             //TODO: NextActiveHero
             
