@@ -39,6 +39,7 @@ namespace Logic
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
         private ISetHeroStatus _setHeroStatus;
+        private ISortHeroesByEnergy _sortHeroesByEnergy;
 
         private IHeroLogic _activeHeroLogic;
         private int _activeHeroIndex;
@@ -46,6 +47,7 @@ namespace Logic
         private void Awake()
         {
             _setHeroStatus = GetComponent<ISetHeroStatus>();
+            _sortHeroesByEnergy = GetComponent<ISortHeroesByEnergy>();
         }
 
         private void Start()
@@ -106,7 +108,7 @@ namespace Logic
 
         private IEnumerator HeroTakesTurn()
         {
-            _logicTree.AddCurrent(SortActiveHeroesByEnergy());
+            _logicTree.AddCurrent(_sortHeroesByEnergy.SortActiveHeroesByEnergy());
             
             _logicTree.AddCurrent(SetHeroActive());
             
@@ -114,28 +116,6 @@ namespace Logic
             _logicTree.EndSequence();
         }
         
-        
-        IEnumerator SortActiveHeroesByEnergy()
-        {
-           var returnList = new List<IHeroTimer>();
-
-           foreach (var activeHero in ActiveHeroes)
-           {
-               returnList.Add(activeHero as IHeroTimer);
-           }
-            
-           returnList.Sort(CompareListByEnergy);
-
-           yield return returnList;
-           _logicTree.EndSequence(); 
-        }
-        
-        private int CompareListByEnergy(IHeroTimer i1, IHeroTimer i2)
-        {
-            var x = i1.TimerValue.CompareTo(i2.TimerValue);
-            return x;
-        }
-
         private IEnumerator SetHeroActive()
         {
             _activeHeroIndex = ActiveHeroes.Count - 1;

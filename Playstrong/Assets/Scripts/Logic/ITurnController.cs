@@ -14,5 +14,7 @@ namespace Logic
 
         void EndTurn();
 
+        ICoroutineTreesAsset GlobalTrees { get; }
+
     }
 }
