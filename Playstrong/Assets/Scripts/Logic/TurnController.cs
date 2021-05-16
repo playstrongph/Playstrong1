@@ -70,7 +70,7 @@ namespace Logic
                 UpdateHeroTimers();
             }
 
-            _logicTree.AddCurrent(AllowHeroActions());
+            _logicTree.AddCurrent(HeroTakesTurn());
             
             yield return null;
             _logicTree.EndSequence();
@@ -104,7 +104,7 @@ namespace Logic
 
         }
 
-        private IEnumerator AllowHeroActions()
+        private IEnumerator HeroTakesTurn()
         {
             _logicTree.AddCurrent(SortActiveHeroesByEnergy());
             
@@ -124,13 +124,13 @@ namespace Logic
                returnList.Add(activeHero as IHeroTimer);
            }
             
-           returnList.Sort(CompareListByATB);
+           returnList.Sort(CompareListByEnergy);
 
            yield return returnList;
            _logicTree.EndSequence(); 
         }
         
-        private int CompareListByATB(IHeroTimer i1, IHeroTimer i2)
+        private int CompareListByEnergy(IHeroTimer i1, IHeroTimer i2)
         {
             var x = i1.TimerValue.CompareTo(i2.TimerValue);
             return x;
@@ -174,9 +174,9 @@ namespace Logic
 
         private IEnumerator NextActiveHero()
         {
-            if (_activeHeroes.Count > 0)
-                _logicTree.AddCurrent(SetHeroActive());
-
+            if(_activeHeroes.Count > 0)
+                _logicTree.AddCurrent(SetHeroActive());    
+            
             else
                 _logicTree.AddCurrent(RunHeroTimers());
 
