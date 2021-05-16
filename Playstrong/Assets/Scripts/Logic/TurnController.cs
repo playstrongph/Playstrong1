@@ -85,6 +85,7 @@ namespace Logic
                 var heroTimer = heroTimerObject as IHeroTimer;
                 var heroSpeed = heroTimer.HeroLogic.HeroAttributes.Speed;
                 var heroEnergyVisual = heroTimer.HeroLogic.Hero.HeroVisual.EnergyVisual;
+                heroTimerObject.name = heroTimer.HeroLogic.Hero.ToString();
 
                 heroTimer.TimerValue += heroSpeed * Time.deltaTime * SpeedConstant;
                 heroTimer.TimerValuePercentage = Mathf.FloorToInt(heroTimer.TimerValue * 100 / _timerFull);
@@ -160,16 +161,16 @@ namespace Logic
             _logicTree.EndSequence(); 
         }
 
-        private IEnumerator NextActiveHero()
+        private IEnumerator StartNextTurn()
         {
             _logicTree.AddCurrent(SetHeroInactive());
-            _logicTree.AddCurrent(StartNextTurn());
+            _logicTree.AddCurrent(NextActiveHero());
             
             yield return null;
             _logicTree.EndSequence();
         }
 
-        private IEnumerator StartNextTurn()
+        private IEnumerator NextActiveHero()
         {
             if(_activeHeroes.Count>0)
                 _logicTree.AddCurrent(SetHeroActive());
@@ -185,7 +186,7 @@ namespace Logic
 
         public void EndTurn()
         {
-            _logicTree.AddCurrent(NextActiveHero());
+            _logicTree.AddCurrent(StartNextTurn());
         }
 
 
