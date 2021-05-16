@@ -82,9 +82,12 @@ namespace Logic
            
             foreach (var heroTimerObject in _heroTimers)
             {
+                
                 var heroTimer = heroTimerObject as IHeroTimer;
                 var heroSpeed = heroTimer.HeroLogic.HeroAttributes.Speed;
                 var heroEnergyVisual = heroTimer.HeroLogic.Hero.HeroVisual.EnergyVisual;
+                heroTimerObject.name = heroTimer.HeroLogic.Hero.ToString();
+                
 
                 heroTimer.TimerValue += heroSpeed * Time.deltaTime * SpeedConstant;
                 heroTimer.TimerValuePercentage = Mathf.FloorToInt(heroTimer.TimerValue * 100 / _timerFull);

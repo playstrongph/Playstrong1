@@ -1,4 +1,5 @@
 ﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace Logic
@@ -8,6 +9,7 @@ namespace Logic
         private IBattleSceneManager _battleSceneManager;
         
         private ITurnController _turnController;
+        private ICoroutineTree _logicTree;
 
         public ITurnController TurnController
         {
@@ -17,6 +19,7 @@ namespace Logic
         private void Awake()
         {
             _battleSceneManager = GetComponentInParent<IBattleSceneManager>();
+            
         }
 
         public void EndTurn()

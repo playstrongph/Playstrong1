@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Logic
@@ -12,5 +13,6 @@ namespace Logic
         void StartHeroTurns();
 
         void EndTurn();
+
     }
 }
