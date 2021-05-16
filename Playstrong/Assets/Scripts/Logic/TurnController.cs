@@ -24,7 +24,12 @@ namespace Logic
         public int SpeedConstant => _speedConstant;
 
         [SerializeField] private bool _freezeTick = false;
-        public bool FreezeTick => _freezeTick;
+
+        public bool FreezeTick
+        {
+            get => _freezeTick;
+            set => _freezeTick = value;
+        }
 
         [SerializeField] 
         private List<Object> _heroTimers = new List<Object>();
@@ -43,11 +48,13 @@ namespace Logic
         private int _activeHeroIndex;
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
+        private IUpdateHeroTimers _updateHeroTimers;
 
         private void Awake()
         {
             _setHeroStatus = GetComponent<ISetHeroStatus>();
             _sortHeroesByEnergy = GetComponent<ISortHeroesByEnergy>();
+            _updateHeroTimers = GetComponent<IUpdateHeroTimers>();
         }
 
         private void Start()
@@ -69,39 +76,13 @@ namespace Logic
             while (!_freezeTick)
             {
                 yield return null;
-                UpdateHeroTimers();
+                _updateHeroTimers.UpdateTimers();
             }
 
             _logicTree.AddCurrent(AllowHeroActions());
             
             yield return null;
             _logicTree.EndSequence();
-        }
-
-
-        private void UpdateHeroTimers()
-        {
-           
-            foreach (var heroTimerObject in _heroTimers)
-            {
-                var heroTimer = heroTimerObject as IHeroTimer;
-                var heroSpeed = heroTimer.HeroLogic.HeroAttributes.Speed;
-                var heroEnergyVisual = heroTimer.HeroLogic.Hero.HeroVisual.EnergyVisual;
-                heroTimerObject.name = heroTimer.HeroLogic.Hero.ToString();
-
-                heroTimer.TimerValue += heroSpeed * Time.deltaTime * SpeedConstant;
-                heroTimer.TimerValuePercentage = Mathf.FloorToInt(heroTimer.TimerValue * 100 / _timerFull);
-                
-                heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
-                
-                if (heroTimer.TimerValue >= _timerFull)
-                {
-                    _freezeTick = true;
-                    _activeHeroes.Add(heroTimerObject);
-                }
-
-            }
-
         }
 
         private IEnumerator AllowHeroActions()
