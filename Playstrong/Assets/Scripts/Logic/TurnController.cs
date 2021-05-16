@@ -142,8 +142,6 @@ namespace Logic
 
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
-            
-           
 
             yield return null;
             _logicTree.EndSequence(); 
@@ -154,8 +152,7 @@ namespace Logic
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
-            //_activeHeroIndex = ActiveHeroes.Count - 1;
-            //_activeHeroes.RemoveAt(_activeHeroIndex);
+            
 
             //var activeHero = _activeHeroLogic.Hero as Object;
             //_activeHeroes.Remove(_activeHeroLogic as Object);
@@ -167,8 +164,7 @@ namespace Logic
         private IEnumerator NextActiveHero()
         {
             _logicTree.AddCurrent(SetHeroInactive());
-            
-          //Check ActiveHeroes for Queue
+            _logicTree.AddCurrent(SetHeroActive());
             
             yield return null;
             _logicTree.EndSequence();
