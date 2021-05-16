@@ -13,7 +13,7 @@ namespace Logic
 
         int TimerFull { get; }
 
-        bool FreezeTick { get; set; }
+        bool FreezeTimers { get; set; }
         List<Object> ActiveHeroes { get; }
         
         void StartHeroTurns();

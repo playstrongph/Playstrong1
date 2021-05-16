@@ -23,12 +23,12 @@ namespace Logic
         [SerializeField] private int _speedConstant = 5;
         public int SpeedConstant => _speedConstant;
 
-        [SerializeField] private bool _freezeTick = false;
+        [SerializeField] private bool _freezeTimers = false;
 
-        public bool FreezeTick
+        public bool FreezeTimers
         {
-            get => _freezeTick;
-            set => _freezeTick = value;
+            get => _freezeTimers;
+            set => _freezeTimers = value;
         }
 
         [SerializeField] 
@@ -71,9 +71,9 @@ namespace Logic
 
         private IEnumerator RunHeroTimers()
         {
-            _freezeTick = false;
+            _freezeTimers = false;
 
-            while (!_freezeTick)
+            while (!_freezeTimers)
             {
                 yield return null;
                 _updateHeroTimers.UpdateTimers();
@@ -108,6 +108,21 @@ namespace Logic
             _logicTree.EndSequence(); 
         }
 
+        public void EndTurn()
+        {
+            _logicTree.AddCurrent(StartNextTurn());
+        }
+        
+        private IEnumerator StartNextTurn()
+        {
+            _logicTree.AddCurrent(SetHeroInactive());
+            
+            _logicTree.AddCurrent(NextActiveHero());
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+        
         private IEnumerator SetHeroInactive()
         {
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
@@ -119,17 +134,6 @@ namespace Logic
             yield return null;
             _logicTree.EndSequence(); 
         }
-
-        private IEnumerator StartNextTurn()
-        {
-            _logicTree.AddCurrent(SetHeroInactive());
-            
-            _logicTree.AddCurrent(NextActiveHero());
-            
-            yield return null;
-            _logicTree.EndSequence();
-        }
-
         private IEnumerator NextActiveHero()
         {
             if(_activeHeroes.Count > 0)
@@ -144,11 +148,7 @@ namespace Logic
         }
 
 
-        public void EndTurn()
-        {
-            _logicTree.AddCurrent(StartNextTurn());
-
-        }
+        
 
 
 
