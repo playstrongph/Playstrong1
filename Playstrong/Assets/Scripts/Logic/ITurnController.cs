@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Logic
@@ -8,9 +9,10 @@ namespace Logic
     {
         List<Object> HeroTimers { get; }
         List<Object> ActiveHeroes { get; }
-        
-        void StartHeroTurns();
 
+        ICoroutineTreesAsset GlobalTrees { get; }
+
+        void StartHeroTurns();
         void EndTurn();
     }
 }

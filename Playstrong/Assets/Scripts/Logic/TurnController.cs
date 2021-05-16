@@ -39,13 +39,15 @@ namespace Logic
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
         private ISetHeroStatus _setHeroStatus;
-
         private IHeroLogic _activeHeroLogic;
         private int _activeHeroIndex;
+
+        private ISortHeroesByEnergy _sortHeroesByEnergy;
 
         private void Awake()
         {
             _setHeroStatus = GetComponent<ISetHeroStatus>();
+            _sortHeroesByEnergy = GetComponent<ISortHeroesByEnergy>();
         }
 
         private void Start()
@@ -104,34 +106,12 @@ namespace Logic
 
         private IEnumerator AllowHeroActions()
         {
-            _logicTree.AddCurrent(SortActiveHeroesByEnergy());
+            _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
             _logicTree.AddCurrent(SetHeroActive());
             
             yield return null;
             _logicTree.EndSequence();
-        }
-        
-        
-        IEnumerator SortActiveHeroesByEnergy()
-        {
-           var returnList = new List<IHeroTimer>();
-
-           foreach (var activeHero in ActiveHeroes)
-           {
-               returnList.Add(activeHero as IHeroTimer);
-           }
-            
-           returnList.Sort(CompareListByATB);
-
-           yield return returnList;
-           _logicTree.EndSequence(); 
-        }
-        
-        private int CompareListByATB(IHeroTimer i1, IHeroTimer i2)
-        {
-            var x = i1.TimerValue.CompareTo(i2.TimerValue);
-            return x;
         }
 
         private IEnumerator SetHeroActive()
