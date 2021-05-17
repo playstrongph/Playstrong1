@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 namespace Visual
 {
-   public class TargetHeroPreview : MonoBehaviour, ITargetPreview, ITargetHeroPreview
+   public class TargetHero : MonoBehaviour, ITargetPreview, ITargetHero
    {
       [SerializeField]
       [RequireInterface(typeof(IHero))]

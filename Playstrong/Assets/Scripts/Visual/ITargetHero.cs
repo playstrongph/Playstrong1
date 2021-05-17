@@ -2,7 +2,7 @@
 
 namespace Visual
 {
-    public interface ITargetHeroPreview
+    public interface ITargetHero
     {
         IHero Hero { get; }
     }
