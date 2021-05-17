@@ -15,6 +15,6 @@ namespace Logic
         int SpeedConstant { get; }
         int TimerFull { get; }
 
-        bool FreezeTick { get; set; }
+        bool FreezeTimers { get; set; }
     }
 }

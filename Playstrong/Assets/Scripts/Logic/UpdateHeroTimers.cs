@@ -34,7 +34,7 @@ namespace Logic
                 
                 if (heroTimer.TimerValue >= timerFull)
                 {
-                    _turnController.FreezeTick = true;
+                    _turnController.FreezeTimers = true;
                     activeHeroes.Add(heroTimerObject);
                 }
 

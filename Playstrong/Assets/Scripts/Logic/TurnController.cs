@@ -24,12 +24,12 @@ namespace Logic
         [SerializeField] private int _speedConstant = 10;
         public int SpeedConstant => _speedConstant;
 
-        [SerializeField] private bool _freezeTick = false;
+        [SerializeField] private bool _freezeTimers = false;
 
-        public bool FreezeTick
+        public bool FreezeTimers
         {
-            get => _freezeTick;
-            set => _freezeTick = value;
+            get => _freezeTimers;
+            set => _freezeTimers = value;
         }
 
         [SerializeField] 
@@ -63,9 +63,6 @@ namespace Logic
             _logicTree = GlobalTrees.MainLogicTree;
             _visualTree = GlobalTrees.MainVisualTree;
         }
-        
-        
-
 
         public void StartHeroTurns()
         {
@@ -74,9 +71,9 @@ namespace Logic
 
         private IEnumerator RunHeroTimers()
         {
-            _freezeTick = false;
+            _freezeTimers = false;
 
-            while (!_freezeTick)
+            while (!_freezeTimers)
             {
                 yield return null;
                 _updateHeroTimers.UpdateTimers();
