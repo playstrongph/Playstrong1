@@ -1094,7 +1094,7 @@ MonoBehaviour:
   _heroPortrait: {fileID: 3820792407297609701}
   _panelHeroPortrait: {fileID: 1921258135}
   _panelHeroSkills: {fileID: 1966082655604056712}
-  _targetHeroPreview: {fileID: 3820792407395522590}
+  _targetHeroPreview: {fileID: 279387159932487220}
   _livingHeroesReference: {fileID: 0}
   _coroutineTreeAsset: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
     type: 2}
@@ -5704,6 +5704,7 @@ GameObject:
   - component: {fileID: 1028030288427992560}
   - component: {fileID: 1208639730}
   - component: {fileID: 3820792407395522591}
+  - component: {fileID: 279387159932487220}
   m_Layer: 0
   m_Name: TargetHero
   m_TagString: Untagged
@@ -5744,7 +5745,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hero: {fileID: 1729355933}
-  _targetVisual: {fileID: 3820792406484607035}
 --- !u!114 &3820792407395522589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5757,7 +5757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196d945fa79b6aa4083dbf367dfe8fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetPreview: {fileID: 3820792407395522590}
+  _targetPreview: {fileID: 279387159932487220}
 --- !u!114 &3820792407395522588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5821,6 +5821,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 47.727543, y: 62.600845}
   m_EdgeRadius: 0
+--- !u!114 &279387159932487220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792407395522586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1394be904b6ae4083724cef873fec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetVisual: {fileID: 3820792406484607035}
 --- !u!1 &3820792407405065746
 GameObject:
   m_ObjectHideFlags: 0
