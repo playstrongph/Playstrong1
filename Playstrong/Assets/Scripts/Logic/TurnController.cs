@@ -49,7 +49,7 @@ namespace Logic
         private ISortHeroesByEnergy _sortHeroesByEnergy;
         private IUpdateHeroTimers _updateHeroTimers;
         
-        private List<IEnumerator> _nextHeroActions = new List<IEnumerator>();
+       
 
         private void Awake()
         {
@@ -62,10 +62,6 @@ namespace Logic
         {
             _logicTree = GlobalTrees.MainLogicTree;
             _visualTree = GlobalTrees.MainVisualTree;
-            
-            _nextHeroActions.Add(SetHeroActive());
-            _nextHeroActions.Add(RunHeroTimers());
-                
         }
         
         
@@ -140,10 +136,6 @@ namespace Logic
 
         private IEnumerator NextActiveHero()
         {
-
-            //int index = Mathf.Clamp(_activeHeroes.Count, 0, 1);
-            //_logicTree.AddCurrent(_nextHeroActions[index]);
-            
             if(_activeHeroes.Count>0)
                 _logicTree.AddCurrent(SetHeroActive());
             
