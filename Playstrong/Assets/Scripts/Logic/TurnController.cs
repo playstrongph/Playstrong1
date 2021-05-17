@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Interfaces;
 using ScriptableObjects;
 using UnityEngine;
@@ -17,10 +18,10 @@ namespace Logic
         public ICoroutineTreesAsset GlobalTrees => _globalTrees as ICoroutineTreesAsset;
 
         [SerializeField] 
-        private int _timerFull = 1000;
+        private int _timerFull = 500;
         public int TimerFull => _timerFull;
 
-        [SerializeField] private int _speedConstant = 5;
+        [SerializeField] private int _speedConstant = 10;
         public int SpeedConstant => _speedConstant;
 
         [SerializeField] private bool _freezeTick = false;
@@ -39,8 +40,6 @@ namespace Logic
         private List<Object> _activeHeroes = new List<Object>();
         public List<Object> ActiveHeroes => _activeHeroes as List<Object>;
         
-        
-
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
         private ISetHeroStatus _setHeroStatus;
@@ -49,6 +48,8 @@ namespace Logic
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
         private IUpdateHeroTimers _updateHeroTimers;
+        
+        private List<IEnumerator> _nextHeroActions = new List<IEnumerator>();
 
         private void Awake()
         {
@@ -61,7 +62,13 @@ namespace Logic
         {
             _logicTree = GlobalTrees.MainLogicTree;
             _visualTree = GlobalTrees.MainVisualTree;
+            
+            _nextHeroActions.Add(SetHeroActive());
+            _nextHeroActions.Add(RunHeroTimers());
+                
         }
+        
+        
 
 
         public void StartHeroTurns()
@@ -133,6 +140,10 @@ namespace Logic
 
         private IEnumerator NextActiveHero()
         {
+
+            //int index = Mathf.Clamp(_activeHeroes.Count, 0, 1);
+            //_logicTree.AddCurrent(_nextHeroActions[index]);
+            
             if(_activeHeroes.Count>0)
                 _logicTree.AddCurrent(SetHeroActive());
             

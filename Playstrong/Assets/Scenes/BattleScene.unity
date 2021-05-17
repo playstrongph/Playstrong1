@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 456131801}
   - component: {fileID: 456131802}
   - component: {fileID: 456131803}
+  - component: {fileID: 456131804}
   m_Layer: 0
   m_Name: TurnController
   m_TagString: Untagged
@@ -535,8 +536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
-  _timerFull: 1000
-  _speedConstant: 5
+  _timerFull: 500
+  _speedConstant: 10
   _freezeTick: 0
   _heroTimers: []
   _activeHeroes: []
@@ -565,6 +566,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0f9acfe1efea47438c3aeaee342d328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &456131804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456131799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1032ecf0000b69c429e14a02bdd87c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &548051216
