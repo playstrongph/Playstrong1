@@ -36,21 +36,21 @@ namespace Logic
             
             foreach (var heroAsset in teamHeroesAsset.TeamHeroes())
             {
-                var hero = Instantiate(heroObjectPrefab, boardLocation);
+                var heroObject = Instantiate(heroObjectPrefab, boardLocation);
                     
-                hero.transform.SetParent(boardLocation);
-                hero.transform.SetAsLastSibling();
-                hero.name = heroAsset.name;
-                _player.LivingHeroes.HeroesList.Add(hero);
-                
-                
+                heroObject.transform.SetParent(boardLocation);
+                heroObject.transform.SetAsLastSibling();
+                heroObject.name = heroAsset.name;
+                _player.LivingHeroes.HeroesList.Add(heroObject);
 
-                hero.GetComponent<IHero>().HeroLogic.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
-                
-                hero.GetComponent<IHero>().HeroVisual.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
-                hero.GetComponent<IHero>().HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset);
+                var hero = heroObject.GetComponent<IHero>();
 
-                hero.GetComponent<IHero>().HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].localPosition;
+
+                hero.HeroName =  heroObject.name;
+                hero.HeroLogic.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
+                hero.HeroVisual.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
+                hero.HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset);
+                hero.HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].localPosition;
                 _heroIndex++;
                 
                 

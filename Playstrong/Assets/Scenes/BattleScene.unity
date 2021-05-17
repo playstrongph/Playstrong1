@@ -538,7 +538,7 @@ MonoBehaviour:
   _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
   _timerFull: 500
   _speedConstant: 10
-  _freezeTick: 0
+  _freezeTimers: 0
   _heroTimers: []
   _activeHeroes: []
 --- !u!114 &456131802
@@ -986,6 +986,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
+    - target: {fileID: 1208639736, guid: 55d0158ae4095ed459b6c7d1bccedb52, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3820792405746686396, guid: 55d0158ae4095ed459b6c7d1bccedb52,
         type: 3}
       propertyPath: m_Name

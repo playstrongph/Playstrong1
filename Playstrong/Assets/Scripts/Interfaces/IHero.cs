@@ -6,6 +6,8 @@ namespace Interfaces
 {
     public interface IHero
     {
+
+        string HeroName { get; set; }
         IHeroVisual HeroVisual { get; }
         IBuffsVisual BuffsVisual { get; }
         IHeroPreviewVisual HeroPreviewVisual { get; }

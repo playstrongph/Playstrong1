@@ -13,6 +13,14 @@ namespace References
     public class Hero : MonoBehaviour, IHero
     {
 
+        [SerializeField] private string _heroName;
+
+        public string HeroName
+        {
+            get => _heroName;
+            set => _heroName = value;
+        }
+
         [SerializeField] [RequireInterface(typeof(IHeroLogic))]
         private Object _heroLogic;
         public IHeroLogic HeroLogic => _heroLogic as IHeroLogic;
