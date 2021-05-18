@@ -9,6 +9,7 @@ namespace Visual
     public class DragHeroAttack : MonoBehaviour
     {
         private ITargetHero _targetHero;
+        private ITargetHero _targetEnemyHero;
 
         private Action _attackTarget;
         
@@ -20,6 +21,7 @@ namespace Visual
         private void Awake()
         {
             _targetHero = GetComponent<ITargetHero>();
+            
             _attackTarget = NoAction;
         }
 
@@ -37,11 +39,14 @@ namespace Visual
 
         private void SetAttackTarget()
         {
-            RaycastHit[] hits;
-            
-            hits = Physics.RaycastAll(origin: Camera.main.transform.position, 
+            var hits = Physics.RaycastAll(origin: Camera.main.transform.position, 
                 direction: (-Camera.main.transform.position + this.transform.position).normalized, 
-                maxDistance: 30f) ;
+                maxDistance: 30f);
+            
+            Debug.Log("hits count" +hits.Length.ToString());
+            Debug.DrawRay(Camera.main.transform.position, 
+                (-Camera.main.transform.position + this.transform.position).normalized, 
+                Color.red);
 
             foreach (var hit in hits)
             {
@@ -51,9 +56,10 @@ namespace Visual
                    
                    if (_hero.LivingHeroes.Player.OtherPlayer == _hero.LivingHeroes.Player)
                    {
-                       _targetHero = hit.transform.GetComponent<ITargetHero>();
+                       _targetEnemyHero = hit.transform.GetComponent<ITargetHero>();
+                       Debug.Log("Target Enemy Hero:" +_targetEnemyHero.Hero.HeroName);
                        
-                       if(_validTargets.Contains(_targetHero.Hero))
+                       if(_validTargets.Contains(_targetEnemyHero.Hero))
                            _attackTarget = AttackTarget;
                                        
                    }
@@ -73,6 +79,8 @@ namespace Visual
             //Temp
             _validTargets = _enemyHeroes;
             
+            
+            
             //TODO: Check for Taunt
         }
 
@@ -86,6 +94,8 @@ namespace Visual
         private void NoAction()
         {
             Debug.Log("No Action");
+            
+            Debug.Log("Target Hero:" +_targetHero.Hero.HeroName);
         }
     }
 }
