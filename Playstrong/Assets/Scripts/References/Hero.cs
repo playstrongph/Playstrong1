@@ -63,14 +63,14 @@ namespace References
         
 
         [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
-        private Object _livingHeroesReference;
+        private Object _livingHeroes;
         
-        public ILivingHeroes LivingHeroesReference
+        public ILivingHeroes LivingHeroes
         {
-            get { return _livingHeroesReference as ILivingHeroes; }
+            get { return _livingHeroes as ILivingHeroes; }
             private set
             {
-                _livingHeroesReference = value as Object;
+                _livingHeroes = value as Object;
             }
         }
         
@@ -80,7 +80,7 @@ namespace References
 
         private void Awake()
         {
-            _livingHeroesReference = GetComponentInParent<ILivingHeroes>() as Object;
+            _livingHeroes = GetComponentInParent<ILivingHeroes>() as Object;
         }
     }
 }

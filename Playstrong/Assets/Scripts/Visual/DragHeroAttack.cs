@@ -12,6 +12,10 @@ namespace Visual
 
         private Action _attackTarget;
         
+        private List<IHero> _validTargets = new List<IHero>();
+        private IHero _hero;
+        private List<IHero> _enemyHeroes = new List<IHero>();
+        
      
         private void Awake()
         {
@@ -21,19 +25,17 @@ namespace Visual
 
         private void OnMouseUp()
         {
-            GetTarget();
-            
+            SetAttackTarget();
             _attackTarget();
-
-
         }
 
         private void OnMouseDown()
         {
             _attackTarget = NoAction;
+            GetValidTargets();
         }
 
-        private void GetTarget()
+        private void SetAttackTarget()
         {
             RaycastHit[] hits;
             
@@ -44,34 +46,46 @@ namespace Visual
             foreach (var hit in hits)
             {
                 if (hit.transform.GetComponent<ITargetHero>() != null)
-                    if (hit.transform.gameObject != this.gameObject)
-                        //if(isValidTarget)
-                    {
-                        _targetHero = hit.transform.GetComponent<ITargetHero>();
-                        _attackTarget = AttackTarget;
-                    }
-
-               
+                {
+                    _hero = hit.transform.GetComponent<ITargetHero>().Hero;
+                   
+                   if (_hero.LivingHeroes.Player.OtherPlayer == _hero.LivingHeroes.Player)
+                   {
+                       _targetHero = hit.transform.GetComponent<ITargetHero>();
+                       
+                       if(_validTargets.Contains(_targetHero.Hero))
+                           _attackTarget = AttackTarget;
+                                       
+                   }
+                }
             }
         }
 
         private void GetValidTargets()
         {
-            var validTargets = new List<IHeroLogic>();
-            var enemyTargets = new List<IHeroLogic>();
+            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
+
+            foreach (var enemy in enemies)
+            {
+                var enemyHero = enemy.GetComponent<IHero>();
+                _enemyHeroes.Add(enemyHero);
+            }
+            //Temp
+            _validTargets = _enemyHeroes;
             
-          
-
-
+            //TODO: Check for Taunt
         }
 
         private void AttackTarget()
         {
-            
+            Debug.Log("Attack Hero:" +_targetHero.Hero.HeroName);
         }
 
 
 
-        private void NoAction() { }
+        private void NoAction()
+        {
+            Debug.Log("No Action");
+        }
     }
 }

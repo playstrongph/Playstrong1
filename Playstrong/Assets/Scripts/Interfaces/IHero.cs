@@ -22,7 +22,7 @@ namespace Interfaces
 
         PanelHeroSkills PanelHeroSkills { get; }
 
-        ILivingHeroes LivingHeroesReference { get; }
+        ILivingHeroes LivingHeroes { get; }
 
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
 

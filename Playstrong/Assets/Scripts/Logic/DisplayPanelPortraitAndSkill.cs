@@ -17,8 +17,8 @@ namespace Logic
 
         public void OnMouseDown()
         {
-            _targetHero.Hero.LivingHeroesReference.PanelPortaitAndSkillDisplay.PanelPortrait.SetActive(false);
-            _targetHero.Hero.LivingHeroesReference.PanelPortaitAndSkillDisplay.PanelSkills.SetActive(false);
+            _targetHero.Hero.LivingHeroes.PanelPortaitAndSkillDisplay.PanelPortrait.SetActive(false);
+            _targetHero.Hero.LivingHeroes.PanelPortaitAndSkillDisplay.PanelSkills.SetActive(false);
 
             _panelHeroPortrait = _targetHero.Hero.PanelHeroPortrait;
             _panelHeroSkills = _targetHero.Hero.PanelHeroSkills;
@@ -26,8 +26,8 @@ namespace Logic
             _panelHeroPortrait.Portrait.SetActive(true);
             _panelHeroSkills.PanelSkills.SetActive(true);
             
-            _targetHero.Hero.LivingHeroesReference.PanelPortaitAndSkillDisplay.PanelPortrait = _panelHeroPortrait.Portrait;
-            _targetHero.Hero.LivingHeroesReference.PanelPortaitAndSkillDisplay.PanelSkills = _panelHeroSkills.PanelSkills;
+            _targetHero.Hero.LivingHeroes.PanelPortaitAndSkillDisplay.PanelPortrait = _panelHeroPortrait.Portrait;
+            _targetHero.Hero.LivingHeroes.PanelPortaitAndSkillDisplay.PanelSkills = _panelHeroSkills.PanelSkills;
             
         }
 
