@@ -24,6 +24,15 @@ namespace Logic
         private Object _globalTrees;
         public ICoroutineTreesAsset GlobalTrees => _globalTrees as ICoroutineTreesAsset;
 
+        [SerializeField] private Object _otherPlayer;
+
+        public IPlayer OtherPlayer
+        {
+            get => _otherPlayer as IPlayer;
+            set => _otherPlayer = value as Object;
+
+        }
+
 
         [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
         private Object _livingHeroes;

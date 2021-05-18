@@ -30,15 +30,17 @@ namespace Logic
             var mainPlayer = mainPlayerGameObject.GetComponent<IPlayer>();
             mainPlayer.LivingHeroes.Transform.position = _battleSceneManager.BattleSceneSettings.AllyHeroesBoardLocation.position;
 
-            _battleSceneManager.MainPlayer = mainPlayer;
-
             var enemyPlayerGameObject = Instantiate(playerPrefab, playersParent);
             enemyPlayerGameObject.name = "EnemyPlayer";
 
             var enemyPlayer = enemyPlayerGameObject.GetComponent<IPlayer>();
             enemyPlayer.LivingHeroes.Transform.position = _battleSceneManager.BattleSceneSettings.EnemyHeroesBoardLocation.position;
-
+            
+            
+            _battleSceneManager.MainPlayer = mainPlayer;
             _battleSceneManager.EnemyPlayer = enemyPlayer;
+            mainPlayer.OtherPlayer = enemyPlayer;
+            enemyPlayer.OtherPlayer = mainPlayer;
 
             yield return null;
             logicTree.EndSequence();

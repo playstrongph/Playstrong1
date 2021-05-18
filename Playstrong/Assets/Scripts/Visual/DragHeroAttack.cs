@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Interfaces;
 using UnityEngine;
@@ -10,7 +11,8 @@ namespace Visual
         private ITargetHero _targetHero;
 
         private Action _attackTarget;
-
+        
+     
         private void Awake()
         {
             _targetHero = GetComponent<ITargetHero>();
@@ -51,6 +53,16 @@ namespace Visual
 
                
             }
+        }
+
+        private void GetValidTargets()
+        {
+            var validTargets = new List<IHeroLogic>();
+            var enemyTargets = new List<IHeroLogic>();
+            
+          
+
+
         }
 
         private void AttackTarget()
