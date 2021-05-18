@@ -72,7 +72,7 @@ namespace Logic
 
         [RequireInterface(typeof(IInitializePanelPortraits))]
         private Object _initializePanelPortraits;
-
+        
         public IInitializePanelPortraits InitializePanelPortraits
         {
             get => _initializePanelPortraits as InitializePanelPortraits;
@@ -106,7 +106,8 @@ namespace Logic
             private set => _createPanelSkillReferences = value as Object;
         }
 
-        
+        private IBattleSceneManager _battleSceneManager;
+        public IBattleSceneManager BattleSceneManager => _battleSceneManager;
         
         
 
@@ -121,9 +122,9 @@ namespace Logic
             CreatePanelPortraitReferences = GetComponent<ICreatePanelPortraitReferences>();
             InitializePanelSkills = GetComponent<IInitializePanelSkills>();
             CreatePanelSkillReferences = GetComponent<ICreatePanelSkillReferences>();
-            
-            
-           
+
+            _battleSceneManager = GetComponentInParent<IBattleSceneManager>();
+
 
         }
     }

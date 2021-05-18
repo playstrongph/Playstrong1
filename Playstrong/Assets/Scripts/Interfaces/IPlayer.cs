@@ -36,6 +36,8 @@ namespace Interfaces
         IInitializePanelSkills InitializePanelSkills { get; }
 
         ICreatePanelSkillReferences CreatePanelSkillReferences { get; }
-       
+
+        IBattleSceneManager BattleSceneManager { get; }
+
     }
 }

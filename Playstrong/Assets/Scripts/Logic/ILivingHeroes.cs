@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using Visual;
 
@@ -10,5 +11,7 @@ namespace Logic
         Transform Transform { get; }
 
         IPanelPortaitAndSkillDisplay PanelPortaitAndSkillDisplay { get; }
+
+        IPlayer Player { get; }
     }
 }

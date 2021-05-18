@@ -29,9 +29,13 @@ namespace Logic
             }
         }
 
+        private IPlayer _player;
+        public IPlayer Player => _player;
+
         private void Awake()
         {
             _panelPortaitAndSkillDisplay = GetComponent<IPanelPortaitAndSkillDisplay>() as Object;
+            _player = GetComponentInParent<IPlayer>();
         }
     }
 }
