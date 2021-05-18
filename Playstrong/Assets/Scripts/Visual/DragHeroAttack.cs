@@ -7,12 +7,28 @@ namespace Visual
 {
     public class DragHeroAttack : MonoBehaviour
     {
-        /*private ITargetHeroPreview _target;*/
-        
+        private ITargetHero _targetHero;
+
+        private Action _attackTarget;
+
+        private void Awake()
+        {
+            _targetHero = GetComponent<ITargetHero>();
+            _attackTarget = NoAction;
+        }
+
         private void OnMouseUp()
         {
             GetTarget();
             
+            _attackTarget();
+
+
+        }
+
+        private void OnMouseDown()
+        {
+            _attackTarget = NoAction;
         }
 
         private void GetTarget()
@@ -25,10 +41,25 @@ namespace Visual
 
             foreach (var hit in hits)
             {
-                /*if (hit.transform.GetComponent<ITargetHeroPreview>() != null)
+                if (hit.transform.GetComponent<ITargetHero>() != null)
                     if (hit.transform.gameObject != this.gameObject)
-                        _target = hit.transform.GetComponent<ITargetHeroPreview>();*/
+                        //if(isValidTarget)
+                    {
+                        _targetHero = hit.transform.GetComponent<ITargetHero>();
+                        _attackTarget = AttackTarget;
+                    }
+
+               
             }
         }
+
+        private void AttackTarget()
+        {
+            
+        }
+
+
+
+        private void NoAction() { }
     }
 }
