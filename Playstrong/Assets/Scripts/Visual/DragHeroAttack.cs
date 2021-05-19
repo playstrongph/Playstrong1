@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Interfaces;
@@ -16,28 +17,57 @@ namespace Visual
         private List<IHero> _validTargets = new List<IHero>();
         private IHero _hero;
         private List<IHero> _enemyHeroes = new List<IHero>();
+
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
         
      
         private void Awake()
         {
             _targetHero = GetComponent<ITargetHero>();
+            _logicTree = _targetHero.Hero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = _targetHero.Hero.CoroutineTreesAsset.MainVisualTree;
             
             _attackTarget = NoAction;
         }
 
         private void OnMouseUp()
         {
-            SetAttackTarget();
-            _attackTarget();
+           _logicTree.AddCurrent(SetAttackTarget());
+           _logicTree.AddCurrent(AttackTarget());
         }
 
         private void OnMouseDown()
         {
             _attackTarget = NoAction;
-            GetValidTargets();
+            _logicTree.AddCurrent(GetValidTargets());
+        }
+        
+        private IEnumerator AttackTarget()
+        {
+            _attackTarget();
+            
+            yield return null;
+            _logicTree.EndSequence();
         }
 
-        private void SetAttackTarget()
+        private IEnumerator SetAttackTarget()
+        {
+            SetTarget();
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+
+        private IEnumerator GetValidTargets()
+        {
+            GetTargets();
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+
+        private void SetTarget()
         {
            
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,13 +83,13 @@ namespace Visual
                    if (_validTargets.Contains(targetHero.Hero))
                    {
                        _targetEnemyHero = targetHero;
-                       _attackTarget = AttackTarget;
+                       _attackTarget = BasicAttackTarget;
                    }
                 }
             }
         }
 
-        private void GetValidTargets()
+        private void GetTargets()
         {
             var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
 
@@ -73,16 +103,18 @@ namespace Visual
             //TODO: Check for Taunt
         }
 
-        private void AttackTarget()
+        private void BasicAttackTarget()
         {
             Debug.Log("Attack Hero:" +_targetEnemyHero.Hero.HeroName);
         }
-
-
 
         private void NoAction()
         {
             
         }
+
+       
+
+
     }
 }
