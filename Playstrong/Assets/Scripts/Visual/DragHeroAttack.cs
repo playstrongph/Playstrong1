@@ -39,31 +39,22 @@ namespace Visual
 
         private void SetAttackTarget()
         {
-            /*var hits = Physics.RaycastAll(origin: Camera.main.transform.position, 
-                direction: (-Camera.main.transform.position + this.transform.position).normalized, 
-                maxDistance: 30f);*/
-            
+           
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             
             var hits = Physics.RaycastAll(ray);
-            
-            Debug.Log("Hits: " +hits.Length.ToString());
 
             foreach (var hit in hits)
             {
                 if (hit.transform.GetComponent<ITargetHero>() != null)
                 {
-                    _hero = hit.transform.GetComponent<ITargetHero>().Hero;
-                    
-                    if (_hero.LivingHeroes.Player != this.gameObject.GetComponent<ITargetHero>().Hero.LivingHeroes.Player)
-                    {
-                        _targetEnemyHero = hit.transform.GetComponent<ITargetHero>();
-                        Debug.Log("Target Enemy Hero:" +_targetEnemyHero.Hero.HeroName);
-                       
-                        if(_validTargets.Contains(_targetEnemyHero.Hero))
-                            _attackTarget = AttackTarget;
-                                       
-                    }
+                   var targetHero = hit.transform.GetComponent<ITargetHero>();
+
+                   if (_validTargets.Contains(targetHero.Hero))
+                   {
+                       _targetEnemyHero = targetHero;
+                       _attackTarget = AttackTarget;
+                   }
                 }
             }
         }
@@ -79,9 +70,6 @@ namespace Visual
             }
             //Temp
             _validTargets = _enemyHeroes;
-            
-            
-            
             //TODO: Check for Taunt
         }
 
