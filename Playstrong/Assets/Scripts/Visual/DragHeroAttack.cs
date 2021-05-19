@@ -39,30 +39,31 @@ namespace Visual
 
         private void SetAttackTarget()
         {
-            var hits = Physics.RaycastAll(origin: Camera.main.transform.position, 
+            /*var hits = Physics.RaycastAll(origin: Camera.main.transform.position, 
                 direction: (-Camera.main.transform.position + this.transform.position).normalized, 
-                maxDistance: 30f);
+                maxDistance: 30f);*/
             
-            Debug.Log("hits count" +hits.Length.ToString());
-            Debug.DrawRay(Camera.main.transform.position, 
-                (-Camera.main.transform.position + this.transform.position).normalized, 
-                Color.red);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            var hits = Physics.RaycastAll(ray);
+            
+            Debug.Log("Hits: " +hits.Length.ToString());
 
             foreach (var hit in hits)
             {
                 if (hit.transform.GetComponent<ITargetHero>() != null)
                 {
                     _hero = hit.transform.GetComponent<ITargetHero>().Hero;
-                   
-                   if (_hero.LivingHeroes.Player.OtherPlayer == _hero.LivingHeroes.Player)
-                   {
-                       _targetEnemyHero = hit.transform.GetComponent<ITargetHero>();
-                       Debug.Log("Target Enemy Hero:" +_targetEnemyHero.Hero.HeroName);
+                    
+                    if (_hero.LivingHeroes.Player != this.gameObject.GetComponent<ITargetHero>().Hero.LivingHeroes.Player)
+                    {
+                        _targetEnemyHero = hit.transform.GetComponent<ITargetHero>();
+                        Debug.Log("Target Enemy Hero:" +_targetEnemyHero.Hero.HeroName);
                        
-                       if(_validTargets.Contains(_targetEnemyHero.Hero))
-                           _attackTarget = AttackTarget;
+                        if(_validTargets.Contains(_targetEnemyHero.Hero))
+                            _attackTarget = AttackTarget;
                                        
-                   }
+                    }
                 }
             }
         }
@@ -86,16 +87,14 @@ namespace Visual
 
         private void AttackTarget()
         {
-            Debug.Log("Attack Hero:" +_targetHero.Hero.HeroName);
+            Debug.Log("Attack Hero:" +_targetEnemyHero.Hero.HeroName);
         }
 
 
 
         private void NoAction()
         {
-            Debug.Log("No Action");
             
-            Debug.Log("Target Hero:" +_targetHero.Hero.HeroName);
         }
     }
 }
