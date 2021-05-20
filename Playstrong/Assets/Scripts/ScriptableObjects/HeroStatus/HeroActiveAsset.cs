@@ -35,6 +35,8 @@ namespace ScriptableObjects.HeroStatus
            _heroLogic.HeroTimer.ResetHeroTimer();
             
             _logicTree.AddCurrent(EnableTargetHeroPreview());
+            _logicTree.AddCurrent(EnableDragHeroAttack());
+            
             
             _visualTree.AddCurrent(VisualEnableActionHeroGlow());
             _visualTree.AddCurrent(VisualEnableHeroPortrait());
@@ -44,11 +46,20 @@ namespace ScriptableObjects.HeroStatus
             _logicTree.EndSequence();
         }
 
-        private IEnumerator EnableTargetHeroPreview()
+        private IEnumerator EnableDragHeroAttack()
         {
-            _heroLogic.Hero.TargetHeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
+           
+           _heroLogic.Hero.TargetHero.BasicAttackTargets.EnableGlows();
             
             yield return null;
+            _logicTree.EndSequence();
+        }
+
+        private IEnumerator EnableTargetHeroPreview()
+        {
+            _heroLogic.Hero.TargetHero.HeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
+            
+             yield return null;
             _logicTree.EndSequence();
         }
 

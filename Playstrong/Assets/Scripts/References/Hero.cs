@@ -57,10 +57,9 @@ namespace References
 
         public PanelHeroSkills PanelHeroSkills => _panelHeroSkills as PanelHeroSkills;
 
-        [SerializeField] [RequireInterface(typeof(ITargetPreview))]
-        private Object _targetHeroPreview;
-        public ITargetPreview TargetHeroPreview => _targetHeroPreview as ITargetPreview;
-        
+        [SerializeField] [RequireInterface(typeof(ITargetHero))]
+        private Object _targetHero;
+        public ITargetHero TargetHero => _targetHero as ITargetHero;
 
         [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
         private Object _livingHeroes;

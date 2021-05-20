@@ -25,8 +25,7 @@ namespace Interfaces
         ILivingHeroes LivingHeroes { get; }
 
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
-
-        ITargetPreview TargetHeroPreview { get; }
+        ITargetHero TargetHero { get; }
 
 
     }

@@ -13,7 +13,7 @@ namespace ScriptableObjects.HeroStatus
         private IHeroLogic _heroLogic;
         
         private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
+        private ICoroutineTree _visualTree;    
         
         public void InitializeTurnController(ITurnController turnController)
         {
@@ -34,6 +34,7 @@ namespace ScriptableObjects.HeroStatus
         {
             
             _logicTree.AddCurrent(DisableTargetHeroPreview());
+            _logicTree.AddCurrent(DisableDragHeroAttack());
             
             _visualTree.AddCurrent(VisualDisableActionHeroGlow());
             _visualTree.AddCurrent(VisualDisableHeroPortrait());
@@ -45,9 +46,17 @@ namespace ScriptableObjects.HeroStatus
             
         }
         
+        private IEnumerator DisableDragHeroAttack()
+        {
+            _heroLogic.Hero.TargetHero.BasicAttackTargets.DisableGlows();
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+        
         private IEnumerator DisableTargetHeroPreview()
         {
-            _heroLogic.Hero.TargetHeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(false);
+            _heroLogic.Hero.TargetHero.HeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(false);
             
             yield return null;
             _logicTree.EndSequence();

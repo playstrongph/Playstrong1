@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Visual
 {
-    public class DragHeroAttack : MonoBehaviour
+    public class DragHeroAttack : MonoBehaviour, IDragHeroAttack
     {
         private ITargetHero _targetHero;
         private ITargetHero _targetEnemyHero;
@@ -34,26 +34,22 @@ namespace Visual
             
             _attackTarget = NoAction;
         }
+        
+       
 
-        private void Start()
-        {
-            
-        }
 
         private void OnMouseUp()
         {
            _logicTree.AddCurrent(SetAttackTarget());
            _logicTree.AddCurrent(AttackTarget());
-           
-           _visualTree.AddCurrent(HideTargetsGlow());
+          
         }
 
         private void OnMouseDown()
         {
             _attackTarget = NoAction;
             _logicTree.AddCurrent(GetValidTargets());
-            
-            _visualTree.AddCurrent(ShowTargetsGlow());
+          
         }
         
         private IEnumerator AttackTarget()
@@ -79,24 +75,7 @@ namespace Visual
             yield return null;
             _logicTree.EndSequence();
         }
-
-        private IEnumerator ShowTargetsGlow()
-        {
-            _basicAttackTargets.ShowBasicAttackTargetsGlow();
-            
-            yield return null;
-            _visualTree.EndSequence();
-        }
         
-        private IEnumerator HideTargetsGlow()
-        {
-            _basicAttackTargets.HideBasicAttackTargetsGlow();
-            yield return null;
-            _visualTree.EndSequence();
-        }
-        
-        
-
         private void SetTarget()
         {
            
