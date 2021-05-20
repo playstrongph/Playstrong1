@@ -32,8 +32,12 @@ namespace Visual
             _logicTree = _targetHero.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _targetHero.Hero.CoroutineTreesAsset.MainVisualTree;
             
-            
             _attackTarget = NoAction;
+        }
+
+        private void Start()
+        {
+            
         }
 
         private void OnMouseUp()
