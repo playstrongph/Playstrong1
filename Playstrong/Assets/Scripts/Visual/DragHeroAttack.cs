@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Interfaces;
+using Logic;
 using UnityEngine;
 
 namespace Visual
@@ -16,17 +17,21 @@ namespace Visual
         
         private List<IHero> _validTargets = new List<IHero>();
         private IHero _hero;
-        private List<IHero> _enemyHeroes = new List<IHero>();
 
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
+
+        private IBasicAttackTargets _basicAttackTargets;
+        
         
      
         private void Awake()
         {
             _targetHero = GetComponent<ITargetHero>();
+            _basicAttackTargets = GetComponent<IBasicAttackTargets>();
             _logicTree = _targetHero.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _targetHero.Hero.CoroutineTreesAsset.MainVisualTree;
+            
             
             _attackTarget = NoAction;
         }
@@ -35,12 +40,16 @@ namespace Visual
         {
            _logicTree.AddCurrent(SetAttackTarget());
            _logicTree.AddCurrent(AttackTarget());
+           
+           _visualTree.AddCurrent(HideTargetsGlow());
         }
 
         private void OnMouseDown()
         {
             _attackTarget = NoAction;
             _logicTree.AddCurrent(GetValidTargets());
+            
+            _visualTree.AddCurrent(ShowTargetsGlow());
         }
         
         private IEnumerator AttackTarget()
@@ -61,11 +70,28 @@ namespace Visual
 
         private IEnumerator GetValidTargets()
         {
-            GetTargets();
-            
+            _validTargets = _basicAttackTargets.GetTargets();
+
             yield return null;
             _logicTree.EndSequence();
         }
+
+        private IEnumerator ShowTargetsGlow()
+        {
+            _basicAttackTargets.ShowBasicAttackTargetsGlow();
+            
+            yield return null;
+            _visualTree.EndSequence();
+        }
+        
+        private IEnumerator HideTargetsGlow()
+        {
+            _basicAttackTargets.HideBasicAttackTargetsGlow();
+            yield return null;
+            _visualTree.EndSequence();
+        }
+        
+        
 
         private void SetTarget()
         {
@@ -87,20 +113,6 @@ namespace Visual
                    }
                 }
             }
-        }
-
-        private void GetTargets()
-        {
-            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
-
-            foreach (var enemy in enemies)
-            {
-                var enemyHero = enemy.GetComponent<IHero>();
-                _enemyHeroes.Add(enemyHero);
-            }
-            //Temp
-            _validTargets = _enemyHeroes;
-            //TODO: Check for Taunt
         }
 
         private void BasicAttackTarget()
