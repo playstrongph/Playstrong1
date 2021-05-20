@@ -20,16 +20,19 @@ namespace Logic
         {
             _targetHero = GetComponent<ITargetHero>();
             _showTargetsGlow = NoAction;
+            
         }
 
         private void OnMouseDown()
         {
+            
             _showTargetsGlow();
         }
 
         private void OnMouseUp()
         {
             HideBasicAttackTargetsGlow();
+            
         }
 
         public void EnableGlows()
@@ -40,9 +43,8 @@ namespace Logic
         public void DisableGlows()
         {
             _showTargetsGlow = NoAction;
+            
         }
-
-
 
         public List<IHero> GetTargets()
         {
@@ -63,6 +65,7 @@ namespace Logic
 
         private void ShowBasicAttackTargetsGlow()
         {
+            _validTargets = GetTargets();
             foreach (var hero in _validTargets)
             {
                 hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.EnemyGlowFrame.SetActive(true);
