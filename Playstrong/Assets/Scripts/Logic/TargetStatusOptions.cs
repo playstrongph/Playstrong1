@@ -4,19 +4,19 @@ using Utilities;
 
 namespace Logic
 {
-    public class TargetStates : MonoBehaviour, ITargetStates
+    public class TargetStatusOptions : MonoBehaviour, ITargetStatusOptions
     {
         [SerializeField] [RequireInterface(typeof(ITauntTargetAsset))]
         private ScriptableObject _tauntTarget;
-        public ITargetStates TauntTarget => _tauntTarget as ITargetStates;
+        public ITargetStatus TauntTarget => _tauntTarget as ITargetStatus;
 
         [SerializeField] [RequireInterface(typeof(INormalTargetAsset))]
         private ScriptableObject _normalTarget;
-        public ITargetStates NormalTarget => _normalTarget as ITargetStates;
+        public ITargetStatus NormalTarget => _normalTarget as ITargetStatus;
 
         [SerializeField] [RequireInterface(typeof(IStealthTargetAsset))]
         private ScriptableObject _stealthTarget;
-        public ITargetStates StealthTarget => _stealthTarget as ITargetStates;
+        public ITargetStatus StealthTarget => _stealthTarget as ITargetStatus;
 
 
     }

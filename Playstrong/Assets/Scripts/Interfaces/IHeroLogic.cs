@@ -8,6 +8,8 @@ namespace Interfaces
 
         IHeroStatusAsset HeroStatus { get; set; }
 
+        ITargetStatus TargetStatus { get; set; }
+
         IHero Hero { get; }
         IHeroAttributes HeroAttributes { get;}
 

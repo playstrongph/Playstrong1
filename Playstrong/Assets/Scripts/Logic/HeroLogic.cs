@@ -18,13 +18,22 @@ namespace Logic
 
        [SerializeField] [RequireInterface(typeof(IHeroStatusAsset))]
         private ScriptableObject _heroStatus;
-
+       
         public IHeroStatusAsset HeroStatus
         {
             get { return _heroStatus as IHeroStatusAsset;}
             set { _heroStatus = value as ScriptableObject;}
         }
-        
+
+        [SerializeField] [RequireInterface(typeof(ITargetStatus))]
+        private ScriptableObject _targetStatus;
+
+        public ITargetStatus TargetStatus
+        {
+            get => _targetStatus as ITargetStatus;
+            set => _targetStatus = value as ScriptableObject;
+        }
+
         [SerializeField] [RequireInterface(typeof(IHero))]
         private Object _hero;
 
