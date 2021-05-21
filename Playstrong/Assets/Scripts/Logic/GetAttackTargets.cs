@@ -7,7 +7,7 @@ using Visual;
 
 namespace Logic
 {
-    public class BasicAttackTargets : MonoBehaviour, IBasicAttackTargets
+    public class GetAttackTargets : MonoBehaviour, IGetAttackTargets
     {
         private ITargetHero _targetHero;
        

@@ -49,7 +49,7 @@ namespace ScriptableObjects.HeroStatus
         private IEnumerator EnableDragHeroAttack()
         {
            
-           _heroLogic.Hero.TargetHero.BasicAttackTargets.EnableGlows();
+           _heroLogic.Hero.TargetHero.GetAttackTargets.EnableGlows();
             
             yield return null;
             _logicTree.EndSequence();

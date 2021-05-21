@@ -21,14 +21,14 @@ namespace Visual
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
-        private IBasicAttackTargets _basicAttackTargets;
+        private IGetAttackTargets _getAttackTargets;
         
         
      
         private void Awake()
         {
             _targetHero = GetComponent<ITargetHero>();
-            _basicAttackTargets = GetComponent<IBasicAttackTargets>();
+            _getAttackTargets = GetComponent<IGetAttackTargets>();
             _logicTree = _targetHero.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _targetHero.Hero.CoroutineTreesAsset.MainVisualTree;
             _attackTarget = NoAction;
@@ -66,7 +66,7 @@ namespace Visual
 
         private IEnumerator GetValidTargets()
         {
-            _validTargets = _basicAttackTargets.GetTargets();
+            _validTargets = _getAttackTargets.GetTargets();
 
             yield return null;
             _logicTree.EndSequence();

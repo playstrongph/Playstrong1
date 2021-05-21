@@ -21,14 +21,14 @@ namespace Visual
       private IDragHeroAttack _dragHeroAttack;
       public IDragHeroAttack DragHeroAttack => _dragHeroAttack;
 
-      private IBasicAttackTargets _basicAttackTargets;
-      public IBasicAttackTargets BasicAttackTargets => _basicAttackTargets;
+      private IGetAttackTargets _getAttackTargets;
+      public IGetAttackTargets GetAttackTargets => _getAttackTargets;
       
       private void Awake()
       {
          _heroPreview = GetComponent<ITargetPreview>();
          _dragHeroAttack = GetComponent<IDragHeroAttack>();
-         _basicAttackTargets = GetComponent<IBasicAttackTargets>();
+         _getAttackTargets = GetComponent<IGetAttackTargets>();
       
       }
    }

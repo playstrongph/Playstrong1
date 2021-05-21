@@ -3,7 +3,7 @@ using Interfaces;
 
 namespace Logic
 {
-    public interface IBasicAttackTargets
+    public interface IGetAttackTargets
     {
         List<IHero> GetTargets();
 

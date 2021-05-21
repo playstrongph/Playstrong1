@@ -11,6 +11,6 @@ namespace Visual
 
         IDragHeroAttack DragHeroAttack { get; }
 
-        IBasicAttackTargets BasicAttackTargets { get; }
+        IGetAttackTargets GetAttackTargets { get; }
     }
 }
