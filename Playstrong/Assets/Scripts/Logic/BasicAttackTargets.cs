@@ -25,7 +25,6 @@ namespace Logic
 
         private void OnMouseDown()
         {
-            
             _showTargetsGlow();
         }
 

@@ -31,13 +31,9 @@ namespace Visual
             _basicAttackTargets = GetComponent<IBasicAttackTargets>();
             _logicTree = _targetHero.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _targetHero.Hero.CoroutineTreesAsset.MainVisualTree;
-            
             _attackTarget = NoAction;
         }
         
-       
-
-
         private void OnMouseUp()
         {
            _logicTree.AddCurrent(SetAttackTarget());

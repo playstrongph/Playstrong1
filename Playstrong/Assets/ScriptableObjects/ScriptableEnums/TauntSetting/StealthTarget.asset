@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eecc2bdecd677c6448c99bbcdfbc44e6, type: 3}
-  m_Name: NotTaunt
+  m_Script: {fileID: 11500000, guid: a84e31d091af3134fb0e347de81807bf, type: 3}
+  m_Name: StealthTarget
   m_EditorClassIdentifier: 

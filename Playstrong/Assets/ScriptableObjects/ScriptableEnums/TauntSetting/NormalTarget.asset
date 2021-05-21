@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eecc2bdecd677c6448c99bbcdfbc44e6, type: 3}
-  m_Name: Taunt
+  m_Script: {fileID: 11500000, guid: cd81811c9cd16bf47929c0ed6a03873e, type: 3}
+  m_Name: NormalTarget
   m_EditorClassIdentifier: 
