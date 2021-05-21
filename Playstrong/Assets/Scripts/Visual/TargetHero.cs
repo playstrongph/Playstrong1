@@ -24,11 +24,14 @@ namespace Visual
       private IBasicAttackTargets _basicAttackTargets;
       public IBasicAttackTargets BasicAttackTargets => _basicAttackTargets;
 
+      private ITargetStatusOptions _targetStatusOptions;
+
       private void Awake()
       {
          _heroPreview = GetComponent<ITargetPreview>();
          _dragHeroAttack = GetComponent<IDragHeroAttack>();
          _basicAttackTargets = GetComponent<IBasicAttackTargets>();
+         _targetStatusOptions = GetComponent<ITargetStatusOptions>();
       }
    }
 }

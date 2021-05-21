@@ -5707,6 +5707,7 @@ GameObject:
   - component: {fileID: 1208639730}
   - component: {fileID: 279387159932487220}
   - component: {fileID: 868523033885092866}
+  - component: {fileID: 4030747941430898260}
   m_Layer: 0
   m_Name: TargetHero
   m_TagString: Untagged
@@ -5835,6 +5836,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8df488e5927ac4b8562c6b73c0b3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4030747941430898260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792407395522586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c88614e0256e004596de49d82dbb519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tauntTarget: {fileID: 11400000, guid: 38ba27eb56db5aa43be350dc433a8d8e, type: 2}
+  _normalTarget: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
+  _stealthTarget: {fileID: 11400000, guid: df29a1aac872a0c4fbc6df22e6bfa1c2, type: 2}
 --- !u!1 &3820792407405065746
 GameObject:
   m_ObjectHideFlags: 0
