@@ -13,6 +13,9 @@ namespace Logic
        
         private List<IHero> _validTargets = new List<IHero>();
         private List<IHero> _enemyHeroes = new List<IHero>();
+        
+        private List<IHero> _enemyTauntHeroes = new List<IHero>();
+        
 
         private Action _showTargetsGlow;
     
@@ -61,6 +64,23 @@ namespace Logic
             
             //TODO: Check for Taunt
         }
+        
+        public List<IHero> GetTauntTargets()
+        {
+            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
+
+            foreach (var enemy in enemies)
+            {
+                var enemyHero = enemy.GetComponent<IHero>();
+                _enemyHeroes.Add(enemyHero);
+            }
+            //Temp
+            
+            _validTargets = _enemyHeroes;
+            return _validTargets;
+        }
+        
+        
 
         private void ShowBasicAttackTargetsGlow()
         {

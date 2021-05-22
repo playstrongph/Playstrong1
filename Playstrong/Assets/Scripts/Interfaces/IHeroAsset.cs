@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Logic;
 using UnityEngine;
 
 namespace Interfaces
@@ -26,6 +27,8 @@ namespace Interfaces
         IHeroSkillAsset HeroSkills { get; }
 
         List<ScriptableObject> GetHeroSkills();
+
+        ITargetStatus TargetStatus { get; }
 
 
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using Logic;
 using UnityEngine;
 using Utilities;
 
@@ -60,9 +61,9 @@ namespace ScriptableObjects
         private ScriptableObject _creatureType;
         public ICreatureTypeEnumAsset CreatureType => _creatureType as ICreatureTypeEnumAsset;
         
-        [SerializeField] [RequireInterface(typeof(ITauntEnumAsset))]
-        private ScriptableObject _taunt;
-        public ITauntEnumAsset Taunt => _taunt as ITauntEnumAsset;
+        [SerializeField] [RequireInterface(typeof(ITargetStatus))]
+        private ScriptableObject _targetStatus;
+        public ITargetStatus TargetStatus => _targetStatus as ITargetStatus;
 
         [Header("Skills")] 
         [SerializeField]

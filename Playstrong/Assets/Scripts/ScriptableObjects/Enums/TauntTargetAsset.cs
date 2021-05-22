@@ -1,4 +1,7 @@
-﻿using Logic;
+﻿using System;
+using System.Collections.Generic;
+using Interfaces;
+using Logic;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums
@@ -7,5 +10,10 @@ namespace ScriptableObjects.Enums
     public class TauntTargetAsset : ScriptableObject, ITauntTargetAsset, ITargetStatus
     {
         
+        //Test
+        public void AddHeroTarget(IHero hero, List<IHero> tauntList)
+        {
+            tauntList.Add(hero);
+        }
     }
 }
