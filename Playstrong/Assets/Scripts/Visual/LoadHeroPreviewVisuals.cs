@@ -29,6 +29,7 @@ namespace Visual
             _heroPreviewVisualReferences.HeroPreviewGraphic.SetHeroPreviewGraphic(heroAsset.HeroSprite);
             _heroPreviewVisualReferences.HeroPreviewName.SetHeroPreviewName(heroAsset.Name);
             
+            
             UpdateHeroPreviewAttributes();
             
         

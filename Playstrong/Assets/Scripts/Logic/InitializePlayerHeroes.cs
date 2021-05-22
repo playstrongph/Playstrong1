@@ -45,12 +45,16 @@ namespace Logic
 
                 var hero = heroObject.GetComponent<IHero>();
 
+                var iHeroAsset = heroAsset as IHeroAsset;
+
 
                 hero.HeroName =  heroObject.name;
-                hero.HeroLogic.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset((IHeroAsset)heroAsset);
-                hero.HeroVisual.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset((IHeroAsset)heroAsset);
-                hero.HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset((IHeroAsset)heroAsset);
+                hero.HeroLogic.LoadHeroAttributes.LoadHeroAttributesFromHeroAsset(iHeroAsset);
+                hero.HeroVisual.LoadHeroVisuals.LoadHeroVisualsFromHeroAsset(iHeroAsset);
+                hero.HeroPreviewVisual.LoadHeroPreviewVisuals.LoadHeroPreviewVisualsFromAsset(iHeroAsset);
                 hero.HeroPreviewVisual.PreviewTransform.position = previewLocations[_heroIndex].localPosition;
+                hero.HeroLogic.TargetStatus = iHeroAsset.TargetStatus;
+                
                 _heroIndex++;
                 
                 

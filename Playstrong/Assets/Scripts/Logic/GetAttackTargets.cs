@@ -54,7 +54,6 @@ namespace Logic
 
         public List<IHero> GetValidTargets()
         {
-            
             //Note: Sequence of method calls is important
             _validTargets.Clear();
             
@@ -99,9 +98,6 @@ namespace Logic
                 _validTargets.Add(enemy);
             }
         }
-
-
-
 
         private void ShowBasicAttackTargetsGlow()
         {
