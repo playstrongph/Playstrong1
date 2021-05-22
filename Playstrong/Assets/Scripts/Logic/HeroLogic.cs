@@ -64,12 +64,5 @@ namespace Logic
 
         public ILoadHeroAttributes LoadHeroAttributes => _loadHeroAttributes as ILoadHeroAttributes;
 
-        private ITargetStatusOptions _targetStatusOptions;
-        public ITargetStatusOptions TargetStatusOptions => _targetStatusOptions as ITargetStatusOptions;
-
-        private void Awake()
-        {
-            _targetStatusOptions = GetComponent<ITargetStatusOptions>();
-        }
     }
 }

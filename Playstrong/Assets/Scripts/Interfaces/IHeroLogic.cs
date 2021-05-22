@@ -17,7 +17,7 @@ namespace Interfaces
 
         IHeroTimer HeroTimer { get; }
 
-        ITargetStatusOptions TargetStatusOptions { get; }
+       
 
 
 
