@@ -34,10 +34,9 @@ namespace Logic
             _targetHealth = attackTarget.Hero.HeroLogic.HeroAttributes.Health;
             
             var finalDamage = _heroAttackPower;
-
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
             
-            //DamageTargetHealth
+            DamageTargetHealth(_targetHealth, residualDamage);
             
             
             
@@ -59,6 +58,14 @@ namespace Logic
             _targetArmor = newArmor;
             
             return residualDamage;
+        }
+        
+        private void DamageTargetHealth(int health, int damage)
+        {
+            var newHealth = health - damage;
+            newHealth = Mathf.Clamp(newHealth, 0, health + damage);
+            _targetHealth = newHealth;
+
         }
 
         
