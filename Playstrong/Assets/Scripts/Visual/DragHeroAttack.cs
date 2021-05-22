@@ -93,6 +93,8 @@ namespace Visual
                 }
             }
         }
+        
+        //Temp - this should be a separate component - BasicAttack
 
         private void BasicAttackTarget()
         {
