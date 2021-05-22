@@ -66,7 +66,7 @@ namespace Visual
 
         private IEnumerator GetValidTargets()
         {
-            _validTargets = _getAttackTargets.GetTargets();
+            _validTargets = _getAttackTargets.GetValidTargets();
 
             yield return null;
             _logicTree.EndSequence();

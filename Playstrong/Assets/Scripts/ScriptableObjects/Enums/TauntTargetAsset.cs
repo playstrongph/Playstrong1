@@ -11,9 +11,10 @@ namespace ScriptableObjects.Enums
     {
         
         //Test
-        public void AddHeroTarget(IHero hero, List<IHero> tauntList)
+        public void AddToTargetList(IHero hero, List<IHero> enemyHeroes, List<IHero> enemyTauntHeroes,
+            List<IHero> enemyStealthHeroes)
         {
-            tauntList.Add(hero);
+            enemyTauntHeroes.Add(hero);
         }
     }
 }

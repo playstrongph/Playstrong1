@@ -10,11 +10,13 @@ namespace Logic
     public class GetAttackTargets : MonoBehaviour, IGetAttackTargets
     {
         private ITargetHero _targetHero;
+        private IHero _thisHero;
        
         private List<IHero> _validTargets = new List<IHero>();
-        private List<IHero> _enemyHeroes = new List<IHero>();
         
+        private List<IHero> _enemyNormalHeroes = new List<IHero>();
         private List<IHero> _enemyTauntHeroes = new List<IHero>();
+        private List<IHero> _enemyStealthHeroes = new List<IHero>();
         
 
         private Action _showTargetsGlow;
@@ -22,6 +24,8 @@ namespace Logic
         private void Awake()
         {
             _targetHero = GetComponent<ITargetHero>();
+            _thisHero = _targetHero.Hero;
+            
             _showTargetsGlow = NoAction;
             
         }
@@ -48,43 +52,60 @@ namespace Logic
             
         }
 
-        public List<IHero> GetTargets()
+        public List<IHero> GetValidTargets()
+        {
+            
+            //Note: Sequence of method calls is important
+            _validTargets.Clear();
+            
+            SetTargetLists();
+            SetStealthTargets();
+            SetTauntTargets();
+            SetNormalTargets();
+            return _validTargets;
+        }
+
+        private void SetTargetLists()
         {
             var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
-
             foreach (var enemy in enemies)
             {
                 var enemyHero = enemy.GetComponent<IHero>();
-                _enemyHeroes.Add(enemyHero);
+                enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
             }
-            //Temp
-            
-            _validTargets = _enemyHeroes;
-            return _validTargets;
-            
-            //TODO: Check for Taunt
         }
-        
-        public List<IHero> GetTauntTargets()
-        {
-            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
 
-            foreach (var enemy in enemies)
+        private void SetStealthTargets()
+        {
+            foreach (var enemy in _enemyStealthHeroes)
             {
-                var enemyHero = enemy.GetComponent<IHero>();
-                _enemyHeroes.Add(enemyHero);
+                //Do stealth effects here.
             }
-            //Temp
-            
-            _validTargets = _enemyHeroes;
-            return _validTargets;
         }
-        
-        
+
+        private void SetTauntTargets()
+        {
+            foreach (var enemy in _enemyTauntHeroes)
+            {
+                _enemyNormalHeroes.Clear();
+                _validTargets.Add(enemy);
+            }
+        }
+
+        private void SetNormalTargets()
+        {
+            foreach (var enemy in _enemyNormalHeroes)
+            {
+                _validTargets.Add(enemy);
+            }
+        }
+
+
+
 
         private void ShowBasicAttackTargetsGlow()
         {
-            _validTargets = GetTargets();
+            _validTargets = GetValidTargets();
             foreach (var hero in _validTargets)
             {
                 hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.EnemyGlowFrame.SetActive(true);
