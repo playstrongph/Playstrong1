@@ -11,35 +11,39 @@ namespace Logic
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
-        private IHeroLogic _heroLogic;
-        private int _heroAttackPower;
+        private IHeroLogic _thisHeroLogic;
         
-        private int _targetArmor;
-        private int _targetHealth;
+        private int _attackModifier = 1;
+        private int _finalAttackValue;
+        
         private IHero _thisHero;
-
+       
+        
         private void Awake()
         {
-            _heroLogic = GetComponent<IHeroLogic>();
-            _heroAttackPower = _heroLogic.HeroAttributes.Attack;
-            _thisHero = _heroLogic.Hero;
+            _thisHeroLogic = GetComponent<IHeroLogic>();
+            _thisHero = _thisHeroLogic.Hero;
+       
         }
 
         private void Start()
         {
-            _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
+            _logicTree = _thisHero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = _thisHero.CoroutineTreesAsset.MainVisualTree;
+            
+            
         }
 
         public IEnumerator BasicAttackHero(IHero targetHero)
         {
             _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
-            //TODO: DealDamage
+            ModifyAttack(_attackModifier);
+            Debug.Log("Final Attack Value " +_finalAttackValue.ToString());
+            _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
             
             yield return null;
             _logicTree.EndSequence();
         }
-
 
         private IEnumerator VisualBasicAttackHero(IHero targetHero)
         {
@@ -48,7 +52,7 @@ namespace Logic
             var doPunchDuration = 1f;
             var tweenVibrato = 5;
             var tweenElasticity = 0.5f;
-            var tweenSnipping = false;
+            var tweenSnapping = false;
             var s = DOTween.Sequence();
 
             s.AppendCallback(() => _thisHero.HeroTransform.DOMove(targetHero.HeroTransform.position, doMoveDuration)
@@ -56,13 +60,21 @@ namespace Logic
                 .OnStepComplete(() =>
                     
                     targetHero.HeroTransform.DOPunchPosition(targetHero.HeroTransform.position/7 - _thisHero.HeroTransform.position/7, 
-                        doPunchDuration, tweenVibrato, tweenElasticity, tweenSnipping)
+                        doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
                 );
 
             s.AppendInterval(doMoveDuration);
 
+            //.OnComplete => 
+            
             yield return null;
             _visualTree.EndSequence();
+        }
+
+        public void ModifyAttack(int attackModifier)
+        {
+            _attackModifier = attackModifier;
+            _finalAttackValue = _attackModifier * _thisHeroLogic.HeroAttributes.Attack;
         }
 
 

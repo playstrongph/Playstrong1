@@ -4,36 +4,36 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class TakeDamage : MonoBehaviour
+    public class TakeDamage : MonoBehaviour, ITakeDamage
     {
         
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
-        private IHeroLogic _heroLogic;
-        private int _heroAttackPower;
+        private IHeroLogic _thisHeroLogic;
+      
         
         private int _targetArmor;
         private int _targetHealth;
 
         private void Awake()
         {
-            _heroLogic = GetComponent<IHeroLogic>();
-            _heroAttackPower = _heroLogic.HeroAttributes.Attack;
+            _thisHeroLogic = GetComponent<IHeroLogic>();
+           
         }
 
         private void Start()
         {
-            _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
+            _logicTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
 
-        public IEnumerator DamageTarget(IHeroLogic attackTarget)
+        public IEnumerator DamageHero(int damageValue)
         {
-            _targetArmor = attackTarget.Hero.HeroLogic.HeroAttributes.Armor;
-            _targetHealth = attackTarget.Hero.HeroLogic.HeroAttributes.Health;
+            _targetArmor = _thisHeroLogic.HeroAttributes.Armor;
+            _targetHealth = _thisHeroLogic.HeroAttributes.Health;
             
-            var finalDamage = _heroAttackPower;
+            var finalDamage = damageValue;
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
             DamageTargetHealth(_targetHealth, residualDamage);
 
@@ -48,7 +48,8 @@ namespace Logic
 
             var newArmor = armor - damage;
             newArmor = Mathf.Clamp(newArmor, 0, armor + damage);
-            _targetArmor = newArmor;
+           // _targetArmor = newArmor;
+            _thisHeroLogic.HeroAttributes.Armor = newArmor;
             
             return residualDamage;
         }
@@ -57,7 +58,8 @@ namespace Logic
         {
             var newHealth = health - damage;
             newHealth = Mathf.Clamp(newHealth, 0, health + damage);
-            _targetHealth = newHealth;
+            //_targetHealth = newHealth;
+            _thisHeroLogic.HeroAttributes.Health = newHealth;
 
         }
 

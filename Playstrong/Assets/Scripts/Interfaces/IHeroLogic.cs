@@ -19,6 +19,8 @@ namespace Interfaces
 
         IBasicAttack BasicAttack { get; }
 
+        ITakeDamage TakeDamage { get; }
+
 
 
 

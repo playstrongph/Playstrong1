@@ -67,9 +67,13 @@ namespace Logic
         private IBasicAttack _basicAttack;
         public IBasicAttack BasicAttack => _basicAttack;
 
+        private ITakeDamage _takeDamage;
+        public ITakeDamage TakeDamage => _takeDamage;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
+            _takeDamage = GetComponent<ITakeDamage>();
         }
     }
 }

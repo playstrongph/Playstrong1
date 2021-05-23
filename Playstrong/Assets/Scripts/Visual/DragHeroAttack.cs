@@ -10,7 +10,7 @@ namespace Visual
 {
     public class DragHeroAttack : MonoBehaviour, IDragHeroAttack
     {
-        private ITargetHero _targetHero;
+        private ITargetHero _targetThisHero;
         private ITargetHero _targetEnemyHero;
 
         private Action _attackTarget;
@@ -28,12 +28,12 @@ namespace Visual
      
         private void Awake()
         {
-            _targetHero = GetComponent<ITargetHero>();
+            _targetThisHero = GetComponent<ITargetHero>();
             _getAttackTargets = GetComponent<IGetAttackTargets>();
-            _logicTree = _targetHero.Hero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = _targetHero.Hero.CoroutineTreesAsset.MainVisualTree;
+            _logicTree = _targetThisHero.Hero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = _targetThisHero.Hero.CoroutineTreesAsset.MainVisualTree;
 
-            _basicAttack = _targetHero.Hero.HeroLogic.BasicAttack;
+            _basicAttack = _targetThisHero.Hero.HeroLogic.BasicAttack;
             
             _attackTarget = NoAction;
         }
