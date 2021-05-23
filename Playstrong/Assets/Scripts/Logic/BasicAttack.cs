@@ -33,8 +33,8 @@ namespace Logic
 
         public IEnumerator BasicAttackHero(IHero targetHero)
         {
-            //TODO: DealDamage
             _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
+            //TODO: DealDamage
             
             yield return null;
             _logicTree.EndSequence();

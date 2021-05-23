@@ -28,7 +28,8 @@ namespace Logic
                 _panelPortaitAndSkillDisplay = value as Object;
             }
         }
-
+        
+       
         private IPlayer _player;
         public IPlayer Player => _player;
 

@@ -27,29 +27,18 @@ namespace Logic
             _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
 
-        public IEnumerator AttackTarget(IHeroLogic attackTarget)
+        public IEnumerator DamageTarget(IHeroLogic attackTarget)
         {
             _targetArmor = attackTarget.Hero.HeroLogic.HeroAttributes.Armor;
             _targetHealth = attackTarget.Hero.HeroLogic.HeroAttributes.Health;
             
             var finalDamage = _heroAttackPower;
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
-            
             DamageTargetHealth(_targetHealth, residualDamage);
 
             yield return null;
             _logicTree.EndSequence();
         }
-
-        public IEnumerator VisualAttackTarget(IHero target)
-        {
-            
-            
-            yield return null;
-            _visualTree.EndSequence();
-        }
-
-
 
         private int DamageTargetArmor(int armor, int damage)
         {
