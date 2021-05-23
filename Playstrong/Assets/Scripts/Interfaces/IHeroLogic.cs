@@ -17,7 +17,9 @@ namespace Interfaces
 
         IHeroTimer HeroTimer { get; }
 
-       
+        IBasicAttack BasicAttack { get; }
+
+
 
 
 

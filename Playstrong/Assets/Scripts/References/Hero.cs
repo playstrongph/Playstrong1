@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Interfaces;
 using Logic;
 using ScriptableObjects;
@@ -77,9 +78,13 @@ namespace References
         private Object _coroutineTreeAsset;
         public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreeAsset as ICoroutineTreesAsset;
 
+        private Transform _heroTransfrom;
+        public Transform HeroTransform => _heroTransfrom;
+
         private void Awake()
         {
             _livingHeroes = GetComponentInParent<ILivingHeroes>() as Object;
+            _heroTransfrom = this.transform;
         }
     }
 }

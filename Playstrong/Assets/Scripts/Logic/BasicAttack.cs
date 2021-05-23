@@ -2,10 +2,11 @@
 using System.Collections;
 using Interfaces;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Logic
 {
-    public class BasicAttack : MonoBehaviour
+    public class BasicAttack : MonoBehaviour, IBasicAttack
     {
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
@@ -15,11 +16,13 @@ namespace Logic
         
         private int _targetArmor;
         private int _targetHealth;
+        private IHero _thisHero;
 
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
             _heroAttackPower = _heroLogic.HeroAttributes.Attack;
+            _thisHero = _heroLogic.Hero;
         }
 
         private void Start()
@@ -28,47 +31,44 @@ namespace Logic
             _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
 
-        public IEnumerator AttackTarget(IHeroLogic attackTarget)
+        public IEnumerator BasicAttackHero(IHero targetHero)
         {
-            _targetArmor = attackTarget.Hero.HeroLogic.HeroAttributes.Armor;
-            _targetHealth = attackTarget.Hero.HeroLogic.HeroAttributes.Health;
-            
-            var finalDamage = _heroAttackPower;
-            var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
-            
-            DamageTargetHealth(_targetHealth, residualDamage);
-            
-            
-            
-            
+            //TODO: DealDamage
+            _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
             
             yield return null;
             _logicTree.EndSequence();
         }
-        
-        
 
-        private int DamageTargetArmor(int armor, int damage)
+
+        private IEnumerator VisualBasicAttackHero(IHero targetHero)
         {
-            var residualDamage = damage-armor;
-            residualDamage = Mathf.Clamp(residualDamage, 0, armor + damage);
+            var doMoveDuration = 0.7f;
+            var doMoveLoops = 2;
+            var doPunchDuration = 1f;
+            var tweenVibrato = 5;
+            var tweenElasticity = 0.5f;
+            var tweenSnipping = false;
+            var s = DOTween.Sequence();
 
-            var newArmor = armor - damage;
-            newArmor = Mathf.Clamp(newArmor, 0, armor + damage);
-            _targetArmor = newArmor;
-            
-            return residualDamage;
+            s.AppendCallback(() => _thisHero.HeroTransform.DOMove(targetHero.HeroTransform.position, doMoveDuration)
+                .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
+                .OnStepComplete(() =>
+                    
+                    targetHero.HeroTransform.DOPunchPosition(targetHero.HeroTransform.position/7 - _thisHero.HeroTransform.position/7, 
+                        doPunchDuration, tweenVibrato, tweenElasticity, tweenSnipping)
+                );
+
+            s.AppendInterval(doMoveDuration);
+
+            yield return null;
+            _visualTree.EndSequence();
         }
-        
-        private void DamageTargetHealth(int health, int damage)
-        {
-            var newHealth = health - damage;
-            newHealth = Mathf.Clamp(newHealth, 0, health + damage);
-            _targetHealth = newHealth;
 
-        }
 
-        
+
+
+
 
 
 

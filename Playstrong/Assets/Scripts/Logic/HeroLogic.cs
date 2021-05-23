@@ -64,5 +64,12 @@ namespace Logic
 
         public ILoadHeroAttributes LoadHeroAttributes => _loadHeroAttributes as ILoadHeroAttributes;
 
+        private IBasicAttack _basicAttack;
+        public IBasicAttack BasicAttack => _basicAttack;
+
+        private void Awake()
+        {
+            _basicAttack = GetComponent<IBasicAttack>();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Logic;
 using ScriptableObjects;
+using UnityEngine;
 using Visual;
 
 namespace Interfaces
@@ -26,6 +27,8 @@ namespace Interfaces
 
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
         ITargetHero TargetHero { get; }
+
+        Transform HeroTransform { get; }
 
 
     }
