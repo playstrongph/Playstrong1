@@ -68,7 +68,7 @@ namespace Logic
         private void DamageTargetHealth(int health, int damage)
         {
             var newHealth = health - damage;
-            newHealth = Mathf.Clamp(newHealth, 0, health + damage);
+            //newHealth = Mathf.Clamp(newHealth, 0, health + damage);
             _targetHealth = newHealth;
             _thisHeroLogic.HeroAttributes.Health = newHealth;
 

@@ -64,12 +64,15 @@ namespace Logic
                         doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
                 );
 
-            s.AppendInterval(doMoveDuration);
+            s.AppendInterval(doMoveDuration)
 
-            //.OnComplete => 
+                .OnComplete(() =>
+                {
+                    _visualTree.EndSequence();            
+                        
+                });
             
             yield return null;
-            _visualTree.EndSequence();
         }
 
         public void ModifyAttack(int attackModifier)
