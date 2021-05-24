@@ -37,8 +37,9 @@ namespace Logic
         public IEnumerator BasicAttackHero(IHero targetHero)
         {
             _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
+            
             ModifyAttack(_attackModifier);
-            Debug.Log("Final Attack Value " +_finalAttackValue.ToString());
+            
             _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
             
             yield return null;
