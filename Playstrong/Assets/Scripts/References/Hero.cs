@@ -81,10 +81,14 @@ namespace References
         private Transform _heroTransfrom;
         public Transform HeroTransform => _heroTransfrom;
 
+        private IDamageEffect _damageEffect;
+        public IDamageEffect DamageEffect => _damageEffect;
+
         private void Awake()
         {
             _livingHeroes = GetComponentInParent<ILivingHeroes>() as Object;
             _heroTransfrom = this.transform;
+            _damageEffect = GetComponentInChildren<IDamageEffect>();
         }
     }
 }

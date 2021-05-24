@@ -30,6 +30,8 @@ namespace Interfaces
 
         Transform HeroTransform { get; }
 
+        IDamageEffect DamageEffect { get; }
+
 
     }
 }

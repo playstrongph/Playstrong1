@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 477135914162508340}
+  - component: {fileID: 2255150430523476514}
   m_Layer: 0
   m_Name: DamageEffect
   m_TagString: Untagged
@@ -31,6 +32,27 @@ Transform:
   m_Father: {fileID: 3820792407251447775}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2255150430523476514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477135914162508343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8d5dbb395ea304c9af68578cd53a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageEffectImage: {fileID: 477135914212951687}
+  _canvasGroup: {fileID: 711776370}
+  _canvas: {fileID: 477135914399884541}
+  _damageText: {fileID: 250040868647323908}
+  _doScaleDuration: 0.12
+  _localScaleMultiplier: 1.5
+  _doScaleLoopCount: 4
+  _fadeInterval: 0.05
+  _fadeAlpha: 0.02
 --- !u!1 &477135914212951681
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +140,7 @@ GameObject:
   - component: {fileID: 477135914399884541}
   - component: {fileID: 477135914399884540}
   - component: {fileID: 477135914399884543}
+  - component: {fileID: 711776370}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -206,6 +229,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &711776370
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477135914399884537}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &641411169669777910
 GameObject:
   m_ObjectHideFlags: 0

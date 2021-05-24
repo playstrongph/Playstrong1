@@ -37,17 +37,19 @@ namespace Logic
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
             DamageTargetHealth(_targetHealth, residualDamage);
             
-            _visualTree.AddCurrent(VisualDamageHero());
+            _visualTree.AddCurrent(VisualDamageHero(finalDamage));
 
             yield return null;
             _logicTree.EndSequence();
         }
 
-        private IEnumerator VisualDamageHero()
+        private IEnumerator VisualDamageHero(int damageValue)
         {
+            _thisHeroLogic.Hero.DamageEffect.ShowDamage(damageValue);
+            
             _thisHeroLogic.Hero.HeroVisual.ArmorVisual.SetArmorText(_targetArmor.ToString());
             _thisHeroLogic.Hero.HeroVisual.HealthVisual.SetHealthText(_targetHealth.ToString());
-            
+
             yield return null;
             _visualTree.EndSequence();
         }
