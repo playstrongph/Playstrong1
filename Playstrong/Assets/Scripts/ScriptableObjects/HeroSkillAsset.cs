@@ -13,6 +13,7 @@ namespace ScriptableObjects
         [Header("Skill Info")] 
         [SerializeField]
         private string _name;
+        
 
         public String Name => _name;
 
@@ -20,6 +21,15 @@ namespace ScriptableObjects
         [SerializeField] 
         private string _description;
         public String Description => _description;
+
+        [Header("Skill Type")] [SerializeField]
+        [RequireInterface(typeof(ISkillTypeAsset))]
+        private ScriptableObject _skillType;
+
+        public ISkillTypeAsset SkillType => _skillType as ISkillTypeAsset;
+        
+        
+
 
         [Header("Skill Graphic")] 
         [SerializeField]

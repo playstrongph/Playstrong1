@@ -3396,7 +3396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae0d95e261f76344acfc27890f09dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroStatus: {fileID: 11400000, guid: 5c95577b77b93d24a8600b58cd9ae3f0, type: 2}
+  _heroStatus: {fileID: 11400000, guid: 32e55a20d153eda49b643aa09e043c27, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
   _hero: {fileID: 1729355933}
   _heroAttributes: {fileID: 3820792406562021603}
