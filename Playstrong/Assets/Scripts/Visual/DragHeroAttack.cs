@@ -23,6 +23,7 @@ namespace Visual
 
         private IGetAttackTargets _getAttackTargets;
         private IBasicAttack _basicAttack;
+        private IEndHeroTurn _endHeroTurn;
         
         
      
@@ -34,6 +35,7 @@ namespace Visual
             _visualTree = _targetThisHero.Hero.CoroutineTreesAsset.MainVisualTree;
 
             _basicAttack = _targetThisHero.Hero.HeroLogic.BasicAttack;
+            _endHeroTurn = _targetThisHero.Hero.HeroLogic.EndHeroTurn;
             
             _attackTarget = NoAction;
         }
@@ -102,8 +104,8 @@ namespace Visual
 
         private void BasicAttackTarget()
         {
-            Debug.Log("Attack Hero:" +_targetEnemyHero.Hero.HeroName);
             _logicTree.AddCurrent(_basicAttack.BasicAttackHero(_targetEnemyHero.Hero));
+            _logicTree.AddCurrent(_endHeroTurn.EndTurn());
         }
 
         private void NoAction()

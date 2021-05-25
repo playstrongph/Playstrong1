@@ -70,10 +70,14 @@ namespace Logic
         private ITakeDamage _takeDamage;
         public ITakeDamage TakeDamage => _takeDamage;
 
+        private IEndHeroTurn _endHeroTurn;
+        public IEndHeroTurn EndHeroTurn => _endHeroTurn;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
             _takeDamage = GetComponent<ITakeDamage>();
+            _endHeroTurn = GetComponent<IEndHeroTurn>();
         }
     }
 }

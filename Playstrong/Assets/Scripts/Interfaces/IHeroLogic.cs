@@ -21,6 +21,8 @@ namespace Interfaces
 
         ITakeDamage TakeDamage { get; }
 
+        IEndHeroTurn EndHeroTurn { get; }
+
 
 
 
