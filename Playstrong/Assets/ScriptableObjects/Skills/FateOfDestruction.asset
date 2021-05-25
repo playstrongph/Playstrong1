@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
+  m_Name: FateOfDestruction
+  m_EditorClassIdentifier: 
+  _name: Fate Of Destruction
+  _description: Deal attack damage then inflcit POISON(2) and STUN.  Take an extra
+    turn.
+  _skillIcon: {fileID: 21300000, guid: 81d45c47fffd39047918504d83b39729, type: 3}
+  _cooldown: 3
