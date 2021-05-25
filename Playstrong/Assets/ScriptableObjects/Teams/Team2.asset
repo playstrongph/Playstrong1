@@ -15,5 +15,5 @@ MonoBehaviour:
   _teamHeroesAsset:
   - {fileID: 11400000, guid: c3db39e5fd405ba4c85e46db1487fb0d, type: 2}
   - {fileID: 11400000, guid: f8bb8e5b6ab427f4985e010d5ba62a6e, type: 2}
-  - {fileID: 11400000, guid: f4e46e1d2d3d0e54c9ca6126af3fb4ee, type: 2}
+  - {fileID: 11400000, guid: f8b064c18ea764647b167d4b81e0cd81, type: 2}
   - {fileID: 11400000, guid: f0104fdc07571d7459e38e7d0d9c51f0, type: 2}
