@@ -104,10 +104,6 @@ namespace Logic
 
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
-            
-            //TODO
-            //Skill Cooldown
-           
 
             yield return null;
             _logicTree.EndSequence(); 

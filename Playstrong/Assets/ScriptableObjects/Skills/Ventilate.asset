@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
-  m_Name: Serenity
+  m_Name: Ventilate
   m_EditorClassIdentifier: 
-  _name: Serenity
-  _description: Attack has the chance to remove a buff and inflict CRIPPLE.
-  _skillType: {fileID: 11400000, guid: bbb126910bbd1b34d904207a06686f41, type: 2}
-  _skillIcon: {fileID: 21300000, guid: f04c7e5b01b4c1c48ade3e170418adc8, type: 3}
-  _cooldown: 0
+  _name: Ventilate
+  _description: "Refresh the skills of another ally.  This skill's cooldown can't
+    be manipulated. \r"
+  _skillIcon: {fileID: 21300000, guid: 7f271497a7f23214cbb52819c8680a5a, type: 3}
+  _cooldown: 3
