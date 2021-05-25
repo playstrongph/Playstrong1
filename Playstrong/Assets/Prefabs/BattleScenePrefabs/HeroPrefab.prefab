@@ -52,7 +52,7 @@ MonoBehaviour:
   _localScaleMultiplier: 1.5
   _doScaleLoopCount: 4
   _fadeInterval: 0.05
-  _fadeAlpha: 0.02
+  _fadeAlpha: 0.05
 --- !u!1 &477135914212951681
 GameObject:
   m_ObjectHideFlags: 0

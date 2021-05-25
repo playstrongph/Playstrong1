@@ -25,7 +25,7 @@ MonoBehaviour:
   _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
   _targetStatus: {fileID: 11400000, guid: df29a1aac872a0c4fbc6df22e6bfa1c2, type: 2}
   _heroSkills:
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
-  - {fileID: 11400000, guid: b9fb25ba02355894fbc73c9b1ac49c1a, type: 2}
+  - {fileID: 11400000, guid: c6edf048a95505841b7ba09ea48c5087, type: 2}
+  - {fileID: 11400000, guid: 7bae1804db094a24bbc4b16605c067bd, type: 2}
+  - {fileID: 11400000, guid: 421f7489bbb2fbb439a87d0803f40378, type: 2}
+  - {fileID: 11400000, guid: e1e5fa9fea580124ea1313580375faea, type: 2}

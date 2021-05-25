@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
+  m_Name: Discernment
+  m_EditorClassIdentifier: 
+  _name: Discernment
+  _description: Whenever an ally inflicts a debuff, chance to increase the counters
+    by 1.
+  _skillIcon: {fileID: 21300000, guid: 7cd1fab4d67675a45a4a7b33d4165edc, type: 3}
+  _cooldown: 0
