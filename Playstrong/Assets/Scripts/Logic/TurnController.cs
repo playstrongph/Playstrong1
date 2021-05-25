@@ -66,7 +66,7 @@ namespace Logic
 
         public void StartHeroTurns()
         {
-            _logicTree.AddCurrent(RunHeroTimers());
+            _visualTree.AddCurrent(RunHeroTimers());
         }
 
         private IEnumerator RunHeroTimers()
@@ -78,13 +78,13 @@ namespace Logic
                 yield return null;
                 _updateHeroTimers.UpdateTimers();
             }
-
+            
             _logicTree.AddCurrent(AllowHeroActions());
             
             yield return null;
-            _logicTree.EndSequence();
+            _visualTree.EndSequence();
         }
-
+        
         private IEnumerator AllowHeroActions()
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
@@ -137,7 +137,7 @@ namespace Logic
                 _logicTree.AddCurrent(SetHeroActive());
             
             else
-                _logicTree.AddCurrent(RunHeroTimers());
+                _visualTree.AddCurrent(RunHeroTimers());
 
 
             yield return null;
