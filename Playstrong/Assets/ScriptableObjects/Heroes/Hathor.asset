@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Hathor
   m_EditorClassIdentifier: 
   _name: Hathor
-  _description: Hathor
+  _description: Desert Queen
   _heroSprite: {fileID: 21300000, guid: 03b5e388e485cc84c8658a44c358ce13, type: 3}
-  _health: 105
-  _attack: 9
-  _speed: 103
+  _health: 110
+  _attack: 7
+  _speed: 75
   _chance: 55
-  _armor: 36
+  _armor: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
   _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
   _heroSkills:
-  - {fileID: 11400000, guid: 94c984b2d115ef045a0c66679b6a4ab6, type: 2}
-  - {fileID: 11400000, guid: 526d2153571b8534ab4750954c050e8d, type: 2}
-  - {fileID: 11400000, guid: a9232b06d7d3972468b597cd202c6092, type: 2}
-  - {fileID: 11400000, guid: d3ecaf9d06a3cc541a5ab7a6ff966413, type: 2}
+  - {fileID: 11400000, guid: c6edf048a95505841b7ba09ea48c5087, type: 2}
+  - {fileID: 11400000, guid: 7bae1804db094a24bbc4b16605c067bd, type: 2}
+  - {fileID: 11400000, guid: 421f7489bbb2fbb439a87d0803f40378, type: 2}
+  - {fileID: 11400000, guid: e1e5fa9fea580124ea1313580375faea, type: 2}
