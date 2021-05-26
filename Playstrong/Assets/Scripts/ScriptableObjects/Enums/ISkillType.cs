@@ -2,5 +2,7 @@
 {
     public interface ISkillType
     {
+        int SkillCdIndex { get; }
+
     }
 }

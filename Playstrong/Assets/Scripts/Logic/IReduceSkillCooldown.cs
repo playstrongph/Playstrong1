@@ -1,8 +1,9 @@
-﻿namespace Logic
+﻿using System.Collections;
+
+namespace Logic
 {
     public interface IReduceSkillCooldown
     {
-        int ActionIndex { set; }
-        void ReduceCd(int counter);
+        IEnumerator ReduceCd(int counter);
     }
 }

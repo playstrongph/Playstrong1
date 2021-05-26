@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Enums;
 using UnityEngine;
 
 namespace Logic
@@ -8,7 +10,9 @@ namespace Logic
     public class ReduceSkillCooldown : MonoBehaviour, IReduceSkillCooldown
     {
         private ISkillLogic _skillLogic;
-        private ISkillAttributes _skillAttributes;
+        
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
 
         private delegate void SkillCdAction(int counter);
         private List<SkillCdAction> _skillCdAction = new List<SkillCdAction>();
@@ -18,37 +22,56 @@ namespace Logic
         /// Set to 1 for PassiveSkills
         /// </summary>
         private int _actionIndex = 0;
-        public int ActionIndex
-        {
-            set => _actionIndex = value;
-        }
 
         private void Awake()
         {
             _skillLogic = GetComponent<ISkillLogic>();
-            _skillAttributes = _skillLogic.SkillAttributes;
-            
+
             _skillCdAction.Add(ReduceCdAction);
             _skillCdAction.Add(DoNothing);
         }
-        
-        //Convert to IEnumerator
-        public void ReduceCd(int counter)
+
+        private void Start()
         {
+            _logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+        }
+
+        //TODO: Call this
+        public IEnumerator ReduceCd(int counter)
+        {
+            var skillType = _skillLogic.SkillAttributes.SkillType;
+            _actionIndex = skillType.SkillCdIndex;
+            
             _skillCdAction[_actionIndex](counter);
+
+            yield return null;
+            _logicTree.EndSequence();
         }
 
         private void ReduceCdAction(int counter)
         {
-            var skillCd = _skillAttributes.Cooldown;
-            var maxSkillCd = _skillAttributes.BaseCooldown;
+            var skillAttributes = _skillLogic.SkillAttributes;     
+            var skillCd = skillAttributes.Cooldown;
+            var maxSkillCd = skillAttributes.BaseCooldown;
             
             skillCd -= counter;
             //Note: Multiplier of 10(exaggerated) used to allow CD to go beyond max Skill CD.
             skillCd = Mathf.Clamp(skillCd, 0, maxSkillCd * 10);
 
-            _skillAttributes.Cooldown = skillCd;
+            skillAttributes.Cooldown = skillCd;
+            
+            _visualTree.AddCurrent(VisualReduceCdAction(skillCd));
 
+        }
+
+        private IEnumerator VisualReduceCdAction(int counter)
+        {
+             var skillVisual = _skillLogic.Skill.SkillVisual;
+             skillVisual.CooldownText.text = counter.ToString();
+            
+            yield return null;
+            _visualTree.EndSequence();
         }
 
         private void DoNothing(int counter)

@@ -1,4 +1,5 @@
-﻿using Visual;
+﻿using References;
+using Visual;
 
 namespace Interfaces
 {
@@ -7,5 +8,7 @@ namespace Interfaces
         ISkillAttributes SkillAttributes { get; }
 
         ILoadSkillAttributes LoadSkillAttributes { get; }
+
+        ISkill Skill { get; }
     }
 }

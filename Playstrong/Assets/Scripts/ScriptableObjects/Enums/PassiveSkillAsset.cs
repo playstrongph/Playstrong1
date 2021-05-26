@@ -7,7 +7,8 @@ namespace ScriptableObjects.Enums
     public class PassiveSkillAsset : ScriptableObject, IPassiveSkillAsset, ISkillType
     {
 
-        
+        [SerializeField] private int _skillCdIndex = 1;
+        public int SkillCdIndex => _skillCdIndex;
 
     }
 }

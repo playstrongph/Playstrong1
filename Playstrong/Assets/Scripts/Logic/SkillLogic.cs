@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using References;
 using UnityEngine;
 using Utilities;
 using Visual;
@@ -21,9 +22,14 @@ namespace Logic
         
         private IReduceSkillCooldown _reduceSkillCooldown;
 
+        private ISkill _skill;
+        public ISkill Skill => _skill;
+
         private void Awake()
         {
             _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
+            _skill = GetComponentInParent<ISkill>();
+
         }
     }
 }

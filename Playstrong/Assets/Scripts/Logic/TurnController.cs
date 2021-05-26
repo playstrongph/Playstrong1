@@ -101,9 +101,12 @@ namespace Logic
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
             
             _activeHeroLogic = activeHeroTimer.HeroLogic;
-
+            
+            //Hero Active Status
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            
+            //Skills 
 
             yield return null;
             _logicTree.EndSequence(); 

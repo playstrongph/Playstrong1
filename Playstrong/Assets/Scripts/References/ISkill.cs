@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using ScriptableObjects;
 using Visual;
 
 namespace References
@@ -11,5 +12,7 @@ namespace References
         ISkillPreviewVisual SkillPreviewVisual { get; }
 
         ITargetPreview TargetSkillPreview { get; }
+
+        ICoroutineTreesAsset CoroutineTreesAsset { get; }
     }
 }

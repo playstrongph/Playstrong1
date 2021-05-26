@@ -22,7 +22,10 @@ namespace Visual
             
             skillAttributes.Cooldown = skillAsset.Cooldown;
             skillAttributes.BaseCooldown = skillAsset.Cooldown;
+            
             skillAttributes.SkillType = skillAsset.SkillType;
+            
+            
         }
         
         

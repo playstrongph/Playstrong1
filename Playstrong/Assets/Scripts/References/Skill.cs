@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using Logic;
+using ScriptableObjects;
 using UnityEngine;
 using Utilities;
 using Visual;
@@ -28,8 +29,11 @@ namespace References
         [SerializeField] [RequireInterface(typeof(ITargetPreview))]
         private Object _targetSkillPreview;
         public ITargetPreview TargetSkillPreview => _targetSkillPreview as ITargetPreview;
-        
-       
-        
+
+        [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
+        private ScriptableObject _coroutineTreesAsset;
+        public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreesAsset as ICoroutineTreesAsset;
+
+
     }
 }
