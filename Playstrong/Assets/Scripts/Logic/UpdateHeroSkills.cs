@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Interfaces;
 using References;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 namespace Logic
 {
@@ -38,6 +39,7 @@ namespace Logic
         {
             foreach (var skill in _skills)
             {
+                 Debug.Log("skill name: " +skill.SkillName);
                 _logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
             }
         }
