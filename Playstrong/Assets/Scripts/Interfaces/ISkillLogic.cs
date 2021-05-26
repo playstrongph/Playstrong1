@@ -1,4 +1,5 @@
-﻿using References;
+﻿using Logic;
+using References;
 using Visual;
 
 namespace Interfaces
@@ -10,5 +11,7 @@ namespace Interfaces
         ILoadSkillAttributes LoadSkillAttributes { get; }
 
         ISkill Skill { get; }
+
+        IReduceSkillCooldown ReduceSkillCooldown { get; }
     }
 }

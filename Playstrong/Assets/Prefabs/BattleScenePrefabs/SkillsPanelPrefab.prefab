@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4757393120680548152}
   - component: {fileID: 4757393120680548151}
   - component: {fileID: 2261422646311337527}
+  - component: {fileID: 2715000697604159983}
   m_Layer: 0
   m_Name: SkillsPanelPrefab
   m_TagString: Untagged
@@ -73,4 +74,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a54f51dc7389044aa063fca7ad2f82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coroutineTreesAsset: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
+    type: 2}
   _skillList: []
+--- !u!114 &2715000697604159983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757393120680548153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594c857379e040747bb4c7c244cdc4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

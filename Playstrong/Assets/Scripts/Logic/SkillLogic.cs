@@ -21,6 +21,7 @@ namespace Logic
         public ILoadSkillAttributes LoadSkillAttributes => _loadSkillAttributes as ILoadSkillAttributes;
         
         private IReduceSkillCooldown _reduceSkillCooldown;
+        public IReduceSkillCooldown ReduceSkillCooldown => _reduceSkillCooldown;
 
         private ISkill _skill;
         public ISkill Skill => _skill;

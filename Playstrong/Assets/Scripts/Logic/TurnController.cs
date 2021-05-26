@@ -102,11 +102,13 @@ namespace Logic
             
             _activeHeroLogic = activeHeroTimer.HeroLogic;
             
-            //Hero Active Status
+            //HeroStatus to HeroActive
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
-            //Skills 
+            //UpdateSkillsStatus on HeroActive
+            var updateSkills = _activeHeroLogic.Hero.Skills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
+            _logicTree.AddCurrent(updateSkills);
 
             yield return null;
             _logicTree.EndSequence(); 
