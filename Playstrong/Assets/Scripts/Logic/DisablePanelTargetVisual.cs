@@ -18,7 +18,7 @@ namespace Logic
         {
             foreach (var skillsPanelObject in _panelSkills.List)
             {
-                var skillsList = skillsPanelObject.GetComponent<IHeroSkillsList>().SkillList;
+                var skillsList = skillsPanelObject.GetComponent<ISkillsPanel>().SkillList;
 
                 foreach (var skillObject in skillsList)
                 {

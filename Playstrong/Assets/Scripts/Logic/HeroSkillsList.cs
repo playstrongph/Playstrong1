@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class HeroSkillsList : MonoBehaviour, IHeroSkillsList
+    public class HeroSkillsList : MonoBehaviour, ISkillsPanel
     {
         [SerializeField]
         [RequireInterface(typeof(ICoroutineTreesAsset))]

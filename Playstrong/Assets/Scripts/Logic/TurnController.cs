@@ -107,7 +107,7 @@ namespace Logic
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
             //UpdateSkillsStatus on HeroActive
-            var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<IHeroSkillsList>().UpdateHeroSkills.UpdateSkills();
+            var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             _logicTree.AddCurrent(updateSkills);
 
             yield return null;
