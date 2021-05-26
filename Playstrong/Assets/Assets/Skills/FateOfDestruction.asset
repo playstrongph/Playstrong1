@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: Fate Of Destruction
   _description: Deal attack damage then inflcit POISON(2) and STUN.  Take an extra
     turn.
+  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillIcon: {fileID: 21300000, guid: 81d45c47fffd39047918504d83b39729, type: 3}
   _cooldown: 3

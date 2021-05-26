@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ScriptableObjects.Enums;
+using UnityEngine;
 
 namespace Interfaces
 {
@@ -11,6 +12,8 @@ namespace Interfaces
         Sprite SkillIcon { get; }
         
         int Cooldown { get; }
-        
+
+        ISkillType SkillType { get; }
+
     }
 }

@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: Seal Magic
   _description: Reset the skill cooldowns of the target enemy to MAX and the Energy
     of the other enemies to zero.
+  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillIcon: {fileID: 21300000, guid: a15ff8a541a747a48bf3f8b104fecef9, type: 3}
   _cooldown: 4

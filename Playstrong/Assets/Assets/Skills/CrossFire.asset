@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Crossfire
   _description: Attack has the chance to deal CRITICAL STRIKE and inflict SLOW(2).
+  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
   _skillIcon: {fileID: 21300000, guid: 91bb9b983461146428737ea48ccb82c7, type: 3}
   _cooldown: 0

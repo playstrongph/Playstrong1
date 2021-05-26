@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using ScriptableObjects.Enums;
 using UnityEngine;
 using Utilities;
 
@@ -20,6 +21,12 @@ namespace ScriptableObjects
         [SerializeField] 
         private string _description;
         public String Description => _description;
+
+        [Header("Skill Type")] [SerializeField]
+        [RequireInterface(typeof(ISkillType))]
+        private ScriptableObject _skillType;
+
+        public ISkillType SkillType => _skillType as ISkillType;
 
         [Header("Skill Graphic")] 
         [SerializeField]

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Boiling Blood
   _description: Whenever you deal CRITICAL STRIKE, chance all allies gain +20% energy.
+  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
   _skillIcon: {fileID: 21300000, guid: 21fe8102a0bbe3342ab924664ebca437, type: 3}
   _cooldown: 0

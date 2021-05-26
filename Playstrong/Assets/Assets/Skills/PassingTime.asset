@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Passing Time
   _description: Chance for Attack to deal CRITICAL STRIKE and gain 30% energy.
+  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
   _skillIcon: {fileID: 21300000, guid: 17b9848cc876edf41972f05f7c856661, type: 3}
   _cooldown: 0

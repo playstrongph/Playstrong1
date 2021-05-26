@@ -15,5 +15,6 @@ MonoBehaviour:
   _name: Discernment
   _description: Whenever an ally inflicts a debuff, chance to increase the counters
     by 1.
+  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
   _skillIcon: {fileID: 21300000, guid: 7cd1fab4d67675a45a4a7b33d4165edc, type: 3}
   _cooldown: 0
