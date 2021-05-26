@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class ReduceSkillCooldown : MonoBehaviour
+    public class ReduceSkillCooldown : MonoBehaviour, IReduceSkillCooldown
     {
         private ISkillLogic _skillLogic;
         private ISkillAttributes _skillAttributes;
@@ -13,6 +13,10 @@ namespace Logic
         private delegate void SkillCdAction(int counter);
         private List<SkillCdAction> _skillCdAction = new List<SkillCdAction>();
        
+        /// <summary>
+        /// Set to 0 for ActiveSkills
+        /// Set to 1 for PassiveSkills
+        /// </summary>
         private int _actionIndex = 0;
         public int ActionIndex
         {

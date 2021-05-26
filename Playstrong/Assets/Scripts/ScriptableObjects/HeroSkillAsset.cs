@@ -40,9 +40,7 @@ namespace ScriptableObjects
 
         public int Cooldown => _cooldown;
         
-        //TODO
-        //Skill Logic Asset
-        //Other Skill Attributes: SKillType(Active), SkillTarget(Any), DragType(SkillAttack)
+        
         
 
 

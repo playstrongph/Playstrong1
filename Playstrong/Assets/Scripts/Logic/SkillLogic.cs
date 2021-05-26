@@ -18,7 +18,12 @@ namespace Logic
         [RequireInterface(typeof(ILoadSkillAttributes))]
         private Object _loadSkillAttributes;
         public ILoadSkillAttributes LoadSkillAttributes => _loadSkillAttributes as ILoadSkillAttributes;
-
         
+        private IReduceSkillCooldown _reduceSkillCooldown;
+
+        private void Awake()
+        {
+            _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
+        }
     }
 }

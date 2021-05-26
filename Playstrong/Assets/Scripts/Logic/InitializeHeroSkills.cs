@@ -60,6 +60,7 @@ namespace Logic
                     skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
                     
                     
+                    
 
                     var skill = heroSkill as IHeroSkillAsset;
                     
