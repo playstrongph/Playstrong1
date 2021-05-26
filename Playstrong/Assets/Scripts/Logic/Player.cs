@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Interfaces;
+using JetBrains.Annotations;
 using References;
 using ScriptableObjects;
 using UnityEngine;
@@ -42,7 +43,7 @@ namespace Logic
         private Object _deadHeroes;
         public IDeadHeroes DeadHeroes => _deadHeroes as IDeadHeroes;
 
-        [SerializeField] [RequireInterface(typeof(IHeroesSkills))]
+        [SerializeField] [RequireInterface(typeof(IHeroesSkills))] 
         private Object _heroesSkills;
         public IHeroesSkills HeroesSkills => _heroesSkills as IHeroesSkills;
 
@@ -57,12 +58,6 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(IPanelPortraits))]
         private Object _panelPortraits;
         public IPanelPortraits PanelPortraits => _panelPortraits as IPanelPortraits;
-        
-        
-        
-        
-        
-       
 
         private IInitializePlayerHeroes _initializePlayerHeroes;
         public IInitializePlayerHeroes InitializePlayerHeroes => _initializePlayerHeroes;
