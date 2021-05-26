@@ -44,6 +44,8 @@ namespace Logic
 
         private void GetHeroSkills()
         {
+            _skills.Clear();
+            
             foreach (var skillObject in _skillsPanel.SkillList)
             {
                 var skill = skillObject.GetComponent<ISkill>();
