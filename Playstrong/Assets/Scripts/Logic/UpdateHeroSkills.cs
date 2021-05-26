@@ -9,7 +9,7 @@ namespace Logic
 {
     public class UpdateHeroSkills : MonoBehaviour, IUpdateHeroSkills
     {
-        private ISkillsPanel _skillsPanel;
+        private IHeroSkillsList _heroSkillsList;
         private List<ISkill> _skills = new List<ISkill>();
         private int _skillCdCounter = 1;
 
@@ -17,12 +17,12 @@ namespace Logic
 
         private void Awake()
         {
-            _skillsPanel = GetComponent<ISkillsPanel>();
+            _heroSkillsList = GetComponent<IHeroSkillsList>();
         }
 
         private void Start()
         {
-            _logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
+            _logicTree = _heroSkillsList.CoroutineTreesAsset.MainLogicTree;
         }
 
         public IEnumerator UpdateSkills()
@@ -46,7 +46,7 @@ namespace Logic
         {
             _skills.Clear();
             
-            foreach (var skillObject in _skillsPanel.SkillList)
+            foreach (var skillObject in _heroSkillsList.SkillList)
             {
                 var skill = skillObject.GetComponent<ISkill>();
                 _skills.Add(skill);
