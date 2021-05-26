@@ -84,7 +84,7 @@ namespace ScriptableObjects.HeroStatus
 
         private IEnumerator VisualEnableHeroSkills()
         {
-            var heroSkills = _heroLogic.Hero.Skills;
+            var heroSkills = _heroLogic.Hero.HeroSkills;
             heroSkills.Skills.SetActive(true);
             
             yield return null;

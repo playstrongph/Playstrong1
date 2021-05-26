@@ -27,9 +27,9 @@ namespace References
         public IHeroLogic HeroLogic => _heroLogic as IHeroLogic;
         
         [SerializeField] [RequireInterface(typeof(IHeroSkills))]
-        private Object _skills;
+        private Object _heroSkills;
 
-        public IHeroSkills Skills => _skills as IHeroSkills;
+        public IHeroSkills HeroSkills => _heroSkills as IHeroSkills;
         
         [SerializeField] [RequireInterface(typeof(IHeroVisual))]
         private Object _heroVisual;
