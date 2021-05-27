@@ -98,18 +98,18 @@ namespace Logic
         /// Add a coroutine as a child of the current node which waits for specified amount of time.
         /// </summary>
         /// <param name="seconds"></param>
-        public void AddCurrentWait(float seconds)
+        public void AddCurrentWait(float seconds, ICoroutineTree tree)
         {        
-            CurrentNode.AddChild(mono.GetComponent<IBranchLogic>().Wait(seconds));
+            CurrentNode.AddChild(mono.GetComponent<IBranchLogic>().Wait(seconds,tree));
         }
 
         /// <summary>
         /// Add a coroutine as a child of the root node which waits for specified amount of time.
         /// </summary>
         /// <param name="seconds"></param>
-        public void AddRootWait(float seconds)
+        public void AddRootWait(float seconds, ICoroutineTree tree)
         {
-            Root.AddChild(mono.GetComponent<IBranchLogic>().Wait(seconds));
+            Root.AddChild(mono.GetComponent<IBranchLogic>().Wait(seconds,tree));
         }
      
         /// <summary>

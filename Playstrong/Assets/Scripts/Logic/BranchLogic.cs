@@ -63,9 +63,11 @@ namespace Logic
         }
 
 
-        public IEnumerator Wait(float seconds)
+        public IEnumerator Wait(float seconds, ICoroutineTree tree)
         {
             yield return new WaitForSeconds(seconds);
+            
+            tree.EndSequence();
             yield return null;
 
         }
