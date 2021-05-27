@@ -50,13 +50,13 @@ namespace Interfaces
         /// Add a coroutine as a child of the current node which waits for specified amount of time.
         /// </summary>
         /// <param name="seconds"></param>
-        void AddCurrentWait(float seconds, ICoroutineTree tree);
+        void AddCurrentWait(float seconds);
 
         /// <summary>
         /// Add a coroutine as a child of the root node which waits for specified amount of time.
         /// </summary>
         /// <param name="seconds"></param>
-        void AddRootWait(float seconds, ICoroutineTree tree);
+        void AddRootWait(float seconds);
 
         /// <summary>
         /// Removes all pending coroutines.

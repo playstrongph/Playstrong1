@@ -4,7 +4,7 @@ namespace Interfaces
 {
     public interface IBranchLogic
     {
-        IEnumerator Wait(float seconds, ICoroutineTree tree);
+        IEnumerator Wait(float seconds);
 
         ICoroutineTree LogicTree { get; }
         
