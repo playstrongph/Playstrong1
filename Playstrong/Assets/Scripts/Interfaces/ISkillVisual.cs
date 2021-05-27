@@ -19,5 +19,7 @@ namespace Interfaces
         TextMeshProUGUI CooldownText { get; }
 
         ILoadSkillVisuals LoadSkillVisuals { get; }
+
+        ISkillCooldownVisual SkillCooldownVisual { get; }
     }
 }

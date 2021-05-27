@@ -66,10 +66,12 @@ namespace Logic
 
         }
 
-        private IEnumerator VisualReduceCdAction(int counter)
+       
+        
+        private IEnumerator VisualReduceCdAction(int skillCd)
         {
              var skillVisual = _skillLogic.Skill.SkillVisual;
-             skillVisual.CooldownText.text = counter.ToString();
+             skillVisual.SkillCooldownVisual.UpdateCooldown(skillCd);
              
              _visualTree.EndSequence();
             yield return null;

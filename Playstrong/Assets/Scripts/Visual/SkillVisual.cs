@@ -32,9 +32,13 @@ namespace Visual
         private ILoadSkillVisuals _loadSkillVisuals;
         public ILoadSkillVisuals LoadSkillVisuals => _loadSkillVisuals;
 
+        private ISkillCooldownVisual _skillCooldownVisual;
+        public ISkillCooldownVisual SkillCooldownVisual => _skillCooldownVisual;
+
         private void Awake()
         {
             _loadSkillVisuals = GetComponent<ILoadSkillVisuals>();
+            _skillCooldownVisual = GetComponent<ISkillCooldownVisual>();
         }
     }
 }
