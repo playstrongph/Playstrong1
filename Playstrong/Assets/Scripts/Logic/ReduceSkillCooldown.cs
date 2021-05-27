@@ -44,9 +44,10 @@ namespace Logic
             _actionIndex = skillType.SkillCdIndex;
             
             _skillCdAction[_actionIndex](counter);
-
-            yield return null;
+            
             _logicTree.EndSequence();
+            yield return null;
+            
         }
 
         private void ReduceCdAction(int counter)
@@ -69,9 +70,10 @@ namespace Logic
         {
              var skillVisual = _skillLogic.Skill.SkillVisual;
              skillVisual.CooldownText.text = counter.ToString();
-            
+             
+             _visualTree.EndSequence();
             yield return null;
-            _visualTree.EndSequence();
+            
         }
 
         private void DoNothing(int counter)

@@ -11,7 +11,6 @@ namespace Logic
     public class UpdateHeroSkills : MonoBehaviour, IUpdateHeroSkills
     {
         private ISkillsPanel _skillsPanel;
-        private List<ISkill> _skills = new List<ISkill>();
         private int _skillCdCounter = 1;
 
         private ICoroutineTree _logicTree;
@@ -28,32 +27,26 @@ namespace Logic
 
         public IEnumerator UpdateSkills()
         {
-            GetHeroSkills();
-            UpdateSkillCooldowns();
-
-            yield return null;
+          
+            UpdateSkillCooldown();
+            
             _logicTree.EndSequence();
+            yield return null;
+           
         }
 
-        private void UpdateSkillCooldowns()
+        private void UpdateSkillCooldown()
         {
-            foreach (var skill in _skills)
+            foreach (var skillObject in _skillsPanel.SkillList)
             {
+                 var skill = skillObject.GetComponent<ISkill>();
                  Debug.Log("skill name: " +skill.SkillName);
+                 
                 _logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
             }
         }
 
-        private void GetHeroSkills()
-        {
-            _skills.Clear();
-            
-            foreach (var skillObject in _skillsPanel.SkillList)
-            {
-                var skill = skillObject.GetComponent<ISkill>();
-                _skills.Add(skill);
-            }
-        }
+        
         
         
     }

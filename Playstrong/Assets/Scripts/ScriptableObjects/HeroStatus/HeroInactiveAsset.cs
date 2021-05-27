@@ -40,9 +40,9 @@ namespace ScriptableObjects.HeroStatus
             _visualTree.AddCurrent(VisualDisableHeroPortrait());
             _visualTree.AddCurrent(VisualDisableHeroSkills());
             
-            
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
             
         }
         
@@ -50,25 +50,28 @@ namespace ScriptableObjects.HeroStatus
         {
             _heroLogic.Hero.TargetHero.GetAttackTargets.DisableGlows();
             
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
         }
         
         private IEnumerator DisableTargetHeroPreview()
         {
             _heroLogic.Hero.TargetHero.HeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(false);
             
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
         }
         
         private IEnumerator VisualDisableActionHeroGlow()
         {
             var actionGlowFrame = _heroLogic.Hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.ActionGlowFrame;
             actionGlowFrame.SetActive(false);
-
-            yield return null;
+            
             _visualTree.EndSequence();
+            yield return null;
+           
         }
         
         private IEnumerator VisualDisableHeroPortrait()
@@ -76,9 +79,9 @@ namespace ScriptableObjects.HeroStatus
             var heroPortrait = _heroLogic.Hero.HeroPortrait;
             heroPortrait.Portrait.SetActive(false);
            
-            
-            yield return null;
             _visualTree.EndSequence();
+            yield return null;
+          
         }
         
         private IEnumerator VisualDisableHeroSkills()
@@ -86,8 +89,9 @@ namespace ScriptableObjects.HeroStatus
             var heroSkills = _heroLogic.Hero.HeroSkills;
             heroSkills.Skills.SetActive(false);
             
-            yield return null;
             _visualTree.EndSequence();
+            yield return null;
+            
         }
 
 

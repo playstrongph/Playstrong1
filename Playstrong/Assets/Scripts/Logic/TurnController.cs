@@ -45,6 +45,7 @@ namespace Logic
         private ISetHeroStatus _setHeroStatus;
         private IHeroLogic _activeHeroLogic;
         private int _activeHeroIndex;
+        private float _endTurnDelaySeconds = 1f;
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
         private IUpdateHeroTimers _updateHeroTimers;
@@ -132,8 +133,9 @@ namespace Logic
             _logicTree.AddCurrent(SetHeroInactive());
             _logicTree.AddCurrent(NextActiveHero());
             
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
         }
 
         private IEnumerator NextActiveHero()
@@ -144,14 +146,17 @@ namespace Logic
             else
                 _visualTree.AddCurrent(RunHeroTimers());
 
-
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
         }
 
 
         public void EndTurn()
         {
+            _logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);
+            _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);
+            
             _logicTree.AddCurrent(StartNextTurn());
         }
 
