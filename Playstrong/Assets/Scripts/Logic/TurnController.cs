@@ -82,8 +82,9 @@ namespace Logic
             
             _logicTree.AddCurrent(AllowHeroActions());
             
-            yield return null;
             _visualTree.EndSequence();
+            yield return null;
+            
         }
         
         private IEnumerator AllowHeroActions()
@@ -92,8 +93,9 @@ namespace Logic
             
             _logicTree.AddCurrent(SetHeroActive());
             
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
         }
 
         private IEnumerator SetHeroActive()
@@ -110,9 +112,10 @@ namespace Logic
             //UpdateSkillsStatus on HeroActive
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             _logicTree.AddCurrent(updateSkills);
-
-            yield return null;
+            
             _logicTree.EndSequence(); 
+            yield return null;
+           
         }
 
         private IEnumerator SetHeroInactive()
@@ -123,9 +126,10 @@ namespace Logic
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
 
             _activeHeroes.RemoveAt(i);
-
-            yield return null;
+            
             _logicTree.EndSequence(); 
+            yield return null;
+           
         }
 
         private IEnumerator StartNextTurn()
