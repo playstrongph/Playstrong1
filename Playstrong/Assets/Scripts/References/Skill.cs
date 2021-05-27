@@ -13,6 +13,14 @@ namespace References
     public class Skill : MonoBehaviour, ISkill
     {
 
+        [SerializeField] private string _skillName;
+
+        public string SkillName
+        {
+            get => _skillName;
+            set => _skillName = value;
+        }
+
         [SerializeField] [RequireInterface(typeof(ISkillLogic))]
         private Object _skillLogic;
         public ISkillLogic SkillLogic => _skillLogic as ISkillLogic;

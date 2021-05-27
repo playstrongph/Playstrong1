@@ -52,15 +52,14 @@ namespace Logic
                     skillObject.name = heroSkill.name;
                     skillPanelObject.GetComponent<ISkillsPanel>().SkillList.Add(skillObject);
 
-                    var skillVisualReferences = 
-                        skillObject.GetComponent<ISkill>().SkillVisual;
-                    var skillLogicReferences = skillObject.GetComponent<ISkill>().SkillLogic;
+                    var heroSkillComponent = skillObject.GetComponent<ISkill>();
+                    heroSkillComponent.SkillName = heroSkill.name;
+
+                    var skillVisualReferences = heroSkillComponent.SkillVisual;
+                    var skillLogicReferences = heroSkillComponent.SkillLogic;
                     
-                    var skillPreviewVisual = skillObject.GetComponent<ISkill>().SkillPreviewVisual;
+                    var skillPreviewVisual = heroSkillComponent.SkillPreviewVisual;
                     skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
-                    
-                    
-                    
 
                     var skill = heroSkill as IHeroSkillAsset;
                     
