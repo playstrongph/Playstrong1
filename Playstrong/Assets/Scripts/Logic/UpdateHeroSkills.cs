@@ -27,7 +27,6 @@ namespace Logic
 
         public IEnumerator UpdateSkills()
         {
-          
             UpdateSkillCooldown();
             
             _logicTree.EndSequence();
@@ -40,9 +39,8 @@ namespace Logic
             foreach (var skillObject in _skillsPanel.SkillList)
             {
                  var skill = skillObject.GetComponent<ISkill>();
-                 Debug.Log("skill name: " +skill.SkillName);
-                 
-                _logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
+
+                 _logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
             }
         }
 

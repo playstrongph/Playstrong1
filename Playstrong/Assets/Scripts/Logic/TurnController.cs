@@ -45,7 +45,7 @@ namespace Logic
         private ISetHeroStatus _setHeroStatus;
         private IHeroLogic _activeHeroLogic;
         private int _activeHeroIndex;
-        private float _endTurnDelaySeconds = 1f;
+        private float _endTurnDelaySeconds = 0.5f;
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
         private IUpdateHeroTimers _updateHeroTimers;
@@ -110,9 +110,10 @@ namespace Logic
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
             //UpdateSkillsStatus on HeroActive
+            
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             _logicTree.AddCurrent(updateSkills);
-            
+
             _logicTree.EndSequence(); 
             yield return null;
            

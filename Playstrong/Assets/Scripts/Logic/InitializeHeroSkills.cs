@@ -64,8 +64,13 @@ namespace Logic
                     var skill = heroSkill as IHeroSkillAsset;
                     
                     skillLogicReferences.LoadSkillAttributes.LoadSkillAttributesFromAsset(skill);
+                    skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(heroSkillComponent.SkillVisual.CooldownText);
+                  
+                    
                     skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skill);
                     skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skill);
+                    
+                    //LoadSkillTypeEffects
                     
                 }
                 
