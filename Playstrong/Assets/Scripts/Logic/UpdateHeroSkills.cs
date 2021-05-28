@@ -13,23 +13,22 @@ namespace Logic
         private ISkillsPanel _skillsPanel;
         private int _skillCdCounter = 1;
 
-        private ICoroutineTree _logicTree;
+        
 
         private void Awake()
         {
             _skillsPanel = GetComponent<ISkillsPanel>();
         }
 
-        private void Start()
-        {
-            _logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
-        }
-
+        
         public IEnumerator UpdateSkills()
         {
-            UpdateSkillCooldown();
+           
+            var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
             
-            _logicTree.EndSequence();
+            UpdateSkillCooldown();
+
+            logicTree.EndSequence();
             yield return null;
            
         }
@@ -39,8 +38,9 @@ namespace Logic
             foreach (var skillObject in _skillsPanel.SkillList)
             {
                  var skill = skillObject.GetComponent<ISkill>();
+                 var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
 
-                 _logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
+                 logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
             }
         }
 

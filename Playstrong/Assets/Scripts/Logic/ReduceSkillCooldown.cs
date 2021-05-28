@@ -10,9 +10,6 @@ namespace Logic
     public class ReduceSkillCooldown : MonoBehaviour, IReduceSkillCooldown
     {
         private ISkillLogic _skillLogic;
-        
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
 
         private delegate void SkillCdAction(int counter);
         private List<SkillCdAction> _skillCdAction = new List<SkillCdAction>();
@@ -31,27 +28,30 @@ namespace Logic
             _skillCdAction.Add(DoNothing);
         }
 
-        private void Start()
-        {
-            _logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-        }
 
-        //TODO: Call this
         public IEnumerator ReduceCd(int counter)
         {
+           var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            
+           logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
             var skillType = _skillLogic.SkillAttributes.SkillType;
             _actionIndex = skillType.SkillCdIndex;
             
             _skillCdAction[_actionIndex](counter);
             
-            _logicTree.EndSequence();
+            logicTree.EndSequence();
             yield return null;
             
         }
 
         private void ReduceCdAction(int counter)
         {
+           
+           var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+          
+            
             var skillAttributes = _skillLogic.SkillAttributes;     
             var skillCd = skillAttributes.Cooldown;
             var maxSkillCd = skillAttributes.BaseCooldown;
@@ -62,7 +62,7 @@ namespace Logic
 
             skillAttributes.Cooldown = skillCd;
             
-            _visualTree.AddCurrent(VisualReduceCdAction(skillCd));
+            visualTree.AddCurrent(VisualReduceCdAction(skillCd));
 
         }
 
@@ -71,9 +71,11 @@ namespace Logic
         private IEnumerator VisualReduceCdAction(int skillCd)
         {
              var skillVisual = _skillLogic.Skill.SkillVisual;
+             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+             
              skillVisual.SkillCooldownVisual.UpdateCooldown(skillCd);
              
-             _visualTree.EndSequence();
+             visualTree.EndSequence();
             yield return null;
             
         }

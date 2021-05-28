@@ -44,11 +44,7 @@ namespace Visual
         
         private void OnMouseUp()
         {
-           //_logicTree.AddCurrent(SetAttackTarget());
-           //_logicTree.AddCurrent(AttackTarget());
-
            _attackTargetHero();
-
         }
 
         private void OnMouseDown()
