@@ -33,12 +33,15 @@ namespace Logic
             {
                 var skillsObjectList = skillsPanel.GetComponent<ISkillsPanel>().SkillList;
 
+                _index = 0;
+
                 foreach (var skillObject in skillsObjectList)
                 {
                     var skill = skillObject.GetComponent<ISkill>();
                     
                     //set the reference of panelSkill here
                     skill.PanelSkill = _panelSkills[_index];
+                    _index++;
 
                 }
 

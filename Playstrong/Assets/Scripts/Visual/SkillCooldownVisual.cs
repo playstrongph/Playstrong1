@@ -18,9 +18,19 @@ namespace Visual
          var cooldownText = _skillVisual.CooldownText;
 
          cooldownText.text = value.ToString();
+         
+         UpdatePanelSkillCooldownText(value);
       }
-      
-      //TODO: Update PanelSkillCooldown
+
+      private void UpdatePanelSkillCooldownText(int value)
+      {
+         var panelSkill = _skillVisual.Skill.PanelSkill;
+         var cooldownText = panelSkill.SkillVisual.CooldownText;
+         
+         cooldownText.text = value.ToString();
+      }
+
+
 
    }
 }
