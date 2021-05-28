@@ -48,11 +48,8 @@ namespace Logic
         /// <summary>
         /// Adds each hero skill to a list
         /// </summary>
-        public void GetHeroSkills(List<GameObject> heroesList)
+        private void GetHeroSkills(List<GameObject> heroesList)
         {
-            //var heroesSkills = _panelSkillsObject.Player.HeroesSkills;
-            //var heroesList = heroesSkills.List;
-            
             foreach (var skillsPanel in heroesList)
             {
                 var skillsObjectList = skillsPanel.GetComponent<ISkillsPanel>().SkillList;

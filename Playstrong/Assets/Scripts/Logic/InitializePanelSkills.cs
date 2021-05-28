@@ -49,6 +49,15 @@ namespace Logic
             yield return null;
             _logicTree.EndSequence();
         }
+        
+        private void CreateSkillPanel(GameObject skillPanelObject, Transform boardLocation, ScriptableObject heroAssetSO)
+        {
+            skillPanelObject.transform.SetParent(boardLocation);
+            skillPanelObject.transform.SetAsLastSibling();
+            skillPanelObject.name = heroAssetSO.name + "Skills";
+            _player.PanelSkills.List.Add(skillPanelObject);
+        }
+
 
 
         private void CreateHeroSkills(IHeroAsset heroAsset, GameObject skillObjectPrefab, GameObject skillPanelObject, Transform skillPreviewLocation)
@@ -61,29 +70,26 @@ namespace Logic
                 skillObject.name = heroSkill.name;
                 skillPanelObject.GetComponent<ISkillsPanel>().SkillList.Add(skillObject);
 
-                var skillVisualReferences = 
-                    skillObject.GetComponent<ISkill>().SkillVisual;
-                var skillLogicReferences = skillObject.GetComponent<ISkill>().SkillLogic;
-                var skillPreviewVisual = skillObject.GetComponent<ISkill>().SkillPreviewVisual;
+                var heroSkillComponent = skillObject.GetComponent<ISkill>();
+                
+                var skillVisualReferences = heroSkillComponent.SkillVisual;
+                var skillLogicReferences = heroSkillComponent.SkillLogic;
+                
+                var skillPreviewVisual = heroSkillComponent.SkillPreviewVisual;
                 skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
 
                 var skill = heroSkill as IHeroSkillAsset;
                     
                 skillLogicReferences.LoadSkillAttributes.LoadSkillAttributesFromAsset(skill);
+                skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(heroSkillComponent.SkillVisual.CooldownText);
+                
                 skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skill);
                 skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skill);
                     
             }
         }
 
-        private void CreateSkillPanel(GameObject skillPanelObject, Transform boardLocation, ScriptableObject heroAssetSO)
-        {
-            skillPanelObject.transform.SetParent(boardLocation);
-            skillPanelObject.transform.SetAsLastSibling();
-            skillPanelObject.name = heroAssetSO.name + "Skills";
-            _player.PanelSkills.List.Add(skillPanelObject);
-        }
-
+       
 
 
 
