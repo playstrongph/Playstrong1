@@ -78,13 +78,17 @@ namespace Logic
                 var skillPreviewVisual = heroSkillComponent.SkillPreviewVisual;
                 skillPreviewVisual.PreviewTransform.position = skillPreviewLocation.localPosition;
 
-                var skill = heroSkill as IHeroSkillAsset;
+                var skillAsset = heroSkill as IHeroSkillAsset;
                     
-                skillLogicReferences.LoadSkillAttributes.LoadSkillAttributesFromAsset(skill);
-                skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(heroSkillComponent.SkillVisual.CooldownText);
+                skillLogicReferences.LoadSkillAttributes.LoadSkillAttributesFromAsset(skillAsset);
                 
-                skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skill);
-                skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skill);
+                skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(skillVisualReferences.CooldownText);
+                skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(skillPreviewVisual.Cooldown);
+                
+                skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skillAsset);
+                skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skillAsset);
+                
+                
                     
             }
         }
