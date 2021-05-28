@@ -49,6 +49,7 @@ namespace ScriptableObjects.HeroStatus
         private IEnumerator DisableDragHeroAttack()
         {
             _heroLogic.Hero.TargetHero.GetAttackTargets.DisableGlows();
+            _heroLogic.Hero.TargetHero.DragHeroAttack.DisableDragHeroAttack();
             
             _logicTree.EndSequence();
             yield return null;

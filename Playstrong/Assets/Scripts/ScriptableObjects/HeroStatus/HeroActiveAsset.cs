@@ -51,6 +51,7 @@ namespace ScriptableObjects.HeroStatus
         {
            
            _heroLogic.Hero.TargetHero.GetAttackTargets.EnableGlows();
+           _heroLogic.Hero.TargetHero.DragHeroAttack.EnableDragHeroAttack();
 
            _logicTree.EndSequence();
             yield return null;

@@ -13,7 +13,8 @@ namespace Visual
         private ITargetHero _targetThisHero;
         private ITargetHero _targetEnemyHero;
 
-        private Action _attackTarget;
+        private Action _basicAttackTarget;
+        private Action _attackTargetHero;
         
         private List<IHero> _validTargets = new List<IHero>();
         private IHero _hero;
@@ -37,26 +38,46 @@ namespace Visual
             _basicAttack = _targetThisHero.Hero.HeroLogic.BasicAttack;
             _endHeroTurn = _targetThisHero.Hero.HeroLogic.EndHeroTurn;
             
-            _attackTarget = NoAction;
+            _basicAttackTarget = NoAction;
+            _attackTargetHero = NoAction;
         }
         
         private void OnMouseUp()
         {
-           _logicTree.AddCurrent(SetAttackTarget());
-           _logicTree.AddCurrent(AttackTarget());
-          
+           //_logicTree.AddCurrent(SetAttackTarget());
+           //_logicTree.AddCurrent(AttackTarget());
+
+           _attackTargetHero();
+
         }
 
         private void OnMouseDown()
         {
-            _attackTarget = NoAction;
+            _basicAttackTarget = NoAction;
             _logicTree.AddCurrent(GetValidTargets());
           
         }
-        
+
+        public void EnableDragHeroAttack()
+        {
+            _attackTargetHero = AttackTargetHero;
+        }
+
+        public void DisableDragHeroAttack()
+        {
+            _attackTargetHero = NoAction;
+        }
+
+
+        private void AttackTargetHero()
+        {
+            _logicTree.AddCurrent(SetAttackTarget());
+            _logicTree.AddCurrent(AttackTarget());
+        }
+
         private IEnumerator AttackTarget()
         {
-            _attackTarget();
+            _basicAttackTarget();
             
             yield return null;
             _logicTree.EndSequence();
@@ -94,7 +115,7 @@ namespace Visual
                    if (_validTargets.Contains(targetHero.Hero))
                    {
                        _targetEnemyHero = targetHero;
-                       _attackTarget = BasicAttackTarget;
+                       _basicAttackTarget = BasicAttackTarget;
                    }
                 }
             }
