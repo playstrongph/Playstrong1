@@ -42,6 +42,15 @@ namespace References
         private ScriptableObject _coroutineTreesAsset;
         public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreesAsset as ICoroutineTreesAsset;
 
+        [SerializeField] [RequireInterface(typeof(ISkill))]
+        private Object _panelSkill;
+
+        public ISkill PanelSkill
+        {
+            get => _panelSkill as ISkill;
+            set => _panelSkill = value as Object;
+        }
+
 
     }
 }
