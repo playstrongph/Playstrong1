@@ -10,6 +10,8 @@ namespace Logic
 
         private IPanelSkills _panelSkillsObject;
         private List<ISkill> _panelSkills = new List<ISkill>();
+        private List<ISkill> _heroSkills = new List<ISkill>();
+        
         private int _index = 0;
         
         private void Awake()
@@ -18,30 +20,48 @@ namespace Logic
         }
         
         
-        
-        
-        //Referencs each hero skill
+        //Sets the PanelSkill reference in HeroSkill
         public void ReferenceSkills()
         {
-         
-            GetPanelSkills();
-            
             var heroesSkills = _panelSkillsObject.Player.HeroesSkills;
             var heroesList = heroesSkills.List;
+            var panelSkillsList = _panelSkillsObject.List;
 
+            foreach (var skillsPanel in heroesList)
+            {
+               _panelSkills.Clear();
+               _heroSkills.Clear();
+               
+               GetHeroSkills(heroesList);
+               GetPanelSkills(panelSkillsList);
+
+               var index = 0;
+               foreach (var skill in _heroSkills)
+               {
+                   skill.PanelSkill = _panelSkills[index]; 
+                   index++;
+               }
+
+            }
+        }
+        
+        /// <summary>
+        /// Adds each hero skill to a list
+        /// </summary>
+        public void GetHeroSkills(List<GameObject> heroesList)
+        {
+            //var heroesSkills = _panelSkillsObject.Player.HeroesSkills;
+            //var heroesList = heroesSkills.List;
+            
             foreach (var skillsPanel in heroesList)
             {
                 var skillsObjectList = skillsPanel.GetComponent<ISkillsPanel>().SkillList;
 
-                _index = 0;
-
                 foreach (var skillObject in skillsObjectList)
                 {
                     var skill = skillObject.GetComponent<ISkill>();
-                    
-                    //set the reference of panelSkill here
-                    skill.PanelSkill = _panelSkills[_index];
-                    _index++;
+
+                    _heroSkills.Add(skill);
 
                 }
 
@@ -51,9 +71,9 @@ namespace Logic
         /// <summary>
         /// Adds each panel skill to a list
         /// </summary>
-        private void GetPanelSkills()
+        private void GetPanelSkills(List<GameObject> panelSkillsList)
         {
-            var panelSkillsList = _panelSkillsObject.List;
+            //var panelSkillsList = _panelSkillsObject.List;
 
             foreach (var heroObject in panelSkillsList)
             {
