@@ -32,6 +32,9 @@ namespace Logic
 
             logicTree.AddCurrent(_battleSceneManager.EnemyPlayer.InitializePanelSkills.InitializeSkills(enemyTeamHeroAsset, skillPanelPrefab, skillObjectPrefab, enemyBoardLocation, skillPreviewLocation));
             logicTree.AddCurrent(_battleSceneManager.EnemyPlayer.CreatePanelSkillReferences.CreateReferences());
+            
+            logicTree.AddCurrent(_battleSceneManager.MainPlayer.PanelSkills.ReferenceHeroesSkills());
+            logicTree.AddCurrent(_battleSceneManager.EnemyPlayer.PanelSkills.ReferenceHeroesSkills());
 
             logicTree.AddCurrent(_battleSceneManager.MainPlayer.PanelSkills.DisablePanelSkillTargetVisual());
             logicTree.AddCurrent(_battleSceneManager.EnemyPlayer.PanelSkills.DisablePanelSkillTargetVisual());

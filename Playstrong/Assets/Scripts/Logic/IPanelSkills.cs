@@ -12,5 +12,9 @@ namespace Logic
 
         IEnumerator DisablePanelSkillTargetVisual( );
 
+        IPlayer Player { get; }
+
+        IEnumerator ReferenceHeroesSkills();
+
     }
 }

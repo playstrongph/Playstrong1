@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 7400215137739385851}
   - component: {fileID: 663722578}
   - component: {fileID: 7594411324976896558}
+  - component: {fileID: 1518009386215512692}
   m_Layer: 0
   m_Name: PanelSkills
   m_TagString: Untagged
@@ -277,6 +278,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d43664d48871f5143a2fbb480aaf548b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1518009386215512692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7400215137739385850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11ad0885d911f0459fce3fde667a513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7400215138559013072
@@ -342,6 +355,7 @@ MonoBehaviour:
     type: 2}
   _playerTypeEnum: {fileID: 11400000, guid: d337f0f234b52ce4eb460e8f09fb9670, type: 2}
   _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
+  _otherPlayer: {fileID: 0}
   _livingHeroes: {fileID: 2887697347661910497}
   _deadHeroes: {fileID: 4228853710048405496}
   _heroesSkills: {fileID: 547490703340572784}

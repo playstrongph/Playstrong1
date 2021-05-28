@@ -15,9 +15,13 @@ namespace Logic
         public Transform Transform => _transform;
         
         private IPlayer _player;
+        public IPlayer Player => _player;
         
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
+
+        private IReferenceHeroesSkills _referenceHeroesSkills;
+       
 
 
 
@@ -27,7 +31,8 @@ namespace Logic
         {
             _player = GetComponentInParent<IPlayer>();
             _disablePanelTargetVisual = GetComponent<IDisablePanelTargetVisual>();
-            
+            _referenceHeroesSkills = GetComponent<IReferenceHeroesSkills>();
+
         }
         private void Start()
         {
@@ -39,8 +44,20 @@ namespace Logic
         {
             _disablePanelTargetVisual.DisableTarget();
 
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+            
         }
+
+        public IEnumerator ReferenceHeroesSkills()
+        {
+            _referenceHeroesSkills.ReferenceSkills();
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+
+
     }
 }
