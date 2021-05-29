@@ -2,6 +2,7 @@
 using Interfaces;
 using Logic;
 using ScriptableObjects;
+using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
 using Visual;

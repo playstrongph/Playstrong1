@@ -4,8 +4,7 @@ using Logic;
 using UnityEngine;
 using Utilities;
 
-
-namespace ScriptableObjects
+namespace ScriptableObjects.Others
 {
     [CreateAssetMenu(fileName = "New Hero", menuName = "SO's/New Hero")]
     public class HeroAsset : ScriptableObject, IHeroAsset

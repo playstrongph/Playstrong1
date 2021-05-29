@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class SetSprite : MonoBehaviour
+namespace Visual
 {
-    [SerializeField] private Sprite _loadSprite;
-
-    public Sprite LoadSprite
+    public class SetSprite : MonoBehaviour
     {
-        set => _loadSprite = value;
+        [SerializeField] private Sprite _loadSprite;
+
+        public Sprite LoadSprite
+        {
+            set => _loadSprite = value;
+        }
     }
 }

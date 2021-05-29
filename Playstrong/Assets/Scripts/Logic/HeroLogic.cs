@@ -2,6 +2,7 @@
 using System.Runtime.Remoting.Messaging;
 using Interfaces;
 using ScriptableObjects;
+using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;

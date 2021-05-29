@@ -4,6 +4,7 @@ using Interfaces;
 using JetBrains.Annotations;
 using References;
 using ScriptableObjects;
+using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;

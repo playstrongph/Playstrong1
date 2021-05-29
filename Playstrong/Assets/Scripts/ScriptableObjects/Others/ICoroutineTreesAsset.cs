@@ -1,7 +1,6 @@
 ﻿using Interfaces;
-using UnityEngine;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Others
 {
     public interface ICoroutineTreesAsset
     {

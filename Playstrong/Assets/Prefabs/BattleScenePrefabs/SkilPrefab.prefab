@@ -700,11 +700,12 @@ GameObject:
   m_Component:
   - component: {fileID: 956212358786132673}
   - component: {fileID: 956212358786132674}
+  - component: {fileID: 7555754800540292890}
   - component: {fileID: 5050559291917950268}
   - component: {fileID: 646772054308493208}
   - component: {fileID: 4168796630632674215}
   m_Layer: 0
-  m_Name: TargetSkillPreview
+  m_Name: TargetSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,6 +757,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 46.400932, y: 46.23915}
   m_EdgeRadius: 0
+--- !u!114 &7555754800540292890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956212358786132672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae47d3ce183629e4e869e6b8f67bf049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5050559291917950268
 MonoBehaviour:
   m_ObjectHideFlags: 0

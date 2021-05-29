@@ -1,5 +1,6 @@
 ﻿using System;
 using ScriptableObjects;
+using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
 

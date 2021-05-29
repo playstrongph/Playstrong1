@@ -1,5 +1,6 @@
 using Logic;
 using ScriptableObjects;
+using ScriptableObjects.Others;
 
 namespace Interfaces
 {

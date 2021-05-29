@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
 using ScriptableObjects;
+using ScriptableObjects.Others;
 using UnityEngine;
 
 namespace GameSettings

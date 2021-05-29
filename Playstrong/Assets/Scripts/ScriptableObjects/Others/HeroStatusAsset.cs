@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Interfaces;
+﻿using Interfaces;
 using Logic;
 using UnityEngine;
-using Utilities;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Others
 {
     [CreateAssetMenu(fileName = "Hero Status", menuName = "SO's/Hero Status")]
     public class HeroStatusAsset : ScriptableObject, IHeroStatusAsset

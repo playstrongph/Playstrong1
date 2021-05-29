@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 using Logic;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Others
 {
     public interface IHeroStatusAsset
     {

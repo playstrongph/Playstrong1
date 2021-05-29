@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using ScriptableObjects.Others;
 using UnityEngine;
 
 namespace ScriptableObjects.HeroStatus

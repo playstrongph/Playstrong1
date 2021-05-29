@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Interfaces;
-using Logic;
+﻿using Interfaces;
 using UnityEngine;
-using Utilities;
-using Object = UnityEngine.Object;
 
-namespace ScriptableObjects
+namespace ScriptableObjects.Others
 {
     [CreateAssetMenu(fileName = "CoroutineTrees", menuName = "SO's/Coroutine Trees")]
     public class CoroutineTreesAsset : ScriptableObject, ICoroutineTreesAsset

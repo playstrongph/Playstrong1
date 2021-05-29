@@ -4,8 +4,7 @@ using ScriptableObjects.Enums;
 using UnityEngine;
 using Utilities;
 
-
-namespace ScriptableObjects
+namespace ScriptableObjects.Others
 {
     [CreateAssetMenu(fileName = "New Hero Skill", menuName = "SO's/Hero Skill")]
     public class HeroSkillAsset : ScriptableObject, IHeroSkillAsset

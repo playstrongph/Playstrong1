@@ -1,4 +1,5 @@
 ﻿using ScriptableObjects;
+using ScriptableObjects.Others;
 
 namespace Logic
 {

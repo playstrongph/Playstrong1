@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
-using Logic;
-using ScriptableObjects;
+using ScriptableObjects.Others;
 using UnityEngine;
 
-public interface ISkillsPanel
+namespace Logic
 {
-    List<GameObject> SkillList { get; }
+    public interface ISkillsPanel
+    {
+        List<GameObject> SkillList { get; }
 
-    ICoroutineTreesAsset CoroutineTreesAsset { get; }
+        ICoroutineTreesAsset CoroutineTreesAsset { get; }
 
-    IUpdateHeroSkills UpdateHeroSkills { get; }
+        IUpdateHeroSkills UpdateHeroSkills { get; }
+    }
 }
