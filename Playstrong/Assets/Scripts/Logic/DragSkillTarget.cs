@@ -2,7 +2,7 @@
 
 namespace Logic
 {
-    public class DragSkillTarget : MonoBehaviour
+    public class DragSkillTarget : MonoBehaviour, IDragSkillTarget
     {
         
         

@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae47d3ce183629e4e869e6b8f67bf049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skill: {fileID: 0}
+  _skill: {fileID: 1352393578515258584}
 --- !u!114 &5050559291917950268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,6 +2157,7 @@ MonoBehaviour:
   _skillVisual: {fileID: 1352393578959371933}
   _skillPreviewVisual: {fileID: 1352393577901692879}
   _targetSkillPreview: {fileID: 5050559291917950268}
+  _hero: {fileID: 0}
   _coroutineTreesAsset: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
     type: 2}
   _panelSkill: {fileID: 0}
