@@ -1,10 +1,12 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace Logic
 {
     public class HeroAttributes : MonoBehaviour, IHeroAttributes
     {
+
         [SerializeField] private int _attack;
 
         public int Attack
@@ -43,7 +45,10 @@ namespace Logic
         public int Armor
         {
             get { return _armor; }
-            set { _armor = value; }
+            set
+            {
+                _armor = value;
+            }
         }
     
         [SerializeField] private int _baseArmor;
@@ -93,8 +98,7 @@ namespace Logic
             get { return _energy; }
             set { _energy = value; }
         }
-    
-    
-    
+
+       
     }
 }

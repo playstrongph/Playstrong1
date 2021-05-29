@@ -47,7 +47,8 @@ namespace Logic
         {
             _thisHeroLogic.Hero.DamageEffect.ShowDamage(damageValue);
             
-            _thisHeroLogic.Hero.HeroVisual.ArmorVisual.SetArmorText(_targetArmor.ToString());
+            _thisHeroLogic.Hero.HeroVisual.ArmorVisual.SetArmorText(_targetArmor);
+            
             _thisHeroLogic.Hero.HeroVisual.HealthVisual.SetHealthText(_targetHealth.ToString());
 
             yield return null;
@@ -63,7 +64,7 @@ namespace Logic
             newArmor = Mathf.Clamp(newArmor, 0, armor + damage);
             _targetArmor = newArmor;
             _thisHeroLogic.HeroAttributes.Armor = newArmor;
-            
+
             return residualDamage;
         }
         

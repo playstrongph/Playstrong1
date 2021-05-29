@@ -31,7 +31,7 @@ namespace Visual
             _heroVisual.HeroGraphic.HeroImage.sprite = heroAsset.HeroSprite;
             
             _heroVisual.AttackVisual.SetAttackText(_heroAttributes.Attack.ToString());
-            _heroVisual.ArmorVisual.SetArmorText(_heroAttributes.Armor.ToString());
+            _heroVisual.ArmorVisual.SetArmorText(_heroAttributes.Armor);
             _heroVisual.HealthVisual.SetHealthText(_heroAttributes.Health.ToString());
             _heroVisual.EnergyVisual.SetEnergyTextAndBarFill(_initialEnergy);
             

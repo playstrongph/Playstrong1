@@ -1,4 +1,6 @@
-﻿using Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,33 +15,40 @@ namespace Visual
         [SerializeField]
         private TextMeshProUGUI text;
 
-        public void SetArmorText(string armorValue)
+        private List<Action> _displayArmor = new List<Action>();
+
+        public void SetArmorText(int value)
         {
+            var armorValue = value.ToString();
+            var index = Mathf.Clamp(value, 0, 1);
+            
             text.text = armorValue;
+            _displayArmor[index]();
         }
 
-        public void SetArmorTextColor(Color textColor)
+        private void SetArmorTextColor(Color textColor)
         {
             text.color = textColor;
         }
+        
+        private void Awake()
+        {
+            _displayArmor.Add(HideArmorIcon);
+            _displayArmor.Add(ShowArmorIcon);
+        }
 
-        public void HideArmorIcon()
+        private void HideArmorIcon()
         {   
             icon.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
         }
         
-        public void ShowArmorIcon()
+        private void ShowArmorIcon()
         {   
             icon.gameObject.SetActive(true);
             text.gameObject.SetActive(true);
         }
 
-
-
-
-
-
-
+       
     }
 }
