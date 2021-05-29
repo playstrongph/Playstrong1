@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Interfaces;
 using ScriptableObjects.Others;
 using UnityEngine;
 
@@ -11,5 +12,7 @@ namespace Logic
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
 
         IUpdateHeroSkills UpdateHeroSkills { get; }
+
+        IHero Hero { get; set; }
     }
 }

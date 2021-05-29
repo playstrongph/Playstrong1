@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Interfaces;
 using ScriptableObjects;
 using ScriptableObjects.Others;
 using UnityEngine;
@@ -10,8 +11,20 @@ namespace Logic
     public class SkillsPanel : MonoBehaviour, ISkillsPanel
     {
         [SerializeField]
+        [RequireInterface(typeof(IHero))]
+        private Object _hero;
+
+        public IHero Hero
+        {
+            get => _hero as IHero;
+            set => _hero = value as Object;
+        }
+        
+        
+        [SerializeField]
         [RequireInterface(typeof(ICoroutineTreesAsset))]
         private Object _coroutineTreesAsset;
+        
         public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreesAsset as ICoroutineTreesAsset;
 
         [SerializeField] private List<GameObject> _skillList = new List<GameObject>();

@@ -33,7 +33,7 @@ namespace Logic
         public IEnumerator CreateReferences()
         {
             GetSkillReference();
-            LoadSkillReference();
+            LoadSkillAndHeroReference();
             yield return null;
             _logicTree.EndSequence();
         }
@@ -48,18 +48,19 @@ namespace Logic
             }
         }
         
-        private void LoadSkillReference()
+        private void LoadSkillAndHeroReference()
         {
             var heroes = Player.LivingHeroes.HeroesList;
-          
-
+            
             foreach (var hero in heroes)
             {
                 var heroObjectReference = hero.GetComponent<IHero>();
+                
                 var skillsReference = heroObjectReference.HeroSkills;
                 
-                //set the reference here
+                //set the references here
                 skillsReference.Skills = _heroSkill[_index];
+                _heroSkill[_index].GetComponent<ISkillsPanel>().Hero = heroObjectReference;
                 _index++;
 
             }
