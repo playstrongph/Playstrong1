@@ -13,6 +13,6 @@ namespace Logic
 
         IUpdateHeroSkills UpdateHeroSkills { get; }
 
-        IHero Hero { get; set; }
+      
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using References;
 using UnityEngine;
 
 namespace Logic
@@ -12,7 +13,8 @@ namespace Logic
         private IPlayer Player => _player;
 
         private int _index;
-        private List<GameObject> _heroSkill;
+        private List<GameObject> _playerHeroesSkillsList = new List<GameObject>();
+        private List<GameObject> _heroSkillsList = new List<GameObject>();
         
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
@@ -21,7 +23,7 @@ namespace Logic
         {
             _player = GetComponent<IPlayer>();
             _index = 0;
-            _heroSkill = new List<GameObject>();
+           
         }
         
         private void Start()
@@ -33,7 +35,7 @@ namespace Logic
         public IEnumerator CreateReferences()
         {
             GetSkillReference();
-            LoadSkillAndHeroReference();
+            LoadSkillPanelAndHeroReference();
             yield return null;
             _logicTree.EndSequence();
         }
@@ -44,28 +46,41 @@ namespace Logic
             var heroSkills = Player.HeroesSkills.List;
             foreach (var skill in heroSkills)
             {
-                _heroSkill.Add(skill);
+                _playerHeroesSkillsList.Add(skill);
             }
         }
         
-        private void LoadSkillAndHeroReference()
+        private void LoadSkillPanelAndHeroReference()
         {
-            var heroes = Player.LivingHeroes.HeroesList;
+            var heroObjects = Player.LivingHeroes.HeroesList;
             
-            foreach (var hero in heroes)
+            foreach (var heroObject in heroObjects)
             {
-                var heroObjectReference = hero.GetComponent<IHero>();
-                
-                var skillsReference = heroObjectReference.HeroSkills;
-                
+                var hero = heroObject.GetComponent<IHero>();
+
                 //set the references here
-                skillsReference.Skills = _heroSkill[_index];
-                _heroSkill[_index].GetComponent<ISkillsPanel>().Hero = heroObjectReference;
+                hero.HeroSkills.Skills = _playerHeroesSkillsList[_index];
+                
+                var heroSkillsList = hero.HeroSkills.Skills;
+                
+                LoadSkillHeroReference(heroSkillsList, hero);
+
                 _index++;
 
             }
         }
 
-        
+        private void LoadSkillHeroReference(GameObject heroSkillsList, IHero hero)
+        {
+            var skillsObjectList = heroSkillsList.GetComponent<ISkillsPanel>().SkillList;
+            
+            foreach (var skillObject in skillsObjectList)
+            {
+                var skill = skillObject.GetComponent<ISkill>();
+                skill.Hero = hero;
+            }
+        }
+
+
     }
 }

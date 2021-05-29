@@ -85,9 +85,7 @@ namespace Logic
                 
                 skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(skillVisualReferences.CooldownText);
                 skillLogicReferences.SkillAttributes.SkillType.SkillCooldownDisplay(skillPreviewVisual.Cooldown);
-                
-                  
-                    
+
                 skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skillAsset);
                 skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skillAsset);
 

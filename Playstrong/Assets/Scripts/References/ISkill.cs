@@ -16,6 +16,8 @@ namespace References
 
         ITargetPreview TargetSkillPreview { get; }
 
+        IHero Hero { get; set; }
+
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
 
         ISkill PanelSkill { get; set; }

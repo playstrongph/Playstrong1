@@ -39,6 +39,16 @@ namespace References
         private Object _targetSkillPreview;
         public ITargetPreview TargetSkillPreview => _targetSkillPreview as ITargetPreview;
 
+        [SerializeField] [RequireInterface(typeof(IHero))]
+        private Object _hero;
+
+        public IHero Hero
+        {
+            get => _hero as IHero;
+            set => _hero = value as Object;
+        }
+
+
         [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
         private ScriptableObject _coroutineTreesAsset;
         public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreesAsset as ICoroutineTreesAsset;
