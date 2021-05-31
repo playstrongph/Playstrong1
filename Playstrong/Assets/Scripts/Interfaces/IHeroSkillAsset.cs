@@ -1,4 +1,5 @@
 ﻿using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ namespace Interfaces
         int Cooldown { get; }
 
         ISkillType SkillType { get; }
+
+        ISkillTarget SkillTarget { get; }
 
     }
 }

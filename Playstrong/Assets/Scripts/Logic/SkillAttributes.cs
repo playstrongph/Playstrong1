@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 using Utilities;
@@ -32,6 +33,15 @@ namespace Logic
         {
             get => _skillType as ISkillType;
             set => _skillType = value as ScriptableObject;
+        }
+        
+        [SerializeField] [RequireInterface(typeof(ISkillTarget))]
+        private ScriptableObject _skillTarget;
+
+        public ISkillTarget SkillTarget
+        {
+            get => _skillTarget as ISkillTarget;
+            set => _skillTarget = value as ScriptableObject;
         }
 
 

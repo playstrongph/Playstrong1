@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Enums.SkillTarget;
 using UnityEngine;
 using Utilities;
 
@@ -11,6 +12,7 @@ namespace Logic
         private ITargetSkill _targetSkill;
 
         private IHero _thisHero;
+        private ISkillTarget _skillTarget;
         
         private List<IHero> _validTargets = new List<IHero>();
         
@@ -28,16 +30,16 @@ namespace Logic
         {
             _targetSkill = GetComponent<ITargetSkill>();
             _thisHero = _targetSkill.Skill.Hero;
-            
-            //SkillTargetAsset.SetTarget(_getValidTargets, GetAllyTargets, GetEnemyTargets)
         }
         
         public List<IHero> GetValidTargets()
         {
-            //Note: Sequence of method calls is important
+           
             _validTargets.Clear();
+            
+            _skillTarget = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillTarget;
+            _skillTarget.SetTargets(_getValidTargets, GetAllyTargets, GetEnemyTargets);
 
-            //this should be set in awake, using the skillTargetAsset
             _getValidTargets();
             
             return _validTargets;

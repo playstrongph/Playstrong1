@@ -24,8 +24,9 @@ namespace Visual
             skillAttributes.BaseCooldown = skillAsset.Cooldown;
             
             skillAttributes.SkillType = skillAsset.SkillType;
-            
-            
+            skillAttributes.SkillTarget = skillAsset.SkillTarget;
+
+
         }
         
         

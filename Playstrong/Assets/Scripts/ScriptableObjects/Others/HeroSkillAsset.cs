@@ -26,11 +26,12 @@ namespace ScriptableObjects.Others
         [Header("Skill Type")] [SerializeField]
         [RequireInterface(typeof(ISkillType))]
         private ScriptableObject _skillType;
-    
+        public ISkillType SkillType => _skillType as ISkillType;
+        
         [Header("Skill Target")] [SerializeField] [RequireInterface(typeof(ISkillTarget))]
         private ScriptableObject _skillTarget;
         
-        public ISkillType SkillType => _skillType as ISkillType;
+        public ISkillTarget SkillTarget => _skillTarget as ISkillTarget;
 
         [Header("Skill Graphic")] 
         [SerializeField]
