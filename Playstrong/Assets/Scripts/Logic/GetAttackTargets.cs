@@ -29,7 +29,73 @@ namespace Logic
             _showTargetsGlow = NoAction;
             
         }
+        
+        public List<IHero> GetValidTargets()
+        {
+            //Note: Sequence of method calls is important
+            _validTargets.Clear();
+            
+            SetTargetLists();
+            
+            SetStealthTargets();
+            SetTauntTargets();
+            SetNormalTargets();
+            return _validTargets;
+        }
+        
+        /// <summary>
+        /// Adds all enemies to the respective lists of normal heroes, stealth heroes, and taunt heroes
+        /// the list is populated using a scriptable object implementing the interface ITargetStatus 
+        /// </summary>
+        private void SetTargetLists()
+        {
+            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
+            foreach (var enemy in enemies)
+            {
+                var enemyHero = enemy.GetComponent<IHero>();
+                enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
+            }
+        }   
+        
+        /// <summary>
+        /// If a stealth hero is present, remove it from the validTargets list 
+        /// </summary>
 
+        private void SetStealthTargets()
+        {
+            foreach (var enemy in _enemyStealthHeroes)
+            {
+                //Do stealth effects here.
+            }
+        }
+        
+        /// <summary>
+        /// If a taunt hero is present, clear the normal enemies list and add
+        /// only the taunt heroes in the validTargets list
+        /// </summary>
+
+        private void SetTauntTargets()
+        {
+            foreach (var enemy in _enemyTauntHeroes)
+            {
+                _enemyNormalHeroes.Clear();
+                _validTargets.Add(enemy);
+            }
+        }
+        
+        /// <summary>
+        /// Add enemy heroes to the validTargets list
+        /// this method is called after stealth and taunt target processing
+        /// </summary>
+
+        private void SetNormalTargets()
+        {
+            foreach (var enemy in _enemyNormalHeroes)
+            {
+                _validTargets.Add(enemy);
+            }
+        }
+        
         private void OnMouseDown()
         {
             _showTargetsGlow();
@@ -50,53 +116,6 @@ namespace Logic
         {
             _showTargetsGlow = NoAction;
             
-        }
-
-        public List<IHero> GetValidTargets()
-        {
-            //Note: Sequence of method calls is important
-            _validTargets.Clear();
-            
-            SetTargetLists();
-            SetStealthTargets();
-            SetTauntTargets();
-            SetNormalTargets();
-            return _validTargets;
-        }
-
-        private void SetTargetLists()
-        {
-            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
-            foreach (var enemy in enemies)
-            {
-                var enemyHero = enemy.GetComponent<IHero>();
-                enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
-            }
-        }
-
-        private void SetStealthTargets()
-        {
-            foreach (var enemy in _enemyStealthHeroes)
-            {
-                //Do stealth effects here.
-            }
-        }
-
-        private void SetTauntTargets()
-        {
-            foreach (var enemy in _enemyTauntHeroes)
-            {
-                _enemyNormalHeroes.Clear();
-                _validTargets.Add(enemy);
-            }
-        }
-
-        private void SetNormalTargets()
-        {
-            foreach (var enemy in _enemyNormalHeroes)
-            {
-                _validTargets.Add(enemy);
-            }
         }
 
         private void ShowBasicAttackTargetsGlow()
