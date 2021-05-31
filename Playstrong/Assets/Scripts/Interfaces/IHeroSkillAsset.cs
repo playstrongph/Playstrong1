@@ -1,4 +1,5 @@
 ﻿using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 
 namespace Interfaces

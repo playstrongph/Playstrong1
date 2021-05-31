@@ -1,8 +1,7 @@
-﻿using Interfaces;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums
+namespace ScriptableObjects.Enums.SkillType
 {
     [CreateAssetMenu(fileName = "Passive Skill", menuName = "SO's/Scriptable Enums/Passive Skill")]
     public class PassiveSkillAsset : ScriptableObject, IPassiveSkillAsset, ISkillType

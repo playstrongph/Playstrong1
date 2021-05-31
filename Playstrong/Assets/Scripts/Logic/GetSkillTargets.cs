@@ -28,6 +28,8 @@ namespace Logic
         {
             _targetSkill = GetComponent<ITargetSkill>();
             _thisHero = _targetSkill.Skill.Hero;
+            
+            //SkillTargetAsset.SetTarget(_getValidTargets, GetAllyTargets, GetEnemyTargets)
         }
         
         public List<IHero> GetValidTargets()
@@ -35,6 +37,7 @@ namespace Logic
             //Note: Sequence of method calls is important
             _validTargets.Clear();
 
+            //this should be set in awake, using the skillTargetAsset
             _getValidTargets();
             
             return _validTargets;
@@ -53,13 +56,13 @@ namespace Logic
         
         private void GetEnemyTargets()
         {
-            SetnemyTargetLists();
+            SetEnemyTargetLists();
             SetEnemyStealthTargets();
             SetEnemyTauntTargets();
             SetEnemyNormalTargets();
         }
         
-        private void SetnemyTargetLists()
+        private void SetEnemyTargetLists()
         {
             var enemies = _thisHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
             foreach (var enemy in enemies)

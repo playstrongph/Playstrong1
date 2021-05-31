@@ -1,7 +1,6 @@
 ﻿using TMPro;
-using UnityEngine;
 
-namespace ScriptableObjects.Enums
+namespace ScriptableObjects.Enums.SkillType
 {
     public interface ISkillType
     {

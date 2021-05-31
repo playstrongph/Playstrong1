@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 using Utilities;
 

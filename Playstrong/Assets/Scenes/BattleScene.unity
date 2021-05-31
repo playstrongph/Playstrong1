@@ -1169,6 +1169,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1a8eef1a1310f47969aff73c5202db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &897417365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1729355933, guid: 55d0158ae4095ed459b6c7d1bccedb52,
+    type: 3}
+  m_PrefabInstance: {fileID: 811507573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68dda5ec778650a4d935be29ee087f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &971031634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1939,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _allyHeroes.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 897417365}
+    - target: {fileID: 7436215585915065846, guid: 56e131b938c74ed419c39d368a67580d,
+        type: 3}
+      propertyPath: _allyHeroes.Array.data[1]
+      value: 
+      objectReference: {fileID: 897417365}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e131b938c74ed419c39d368a67580d, type: 3}
 --- !u!224 &7436215585915065844 stripped
