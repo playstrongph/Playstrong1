@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 using Utilities;
@@ -25,7 +26,10 @@ namespace ScriptableObjects.Others
         [Header("Skill Type")] [SerializeField]
         [RequireInterface(typeof(ISkillType))]
         private ScriptableObject _skillType;
-
+    
+        [Header("Skill Target")] [SerializeField] [RequireInterface(typeof(ISkillTarget))]
+        private ScriptableObject _skillTarget;
+        
         public ISkillType SkillType => _skillType as ISkillType;
 
         [Header("Skill Graphic")] 

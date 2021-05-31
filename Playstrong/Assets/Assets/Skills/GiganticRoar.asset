@@ -16,5 +16,6 @@ MonoBehaviour:
   _description: Inflict DEFENSE BREAK(2), ATTACK DOWN(2), and reduce 75% energy to
     all enemies.  Grant all allies HASTE(2).
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: eb798ad16f2e65d4c93893a2b798107c, type: 3}
   _cooldown: 5
