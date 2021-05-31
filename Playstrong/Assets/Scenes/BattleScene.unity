@@ -1918,6 +1918,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkilPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7436215585915065846, guid: 56e131b938c74ed419c39d368a67580d,
+        type: 3}
+      propertyPath: _allyHeroes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436215585915065846, guid: 56e131b938c74ed419c39d368a67580d,
+        type: 3}
+      propertyPath: _allyHeroes.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e131b938c74ed419c39d368a67580d, type: 3}
 --- !u!224 &7436215585915065844 stripped
