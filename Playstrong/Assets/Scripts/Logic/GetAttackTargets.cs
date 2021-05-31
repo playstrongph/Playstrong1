@@ -12,7 +12,7 @@ namespace Logic
         private ITargetHero _targetHero;
         private IHero _thisHero;
        
-        private List<IHero> _validTargets = new List<IHero>();
+        private List<IHero> _validEnemyTargets = new List<IHero>();
         
         private List<IHero> _enemyNormalHeroes = new List<IHero>();
         private List<IHero> _enemyTauntHeroes = new List<IHero>();
@@ -30,17 +30,17 @@ namespace Logic
             
         }
         
-        public List<IHero> GetValidTargets()
+        public List<IHero> GetValidEnemyTargets()
         {
             //Note: Sequence of method calls is important
-            _validTargets.Clear();
+            _validEnemyTargets.Clear();
             
             SetTargetLists();
             
             SetStealthTargets();
             SetTauntTargets();
             SetNormalTargets();
-            return _validTargets;
+            return _validEnemyTargets;
         }
         
         /// <summary>
@@ -79,7 +79,7 @@ namespace Logic
             foreach (var enemy in _enemyTauntHeroes)
             {
                 _enemyNormalHeroes.Clear();
-                _validTargets.Add(enemy);
+                _validEnemyTargets.Add(enemy);
             }
         }
         
@@ -92,7 +92,7 @@ namespace Logic
         {
             foreach (var enemy in _enemyNormalHeroes)
             {
-                _validTargets.Add(enemy);
+                _validEnemyTargets.Add(enemy);
             }
         }
         
@@ -120,8 +120,8 @@ namespace Logic
 
         private void ShowBasicAttackTargetsGlow()
         {
-            _validTargets = GetValidTargets();
-            foreach (var hero in _validTargets)
+            _validEnemyTargets = GetValidEnemyTargets();
+            foreach (var hero in _validEnemyTargets)
             {
                 hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.EnemyGlowFrame.SetActive(true);
             }
@@ -129,7 +129,7 @@ namespace Logic
         
         private void HideBasicAttackTargetsGlow()
         {
-            foreach (var hero in _validTargets)
+            foreach (var hero in _validEnemyTargets)
             {
                 hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.EnemyGlowFrame.SetActive(false);
             }

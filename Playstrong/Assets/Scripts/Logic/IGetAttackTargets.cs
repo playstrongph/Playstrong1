@@ -5,7 +5,7 @@ namespace Logic
 {
     public interface IGetAttackTargets
     {
-        List<IHero> GetValidTargets();
+        List<IHero> GetValidEnemyTargets();
 
         void EnableGlows();
 
