@@ -124,6 +124,8 @@ namespace Logic
             foreach (var hero in _validEnemyTargets)
             {
                 hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.EnemyGlowFrame.SetActive(true);
+                
+                
             }
         }
         

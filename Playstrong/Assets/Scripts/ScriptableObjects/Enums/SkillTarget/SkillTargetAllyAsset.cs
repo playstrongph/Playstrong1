@@ -1,4 +1,5 @@
 ﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillTarget
@@ -10,6 +11,12 @@ namespace ScriptableObjects.Enums.SkillTarget
         public void SetTargets(Action getValidTargets, Action getAllyTargets, Action getEnemyTargets)
         {
             getValidTargets = getAllyTargets;
+        }
+
+        public GameObject SetTargetGlows(IHero hero)
+        {
+            var glowFrame = hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.AllyGlowFrame;
+            return glowFrame;
         }
 
     }

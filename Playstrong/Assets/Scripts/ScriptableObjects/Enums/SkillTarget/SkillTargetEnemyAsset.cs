@@ -1,4 +1,5 @@
 ﻿using System;
+using Interfaces;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillTarget
@@ -12,7 +13,16 @@ namespace ScriptableObjects.Enums.SkillTarget
         {
             getValidTargets = getEnemyTargets;
         }
-
+        
+        /// <summary>
+        /// Determines if frame is Normal or Taunt frame
+        /// </summary>
+        public GameObject SetTargetGlows(IHero hero)
+        {
+            var glowFrame = hero.HeroVisual.SetHeroFrameAndGlow.HeroFrameAndGlow.EnemyGlowFrame;
+            
+            return glowFrame;
+        }
 
     }
 }

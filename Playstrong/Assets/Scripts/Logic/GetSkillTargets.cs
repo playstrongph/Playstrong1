@@ -26,10 +26,14 @@ namespace Logic
         /// </summary>
         private Action _getValidTargets;
 
+        private Action _showTargetsGlow;
+
         private void Awake()
         {
             _targetSkill = GetComponent<ITargetSkill>();
             _thisHero = _targetSkill.Skill.Hero;
+
+            _showTargetsGlow = NoAction;
         }
         
         public List<IHero> GetValidTargets()
@@ -99,12 +103,63 @@ namespace Logic
             }
         }
         
+        private void OnMouseDown()
+        {
+            _showTargetsGlow();
+        }
+
+        private void OnMouseUp()
+        {
+            HideSkillTargetsGlow();
+        }    
         
+
+        public void EnableGlows()
+        {
+            _showTargetsGlow = ShowSkillTargetsGlow;
+        }
+
+        public void DisableGlows()
+        {
+            _showTargetsGlow = NoAction;
+        }
+
+
+
+
+        private void ShowSkillTargetsGlow()
+        {
+            _validTargets = GetValidTargets();
+            foreach (var hero in _validTargets)
+            {
+              var glowFrameObject = _skillTarget.SetTargetGlows(hero);
+              glowFrameObject.SetActive(true);
+            }
+        }
+        
+        
+        private void HideSkillTargetsGlow()
+        {
+            _validTargets = GetValidTargets();
+            foreach (var hero in _validTargets)
+            {
+                var glowFrameObject = _skillTarget.SetTargetGlows(hero);
+                glowFrameObject.SetActive(false);
+            }
+        }
+        
+        
+
+
+
+
 
         public void NoAction()
         {
             Debug.Log("No Valid Target List was set");
         }
+        
+        
 
 
 
