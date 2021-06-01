@@ -27,14 +27,7 @@ namespace Logic
             set => _cooldown = value;
         }
 
-        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
-        private ScriptableObject _skillStatus;
-
-        public ISkillStatus SkillStatus
-        {
-            get => _skillStatus as ISkillStatus;
-            set => _skillStatus = value as ScriptableObject;
-        }
+       
 
 
         [Header("Set in Script")]
@@ -54,6 +47,15 @@ namespace Logic
         {
             get => _skillTarget as ISkillTarget;
             set => _skillTarget = value as ScriptableObject;
+        }
+        
+        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        private ScriptableObject _skillStatus;
+
+        public ISkillStatus SkillStatus
+        {
+            get => _skillStatus as ISkillStatus;
+            set => _skillStatus = value as ScriptableObject;
         }
 
        

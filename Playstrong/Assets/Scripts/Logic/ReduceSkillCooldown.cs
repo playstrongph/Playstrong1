@@ -68,6 +68,7 @@ namespace Logic
             skillAttributes.Cooldown = skillCd;
             
             //TODO: Set Skill Status Change Here - will not affect Passive Skills.
+            _skillLogic.UpdateSkillStatus.SetStatus(skillCd);
             
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
 

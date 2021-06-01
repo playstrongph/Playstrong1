@@ -26,10 +26,16 @@ namespace Logic
         private ISkill _skill;
         public ISkill Skill => _skill;
 
+        private IUpdateSkillStatus _updateSkillStatus;
+        public IUpdateSkillStatus UpdateSkillStatus => _updateSkillStatus;
+
         private void Awake()
         {
-            _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
             _skill = GetComponentInParent<ISkill>();
+            
+            _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
+            _updateSkillStatus = GetComponent<IUpdateSkillStatus>();
+            _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
 
         }
     }
