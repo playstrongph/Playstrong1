@@ -43,14 +43,12 @@ namespace Logic
 
         private void SetSkillReady()
         {
-            var skillStatus = _skillLogic.SkillAttributes.SkillStatus;
-            skillStatus = SkillReady;
+            _skillLogic.SkillAttributes.SkillStatus = SkillReady;
         }
 
         private void SetSkillNotReady()
         {
-            var skillStatus = _skillLogic.SkillAttributes.SkillStatus;
-            skillStatus = SkillNotReady;
+            _skillLogic.SkillAttributes.SkillStatus = SkillNotReady;
         }
 
     }
