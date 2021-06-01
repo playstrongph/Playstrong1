@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Interfaces;
+using Logic;
 using References;
 using UnityEngine;
 using Utilities;
@@ -10,11 +11,7 @@ namespace Visual
 {
    public class TargetSkillPreview : MonoBehaviour, ITargetPreview
    {
-      [SerializeField]
-      [RequireInterface(typeof(ISkill))]
-      private Object _skill;
-      public ISkill Skill => _skill as ISkill;
-      
+     
       [SerializeField] [RequireInterface(typeof(ITargetVisual))]
       private Object _targetVisual;
       public ITargetVisual TargetVisual => _targetVisual as ITargetVisual;
@@ -23,11 +20,14 @@ namespace Visual
       private ISkillPreviewVisual _skillPreviewVisual;
       private Coroutine _showPreview;
       private float _displayDelay;
-     
+
+      private ITargetSkill _targetSkill;
 
       private void Awake()
       {
-         _skillPreviewVisual = Skill.SkillPreviewVisual;
+         _targetSkill = GetComponent<ITargetSkill>();
+         
+         _skillPreviewVisual = _targetSkill.Skill.SkillPreviewVisual;
          _displayDelay = 0.5f;
          
          //prevents null reference error for _showPreview

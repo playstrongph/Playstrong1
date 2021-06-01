@@ -17,11 +17,11 @@ namespace Logic
         private ITargetPreview _skillPreview;
         public ITargetPreview SkillPreview => _skillPreview;
         
-        //ToDO:  IDragSkillTargetRefereence
+       
         private IDragSkillTarget _dragSkillTarget;
         public IDragSkillTarget DragSkillTarget => _dragSkillTarget;
 
-        //ToDo GetSkillTargetsReference
+       
         private IGetSkillTargets _getSkillTargets;
         public IGetSkillTargets GetSkillTargets => _getSkillTargets;
 

@@ -43,10 +43,6 @@ namespace Logic
             
             _skillTarget = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillTarget;
             _skillTarget.SetTargets(_getValidTargets, GetAllyTargets, GetEnemyTargets);
-            
-            //Temp
-            _getValidTargets = GetAllyTargets;
-            //Temp End
 
             _getValidTargets();
             
@@ -113,20 +109,12 @@ namespace Logic
         
         private void OnMouseDown()
         {
-            //Temp
-            EnableGlows();
-            //Temp End
-            
-            _showTargetsGlow();
+            //_showTargetsGlow();
         }
 
         private void OnMouseUp()
         {
-            //Temp
-            DisableGlows();
-            //Temp End
-            
-            HideSkillTargetsGlow();
+            //HideSkillTargetsGlow();
         }    
         
 
@@ -139,9 +127,6 @@ namespace Logic
         {
             _showTargetsGlow = NoAction;
         }
-
-
-
 
         private void ShowSkillTargetsGlow()
         {
