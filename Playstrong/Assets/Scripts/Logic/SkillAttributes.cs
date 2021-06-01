@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
@@ -9,6 +10,15 @@ namespace Logic
 {
     public class SkillAttributes : MonoBehaviour, ISkillAttributes
     {
+        
+        [SerializeField] private int _baseCooldown;
+
+        public int BaseCooldown
+        {
+            get => _baseCooldown;
+            set => _baseCooldown = value;
+        }
+        
         [SerializeField] private int _cooldown;
 
         public int Cooldown
@@ -17,13 +27,15 @@ namespace Logic
             set => _cooldown = value;
         }
 
-        [SerializeField] private int _baseCooldown;
+        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        private ScriptableObject _skillStatus;
 
-        public int BaseCooldown
+        public ISkillStatus SkillStatus
         {
-            get => _baseCooldown;
-            set => _baseCooldown = value;
+            get => _skillStatus as ISkillStatus;
+            set => _skillStatus = value as ScriptableObject;
         }
+
 
         [Header("Set in Script")]
         [SerializeField] [RequireInterface(typeof(ISkillType))]
@@ -44,6 +56,7 @@ namespace Logic
             set => _skillTarget = value as ScriptableObject;
         }
 
+       
 
 
     }

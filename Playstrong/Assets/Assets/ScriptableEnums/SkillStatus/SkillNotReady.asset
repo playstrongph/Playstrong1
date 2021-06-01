@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdcf62b4eefd35141928967f6a928f5b, type: 3}
-  m_Name: SkillStatusReady
+  m_Script: {fileID: 11500000, guid: 044f67dbeba4d994582858f20921b467, type: 3}
+  m_Name: SkillNotReady
   m_EditorClassIdentifier: 
