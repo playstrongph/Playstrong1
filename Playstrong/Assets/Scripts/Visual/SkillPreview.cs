@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace Visual
 {
-   public class TargetSkillPreview : MonoBehaviour, ITargetPreview
+   public class SkillPreview : MonoBehaviour, ITargetPreview
    {
      
       [SerializeField] [RequireInterface(typeof(ITargetVisual))]
