@@ -33,7 +33,7 @@ namespace ScriptableObjects.HeroStatus
 
         private IEnumerator SetActive()
         {
-           _heroLogic.HeroTimer.ResetHeroTimer();
+            _heroLogic.HeroTimer.ResetHeroTimer();
             
             _logicTree.AddCurrent(EnableTargetHeroPreview());
             _logicTree.AddCurrent(EnableDragHeroAttack());

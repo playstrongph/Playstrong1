@@ -1,4 +1,5 @@
 ﻿using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
@@ -18,6 +19,8 @@ namespace Interfaces
         ISkillType SkillType { get; }
 
         ISkillTarget SkillTarget { get; }
+
+        ISkillStatus SkillStatus { get; }
 
     }
 }

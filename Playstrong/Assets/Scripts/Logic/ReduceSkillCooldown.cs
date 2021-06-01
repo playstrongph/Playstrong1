@@ -9,6 +9,11 @@ namespace Logic
 {
     public class ReduceSkillCooldown : MonoBehaviour, IReduceSkillCooldown
     {
+        
+        
+        
+        
+        
         private ISkillLogic _skillLogic;
 
         private delegate void SkillCdAction(int counter);
@@ -61,6 +66,8 @@ namespace Logic
             skillCd = Mathf.Clamp(skillCd, 0, maxSkillCd * 10);
 
             skillAttributes.Cooldown = skillCd;
+            
+            //TODO: Set Skill Status Change Here - will not affect Passive Skills.
             
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
 

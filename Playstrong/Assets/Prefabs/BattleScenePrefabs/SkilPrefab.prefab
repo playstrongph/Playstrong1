@@ -216,11 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c624c343d407b46a90df80007c0b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooldown: 0
   _baseCooldown: 0
+  _cooldown: 0
+  _skillStatus: {fileID: 0}
   _skillType: {fileID: 0}
   _skillTarget: {fileID: 0}
-  _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
 --- !u!114 &7086960578826695801
 MonoBehaviour:
   m_ObjectHideFlags: 0

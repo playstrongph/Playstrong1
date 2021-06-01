@@ -1,10 +1,12 @@
 ﻿using System;
 using Interfaces;
 using ScriptableObjects.Enums;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace ScriptableObjects.Others
 {
@@ -44,9 +46,15 @@ namespace ScriptableObjects.Others
         private int _cooldown;
 
         public int Cooldown => _cooldown;
+
+        [Header("Default Settings")] [SerializeField]
+        [RequireInterface(typeof(ISkillStatus))]
+        private Object _skillStatus;
+        public ISkillStatus SkillStatus => _skillStatus as ISkillStatus;
         
-        
-        
+
+
+
 
 
 
