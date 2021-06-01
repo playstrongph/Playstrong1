@@ -25,6 +25,7 @@ namespace Visual
             
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
+            skillAttributes.SkillStatus = skillAsset.SkillStatus;
 
 
         }
