@@ -11,7 +11,7 @@ namespace Logic
     {
         private ITargetSkill _targetSkill;
 
-        private IHero _thisHero;
+      
         private ISkillTarget _skillTarget;
         
         private List<IHero> _validTargets = new List<IHero>();
@@ -31,7 +31,7 @@ namespace Logic
         private void Awake()
         {
             _targetSkill = GetComponent<ITargetSkill>();
-            _thisHero = _targetSkill.Skill.Hero;
+          
 
             _showTargetsGlow = NoAction;
         }
@@ -43,6 +43,10 @@ namespace Logic
             
             _skillTarget = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillTarget;
             _skillTarget.SetTargets(_getValidTargets, GetAllyTargets, GetEnemyTargets);
+            
+            //Temp
+            _getValidTargets = GetAllyTargets;
+            //Temp End
 
             _getValidTargets();
             
@@ -52,7 +56,8 @@ namespace Logic
 
         private void GetAllyTargets()
         {
-            var allies = _thisHero.LivingHeroes.HeroesList;
+            var thisHero =  _targetSkill.Skill.Hero;
+            var allies = thisHero.LivingHeroes.HeroesList;
             foreach (var ally in allies)
             {
                 var allyHero = ally.GetComponent<IHero>();
@@ -66,11 +71,14 @@ namespace Logic
             SetEnemyStealthTargets();
             SetEnemyTauntTargets();
             SetEnemyNormalTargets();
+            
+           
         }
         
         private void SetEnemyTargetLists()
         {
-            var enemies = _thisHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
+            var thisHero =  _targetSkill.Skill.Hero;
+            var enemies = thisHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
             foreach (var enemy in enemies)
             {
                 var enemyHero = enemy.GetComponent<IHero>();
@@ -105,11 +113,19 @@ namespace Logic
         
         private void OnMouseDown()
         {
+            //Temp
+            EnableGlows();
+            //Temp End
+            
             _showTargetsGlow();
         }
 
         private void OnMouseUp()
         {
+            //Temp
+            DisableGlows();
+            //Temp End
+            
             HideSkillTargetsGlow();
         }    
         
@@ -140,19 +156,12 @@ namespace Logic
         
         private void HideSkillTargetsGlow()
         {
-            _validTargets = GetValidTargets();
             foreach (var hero in _validTargets)
             {
                 var glowFrameObject = _skillTarget.SetTargetGlows(hero);
                 glowFrameObject.SetActive(false);
             }
         }
-        
-        
-
-
-
-
 
         public void NoAction()
         {

@@ -12,6 +12,7 @@ namespace ScriptableObjects.Enums.SkillTarget
         public void SetTargets(Action getValidTargets, Action getAllyTargets, Action getEnemyTargets)
         {
             getValidTargets = getEnemyTargets;
+            
         }
         
         /// <summary>
@@ -26,3 +27,4 @@ namespace ScriptableObjects.Enums.SkillTarget
 
     }
 }
+

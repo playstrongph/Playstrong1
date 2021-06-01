@@ -6,5 +6,9 @@ namespace Logic
     public interface IGetSkillTargets
     {
         List<IHero> GetValidTargets();
+
+        void EnableGlows();
+
+        void DisableGlows();
     }
 }
