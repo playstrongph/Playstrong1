@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Interfaces;
 using UnityEngine;
 using Visual;
@@ -15,6 +16,7 @@ namespace Logic
         private ITargetHero _targetHero;
 
         private Action _skillTargetHero;
+        private Action _useHeroSkill;
 
         private List<IHero> _validTargets = new List<IHero>();
 
@@ -31,9 +33,61 @@ namespace Logic
             _skillTargetHero = NoAction;
         }
 
-        private void Start()
+        private void OnMouseUp()
         {
+            _skillTargetHero();
+        }
+
+        private void OnMouseDown()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
+            _useHeroSkill = NoAction;
+            logicTree.AddCurrent(GetValidTargets());
+            logicTree.EndSequence();
+            
+        }
+
+        public void EnableDragSkillTarget()
+        {
+            _skillTargetHero = SkillTargetHero;
+        }
+
+        public void DisableDragSkillTarget()
+        {
+            _skillTargetHero = NoAction;
+        }
+
+        private void SkillTargetHero()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(SetSkillTarget());
+            logicTree.AddCurrent(UseHeroSkillOnTarget());
+        }
+
+        private IEnumerator UseHeroSkillOnTarget()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            _useHeroSkill();
+
+            yield return null;
+            logicTree.EndSequence();
+
+        }
+
+
+        private IEnumerator SetSkillTarget()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            SetTarget();
+
+            yield return null;
+            logicTree.EndSequence();
+
+
         }
 
         private IEnumerator GetValidTargets()
@@ -60,13 +114,28 @@ namespace Logic
                     if (_validTargets.Contains(targetHero.Hero))
                     {
                         _targetHero = targetHero;
-                        
-                        //_basicAttackTarget = BasicAttackTarget;
+                        _useHeroSkill = UseHeroSkill;
+
                     }
                 }
             }
             
         }
+
+        private void UseHeroSkill()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //Temp
+            Debug.Log("Use Hero Skill");
+            //Temp End
+            
+            //UseSkill on SkillBehavior
+            //Hero End Turn
+            
+            
+        }
+
 
 
         public void NoAction() { }

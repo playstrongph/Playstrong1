@@ -69,6 +69,7 @@ namespace Visual
         private void AttackTargetHero()
         {
             _logicTree.AddCurrent(SetAttackTarget());
+            
             _logicTree.AddCurrent(AttackTarget());
         }
 
