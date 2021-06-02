@@ -32,6 +32,7 @@ namespace Visual
         {
             _thisTargetHero = GetComponent<ITargetHero>();
             _getAttackTargets = GetComponent<IGetAttackTargets>();
+            
             _logicTree = _thisTargetHero.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _thisTargetHero.Hero.CoroutineTreesAsset.MainVisualTree;
 
