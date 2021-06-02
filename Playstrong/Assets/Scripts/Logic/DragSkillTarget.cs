@@ -63,10 +63,10 @@ namespace Logic
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(SetSkillTarget());
-            logicTree.AddCurrent(UseHeroSkillOnTarget());
+            logicTree.AddCurrent(UseSkillOnTarget());
         }
 
-        private IEnumerator UseHeroSkillOnTarget()
+        private IEnumerator UseSkillOnTarget()
         {
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
@@ -124,21 +124,17 @@ namespace Logic
 
         private void UseHeroSkill()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-            
             //Temp
             Debug.Log("Use Hero Skill");
             //Temp End
             
             //UseSkill on SkillBehavior
             //Hero End Turn
-            
-            
         }
 
 
 
-        public void NoAction() { }
+        private void NoAction() { }
 
     }
 }
