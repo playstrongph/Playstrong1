@@ -158,9 +158,9 @@ namespace Logic
             }
         }
 
-        public void NoAction()
+        private void NoAction()
         {
-            Debug.Log("No Valid Target List was set");
+           
         }
         
         
