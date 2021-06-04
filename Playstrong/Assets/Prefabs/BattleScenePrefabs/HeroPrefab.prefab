@@ -737,7 +737,7 @@ RectTransform:
   m_Children:
   - {fileID: 3820792405781981877}
   m_Father: {fileID: 3820792406563672980}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.257, y: 0.26814586}
   m_AnchorMax: {x: 0.7534431, y: 0.75651157}
@@ -1066,7 +1066,7 @@ RectTransform:
   m_Children:
   - {fileID: 3820792407146313345}
   m_Father: {fileID: 3820792407077922092}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.243375, y: 0.2353464}
   m_AnchorMax: {x: 0.79142404, y: 0.75651157}
@@ -1358,7 +1358,7 @@ RectTransform:
   m_Children:
   - {fileID: 3820792406967554689}
   m_Father: {fileID: 3820792406563672980}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.257, y: 0.26814586}
   m_AnchorMax: {x: 0.7534431, y: 0.75651157}
@@ -1974,7 +1974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707c7eb13b91cfa4a8deed4e2e217b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hero: {fileID: 1729355933}
   _skills: {fileID: 0}
 --- !u!1 &3820792405873304727
 GameObject:
@@ -3519,8 +3518,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3820792407378883452}
-  - {fileID: 3820792405711906664}
   - {fileID: 3820792405499059803}
+  - {fileID: 3820792405711906664}
   - {fileID: 3820792405960495747}
   m_Father: {fileID: 3820792407044158217}
   m_RootOrder: 1
@@ -3585,7 +3584,7 @@ RectTransform:
   m_Children:
   - {fileID: 3820792406448657620}
   m_Father: {fileID: 3820792407077922092}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.243375, y: 0.2353464}
   m_AnchorMax: {x: 0.79142404, y: 0.75651157}
@@ -4964,9 +4963,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3820792405570257720}
-  - {fileID: 3820792406938755578}
   - {fileID: 3820792406678508460}
+  - {fileID: 3820792406938755578}
+  - {fileID: 3820792405570257720}
   - {fileID: 3820792406684101794}
   m_Father: {fileID: 3820792407044158217}
   m_RootOrder: 0

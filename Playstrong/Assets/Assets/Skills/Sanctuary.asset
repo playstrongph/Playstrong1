@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Sanctary
   _description: Remove all debuffs on all allies then give them +30% energy and IMMUNITY(3).
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
-  _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
+  _skillTarget: {fileID: 11400000, guid: 730a38a54e642db4d85d106022d00008, type: 2}
   _skillIcon: {fileID: 21300000, guid: ced02478d9c13374686ba8519a247291, type: 3}
   _cooldown: 4
   _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}

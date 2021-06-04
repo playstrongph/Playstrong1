@@ -40,6 +40,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         
         private IEnumerator DisableDragSkillTarget()
         {   
+            _skillLogic.Skill.TargetSkill.GetSkillTargets.DisableGlows();
             _skillLogic.Skill.TargetSkill.DragSkillTarget.DisableDragSkillTarget();
             
             _logicTree.EndSequence();
