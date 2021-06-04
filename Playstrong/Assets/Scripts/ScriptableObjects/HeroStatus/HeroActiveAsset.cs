@@ -40,6 +40,7 @@ namespace ScriptableObjects.HeroStatus
             
             
             _visualTree.AddCurrent(VisualEnableActionHeroGlow());
+            
             _visualTree.AddCurrent(VisualEnableHeroPortrait());
             _visualTree.AddCurrent(VisualEnableHeroSkills());
             

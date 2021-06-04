@@ -38,6 +38,7 @@ namespace ScriptableObjects.HeroStatus
             _logicTree.AddCurrent(DisableDragHeroAttack());
             
             _visualTree.AddCurrent(VisualDisableActionHeroGlow());
+            
             _visualTree.AddCurrent(VisualDisableHeroPortrait());
             _visualTree.AddCurrent(VisualDisableHeroSkills());
             

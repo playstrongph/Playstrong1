@@ -28,13 +28,11 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         private IEnumerator SetSkillReady()
         {
-            //EnableDragSkillTarget
+           
             _logicTree.AddCurrent(EnableDragSkillTarget());
-            
-            //EnablTargetVisuals
             _logicTree.AddCurrent(EnableTargetVisual());
             
-            //TODO: Target Glows
+            _visualTree.AddCurrent(VisualEnableSkillGlow());
 
             _logicTree.EndSequence();
             yield return null;
@@ -54,6 +52,15 @@ namespace ScriptableObjects.Enums.SkillStatus
             _skillLogic.Skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
             
             _logicTree.EndSequence();
+            yield return null;
+        }
+
+        private IEnumerator VisualEnableSkillGlow()
+        {
+            var actionGlowFrame = _skillLogic.Skill.SkillVisual.SkillGlow;
+            actionGlowFrame.SetActive(true);
+            
+            _visualTree.EndSequence();
             yield return null;
         }
 

@@ -55,6 +55,7 @@ namespace Logic
             //TODO: Improve this
             _skillTarget.SetTargetIndex(this);
 
+            //Enemy or Ally Targets
             _getValidTargets[TargetIndex]();
             
             return _validTargets;
@@ -118,12 +119,12 @@ namespace Logic
         
         private void OnMouseDown()
         {
-            //_showTargetsGlow();
+            _showTargetsGlow();
         }
 
         private void OnMouseUp()
         {
-            //HideSkillTargetsGlow();
+            HideSkillTargetsGlow();
         }    
         
 

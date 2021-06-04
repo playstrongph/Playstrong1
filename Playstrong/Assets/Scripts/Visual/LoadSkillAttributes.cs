@@ -27,8 +27,7 @@ namespace Visual
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillStatus = skillAsset.SkillStatus;
             
-            //temp
-            //_skillLogic.UpdateSkillStatus.SetStatus();
+            
 
         }
         
