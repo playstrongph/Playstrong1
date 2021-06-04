@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using Logic;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillTarget
@@ -7,10 +8,12 @@ namespace ScriptableObjects.Enums.SkillTarget
     [CreateAssetMenu(fileName = "SkillTargetAlly", menuName = "SO's/Scriptable Enums/Skill Target/Skill Target Ally")]
     public class SkillTargetAllyAsset : ScriptableObject, ISkillTarget
     {
+        private int _allyIndex = 1;
         
-        public void SetTargets(Action getValidTargets, Action getAllyTargets, Action getEnemyTargets)
+        public void SetTargetIndex(IGetSkillTargets getSkillTargets)
         {
-            getValidTargets = getAllyTargets;
+            getSkillTargets.TargetIndex = _allyIndex;
+
         }
 
         public GameObject SetTargetGlows(IHero hero)

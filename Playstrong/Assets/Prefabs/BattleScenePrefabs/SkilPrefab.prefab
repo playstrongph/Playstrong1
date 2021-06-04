@@ -219,9 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _baseCooldown: 0
   _cooldown: 0
-  _skillStatus: {fileID: 0}
   _skillType: {fileID: 0}
   _skillTarget: {fileID: 0}
+  _skillStatus: {fileID: 0}
 --- !u!114 &7086960578826695801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,7 +2172,7 @@ MonoBehaviour:
   _skillLogic: {fileID: 956212357985600032}
   _skillVisual: {fileID: 1352393578959371933}
   _skillPreviewVisual: {fileID: 1352393577901692879}
-  _targetSkillPreview: {fileID: 5050559291917950268}
+  _targetSkill: {fileID: 7555754800540292890}
   _hero: {fileID: 0}
   _coroutineTreesAsset: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3,
     type: 2}

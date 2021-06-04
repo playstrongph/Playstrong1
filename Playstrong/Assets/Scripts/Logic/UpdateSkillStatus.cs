@@ -38,12 +38,19 @@ namespace Logic
         {
             var index = Mathf.Clamp(cooldown, 0, 1);
             _setStatus[index]();
+            
+            SkillStatusAction();
+        }
 
+        private void SkillStatusAction()
+        {
+            _skillLogic.SkillAttributes.SkillStatus.StatusAction(_skillLogic);
         }
 
         private void SetSkillReady()
         {
             _skillLogic.SkillAttributes.SkillStatus = SkillReady;
+          
         }
 
         private void SetSkillNotReady()

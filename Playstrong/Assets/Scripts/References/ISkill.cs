@@ -14,7 +14,7 @@ namespace References
         ISkillVisual SkillVisual { get; }
         ISkillPreviewVisual SkillPreviewVisual { get; }
 
-        ITargetPreview TargetSkillPreview { get; }
+        ITargetSkill TargetSkill { get; }
 
         IHero Hero { get; set; }
 

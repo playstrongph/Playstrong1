@@ -24,14 +24,23 @@ namespace Logic
         /// This is set by the skillTarget Asset
         /// Can either be EnemyTargets or AllyTargets
         /// </summary>
-        private Action _getValidTargets;
-
+        private List<Action> _getValidTargets = new List<Action>();
         private Action _showTargetsGlow;
+
+        private int _targetIndex = 0;
+
+        public int TargetIndex
+        {
+            get => _targetIndex;
+            set => _targetIndex = value;
+        }
 
         private void Awake()
         {
             _targetSkill = GetComponent<ITargetSkill>();
-          
+            
+            _getValidTargets.Add(GetEnemyTargets);
+            _getValidTargets.Add(GetAllyTargets);
 
             _showTargetsGlow = NoAction;
         }
@@ -42,9 +51,11 @@ namespace Logic
             _validTargets.Clear();
             
             _skillTarget = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillTarget;
-            _skillTarget.SetTargets(_getValidTargets, GetAllyTargets, GetEnemyTargets);
+            
+            //Set TargetIndex
+            _skillTarget.SetTargetIndex(this);
 
-            _getValidTargets();
+            _getValidTargets[TargetIndex]();
             
             return _validTargets;
         }
@@ -67,8 +78,6 @@ namespace Logic
             SetEnemyStealthTargets();
             SetEnemyTauntTargets();
             SetEnemyNormalTargets();
-            
-           
         }
         
         private void SetEnemyTargetLists()

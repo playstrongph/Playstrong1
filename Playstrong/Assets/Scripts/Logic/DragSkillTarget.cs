@@ -128,6 +128,10 @@ namespace Logic
             Debug.Log("Use Hero Skill");
             //Temp End
             
+            //TODO: Set SKill Status to notReady
+            //TODO: Reset Cooldown
+            
+            
             //UseSkill on SkillBehavior
             //Hero End Turn
         }

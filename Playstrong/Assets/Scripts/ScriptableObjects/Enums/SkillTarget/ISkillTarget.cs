@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using Logic;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillTarget
@@ -7,7 +8,7 @@ namespace ScriptableObjects.Enums.SkillTarget
    
     public interface ISkillTarget
     {
-        void SetTargets(Action getValidTargets, Action getAllyTargets, Action getEnemyTargets);
+        void SetTargetIndex(IGetSkillTargets _getSkillTargets);
 
         GameObject SetTargetGlows(IHero hero);
 

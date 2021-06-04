@@ -10,5 +10,9 @@ namespace Logic
         void EnableGlows();
 
         void DisableGlows();
+
+        int TargetIndex { get; set; }
+
+
     }
 }

@@ -24,7 +24,7 @@ namespace Logic
                 {
                     var skill = skillObject.GetComponent<ISkill>();
 
-                    var targetCanvas = skill.TargetSkillPreview.TargetVisual.TargetCanvas;
+                    var targetCanvas = skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas;
 
                     targetCanvas.gameObject.SetActive(false);
 
