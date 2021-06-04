@@ -52,7 +52,7 @@ namespace Logic
             
             _skillTarget = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillTarget;
             
-            //Set TargetIndex
+            //TODO: Improve this
             _skillTarget.SetTargetIndex(this);
 
             _getValidTargets[TargetIndex]();

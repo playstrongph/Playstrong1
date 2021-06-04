@@ -53,10 +53,6 @@ namespace Logic
 
         private void ReduceCdAction(int counter)
         {
-           
-           var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-          
-            
             var skillAttributes = _skillLogic.SkillAttributes;     
             var skillCd = skillAttributes.Cooldown;
             var maxSkillCd = skillAttributes.BaseCooldown;
@@ -64,18 +60,13 @@ namespace Logic
             skillCd -= counter;
             //Note: Multiplier of 10(exaggerated) used to allow CD to go beyond max Skill CD.
             skillCd = Mathf.Clamp(skillCd, 0, maxSkillCd * 10);
-
             skillAttributes.Cooldown = skillCd;
-            
-            //TODO: Set Skill Status Change Here - will not affect Passive Skills.
             _skillLogic.UpdateSkillStatus.SetStatus(skillCd);
-            
-            visualTree.AddCurrent(VisualReduceCdAction(skillCd));
 
+            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            visualTree.AddCurrent(VisualReduceCdAction(skillCd));
         }
 
-       
-        
         private IEnumerator VisualReduceCdAction(int skillCd)
         {
              var skillVisual = _skillLogic.Skill.SkillVisual;
@@ -84,7 +75,7 @@ namespace Logic
              skillVisual.SkillCooldownVisual.UpdateCooldown(skillCd);
              
              visualTree.EndSequence();
-            yield return null;
+             yield return null;
             
         }
 
