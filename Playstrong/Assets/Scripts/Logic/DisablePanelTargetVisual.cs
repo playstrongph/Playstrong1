@@ -1,12 +1,19 @@
 ﻿using System;
 using References;
+using ScriptableObjects.Enums.SkillTarget;
 using UnityEngine;
+using Utilities;
+using Object = System.Object;
 
 namespace Logic
 {
     public class DisablePanelTargetVisual : MonoBehaviour, IDisablePanelTargetVisual
     {
         private IPanelSkills _panelSkills;
+
+        [SerializeField] [RequireInterface(typeof(ISkillTarget))]
+        private ScriptableObject _skillTargetNone;
+        public ISkillTarget SkillTargetNone => _skillTargetNone as ISkillTarget;
 
         private void Awake()
         {
@@ -27,6 +34,8 @@ namespace Logic
                     var targetCanvas = skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas;
 
                     targetCanvas.gameObject.SetActive(false);
+
+                    skill.SkillLogic.SkillAttributes.SkillTarget = SkillTargetNone;
 
                 }
                 

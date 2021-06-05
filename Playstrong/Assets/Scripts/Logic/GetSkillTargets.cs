@@ -41,6 +41,7 @@ namespace Logic
             
             _getValidTargets.Add(GetEnemyTargets);
             _getValidTargets.Add(GetAllyTargets);
+            _getValidTargets.Add(NoAction);
 
             _showTargetsGlow = NoAction;
         }
