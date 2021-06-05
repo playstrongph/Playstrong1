@@ -123,6 +123,7 @@ namespace Logic
         private void UseHeroSkill()
         {
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            var turnController = _targetSkill.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             
             //Temp
             Debug.Log("Use Hero Skill");
@@ -130,11 +131,12 @@ namespace Logic
             
             //TODO: Execute Skill Effect (IEnum)
             
-            //TODO: Reset Cooldown (IEnum)
-                //TODO: Set SKill Status to notReady
-               logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
+            
+            logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
 
-                //TODO: End Hero Turn (IEnum)
+            //this is already a IEnumerator
+            turnController.EndTurn();
+
         }
 
 
