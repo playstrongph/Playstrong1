@@ -23,6 +23,9 @@ namespace Logic
         private IReduceSkillCooldown _reduceSkillCooldown;
         public IReduceSkillCooldown ReduceSkillCooldown => _reduceSkillCooldown;
 
+        private IResetSkillCooldown _resetSkillCooldown;
+        public IResetSkillCooldown ResetSkillCooldown => _resetSkillCooldown;
+
         private ISkill _skill;
         public ISkill Skill => _skill;
 
@@ -34,8 +37,10 @@ namespace Logic
             _skill = GetComponentInParent<ISkill>();
             
             _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
+            _resetSkillCooldown = GetComponent<IResetSkillCooldown>();
             _updateSkillStatus = GetComponent<IUpdateSkillStatus>();
-            _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
+            
+            
 
         }
     }

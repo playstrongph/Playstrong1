@@ -13,6 +13,8 @@ namespace Interfaces
         ISkill Skill { get; }
 
         IReduceSkillCooldown ReduceSkillCooldown { get; }
+        
+        IResetSkillCooldown ResetSkillCooldown { get; }
 
         IUpdateSkillStatus UpdateSkillStatus { get; }
     }
