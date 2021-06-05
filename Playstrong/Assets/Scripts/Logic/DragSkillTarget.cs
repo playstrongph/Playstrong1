@@ -20,16 +20,13 @@ namespace Logic
 
         private List<IHero> _validTargets = new List<IHero>();
 
-        
 
-        private IGetSkillTargets _getSkillTargets;
         private IEndHeroTurn _endHeroTurn;
 
         private void Awake()
         {
             _targetSkill = GetComponent<ITargetSkill>();
-            _getSkillTargets = GetComponent<IGetSkillTargets>();
-
+            
             _skillTargetHero = NoAction;
         }
 
@@ -43,9 +40,8 @@ namespace Logic
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
             _useHeroSkill = NoAction;
-            logicTree.AddCurrent(GetValidTargets());
-            logicTree.EndSequence();
             
+            logicTree.AddCurrent(GetValidTargets());
         }
 
         public void EnableDragSkillTarget()
@@ -65,19 +61,7 @@ namespace Logic
             logicTree.AddCurrent(SetSkillTarget());
             logicTree.AddCurrent(UseSkillOnTarget());
         }
-
-        private IEnumerator UseSkillOnTarget()
-        {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            _useHeroSkill();
-
-            yield return null;
-            logicTree.EndSequence();
-
-        }
-
-
+        
         private IEnumerator SetSkillTarget()
         {
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
@@ -87,17 +71,6 @@ namespace Logic
             yield return null;
             logicTree.EndSequence();
 
-
-        }
-
-        private IEnumerator GetValidTargets()
-        {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-
-            _validTargets = _getSkillTargets.GetValidTargets();
-            
-            yield return null;
-            logicTree.EndSequence();
         }
 
         private void SetTarget()
@@ -121,6 +94,31 @@ namespace Logic
             }
             
         }
+
+        private IEnumerator UseSkillOnTarget()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            _useHeroSkill();
+
+            yield return null;
+            logicTree.EndSequence();
+
+        }
+
+
+        private IEnumerator GetValidTargets()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            var getSkillTargets = _targetSkill.GetSkillTargets;
+
+            _validTargets = getSkillTargets.GetValidTargets();
+            
+            yield return null;
+            logicTree.EndSequence();
+        }
+        
+        
 
         private void UseHeroSkill()
         {
