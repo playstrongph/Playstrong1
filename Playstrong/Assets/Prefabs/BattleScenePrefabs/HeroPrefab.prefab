@@ -1000,7 +1000,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3820792405558328802}
-  - component: {fileID: 3820792405558328801}
+  - component: {fileID: 1758965376379109000}
+  - component: {fileID: 3948171247458862321}
+  - component: {fileID: 6281211539542690288}
+  - component: {fileID: 1145517578527464591}
   m_Layer: 0
   m_Name: HeroStatusEffects
   m_TagString: Untagged
@@ -1023,7 +1026,21 @@ Transform:
   m_Father: {fileID: 3820792407251447775}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3820792405558328801
+--- !u!114 &1758965376379109000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792405558328800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d1fc2d22c44704c9a9e177db84f706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusEffectsCanvas: {fileID: 3820792406012467164}
+  _statusEffectsPanel: {fileID: 3358907047805682121}
+--- !u!114 &3948171247458862321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1033,6 +1050,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 772ce66002c8fcb4897b0b79a9c045ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6281211539542690288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792405558328800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66b9def1df12fb41a357c06fe8356b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1145517578527464591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792405558328800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f83f0216b47a64c9a1d9afb954f98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3820792405570257719
@@ -1465,7 +1506,7 @@ MonoBehaviour:
   _heroLogic: {fileID: 3820792406562021601}
   _heroSkills: {fileID: 3820792405833061376}
   _heroVisual: {fileID: 3820792405604680504}
-  _buffsVisual: {fileID: 3820792405558328801}
+  _statusEffectsVisual: {fileID: 0}
   _heroPreviewVisual: {fileID: 3820792406921377146}
   _heroPortrait: {fileID: 3820792407297609701}
   _panelHeroPortrait: {fileID: 1921258135}
@@ -2225,7 +2266,7 @@ GameObject:
   - component: {fileID: 3820792406012467163}
   - component: {fileID: 3820792406012467162}
   m_Layer: 8
-  m_Name: BuffCanvas
+  m_Name: StatusEffectsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2947,8 +2988,9 @@ GameObject:
   - component: {fileID: 3820792406364620843}
   - component: {fileID: 3820792406364620842}
   - component: {fileID: 3820792406364620841}
+  - component: {fileID: 3358907047805682121}
   m_Layer: 8
-  m_Name: Panel
+  m_Name: StatusEffectsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3034,6 +3076,18 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 6
+--- !u!114 &3358907047805682121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406364620839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7a0cfa19e83044ab280283ca1e87f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3820792406433660383
 GameObject:
   m_ObjectHideFlags: 0
