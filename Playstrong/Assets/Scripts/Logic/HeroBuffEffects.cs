@@ -1,18 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ScriptableObjects.StatusEffects;
 using UnityEngine;
+using Utilities;
 
-public class HeroBuffEffects : MonoBehaviour
+namespace Logic
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HeroBuffEffects : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        [RequireInterface(typeof(IBuffEffect))]
+        private List<Object> _heroBuffs = new List<Object>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public List<IBuffEffect> HeroBuffs
+        {
+            get
+            {
+                var heroBuffs = new List<IBuffEffect>();
+                foreach (var herobuff in _heroBuffs)
+                {
+                    var buff = herobuff as IBuffEffect;
+                    heroBuffs.Add(buff);
+                }
+
+                return heroBuffs;
+            }
+        }
     }
 }

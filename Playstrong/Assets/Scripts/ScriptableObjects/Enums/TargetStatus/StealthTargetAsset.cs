@@ -3,7 +3,7 @@ using Interfaces;
 using Logic;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums
+namespace ScriptableObjects.Enums.TargetStatus
 {
     [CreateAssetMenu(fileName = "StealthTarget", menuName = "SO's/Scriptable Enums/StealthTarget")]
     public class StealthTargetAsset : ScriptableObject, IStealthTargetAsset, ITargetStatus

@@ -3,7 +3,7 @@ using Interfaces;
 using Logic;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums
+namespace ScriptableObjects.Enums.TargetStatus
 {
     [CreateAssetMenu(fileName = "NormalTarget", menuName = "SO's/Scriptable Enums/NormalTarget")]
     public class NormalTargetAsset : ScriptableObject, INormalTargetAsset, ITargetStatus

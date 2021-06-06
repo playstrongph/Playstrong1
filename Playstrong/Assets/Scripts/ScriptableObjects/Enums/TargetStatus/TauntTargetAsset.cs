@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums
+namespace ScriptableObjects.Enums.TargetStatus
 {
     [CreateAssetMenu(fileName = "TauntTarget", menuName = "SO's/Scriptable Enums/TauntTarget")]
     public class TauntTargetAsset : ScriptableObject, ITauntTargetAsset, ITargetStatus

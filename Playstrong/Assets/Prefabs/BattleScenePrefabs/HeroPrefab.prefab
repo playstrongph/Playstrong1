@@ -1064,6 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66b9def1df12fb41a357c06fe8356b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroBuffs: []
 --- !u!114 &1145517578527464591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f83f0216b47a64c9a1d9afb954f98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroDebuffs: []
 --- !u!1 &3820792405570257719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +2992,7 @@ GameObject:
   - component: {fileID: 3820792406364620841}
   - component: {fileID: 3358907047805682121}
   m_Layer: 8
-  m_Name: StatusEffectsPanel
+  m_Name: StatusEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,18 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ScriptableObjects.StatusEffects;
 using UnityEngine;
+using Utilities;
 
-public class HeroDebuffEffects : MonoBehaviour
+namespace Logic
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HeroDebuffEffects : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        [RequireInterface(typeof(IDebuffEffect))]
+        private List<Object> _heroDebuffs = new List<Object>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public List<IDebuffEffect> HeroDebuffs
+        {
+            get
+            {
+                var heroDebuffs = new List<IDebuffEffect>();
+                foreach (var heroDebuff in _heroDebuffs)
+                {
+                    var debuff = heroDebuff as IDebuffEffect;
+                    heroDebuffs.Add(debuff);
+                }
+
+                return heroDebuffs;
+            }
+        }
     }
 }
