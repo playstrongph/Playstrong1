@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 3820792405558328802}
   - component: {fileID: 3820792405558328801}
   m_Layer: 0
-  m_Name: BuffsVisual
+  m_Name: HeroStatusEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

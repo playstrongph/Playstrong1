@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    public interface IBuffsVisual
+    public interface IStatusEffectsVisual
     {
         
     }

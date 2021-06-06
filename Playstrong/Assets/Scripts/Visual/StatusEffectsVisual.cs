@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Visual
 {
-    public class BuffsVisual : MonoBehaviour, IBuffsVisual
+    public class StatusEffectsVisual : MonoBehaviour, IStatusEffectsVisual
     {
 
         public IHero hero;

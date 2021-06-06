@@ -36,9 +36,9 @@ namespace References
         private Object _heroVisual;
         public IHeroVisual HeroVisual => _heroVisual as IHeroVisual;
         
-        [SerializeField] [RequireInterface(typeof(IBuffsVisual))]
-        private Object _buffsVisual;
-        public IBuffsVisual BuffsVisual => _buffsVisual as BuffsVisual;
+        [SerializeField] [RequireInterface(typeof(IStatusEffectsVisual))]
+        private Object _statusEffectsVisual;
+        public IStatusEffectsVisual StatusEffectsVisual => _statusEffectsVisual as IStatusEffectsVisual;
         
         [SerializeField] [RequireInterface(typeof(IHeroPreviewVisual))]
         private Object _heroPreviewVisual;
