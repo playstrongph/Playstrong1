@@ -3,10 +3,13 @@
 namespace ScriptableObjects.StatusEffects.BuffEffects
 {
     [CreateAssetMenu(fileName = "AttackUp", menuName = "SO's/Status Effects/Buffs/AttackUp")]
-    public class AttackUpAsset : ScriptableObject, IStatusEffect, IBuffEffect
+    public class AttackUpAsset : StatusEffectAsset, IBuffEffect
     {
 
-       
+        public override void ApplyStatusEffect()
+        {
+            
+        }
 
     }
 }

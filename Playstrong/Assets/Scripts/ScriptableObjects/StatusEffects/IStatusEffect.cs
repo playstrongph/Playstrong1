@@ -2,5 +2,8 @@
 {
     public interface IStatusEffect
     {
+
+        void ApplyStatusEffect();
+
     }
 }
