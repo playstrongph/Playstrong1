@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Logic
 {
-    public class HeroBuffEffects : MonoBehaviour
+    public class HeroBuffEffects : MonoBehaviour, IHeroBuffEffects
     {
         [SerializeField]
         [RequireInterface(typeof(IBuffEffect))]

@@ -5,7 +5,7 @@ using Utilities;
 
 namespace Logic
 {
-    public class HeroDebuffEffects : MonoBehaviour
+    public class HeroDebuffEffects : MonoBehaviour, IHeroDebuffEffects
     {
         [SerializeField]
         [RequireInterface(typeof(IDebuffEffect))]
