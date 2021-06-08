@@ -81,6 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1142902836881772225}
   - component: {fileID: 6893344534980244070}
+  - component: {fileID: 8298217454583496310}
   m_Layer: 8
   m_Name: HeroStatusEffectPrefab
   m_TagString: Untagged
@@ -123,8 +124,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statusEffectAsset: {fileID: 0}
+  _counters: 0
   _icon: {fileID: 717269897853247283}
-  _buffCounterVisual: {fileID: 3903055375784495747}
+  _counterVisual: {fileID: 3903055375784495747}
+--- !u!114 &8298217454583496310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142902836881772226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08d910b6ce19b945b447fc0bf6180cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142902837795284684
 GameObject:
   m_ObjectHideFlags: 0

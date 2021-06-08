@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using ScriptableObjects.StatusEffects.StatusEffectType;
+using UnityEngine.UI;
 
 namespace ScriptableObjects.StatusEffects
 {
@@ -12,6 +13,8 @@ namespace ScriptableObjects.StatusEffects
         string Description { get; }
 
         Image Icon { get; }
+
+        IStatusEffectType StatusEffectType { get; }
 
     }
 }
