@@ -36,6 +36,11 @@ namespace References
         private Object _heroVisual;
         public IHeroVisual HeroVisual => _heroVisual as IHeroVisual;
         
+        [SerializeField]
+        private Object _heroStatusEffects;
+        public IHeroStatusEffects HeroStatusEffects => _heroStatusEffects as IHeroStatusEffects;
+        
+        
         [SerializeField] [RequireInterface(typeof(IStatusEffectsVisual))]
         private Object _statusEffectsVisual;
         public IStatusEffectsVisual StatusEffectsVisual => _statusEffectsVisual as IStatusEffectsVisual;
@@ -85,11 +90,14 @@ namespace References
         private IDamageEffect _damageEffect;
         public IDamageEffect DamageEffect => _damageEffect;
 
+        
+
         private void Awake()
         {
             _livingHeroes = GetComponentInParent<ILivingHeroes>() as Object;
             _heroTransfrom = this.transform;
             _damageEffect = GetComponentInChildren<IDamageEffect>();
+           
         }
     }
 }

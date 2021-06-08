@@ -11,6 +11,8 @@ namespace Interfaces
 
         string HeroName { get; set; }
         IHeroVisual HeroVisual { get; }
+
+        IHeroStatusEffects HeroStatusEffects { get; }
         IStatusEffectsVisual StatusEffectsVisual { get; }
         IHeroPreviewVisual HeroPreviewVisual { get; }
 

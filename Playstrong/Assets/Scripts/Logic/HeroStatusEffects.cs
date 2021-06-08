@@ -7,8 +7,15 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class HeroStatusEffects : MonoBehaviour
+    public class HeroStatusEffects : MonoBehaviour, IHeroStatusEffects
     {
+
+        [SerializeField] private GameObject _heroStatusEffectPrefab;
+
+        public GameObject HeroStatusEffectPrefab => _heroStatusEffectPrefab;
+        
+
+
         [SerializeField]
         private Canvas _statusEffectsCanvas;
         public Canvas StatusEffectsCanvas => _statusEffectsCanvas;
@@ -33,6 +40,8 @@ namespace Logic
             _statusEffectsVisual = GetComponent<IStatusEffectsVisual>();
             _heroBuffEffects = GetComponent<IHeroBuffEffects>();
             _heroDebuffEffects = GetComponent<IHeroDebuffEffects>();
+
+          
 
         }
     }

@@ -1038,6 +1038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d1fc2d22c44704c9a9e177db84f706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroStatusEffectPrefab: {fileID: 1142902836881772226, guid: 4300aeba3c5db87419f00f018b714eb8,
+    type: 3}
   _statusEffectsCanvas: {fileID: 3820792406012467164}
   _statusEffectsPanel: {fileID: 3358907047805682121}
 --- !u!114 &3948171247458862321
@@ -1508,6 +1510,7 @@ MonoBehaviour:
   _heroLogic: {fileID: 3820792406562021601}
   _heroSkills: {fileID: 3820792405833061376}
   _heroVisual: {fileID: 3820792405604680504}
+  _heroStatusEffects: {fileID: 3820792405558328800}
   _statusEffectsVisual: {fileID: 0}
   _heroPreviewVisual: {fileID: 3820792406921377146}
   _heroPortrait: {fileID: 3820792407297609701}
