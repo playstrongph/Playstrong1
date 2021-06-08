@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af810d557f24b44c88ec6f0bcabac24, type: 3}
-  m_Name: Poison
+  m_Script: {fileID: 11500000, guid: 6f6e447f768feb44b893bc66fb223b9a, type: 3}
+  m_Name: Buff
   m_EditorClassIdentifier: 
-  _name: 
-  _description: 
-  _icon: {fileID: 0}
-  _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ScriptableObjects.StatusEffects.StatusEffectType;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace ScriptableObjects.StatusEffects
@@ -16,6 +17,8 @@ namespace ScriptableObjects.StatusEffects
         public Image Icon => _icon;
         
         //TODO: statusEffectType - i.e. Buff or Debuff
+        [SerializeField] private ScriptableObject _statusEffectType;
+        public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;
 
         public virtual void ApplyStatusEffect()
         {
