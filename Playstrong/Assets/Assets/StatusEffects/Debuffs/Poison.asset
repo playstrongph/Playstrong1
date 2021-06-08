@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af810d557f24b44c88ec6f0bcabac24, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  _name: 
-  _description: 
-  _icon: {fileID: 0}
+  _name: Poison
+  _description: At the start of your turn take 5 damage.
+  _icon: {fileID: 21300000, guid: e948c00d31e16b14db60b290694f080d, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}

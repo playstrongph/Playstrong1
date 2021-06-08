@@ -20,7 +20,7 @@ namespace Visual
             var statusEffectAsset = _heroStatusEffect.StatusEffectAsset;
           
 
-            _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon.sprite;
+            _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
             _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
             
             _heroStatusEffect.Counters = counters;
