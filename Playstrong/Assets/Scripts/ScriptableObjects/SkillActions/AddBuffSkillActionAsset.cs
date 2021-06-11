@@ -4,10 +4,10 @@ namespace ScriptableObjects.SkillActions
 {
     [CreateAssetMenu(fileName = "AddBuffSkillActionAsset", menuName = "SO's/SkillActions/AddBuffSkillActionAsset")]
     
-    public class AddBuffSkillActionAsset : ScriptableObject, IAddBuffSkillActionAsset
+    public class AddBuffSkillActionAsset : SkillActionAsset, IAddBuffSkillActionAsset
     {
 
-        public  void Target()
+        public override void Target()
         {
             
         }
