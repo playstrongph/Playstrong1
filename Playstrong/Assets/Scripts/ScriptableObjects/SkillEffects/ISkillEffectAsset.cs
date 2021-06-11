@@ -6,6 +6,6 @@ namespace ScriptableObjects.SkillCondition
     {
         void UseSkill();
 
-        List<ISkillConditionAsset> SkillActionAssets { get; }
+        List<ISkillConditionAsset> SkillConditionAssets { get; }
     }
 }
