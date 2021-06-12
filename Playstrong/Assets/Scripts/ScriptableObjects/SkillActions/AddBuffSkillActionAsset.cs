@@ -10,12 +10,17 @@ namespace ScriptableObjects.SkillActions
     public class AddBuffSkillActionAsset : SkillActionAsset, IAddBuffSkillActionAsset
     {
 
+        [SerializeField] private ScriptableObject _buffAsset;
+        public IStatusEffect BuffAsset => _buffAsset as IStatusEffect;
+
+        [SerializeField] private int _buffCounters;
+        public int BuffCounters => _buffCounters;
+
         public override void Target()
         {
             
         }
-        
-        
+
 
         private void AddBuff(IHero hero)
         {
@@ -26,7 +31,7 @@ namespace ScriptableObjects.SkillActions
             var buff = buffObject.GetComponent<IHeroStatusEffect>();
             
             //Load StatusEffect
-            //Apply StatusEffect effect
+            //Buff ApplyStatusEffect 
         }
 
     }
