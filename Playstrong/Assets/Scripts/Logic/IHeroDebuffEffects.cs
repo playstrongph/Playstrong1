@@ -5,6 +5,6 @@ namespace Logic
 {
     public interface IHeroDebuffEffects
     {
-        List<IDebuffEffect> HeroDebuffs { get; }
+        List<IDebuffEffectAsset> HeroDebuffs { get; }
     }
 }
