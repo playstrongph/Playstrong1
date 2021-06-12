@@ -5,6 +5,6 @@ namespace Logic
 {
     public interface IHeroBuffEffects
     {
-        List<IBuffEffect> HeroBuffs { get; }
+        List<IBuffEffectAsset> HeroBuffs { get; }
     }
 }

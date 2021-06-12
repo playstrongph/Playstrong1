@@ -11,7 +11,7 @@ namespace ScriptableObjects.SkillActions
     {
 
         [SerializeField] private ScriptableObject _buffAsset;
-        public IStatusEffect BuffAsset => _buffAsset as IStatusEffect;
+        public IStatusEffectAsset BuffAsset => _buffAsset as IStatusEffectAsset;
 
         [SerializeField] private int _buffCounters;
         public int BuffCounters => _buffCounters;

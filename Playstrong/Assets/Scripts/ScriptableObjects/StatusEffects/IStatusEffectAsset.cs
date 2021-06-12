@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace ScriptableObjects.StatusEffects
 {
-    public interface IStatusEffect
+    public interface IStatusEffectAsset
     {
 
         void ApplyStatusEffect();

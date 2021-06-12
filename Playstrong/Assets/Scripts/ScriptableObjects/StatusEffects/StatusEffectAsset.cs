@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace ScriptableObjects.StatusEffects
 {
-    public class StatusEffectAsset : ScriptableObject, IStatusEffect
+    public class StatusEffectAsset : ScriptableObject, IStatusEffectAsset
     {
         [SerializeField] private string _name;
         public string Name => _name;
