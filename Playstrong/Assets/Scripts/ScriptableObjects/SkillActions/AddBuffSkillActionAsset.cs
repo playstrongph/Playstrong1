@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using Logic;
+using ScriptableObjects.StatusEffects;
+using UnityEngine;
 
 namespace ScriptableObjects.SkillActions
 {
@@ -10,6 +13,20 @@ namespace ScriptableObjects.SkillActions
         public override void Target()
         {
             
+        }
+        
+        
+
+        private void AddBuff(IHero hero)
+        {
+            var buffPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
+            var heroBuffPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
+
+            var buffObject = Instantiate(buffPrefab, heroBuffPanel);
+            var buff = buffObject.GetComponent<IHeroStatusEffect>();
+            
+            //Load StatusEffect
+            //Apply StatusEffect effect
         }
 
     }
