@@ -4,6 +4,7 @@ using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
@@ -24,6 +25,10 @@ namespace ScriptableObjects.Others
         [SerializeField] 
         private string _description;
         public String Description => _description;
+
+        [Header("Skill Effect")] [SerializeField]
+        private ScriptableObject _skillEffect;
+        public ISkillEffectAsset SkillEffect => _skillEffect as ISkillEffectAsset;
 
         [Header("Skill Type")] [SerializeField]
         [RequireInterface(typeof(ISkillType))]

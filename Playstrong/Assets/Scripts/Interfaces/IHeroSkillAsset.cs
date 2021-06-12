@@ -2,6 +2,7 @@
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.SkillEffects;
 using UnityEngine;
 
 namespace Interfaces
@@ -11,6 +12,8 @@ namespace Interfaces
         string Name { get; }
         
         string Description { get; }
+        
+        ISkillEffectAsset SkillEffect { get; }
         
         Sprite SkillIcon { get; }
         

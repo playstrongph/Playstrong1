@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Heavenly Sword
   _description: Attack has the chance to remove a buff and deal 12 damage.
-  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
+  _skillEffect: {fileID: 11400000, guid: 170eac18ccdec3441bc9fa9b3b623b7c, type: 2}
+  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: 03f992a098197c544a4505828b97f0ce, type: 3}
   _cooldown: 0
-  _skillStatus: {fileID: 11400000, guid: 06ed2f73010498946a00addc458deada, type: 2}
+  _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}

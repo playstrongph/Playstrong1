@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Punishment
   _description: Deal 20-30 damage and inflict POISON(3).
+  _skillEffect: {fileID: 11400000, guid: 170eac18ccdec3441bc9fa9b3b623b7c, type: 2}
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: 1df1b487aed09c342ac4fdbd56858fc7, type: 3}
