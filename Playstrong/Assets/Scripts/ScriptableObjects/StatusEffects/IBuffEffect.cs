@@ -1,6 +1,6 @@
 ﻿namespace ScriptableObjects.StatusEffects
 {
-    public interface IBuffEffect: IStatusEffectAsset
+    public interface IBuffEffect
     {
     }
 }

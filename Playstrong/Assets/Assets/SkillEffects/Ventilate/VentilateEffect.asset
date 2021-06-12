@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77489c08e8c8db94d816534fc7c20a25, type: 3}
   m_Name: VentilateEffect
   m_EditorClassIdentifier: 
-  _skillConditionAssets:
-  - {fileID: 11400000, guid: eefb09b6fc6f0e744a8717aac6ff073b, type: 2}
+  _skillConditionAssets: []
