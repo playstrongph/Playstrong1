@@ -1,5 +1,6 @@
 ﻿using System;
 using Logic;
+using ScriptableObjects.StatusEffects;
 using UnityEngine;
 
 namespace Visual
@@ -11,19 +12,15 @@ namespace Visual
         private void Awake()
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
-            
-            
         }
 
-        public void LoadValues(int counters)
+        public void LoadValues(IStatusEffectAsset statusEffect, int counters)
         {
-            var statusEffectAsset = _heroStatusEffect.StatusEffectAsset;
-          
+            var statusEffectAsset = statusEffect;
 
-            _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
-            _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
-            
             _heroStatusEffect.Counters = counters;
+            _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
+            _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
          

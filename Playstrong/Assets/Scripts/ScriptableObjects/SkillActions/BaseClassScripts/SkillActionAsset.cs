@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
 
 namespace ScriptableObjects.SkillActions
 {
@@ -6,7 +7,7 @@ namespace ScriptableObjects.SkillActions
     public class SkillActionAsset : ScriptableObject, ISkillActionAsset
     {
 
-        public virtual void Target()
+        public virtual void Target(IHero hero)
         {
             
         }

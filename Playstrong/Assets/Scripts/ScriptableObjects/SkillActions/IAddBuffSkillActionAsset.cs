@@ -1,6 +1,6 @@
 ﻿namespace ScriptableObjects.SkillActions
 {
-    public interface IAddBuffSkillActionAsset
+    public interface IAddBuffSkillActionAsset:ISkillActionAsset
     {
         
     }

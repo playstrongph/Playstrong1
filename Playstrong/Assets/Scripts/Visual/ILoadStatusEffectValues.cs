@@ -1,7 +1,9 @@
-﻿namespace Visual
+﻿using ScriptableObjects.StatusEffects;
+
+namespace Visual
 {
     public interface ILoadStatusEffectValues
     {
-        void LoadValues(int counters);
+        void LoadValues(IStatusEffectAsset statusEffect, int counters);
     }
 }

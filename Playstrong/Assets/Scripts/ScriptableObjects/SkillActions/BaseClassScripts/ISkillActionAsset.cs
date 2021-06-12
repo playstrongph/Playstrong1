@@ -1,7 +1,9 @@
-﻿namespace ScriptableObjects.SkillActions
+﻿using Interfaces;
+
+namespace ScriptableObjects.SkillActions
 {
     public interface ISkillActionAsset
     {
-        void Target();
+        void Target(IHero hero);
     }
 }

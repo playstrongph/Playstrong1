@@ -10,29 +10,33 @@ namespace ScriptableObjects.SkillActions
     public class AddBuffSkillActionAsset : SkillActionAsset, IAddBuffSkillActionAsset
     {
 
-        [SerializeField] private ScriptableObject _buffAsset;
-        public IStatusEffectAsset BuffAsset => _buffAsset as IStatusEffectAsset;
+        [SerializeField] private ScriptableObject _buffEffectAsset;
+        private IBuffEffectAsset BuffAsset => _buffEffectAsset as IBuffEffectAsset;
 
         [SerializeField] private int _buffCounters;
-        public int BuffCounters => _buffCounters;
+        private int BuffCounters => _buffCounters;
 
-        public override void Target()
+        public override void Target(IHero hero)
         {
-            
+            AddBuff(hero);
         }
-
 
         private void AddBuff(IHero hero)
         {
-            var buffPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
-            var heroBuffPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
+            var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
+            var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
 
-            var buffObject = Instantiate(buffPrefab, heroBuffPanel);
-            var buff = buffObject.GetComponent<IHeroStatusEffect>();
+            var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
+            var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
             
             //Load StatusEffect
+            heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
+
             //Buff ApplyStatusEffect 
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
         }
+        
+        
 
     }
 }
