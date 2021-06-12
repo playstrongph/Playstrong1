@@ -14,9 +14,9 @@ namespace Logic
         [SerializeField]
         private Object _statusEffectAsset;
 
-        public IStatusEffect StatusEffectAsset
+        public IStatusEffectAsset StatusEffectAsset
         {
-            get => _statusEffectAsset as IStatusEffect;
+            get => _statusEffectAsset as IStatusEffectAsset;
             set => _statusEffectAsset = value as Object;
         }
 

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using ScriptableObjects.StatusEffects;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace ScriptableObjects.SkillActions
 {
@@ -7,10 +10,13 @@ namespace ScriptableObjects.SkillActions
     public class AddBuffSkillActionAsset : SkillActionAsset, IAddBuffSkillActionAsset
     {
 
+      
+      
         public override void Target()
         {
-            
+                
         }
 
+        
     }
 }

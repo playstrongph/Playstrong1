@@ -8,7 +8,7 @@ namespace Logic
 {
     public interface IHeroStatusEffect
     {
-        IStatusEffect StatusEffectAsset { get; set; }
+        IStatusEffectAsset StatusEffectAsset { get; set; }
         int Counters { get; set; }
         Image Icon { get; }
         TextMeshProUGUI CounterVisual { get; }
