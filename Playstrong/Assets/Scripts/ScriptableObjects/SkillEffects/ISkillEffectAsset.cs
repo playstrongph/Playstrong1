@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using Interfaces;
+using ScriptableObjects.SkillCondition.BaseClassScripts;
 
-namespace ScriptableObjects.SkillCondition
+namespace ScriptableObjects.SkillEffects
 {
     public interface ISkillEffectAsset
     {
-        void UseSkill();
+        void UseSkillEffect(IHero hero);
 
-        List<ISkillConditionAsset> SkillConditionAssets { get; }
+       
     }
 }

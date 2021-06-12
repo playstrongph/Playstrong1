@@ -8,7 +8,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     {
         public override void ApplyStatusEffect()
         {
-                   
+            Debug.Log("Attack Up Buff");       
         }
 
        

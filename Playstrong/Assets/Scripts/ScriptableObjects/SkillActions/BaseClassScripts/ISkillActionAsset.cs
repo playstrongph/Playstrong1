@@ -1,6 +1,6 @@
 ﻿using Interfaces;
 
-namespace ScriptableObjects.SkillActions
+namespace ScriptableObjects.SkillActions.BaseClassScripts
 {
     public interface ISkillActionAsset
     {

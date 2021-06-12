@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using ScriptableObjects.SkillActions.BaseClassScripts;
 using ScriptableObjects.StatusEffects;
 using UnityEngine;
 

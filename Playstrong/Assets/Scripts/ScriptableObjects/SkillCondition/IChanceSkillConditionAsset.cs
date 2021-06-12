@@ -1,6 +1,8 @@
-﻿namespace ScriptableObjects.SkillCondition
+﻿using ScriptableObjects.SkillCondition.BaseClassScripts;
+
+namespace ScriptableObjects.SkillCondition
 {
-    public interface IChanceSkillConditionAsset
+    public interface IChanceSkillConditionAsset: ISkillConditionAsset
     {
         
     }

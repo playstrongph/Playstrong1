@@ -1,17 +1,28 @@
 ﻿using System.Collections.Generic;
-using ScriptableObjects.SkillActions;
+using Interfaces;
+using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
 
-namespace ScriptableObjects.SkillCondition
+namespace ScriptableObjects.SkillCondition.BaseClassScripts
 {
    
     
     public class SkillConditionAsset : ScriptableObject,ISkillConditionAsset
     {
-
-        public virtual void Target()
+        /// <summary>
+        /// Run all skill actions assigned to the skill condition
+        /// </summary>
+        /// <param name="hero"></param>
+       
+        public virtual void Target(IHero hero)
         {
-            
+            var skillActions = SkillActionAssets;
+            foreach (var skillAction in skillActions)
+            {
+                skillAction.Target(hero);   
+            }
+                
+
         }
 
         [SerializeField] private List<Object> _skillActionAssets = new List<Object>();

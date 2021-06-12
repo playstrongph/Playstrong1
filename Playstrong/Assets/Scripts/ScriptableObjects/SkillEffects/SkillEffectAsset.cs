@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
-using ScriptableObjects.SkillActions;
+using Interfaces;
+using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
 
-namespace ScriptableObjects.SkillCondition
+namespace ScriptableObjects.SkillEffects
 {
    
     [CreateAssetMenu(fileName = "SkillEffectAsset", menuName = "SO's/SkillEffect/SkillEffectAsset")]
     public class SkillEffectAsset : ScriptableObject, ISkillEffectAsset
     {
 
-        public void UseSkill()
+        public void UseSkillEffect(IHero hero)
         {
             foreach (var skillCondition in SkillConditionAssets )
             {
-                skillCondition.Target();
+                skillCondition.Target(hero);
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 using UnityEngine;
 
-namespace ScriptableObjects.SkillActions
+namespace ScriptableObjects.SkillActions.BaseClassScripts
 {
 
     public class SkillActionAsset : ScriptableObject, ISkillActionAsset
