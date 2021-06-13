@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using References;
+using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
 using Visual;
@@ -15,11 +16,12 @@ namespace Logic
         private Object _skillAttributes;
         public ISkillAttributes SkillAttributes => _skillAttributes as ISkillAttributes;
 
+
         [SerializeField]
         [RequireInterface(typeof(ILoadSkillAttributes))]
         private Object _loadSkillAttributes;
         public ILoadSkillAttributes LoadSkillAttributes => _loadSkillAttributes as ILoadSkillAttributes;
-        
+
         private IReduceSkillCooldown _reduceSkillCooldown;
         public IReduceSkillCooldown ReduceSkillCooldown => _reduceSkillCooldown;
 

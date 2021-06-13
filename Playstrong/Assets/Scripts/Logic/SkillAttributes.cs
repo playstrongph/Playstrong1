@@ -3,6 +3,7 @@ using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
 
@@ -56,6 +57,15 @@ namespace Logic
         {
             get => _skillStatus as ISkillStatus;
             set => _skillStatus = value as ScriptableObject;
+        }
+        
+        [SerializeField]
+        private Object _skillEffect;
+
+        public ISkillEffectAsset SkillEffect
+        {
+            get => _skillEffect as ISkillEffectAsset;
+            set => _skillEffect = value as Object;
         }
 
        

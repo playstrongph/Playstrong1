@@ -1,5 +1,6 @@
 ﻿using Logic;
 using References;
+using ScriptableObjects.SkillEffects;
 using Visual;
 
 namespace Interfaces
@@ -17,5 +18,7 @@ namespace Interfaces
         IResetSkillCooldown ResetSkillCooldown { get; }
 
         IUpdateSkillStatus UpdateSkillStatus { get; }
+
+       
     }
 }
