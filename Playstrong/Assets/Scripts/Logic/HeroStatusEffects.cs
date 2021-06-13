@@ -10,9 +10,9 @@ namespace Logic
     public class HeroStatusEffects : MonoBehaviour, IHeroStatusEffects
     {
 
-        [SerializeField] private GameObject _heroStatusEffectPrefab;
+        [SerializeField] private Object _heroStatusEffectPrefab;
 
-        public GameObject HeroStatusEffectPrefab => _heroStatusEffectPrefab;
+        public IHeroStatusEffects HeroStatusEffectPrefab => _heroStatusEffectPrefab as IHeroStatusEffects;
         
 
 

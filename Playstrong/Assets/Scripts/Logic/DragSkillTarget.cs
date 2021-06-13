@@ -130,7 +130,7 @@ namespace Logic
             //Temp End
             
             //TODO: Execute Skill Effect (IEnum)
-            
+            logicTree.AddCurrent(ApplySkillEffect());
             
             logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
 
@@ -138,6 +138,19 @@ namespace Logic
             turnController.EndTurn();
 
         }
+
+        private IEnumerator ApplySkillEffect()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            _targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_targetHero.Hero);
+            
+            
+            yield return null;
+            logicTree.EndSequence();
+            
+        }
+        
 
 
 

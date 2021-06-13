@@ -24,7 +24,12 @@ namespace ScriptableObjects.SkillActions
 
         private void AddBuff(IHero hero)
         {
-            var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
+            Debug.Log("Hero: " +hero.HeroName);
+            
+            var buffEffectPrefab = hero.HeroStatusEffects;
+            
+            /*var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
+            
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
 
             var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
@@ -34,7 +39,7 @@ namespace ScriptableObjects.SkillActions
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
 
             //Buff ApplyStatusEffect 
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();*/
         }
         
         
