@@ -1510,7 +1510,7 @@ MonoBehaviour:
   _heroLogic: {fileID: 3820792406562021601}
   _heroSkills: {fileID: 3820792405833061376}
   _heroVisual: {fileID: 3820792405604680504}
-  _heroStatusEffects: {fileID: 3820792405558328800}
+  _heroStatusEffects: {fileID: 1758965376379109000}
   _statusEffectsVisual: {fileID: 0}
   _heroPreviewVisual: {fileID: 3820792406921377146}
   _heroPortrait: {fileID: 3820792407297609701}

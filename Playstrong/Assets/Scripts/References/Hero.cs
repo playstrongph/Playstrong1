@@ -37,7 +37,9 @@ namespace References
         public IHeroVisual HeroVisual => _heroVisual as IHeroVisual;
         
         [SerializeField]
+        [RequireInterface(typeof(IHeroStatusEffects))]
         private Object _heroStatusEffects;
+     
         public IHeroStatusEffects HeroStatusEffects => _heroStatusEffects as IHeroStatusEffects;
         
         

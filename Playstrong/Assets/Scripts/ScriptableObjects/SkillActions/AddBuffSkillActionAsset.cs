@@ -26,20 +26,22 @@ namespace ScriptableObjects.SkillActions
         {
             Debug.Log("Hero: " +hero.HeroName);
             
-            var buffEffectPrefab = hero.HeroStatusEffects;
+         
             
-            /*var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
+            var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
             
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
 
             var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
+            buffEffectObject.transform.SetParent(statusEffectPanel);
+            
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
             
             //Load StatusEffect
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
 
             //Buff ApplyStatusEffect 
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();*/
+            //heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
         }
         
         

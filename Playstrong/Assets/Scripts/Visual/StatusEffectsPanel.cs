@@ -11,7 +11,7 @@ namespace Visual
 
         private void Awake()
         {
-            _transform = this.Transform;
+            _transform = this.gameObject.transform;
         }
     }
 }

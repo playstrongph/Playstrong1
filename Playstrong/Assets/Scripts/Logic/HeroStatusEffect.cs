@@ -4,6 +4,7 @@ using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 using Visual;
 using Object = UnityEngine.Object;
 
@@ -12,6 +13,7 @@ namespace Logic
     public class HeroStatusEffect : MonoBehaviour, IHeroStatusEffect
     {
         [SerializeField]
+        [RequireInterface(typeof(IStatusEffectAsset))]
         private Object _statusEffectAsset;
 
         public IStatusEffectAsset StatusEffectAsset
@@ -28,7 +30,9 @@ namespace Logic
             set => _counters = value;
         }
 
-        [SerializeField] private Object _statusEffectType;
+        [SerializeField]
+        [RequireInterface(typeof(IStatusEffectType))]
+        private Object _statusEffectType;
 
         public IStatusEffectType StatusEffectType
         {

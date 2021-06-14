@@ -6,7 +6,7 @@ namespace Logic
 {
     public interface IHeroStatusEffects
     {
-        IHeroStatusEffects HeroStatusEffectPrefab { get; }
+        GameObject HeroStatusEffectPrefab { get; }
         Canvas StatusEffectsCanvas { get; }
         IStatusEffectsPanel StatusEffectsPanel { get; }
         IStatusEffectsVisual StatusEffectsVisual { get; }
