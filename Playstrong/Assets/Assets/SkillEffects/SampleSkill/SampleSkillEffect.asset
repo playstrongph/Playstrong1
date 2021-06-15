@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SampleSkillEffect
   m_EditorClassIdentifier: 
   _skillConditionAssets:
-  - {fileID: 11400000, guid: eefb09b6fc6f0e744a8717aac6ff073b, type: 2}
+  - {fileID: 11400000, guid: dbcb3f811f7a01d4392a98621f48b843, type: 2}

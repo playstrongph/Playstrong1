@@ -14,12 +14,12 @@ namespace Logic
     {
         [SerializeField]
         [RequireInterface(typeof(IStatusEffectAsset))]
-        private Object _statusEffectAsset;
+        private ScriptableObject _statusEffectAsset;
 
         public IStatusEffectAsset StatusEffectAsset
         {
             get => _statusEffectAsset as IStatusEffectAsset;
-            set => _statusEffectAsset = value as Object;
+            set => _statusEffectAsset = value as ScriptableObject;
         }
 
         [SerializeField]
@@ -32,12 +32,12 @@ namespace Logic
 
         [SerializeField]
         [RequireInterface(typeof(IStatusEffectType))]
-        private Object _statusEffectType;
+        private ScriptableObject _statusEffectType;
 
         public IStatusEffectType StatusEffectType
         {
-            get => _statusEffectAsset as IStatusEffectType;
-            set => _statusEffectAsset = value as Object;
+            get => _statusEffectType as IStatusEffectType;
+            set => _statusEffectType = value as ScriptableObject;
         }
 
         [SerializeField] private Image _icon;

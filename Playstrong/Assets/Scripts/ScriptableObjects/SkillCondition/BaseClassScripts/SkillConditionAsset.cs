@@ -2,6 +2,7 @@
 using Interfaces;
 using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
+using Utilities;
 
 namespace ScriptableObjects.SkillCondition.BaseClassScripts
 {
@@ -25,7 +26,9 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
 
         }
 
-        [SerializeField] private List<Object> _skillActionAssets = new List<Object>();
+        [SerializeField]
+        [RequireInterface(typeof(ISkillActionAsset))]
+        private List<Object> _skillActionAssets = new List<Object>();
 
         public List<ISkillActionAsset> SkillActionAssets
         {

@@ -3,6 +3,7 @@ using Logic;
 using ScriptableObjects.SkillActions.BaseClassScripts;
 using ScriptableObjects.StatusEffects;
 using UnityEngine;
+using Utilities;
 
 namespace ScriptableObjects.SkillActions
 {
@@ -11,8 +12,10 @@ namespace ScriptableObjects.SkillActions
     public class AddBuffSkillActionAsset : SkillActionAsset, IAddBuffSkillActionAsset
     {
 
-        [SerializeField] private ScriptableObject _buffEffectAsset;
-        private IBuffEffectAsset BuffAsset => _buffEffectAsset as IBuffEffectAsset;
+        [SerializeField]
+        [RequireInterface(typeof(IStatusEffectAsset))]
+        private ScriptableObject _buffEffectAsset;
+        private IStatusEffectAsset BuffAsset => _buffEffectAsset as IStatusEffectAsset;
 
         [SerializeField] private int _buffCounters;
         private int BuffCounters => _buffCounters;
@@ -25,9 +28,7 @@ namespace ScriptableObjects.SkillActions
         private void AddBuff(IHero hero)
         {
             Debug.Log("Hero: " +hero.HeroName);
-            
-         
-            
+
             var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
             
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
@@ -41,7 +42,7 @@ namespace ScriptableObjects.SkillActions
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
 
             //Buff ApplyStatusEffect 
-            //heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+           heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
         }
         
         

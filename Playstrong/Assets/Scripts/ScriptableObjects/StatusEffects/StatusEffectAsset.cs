@@ -1,6 +1,7 @@
 ﻿using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace ScriptableObjects.StatusEffects
 {
@@ -18,7 +19,10 @@ namespace ScriptableObjects.StatusEffects
         public Sprite Icon => _icon;
         
         //TODO: statusEffectType - i.e. Buff or Debuff
-        [SerializeField] private ScriptableObject _statusEffectType;
+        [SerializeField] 
+        [RequireInterface(typeof(IStatusEffectType))]
+        private ScriptableObject _statusEffectType;
+        
         public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;
 
         public virtual void ApplyStatusEffect()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Deadly Charm
   _description: Your attack ignores IMMUNITY and inflicts SILENCE.
-  _skillEffect: {fileID: 11400000, guid: 170eac18ccdec3441bc9fa9b3b623b7c, type: 2}
+  _skillEffect: {fileID: 11400000, guid: 5d9a400ccfa03fc438e4a36ad86d9fb2, type: 2}
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: a6a945c4c221ce44e89ddee0240a21b3, type: 3}

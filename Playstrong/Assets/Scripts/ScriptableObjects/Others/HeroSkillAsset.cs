@@ -26,7 +26,9 @@ namespace ScriptableObjects.Others
         private string _description;
         public String Description => _description;
 
-        [Header("Skill Effect")] [SerializeField]
+        [Header("Skill Effect")]
+        [SerializeField]
+        [RequireInterface(typeof(ISkillEffectAsset))]
         private ScriptableObject _skillEffect;
         public ISkillEffectAsset SkillEffect => _skillEffect as ISkillEffectAsset;
 

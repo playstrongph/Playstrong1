@@ -16,11 +16,12 @@ namespace Visual
 
         public void LoadValues(IStatusEffectAsset statusEffect, int counters)
         {
-            var statusEffectAsset = statusEffect;
+         
+            _heroStatusEffect.StatusEffectAsset = statusEffect;
+            _heroStatusEffect.StatusEffectType = statusEffect.StatusEffectType;
 
             _heroStatusEffect.Counters = counters;
-            _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
-            _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
+            _heroStatusEffect.Icon.sprite = statusEffect.Icon;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
          

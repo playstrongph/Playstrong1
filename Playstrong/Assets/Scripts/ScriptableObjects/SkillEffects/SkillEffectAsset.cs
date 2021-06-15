@@ -2,6 +2,7 @@
 using Interfaces;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
+using Utilities;
 
 namespace ScriptableObjects.SkillEffects
 {
@@ -18,7 +19,9 @@ namespace ScriptableObjects.SkillEffects
             }
         }
 
-        [SerializeField] private List<Object> _skillConditionAssets = new List<Object>();
+        [SerializeField]
+        [RequireInterface(typeof(ISkillConditionAsset))]
+        private List<Object> _skillConditionAssets = new List<Object>();
 
         public List<ISkillConditionAsset> SkillConditionAssets
         {
