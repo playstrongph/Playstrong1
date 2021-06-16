@@ -143,7 +143,7 @@ namespace Logic
         {
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
-            _targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_targetHero.Hero);
+            _targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_targetHero.Hero, _targetSkill.Skill.CoroutineTreesAsset);
             
             
             yield return null;

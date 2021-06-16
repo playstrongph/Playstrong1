@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using ScriptableObjects.Others;
 using ScriptableObjects.SkillActions;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
@@ -12,11 +13,11 @@ namespace ScriptableObjects.SkillCondition
 
         [SerializeField] private int _skillChance;
         private int SkillChance => _skillChance;
-        
-        public  override void Target(IHero hero)
+
+        public  override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
             if(ChanceSuccess())
-                base.Target(hero);
+                base.Target(hero, coroutineTreesAsset);
         }
 
         private bool ChanceSuccess()

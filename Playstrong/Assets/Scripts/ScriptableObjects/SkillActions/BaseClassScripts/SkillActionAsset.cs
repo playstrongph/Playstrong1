@@ -1,4 +1,6 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
+using ScriptableObjects.Others;
 using UnityEngine;
 
 namespace ScriptableObjects.SkillActions.BaseClassScripts
@@ -6,11 +8,19 @@ namespace ScriptableObjects.SkillActions.BaseClassScripts
 
     public class SkillActionAsset : ScriptableObject, ISkillActionAsset
     {
+        protected ICoroutineTree _logicTree;
+        protected ICoroutineTree _visualTree;
 
-        public virtual void Target(IHero hero)
+        public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
             
+
         }
+
+       
+
+
+
 
     }
 }

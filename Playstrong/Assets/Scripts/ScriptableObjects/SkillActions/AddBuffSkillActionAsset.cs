@@ -1,5 +1,7 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
+using ScriptableObjects.Others;
 using ScriptableObjects.SkillActions.BaseClassScripts;
 using ScriptableObjects.StatusEffects;
 using UnityEngine;
@@ -20,32 +22,33 @@ namespace ScriptableObjects.SkillActions
         [SerializeField] private int _buffCounters;
         private int BuffCounters => _buffCounters;
 
-        public override void Target(IHero hero)
+        
+
+        public override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
-            AddBuff(hero);
+           _logicTree = coroutineTreesAsset.MainLogicTree;
+            
+           _logicTree.AddCurrent(AddBuffCoroutine(hero));
+
         }
 
-        private void AddBuff(IHero hero)
+
+        private IEnumerator AddBuffCoroutine(IHero hero)
         {
-            Debug.Log("Hero: " +hero.HeroName);
-
             var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
-            
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
-
             var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
             buffEffectObject.transform.SetParent(statusEffectPanel);
-            
-            var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
-            
-            //Load StatusEffect
-            heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
 
-            //Buff ApplyStatusEffect 
-           heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
+            heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            
+            _logicTree.EndSequence();
+            yield return null;
         }
-        
-        
+
+
 
     }
 }

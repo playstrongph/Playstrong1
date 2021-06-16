@@ -2,7 +2,7 @@
 
 namespace ScriptableObjects.SkillActions
 {
-    public interface IAddBuffSkillActionAsset:ISkillActionAsset
+    public interface IAddBuffSkillActionAsset
     {
         
     }

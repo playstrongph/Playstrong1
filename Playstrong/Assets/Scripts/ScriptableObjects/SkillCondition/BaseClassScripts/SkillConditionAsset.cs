@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Others;
 using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
 using Utilities;
@@ -15,12 +16,12 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         /// </summary>
         /// <param name="hero"></param>
        
-        public virtual void Target(IHero hero)
+        public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
             {
-                skillAction.Target(hero);   
+                skillAction.Target(hero, coroutineTreesAsset);   
             }
                 
 

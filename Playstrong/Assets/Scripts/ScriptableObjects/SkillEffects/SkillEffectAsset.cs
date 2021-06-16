@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Others;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
 using Utilities;
@@ -11,11 +12,11 @@ namespace ScriptableObjects.SkillEffects
     public class SkillEffectAsset : ScriptableObject, ISkillEffectAsset
     {
 
-        public void UseSkillEffect(IHero hero)
+        public void UseSkillEffect(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
             foreach (var skillCondition in SkillConditionAssets )
             {
-                skillCondition.Target(hero);
+                skillCondition.Target(hero, coroutineTreesAsset);
             }
         }
 
