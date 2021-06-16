@@ -16,11 +16,15 @@ namespace ScriptableObjects.SkillCondition
 
         public  override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
-            if(ChanceSuccess())
+            if(SkillCondition())
                 base.Target(hero, coroutineTreesAsset);
         }
 
-        private bool ChanceSuccess()
+        /// <summary>
+        /// This is unique for each Skill Condition Asset
+        /// </summary>
+        /// <returns></returns>
+        private bool SkillCondition()
         {
             var chanceValue = Random.Range(0, 100);
 
