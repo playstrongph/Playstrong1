@@ -8,8 +8,8 @@ namespace ScriptableObjects.SkillActions.BaseClassScripts
 
     public class SkillActionAsset : ScriptableObject, ISkillActionAsset
     {
-        protected ICoroutineTree _logicTree;
-        protected ICoroutineTree _visualTree;
+        protected ICoroutineTree LogicTree;
+        protected ICoroutineTree VisualTree;
 
         public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {

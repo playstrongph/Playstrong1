@@ -26,9 +26,9 @@ namespace ScriptableObjects.SkillActions
 
         public override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
-           _logicTree = coroutineTreesAsset.MainLogicTree;
+           LogicTree = coroutineTreesAsset.MainLogicTree;
             
-           _logicTree.AddCurrent(AddBuffCoroutine(hero));
+           LogicTree.AddCurrent(AddBuffCoroutine(hero));
 
         }
 
@@ -44,7 +44,7 @@ namespace ScriptableObjects.SkillActions
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
             
-            _logicTree.EndSequence();
+            LogicTree.EndSequence();
             yield return null;
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillActions.BaseClassScripts;
@@ -11,22 +12,11 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
     
     public class SkillConditionAsset : ScriptableObject,ISkillConditionAsset
     {
-        /// <summary>
-        /// Run all skill actions assigned to the skill condition
-        /// </summary>
-        /// <param name="hero"></param>
-       
-        public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
-        {
-            var skillActions = SkillActionAssets;
-            foreach (var skillAction in skillActions)
-            {
-                skillAction.Target(hero, coroutineTreesAsset);   
-            }
-                
 
-        }
-
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
+        private ICoroutineTreesAsset _coroutineTreesAsset;
+        
         [SerializeField]
         [RequireInterface(typeof(ISkillActionAsset))]
         private List<Object> _skillActionAssets = new List<Object>();
@@ -47,6 +37,32 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             }
             
         }
+
+        /// <summary>
+        /// Run all skill actions assigned to the skill condition
+        /// </summary>
+        /// <param name="hero"></param>
+        public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        {
+            _coroutineTreesAsset = coroutineTreesAsset;
+            _logicTree = coroutineTreesAsset.MainLogicTree;
+            
+            _logicTree.AddCurrent(TargetCoroutine(hero));
+        }
+
+        private IEnumerator TargetCoroutine(IHero hero)
+        {
+            var skillActions = SkillActionAssets;
+            foreach (var skillAction in skillActions)
+            {
+                skillAction.Target(hero, _coroutineTreesAsset);   
+            }
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+        
 
 
     }
