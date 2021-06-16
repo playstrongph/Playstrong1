@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
@@ -11,15 +12,9 @@ namespace ScriptableObjects.SkillEffects
     [CreateAssetMenu(fileName = "SkillEffectAsset", menuName = "SO's/SkillEffect/SkillEffectAsset")]
     public class SkillEffectAsset : ScriptableObject, ISkillEffectAsset
     {
-
-        public void UseSkillEffect(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
-        {
-            foreach (var skillCondition in SkillConditionAssets )
-            {
-                skillCondition.Target(hero, coroutineTreesAsset);
-            }
-        }
-
+        
+       
+        
         [SerializeField]
         [RequireInterface(typeof(ISkillConditionAsset))]
         private List<Object> _skillConditionAssets = new List<Object>();
@@ -40,6 +35,32 @@ namespace ScriptableObjects.SkillEffects
             }
             
         }
+        
+        public void UseSkillEffect(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        {
+            var logicTree = coroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(UseSkillEffectCoroutine(hero, coroutineTreesAsset));
+            
+        }
+
+        private IEnumerator UseSkillEffectCoroutine(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        {
+            var logicTree = coroutineTreesAsset.MainLogicTree;
+            
+            foreach (var skillCondition in SkillConditionAssets )
+            {
+                skillCondition.Target(hero, coroutineTreesAsset);
+            }
+            
+            logicTree.EndSequence();
+            yield return null;
+            
+        }
+
+
+
+
 
 
     }
