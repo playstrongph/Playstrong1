@@ -28,6 +28,7 @@ namespace Logic
         
         /// <summary>
         /// For Inspector Display Purposes
+        /// Note: Don't forget to remove buffs from this list as well
         /// </summary>
 
         public List<Object> HeroDebuffObjects
