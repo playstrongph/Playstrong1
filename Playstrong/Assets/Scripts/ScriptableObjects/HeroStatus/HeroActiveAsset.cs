@@ -37,18 +37,11 @@ namespace ScriptableObjects.HeroStatus
             _heroLogic.HeroTimer.ResetHeroTimer();
             _logicTree.AddCurrent(EnableTargetHeroPreview());
             _logicTree.AddCurrent(EnableDragHeroAttack());
-            
-            
-            //TODO: HeroEvents
-            //StatusEffectHeroStartTurn
-            //SkillEffectsHeroStartTurn
-            
-            
+
             _visualTree.AddCurrent(VisualEnableActionHeroGlow());
             _visualTree.AddCurrent(VisualEnableHeroPortrait());
             _visualTree.AddCurrent(VisualEnableHeroSkills());
-            
-            
+
             _logicTree.EndSequence();
             yield return null;
         }

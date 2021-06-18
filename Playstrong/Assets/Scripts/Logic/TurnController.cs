@@ -110,10 +110,12 @@ namespace Logic
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
-            //UpdateSkillsStatus on HeroActive
-            
+            //UpdateSkillsStatus on HeroActive, primarily skill cooldowns
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             _logicTree.AddCurrent(updateSkills);
+            
+            //TODO: Update Status Effect Counters
+            //Access HeroStatusEffects, then UpdateStatusEffects
 
             _logicTree.EndSequence(); 
             yield return null;

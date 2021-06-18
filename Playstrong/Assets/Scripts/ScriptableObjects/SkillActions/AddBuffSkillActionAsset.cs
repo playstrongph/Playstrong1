@@ -41,9 +41,13 @@ namespace ScriptableObjects.SkillActions
             buffEffectObject.transform.SetParent(statusEffectPanel);
 
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
+            heroStatusEffect.CoroutineTreesAsset = coroutineTreesAsset;
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
-            heroStatusEffect.CoroutineTreesAsset = coroutineTreesAsset;
+           
+            
+            //Add to respective StatusEffects List in HeroStatusEffects
+            heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
             
             LogicTree.EndSequence();
             yield return null;

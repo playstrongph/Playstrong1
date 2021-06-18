@@ -8,22 +8,31 @@ namespace Logic
     public class HeroDebuffEffects : MonoBehaviour, IHeroDebuffEffects
     {
         [SerializeField]
-        [RequireInterface(typeof(IDebuffEffectAsset))]
+        [RequireInterface(typeof(IHeroStatusEffect))]
         private List<Object> _heroDebuffs = new List<Object>();
 
-        public List<IDebuffEffectAsset> HeroDebuffs
+        public List<IHeroStatusEffect> HeroDebuffs
         {
             get
             {
-                var heroDebuffs = new List<IDebuffEffectAsset>();
+                var heroDebuffs = new List<IHeroStatusEffect>();
                 foreach (var heroDebuff in _heroDebuffs)
                 {
-                    var debuff = heroDebuff as IDebuffEffectAsset;
+                    var debuff = heroDebuff as IHeroStatusEffect;
                     heroDebuffs.Add(debuff);
                 }
 
                 return heroDebuffs;
             }
+        }
+        
+        /// <summary>
+        /// For Inspector Display Purposes
+        /// </summary>
+
+        public List<Object> HeroDebuffObjects
+        {
+            get => _heroDebuffs;
         }
     }
 }
