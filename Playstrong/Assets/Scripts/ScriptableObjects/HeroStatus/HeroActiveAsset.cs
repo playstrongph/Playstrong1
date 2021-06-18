@@ -14,6 +14,7 @@ namespace ScriptableObjects.HeroStatus
         private ITurnController _turnController;
         private IHeroLogic _heroLogic;
         
+        
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
@@ -34,13 +35,16 @@ namespace ScriptableObjects.HeroStatus
         private IEnumerator SetActive()
         {
             _heroLogic.HeroTimer.ResetHeroTimer();
-            
             _logicTree.AddCurrent(EnableTargetHeroPreview());
             _logicTree.AddCurrent(EnableDragHeroAttack());
             
             
-            _visualTree.AddCurrent(VisualEnableActionHeroGlow());
+            //TODO: HeroEvents
+            //StatusEffectHeroStartTurn
+            //SkillEffectsHeroStartTurn
             
+            
+            _visualTree.AddCurrent(VisualEnableActionHeroGlow());
             _visualTree.AddCurrent(VisualEnableHeroPortrait());
             _visualTree.AddCurrent(VisualEnableHeroSkills());
             

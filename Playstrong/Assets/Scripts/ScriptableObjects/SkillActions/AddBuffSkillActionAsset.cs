@@ -28,12 +28,12 @@ namespace ScriptableObjects.SkillActions
         {
            LogicTree = coroutineTreesAsset.MainLogicTree;
             
-           LogicTree.AddCurrent(AddBuffCoroutine(hero));
+           LogicTree.AddCurrent(AddBuffCoroutine(hero, coroutineTreesAsset));
 
         }
 
 
-        private IEnumerator AddBuffCoroutine(IHero hero)
+        private IEnumerator AddBuffCoroutine(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
             var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
@@ -43,6 +43,7 @@ namespace ScriptableObjects.SkillActions
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            heroStatusEffect.CoroutineTreesAsset = coroutineTreesAsset;
             
             LogicTree.EndSequence();
             yield return null;

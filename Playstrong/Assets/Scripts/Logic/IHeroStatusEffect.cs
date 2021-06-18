@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects;
+﻿using ScriptableObjects.Others;
+using ScriptableObjects.StatusEffects;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
 using UnityEngine.UI;
@@ -6,7 +7,8 @@ using Visual;
 
 namespace Logic
 {
-    public interface IHeroStatusEffect
+    public interface 
+        IHeroStatusEffect
     {
         IStatusEffectAsset StatusEffectAsset { get; set; }
         int Counters { get; set; }
@@ -16,5 +18,9 @@ namespace Logic
         IStatusEffectType StatusEffectType { get; set; }
 
         ILoadStatusEffectValues LoadStatusEffectValues { get; }
+        
+        ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
+
+        IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects.Others;
 using ScriptableObjects.StatusEffects;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
@@ -12,15 +13,7 @@ namespace Logic
 {
     public class HeroStatusEffect : MonoBehaviour, IHeroStatusEffect
     {
-        [SerializeField]
-        [RequireInterface(typeof(IStatusEffectAsset))]
-        private ScriptableObject _statusEffectAsset;
-
-        public IStatusEffectAsset StatusEffectAsset
-        {
-            get => _statusEffectAsset as IStatusEffectAsset;
-            set => _statusEffectAsset = value as ScriptableObject;
-        }
+        
 
         [SerializeField]
         private int _counters;
@@ -30,6 +23,27 @@ namespace Logic
             set => _counters = value;
         }
 
+       
+
+        [SerializeField] private Image _icon;
+        public Image Icon => _icon;
+        
+        [SerializeField] private TextMeshProUGUI _counterVisual;
+        public TextMeshProUGUI CounterVisual => _counterVisual;
+
+       
+
+        [Header("Set In Script")]
+        [SerializeField]
+        [RequireInterface(typeof(IStatusEffectAsset))]
+        private ScriptableObject _statusEffectAsset;
+
+        public IStatusEffectAsset StatusEffectAsset
+        {
+            get => _statusEffectAsset as IStatusEffectAsset;
+            set => _statusEffectAsset = value as ScriptableObject;
+        }
+        
         [SerializeField]
         [RequireInterface(typeof(IStatusEffectType))]
         private ScriptableObject _statusEffectType;
@@ -39,19 +53,23 @@ namespace Logic
             get => _statusEffectType as IStatusEffectType;
             set => _statusEffectType = value as ScriptableObject;
         }
-
-        [SerializeField] private Image _icon;
-        public Image Icon => _icon;
         
-        [SerializeField] private TextMeshProUGUI _counterVisual;
-        public TextMeshProUGUI CounterVisual => _counterVisual;
-
+        /// <summary>
+        /// Non-Inspector Variables
+        /// </summary>
         private ILoadStatusEffectValues _loadStatusEffectValues;
         public ILoadStatusEffectValues LoadStatusEffectValues => _loadStatusEffectValues;
+        public ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
+
+        private IReduceStatusEffectCounters _reduceStatusEffectCounters;
+        public IReduceStatusEffectCounters ReduceStatusEffectCounters => _reduceStatusEffectCounters;
+        
+        
 
         private void Awake()
         {
             _loadStatusEffectValues = GetComponent<ILoadStatusEffectValues>();
+            _reduceStatusEffectCounters = GetComponent<IReduceStatusEffectCounters>();
         }
     }
 }
