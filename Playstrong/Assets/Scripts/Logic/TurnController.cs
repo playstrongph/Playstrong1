@@ -115,7 +115,7 @@ namespace Logic
             _logicTree.AddCurrent(updateSkills);
             
             //TODO: Update Status Effect Counters
-            //Access HeroStatusEffects, then UpdateStatusEffects
+            //Access HeroStatusEffects, then UpdateStatusEffects.HeroStartTurn()
 
             _logicTree.EndSequence(); 
             yield return null;
@@ -125,6 +125,9 @@ namespace Logic
         private IEnumerator SetHeroInactive()
         {
             var i = ActiveHeroes.Count - 1;
+            
+            //TODO: Update Status Effect Counters
+            //Access HeroStatusEffects, then UpdateStatusEffects.HeroEndTurn()
             
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
