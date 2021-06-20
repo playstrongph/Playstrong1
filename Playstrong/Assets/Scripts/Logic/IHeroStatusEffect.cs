@@ -1,5 +1,6 @@
 ﻿using ScriptableObjects.Others;
 using ScriptableObjects.StatusEffects;
+using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
 using UnityEngine.UI;
@@ -22,5 +23,7 @@ namespace Logic
         ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
 
         IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
+
+        IStatusEffectCounterUpdate StatusEffectCounterUpdate { get; set; }
     }
 }

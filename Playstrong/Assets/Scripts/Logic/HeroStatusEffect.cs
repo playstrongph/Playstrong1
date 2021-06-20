@@ -1,6 +1,7 @@
 ﻿using System;
 using ScriptableObjects.Others;
 using ScriptableObjects.StatusEffects;
+using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
 using UnityEngine;
@@ -53,7 +54,16 @@ namespace Logic
             get => _statusEffectType as IStatusEffectType;
             set => _statusEffectType = value as ScriptableObject;
         }
-        
+
+        [SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
+        private ScriptableObject _statusEffectCounterUpdate;
+
+        public IStatusEffectCounterUpdate StatusEffectCounterUpdate
+        {
+            get => _statusEffectCounterUpdate as IStatusEffectCounterUpdate;
+            set => _statusEffectCounterUpdate = value as ScriptableObject;
+        }
+
         /// <summary>
         /// Non-Inspector Variables
         /// </summary>
