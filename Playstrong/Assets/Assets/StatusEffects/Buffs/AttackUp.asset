@@ -16,3 +16,4 @@ MonoBehaviour:
   _description: +5 Attack
   _icon: {fileID: 21300000, guid: 8c1cabfb0b1372043a48c11325c32aaa, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
+  _counterUpdate: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}

@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects.StatusEffectType;
+﻿using ScriptableObjects.StatusEffects.StatusEffectCounter;
+using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -18,12 +19,16 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] private Sprite _icon;
         public Sprite Icon => _icon;
         
-        //TODO: statusEffectType - i.e. Buff or Debuff
+        
         [SerializeField] 
         [RequireInterface(typeof(IStatusEffectType))]
         private ScriptableObject _statusEffectType;
         
         public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;
+
+        [SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
+        private ScriptableObject _counterUpdate;
+        public IStatusEffectCounterUpdate CounterUpdate => _counterUpdate as IStatusEffectCounterUpdate;
 
         public virtual void ApplyStatusEffect()
         {

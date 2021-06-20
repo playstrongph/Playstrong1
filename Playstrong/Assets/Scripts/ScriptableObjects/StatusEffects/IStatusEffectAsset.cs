@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects.StatusEffectType;
+﻿using ScriptableObjects.StatusEffects.StatusEffectCounter;
+using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ namespace ScriptableObjects.StatusEffects
         Sprite Icon { get; }
 
         IStatusEffectType StatusEffectType { get; }
+
+        IStatusEffectCounterUpdate CounterUpdate { get; }
 
     }
 }
