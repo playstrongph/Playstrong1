@@ -13,20 +13,33 @@ namespace Logic
             _heroStatusEffects = GetComponent<IHeroStatusEffects>();
         }
 
-        public void UpdateCounters()
+        public void UpdateCountersStartTurn()
         {
             //Hero Buffs
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
             {
-                //TODO: Replace this with the StatusEffectCounterTiming SO
-                statusEffect.ReduceStatusEffectCounters.ReduceCounters(_value, statusEffect.CoroutineTreesAsset);
+                statusEffect.StatusEffectCounterUpdate.UpdateCountersStartTurn(statusEffect);
             }
             
             //Hero Debuffs
             foreach (var statusEffect in _heroStatusEffects.HeroDebuffEffects.HeroDebuffs)
             {
-                //TODO: Replace this with the StatusEffectCounterTiming SO
-                statusEffect.ReduceStatusEffectCounters.ReduceCounters(_value, statusEffect.CoroutineTreesAsset);
+                statusEffect.StatusEffectCounterUpdate.UpdateCountersStartTurn(statusEffect);
+            }
+        }
+        
+        public void UpdateCountersEndTurn()
+        {
+            //Hero Buffs
+            foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
+            {
+                statusEffect.StatusEffectCounterUpdate.UpdateCountersEndTurn(statusEffect);
+            }
+            
+            //Hero Debuffs
+            foreach (var statusEffect in _heroStatusEffects.HeroDebuffEffects.HeroDebuffs)
+            {
+                statusEffect.StatusEffectCounterUpdate.UpdateCountersEndTurn(statusEffect);
             }
         }
         
