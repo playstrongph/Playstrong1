@@ -17,6 +17,7 @@ namespace Logic
         private void Awake()
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
+            
         }
 
         public void ReduceCounters(int value, ICoroutineTreesAsset coroutineTreesAsset)
