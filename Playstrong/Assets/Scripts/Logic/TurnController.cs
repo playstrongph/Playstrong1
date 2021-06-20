@@ -110,12 +110,18 @@ namespace Logic
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
+            //TODO: Start Of Turn Skill Triggers - Event Here
+            
             //UpdateSkillsStatus on HeroActive, primarily skill cooldowns
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             _logicTree.AddCurrent(updateSkills);
             
+            //TODO: Start Of Turn Status Effects Triggers - Event Here
+            
+            
             //TODO: Update Status Effect Counters
-            //Access HeroStatusEffects, then UpdateStatusEffects.HeroStartTurn()
+            _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
+            
 
             _logicTree.EndSequence(); 
             yield return null;
@@ -126,8 +132,10 @@ namespace Logic
         {
             var i = ActiveHeroes.Count - 1;
             
+            //TODO: End Of Turn Status Effects Triggers - Event Here
+            
             //TODO: Update Status Effect Counters
-            //Access HeroStatusEffects, then UpdateStatusEffects.HeroEndTurn()
+            _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersEndTurn();
             
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);

@@ -26,13 +26,13 @@ namespace Logic
            _visualTree = coroutineTreesAsset.MainVisualTree;
            
            _logicTree.AddCurrent(LogicReduceCountersEnumerator(value));
-           _visualTree.AddCurrent(VisualReduceCountersEnumerator(value));
-            
         }
 
         private IEnumerator LogicReduceCountersEnumerator(int value)
         {
             _heroStatusEffect.Counters -= value;
+            
+            _visualTree.AddCurrent(VisualReduceCountersEnumerator(value));
 
             _logicTree.EndSequence();
             yield return null;

@@ -34,14 +34,18 @@ namespace Logic
         private IHeroDebuffEffects _heroDebuffEffects;
         public IHeroDebuffEffects HeroDebuffEffects => _heroDebuffEffects as IHeroDebuffEffects;
 
+        private IUpdateStatusEffectCounters _updateStatusEffectCounters;
+        public IUpdateStatusEffectCounters UpdateStatusEffectCounters => _updateStatusEffectCounters as IUpdateStatusEffectCounters;
+
 
         private void Awake()
         {
             _statusEffectsVisual = GetComponent<IStatusEffectsVisual>();
             _heroBuffEffects = GetComponent<IHeroBuffEffects>();
             _heroDebuffEffects = GetComponent<IHeroDebuffEffects>();
+            _updateStatusEffectCounters = GetComponent<IUpdateStatusEffectCounters>();
 
-          
+
 
         }
     }

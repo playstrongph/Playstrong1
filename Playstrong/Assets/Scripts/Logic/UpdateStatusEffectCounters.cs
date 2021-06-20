@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class UpdateStatusEffectCounters : MonoBehaviour
+    public class UpdateStatusEffectCounters : MonoBehaviour, IUpdateStatusEffectCounters
     {
 
         private IHeroStatusEffects _heroStatusEffects;
@@ -15,6 +15,7 @@ namespace Logic
 
         public void UpdateCountersStartTurn()
         {
+            
             //Hero Buffs
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
             {
