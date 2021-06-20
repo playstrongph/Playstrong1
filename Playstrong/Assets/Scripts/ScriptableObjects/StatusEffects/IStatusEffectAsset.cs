@@ -18,7 +18,7 @@ namespace ScriptableObjects.StatusEffects
 
         IStatusEffectType StatusEffectType { get; }
 
-        IStatusEffectCounterUpdate CounterUpdate { get; }
+        IStatusEffectCounterUpdate UpdateTiming { get; }
 
     }
 }

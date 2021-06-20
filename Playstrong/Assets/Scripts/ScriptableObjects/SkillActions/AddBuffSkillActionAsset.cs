@@ -32,15 +32,18 @@ namespace ScriptableObjects.SkillActions
 
         }
 
-
+        
+        //Multiple Instance AddBuffCoroutine
         private IEnumerator AddBuffCoroutine(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
             var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
+            
             var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
             buffEffectObject.transform.SetParent(statusEffectPanel);
-
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
+            
+            
             heroStatusEffect.CoroutineTreesAsset = coroutineTreesAsset;
             heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
