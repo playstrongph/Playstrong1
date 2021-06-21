@@ -29,7 +29,7 @@ namespace ScriptableObjects.SkillActions
            LogicTree = coroutineTreesAsset.MainLogicTree;
             
            LogicTree.AddCurrent(AddBuffCoroutine(hero, coroutineTreesAsset));
-           
+         
           
 
         }
