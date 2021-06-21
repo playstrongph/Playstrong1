@@ -1,4 +1,7 @@
-﻿namespace ScriptableObjects.StatusEffects.Instance
+﻿using Interfaces;
+using Logic;
+
+namespace ScriptableObjects.StatusEffects.Instance
 {
     /// <summary>
     /// Sets the allowed instances of buffs/debuffs.
@@ -6,8 +9,9 @@
     /// Multiple - more than 1 instance, counters updated through skill effects
     /// Fixed - 1 instance and fixed counter of 1.  (Stun)
     /// </summary>
-    public interface IStatusEffectInstance 
+    public interface IStatusEffectInstance
     {
-        
+        void AddStatusEffect(IHero hero, IHeroStatusEffect addStatusEffect, IStatusEffectAsset statusEffectAsset,
+            int statusEffectCounters);
     }
 }

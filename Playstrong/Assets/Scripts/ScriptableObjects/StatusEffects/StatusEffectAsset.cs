@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects.StatusEffectCounter;
+﻿using ScriptableObjects.StatusEffects.Instance;
+using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +31,10 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject updateTiming;
         public IStatusEffectCounterUpdate UpdateTiming => updateTiming as IStatusEffectCounterUpdate;
 
+        [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
+        private ScriptableObject _statusEffectInstance;
+        public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
+        
         public virtual void ApplyStatusEffect()
         {
         }

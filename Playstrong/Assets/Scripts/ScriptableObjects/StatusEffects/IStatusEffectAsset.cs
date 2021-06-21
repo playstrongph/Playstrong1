@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects.StatusEffectCounter;
+﻿using ScriptableObjects.StatusEffects.Instance;
+using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,8 @@ namespace ScriptableObjects.StatusEffects
         IStatusEffectType StatusEffectType { get; }
 
         IStatusEffectCounterUpdate UpdateTiming { get; }
+
+        IStatusEffectInstance StatusEffectInstance { get; }
 
     }
 }
