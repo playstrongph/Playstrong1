@@ -73,13 +73,16 @@ namespace Logic
 
         private IReduceStatusEffectCounters _reduceStatusEffectCounters;
         public IReduceStatusEffectCounters ReduceStatusEffectCounters => _reduceStatusEffectCounters;
-        
+
+        private ISetStatusEffectCounters _setStatusEffectCounters;
+        public ISetStatusEffectCounters SetStatusEffectCounters => _setStatusEffectCounters;
         
 
         private void Awake()
         {
             _loadStatusEffectValues = GetComponent<ILoadStatusEffectValues>();
             _reduceStatusEffectCounters = GetComponent<IReduceStatusEffectCounters>();
+            _setStatusEffectCounters = GetComponent<ISetStatusEffectCounters>();
         }
     }
 }

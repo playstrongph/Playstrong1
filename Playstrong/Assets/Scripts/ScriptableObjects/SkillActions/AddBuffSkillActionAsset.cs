@@ -28,13 +28,22 @@ namespace ScriptableObjects.SkillActions
         {
            LogicTree = coroutineTreesAsset.MainLogicTree;
             
-           LogicTree.AddCurrent(AddBuffCoroutine(hero, coroutineTreesAsset));
+           //LogicTree.AddCurrent(AddBuffCoroutine(hero, coroutineTreesAsset));
          
-          
+           LogicTree.AddCurrent(AddBuffCoroutine2(hero, BuffAsset, BuffCounters));
 
         }
 
-        
+        private IEnumerator AddBuffCoroutine2(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        {
+            BuffAsset.StatusEffectInstance.AddStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+
+
+
         //Multiple Instance AddBuffCoroutine
         private IEnumerator AddBuffCoroutine(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {

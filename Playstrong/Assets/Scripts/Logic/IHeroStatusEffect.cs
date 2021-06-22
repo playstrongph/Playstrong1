@@ -24,6 +24,10 @@ namespace Logic
 
         IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
 
+        ISetStatusEffectCounters SetStatusEffectCounters { get; }
+
         IStatusEffectCounterUpdate StatusEffectCounterUpdate { get; set; }
+        
+        
     }
 }

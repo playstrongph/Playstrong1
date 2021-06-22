@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using References;
 using ScriptableObjects.Others;
 using UnityEngine;
 
@@ -11,23 +12,24 @@ namespace ScriptableObjects.StatusEffects.Instance
     public class SingleInstance : ScriptableObject, IStatusEffectInstance
     {
         private IHeroStatusEffect _existingStatusEffect;
+
         
-        public void AddStatusEffect(IHero hero,  IHeroStatusEffect addStatusEffect, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
-            if(CheckExistingStatusEffects(hero, addStatusEffect))
-                UpdateStatusEffect(addStatusEffect);
+            if (CheckExistingStatusEffects(hero, statusEffectAsset))
+                UpdateStatusEffect(_existingStatusEffect,statusEffectCounters, hero);
             else
                 CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
-            
         }
         
         
-        private bool CheckExistingStatusEffects(IHero hero, IHeroStatusEffect addStatusEffect)
+        private bool CheckExistingStatusEffects(IHero hero, IStatusEffectAsset addStatusEffectAsset)
         {
             var statusEffectExists = false;
+            
             foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
-                if (addStatusEffect.StatusEffectType == statusEffect.StatusEffectType)
+                if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                 {
                     statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
@@ -36,7 +38,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             foreach (var statusEffect in hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
             {
-                if (addStatusEffect.StatusEffectType == statusEffect.StatusEffectType)
+                if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                 {
                     statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
@@ -57,18 +59,21 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            heroStatusEffect.CoroutineTreesAsset = hero.CoroutineTreesAsset;
 
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
         }
 
-        private void UpdateStatusEffect(IHeroStatusEffect addStatusEffect)
+        private void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero hero)
         {
-            var addStatusEffectCounters = addStatusEffect.Counters;
-            var existingStatusEffectCounters = _existingStatusEffect.Counters;
-            var newCounters = Mathf.Max(addStatusEffectCounters, existingStatusEffectCounters);
+            var coroutineTreesAsset = hero.CoroutineTreesAsset;
+            var existingStatusEffectCounters = existingStatusEffect.Counters;
+            var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
 
-            _existingStatusEffect.Counters = newCounters;
+            _existingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
+            
+            
         }
         
         
