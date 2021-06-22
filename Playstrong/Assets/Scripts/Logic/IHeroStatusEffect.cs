@@ -1,5 +1,6 @@
 ﻿using ScriptableObjects.Others;
 using ScriptableObjects.StatusEffects;
+using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
@@ -27,7 +28,9 @@ namespace Logic
         ISetStatusEffectCounters SetStatusEffectCounters { get; }
 
         IStatusEffectCounterUpdate StatusEffectCounterUpdate { get; set; }
-        
-        
+
+        IStatusEffectInstance StatusEffectInstance { get; set; }
+
+
     }
 }

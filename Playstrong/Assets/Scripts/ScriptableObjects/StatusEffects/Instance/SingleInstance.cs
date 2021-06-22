@@ -21,22 +21,24 @@ namespace ScriptableObjects.StatusEffects.Instance
         
         public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
-            if (CheckExistingStatusEffects(hero, statusEffectAsset))
+            CheckExistingStatusEffects(hero, statusEffectAsset);
+            
+            if (_existingStatusEffect != null)
                 UpdateStatusEffect(_existingStatusEffect,statusEffectCounters, hero);
             else
                 CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
         }
         
         
-        private bool CheckExistingStatusEffects(IHero hero, IStatusEffectAsset addStatusEffectAsset)
+        private void CheckExistingStatusEffects(IHero hero, IStatusEffectAsset addStatusEffectAsset)
         {
-            var statusEffectExists = false;
+            //var statusEffectExists = false;
             
             foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
                 if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                 {
-                    statusEffectExists = true;
+                    //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
                 }
             }
@@ -45,12 +47,12 @@ namespace ScriptableObjects.StatusEffects.Instance
             {
                 if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                 {
-                    statusEffectExists = true;
+                    //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
                 }
             }
 
-            return statusEffectExists;
+            //return statusEffectExists;
         }
 
         private void CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)

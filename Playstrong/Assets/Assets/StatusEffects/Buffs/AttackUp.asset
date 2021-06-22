@@ -17,5 +17,5 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 8c1cabfb0b1372043a48c11325c32aaa, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
-  _statusEffectInstance: {fileID: 11400000, guid: b8efb27b2ad00fe4e82edb681246f119,
+  _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}

@@ -24,36 +24,37 @@ namespace ScriptableObjects.StatusEffects.Instance
         
         public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
-            if (CheckExistingStatusEffects(hero, statusEffectAsset))
+            CheckExistingStatusEffects(hero, statusEffectAsset);
+            
+            if (_existingStatusEffect != null)
                 UpdateStatusEffect(_existingStatusEffect,_fixedValue, hero);
             else
                 CreateStatusEffect(hero, statusEffectAsset, _fixedValue);
         }
         
         
-        private bool CheckExistingStatusEffects(IHero hero, IStatusEffectAsset addStatusEffectAsset)
+        private void CheckExistingStatusEffects(IHero hero, IStatusEffectAsset statusEffectAsset)
         {
-            var statusEffectExists = false;
-            
+
             foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
-                if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
+                if (statusEffectAsset == statusEffect.StatusEffectAsset)
                 {
-                    statusEffectExists = true;
+                     //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
                 }
             }
             
             foreach (var statusEffect in hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
             {
-                if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
+                if (statusEffectAsset == statusEffect.StatusEffectAsset)
                 {
-                    statusEffectExists = true;
+                    //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
                 }
             }
 
-            return statusEffectExists;
+            //return statusEffectExists;
         }
 
         private void CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)

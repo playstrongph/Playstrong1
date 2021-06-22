@@ -1,6 +1,7 @@
 ﻿using System;
 using ScriptableObjects.Others;
 using ScriptableObjects.StatusEffects;
+using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
@@ -62,6 +63,16 @@ namespace Logic
         {
             get => _statusEffectCounterUpdate as IStatusEffectCounterUpdate;
             set => _statusEffectCounterUpdate = value as ScriptableObject;
+        }
+
+        [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
+        private ScriptableObject _statusEffectInstance;
+
+        public IStatusEffectInstance StatusEffectInstance
+        {
+            get => _statusEffectInstance as IStatusEffectInstance;
+            set => _statusEffectInstance = value as ScriptableObject;
+
         }
 
         /// <summary>
