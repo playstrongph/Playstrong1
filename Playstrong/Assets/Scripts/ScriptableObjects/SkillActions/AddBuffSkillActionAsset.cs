@@ -22,19 +22,19 @@ namespace ScriptableObjects.SkillActions
         [SerializeField] private int _buffCounters;
         private int BuffCounters => _buffCounters;
 
-        
-
+        /// <summary>
+        /// Logic of AddBuff is in the statuseffect asset Instance
+        /// Single, Multiple, Fixed
+        /// </summary>
         public override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
         {
            LogicTree = coroutineTreesAsset.MainLogicTree;
-            
-           //LogicTree.AddCurrent(AddBuffCoroutine(hero, coroutineTreesAsset));
-         
-           LogicTree.AddCurrent(AddBuffCoroutine2(hero, BuffAsset, BuffCounters));
+
+           LogicTree.AddCurrent(AddBuffCoroutine(hero, BuffAsset, BuffCounters));
 
         }
 
-        private IEnumerator AddBuffCoroutine2(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        private IEnumerator AddBuffCoroutine(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
             BuffAsset.StatusEffectInstance.AddStatusEffect(hero, statusEffectAsset, statusEffectCounters);
             
@@ -44,29 +44,7 @@ namespace ScriptableObjects.SkillActions
 
 
 
-        //Multiple Instance AddBuffCoroutine
-        private IEnumerator AddBuffCoroutine(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
-        {
-            var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
-            var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
-            
-            var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
-            buffEffectObject.transform.SetParent(statusEffectPanel);
-            var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
-            
-            
-            heroStatusEffect.CoroutineTreesAsset = coroutineTreesAsset;
-            heroStatusEffect.LoadStatusEffectValues.LoadValues(BuffAsset, BuffCounters);
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
-           
-            
-            //Add to respective StatusEffects List in HeroStatusEffects
-            heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
-            
-            LogicTree.EndSequence();
-            yield return null;
-        }
-
+      
 
 
     }

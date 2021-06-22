@@ -8,23 +8,26 @@ using UnityEngine;
 namespace ScriptableObjects.StatusEffects.Instance
 {
     
-    [CreateAssetMenu(fileName = "SingleInstance", menuName = "SO's/Status Effects/Instance/Single Instance")]
-    public class SingleInstance : ScriptableObject, IStatusEffectInstance
+    [CreateAssetMenu(fileName = "FixedInstance", menuName = "SO's/Status Effects/Instance/Fixed Instance")]
+    public class FixedInstance : ScriptableObject, IStatusEffectInstance
     {
         private IHeroStatusEffect _existingStatusEffect;
 
         /// <summary>
         /// Checks if there is an existing status effect on the hero
         /// Create a new one if there is none
-        /// Update the status effect counters if it exists 
+        /// Update the status effect counter to a fixed value of one if it exists
         /// </summary>
+
+        private int _fixedValue = 1;
+        
         
         public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
             if (CheckExistingStatusEffects(hero, statusEffectAsset))
-                UpdateStatusEffect(_existingStatusEffect,statusEffectCounters, hero);
+                UpdateStatusEffect(_existingStatusEffect,_fixedValue, hero);
             else
-                CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+                CreateStatusEffect(hero, statusEffectAsset, _fixedValue);
         }
         
         
@@ -62,7 +65,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             buffEffectObject.transform.SetParent(statusEffectPanel);
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
 
-            heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
+            heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, _fixedValue);
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
             heroStatusEffect.CoroutineTreesAsset = hero.CoroutineTreesAsset;
 
@@ -73,10 +76,8 @@ namespace ScriptableObjects.StatusEffects.Instance
         private void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero hero)
         {
             var coroutineTreesAsset = hero.CoroutineTreesAsset;
-            var existingStatusEffectCounters = existingStatusEffect.Counters;
-            var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
 
-            _existingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
+            _existingStatusEffect.SetStatusEffectCounters.SetCounters(_fixedValue, coroutineTreesAsset);
             
             
         }
