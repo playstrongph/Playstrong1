@@ -18,7 +18,6 @@ namespace ScriptableObjects.StatusEffects.Instance
         /// Create a new one if there is none
         /// Update the status effect counters if it exists 
         /// </summary>
-        
         public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
             CheckExistingStatusEffects(hero, statusEffectAsset);
@@ -32,27 +31,20 @@ namespace ScriptableObjects.StatusEffects.Instance
         
         private void CheckExistingStatusEffects(IHero hero, IStatusEffectAsset addStatusEffectAsset)
         {
-            //var statusEffectExists = false;
-            
+
             foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
                 if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
-                {
-                    //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
-                }
             }
             
             foreach (var statusEffect in hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
             {
                 if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                 {
-                    //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
                 }
             }
-
-            //return statusEffectExists;
         }
 
         private void CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
@@ -79,8 +71,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
 
             _existingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
-            
-            
+
         }
         
         

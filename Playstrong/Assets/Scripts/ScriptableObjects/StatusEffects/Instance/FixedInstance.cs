@@ -13,15 +13,13 @@ namespace ScriptableObjects.StatusEffects.Instance
     {
         private IHeroStatusEffect _existingStatusEffect;
 
+        private int _fixedValue = 1;
+        
         /// <summary>
         /// Checks if there is an existing status effect on the hero
         /// Create a new one if there is none
         /// Update the status effect counter to a fixed value of one if it exists
         /// </summary>
-
-        private int _fixedValue = 1;
-        
-        
         public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
             CheckExistingStatusEffects(hero, statusEffectAsset);
@@ -39,22 +37,15 @@ namespace ScriptableObjects.StatusEffects.Instance
             foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
                 if (statusEffectAsset == statusEffect.StatusEffectAsset)
-                {
-                     //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
-                }
             }
             
             foreach (var statusEffect in hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
             {
                 if (statusEffectAsset == statusEffect.StatusEffectAsset)
-                {
-                    //statusEffectExists = true;
                     _existingStatusEffect = statusEffect;
-                }
+                
             }
-
-            //return statusEffectExists;
         }
 
         private void CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
@@ -79,8 +70,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             var coroutineTreesAsset = hero.CoroutineTreesAsset;
 
             _existingStatusEffect.SetStatusEffectCounters.SetCounters(_fixedValue, coroutineTreesAsset);
-            
-            
+
         }
         
         
