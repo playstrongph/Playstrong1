@@ -55,13 +55,16 @@ namespace ScriptableObjects.StatusEffects.Instance
             var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
             buffEffectObject.transform.SetParent(statusEffectPanel);
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
-
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
             heroStatusEffect.CoroutineTreesAsset = hero.CoroutineTreesAsset;
-
+            
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
+            
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            
+
+            
         }
 
         private void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero hero)

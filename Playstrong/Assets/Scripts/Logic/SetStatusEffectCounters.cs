@@ -27,6 +27,8 @@ namespace Logic
            _visualTree = coroutineTreesAsset.MainVisualTree;
            
            _logicTree.AddCurrent(LogicSetCountersEnumerator(value));
+           
+           //TODO: potentially include statuseffectinstance UpdateCounters for fixedInstance purposes
         }
 
         private IEnumerator LogicSetCountersEnumerator(int value)

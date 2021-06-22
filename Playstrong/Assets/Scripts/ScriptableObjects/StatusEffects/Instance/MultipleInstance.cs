@@ -37,6 +37,16 @@ namespace ScriptableObjects.StatusEffects.Instance
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
         }
+        
+        private void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero hero)
+        {
+            var coroutineTreesAsset = hero.CoroutineTreesAsset;
+            var existingStatusEffectCounters = existingStatusEffect.Counters;
+            var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
+
+            _existingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
+
+        }
 
       
         
