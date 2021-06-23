@@ -3,6 +3,7 @@ using System.Collections;
 using Interfaces;
 using ScriptableObjects.StatusEffects;
 using UnityEngine;
+using Object = System.Object;
 
 namespace Logic
 {
@@ -26,6 +27,18 @@ namespace Logic
         public IEnumerator RemoveEffectCoroutine(IHero hero, IStatusEffectAsset statusEffectAsset)
         {
             _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect();
+
+            var bufflist = hero.HeroStatusEffects.HeroBuffEffects;
+            var debuffList = hero.HeroStatusEffects.HeroDebuffEffects;
+            var thisHeroStatusEffectObject = _thisHeroStatusEffect as UnityEngine.Object;
+
+            bufflist.HeroBuffs.Remove(_thisHeroStatusEffect);
+            bufflist.HeroBuffObjects.Remove(thisHeroStatusEffectObject);
+
+            debuffList.HeroDebuffs.Remove(_thisHeroStatusEffect);
+            debuffList.HeroDebuffObjects.Remove(thisHeroStatusEffectObject);
+            
+            Destroy(this.gameObject);
 
             yield return null;
         }
