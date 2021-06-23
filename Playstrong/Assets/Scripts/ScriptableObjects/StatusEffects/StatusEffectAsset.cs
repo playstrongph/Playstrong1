@@ -39,5 +39,10 @@ namespace ScriptableObjects.StatusEffects
         {
         }
 
+        public virtual void UnapplyStatusEffect()
+        {
+            
+        }
+
     }
 }

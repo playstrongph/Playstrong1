@@ -10,6 +10,13 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             Debug.Log("Attack Up Buff");       
         }
+        
+        public override void UnapplyStatusEffect()
+        {
+            Debug.Log("Unapply Attack Up Buff");       
+        }
+        
+        
 
        
 

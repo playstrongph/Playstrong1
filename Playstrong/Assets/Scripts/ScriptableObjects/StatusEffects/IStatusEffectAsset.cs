@@ -10,6 +10,7 @@ namespace ScriptableObjects.StatusEffects
     {
 
         void ApplyStatusEffect();
+        void UnapplyStatusEffect();
 
         string Name { get; }
 
@@ -22,6 +23,8 @@ namespace ScriptableObjects.StatusEffects
         IStatusEffectCounterUpdate UpdateTiming { get; }
 
         IStatusEffectInstance StatusEffectInstance { get; }
+
+        
 
     }
 }
