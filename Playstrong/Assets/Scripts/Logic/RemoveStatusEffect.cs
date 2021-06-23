@@ -7,7 +7,7 @@ using Object = System.Object;
 
 namespace Logic
 {
-    public class RemoveStatusEffect : MonoBehaviour
+    public class RemoveStatusEffect : MonoBehaviour, IRemoveStatusEffect
     {
         private IHeroStatusEffect _thisHeroStatusEffect;
 
@@ -17,29 +17,31 @@ namespace Logic
         }
 
 
-        public void RemoveEffect()
+        public void RemoveEffect(IHero hero)
         {
-          
-           
-           
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(RemoveEffectCoroutine(hero));
         }
 
-        public IEnumerator RemoveEffectCoroutine(IHero hero, IStatusEffectAsset statusEffectAsset)
+        private IEnumerator RemoveEffectCoroutine(IHero hero)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
             _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect();
 
-            var bufflist = hero.HeroStatusEffects.HeroBuffEffects;
+            var buffList = hero.HeroStatusEffects.HeroBuffEffects;
             var debuffList = hero.HeroStatusEffects.HeroDebuffEffects;
             var thisHeroStatusEffectObject = _thisHeroStatusEffect as UnityEngine.Object;
 
-            bufflist.HeroBuffs.Remove(_thisHeroStatusEffect);
-            bufflist.HeroBuffObjects.Remove(thisHeroStatusEffectObject);
+            buffList.HeroBuffs.Remove(_thisHeroStatusEffect);
+            buffList.HeroBuffObjects.Remove(thisHeroStatusEffectObject);
 
             debuffList.HeroDebuffs.Remove(_thisHeroStatusEffect);
             debuffList.HeroDebuffObjects.Remove(thisHeroStatusEffectObject);
             
             Destroy(this.gameObject);
-
+            
+            logicTree.EndSequence();
             yield return null;
         }
 
