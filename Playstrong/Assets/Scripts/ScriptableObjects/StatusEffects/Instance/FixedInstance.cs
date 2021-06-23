@@ -9,9 +9,9 @@ namespace ScriptableObjects.StatusEffects.Instance
 {
     
     [CreateAssetMenu(fileName = "FixedInstance", menuName = "SO's/Status Effects/Instance/Fixed Instance")]
-    public class FixedInstance : ScriptableObject, IStatusEffectInstance
+    public class FixedInstance : StatusEffectInstance
     {
-        private IHeroStatusEffect _existingStatusEffect;
+        
 
         private int _fixedValue = 1;
         
@@ -20,61 +20,19 @@ namespace ScriptableObjects.StatusEffects.Instance
         /// Create a new one if there is none
         /// Update the status effect counter to a fixed value of one if it exists
         /// </summary>
-        public void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        public override  void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
+            statusEffectCounters = _fixedValue;
             CheckExistingStatusEffects(hero, statusEffectAsset);
             
-            if (_existingStatusEffect != null)
-                UpdateStatusEffect(_existingStatusEffect,_fixedValue, hero);
+            if (ExistingStatusEffect != null)
+                UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, hero);
             else
-                CreateStatusEffect(hero, statusEffectAsset, _fixedValue);
+                CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
         }
         
         
-        private void CheckExistingStatusEffects(IHero hero, IStatusEffectAsset statusEffectAsset)
-        {
-
-            foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
-            {
-                if (statusEffectAsset == statusEffect.StatusEffectAsset)
-                    _existingStatusEffect = statusEffect;
-            }
-            
-            foreach (var statusEffect in hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
-            {
-                if (statusEffectAsset == statusEffect.StatusEffectAsset)
-                    _existingStatusEffect = statusEffect;
-                
-            }
-        }
-
-        private void CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
-        {
-            var buffEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
-            var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
-            
-            var buffEffectObject = Instantiate(buffEffectPrefab, statusEffectPanel);
-            buffEffectObject.transform.SetParent(statusEffectPanel);
-            var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
-            heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, _fixedValue);
-            heroStatusEffect.CoroutineTreesAsset = hero.CoroutineTreesAsset;
-            
-            //Add to respective StatusEffects List in HeroStatusEffects
-            heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
-            
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
-            
-
-           
-        }
-
-        private void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero hero)
-        {
-            var coroutineTreesAsset = hero.CoroutineTreesAsset;
-
-            _existingStatusEffect.SetStatusEffectCounters.SetCounters(_fixedValue, coroutineTreesAsset);
-
-        }
+        
         
         
     }

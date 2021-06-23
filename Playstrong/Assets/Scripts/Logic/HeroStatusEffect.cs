@@ -1,4 +1,5 @@
 ﻿using System;
+using Interfaces;
 using ScriptableObjects.Others;
 using ScriptableObjects.StatusEffects;
 using ScriptableObjects.StatusEffects.Instance;
@@ -81,6 +82,8 @@ namespace Logic
         private ILoadStatusEffectValues _loadStatusEffectValues;
         public ILoadStatusEffectValues LoadStatusEffectValues => _loadStatusEffectValues;
         public ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
+
+        public IHero Hero { get; set; }
 
         private IReduceStatusEffectCounters _reduceStatusEffectCounters;
         public IReduceStatusEffectCounters ReduceStatusEffectCounters => _reduceStatusEffectCounters;
