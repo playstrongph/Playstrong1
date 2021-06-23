@@ -18,14 +18,14 @@ namespace Logic
 
         public void RemoveEffect()
         {
-           _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect();
+          
            
            
         }
 
         public IEnumerator RemoveEffectCoroutine(IHero hero, IStatusEffectAsset statusEffectAsset)
         {
-            
+            _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect();
 
             yield return null;
         }
