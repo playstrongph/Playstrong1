@@ -11,7 +11,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
             AddToHeroDebuffsList(heroStatusEffects, heroStatusEffect);
         }
 
-        public void RemoveStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
+        public void RemoveFromStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
             RemoveFromHeroDebuffsList(heroStatusEffects, heroStatusEffect);
         }
@@ -26,6 +26,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
         
         private void RemoveFromHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
         {
+            Debug.Log("Remove from hero buffs list");
             heroStatusEffects.HeroDebuffEffects.HeroDebuffs.Remove(debuffEffect);
             
             //Add to Object List, Inspector Display Purposes only

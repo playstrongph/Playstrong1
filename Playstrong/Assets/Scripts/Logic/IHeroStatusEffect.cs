@@ -34,6 +34,8 @@ namespace Logic
 
         IStatusEffectInstance StatusEffectInstance { get; set; }
 
+        IRemoveStatusEffect RemoveStatusEffect { get; }
+
 
     }
 }

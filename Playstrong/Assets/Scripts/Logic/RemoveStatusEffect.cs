@@ -29,15 +29,19 @@ namespace Logic
             
             _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect();
 
-            var buffList = hero.HeroStatusEffects.HeroBuffEffects;
-            var debuffList = hero.HeroStatusEffects.HeroDebuffEffects;
-            var thisHeroStatusEffectObject = _thisHeroStatusEffect as UnityEngine.Object;
+            var heroStatusEffects = hero.HeroStatusEffects;
+            
+            _thisHeroStatusEffect.StatusEffectType.RemoveFromStatusEffectList(heroStatusEffects, _thisHeroStatusEffect);
 
-            buffList.HeroBuffs.Remove(_thisHeroStatusEffect);
-            buffList.HeroBuffObjects.Remove(thisHeroStatusEffectObject);
+            logicTree.AddCurrent(DestroyStatusEffectObject(hero));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
 
-            debuffList.HeroDebuffs.Remove(_thisHeroStatusEffect);
-            debuffList.HeroDebuffObjects.Remove(thisHeroStatusEffectObject);
+        private IEnumerator DestroyStatusEffectObject(IHero hero)
+        {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             Destroy(this.gameObject);
             

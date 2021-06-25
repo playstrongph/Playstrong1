@@ -34,6 +34,9 @@ namespace Logic
             _heroStatusEffect.Counters -= value;
             
             _visualTree.AddCurrent(VisualReduceCountersEnumerator(value));
+            
+            if(_heroStatusEffect.Counters <=0)
+                _heroStatusEffect.RemoveStatusEffect.RemoveEffect(_heroStatusEffect.Hero);
 
             _logicTree.EndSequence();
             yield return null;
