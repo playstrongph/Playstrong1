@@ -18,7 +18,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             InitializeValues(hero);
 
-            //TODO: HeroLogic: Set Attack Logic
+            //TODO: HeroLogic: SetHeroAttackValue attached to Herologic 
             hero.HeroLogic.HeroAttributes.Attack += _attackIncrease;
             hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
                         
