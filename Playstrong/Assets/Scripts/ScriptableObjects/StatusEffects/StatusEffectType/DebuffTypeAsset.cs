@@ -11,12 +11,25 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
             AddToHeroDebuffsList(heroStatusEffects, heroStatusEffect);
         }
 
+        public void RemoveStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
+        {
+            RemoveFromHeroDebuffsList(heroStatusEffects, heroStatusEffect);
+        }
+
         private void AddToHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
         {
             heroStatusEffects.HeroDebuffEffects.HeroDebuffs.Add(debuffEffect);
             
             //Add to Object List, Inspector Display Purposes only
             heroStatusEffects.HeroDebuffEffects.HeroDebuffObjects.Add(debuffEffect as Object);
+        }
+        
+        private void RemoveFromHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
+        {
+            heroStatusEffects.HeroDebuffEffects.HeroDebuffs.Remove(debuffEffect);
+            
+            //Add to Object List, Inspector Display Purposes only
+            heroStatusEffects.HeroDebuffEffects.HeroDebuffObjects.Remove(debuffEffect as Object);
         }
         
 
