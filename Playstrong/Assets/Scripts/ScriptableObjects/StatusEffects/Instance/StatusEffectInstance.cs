@@ -23,7 +23,8 @@ namespace ScriptableObjects.StatusEffects.Instance
             var heroStatusEffect = buffEffectObject.GetComponent<IHeroStatusEffect>();
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect();
+            
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(hero);
             
             heroStatusEffect.CoroutineTreesAsset = hero.CoroutineTreesAsset;
             heroStatusEffect.Hero = hero;

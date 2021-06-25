@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects.Instance;
+﻿using Interfaces;
+using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
@@ -35,11 +36,11 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
         
-        public virtual void ApplyStatusEffect()
+        public virtual void ApplyStatusEffect(IHero hero)
         {
         }
 
-        public virtual void UnapplyStatusEffect()
+        public virtual void UnapplyStatusEffect(IHero hero)
         {
             
         }

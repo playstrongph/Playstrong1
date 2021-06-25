@@ -27,7 +27,7 @@ namespace Logic
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect();
+            _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect(hero);
 
             var heroStatusEffects = hero.HeroStatusEffects;
             

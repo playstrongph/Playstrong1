@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.StatusEffects.Instance;
+﻿using Interfaces;
+using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
@@ -9,8 +10,8 @@ namespace ScriptableObjects.StatusEffects
     public interface IStatusEffectAsset
     {
 
-        void ApplyStatusEffect();
-        void UnapplyStatusEffect();
+        void ApplyStatusEffect(IHero hero);
+        void UnapplyStatusEffect(IHero ihero);
 
         string Name { get; }
 
