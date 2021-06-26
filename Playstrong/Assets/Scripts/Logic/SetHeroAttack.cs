@@ -26,7 +26,7 @@ namespace Logic
         public void SetAttack(int value)
         {
             InitializeLocalVariables();
-            SetAttackLogic(value);
+            _logicTree.AddCurrent(SetAttackLogic(value));
         }
 
         private IEnumerator SetAttackLogic(int value)

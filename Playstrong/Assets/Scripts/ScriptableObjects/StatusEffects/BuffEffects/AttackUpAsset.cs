@@ -17,27 +17,15 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         public override void ApplyStatusEffect(IHero hero)
         {
             InitializeValues(hero);
-
-            //TODO: HeroLogic: SetHeroAttackValue attached to Herologic 
+             
             var newAttackValue = hero.HeroLogic.HeroAttributes.Attack + _attackIncrease;
             hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
-            
-            //hero.HeroLogic.HeroAttributes.Attack += _attackIncrease;
-            //hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
-                        
-            
-            Debug.Log("Attack Up Buff");       
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var newAttackValue = hero.HeroLogic.HeroAttributes.Attack - _attackIncrease;
             hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
-            
-            //hero.HeroLogic.HeroAttributes.Attack -= _attackIncrease;
-            //hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
-            
-            Debug.Log("Unapply Attack Up Buff");       
         }
 
         private void InitializeValues(IHero hero)
