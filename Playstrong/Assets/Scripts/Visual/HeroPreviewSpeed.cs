@@ -10,9 +10,14 @@ namespace Visual
         private TextMeshProUGUI _text;
 
 
-        public void SetHeroPreviewSpeed(string previewSpeed)
+        public void SetHeroPreviewSpeedText(string previewSpeed)
         {
             _text.text = previewSpeed;
+        }
+        
+        public void SetHeroPreviewSpeedColor(Color color)
+        {
+            _text.color = color;
         }
     }
 }

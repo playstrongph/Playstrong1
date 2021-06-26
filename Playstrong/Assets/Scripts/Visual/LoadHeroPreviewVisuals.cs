@@ -41,7 +41,8 @@ namespace Visual
             
             _heroPreviewVisualReferences.HeroPreviewHealth.SetHeroPreviewHealth(_heroAttributes.Health.ToString());
             
-            _heroPreviewVisualReferences.HeroPreviewSpeed.SetHeroPreviewSpeed(_heroAttributes.Speed.ToString());
+            //_heroPreviewVisualReferences.HeroPreviewSpeed.SetHeroPreviewSpeedText(_heroAttributes.Speed.ToString());
+            SetHeroPreviewSpeedVisual();
             
             _heroPreviewVisualReferences.HeroPreviewChance.SetHeroPreviewChance(_heroAttributes.Chance.ToString());
             
@@ -56,6 +57,18 @@ namespace Visual
             _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackText(_heroAttributes.Attack.ToString());
             _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackColor(textColor);
         }
+
+        private void SetHeroPreviewSpeedVisual()
+        {
+            var baseSpeed = _heroAttributes.BaseSpeed;
+            var speed = _heroAttributes.Speed;
+            var textColor = GetTextColor(baseSpeed, speed); 
+            
+            _heroPreviewVisualReferences.HeroPreviewSpeed.SetHeroPreviewSpeedText(_heroAttributes.Speed.ToString());
+            _heroPreviewVisualReferences.HeroPreviewSpeed.SetHeroPreviewSpeedColor(textColor);
+            
+        }
+
 
         private Color GetTextColor(int baseValue, int value)
         {

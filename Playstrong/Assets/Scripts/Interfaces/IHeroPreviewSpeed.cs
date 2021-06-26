@@ -1,7 +1,11 @@
-﻿namespace Interfaces
+﻿using UnityEngine;
+
+namespace Interfaces
 {
     public interface IHeroPreviewSpeed
     {
-        void SetHeroPreviewSpeed(string previewSpeed);
+        void SetHeroPreviewSpeedText(string previewSpeed);
+
+        void SetHeroPreviewSpeedColor(Color color);
     }
 }
