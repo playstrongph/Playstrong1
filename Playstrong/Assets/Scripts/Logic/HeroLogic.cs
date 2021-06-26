@@ -77,12 +77,16 @@ namespace Logic
         private ISetHeroAttack _setHeroAttack;
         public ISetHeroAttack SetHeroAttack => _setHeroAttack;
 
+        private ISetHeroSpeed _setHeroSpeed;
+        public ISetHeroSpeed SetHeroSpeed => _setHeroSpeed;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
             _takeDamage = GetComponent<ITakeDamage>();
             _endHeroTurn = GetComponent<IEndHeroTurn>();
             _setHeroAttack = GetComponent<ISetHeroAttack>();
+            _setHeroSpeed = GetComponent<ISetHeroSpeed>();
         }
     }
 }

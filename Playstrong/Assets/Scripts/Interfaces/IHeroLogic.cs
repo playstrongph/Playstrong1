@@ -26,6 +26,8 @@ namespace Interfaces
 
         ISetHeroAttack SetHeroAttack { get; }
 
+        ISetHeroSpeed SetHeroSpeed { get; }
+
 
 
 
