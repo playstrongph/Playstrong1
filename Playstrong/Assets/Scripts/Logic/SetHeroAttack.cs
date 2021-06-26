@@ -41,16 +41,11 @@ namespace Logic
 
         private IEnumerator SetAttackVisual(int value)
         {
-            _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackText(value.ToString());
-
             var baseAttack = _heroLogic.HeroAttributes.BaseAttack;
+            var textColor = GetTextColor(baseAttack, value);
             
-            if(value < baseAttack)
-                _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(Color.red);
-            if(value == baseAttack)
-                _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(Color.white);
-            if(value > baseAttack)
-                _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(Color.green);
+            _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackText(value.ToString());
+            _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(textColor);
 
             yield return null;
             _visualTree.EndSequence();
@@ -61,6 +56,19 @@ namespace Logic
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
 
+        }
+        
+        private Color GetTextColor(int baseValue, int value)
+        {
+            if(value>baseValue)
+                return Color.green;
+            else if (value == baseValue)
+                return Color.white;
+            else if(value < baseValue)
+                return Color.red;
+            else
+                return Color.white;
+            
         }
     }
 }

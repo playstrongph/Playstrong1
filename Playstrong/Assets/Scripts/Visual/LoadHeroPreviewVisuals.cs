@@ -37,7 +37,7 @@ namespace Visual
         public void UpdateHeroPreviewAttributes()
         {
             //_heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttack(_heroAttributes.Attack.ToString());
-            SetAttack();
+            SetHeroPreviewAttackVisual();
             
             _heroPreviewVisualReferences.HeroPreviewHealth.SetHeroPreviewHealth(_heroAttributes.Health.ToString());
             
@@ -47,20 +47,27 @@ namespace Visual
             
         }
 
-        private void SetAttack()
+        private void SetHeroPreviewAttackVisual()
         {
             var baseAttack = _heroAttributes.BaseAttack;
             var attack = _heroAttributes.Attack;
+            var textColor = GetTextColor(baseAttack, attack);
             
             _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackText(_heroAttributes.Attack.ToString());
-            
-            if(attack>baseAttack)
-                _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackColor(Color.green);
-            if(attack == baseAttack)
-                _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackColor(Color.white);
-            if(attack < baseAttack)
-                _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackColor(Color.red);
+            _heroPreviewVisualReferences.HeroPreviewAttack.SetHeroPreviewAttackColor(textColor);
+        }
 
+        private Color GetTextColor(int baseValue, int value)
+        {
+            if(value>baseValue)
+               return Color.green;
+            else if (value == baseValue)
+                return Color.white;
+            else if(value < baseValue)
+               return Color.red;
+            else
+                return Color.white;
+            
         }
 
 
