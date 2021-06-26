@@ -42,7 +42,16 @@ namespace Logic
         private IEnumerator SetAttackVisual(int value)
         {
             _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackText(value.ToString());
+
+            var baseAttack = _heroLogic.HeroAttributes.BaseAttack;
             
+            if(value < baseAttack)
+                _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(Color.red);
+            if(value == baseAttack)
+                _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(Color.white);
+            if(value > baseAttack)
+                _heroLogic.Hero.HeroVisual.AttackVisual.SetAttackTextColor(Color.green);
+
             yield return null;
             _visualTree.EndSequence();
         }

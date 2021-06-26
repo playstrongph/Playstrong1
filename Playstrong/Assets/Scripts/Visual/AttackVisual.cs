@@ -9,8 +9,9 @@ namespace Visual
        
         [SerializeField]
         private TextMeshProUGUI text;
-        
-        
+
+
+       
 
         public void SetAttackText(string attackValue)
         {
