@@ -19,8 +19,11 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             InitializeValues(hero);
 
             //TODO: HeroLogic: SetHeroAttackValue attached to Herologic 
-            hero.HeroLogic.HeroAttributes.Attack += _attackIncrease;
-            hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
+            var newAttackValue = hero.HeroLogic.HeroAttributes.Attack + _attackIncrease;
+            hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
+            
+            //hero.HeroLogic.HeroAttributes.Attack += _attackIncrease;
+            //hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
                         
             
             Debug.Log("Attack Up Buff");       
@@ -28,8 +31,11 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroAttributes.Attack -= _attackIncrease;
-            hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
+            var newAttackValue = hero.HeroLogic.HeroAttributes.Attack - _attackIncrease;
+            hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
+            
+            //hero.HeroLogic.HeroAttributes.Attack -= _attackIncrease;
+            //hero.HeroVisual.AttackVisual.SetAttackText(hero.HeroLogic.HeroAttributes.Attack.ToString());
             
             Debug.Log("Unapply Attack Up Buff");       
         }

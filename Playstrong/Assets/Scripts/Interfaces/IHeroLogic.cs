@@ -24,6 +24,8 @@ namespace Interfaces
 
         IEndHeroTurn EndHeroTurn { get; }
 
+        ISetHeroAttack SetHeroAttack { get; }
+
 
 
 
