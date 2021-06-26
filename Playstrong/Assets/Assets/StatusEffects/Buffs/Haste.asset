@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafe15de905997e41a7e84630d73089a, type: 3}
-  m_Name: AttackUp
+  m_Script: {fileID: 11500000, guid: 0feba3139ee959945b6496588096ed48, type: 3}
+  m_Name: Haste
   m_EditorClassIdentifier: 
-  _name: AttackUp
-  _description: Attack +50%
-  _icon: {fileID: 21300000, guid: 15c80b7dbe225b541a2ad594d5614127, type: 3}
+  _name: Haste
+  _description: Speed +30%
+  _icon: {fileID: 21300000, guid: c5964f71ced336047b028cd21d35bfbc, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
-  _statusEffectInstance: {fileID: 11400000, guid: b0c561a9acbf8744b82287dea490c366,
+  _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}

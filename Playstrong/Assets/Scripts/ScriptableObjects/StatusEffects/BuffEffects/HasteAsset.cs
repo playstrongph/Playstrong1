@@ -19,18 +19,18 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             InitializeValues(hero);
 
             var newSpeedValue = hero.HeroLogic.HeroAttributes.Speed + _speedIncrease;
+
+            hero.HeroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
             
-            //TODO: Herologic.SetHeroSpeed
             
-            //hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var newSpeedValue = hero.HeroLogic.HeroAttributes.Speed - _speedIncrease;
             
-            //TODO: Herologic.SetHeroSpeed
-            //hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
+            hero.HeroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
+            
         }
 
         private void InitializeValues(IHero hero)
