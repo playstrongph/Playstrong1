@@ -10,9 +10,14 @@ namespace Visual
         private TextMeshProUGUI _text;
 
 
-        public void SetHeroPreviewAttack(string previewAttack)
+        public void SetHeroPreviewAttackText(string previewAttack)
         {
             _text.text = previewAttack;
+        }
+
+        public void SetHeroPreviewAttackColor(Color color)
+        {
+            _text.color = color;
         }
     }
 }

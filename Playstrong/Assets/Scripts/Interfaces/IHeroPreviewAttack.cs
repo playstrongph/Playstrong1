@@ -1,7 +1,11 @@
-﻿namespace Interfaces
+﻿using UnityEngine;
+
+namespace Interfaces
 {
     public interface IHeroPreviewAttack
     {
-        void SetHeroPreviewAttack(string previewAttack);
+        void SetHeroPreviewAttackText(string previewAttack);
+
+        void SetHeroPreviewAttackColor(Color color);
     }
 }
