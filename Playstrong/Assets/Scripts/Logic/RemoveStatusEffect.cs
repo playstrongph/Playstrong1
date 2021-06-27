@@ -42,6 +42,10 @@ namespace Logic
         private IEnumerator DestroyStatusEffectObject(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+
+            var statusEffectPreview = _thisHeroStatusEffect.StatusEffectPreview;
+            
+            Destroy(statusEffectPreview);
             
             Destroy(this.gameObject);
             
