@@ -234,6 +234,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3370612144856543130}
+  - component: {fileID: 6989920011073783090}
+  - component: {fileID: 7981112552802583159}
   m_Layer: 0
   m_Name: StatusEffectPreviewPrefab
   m_TagString: Untagged
@@ -261,6 +263,33 @@ RectTransform:
   m_AnchoredPosition: {x: 45.8, y: 107.6}
   m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6989920011073783090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370612144856543131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5d614097760c74ea12d46e9b8321d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _statusEffectIcon: {fileID: 3370612144354454144}
+  _statusEffectName: {fileID: 3370612145003842844}
+  _statusEffectDescription: {fileID: 3370612145169343049}
+--- !u!114 &7981112552802583159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370612144856543131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95612a5a8d7530247abc2c30b54e8875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3370612144984969088
 GameObject:
   m_ObjectHideFlags: 0
