@@ -40,7 +40,8 @@ namespace ScriptableObjects.StatusEffects.Instance
             var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab, statusEffectPreviewPanel);
             heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
             var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();
-
+            
+            //TODO: Transfer this after SetActive Enable
             //heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
         }
 
