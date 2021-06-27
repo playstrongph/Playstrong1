@@ -5,6 +5,7 @@ using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 using Visual;
 
@@ -35,6 +36,8 @@ namespace Logic
         IStatusEffectInstance StatusEffectInstance { get; set; }
 
         IRemoveStatusEffect RemoveStatusEffect { get; }
+
+        GameObject StatusEffectPreview { get; set; }
 
 
     }

@@ -37,12 +37,18 @@ namespace ScriptableObjects.StatusEffects.Instance
             var statusEffectPreviewPrefab = hero.HeroStatusEffects.StatusEffectPreviewPrefab;
             var statusEffectPreviewPanel = hero.HeroPreviewVisual.StatusCanvasPanel.transform;
 
-            var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab, statusEffectPreviewPanel);
-            heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
+            var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab);
             var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();
+            heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
             
-            //TODO: Transfer this after SetActive Enable
-            //heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
+            //Delayed change parent due to inactive Parent gameObject
+            heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
+           
+            
+            //TEMP. TODO: Transfer this to LoadValues
+            heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
+
+          
         }
 
         

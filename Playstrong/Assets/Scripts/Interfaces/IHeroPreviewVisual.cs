@@ -8,6 +8,8 @@ namespace Interfaces
         IHero Hero { get; }
         Canvas PreviewCanvas { get; }
 
+        Canvas StatusEffectCanvas { get; }
+
         GameObject StatusCanvasPanel { get; }
         IHeroPreviewGraphic HeroPreviewGraphic { get; }
         IHeroPreviewName HeroPreviewName { get; }

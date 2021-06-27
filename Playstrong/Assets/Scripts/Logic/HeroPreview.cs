@@ -50,6 +50,7 @@ namespace Logic
         {
             StopCoroutine(_showPreview);
             _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(false);  
+            _heroPreviewVisual.StatusEffectCanvas.gameObject.SetActive(false);
         }
         
         
@@ -59,6 +60,8 @@ namespace Logic
             yield return new WaitForSeconds(_displayDelay);
             _heroPreviewVisual.LoadHeroPreviewVisuals.UpdateHeroPreviewAttributes();
             _heroPreviewVisual.PreviewCanvas.gameObject.SetActive(true);
+            _heroPreviewVisual.StatusEffectCanvas.gameObject.SetActive(true);
+            
             yield return null;
 
         }

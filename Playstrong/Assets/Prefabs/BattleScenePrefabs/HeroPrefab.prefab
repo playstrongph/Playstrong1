@@ -4369,6 +4369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 1729355933}
   _previewCanvas: {fileID: 3820792405816531815}
+  _statusEffectCanvas: {fileID: 3820792407318535584}
   _statusCanvasPanel: {fileID: 3820792406745081519}
   _heroPreviewGraphic: {fileID: 3820792406433659938}
   _heroPreviewName: {fileID: 3820792405786164055}

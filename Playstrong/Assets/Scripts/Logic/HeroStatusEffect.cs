@@ -76,6 +76,14 @@ namespace Logic
 
         }
 
+        [SerializeField] private GameObject _statusEffectPreview;
+
+        public GameObject StatusEffectPreview
+        {
+            get => _statusEffectPreview;
+            set => _statusEffectPreview = value;
+        }
+
         /// <summary>
         /// Non-Inspector Variables
         /// </summary>

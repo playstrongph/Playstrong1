@@ -17,6 +17,10 @@ namespace Visual
         [SerializeField]
         private Canvas _previewCanvas;
         public Canvas PreviewCanvas => _previewCanvas;
+        
+        [SerializeField]
+        private Canvas _statusEffectCanvas;
+        public Canvas StatusEffectCanvas => _statusEffectCanvas;
 
         [SerializeField] private GameObject _statusCanvasPanel;
         public GameObject StatusCanvasPanel => _statusCanvasPanel;
