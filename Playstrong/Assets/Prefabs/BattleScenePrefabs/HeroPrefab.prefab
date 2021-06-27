@@ -1041,6 +1041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroStatusEffectPrefab: {fileID: 1142902836881772226, guid: 4300aeba3c5db87419f00f018b714eb8,
     type: 3}
+  _statusEffectPreviewPrefab: {fileID: 3370612144856543131, guid: 887f0c02ebad09d49afdbb77eb325983,
+    type: 3}
   _statusEffectsCanvas: {fileID: 3820792406012467164}
   _statusEffectsPanel: {fileID: 3358907047805682121}
 --- !u!114 &3948171247458862321
@@ -4367,7 +4369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 1729355933}
   _previewCanvas: {fileID: 3820792405816531815}
-  _statusCanvas: {fileID: 3820792407318535584}
+  _statusCanvasPanel: {fileID: 3820792406745081519}
   _heroPreviewGraphic: {fileID: 3820792406433659938}
   _heroPreviewName: {fileID: 3820792405786164055}
   _heroPreviewAttack: {fileID: 3820792405377186578}

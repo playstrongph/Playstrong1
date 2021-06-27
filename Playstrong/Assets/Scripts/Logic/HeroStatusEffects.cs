@@ -15,6 +15,10 @@ namespace Logic
 
         public GameObject HeroStatusEffectPrefab => _heroStatusEffectPrefab;
 
+        [SerializeField] 
+        private GameObject _statusEffectPreviewPrefab;
+        public GameObject StatusEffectPreviewPrefab => _statusEffectPreviewPrefab;
+
 
         [SerializeField]
         private Canvas _statusEffectsCanvas;

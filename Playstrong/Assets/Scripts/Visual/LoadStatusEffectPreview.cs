@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptableObjects.StatusEffects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +14,11 @@ namespace Visual
             _statusEffectPreview = GetComponent<IStatusEffectPreview>();
         }
 
-        public void LoadVisualValues(Sprite statusEffectIcon, string statusEffectName, string statusEffectDescription )
+        public void LoadVisualValues(IStatusEffectAsset statusEffectAsset )
         {
-            _statusEffectPreview.StatusEffectIcon.sprite = statusEffectIcon;
-            _statusEffectPreview.StatusEffectName.text = statusEffectName;
-            _statusEffectPreview.StatusEffectDescription.text = statusEffectDescription;
+            _statusEffectPreview.StatusEffectIcon.sprite = statusEffectAsset.Icon;
+            _statusEffectPreview.StatusEffectName.text = statusEffectAsset.Name;
+            _statusEffectPreview.StatusEffectDescription.text = statusEffectAsset.Description;
         }
 
 

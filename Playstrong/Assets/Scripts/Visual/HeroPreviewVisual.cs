@@ -12,14 +12,14 @@ namespace Visual
         [SerializeField]
         [RequireInterface(typeof(IHero))]
         private Object _hero;
-        public IHero Hero => _hero as IHero; 
-        
+        public IHero Hero => _hero as IHero;
+
         [SerializeField]
         private Canvas _previewCanvas;
         public Canvas PreviewCanvas => _previewCanvas;
 
-        [SerializeField] private Canvas _statusCanvas;
-        public Canvas StatusCanvas => _statusCanvas;
+        [SerializeField] private GameObject _statusCanvasPanel;
+        public GameObject StatusCanvasPanel => _statusCanvasPanel;
 
         [SerializeField] [RequireInterface(typeof(IHeroPreviewGraphic))]
         private Object _heroPreviewGraphic;
