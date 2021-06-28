@@ -8,6 +8,10 @@ namespace Logic
     {
         List<IHeroStatusEffect> HeroDebuffs { get; }
 
-        List<Object> HeroDebuffObjects { get; }
+        void AddToList(IHeroStatusEffect debuffEffect);
+
+        void RemoveFromList(IHeroStatusEffect debuffEffect);
+
+
     }
 }

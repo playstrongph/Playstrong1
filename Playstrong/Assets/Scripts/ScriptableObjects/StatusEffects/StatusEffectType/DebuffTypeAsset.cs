@@ -18,19 +18,12 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
 
         private void AddToHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
         {
-            heroStatusEffects.HeroDebuffEffects.HeroDebuffs.Add(debuffEffect);
-            
-            //Add to Object List, Inspector Display Purposes only
-            heroStatusEffects.HeroDebuffEffects.HeroDebuffObjects.Add(debuffEffect as Object);
+            heroStatusEffects.HeroDebuffEffects.AddToList(debuffEffect);
         }
         
         private void RemoveFromHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
         {
-            Debug.Log("Remove from hero buffs list");
-            heroStatusEffects.HeroDebuffEffects.HeroDebuffs.Remove(debuffEffect);
-            
-            //Add to Object List, Inspector Display Purposes only
-            heroStatusEffects.HeroDebuffEffects.HeroDebuffObjects.Remove(debuffEffect as Object);
+            heroStatusEffects.HeroDebuffEffects.RemoveFromList(debuffEffect);
         }
         
 

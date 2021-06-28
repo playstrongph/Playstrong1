@@ -25,15 +25,23 @@ namespace Logic
                 return heroDebuffs;
             }
         }
-        
-        /// <summary>
-        /// For Inspector Display Purposes
-        /// Note: Don't forget to remove buffs from this list as well
-        /// </summary>
 
-        public List<Object> HeroDebuffObjects
+        public void AddToList(IHeroStatusEffect debuffEffect)
         {
-            get => _heroDebuffs;
+            var debuffEffectObject = debuffEffect as Object;
+            
+            HeroDebuffs.Add(debuffEffect);
+            _heroDebuffs.Add(debuffEffectObject);
+
+        }
+        
+        public void RemoveFromList(IHeroStatusEffect debuffEffect)
+        {
+            var debuffEffectObject = debuffEffect as Object;
+            
+            HeroDebuffs.Remove(debuffEffect);
+            _heroDebuffs.Remove(debuffEffectObject);
+
         }
     }
 }
