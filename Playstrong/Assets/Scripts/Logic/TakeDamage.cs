@@ -54,11 +54,9 @@ namespace Logic
         {
             _targetArmor = _thisHeroLogic.HeroAttributes.Armor;
             _targetHealth = _thisHeroLogic.HeroAttributes.Health;
-            
-            //TODO: Factor in Damage Modifiers
+
             var finalDamage = ComputeFinalDamage(damageValue);
-            
-            
+
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
             DamageTargetHealth(_targetHealth, residualDamage);
             

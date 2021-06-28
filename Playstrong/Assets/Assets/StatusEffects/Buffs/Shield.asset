@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e5643361d3cd7468f1233a2f116e22, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  _name: Shield
+  _description: Reduce Damage by 50%
+  _icon: {fileID: 21300000, guid: a46dc24b4e7407142ae6b9ea8d9a2032, type: 3}
+  _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
+  _statusEffectInstance: {fileID: 11400000, guid: b8efb27b2ad00fe4e82edb681246f119,
+    type: 2}
+  damageModifier: {fileID: 11400000, guid: be985f1593640d940b1b500dd52abd28, type: 2}
