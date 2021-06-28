@@ -18,5 +18,7 @@ namespace Logic
         IUpdateStatusEffectCounters UpdateStatusEffectCounters { get; }
 
         IStartTurnStatusEffects StartTurnStatusEffects { get; }
+
+        IEndTurnStatusEffects EndTurnStatusEffects { get; }
     }
 }

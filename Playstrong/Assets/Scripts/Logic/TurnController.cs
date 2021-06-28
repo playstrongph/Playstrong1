@@ -130,9 +130,8 @@ namespace Logic
         {
             var i = ActiveHeroes.Count - 1;
             
-            //TODO: End Of Turn Status Effects Triggers - Event Here
-            
-            //TODO: Update Status Effect Counters
+            //Status Effect Triggers
+            _activeHeroLogic.Hero.HeroStatusEffects.EndTurnStatusEffects.TriggerStatusEffect();
             _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersEndTurn();
             
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
