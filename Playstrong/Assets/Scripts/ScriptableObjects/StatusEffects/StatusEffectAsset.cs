@@ -42,8 +42,17 @@ namespace ScriptableObjects.StatusEffects
 
         public virtual void UnapplyStatusEffect(IHero hero)
         {
-            
         }
+        
+        public virtual void StartTurnStatusEffect(IHero hero)
+        {
+        }
+        
+        public virtual void EndTurnStatusEffect(IHero hero)
+        {
+        }
+        
+        
 
     }
 }

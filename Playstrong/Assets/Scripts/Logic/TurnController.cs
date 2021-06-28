@@ -116,10 +116,8 @@ namespace Logic
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             _logicTree.AddCurrent(updateSkills);
             
-            //TODO: Start Of Turn Status Effects Triggers - Event Here
-            
-            
-            //TODO: Update Status Effect Counters
+            //Status Effect Triggers
+            _activeHeroLogic.Hero.HeroStatusEffects.StartTurnStatusEffects.TriggerStatusEffect();
             _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
             
 
