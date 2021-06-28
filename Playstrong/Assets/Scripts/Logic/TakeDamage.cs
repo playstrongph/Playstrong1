@@ -101,6 +101,7 @@ namespace Logic
             
             _thisHeroLogic.Hero.HeroVisual.ArmorVisual.SetArmorText(_targetArmor);
             
+            //this should be inside logic Tree
             //_thisHeroLogic.Hero.HeroVisual.HealthVisual.SetHealthText(_targetHealth.ToString());
             _thisHeroLogic.SetHeroHealth.SetHealth(_targetHealth);
 
