@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b8276ffce5d96409e0f4f9832a83dd, type: 3}
   m_Name: DefaultDamageMod
   m_EditorClassIdentifier: 
-  _modValue: 1
+  _modValue: 0

@@ -56,7 +56,7 @@ namespace Logic
             _targetHealth = _thisHeroLogic.HeroAttributes.Health;
             
             //TODO: Factor in Damage Modifiers
-            var finalDamage = damageValue;
+            var finalDamage = ComputeFinalDamage(damageValue);
             
             
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
@@ -66,6 +66,20 @@ namespace Logic
 
             yield return null;
             _logicTree.EndSequence();
+        }
+
+        private int ComputeFinalDamage(int value)
+        {
+            var damage = value;
+            
+            foreach (var damageMod in DamageModifiers)
+            {
+                var modifier = damageMod.ModValue;
+                damage = (int) Mathf.Ceil(damage * (1 + modifier));
+               
+            }
+            
+            return damage;
         }
 
         private IEnumerator VisualDamageHero(int damageValue)
