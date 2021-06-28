@@ -19,20 +19,12 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
 
         private void AddToHeroBuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect buffEffect)
         {
-       
-            heroStatusEffects.HeroBuffEffects.HeroBuffs.Add(buffEffect);
-            
-            //Add to Object List, Inspector Display Purposes only
-            heroStatusEffects.HeroBuffEffects.HeroBuffObjects.Add(buffEffect as Object);
+            heroStatusEffects.HeroBuffEffects.AddToList(buffEffect);
         }
         
         private void RemoveFromHeroBuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect buffEffect)
         {
-            
-            heroStatusEffects.HeroBuffEffects.HeroBuffs.Remove(buffEffect);
-            
-            //Add to Object List, Inspector Display Purposes only
-            heroStatusEffects.HeroBuffEffects.HeroBuffObjects.Remove(buffEffect as Object);
+            heroStatusEffects.HeroBuffEffects.RemoveFromList(buffEffect);
         }
 
     }

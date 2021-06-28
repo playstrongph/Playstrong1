@@ -25,15 +25,25 @@ namespace Logic
                 return heroBuffs;
             }
         }
-        
-        /// <summary>
-        /// For Inspector Display Purposes
-        /// Note: Don't forget to remove buffs from this list as well
-        /// </summary>
 
-        public List<Object> HeroBuffObjects
+        public void AddToList(IHeroStatusEffect buffEffect)
         {
-            get => _heroBuffs;
+            var buffEffectObject = buffEffect as Object;
+            
+            HeroBuffs.Add(buffEffect);
+            _heroBuffs.Add(buffEffectObject);
+
         }
+        
+        public void RemoveFromList(IHeroStatusEffect buffEffect)
+        {
+            var buffEffectObject = buffEffect as Object;
+            
+            HeroBuffs.Remove(buffEffect);
+            _heroBuffs.Remove(buffEffectObject);
+
+        }
+        
+        
     }
 }
