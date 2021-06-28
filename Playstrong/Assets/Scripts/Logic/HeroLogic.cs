@@ -80,6 +80,9 @@ namespace Logic
         private ISetHeroSpeed _setHeroSpeed;
         public ISetHeroSpeed SetHeroSpeed => _setHeroSpeed;
 
+        private ISetHeroHealth _setHeroHealth;
+        public ISetHeroHealth SetHeroHealth => _setHeroHealth;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
@@ -87,6 +90,7 @@ namespace Logic
             _endHeroTurn = GetComponent<IEndHeroTurn>();
             _setHeroAttack = GetComponent<ISetHeroAttack>();
             _setHeroSpeed = GetComponent<ISetHeroSpeed>();
+            _setHeroHealth = GetComponent<ISetHeroHealth>();
         }
     }
 }

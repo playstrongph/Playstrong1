@@ -58,6 +58,7 @@ namespace Logic
             var finalDamage = ComputeFinalDamage(damageValue);
 
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
+            
             DamageTargetHealth(_targetHealth, residualDamage);
             
             _visualTree.AddCurrent(VisualDamageHero(finalDamage));
@@ -100,7 +101,8 @@ namespace Logic
             
             _thisHeroLogic.Hero.HeroVisual.ArmorVisual.SetArmorText(_targetArmor);
             
-            _thisHeroLogic.Hero.HeroVisual.HealthVisual.SetHealthText(_targetHealth.ToString());
+            //_thisHeroLogic.Hero.HeroVisual.HealthVisual.SetHealthText(_targetHealth.ToString());
+            _thisHeroLogic.SetHeroHealth.SetHealth(_targetHealth);
 
             yield return null;
             _visualTree.EndSequence();
@@ -122,9 +124,10 @@ namespace Logic
         private void DamageTargetHealth(int health, int damage)
         {
             var newHealth = health - damage;
-            //newHealth = Mathf.Clamp(newHealth, 0, health + damage);
+          
             _targetHealth = newHealth;
-            _thisHeroLogic.HeroAttributes.Health = newHealth;
+            
+            //_thisHeroLogic.HeroAttributes.Health = _targetHealth;
 
         }
 

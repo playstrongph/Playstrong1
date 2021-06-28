@@ -28,6 +28,8 @@ namespace Interfaces
 
         ISetHeroSpeed SetHeroSpeed { get; }
 
+        ISetHeroHealth SetHeroHealth { get; }
+
 
 
 
