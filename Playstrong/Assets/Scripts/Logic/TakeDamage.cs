@@ -65,6 +65,20 @@ namespace Logic
             yield return null;
             _logicTree.EndSequence();
         }
+        
+        public void AddToDamageModifiersList(IModifier modifier)
+        {
+            var modifierObject = modifier as ScriptableObject;
+            DamageModifiers.Add(modifier);
+            _damageModifiers.Add(modifierObject);
+        }
+        
+        public void RemoveFromDamageModifiersList(IModifier modifier)
+        {
+            var modifierObject = modifier as ScriptableObject;
+            DamageModifiers.Remove(modifier);
+            _damageModifiers.Remove(modifierObject);
+        }
 
         private int ComputeFinalDamage(int value)
         {
@@ -113,6 +127,10 @@ namespace Logic
             _thisHeroLogic.HeroAttributes.Health = newHealth;
 
         }
+
+       
+        
+        
 
 
     }
