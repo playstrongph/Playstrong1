@@ -1,20 +1,42 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Modifiers;
 using UnityEngine;
+using Utilities;
 
 namespace Logic
 {
     public class TakeDamage : MonoBehaviour, ITakeDamage
     {
-        
+        [SerializeField] [RequireInterface(typeof(IModifier))]
+        private List<ScriptableObject> _damageModifiers = new List<ScriptableObject>();
+
+        public List<IModifier> DamageModifiers
+        {
+            get
+            {
+                var damageModifiers = new List<IModifier>();
+                foreach (var damageMod in _damageModifiers)
+                {
+                    var damageModifier = damageMod as IModifier;
+                    damageModifiers.Add(damageModifier);
+                }
+
+                return damageModifiers;
+            }
+        }
+
+
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
         private IHeroLogic _thisHeroLogic;
-      
-        
+
         private int _targetArmor;
         private int _targetHealth;
+        
+        
 
         private void Awake()
         {
@@ -33,7 +55,10 @@ namespace Logic
             _targetArmor = _thisHeroLogic.HeroAttributes.Armor;
             _targetHealth = _thisHeroLogic.HeroAttributes.Health;
             
+            //TODO: Factor in Damage Modifiers
             var finalDamage = damageValue;
+            
+            
             var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
             DamageTargetHealth(_targetHealth, residualDamage);
             

@@ -3552,6 +3552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6a0bf8e7528c4698866652f5f5de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageModifiers:
+  - {fileID: 11400000, guid: 30b34b5181dd2a849b16b05cda6e7c2b, type: 2}
 --- !u!114 &5111372421542366580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6014,7 +6016,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 1984379433
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &3820792407318535586
 MonoBehaviour:
