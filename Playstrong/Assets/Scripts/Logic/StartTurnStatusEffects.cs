@@ -15,6 +15,8 @@ namespace Logic
         {
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
             {
+                Debug.Log("HeroBuffs Count: " +_heroStatusEffects.HeroBuffEffects.HeroBuffs.Count );
+                
                 statusEffect.StatusEffectAsset.StartTurnStatusEffect(statusEffect.Hero);
             }
             

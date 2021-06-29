@@ -36,6 +36,16 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
         
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
+        
+        protected void InitializeValues(IHero hero)
+        {
+            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+
+        }
+        
         public virtual void ApplyStatusEffect(IHero hero)
         {
         }
