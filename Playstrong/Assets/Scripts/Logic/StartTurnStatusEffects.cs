@@ -14,9 +14,7 @@ namespace Logic
         public void TriggerStatusEffect()
         {
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
-            {
-                Debug.Log("HeroBuffs Count: " +_heroStatusEffects.HeroBuffEffects.HeroBuffs.Count );
-                
+            {                            
                 statusEffect.StatusEffectAsset.StartTurnStatusEffect(statusEffect.Hero);
             }
             
