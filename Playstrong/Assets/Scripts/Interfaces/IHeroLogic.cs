@@ -30,6 +30,8 @@ namespace Interfaces
 
         ISetHeroHealth SetHeroHealth { get; }
 
+        ISetHeroArmor SetHeroArmor { get; }
+
 
 
 

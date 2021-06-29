@@ -35,6 +35,7 @@ namespace Logic
 
         private int _targetArmor;
         private int _targetHealth;
+        private int _residualDamage;
         
         
 
@@ -57,11 +58,10 @@ namespace Logic
 
             var finalDamage = ComputeFinalDamage(damageValue);
 
-            var residualDamage = DamageTargetArmor(_targetArmor, finalDamage);
+            ComputeNewArmor(_targetArmor, finalDamage);
+            ComputeNewHealth(_targetHealth, _residualDamage);
             
-            DamageTargetHealth(_targetHealth, residualDamage);
-            
-            _visualTree.AddCurrent(VisualDamageHero(finalDamage));
+            _visualTree.AddCurrent(ApplyFinalDamage(finalDamage));
 
             yield return null;
             _logicTree.EndSequence();
@@ -95,41 +95,33 @@ namespace Logic
             return damage;
         }
 
-        private IEnumerator VisualDamageHero(int damageValue)
+        private IEnumerator ApplyFinalDamage(int damageValue)
         {
             _thisHeroLogic.Hero.DamageEffect.ShowDamage(damageValue);
             
-            _thisHeroLogic.Hero.HeroVisual.ArmorVisual.SetArmorText(_targetArmor);
-            
-            //this should be inside logic Tree
-            //_thisHeroLogic.Hero.HeroVisual.HealthVisual.SetHealthText(_targetHealth.ToString());
+            _thisHeroLogic.SetHeroArmor.SetArmor(_targetArmor);
             _thisHeroLogic.SetHeroHealth.SetHealth(_targetHealth);
 
             yield return null;
             _visualTree.EndSequence();
         }
 
-        private int DamageTargetArmor(int armor, int damage)
+        private void ComputeNewArmor(int armor, int damage)
         {
-            var residualDamage = damage-armor;
-            residualDamage = Mathf.Clamp(residualDamage, 0, armor + damage);
+            _residualDamage = damage-armor;
+            _residualDamage = Mathf.Clamp(_residualDamage, 0, armor + damage);
 
             var newArmor = armor - damage;
             newArmor = Mathf.Clamp(newArmor, 0, armor + damage);
+            
             _targetArmor = newArmor;
-            _thisHeroLogic.HeroAttributes.Armor = newArmor;
-
-            return residualDamage;
+            
         }
         
-        private void DamageTargetHealth(int health, int damage)
+        private void ComputeNewHealth(int health, int damage)
         {
             var newHealth = health - damage;
-          
             _targetHealth = newHealth;
-            
-            //_thisHeroLogic.HeroAttributes.Health = _targetHealth;
-
         }
 
        

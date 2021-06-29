@@ -38,7 +38,8 @@ namespace Logic
             var newHealth = Mathf.Clamp(value, -999, baseHealth);
 
             _heroLogic.HeroAttributes.Health = newHealth;
-            _visualTree.AddCurrent(SetHealthVisual(value));
+            
+            _visualTree.AddCurrent(SetHealthVisual(newHealth));
             
             yield return null;
             _logicTree.EndSequence();
