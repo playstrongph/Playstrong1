@@ -12,6 +12,10 @@ namespace ScriptableObjects.Actions
     
     public class HealActionAsset : SkillActionAsset, IHealActionAsset
     {
+        /// <summary>
+        /// Heal Amount can be a Fixed Value set in the Modifier SO
+        /// or, it can be set in script
+        /// </summary>
         [SerializeField] [RequireInterface(typeof(IModifier))]
         private ScriptableObject _healAmount;
 

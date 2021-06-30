@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bcb338cf557ce443b439891d9eacb2b, type: 3}
-  m_Name: RecoveryHealAsset
+  m_Name: RecoveryHealAction
   m_EditorClassIdentifier: 
   _healAmount: {fileID: 11400000, guid: 942c6b986c0eddc40821cfc4fe239af5, type: 2}

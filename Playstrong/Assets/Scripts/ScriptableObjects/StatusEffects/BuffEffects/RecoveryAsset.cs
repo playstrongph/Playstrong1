@@ -17,7 +17,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         private IHealActionAsset HealAction => _healAction as IHealActionAsset;
 
-        private float _multiplier = 0.15f;
+        private float _multiplier = 0.50f;
         private int _healAmount;
 
         public override void StartTurnStatusEffect(IHero hero)
