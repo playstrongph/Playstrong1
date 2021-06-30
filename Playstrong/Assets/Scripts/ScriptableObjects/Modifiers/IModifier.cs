@@ -2,6 +2,6 @@
 {
     public interface IModifier
     {
-        float ModValue { get; }
+        float ModValue { get; set; }
     }
 }

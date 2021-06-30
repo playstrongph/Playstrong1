@@ -8,7 +8,12 @@ namespace ScriptableObjects.Modifiers
 
         [SerializeField] private float _modValue;
 
-        public float ModValue => _modValue;
+        public float ModValue
+        {
+            get => _modValue;
+            set => _modValue = value;
+        }
+    }
 
     }
-}
+

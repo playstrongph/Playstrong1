@@ -1,58 +1,53 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
 using Interfaces;
+using ScriptableObjects.Actions;
+using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
+using Utilities;
 
 namespace ScriptableObjects.StatusEffects.BuffEffects
 {
     [CreateAssetMenu(fileName = "Recovery", menuName = "SO's/Status Effects/Buffs/Recovery")]
     public class RecoveryAsset : StatusEffectAsset
     {
+        [SerializeField]
+        [RequireInterface(typeof(IHealActionAsset))]
+        private ScriptableObject _healAction;
+
+        private IHealActionAsset HealAction => _healAction as IHealActionAsset;
+
         private float _multiplier = 0.15f;
+        private int _healAmount;
 
         public override void StartTurnStatusEffect(IHero hero)
         {
             
             InitializeValues(hero);
             
-            var healAmount = Mathf.FloorToInt(hero.HeroLogic.HeroAttributes.BaseHealth * _multiplier);
-            
-            //TODO: Heal Animation, temp - Damage Effect
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            visualTree.AddCurrent(HealEffect(hero, healAmount));
-            
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(HealLogic(hero, healAmount));
+            _healAmount = Mathf.FloorToInt(hero.HeroLogic.HeroAttributes.BaseHealth * _multiplier);
+
+            LogicTree.AddCurrent(HealLogic());
+         
 
         }
         
-        //TEMP
-        private IEnumerator HealLogic(IHero hero, int value)
+       
+        private IEnumerator HealLogic()
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TODO: Create HealSkill Asset and replace this
-            var healAmount = Mathf.FloorToInt(hero.HeroLogic.HeroAttributes.BaseHealth * _multiplier);
-            var newHealth = hero.HeroLogic.HeroAttributes.Health + healAmount;
-            
-            hero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
-            
-            logicTree.EndSequence();
+           
+            var skillAction = HealAction as ISkillActionAsset;
+
+            HealAction.HealAmount.ModValue = _healAmount;
+            skillAction.Target(Hero, Hero.CoroutineTreesAsset);
+
+            LogicTree.EndSequence();
             yield return null;
         }
 
 
 
-        //TEMP
-        private IEnumerator HealEffect(IHero hero, int value)
-        {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            
-            hero.DamageEffect.ShowDamage(value);
-            
-            visualTree.EndSequence();
-            yield return null;
-        }
+        
 
 
 

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054fdb327b266164b89446891401f3e6, type: 3}
-  m_Name: AddBuffSkillActionAsset
+  m_Script: {fileID: 11500000, guid: 3bcb338cf557ce443b439891d9eacb2b, type: 3}
+  m_Name: RecoveryHealAsset
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: 65369d945f1085345ac003abcd66717d, type: 2}
-  _buffCounters: 3
+  _healAmount: {fileID: 11400000, guid: 942c6b986c0eddc40821cfc4fe239af5, type: 2}
