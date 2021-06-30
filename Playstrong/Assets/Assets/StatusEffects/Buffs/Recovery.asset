@@ -20,3 +20,4 @@ MonoBehaviour:
   _statusEffectInstance: {fileID: 11400000, guid: b0c561a9acbf8744b82287dea490c366,
     type: 2}
   _healAction: {fileID: 11400000, guid: 1df0bc9e210d65e4b82c7ec53810af42, type: 2}
+  _multiplier: 0.15
