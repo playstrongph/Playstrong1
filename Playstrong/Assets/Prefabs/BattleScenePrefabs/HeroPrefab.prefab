@@ -3467,6 +3467,7 @@ GameObject:
   - component: {fileID: 7436071188073746030}
   - component: {fileID: 894494912192341614}
   - component: {fileID: 5294100743595810595}
+  - component: {fileID: 6667779569997865319}
   m_Layer: 0
   m_Name: HeroLogic
   m_TagString: Untagged
@@ -3502,6 +3503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroStatus: {fileID: 11400000, guid: 5c95577b77b93d24a8600b58cd9ae3f0, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
+  _heroLivingStatus: {fileID: 11400000, guid: 5cf842079a206ea40af49f4b837ec77a, type: 2}
   _hero: {fileID: 1729355933}
   _heroAttributes: {fileID: 3820792406562021603}
   _heroTimer: {fileID: 7231591812556641881}
@@ -3642,6 +3644,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4708ef8de64034db0179fa16ae808d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6667779569997865319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dbefb6327b01442992cf1ff612e584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroAliveStatus: {fileID: 11400000, guid: 5cf842079a206ea40af49f4b837ec77a, type: 2}
+  _heroDeadStatus: {fileID: 11400000, guid: 1770149bbcc780f40b96b215c9f012c3, type: 2}
 --- !u!1 &3820792406563672979
 GameObject:
   m_ObjectHideFlags: 0

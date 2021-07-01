@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 
 namespace ScriptableObjects.HeroLivingStatus
@@ -12,5 +13,7 @@ namespace ScriptableObjects.HeroLivingStatus
         void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
         
         void DoHeroAction(IHeroAction heroAction, IHero recipient);
+
+       
     }
 }

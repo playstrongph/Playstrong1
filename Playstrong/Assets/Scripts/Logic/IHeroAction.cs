@@ -6,5 +6,7 @@ namespace Logic
     public interface IHeroAction
     {
         IEnumerator TargetHero(IHero targetHero);
+        
+        IEnumerator HeroAction(IHero targetHero);
     }
 }
