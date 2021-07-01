@@ -16,9 +16,7 @@ namespace Logic
         private ScriptableObject _heroInactive;
         public IHeroStatusAsset HeroInactive => _heroInactive as IHeroStatusAsset;
         
-        /*[SerializeField] [RequireInterface(typeof(IHeroStatusAsset))]
-        private ScriptableObject _heroDead;
-        public IHeroStatusAsset HeroDead => _heroDead as IHeroStatusAsset;*/
+       
 
         private ITurnController _turnController;
 
@@ -28,7 +26,7 @@ namespace Logic
             
             HeroActive.InitializeTurnController(_turnController);
             HeroInactive.InitializeTurnController(_turnController);
-            //HeroDead.InitializeTurnController(_turnController);
+       
             
         }
     }

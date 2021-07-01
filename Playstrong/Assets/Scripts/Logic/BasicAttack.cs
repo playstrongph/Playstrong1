@@ -47,7 +47,7 @@ namespace Logic
             
             _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
             
-            Debug.Log("Basic Attack Target Hero");
+           
             
             _logicTree.EndSequence();
             yield return null;

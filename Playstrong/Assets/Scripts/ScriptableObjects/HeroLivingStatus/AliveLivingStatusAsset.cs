@@ -15,7 +15,7 @@ namespace ScriptableObjects.HeroLivingStatus
         public void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
             initiator.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, recipient);
-            Debug.Log("AliveStatus ReceiveHeroAction");
+           
         }
         
         /// <summary>
@@ -23,8 +23,11 @@ namespace ScriptableObjects.HeroLivingStatus
         /// </summary>
         public void DoHeroAction(IHeroAction heroAction, IHero recipient)
         {
-            heroAction.TargetHero(recipient);
-            Debug.Log("AliveStatus DoHeroAction");
+            var logicTree = recipient.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(heroAction.TargetHero(recipient));
+            
+           
         }
 
 

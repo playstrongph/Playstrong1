@@ -7,7 +7,7 @@ namespace Logic
     {
         IHeroStatusAsset HeroActive { get; }
         IHeroStatusAsset HeroInactive { get; }
-        //IHeroStatusAsset HeroDead { get; }
+      
 
         
     }
