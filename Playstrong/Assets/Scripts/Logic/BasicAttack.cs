@@ -30,11 +30,9 @@ namespace Logic
         {
             _logicTree = _thisHero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _thisHero.CoroutineTreesAsset.MainVisualTree;
-            
-            
         }
 
-        public IEnumerator BasicAttackHero(IHero targetHero)
+        public IEnumerator TargetHero(IHero targetHero)
         {
             _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
             
@@ -45,6 +43,16 @@ namespace Logic
             yield return null;
             _logicTree.EndSequence();
         }
+
+
+        /*public IEnumerator BasicAttackHero(IHero targetHero)
+        {
+            _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));            
+            ModifyAttack(_attackModifier);            
+            _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));            
+            yield return null;
+            _logicTree.EndSequence();
+        }*/
 
         private IEnumerator VisualBasicAttackHero(IHero targetHero)
         {

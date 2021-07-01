@@ -2,6 +2,7 @@
 using System.Runtime.Remoting.Messaging;
 using Interfaces;
 using ScriptableObjects;
+using ScriptableObjects.HeroLivingStatus;
 using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
@@ -34,6 +35,16 @@ namespace Logic
             get => _targetStatus as ITargetStatus;
             set => _targetStatus = value as ScriptableObject;
         }
+
+        [SerializeField] [RequireInterface(typeof(IHeroLivingStatusAsset))]
+        private Object _heroLivingStatus;
+
+        public IHeroLivingStatusAsset HeroLivingStatus
+        {
+            get => _heroLivingStatus as IHeroLivingStatusAsset;
+            set => _heroLivingStatus = value as Object;
+        }
+
 
         [SerializeField] [RequireInterface(typeof(IHero))]
         private Object _hero;

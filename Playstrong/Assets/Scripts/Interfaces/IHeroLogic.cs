@@ -1,5 +1,6 @@
 using Logic;
 using ScriptableObjects;
+using ScriptableObjects.HeroLivingStatus;
 using ScriptableObjects.Others;
 
 namespace Interfaces
@@ -10,6 +11,8 @@ namespace Interfaces
         IHeroStatusAsset HeroStatus { get; set; }
 
         ITargetStatus TargetStatus { get; set; }
+
+        IHeroLivingStatusAsset HeroLivingStatus { get; set; }
 
         IHero Hero { get; }
         IHeroAttributes HeroAttributes { get;}
