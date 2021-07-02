@@ -22,10 +22,10 @@ namespace ScriptableObjects.Actions
         public IModifier HealAmount => _healAmount as IModifier;
         
         private IHero _hero;
-        public override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        public override void Target(IHero hero)
         {
-           LogicTree = coroutineTreesAsset.MainLogicTree;
-           VisualTree = coroutineTreesAsset.MainVisualTree;
+           LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
+           VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
            _hero = hero;
             
            LogicTree.AddCurrent(HealCoroutine());

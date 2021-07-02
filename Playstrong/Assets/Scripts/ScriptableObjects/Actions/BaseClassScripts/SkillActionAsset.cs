@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interfaces;
+using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.Others;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace ScriptableObjects.SkillActions.BaseClassScripts
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
 
-        public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        public virtual void Target(IHero hero)
         {
             
 

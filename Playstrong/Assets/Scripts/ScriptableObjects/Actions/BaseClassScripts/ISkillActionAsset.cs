@@ -1,10 +1,9 @@
 ﻿using Interfaces;
-using ScriptableObjects.Others;
 
-namespace ScriptableObjects.SkillActions.BaseClassScripts
+namespace ScriptableObjects.Actions.BaseClassScripts
 {
     public interface ISkillActionAsset
     {
-        void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset);
+        void Target(IHero hero);
     }
 }

@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using Interfaces;
 using ScriptableObjects.Actions;
+using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
 using Utilities;
@@ -48,7 +49,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
            
             var skillAction = HealAction as ISkillActionAsset;
-            skillAction.Target(Hero, Hero.CoroutineTreesAsset);
+            skillAction.Target(Hero);
 
             LogicTree.EndSequence();
             yield return null;

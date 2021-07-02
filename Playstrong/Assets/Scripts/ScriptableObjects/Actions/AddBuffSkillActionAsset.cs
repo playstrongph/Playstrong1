@@ -26,9 +26,9 @@ namespace ScriptableObjects.SkillActions
         /// Logic of AddBuff is in the statuseffect asset Instance
         /// Single, Multiple, Fixed
         /// </summary>
-        public override void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        public override void Target(IHero hero)
         {
-           LogicTree = coroutineTreesAsset.MainLogicTree;
+           LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
            LogicTree.AddCurrent(AddBuffCoroutine(hero, BuffAsset, BuffCounters));
 

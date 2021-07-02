@@ -50,7 +50,7 @@ namespace ScriptableObjects.SkillEffects
             
             foreach (var skillCondition in SkillConditionAssets )
             {
-                skillCondition.Target(hero, coroutineTreesAsset);
+                skillCondition.Target(hero);
             }
             
             logicTree.EndSequence();

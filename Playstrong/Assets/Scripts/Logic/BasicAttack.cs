@@ -31,14 +31,16 @@ namespace Logic
             _logicTree = _thisHero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _thisHero.CoroutineTreesAsset.MainVisualTree;
         }
-
+        
+        //Same for all classes that derive from IHeroAction
         public IEnumerator HeroAction(IHero targetHero)
         {
             targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, _thisHero, targetHero);
             _logicTree.EndSequence();
             yield return null;
         }
-
+        
+        //Different for each class that derive from HeroAction
         public IEnumerator TargetHero(IHero targetHero)
         {
             _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
@@ -53,16 +55,6 @@ namespace Logic
             yield return null;
           
         }
-
-
-        /*public IEnumerator BasicAttackHero(IHero targetHero)
-        {
-            _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));            
-            ModifyAttack(_attackModifier);            
-            _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));            
-            yield return null;
-            _logicTree.EndSequence();
-        }*/
 
         private IEnumerator VisualBasicAttackHero(IHero targetHero)
         {

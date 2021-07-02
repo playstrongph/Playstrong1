@@ -7,7 +7,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
 {
     public interface ISkillConditionAsset
     {
-        void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset);
+        void Target(IHero hero);
 
         
     }

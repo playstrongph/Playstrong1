@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
@@ -42,12 +43,11 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         /// Run all skill actions assigned to the skill condition
         /// </summary>
         /// <param name="hero"></param>
-        public virtual void Target(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        public virtual void Target(IHero hero)
         {
-            _coroutineTreesAsset = coroutineTreesAsset;
-            _logicTree = coroutineTreesAsset.MainLogicTree;
+            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            _logicTree.AddCurrent(TargetCoroutine(hero));
+           _logicTree.AddCurrent(TargetCoroutine(hero));
         }
 
         private IEnumerator TargetCoroutine(IHero hero)
@@ -55,7 +55,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
             {
-                skillAction.Target(hero, _coroutineTreesAsset);   
+                skillAction.Target(hero);   
             }
             
             _logicTree.EndSequence();
