@@ -118,14 +118,12 @@ namespace Visual
                 }
             }
         }
-        
-        //Temp - this should be a separate component - BasicAttack
 
         private void BasicAttackTarget()
         {
-            //_logicTree.AddCurrent(_basicAttack.BasicAttackHero(_targetEnemyHero.Hero));
-            
-            _logicTree.AddCurrent(_basicAttack.HeroAction(_targetEnemyHero.Hero));
+            var heroAction = (IHeroAction)_basicAttack;
+
+            _logicTree.AddCurrent(heroAction.StartAction(_targetEnemyHero.Hero));
             _logicTree.AddCurrent(_endHeroTurn.EndTurn());
         }
 

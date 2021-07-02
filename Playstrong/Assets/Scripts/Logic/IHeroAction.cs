@@ -7,6 +7,6 @@ namespace Logic
     {
         IEnumerator TargetHero(IHero targetHero);
         
-        IEnumerator HeroAction(IHero targetHero);
+        IEnumerator StartAction(IHero targetHero);
     }
 }

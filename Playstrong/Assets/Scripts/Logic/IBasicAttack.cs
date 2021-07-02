@@ -3,10 +3,8 @@ using Interfaces;
 
 namespace Logic
 {
-    public interface IBasicAttack: IHeroAction
+    public interface IBasicAttack
     {
-        //IEnumerator BasicAttackHero(IHero targetHero);
-
         void ModifyAttack(int attackModifier);
     }
 }

@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Logic
 {
-    public class BasicAttack : MonoBehaviour, IBasicAttack
+    public class BasicAttack : MonoBehaviour, IBasicAttack, IHeroAction
     {
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
@@ -33,7 +33,7 @@ namespace Logic
         }
         
         //Same for all classes that derive from IHeroAction
-        public IEnumerator HeroAction(IHero targetHero)
+        public IEnumerator StartAction(IHero targetHero)
         {
             targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, _thisHero, targetHero);
             _logicTree.EndSequence();
