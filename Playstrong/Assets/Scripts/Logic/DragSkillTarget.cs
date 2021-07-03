@@ -28,8 +28,6 @@ namespace Logic
         private void Awake()
         {
             _targetSkill = GetComponent<ITargetSkill>();
-         
-            
             _skillTargetHero = NoAction;
         }
 
@@ -40,11 +38,11 @@ namespace Logic
 
         private void OnMouseDown()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            _logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
             _useHeroSkill = NoAction;
             
-            logicTree.AddCurrent(GetValidTargets());
+            _logicTree.AddCurrent(GetValidTargets());
         }
 
         public void EnableDragSkillTarget()
@@ -59,20 +57,17 @@ namespace Logic
 
         private void SkillTargetHero()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            logicTree.AddCurrent(SetSkillTarget());
-            logicTree.AddCurrent(UseSkillOnTarget());
+           
+            _logicTree.AddCurrent(SetSkillTarget());
+            _logicTree.AddCurrent(UseSkillOnTarget());
         }
         
         private IEnumerator SetSkillTarget()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-            
             SetTarget();
-
+            
+            _logicTree.EndSequence();
             yield return null;
-            logicTree.EndSequence();
 
         }
 
@@ -100,39 +95,37 @@ namespace Logic
 
         private IEnumerator UseSkillOnTarget()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            _useHeroSkill();
-
+           _useHeroSkill();
+           
+           _logicTree.EndSequence();
             yield return null;
-            logicTree.EndSequence();
 
         }
 
 
         private IEnumerator GetValidTargets()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+           
             var getSkillTargets = _targetSkill.GetSkillTargets;
 
             _validTargets = getSkillTargets.GetValidTargets();
             
+            _logicTree.EndSequence();
             yield return null;
-            logicTree.EndSequence();
         }
         
         
 
         private void UseHeroSkill()
         {
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
             var turnController = _targetSkill.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             
             
-            //TODO: Execute Skill Effect (IEnum)
-            logicTree.AddCurrent(ApplySkillEffect());
             
-            logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
+            _logicTree.AddCurrent(ApplySkillEffect());
+            
+            _logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
 
             //this is already a IEnumerator
             turnController.EndTurn();
@@ -143,13 +136,10 @@ namespace Logic
         {
             _thisHero = _targetSkill.Skill.Hero.TargetHero;
             
-            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
-            
             _targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_thisHero.Hero, _targetHero.Hero);
-            
-            
+
+            _logicTree.EndSequence();
             yield return null;
-            logicTree.EndSequence();
             
         }
         
