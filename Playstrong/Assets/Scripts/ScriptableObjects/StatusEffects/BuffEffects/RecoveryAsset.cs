@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
 using Interfaces;
+using Logic;
 using ScriptableObjects.Actions;
 using ScriptableObjects.Actions.BaseClassScripts;
 using UnityEngine;
@@ -47,8 +48,10 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private IEnumerator HealLogic()
         {
            
-            var skillAction = HealAction as ISkillActionAsset;
-            skillAction.Target(Hero);
+            var skillAction = HealAction as IHeroAction;
+            
+            //Note: Initiator and Target heroes are the same for Recovery
+            LogicTree.AddCurrent(skillAction.StartAction(Hero, Hero));
 
             LogicTree.EndSequence();
             yield return null;
