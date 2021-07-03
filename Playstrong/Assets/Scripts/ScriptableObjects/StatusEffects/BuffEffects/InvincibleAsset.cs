@@ -13,9 +13,6 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private ScriptableObject damageModifier;
         private IModifier DamageModifier => damageModifier as IModifier;
 
-
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
         public override void ApplyStatusEffect(IHero hero)
         {
             InitializeValues(hero);
@@ -26,14 +23,9 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         public override void UnapplyStatusEffect(IHero hero)
         {
             hero.HeroLogic.TakeDamage.RemoveFromDamageModifiersList(DamageModifier);
-            
         }
 
-        private void InitializeValues(IHero hero)
-        {
-            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-        }
+       
 
 
 

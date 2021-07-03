@@ -19,3 +19,5 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b0c561a9acbf8744b82287dea490c366,
     type: 2}
+  _attackIncrease: 0
+  _multiplier: 0.5

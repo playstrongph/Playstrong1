@@ -6,17 +6,17 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "AttackUp", menuName = "SO's/Status Effects/Buffs/AttackUp")]
     public class AttackUpAsset : StatusEffectAsset
     {
+        [SerializeField]
+        private float _multiplier;
+        
         private int _attackIncrease;
-        private float _multiplier = 0.5f;
         
-        
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
         
         
         public override void ApplyStatusEffect(IHero hero)
         {
             InitializeValues(hero);
+            ComputeAttackIncrease();
              
             var newAttackValue = hero.HeroLogic.HeroAttributes.Attack + _attackIncrease;
             hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
@@ -28,12 +28,9 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
         }
 
-        private void InitializeValues(IHero hero)
+        private void ComputeAttackIncrease()
         {
-            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-
-            var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
+            var baseAttack = Hero.HeroLogic.HeroAttributes.BaseAttack;
             _attackIncrease = Mathf.FloorToInt(_multiplier * baseAttack);
         }
 
