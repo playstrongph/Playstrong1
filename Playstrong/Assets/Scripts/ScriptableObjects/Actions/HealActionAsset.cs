@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using Interfaces;
+using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.Modifiers;
 using ScriptableObjects.Others;
-using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
 using Utilities;
 
@@ -22,24 +22,31 @@ namespace ScriptableObjects.Actions
         public IModifier HealAmount => _healAmount as IModifier;
         
         private IHero _hero;
-        public override void Target(IHero hero)
+        private ICoroutineTree _logicTree;
+        private ICoroutineTree _visualTree;
+        
+        public override IEnumerator TargetHero(IHero hero)
         {
-           LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
-           VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
+           _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+           _visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            
            _hero = hero;
             
-           LogicTree.AddCurrent(HealCoroutine());
+           _logicTree.AddCurrent(HealCoroutine());
+           
+           _logicTree.EndSequence();
+           yield return null;
 
         }
 
         private IEnumerator HealCoroutine()
         {
-            VisualTree.AddCurrent(HealVisual());
+            _visualTree.AddCurrent(HealVisual());
         
             var newHealth = _hero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
             _hero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
             
-            LogicTree.EndSequence();
+            _logicTree.EndSequence();
             yield return null;
         }
         
@@ -47,7 +54,7 @@ namespace ScriptableObjects.Actions
         {
             _hero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
             
-            VisualTree.EndSequence();
+            _visualTree.EndSequence();
             yield return null;
         }
 

@@ -20,12 +20,15 @@ namespace Logic
 
         private List<IHero> _validTargets = new List<IHero>();
 
-
         private IEndHeroTurn _endHeroTurn;
+
+        private ICoroutineTree _logicTree;
+        
 
         private void Awake()
         {
             _targetSkill = GetComponent<ITargetSkill>();
+         
             
             _skillTargetHero = NoAction;
         }
@@ -125,9 +128,6 @@ namespace Logic
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             var turnController = _targetSkill.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             
-            //Temp
-            Debug.Log("Use Hero Skill");
-            //Temp End
             
             //TODO: Execute Skill Effect (IEnum)
             logicTree.AddCurrent(ApplySkillEffect());
@@ -141,9 +141,11 @@ namespace Logic
 
         private IEnumerator ApplySkillEffect()
         {
+            _thisHero = _targetSkill.Skill.Hero.TargetHero;
+            
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
-            _targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_targetHero.Hero, _targetSkill.Skill.CoroutineTreesAsset);
+            _targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_thisHero.Hero, _targetHero.Hero);
             
             
             yield return null;

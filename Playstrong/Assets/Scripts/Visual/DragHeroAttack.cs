@@ -123,7 +123,7 @@ namespace Visual
         {
             var heroAction = (IHeroAction)_basicAttack;
 
-            _logicTree.AddCurrent(heroAction.StartAction(_targetEnemyHero.Hero));
+            _logicTree.AddCurrent(heroAction.StartAction(_thisTargetHero.Hero, _targetEnemyHero.Hero));
             _logicTree.AddCurrent(_endHeroTurn.EndTurn());
         }
 

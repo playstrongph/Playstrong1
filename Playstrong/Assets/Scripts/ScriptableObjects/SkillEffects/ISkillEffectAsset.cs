@@ -7,7 +7,7 @@ namespace ScriptableObjects.SkillEffects
 {
     public interface ISkillEffectAsset
     {
-        void UseSkillEffect(IHero hero, ICoroutineTreesAsset coroutineTreesAsset);
+        void UseSkillEffect(IHero thisHero, IHero targetHero);
 
        
     }

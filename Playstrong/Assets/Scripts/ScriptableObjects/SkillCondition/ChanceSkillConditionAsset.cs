@@ -14,10 +14,10 @@ namespace ScriptableObjects.SkillCondition
         [SerializeField] private int _skillChance;
         private int SkillChance => _skillChance;
 
-        public  override void Target(IHero hero)
+        public  override void Target(IHero thisHero, IHero targetHero)
         {
             if(SkillCondition())
-                base.Target(hero);
+                base.Target(thisHero,targetHero);
         }
 
         /// <summary>

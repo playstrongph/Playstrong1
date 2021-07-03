@@ -1,20 +1,34 @@
 ﻿using System.Collections;
 using Interfaces;
-using ScriptableObjects.Actions.BaseClassScripts;
-using ScriptableObjects.Others;
+using Logic;
 using UnityEngine;
 
-namespace ScriptableObjects.SkillActions.BaseClassScripts
+namespace ScriptableObjects.Actions.BaseClassScripts
 {
 
-    public class SkillActionAsset : ScriptableObject, ISkillActionAsset
+    public class SkillActionAsset : ScriptableObject, IHeroAction
     {
-        protected ICoroutineTree LogicTree;
-        protected ICoroutineTree VisualTree;
 
-        public virtual void Target(IHero hero)
+        public virtual IEnumerator TargetHero(IHero targetHero)
         {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        public virtual IEnumerator StartAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+            
+            logicTree.EndSequence();
+            yield return null;
 
         }
 

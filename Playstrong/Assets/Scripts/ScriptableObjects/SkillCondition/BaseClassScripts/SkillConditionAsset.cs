@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using Logic;
 using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.Others;
-using ScriptableObjects.SkillActions.BaseClassScripts;
 using UnityEngine;
 using Utilities;
 
@@ -19,17 +19,17 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         private ICoroutineTreesAsset _coroutineTreesAsset;
         
         [SerializeField]
-        [RequireInterface(typeof(ISkillActionAsset))]
+        [RequireInterface(typeof(IHeroAction))]
         private List<Object> _skillActionAssets = new List<Object>();
 
-        public List<ISkillActionAsset> SkillActionAssets
+        public List<IHeroAction> SkillActionAssets
         {
             get
             {
-                var skillActions = new List<ISkillActionAsset>();
+                var skillActions = new List<IHeroAction>();
                 foreach (var skillActionAssetObject in _skillActionAssets)
                 {
-                    var skillAction = skillActionAssetObject as ISkillActionAsset;
+                    var skillAction = skillActionAssetObject as IHeroAction;
                     skillActions.Add(skillAction);
                 }
 
@@ -43,19 +43,20 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         /// Run all skill actions assigned to the skill condition
         /// </summary>
         /// <param name="hero"></param>
-        public virtual void Target(IHero hero)
+        public virtual void Target(IHero thisHero, IHero targetHero)
         {
-            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-           _logicTree.AddCurrent(TargetCoroutine(hero));
+           _logicTree.AddCurrent(TargetCoroutine(thisHero, targetHero));
         }
 
-        private IEnumerator TargetCoroutine(IHero hero)
+        private IEnumerator TargetCoroutine(IHero thisHero, IHero targetHero)
         {
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
             {
-                skillAction.Target(hero);   
+                //skillAction.Target(hero);   
+                _logicTree.AddCurrent(skillAction.StartAction(thisHero, targetHero));
             }
             
             _logicTree.EndSequence();

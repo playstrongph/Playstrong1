@@ -33,9 +33,9 @@ namespace Logic
         }
         
         //Same for all classes that derive from IHeroAction
-        public IEnumerator StartAction(IHero targetHero)
+        public IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
-            targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, _thisHero, targetHero);
+            targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
             _logicTree.EndSequence();
             yield return null;
         }

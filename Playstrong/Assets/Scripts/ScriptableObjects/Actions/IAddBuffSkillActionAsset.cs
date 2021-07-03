@@ -1,6 +1,4 @@
-﻿using ScriptableObjects.SkillActions.BaseClassScripts;
-
-namespace ScriptableObjects.SkillActions
+﻿namespace ScriptableObjects.SkillActions
 {
     public interface IAddBuffSkillActionAsset
     {

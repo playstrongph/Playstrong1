@@ -36,21 +36,25 @@ namespace ScriptableObjects.SkillEffects
             
         }
         
-        public void UseSkillEffect(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        public void UseSkillEffect(IHero thisHero, IHero targetHero)
         {
-            var logicTree = coroutineTreesAsset.MainLogicTree;
+            Debug.Log("UseSkillEffect");
             
-            logicTree.AddCurrent(UseSkillEffectCoroutine(hero, coroutineTreesAsset));
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(UseSkillEffectCoroutine(thisHero, targetHero));
+            
+           
             
         }
 
-        private IEnumerator UseSkillEffectCoroutine(IHero hero, ICoroutineTreesAsset coroutineTreesAsset)
+        private IEnumerator UseSkillEffectCoroutine(IHero thisHero, IHero targetHero)
         {
-            var logicTree = coroutineTreesAsset.MainLogicTree;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             foreach (var skillCondition in SkillConditionAssets )
             {
-                skillCondition.Target(hero);
+                skillCondition.Target(thisHero, targetHero);
             }
             
             logicTree.EndSequence();
