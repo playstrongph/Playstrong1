@@ -60,6 +60,13 @@ namespace Logic
         //TEMP
         public IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
+            
+            _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
+            
+            ModifyAttack(_attackModifier);
+            
+            _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
+            
             _logicTree.EndSequence();
             yield return null;
           
