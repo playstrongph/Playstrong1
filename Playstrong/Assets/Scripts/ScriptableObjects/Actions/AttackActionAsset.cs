@@ -35,19 +35,19 @@ namespace ScriptableObjects.SkillActions
 
         private void AttackHero()
         {
+            ComputeFinalDamage();
+            
             VisualTree.AddCurrent(AttackHeroVisual());
-            LogicTree.AddCurrent(ComputeFinalDamage());
             LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
         }
 
-        private IEnumerator ComputeFinalDamage()
+        private void ComputeFinalDamage()
         {
             //TODO: change this to foreach implementation
             _finalAttackValue = _finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack;
-            
-            LogicTree.EndSequence();
-            yield return null;
         }
+
+      
 
 
         private IEnumerator AttackHeroVisual()
@@ -72,9 +72,10 @@ namespace ScriptableObjects.SkillActions
 
                 .OnComplete(() =>
                 {
-                    VisualTree.EndSequence();            
-                        
+                    VisualTree.EndSequence();
                 });
+            
+            
             
             yield return null;
         }
