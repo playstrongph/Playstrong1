@@ -127,7 +127,7 @@ namespace Logic
             
             _logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
 
-            //this is already a IEnumerator
+            //Calls an Ienumerator
             turnController.EndTurn();
 
         }

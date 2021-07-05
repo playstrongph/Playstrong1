@@ -31,12 +31,12 @@ namespace ScriptableObjects.SkillActions
         /// Logic of AddBuff is in the statuseffect asset Instance
         /// Single, Multiple, Fixed
         /// </summary>
-        public override IEnumerator TargetHero(IHero hero)
+        public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            _visualTree = targetHero.CoroutineTreesAsset.MainVisualTree;
 
-            _logicTree.AddCurrent(AddBuffCoroutine(hero, BuffAsset, BuffCounters));
+            _logicTree.AddCurrent(AddBuffCoroutine(targetHero, BuffAsset, BuffCounters));
            
             _logicTree.EndSequence();
            yield return null;

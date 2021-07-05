@@ -9,30 +9,41 @@ namespace ScriptableObjects.Actions.BaseClassScripts
     public class SkillActionAsset : ScriptableObject, IHeroAction
     {
 
-        public virtual IEnumerator TargetHero(IHero targetHero)
+        protected IHero ThisHero;
+        protected IHero TargetHero;
+
+        protected ICoroutineTree LogicTree;
+        protected ICoroutineTree VisualTree;
+        
+        public virtual IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            InitializeValues(thisHero, targetHero);
             
-            logicTree.EndSequence();
+            LogicTree.EndSequence();
             yield return null;
 
         }
         
         public virtual IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
+            InitializeValues(thisHero, targetHero);
+
             targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
             
-            logicTree.EndSequence();
+            LogicTree.EndSequence();
             yield return null;
-            
-            logicTree.EndSequence();
-            yield return null;
-
         }
 
-       
+        protected void InitializeValues(IHero thisHero, IHero targetHero)
+        {
+            ThisHero = thisHero;
+            TargetHero = targetHero;
+
+            LogicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            VisualTree = targetHero.CoroutineTreesAsset.MainVisualTree;
+        }
+
+
 
 
 

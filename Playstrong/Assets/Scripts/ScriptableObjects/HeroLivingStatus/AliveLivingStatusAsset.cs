@@ -14,18 +14,18 @@ namespace ScriptableObjects.HeroLivingStatus
         /// </summary>
         public void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
-            initiator.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, recipient);
+            initiator.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, initiator, recipient);
            
         }
         
         /// <summary>
         /// If the initiator hero is alive, this will call the initiator's TargetHero method
         /// </summary>
-        public void DoHeroAction(IHeroAction heroAction, IHero recipient)
+        public void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
             var logicTree = recipient.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(heroAction.TargetHero(recipient));
+            logicTree.AddCurrent(heroAction.ActionTarget(initiator, recipient));
             
            
         }

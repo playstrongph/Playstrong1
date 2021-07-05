@@ -55,6 +55,15 @@ namespace Logic
             yield return null;
           
         }
+        
+        
+        //TEMP
+        public IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
+        {
+            _logicTree.EndSequence();
+            yield return null;
+          
+        }
 
         private IEnumerator VisualBasicAttackHero(IHero targetHero)
         {

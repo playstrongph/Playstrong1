@@ -19,7 +19,7 @@ namespace ScriptableObjects.HeroLivingStatus
         /// <summary>
         /// If the initiator hero is dead, Do Nothing
         /// </summary>
-        public void DoHeroAction(IHeroAction heroAction, IHero recipient)
+        public void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
             
         }

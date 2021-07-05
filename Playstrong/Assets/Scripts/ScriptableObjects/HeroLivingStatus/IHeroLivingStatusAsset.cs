@@ -12,7 +12,7 @@ namespace ScriptableObjects.HeroLivingStatus
         /// </summary>
         void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
         
-        void DoHeroAction(IHeroAction heroAction, IHero recipient);
+        void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
 
        
     }

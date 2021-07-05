@@ -20,17 +20,19 @@ namespace ScriptableObjects.Actions
         private ScriptableObject _healAmount;
 
         public IModifier HealAmount => _healAmount as IModifier;
+
+       
         
         private IHero _hero;
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
         
-        public override IEnumerator TargetHero(IHero hero)
+        public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-           _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-           _visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+           _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+           _visualTree = targetHero.CoroutineTreesAsset.MainVisualTree;
             
-           _hero = hero;
+           _hero = targetHero;
             
            _logicTree.AddCurrent(HealCoroutine());
            
@@ -50,6 +52,8 @@ namespace ScriptableObjects.Actions
             yield return null;
         }
         
+        
+        //TEMP
         private IEnumerator HealVisual()
         {
             _hero.DamageEffect.ShowDamage((int)HealAmount.ModValue);

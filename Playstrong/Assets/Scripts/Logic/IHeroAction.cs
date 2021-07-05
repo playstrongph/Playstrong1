@@ -5,7 +5,7 @@ namespace Logic
 {
     public interface IHeroAction
     {
-        IEnumerator TargetHero(IHero targetHero);
+        IEnumerator ActionTarget(IHero thisHero, IHero targetHero);
         
         IEnumerator StartAction(IHero thisHero, IHero targetHero);
     }
