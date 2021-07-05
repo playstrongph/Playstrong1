@@ -27,9 +27,9 @@ namespace ScriptableObjects.SkillActions
             InitializeValues(thisHero, targetHero);
           
             AttackHero();
-           
+
             LogicTree.EndSequence();
-           yield return null;
+            yield return null;
 
         }
 

@@ -3,10 +3,12 @@ using System.Collections;
 using Interfaces;
 using UnityEngine;
 using DG.Tweening;
+using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class BasicAttack : MonoBehaviour, IBasicAttack, IHeroAction
+    public class BasicAttack : MonoBehaviour, IBasicAttack
     {
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
@@ -31,81 +33,14 @@ namespace Logic
             _logicTree = _thisHero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _thisHero.CoroutineTreesAsset.MainVisualTree;
         }
+
+        [SerializeField]
+        [RequireInterface(typeof(IHeroAction))]
+        private Object _attackAction;
+        public IHeroAction AttackAction => _attackAction as IHeroAction;
         
-        //Same for all classes that derive from IHeroAction
-        public IEnumerator StartAction(IHero thisHero, IHero targetHero)
-        {
-            targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
-            _logicTree.EndSequence();
-            yield return null;
-        }
+
         
-        //Different for each class that derive from HeroAction
-        public IEnumerator TargetHero(IHero targetHero)
-        {
-            _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
-            
-            ModifyAttack(_attackModifier);
-            
-            _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
-            
-           
-            
-            _logicTree.EndSequence();
-            yield return null;
-          
-        }
-        
-        
-        //TEMP
-        public IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
-        {
-            
-            _visualTree.AddCurrent(VisualBasicAttackHero(targetHero));
-            
-            ModifyAttack(_attackModifier);
-            
-            _logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
-            
-            _logicTree.EndSequence();
-            yield return null;
-          
-        }
-
-        private IEnumerator VisualBasicAttackHero(IHero targetHero)
-        {
-            var doMoveDuration = 0.7f;
-            var doMoveLoops = 2;
-            var doPunchDuration = 1f;
-            var tweenVibrato = 5;
-            var tweenElasticity = 0.5f;
-            var tweenSnapping = false;
-            var s = DOTween.Sequence();
-
-            s.AppendCallback(() => _thisHero.HeroTransform.DOMove(targetHero.HeroTransform.position, doMoveDuration)
-                .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
-                .OnStepComplete(() =>
-                    
-                    targetHero.HeroTransform.DOPunchPosition(targetHero.HeroTransform.position/7 - _thisHero.HeroTransform.position/7, 
-                        doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
-                );
-
-            s.AppendInterval(doMoveDuration)
-
-                .OnComplete(() =>
-                {
-                    _visualTree.EndSequence();            
-                        
-                });
-            
-            yield return null;
-        }
-
-        public void ModifyAttack(int attackModifier)
-        {
-            _attackModifier = attackModifier;
-            _finalAttackValue = _attackModifier * _thisHeroLogic.HeroAttributes.Attack;
-        }
 
 
 

@@ -5,6 +5,6 @@ namespace Logic
 {
     public interface IBasicAttack
     {
-        void ModifyAttack(int attackModifier);
+        IHeroAction AttackAction { get; }
     }
 }
