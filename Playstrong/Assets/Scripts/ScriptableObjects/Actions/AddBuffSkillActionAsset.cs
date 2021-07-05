@@ -21,11 +21,6 @@ namespace ScriptableObjects.SkillActions
 
         [SerializeField] private int _buffCounters;
         private int BuffCounters => _buffCounters;
-        
-        
-        private IHero _hero;
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
 
         /// <summary>
         /// Logic of AddBuff is in the statuseffect asset Instance
@@ -33,23 +28,22 @@ namespace ScriptableObjects.SkillActions
         /// </summary>
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-            _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            _visualTree = targetHero.CoroutineTreesAsset.MainVisualTree;
-
-            _logicTree.AddCurrent(AddBuffCoroutine(targetHero, BuffAsset, BuffCounters));
+            InitializeValues(thisHero, targetHero);
+            
+            LogicTree.AddCurrent(AddBuffCoroutine(BuffAsset, BuffCounters));
            
-            _logicTree.EndSequence();
+            LogicTree.EndSequence();
            yield return null;
 
         }
         
         //TODO: Insert StartAction Here
 
-        private IEnumerator AddBuffCoroutine(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        private IEnumerator AddBuffCoroutine(IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
-             BuffAsset.StatusEffectInstance.AddStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+             BuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters);
             
-             _logicTree.EndSequence();
+             LogicTree.EndSequence();
             yield return null;
         }
 

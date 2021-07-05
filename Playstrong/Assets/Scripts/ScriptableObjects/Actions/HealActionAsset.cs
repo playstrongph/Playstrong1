@@ -23,7 +23,7 @@ namespace ScriptableObjects.Actions
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-          
+           InitializeValues(thisHero, targetHero);
             
            LogicTree.AddCurrent(HealCoroutine());
            
