@@ -21,34 +21,25 @@ namespace ScriptableObjects.Actions
 
         public IModifier HealAmount => _healAmount as IModifier;
 
-       
-        
-        private IHero _hero;
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
-        
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-           _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-           _visualTree = targetHero.CoroutineTreesAsset.MainVisualTree;
+          
             
-           _hero = targetHero;
-            
-           _logicTree.AddCurrent(HealCoroutine());
+           LogicTree.AddCurrent(HealCoroutine());
            
-           _logicTree.EndSequence();
+           LogicTree.EndSequence();
            yield return null;
 
         }
 
         private IEnumerator HealCoroutine()
         {
-            _visualTree.AddCurrent(HealVisual());
+            VisualTree.AddCurrent(HealVisual());
         
-            var newHealth = _hero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
-            _hero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
+            var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
+            TargetHero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
             
-            _logicTree.EndSequence();
+            LogicTree.EndSequence();
             yield return null;
         }
         
@@ -56,9 +47,9 @@ namespace ScriptableObjects.Actions
         //TEMP
         private IEnumerator HealVisual()
         {
-            _hero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
+            TargetHero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
             
-            _visualTree.EndSequence();
+            VisualTree.EndSequence();
             yield return null;
         }
 
