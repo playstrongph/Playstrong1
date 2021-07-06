@@ -35,6 +35,8 @@ namespace Interfaces
 
         ISetHeroArmor SetHeroArmor { get; }
 
+        IHeroEvents HeroEvents { get; }
+
 
 
 
