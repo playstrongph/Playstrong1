@@ -39,6 +39,7 @@ namespace ScriptableObjects.SkillActions
             
             //TODO: Pre-Attack Event Here
             ThisHero.HeroLogic.HeroEvents.PreAttack(ThisHero,TargetHero);
+            TargetHero.HeroLogic.HeroEvents.BeforeAttack(ThisHero, TargetHero);
             
             
             VisualTree.AddCurrent(AttackHeroVisual());
