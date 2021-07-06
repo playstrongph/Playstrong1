@@ -37,8 +37,13 @@ namespace ScriptableObjects.SkillActions
         {
             ComputeFinalDamage();
             
+            //TODO: Pre-Attack Event Here
+            
+            
             VisualTree.AddCurrent(AttackHeroVisual());
             LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
+            
+            //TODO: Post-Attack Event Here
         }
 
         private void ComputeFinalDamage()
