@@ -17,7 +17,7 @@ namespace ScriptableObjects.SkillActions
         
         //TOOD this will be changed to a float list of finalAttackModifiers        
         [SerializeField]
-        private int _finalAttackModifier = 1;
+        //private int _finalAttackModifier = 1;
         private int _finalAttackValue;
 
 
@@ -43,12 +43,14 @@ namespace ScriptableObjects.SkillActions
 
         private void ComputeFinalDamage()
         {
-            //TODO: change this to foreach implementation
-            _finalAttackValue = _finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack;
+            var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.FinalAttackModifiers;
+
+            foreach (var finalAttackModifier in finalAttackModifiers)
+            {
+                _finalAttackValue = finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack;   
+            }
         }
-
-      
-
+        
 
         private IEnumerator AttackHeroVisual()
         {

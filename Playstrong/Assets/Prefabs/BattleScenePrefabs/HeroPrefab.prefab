@@ -3571,6 +3571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackAction: {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}
+  _finalAttackModifiers: 01000000
 --- !u!114 &8667774490648244736
 MonoBehaviour:
   m_ObjectHideFlags: 0
