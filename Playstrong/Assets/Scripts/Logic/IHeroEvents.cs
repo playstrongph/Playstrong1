@@ -8,5 +8,9 @@ namespace Logic
         event HeroEvents.HeroEvent e_PostAttack;
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PostAttack(IHero initiatorHero, IHero targetHero);
+
+        void BeforeAttack(IHero initiatorHero, IHero targetHero);
+
+        void AfterAttack(IHero initiatorHero, IHero targetHero);
     }
 }

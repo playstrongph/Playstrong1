@@ -38,12 +38,14 @@ namespace ScriptableObjects.SkillActions
             ComputeFinalDamage();
             
             //TODO: Pre-Attack Event Here
+            ThisHero.HeroLogic.HeroEvents.PreAttack(ThisHero,TargetHero);
             
             
             VisualTree.AddCurrent(AttackHeroVisual());
             LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
             
             //TODO: Post-Attack Event Here
+            ThisHero.HeroLogic.HeroEvents.PostAttack(ThisHero,TargetHero);
         }
 
         private void ComputeFinalDamage()
