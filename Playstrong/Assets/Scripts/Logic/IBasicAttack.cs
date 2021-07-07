@@ -10,5 +10,7 @@ namespace Logic
 
         IEnumerator StartAttack(IHero thisHero, IHero targetHero);
 
+        List<float> CriticalAttackModifiers { get; }
+
     }
 }

@@ -20,13 +20,23 @@ namespace Logic
         public event HeroEvent EPreAttack;
         public event HeroEvent EPostAttack;
         
-        public event HeroEvent EBeforeAttack;
+        public event HeroEvent EPreCriticalStrike;
         
-        public event HeroEvent EAfterAttack;
+        public event HeroEvent EPostCriticalStrike;
+        
+        public event HeroEvent EBeforeAttacking;
+        
+        public event HeroEvent EAfterAttacking;
+        
+        public event HeroEvent EBeforeCriticalStrike;
+        
+        public event HeroEvent EAfterCriticalStrike;
+        
+        
         
         
         /// <summary>
-        /// Before the initiator hero deals an attack
+        /// Before the target hero takes an attack
         /// </summary>
         public void PreAttack(IHero initiatorHero, IHero targetHero)
         {
@@ -34,28 +44,50 @@ namespace Logic
         }
         
         /// <summary>
-        /// After the initiator hero deals an attack
+        /// After the target hero takes an attack
         /// </summary>
         public void PostAttack(IHero initiatorHero, IHero targetHero)
         {
             EPostAttack?.Invoke(initiatorHero, targetHero);
         }
         
-        /// <summary>
-        /// Before the target hero receives an attack
-        /// </summary>
-        public void BeforeAttack(IHero initiatorHero, IHero targetHero)
+        public void PreCriticalStrike(IHero initiatorHero, IHero targetHero)
         {
-            EBeforeAttack?.Invoke(initiatorHero, targetHero);
+            EPreCriticalStrike?.Invoke(initiatorHero, targetHero);
         }
         
         /// <summary>
-        /// After the target hero receives an attack
+        /// After the target hero takes a critical strike
         /// </summary>
-        public void AfterAttack(IHero initiatorHero, IHero targetHero)
+        public void PostCriticalStrike(IHero initiatorHero, IHero targetHero)
         {
-            EAfterAttack?.Invoke(initiatorHero, targetHero);
+            EPostCriticalStrike?.Invoke(initiatorHero, targetHero);
         }
+        
+        
+        public void BeforeAttacking(IHero initiatorHero, IHero targetHero)
+        {
+            EBeforeAttacking?.Invoke(initiatorHero, targetHero);
+        }
+        
+        
+        public void AfterAttacking(IHero initiatorHero, IHero targetHero)
+        {
+            EAfterAttacking?.Invoke(initiatorHero, targetHero);
+        }
+        
+        public void BeforeCriticalStrike(IHero initiatorHero, IHero targetHero)
+        {
+            EBeforeCriticalStrike?.Invoke(initiatorHero, targetHero);
+        }
+        
+        
+        public void AfterCriticalStrike(IHero initiatorHero, IHero targetHero)
+        {
+            EAfterCriticalStrike?.Invoke(initiatorHero, targetHero);
+        }
+        
+        
 
 
 

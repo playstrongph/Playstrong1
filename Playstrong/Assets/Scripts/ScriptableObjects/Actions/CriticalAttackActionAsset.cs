@@ -11,51 +11,72 @@ namespace ScriptableObjects.Actions
     
     public class CriticalAttackActionAsset : SkillActionAsset
     {
-        
-        
+
+
+        private float _preAttackValue;
         private int _finalAttackValue;
+        private float _criticalMultiplier;
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
-          
-            AttackHero();
+            
+            LogicTree.AddCurrent(PreCriticalStrikeEvents());
+            
+            LogicTree.AddCurrent(ComputeFinalDamage());
+            LogicTree.AddCurrent(AttackHero());
+            
+            LogicTree.AddCurrent(PostCriticalStrikeEvents());
+            
 
             LogicTree.EndSequence();
             yield return null;
 
         }
 
-        private void AttackHero()
+        private IEnumerator PreCriticalStrikeEvents()
         {
-            ComputeFinalDamage();
+            ThisHero.HeroLogic.HeroEvents.BeforeCriticalStrike(ThisHero, TargetHero);
+            TargetHero.HeroLogic.HeroEvents.PreCriticalStrike(ThisHero, TargetHero);
             
-            //TODO: Pre-Attack Event Here
-            ThisHero.HeroLogic.HeroEvents.PreAttack(ThisHero,TargetHero);
-            //if criticalFactor > 1, Pre Critical Strike Event
+            LogicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator PostCriticalStrikeEvents()
+        {
+            ThisHero.HeroLogic.HeroEvents.AfterCriticalStrike(ThisHero, TargetHero);
+            TargetHero.HeroLogic.HeroEvents.PostCriticalStrike(ThisHero, TargetHero);
             
-            TargetHero.HeroLogic.HeroEvents.BeforeAttack(ThisHero, TargetHero);
-            
-            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+
+        private IEnumerator AttackHero()
+        {
             VisualTree.AddCurrent(AttackHeroVisual());
             LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
             
-            //TODO: Post-Attack Event Here
-            //if criticalFactor > 1, Post Critical Strike Event
-            ThisHero.HeroLogic.HeroEvents.PostAttack(ThisHero,TargetHero);
-            
-            TargetHero.HeroLogic.HeroEvents.AfterAttack(ThisHero, TargetHero);
+            LogicTree.EndSequence();
+            yield return null;
         }
 
-        private void ComputeFinalDamage()
+        private IEnumerator ComputeFinalDamage()
         {
+            _criticalMultiplier = Mathf.Max(ThisHero.HeroLogic.BasicAttack.CriticalAttackModifiers.ToArray());
+            
             var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
+            
            
-
             foreach (var finalAttackModifier in finalAttackModifiers)
             {
-                _finalAttackValue = Mathf.FloorToInt(finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack);
+                _preAttackValue = finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack;
             }
+
+            _finalAttackValue = Mathf.FloorToInt(_criticalMultiplier * _preAttackValue);
+            
+            LogicTree.EndSequence();
+            yield return null;
         }
         
 

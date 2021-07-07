@@ -67,19 +67,18 @@ namespace Logic
 
         private IEnumerator PreAttackEvents()
         {
+            _thisHero.HeroLogic.HeroEvents.BeforeAttacking(_thisHero, _targetHero);
+            _targetHero.HeroLogic.HeroEvents.PreAttack(_thisHero,_targetHero);
             
-            _thisHero.HeroLogic.HeroEvents.PreAttack(_thisHero,_targetHero);
-            _targetHero.HeroLogic.HeroEvents.BeforeAttack(_thisHero, _targetHero);
-
             _logicTree.EndSequence();
             yield return null;
         }
         
         private IEnumerator PostAttackEvents()
         {
-            
-            _thisHero.HeroLogic.HeroEvents.PostAttack(_thisHero,_targetHero);
-            _targetHero.HeroLogic.HeroEvents.AfterAttack(_thisHero, _targetHero);
+            _thisHero.HeroLogic.HeroEvents.AfterAttacking(_thisHero, _targetHero);
+            _targetHero.HeroLogic.HeroEvents.PostAttack(_thisHero,_targetHero);
+         
 
             _logicTree.EndSequence();
             yield return null;
