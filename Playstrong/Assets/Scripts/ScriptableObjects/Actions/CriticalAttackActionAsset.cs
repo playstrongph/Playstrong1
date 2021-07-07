@@ -11,8 +11,6 @@ namespace ScriptableObjects.Actions
     
     public class CriticalAttackActionAsset : SkillActionAsset
     {
-
-
         private float _preAttackValue;
         private int _finalAttackValue;
         private float _criticalMultiplier;
