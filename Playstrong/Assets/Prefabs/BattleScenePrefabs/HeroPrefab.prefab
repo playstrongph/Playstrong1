@@ -3572,9 +3572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackAction: {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}
-  criticalMultiplier: 2
-  criticalMultipliers:
-  - 1
+  criticalAttackModifiers:
+  - 2
   uniqueAttackModifiers:
   - 1
 --- !u!114 &3820792406562021602

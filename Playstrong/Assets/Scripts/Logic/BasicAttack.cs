@@ -17,6 +17,17 @@ namespace Logic
         private Object _attackAction;
         private IHeroAction AttackAction => _attackAction as IHeroAction;
 
+        
+        /// <summary>
+        /// This is a list of other possible critical attack modifiers apart from default
+        /// value of 2.  Examples are skills that set the multiplier to 3, or equipment that increase
+        /// the critical damage.  An alternative way to implement this is to create a component
+        /// 'other attributes' attached and accessed via HeroLogic
+        /// </summary>
+        [SerializeField] private List<float> criticalAttackModifiers;
+        public List<float> CriticalAttackModifiers => criticalAttackModifiers;
+        
+        
         /// <summary>
         /// This is a list of other possible attack modifiers that are 'unique' - i.e.
         /// they only have 1 value and could not vary. Default setting is a value of 1.
@@ -56,9 +67,8 @@ namespace Logic
 
         private IEnumerator PreAttackEvents()
         {
-            //Pre-Attack Events
+            
             _thisHero.HeroLogic.HeroEvents.PreAttack(_thisHero,_targetHero);
-            //if criticalFactor > 1, Pre Critical Strike Event
             _targetHero.HeroLogic.HeroEvents.BeforeAttack(_thisHero, _targetHero);
 
             _logicTree.EndSequence();
@@ -67,9 +77,8 @@ namespace Logic
         
         private IEnumerator PostAttackEvents()
         {
-            //Pre-Attack Events
+            
             _thisHero.HeroLogic.HeroEvents.PostAttack(_thisHero,_targetHero);
-            //if criticalFactor > 1, Pre Critical Strike Event
             _targetHero.HeroLogic.HeroEvents.AfterAttack(_thisHero, _targetHero);
 
             _logicTree.EndSequence();

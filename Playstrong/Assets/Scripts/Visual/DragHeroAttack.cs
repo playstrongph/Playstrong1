@@ -121,11 +121,7 @@ namespace Visual
 
         private void BasicAttackTarget()
         {
-            //var heroAction = (IHeroAction)_basicAttack;
-            //_logicTree.AddCurrent(heroAction.StartAction(_thisTargetHero.Hero, _targetEnemyHero.Hero));
-            
             _logicTree.AddCurrent(_basicAttack.StartAttack(_thisTargetHero.Hero, _targetEnemyHero.Hero));
-            
             _logicTree.AddCurrent(_endHeroTurn.EndTurn());
         }
 

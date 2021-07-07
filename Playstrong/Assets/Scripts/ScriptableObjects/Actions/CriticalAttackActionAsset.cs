@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using Interfaces;
 using ScriptableObjects.Actions.BaseClassScripts;
@@ -11,12 +12,8 @@ namespace ScriptableObjects.Actions
     public class CriticalAttackActionAsset : SkillActionAsset
     {
         
-        //TOOD this will be changed to a float list of finalAttackModifiers        
-        [SerializeField]
-        //private int _finalAttackModifier = 1;
+        
         private int _finalAttackValue;
-
-
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
