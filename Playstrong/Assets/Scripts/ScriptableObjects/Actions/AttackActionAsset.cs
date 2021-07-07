@@ -48,11 +48,12 @@ namespace ScriptableObjects.Actions
 
         private void ComputeFinalDamage()
         {
-            var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.FinalAttackModifiers;
+            var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
+            var finalCriticalFactor = ThisHero.HeroLogic.BasicAttack.GetCriticalFactor();
 
             foreach (var finalAttackModifier in finalAttackModifiers)
             {
-                _finalAttackValue = finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack;   
+                _finalAttackValue = Mathf.FloorToInt(finalCriticalFactor * finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack);
             }
         }
         

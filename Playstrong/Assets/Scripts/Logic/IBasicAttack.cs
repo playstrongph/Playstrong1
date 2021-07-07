@@ -8,9 +8,9 @@ namespace Logic
     {
         IHeroAction AttackAction { get; }
 
-        List<int> FinalAttackModifiers { get; }
+        List<float> UniqueAttackModifiers { get; }
 
-        List<float> CriticalFactor { get; }
+        List<float> CriticalMultipliers { get; }
 
         float GetCriticalFactor();
     }
