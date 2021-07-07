@@ -13,5 +13,7 @@ namespace Logic
         List<float> CriticalMultipliers { get; }
 
         float GetCriticalFactor();
+
+        float CriticalMultiplier { get; set; }
     }
 }

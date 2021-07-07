@@ -6,62 +6,51 @@ using UnityEngine;
 
 namespace ScriptableObjects.Actions
 {
-    [CreateAssetMenu(fileName = "AttackActionAsset", menuName = "SO's/SkillActions/AttackActionAsset")]
+    [CreateAssetMenu(fileName = "CriticalAttackActionAsset", menuName = "SO's/SkillActions/CriticalAttackActionAsset")]
     
-    public class AttackActionAsset : SkillActionAsset
+    public class CriticalAttackActionAsset : SkillActionAsset
     {
         
-       
+        //TOOD this will be changed to a float list of finalAttackModifiers        
+        [SerializeField]
+        //private int _finalAttackModifier = 1;
         private int _finalAttackValue;
+
+
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
-            
-            
-            LogicTree.AddCurrent(PreAttackEvents());
-            LogicTree.AddCurrent(AttackHero());
-            LogicTree.AddCurrent(PostAttackEvents());
+          
+            AttackHero();
 
             LogicTree.EndSequence();
             yield return null;
 
         }
 
-        private IEnumerator PreAttackEvents()
+        private void AttackHero()
         {
-            //Pre-Attack Events
+            ComputeFinalDamage();
+            
+            //TODO: Pre-Attack Event Here
             ThisHero.HeroLogic.HeroEvents.PreAttack(ThisHero,TargetHero);
             //if criticalFactor > 1, Pre Critical Strike Event
+            
             TargetHero.HeroLogic.HeroEvents.BeforeAttack(ThisHero, TargetHero);
             
-            LogicTree.AddCurrent(ComputeFinalDamage());
             
-            LogicTree.EndSequence();
-            yield return null;
-        }
-
-        private IEnumerator AttackHero()
-        {
             VisualTree.AddCurrent(AttackHeroVisual());
             LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
             
-            LogicTree.EndSequence();
-            yield return null;
-        }
-
-        private IEnumerator PostAttackEvents()
-        {
-            //Post-Attack Events 
+            //TODO: Post-Attack Event Here
             //if criticalFactor > 1, Post Critical Strike Event
             ThisHero.HeroLogic.HeroEvents.PostAttack(ThisHero,TargetHero);
-            TargetHero.HeroLogic.HeroEvents.AfterAttack(ThisHero, TargetHero);
             
-            LogicTree.EndSequence();
-            yield return null;
+            TargetHero.HeroLogic.HeroEvents.AfterAttack(ThisHero, TargetHero);
         }
 
-        private IEnumerator ComputeFinalDamage()
+        private void ComputeFinalDamage()
         {
             var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
             var finalCriticalFactor = ThisHero.HeroLogic.BasicAttack.GetCriticalFactor();
@@ -70,9 +59,6 @@ namespace ScriptableObjects.Actions
             {
                 _finalAttackValue = Mathf.FloorToInt(finalCriticalFactor * finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack);
             }
-            
-            LogicTree.EndSequence();
-            yield return null;
         }
         
 

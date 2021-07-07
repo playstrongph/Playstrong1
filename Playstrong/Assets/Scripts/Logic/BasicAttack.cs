@@ -24,9 +24,7 @@ namespace Logic
             get => criticalMultiplier;
             set => criticalMultiplier = value;
         }
-
-
-
+        
         /// <summary>
         /// Default value is 1 (No Critical Strike).  Status Effects and Skills will "Add" to this list
         /// the respective critical strike multiplier they provide, which is typically the defaultCritical
