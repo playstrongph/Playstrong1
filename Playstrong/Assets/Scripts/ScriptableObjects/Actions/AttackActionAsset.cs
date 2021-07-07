@@ -17,28 +17,13 @@ namespace ScriptableObjects.Actions
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
-            
-            
-            LogicTree.AddCurrent(PreAttackEvents());
-            LogicTree.AddCurrent(AttackHero());
-            LogicTree.AddCurrent(PostAttackEvents());
 
-            LogicTree.EndSequence();
-            yield return null;
-
-        }
-
-        private IEnumerator PreAttackEvents()
-        {
-            //Pre-Attack Events
-            ThisHero.HeroLogic.HeroEvents.PreAttack(ThisHero,TargetHero);
-            //if criticalFactor > 1, Pre Critical Strike Event
-            TargetHero.HeroLogic.HeroEvents.BeforeAttack(ThisHero, TargetHero);
-            
             LogicTree.AddCurrent(ComputeFinalDamage());
-            
+            LogicTree.AddCurrent(AttackHero());
+
             LogicTree.EndSequence();
             yield return null;
+
         }
 
         private IEnumerator AttackHero()
@@ -49,26 +34,14 @@ namespace ScriptableObjects.Actions
             LogicTree.EndSequence();
             yield return null;
         }
-
-        private IEnumerator PostAttackEvents()
-        {
-            //Post-Attack Events 
-            //if criticalFactor > 1, Post Critical Strike Event
-            ThisHero.HeroLogic.HeroEvents.PostAttack(ThisHero,TargetHero);
-            TargetHero.HeroLogic.HeroEvents.AfterAttack(ThisHero, TargetHero);
-            
-            LogicTree.EndSequence();
-            yield return null;
-        }
-
         private IEnumerator ComputeFinalDamage()
         {
             var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
-            var finalCriticalFactor = ThisHero.HeroLogic.BasicAttack.GetCriticalFactor();
+            
 
             foreach (var finalAttackModifier in finalAttackModifiers)
             {
-                _finalAttackValue = Mathf.FloorToInt(finalCriticalFactor * finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack);
+                _finalAttackValue = Mathf.FloorToInt(finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack);
             }
             
             LogicTree.EndSequence();

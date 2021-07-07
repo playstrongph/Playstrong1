@@ -3575,7 +3575,8 @@ MonoBehaviour:
   criticalMultiplier: 2
   criticalMultipliers:
   - 1
-  uniqueAttackModifiers: 01000000
+  uniqueAttackModifiers:
+  - 1
 --- !u!114 &3820792406562021602
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,14 +6,9 @@ namespace Logic
 {
     public interface IBasicAttack
     {
-        IHeroAction AttackAction { get; }
-
         List<float> UniqueAttackModifiers { get; }
 
-        List<float> CriticalMultipliers { get; }
+        IEnumerator StartAttack(IHero thisHero, IHero targetHero);
 
-        float GetCriticalFactor();
-
-        float CriticalMultiplier { get; set; }
     }
 }

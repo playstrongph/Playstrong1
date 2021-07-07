@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951ddfdd8c6f55045bc14ce34309d1c0, type: 3}
   m_Name: AttackActionAsset
   m_EditorClassIdentifier: 
-  _finalAttackModifier: 1
