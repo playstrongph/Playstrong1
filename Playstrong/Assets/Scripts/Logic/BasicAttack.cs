@@ -17,8 +17,31 @@ namespace Logic
         private Object _attackAction;
         public IHeroAction AttackAction => _attackAction as IHeroAction;
 
-        [SerializeField] private List<int> _finalAttackModifiers;
-        public List<int> FinalAttackModifiers => _finalAttackModifiers;
+        
+        /// <summary>
+        /// If there are skills or other modifiers that change the multiplier of critical factor
+        /// to a float other than 2, then "Add" it to the list;
+        /// </summary>
+        [SerializeField] private List<float> criticalFactor = new List<float>();
+        public List<float> CriticalFactor => criticalFactor;
+        
+        /// <summary>
+        /// This is a list of other possible attack modifiers that are 'unique' - i.e.
+        /// they only have 1 value and could not vary
+        /// </summary>
+        [SerializeField] private List<int> uniqueAttackModifiers;
+        public List<int> FinalAttackModifiers => uniqueAttackModifiers;
+        
+        /// <summary>
+        /// This returns the greatest value from the possible critical factors
+        /// inside the critical list
+        /// </summary>
+        public float GetCriticalFactor()
+        {
+            var maxValue = Mathf.Max(FinalAttackModifiers.ToArray());
+            return maxValue;
+        }
+
 
     }
 }

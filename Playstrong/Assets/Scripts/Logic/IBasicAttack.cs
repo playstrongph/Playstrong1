@@ -9,5 +9,9 @@ namespace Logic
         IHeroAction AttackAction { get; }
 
         List<int> FinalAttackModifiers { get; }
+
+        List<float> CriticalFactor { get; }
+
+        float GetCriticalFactor();
     }
 }

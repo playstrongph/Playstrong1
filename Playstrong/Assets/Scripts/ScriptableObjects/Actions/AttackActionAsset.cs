@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using Interfaces;
-using Logic;
 using ScriptableObjects.Actions.BaseClassScripts;
-using ScriptableObjects.Others;
-using ScriptableObjects.StatusEffects;
 using UnityEngine;
-using Utilities;
 
-namespace ScriptableObjects.SkillActions
+namespace ScriptableObjects.Actions
 {
     [CreateAssetMenu(fileName = "AttackActionAsset", menuName = "SO's/SkillActions/AttackActionAsset")]
     
@@ -47,6 +43,7 @@ namespace ScriptableObjects.SkillActions
             
             //TODO: Post-Attack Event Here
             ThisHero.HeroLogic.HeroEvents.PostAttack(ThisHero,TargetHero);
+            TargetHero.HeroLogic.HeroEvents.AfterAttack(ThisHero, TargetHero);
         }
 
         private void ComputeFinalDamage()
