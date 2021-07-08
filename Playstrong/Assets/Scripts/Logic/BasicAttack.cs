@@ -12,12 +12,37 @@ namespace Logic
     public class BasicAttack : MonoBehaviour, IBasicAttack
     {
 
-        [SerializeField]
-        [RequireInterface(typeof(IHeroAction))]
-        private Object _attackAction;
-        private IHeroAction AttackAction => _attackAction as IHeroAction;
+        [SerializeField] [RequireInterface(typeof(IHeroAction))]
+        private List<Object> _attackActions = new List<Object>();
 
-        
+        private List<IHeroAction> AttackActions
+        {
+            get
+            {
+                var attackActions = new List<IHeroAction>();
+                foreach (var attackAction in _attackActions)
+                {
+                    attackActions.Add(attackAction as IHeroAction);
+                }
+
+                return attackActions;
+            }
+        }
+
+        public void AddToAttackActions(IHeroAction heroAction)
+        {
+            var heroActionObject = heroAction as Object;
+            _attackActions.Add(heroActionObject);
+            
+        }
+
+        public void RemoveFromAttackActions(IHeroAction heroAction)
+        {
+            var heroActionObject = heroAction as Object;
+            _attackActions.Remove(heroActionObject);
+        }
+
+
         /// <summary>
         /// This is a list of other possible critical attack modifiers apart from default
         /// value of 2.  Examples are skills that set the multiplier to 3, or equipment that increase
@@ -53,9 +78,13 @@ namespace Logic
         {
             _thisHero = thisHero;
             _targetHero = targetHero;
+            var index = AttackActions.Count - 1;
             
             _logicTree.AddCurrent(PreAttackEvents());
-            _logicTree.AddCurrent(AttackAction.StartAction(_thisHero, _targetHero));
+            //_logicTree.AddCurrent(AttackAction.StartAction(_thisHero, _targetHero));
+            
+            _logicTree.AddCurrent(AttackActions[index].StartAction(_thisHero, _targetHero));
+            
             _logicTree.AddCurrent(PostAttackEvents());
             
             _logicTree.EndSequence();

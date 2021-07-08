@@ -12,5 +12,11 @@ namespace Logic
 
         List<float> CriticalAttackModifiers { get; }
 
+        void AddToAttackActions(IHeroAction heroAction);
+
+        void RemoveFromAttackActions(IHeroAction heroAction);
+
+
+
     }
 }
