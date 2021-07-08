@@ -38,8 +38,6 @@ namespace ScriptableObjects.SkillEffects
         
         public void UseSkillEffect(IHero thisHero, IHero targetHero)
         {
-            Debug.Log("UseSkillEffect");
-            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(UseSkillEffectCoroutine(thisHero, targetHero));

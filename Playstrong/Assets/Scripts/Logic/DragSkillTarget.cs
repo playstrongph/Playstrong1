@@ -6,6 +6,7 @@ using Interfaces;
 using ScriptableObjects.Enums.SkillType;
 using UnityEngine;
 using Visual;
+using Debug = System.Diagnostics.Debug;
 
 namespace Logic
 {
@@ -139,7 +140,9 @@ namespace Logic
             
             //_targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_thisHero.Hero, _targetHero.Hero);
 
-            var activeSkill = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillType as IActiveSkillAsset;
+            var activeSkill = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillType;
+            
+            Debug.Assert(activeSkill != null, nameof(activeSkill) + " != null");
             activeSkill.UseActiveSkill(_targetSkill, _thisHero.Hero, _targetHero.Hero);
             
             _logicTree.EndSequence();

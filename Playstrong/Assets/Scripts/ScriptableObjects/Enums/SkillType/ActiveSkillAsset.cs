@@ -21,6 +21,9 @@ namespace ScriptableObjects.Enums.SkillType
         {
             targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(thisHero, targetHero);
         }
+        
+        public void UsePassiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
+        { }
 
         
 
