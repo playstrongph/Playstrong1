@@ -140,7 +140,7 @@ namespace Logic
             //_targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_thisHero.Hero, _targetHero.Hero);
 
             var activeSkill = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillType as IActiveSkillAsset;
-            activeSkill.UseActiveSkill(_targetSkill, _thisHero, _targetHero);
+            activeSkill.UseActiveSkill(_targetSkill, _thisHero.Hero, _targetHero.Hero);
             
             _logicTree.EndSequence();
             yield return null;

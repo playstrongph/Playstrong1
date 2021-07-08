@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using Interfaces;
+using Logic;
 using TMPro;
 using UnityEngine;
 using Visual;
@@ -16,9 +17,9 @@ namespace ScriptableObjects.Enums.SkillType
             cooldown.enabled = true;
         }
 
-        public void UseActiveSkill(ITargetSkill targetSkill, ITargetHero thisHero, ITargetHero targetHero)
+        public void UseActiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
         {
-            targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(thisHero.Hero, targetHero.Hero);
+            targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(thisHero, targetHero);
         }
 
         
