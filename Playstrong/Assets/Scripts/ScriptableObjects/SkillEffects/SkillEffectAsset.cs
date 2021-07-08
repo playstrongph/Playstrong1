@@ -43,9 +43,6 @@ namespace ScriptableObjects.SkillEffects
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(UseSkillEffectCoroutine(thisHero, targetHero));
-            
-           
-            
         }
 
         private IEnumerator UseSkillEffectCoroutine(IHero thisHero, IHero targetHero)
@@ -59,7 +56,6 @@ namespace ScriptableObjects.SkillEffects
             
             logicTree.EndSequence();
             yield return null;
-            
         }
 
 
