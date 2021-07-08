@@ -13,6 +13,12 @@ namespace ScriptableObjects.Enums.SkillType
         {
             cooldown.enabled = false;
         }
+
+        
+        public void UsePassiveSkill()
+        {
+            
+        }
         
 
     }
