@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Interfaces;
 using Logic;
 using ScriptableObjects.Actions.BaseClassScripts;
@@ -18,34 +19,38 @@ namespace ScriptableObjects.SkillActions
         {
             InitializeValues(thisHero, targetHero);
             
-            //LogicTree.AddCurrent(AddBuffCoroutine(BuffAsset, BuffCounters));
-            LogicTree.AddCurrent(DealCriticalStrikeCoroutine());
-           
+            LogicTree.AddCurrent(RegisterAction());
+            
             LogicTree.EndSequence();
            yield return null;
 
         }
-
-        private IEnumerator DealCriticalStrikeCoroutine()
+        
+        private IEnumerator RegisterAction()
         {
-            //TargetHero or ThisHero?
-            var criticalStrikeAttackIndex = 1;
-            
-            TargetHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
+            ThisHero.HeroLogic.HeroEvents.EBeforeAttacking += SetCriticalAttackIndex;
             
             LogicTree.EndSequence();
             yield return null;
         }
         
+       //Test
+       private void OnDisable()
+       {
+           ThisHero.HeroLogic.HeroEvents.EBeforeAttacking -= SetCriticalAttackIndex;
+           Debug.Log("Critical Strike Action Asset Event Unsubscribe");
+       }
 
 
-        /*private IEnumerator AddBuffCoroutine(IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+       private void SetCriticalAttackIndex(IHero thisHero, IHero targetHero)
         {
-             BuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters);
-            
-             LogicTree.EndSequence();
-            yield return null;
-        }*/
+            var criticalStrikeAttackIndex = 1;
+            ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
+        }
+
+
+
+        
 
 
 

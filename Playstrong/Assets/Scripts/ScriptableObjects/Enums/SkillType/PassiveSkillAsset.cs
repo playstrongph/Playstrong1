@@ -8,6 +8,7 @@ namespace ScriptableObjects.Enums.SkillType
     [CreateAssetMenu(fileName = "Passive Skill", menuName = "SO's/Scriptable Enums/Passive Skill")]
     public class PassiveSkillAsset : ScriptableObject, IPassiveSkillAsset, ISkillType
     {
+        private ITargetSkill _targetSkill;
 
         [SerializeField] private int _skillCdIndex = 1;
         public int SkillCdIndex => _skillCdIndex;
@@ -16,6 +17,9 @@ namespace ScriptableObjects.Enums.SkillType
             cooldown.enabled = false;
         }
         
+        /// <summary>
+        /// Called during skill initialization
+        /// </summary>
         public void UsePassiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
         {
             targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(thisHero, targetHero);
@@ -23,7 +27,11 @@ namespace ScriptableObjects.Enums.SkillType
         
         public void UseActiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
         { }
-        
+
+       
+
+
+
 
     }
 }
