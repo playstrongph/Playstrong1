@@ -11,6 +11,19 @@ namespace Logic
 {
     public class BasicAttack : MonoBehaviour, IBasicAttack
     {
+        [SerializeField]
+        private int _attackIndex;
+        
+        /// <summary>
+        /// value of 0 = Normal Attack
+        /// value of 1 = Critical Strike
+        /// </summary>
+        public int SetAttackIndex
+        {
+            get => _attackIndex;
+            set => _attackIndex = value;
+        }
+
 
         [SerializeField] [RequireInterface(typeof(IHeroAction))]
         private List<Object> _attackActions = new List<Object>();
@@ -65,8 +78,6 @@ namespace Logic
         private ICoroutineTree _logicTree;
         private IHero _thisHero;
         private IHero _targetHero;
-        
-       
 
         private void Awake()
         {
@@ -78,22 +89,20 @@ namespace Logic
         {
             _thisHero = thisHero;
             _targetHero = targetHero;
-            var index = AttackActions.Count - 1;
+           
             
             _logicTree.AddCurrent(PreAttackEvents());
-            //_logicTree.AddCurrent(AttackAction.StartAction(_thisHero, _targetHero));
-            
-            _logicTree.AddCurrent(AttackActions[index].StartAction(_thisHero, _targetHero));
+
+            _logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(_thisHero, _targetHero));
             
             _logicTree.AddCurrent(PostAttackEvents());
             
+            _logicTree.AddCurrent(ResetAttackIndex());
+            
             _logicTree.EndSequence();
             yield return null;
-
-
         }
-
-
+        
         private IEnumerator PreAttackEvents()
         {
             _thisHero.HeroLogic.HeroEvents.BeforeAttacking(_thisHero, _targetHero);
@@ -113,5 +122,18 @@ namespace Logic
             yield return null;
         }
         
+        /// <summary>
+        /// Set the attack back to normal attack
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator ResetAttackIndex()
+        {
+            var normalAttackIndex = 0;
+            SetAttackIndex = normalAttackIndex;
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
     }
 }

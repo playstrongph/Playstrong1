@@ -16,6 +16,8 @@ namespace Logic
 
         void RemoveFromAttackActions(IHeroAction heroAction);
 
+        int SetAttackIndex { get; set; }
+
 
 
     }

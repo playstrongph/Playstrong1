@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77489c08e8c8db94d816534fc7c20a25, type: 3}
-  m_Name: SamplePassiveSkill
+  m_Name: SampleChanceCritical
   m_EditorClassIdentifier: 
   _skillConditionAssets:
-  - {fileID: 11400000, guid: fd2a1f54935bf7543bb48ff8adf34462, type: 2}
+  - {fileID: 11400000, guid: 9411af9fa2ea0824ab3966a95487cfd5, type: 2}

@@ -3571,9 +3571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d13540e870471488a22bee89237958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackAction: {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}
   _attackActions:
   - {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}
+  - {fileID: 11400000, guid: 73ea519bdd12b534da8dda49d15a8491, type: 2}
   criticalAttackModifiers:
   - 2
   uniqueAttackModifiers:
