@@ -12,7 +12,7 @@ namespace Logic
     public class BasicAttack : MonoBehaviour, IBasicAttack
     {
         [SerializeField]
-        private int _attackIndex;
+        private int attackIndex;
         
         /// <summary>
         /// value of 0 = Normal Attack
@@ -20,8 +20,8 @@ namespace Logic
         /// </summary>
         public int SetAttackIndex
         {
-            get => _attackIndex;
-            set => _attackIndex = value;
+            get => attackIndex;
+            set => attackIndex = value;
         }
 
 
@@ -37,7 +37,8 @@ namespace Logic
                 {
                     attackActions.Add(attackAction as IHeroAction);
                 }
-
+                
+                Debug.Log("AttackActions: Attack Index: " +attackIndex);
                 return attackActions;
             }
         }
@@ -90,21 +91,30 @@ namespace Logic
             _thisHero = thisHero;
             _targetHero = targetHero;
            
+            _logicTree.AddCurrent(ResetAttackIndex());
             
             _logicTree.AddCurrent(PreAttackEvents());
-            
-            Debug.Log("Attack Index: " +_attackIndex);
 
-            _logicTree.AddCurrent(AttackActions[_attackIndex].StartAction(_thisHero, _targetHero));
+            //_logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(_thisHero, _targetHero));
+            _logicTree.AddCurrent(StartAttackActions(thisHero, targetHero));
             
             _logicTree.AddCurrent(PostAttackEvents());
             
-            //_logicTree.AddCurrent(ResetAttackIndex());
+          
             
             _logicTree.EndSequence();
             yield return null;
         }
-        
+
+        private IEnumerator StartAttackActions(IHero thisHero, IHero targetHero)
+        {
+            _logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(thisHero, targetHero));
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+
         private IEnumerator PreAttackEvents()
         {
             _thisHero.HeroLogic.HeroEvents.BeforeAttacking(_thisHero, _targetHero);
@@ -132,6 +142,8 @@ namespace Logic
         {
             var normalAttackIndex = 0;
             SetAttackIndex = normalAttackIndex;
+            
+            Debug.Log("Reset Attack Index: " +attackIndex);
             
             _logicTree.EndSequence();
             yield return null;
