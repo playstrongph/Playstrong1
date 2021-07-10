@@ -88,6 +88,11 @@ namespace Logic
 
                 skillVisualReferences.LoadSkillVisuals.LoadSkillVisualsFromSkillAsset(skillAsset);
                 skillPreviewVisual.LoadSkillPreviewVisuals.LoadSkillPreviewVisualsFromAsset(skillAsset);
+                
+               
+               
+                
+                
 
             }
         }

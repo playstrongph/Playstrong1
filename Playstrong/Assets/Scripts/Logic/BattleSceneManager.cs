@@ -55,6 +55,7 @@ namespace Logic
         private IInitPanelSkills _initPanelSkills;
         private IInitTurnController _initTurnController;
         private IStartBattle _startBattle;
+        private IInitializeHeroPassiveSkills _initializeHeroPassiveSkills;
 
         private void Awake()
         {
@@ -66,6 +67,7 @@ namespace Logic
             _initPanelSkills = GetComponent<IInitPanelSkills>();
             _initTurnController = GetComponent<IInitTurnController>();
             _startBattle = GetComponent<IStartBattle>();
+            _initializeHeroPassiveSkills = GetComponent<IInitializeHeroPassiveSkills>();
         }
 
 
@@ -87,14 +89,24 @@ namespace Logic
             LogicTree.AddCurrent(_initHeroes.InitializeHeroes());
             LogicTree.AddCurrent(_initHeroPortraits.InitializePortraits());
             LogicTree.AddCurrent(_initPanelPortraits.InitializePortraits());
+            
+            
+            
             LogicTree.AddCurrent(_initSkills.InitializeSkills());
             LogicTree.AddCurrent(_initPanelSkills.InitializePanelSkills());
             LogicTree.AddCurrent(_initTurnController.InitializeTurnController());
             LogicTree.AddCurrent(_startBattle.BattleStart());
+            
+            LogicTree.AddCurrent(_initializeHeroPassiveSkills.InitPassiveSkills());
 
             yield return null;
             LogicTree.EndSequence();
         }
+       
+      
+       
+       
+       
 
        
 

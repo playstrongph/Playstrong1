@@ -65,10 +65,22 @@ namespace Logic
             _logicTree = GlobalTrees.MainLogicTree;
             _visualTree = GlobalTrees.MainVisualTree;
         }
-
+        
+        /// <summary>
+        /// This is the start of Game
+        /// </summary>
         public void StartHeroTurns()
         {
+            
             _visualTree.AddCurrent(RunHeroTimers());
+        }
+
+        private IEnumerator InitializePassiveSkills()
+        {
+            
+            
+            _logicTree.EndSequence();
+            yield return null;
         }
 
         private IEnumerator RunHeroTimers()

@@ -92,12 +92,14 @@ namespace Logic
            
             
             _logicTree.AddCurrent(PreAttackEvents());
+            
+            Debug.Log("Attack Index: " +_attackIndex);
 
-            _logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(_thisHero, _targetHero));
+            _logicTree.AddCurrent(AttackActions[_attackIndex].StartAction(_thisHero, _targetHero));
             
             _logicTree.AddCurrent(PostAttackEvents());
             
-            _logicTree.AddCurrent(ResetAttackIndex());
+            //_logicTree.AddCurrent(ResetAttackIndex());
             
             _logicTree.EndSequence();
             yield return null;

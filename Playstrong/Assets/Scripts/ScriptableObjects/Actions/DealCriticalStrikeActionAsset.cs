@@ -28,24 +28,18 @@ namespace ScriptableObjects.SkillActions
         
         private IEnumerator RegisterAction()
         {
-            ThisHero.HeroLogic.HeroEvents.EBeforeAttacking += SetCriticalAttackIndex;
             
+            ThisHero.HeroLogic.HeroEvents.EBeforeAttacking += SetCriticalAttackIndex;
+            Debug.Log("Subscribe Critical Strike Action Event");
             LogicTree.EndSequence();
             yield return null;
         }
-        
-       //Test
-       private void OnDisable()
-       {
-           ThisHero.HeroLogic.HeroEvents.EBeforeAttacking -= SetCriticalAttackIndex;
-           Debug.Log("Critical Strike Action Asset Event Unsubscribe");
-       }
 
-
-       private void SetCriticalAttackIndex(IHero thisHero, IHero targetHero)
+        private void SetCriticalAttackIndex(IHero thisHero, IHero targetHero)
         {
             var criticalStrikeAttackIndex = 1;
             ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
+            Debug.Log("Set Critical Attack Index");
         }
 
 
