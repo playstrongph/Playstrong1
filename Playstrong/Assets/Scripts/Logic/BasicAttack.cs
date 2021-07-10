@@ -95,13 +95,10 @@ namespace Logic
             
             _logicTree.AddCurrent(PreAttackEvents());
 
-            //_logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(_thisHero, _targetHero));
             _logicTree.AddCurrent(StartAttackActions(thisHero, targetHero));
             
             _logicTree.AddCurrent(PostAttackEvents());
-            
-          
-            
+
             _logicTree.EndSequence();
             yield return null;
         }

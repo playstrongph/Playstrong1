@@ -4,6 +4,8 @@ namespace Logic
 {
     public interface IHeroEvents
     {
+        
+      
         event HeroEvents.HeroEvent EPreAttack;
         event HeroEvents.HeroEvent EPostAttack;
         
