@@ -163,8 +163,7 @@ namespace Logic
 
         private void OnDisable()
         {
-            UnsubscribeAllClients();
-            Debug.Log("Unsubscribe All Clients");
+            UnsubscribeAllClients();           
         }
         
         /// <summary>
