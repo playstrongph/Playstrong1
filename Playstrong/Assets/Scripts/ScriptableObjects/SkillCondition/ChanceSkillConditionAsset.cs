@@ -14,10 +14,14 @@ namespace ScriptableObjects.SkillCondition
         [SerializeField] private int _skillChance;
         private int SkillChance => _skillChance;
 
+        private int _chanceValue;
+
         public  override void Target(IHero thisHero, IHero targetHero)
         {
             if(SkillCondition())
                 base.Target(thisHero,targetHero);
+            
+            Debug.Log("Chance Value: " +_chanceValue);
         }
 
         /// <summary>
@@ -26,10 +30,8 @@ namespace ScriptableObjects.SkillCondition
         /// <returns></returns>
         private bool SkillCondition()
         {
-            var chanceValue = Random.Range(0, 100);
-
-            var chanceSuccess = chanceValue <= SkillChance;
-            
+            _chanceValue = Random.Range(0, 100);
+            var chanceSuccess = _chanceValue <= SkillChance;
             return chanceSuccess;
         }
 

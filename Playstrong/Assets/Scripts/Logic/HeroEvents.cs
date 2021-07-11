@@ -160,8 +160,12 @@ namespace Logic
                     EAfterCriticalStrike -= client as HeroEvent;
                 }
         }
-        
-        
+
+        private void OnDisable()
+        {
+            UnsubscribeAllClients();
+            Debug.Log("Unsubscribe All Clients");
+        }
         
         /// <summary>
         /// Tried assigning each event to an event list and tried iteration removal
@@ -180,10 +184,7 @@ namespace Logic
             UnsubscribeAfterCriticalStrikeClients();
         }
         
-        private void OnDisable()
-        {
-            UnsubscribeAllClients();
-        }
+        
 
 
 
