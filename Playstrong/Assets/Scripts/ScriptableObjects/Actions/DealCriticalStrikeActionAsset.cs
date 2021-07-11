@@ -14,23 +14,15 @@ namespace ScriptableObjects.Actions
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
+
+            SetCriticalAttackIndex();
             
-            LogicTree.AddCurrent(RegisterAction());
-            
-            LogicTree.EndSequence();
+           LogicTree.EndSequence();
            yield return null;
 
         }
-        
-        private IEnumerator RegisterAction()
-        {
-            ThisHero.HeroLogic.HeroEvents.EBeforeAttacking += SetCriticalAttackIndex;
-            Debug.Log("Subscribe Critical Strike Action Event");
-            LogicTree.EndSequence();
-            yield return null;
-        }
-        
-        private void SetCriticalAttackIndex(IHero thisHero, IHero targetHero)
+
+        private void SetCriticalAttackIndex()
         {
             var criticalStrikeAttackIndex = 1;
             ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;

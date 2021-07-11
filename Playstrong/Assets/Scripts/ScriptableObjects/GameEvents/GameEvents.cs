@@ -17,28 +17,27 @@ namespace ScriptableObjects.GameEvents
         private Object skillConditionAsset;
         private ISkillConditionAsset SkillConditionAsset => skillConditionAsset as ISkillConditionAsset;
 
-        private ICoroutineTree _logicTree;
+        protected ICoroutineTree LogicTree;
 
         
         public void SubscribeToEvent(IHero hero)
         {
-            _logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            _logicTree.AddCurrent(SubscribeToEventCoroutine(hero));
+            LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            LogicTree.AddCurrent(SubscribeToEventCoroutine(hero));
             
         }
-
-        //Sample Event - EBeforeAttacking
+        
         protected virtual IEnumerator SubscribeToEventCoroutine(IHero hero)
         {
+            //this is only a sample and should be overriden
+            //hero.HeroLogic.HeroEvents.EBeforeAttacking += SkillConditionTarget;
 
-            hero.HeroLogic.HeroEvents.EBeforeAttacking += SkillConditionTarget;
-
-            _logicTree.EndSequence();  
+            LogicTree.EndSequence();  
             yield return null;
             
         }
 
-        private void SkillConditionTarget(IHero hero, IHero dummyHero)
+        protected void SkillConditionTarget(IHero hero, IHero dummyHero)
         {
            SkillConditionAsset.Target(hero, hero);
         }
