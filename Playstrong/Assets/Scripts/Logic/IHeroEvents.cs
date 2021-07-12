@@ -20,6 +20,8 @@ namespace Logic
         
         event HeroEvents.HeroEvent EAfterCriticalStrike;
         
+        event HeroEvents.HeroEvent EDragBasicAttack;
+        
         
         
         void PreAttack(IHero initiatorHero, IHero targetHero);
@@ -35,5 +37,7 @@ namespace Logic
         void BeforeCriticalStrike(IHero initiatorHero, IHero targetHero);
 
         void AfterCriticalStrike(IHero initiatorHero, IHero targetHero);
+
+        void DragBasicAttack(IHero initiatorHero, IHero targetHero);
     }
 }

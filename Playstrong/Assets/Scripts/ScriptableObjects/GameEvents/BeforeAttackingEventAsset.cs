@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ScriptableObjects.GameEvents
 {
     [CreateAssetMenu(fileName = "BeforeAttacking", menuName = "SO's/GameEvents/BeforeAttackingGE")]
-    public class BeforeAttackingGE : GameEvents
+    public class BeforeAttackingEventAsset : GameEvents
     {
         protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
         {

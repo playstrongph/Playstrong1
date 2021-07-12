@@ -22,6 +22,10 @@ namespace Logic
         public event HeroEvent EBeforeCriticalStrike;
         public event HeroEvent EAfterCriticalStrike;
         
+        public event HeroEvent EDragBasicAttack;
+        
+        
+        
         private IHeroLogic _heroLogic;
         private List<HeroEvent> _heroEventsList = new List<HeroEvent>();
         
@@ -160,6 +164,21 @@ namespace Logic
                     EAfterCriticalStrike -= client as HeroEvent;
                 }
         }
+        
+        public void DragBasicAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EDragBasicAttack?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeDragBasicAttackClients()
+        {
+            var clients = EDragBasicAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EDragBasicAttack -= client as HeroEvent;
+                }
+        }
 
         private void OnDisable()
         {
@@ -181,6 +200,7 @@ namespace Logic
             UnsubscribeAfterAttackingClients();
             UnsubscribeBeforeCriticalStrikeClients();
             UnsubscribeAfterCriticalStrikeClients();
+            UnsubscribeDragBasicAttackClients();
         }
         
         
