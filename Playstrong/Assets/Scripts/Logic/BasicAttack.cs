@@ -83,7 +83,15 @@ namespace Logic
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
+            
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            _heroLogic.HeroEvents.EDragBasicAttack += InitializeStartAttack;
+           
+        }
+
+        private void InitializeStartAttack(IHero thisHero, IHero targetHero)
+        {
+            _logicTree.AddCurrent(StartAttack(thisHero, targetHero));
         }
 
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)

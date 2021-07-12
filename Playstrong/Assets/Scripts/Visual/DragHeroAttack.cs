@@ -121,8 +121,19 @@ namespace Visual
 
         private void BasicAttackTarget()
         {
-            _logicTree.AddCurrent(_basicAttack.StartAttack(_thisTargetHero.Hero, _targetEnemyHero.Hero));
+            //_logicTree.AddCurrent(_basicAttack.StartAttack(_thisTargetHero.Hero, _targetEnemyHero.Hero));
+            
+            _logicTree.AddCurrent(BasicAttackTargetCoroutine());
+            
             _logicTree.AddCurrent(_endHeroTurn.EndTurn());
+        }
+
+        private IEnumerator BasicAttackTargetCoroutine()
+        {
+           _thisTargetHero.Hero.HeroLogic.HeroEvents.DragBasicAttack(_thisTargetHero.Hero, _targetEnemyHero.Hero);
+            
+            _logicTree.EndSequence();
+            yield return null;
         }
 
         private void NoAction()
