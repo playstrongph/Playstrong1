@@ -33,8 +33,6 @@ namespace ScriptableObjects.GameEvents
         }
 
         protected ICoroutineTree LogicTree;
-        protected int Index;
-
         
         public void SubscribeToEvent(IHero hero)
         {
@@ -61,11 +59,7 @@ namespace ScriptableObjects.GameEvents
             
         }
         
-        protected void SkillConditionTarget(IHero hero, IHero dummyHero)
-        {
-            var skillConditions = SkillConditionAssets;
-            skillConditions[Index].Target(hero, hero);
-        }
+       
 
 
 

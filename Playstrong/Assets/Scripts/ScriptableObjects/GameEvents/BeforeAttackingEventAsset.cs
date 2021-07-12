@@ -9,13 +9,12 @@ namespace ScriptableObjects.GameEvents
     {
         protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
         {
-            Index = 0;
+            
             
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-                hero.HeroLogic.HeroEvents.EBeforeAttacking += SkillConditionTarget;    
-                Index++;
+                hero.HeroLogic.HeroEvents.EBeforeAttacking += skillCondition.Target;
             }
             
             LogicTree.EndSequence();  

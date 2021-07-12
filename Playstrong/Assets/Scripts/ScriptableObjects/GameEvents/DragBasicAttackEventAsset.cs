@@ -9,13 +9,16 @@ namespace ScriptableObjects.GameEvents
     {
         protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
         {
-            Index = 0;
+            //Index = 0;
             
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-                hero.HeroLogic.HeroEvents.EDragBasicAttack += SkillConditionTarget;    
-                Index++;
+                //hero.HeroLogic.HeroEvents.EDragBasicAttack += SkillConditionTarget;
+                hero.HeroLogic.HeroEvents.EDragBasicAttack += skillCondition.Target;
+                
+                //Index++;
+                Debug.Log("DragBasicAttackEvent Subscribe");
             }
             
             LogicTree.EndSequence();  

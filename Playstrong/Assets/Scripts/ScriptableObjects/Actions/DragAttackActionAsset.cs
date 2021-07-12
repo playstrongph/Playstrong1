@@ -17,6 +17,8 @@ namespace ScriptableObjects.Actions
 
            LogicTree.AddCurrent(thisHero.HeroLogic.BasicAttack.StartAttack(thisHero, targetHero)); 
             
+           Debug.Log("Drag Attack Action");
+           
            LogicTree.EndSequence();
            yield return null;
 
