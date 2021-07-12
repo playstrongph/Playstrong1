@@ -94,21 +94,12 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
             
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TEMP - for event testing only
-            //_heroLogic.HeroEvents.EDragBasicAttack += InitializeStartAttack;
-            
+
             BasicAttackEvent.SubscribeToEvent(_heroLogic.Hero);
            
         }
-
-        //TEMP - for event testing only
-        private void InitializeStartAttack(IHero thisHero, IHero targetHero)
-        {
-            _logicTree.AddCurrent(StartAttack(thisHero, targetHero));
-        }
         
-        //This method should be called by the DragBasicAttackAction asset
+
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)
         {
             _thisHero = thisHero;
