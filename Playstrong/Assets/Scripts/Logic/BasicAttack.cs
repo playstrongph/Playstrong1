@@ -96,7 +96,9 @@ namespace Logic
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
             //TEMP - for event testing only
-            _heroLogic.HeroEvents.EDragBasicAttack += InitializeStartAttack;
+            //_heroLogic.HeroEvents.EDragBasicAttack += InitializeStartAttack;
+            
+            BasicAttackEvent.SubscribeToEvent(_heroLogic.Hero);
            
         }
 
