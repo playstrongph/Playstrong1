@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using DG.Tweening;
+using ScriptableObjects.GameEvents;
 using Utilities;
 using Object = UnityEngine.Object;
 
@@ -11,6 +12,14 @@ namespace Logic
 {
     public class BasicAttack : MonoBehaviour, IBasicAttack
     {
+
+        [SerializeField] [RequireInterface(typeof(IGameEvents))]
+        private Object _basicAttackEvent;
+        private IGameEvents BasicAttackEvent => _basicAttackEvent as IGameEvents;
+        
+        
+        
+        
         [SerializeField]
         private int attackIndex;
         
@@ -85,15 +94,19 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
             
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            //TEMP - for event testing only
             _heroLogic.HeroEvents.EDragBasicAttack += InitializeStartAttack;
            
         }
 
+        //TEMP - for event testing only
         private void InitializeStartAttack(IHero thisHero, IHero targetHero)
         {
             _logicTree.AddCurrent(StartAttack(thisHero, targetHero));
         }
-
+        
+        //This method should be called by the DragBasicAttackAction asset
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)
         {
             _thisHero = thisHero;

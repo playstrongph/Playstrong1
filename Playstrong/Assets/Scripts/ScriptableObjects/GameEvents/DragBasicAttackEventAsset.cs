@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace ScriptableObjects.GameEvents
 {
-    [CreateAssetMenu(fileName = "BeforeAttacking", menuName = "SO's/GameEvents/BeforeAttackingGE")]
-    public class BeforeAttackingEventAsset : GameEvents
+    [CreateAssetMenu(fileName = "DragBasicAttack", menuName = "SO's/GameEvents/DragBasicAttack")]
+    public class DragBasicAttackEventAsset : GameEvents
     {
         protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
         {
@@ -14,7 +14,7 @@ namespace ScriptableObjects.GameEvents
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-                hero.HeroLogic.HeroEvents.EBeforeAttacking += SkillConditionTarget;    
+                hero.HeroLogic.HeroEvents.EDragBasicAttack += SkillConditionTarget;    
                 Index++;
             }
             
