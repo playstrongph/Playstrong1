@@ -24,6 +24,8 @@ namespace Logic
         
         public event HeroEvent EDragBasicAttack;
         
+        public event HeroEvent EDragSkillTarget;
+        
         
         
         private IHeroLogic _heroLogic;
@@ -179,6 +181,21 @@ namespace Logic
                     EDragBasicAttack -= client as HeroEvent;
                 }
         }
+        
+        public void DragSkillTarget(IHero initiatorHero, IHero targetHero)
+        {
+            EDragSkillTarget?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeDragSkillTargetClients()
+        {
+            var clients = EDragSkillTarget?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EDragSkillTarget -= client as HeroEvent;
+                }
+        }
 
         private void OnDisable()
         {
@@ -201,6 +218,7 @@ namespace Logic
             UnsubscribeBeforeCriticalStrikeClients();
             UnsubscribeAfterCriticalStrikeClients();
             UnsubscribeDragBasicAttackClients();
+            UnsubscribeDragSkillTargetClients();
         }
         
         
