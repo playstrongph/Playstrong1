@@ -4,21 +4,19 @@ using UnityEngine;
 
 namespace ScriptableObjects.GameEvents
 {
-    [CreateAssetMenu(fileName = "DragBasicAttack", menuName = "SO's/GameEvents/DragBasicAttack")]
-    public class DragBasicAttackEventAsset : GameEvents
+    [CreateAssetMenu(fileName = "DragSkillTarget", menuName = "SO's/GameEvents/DragSkillTarget")]
+    public class DragSkillTargetEventAsset : GameEvents
     {
         protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
         {
-            //Index = 0;
-            
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-                //hero.HeroLogic.HeroEvents.EDragBasicAttack += SkillConditionTarget;
-                hero.HeroLogic.HeroEvents.EDragBasicAttack += skillCondition.Target;
+           
+                hero.HeroLogic.HeroEvents.EDragSkillTarget += skillCondition.Target;
                 
-                //Index++;
-                Debug.Log("EDragBasicAttack Subscribe");
+           
+                Debug.Log("EDragSkillTarget Subscribe");
             }
             
             LogicTree.EndSequence();  
