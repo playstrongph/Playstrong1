@@ -1,9 +1,12 @@
 ﻿using Interfaces;
+using References;
 
 namespace ScriptableObjects.GameEvents
 {
     public interface IGameEvents
     {
-        void SubscribeToEvent(IHero hero);
+        void SubscribeToHeroEvents(IHero hero);
+
+        void SubscribeToSkillEvents(ISkill skill);
     }
 }

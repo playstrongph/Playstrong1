@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Interfaces;
 using Logic;
+using References;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
 using Utilities;
@@ -34,14 +35,14 @@ namespace ScriptableObjects.GameEvents
 
         protected ICoroutineTree LogicTree;
         
-        public void SubscribeToEvent(IHero hero)
+        public void SubscribeToHeroEvents(IHero hero)
         {
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            LogicTree.AddCurrent(SubscribeToEventCoroutine(hero));
+            LogicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
             
         }
         
-        protected virtual IEnumerator SubscribeToEventCoroutine(IHero hero)
+        protected virtual IEnumerator SubscribeToHeroEventsCoroutine(IHero hero)
         {
             //this is only a sample and should be overriden
             
@@ -52,8 +53,30 @@ namespace ScriptableObjects.GameEvents
                 hero.HeroLogic.HeroEvents.EBeforeAttacking += SkillConditionTarget;    
                 index++;
             }*/
+
+            LogicTree.EndSequence();  
+            yield return null;
             
-            Debug.Log("Error: Override default SubscribeToEventCoroutine");
+        }
+        
+        public void SubscribeToSkillEvents(ISkill skill)
+        {
+            LogicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            LogicTree.AddCurrent(SubscribeToSkillEventsCoroutine(skill));
+            
+        }
+        
+        protected virtual IEnumerator SubscribeToSkillEventsCoroutine(ISkill skill)
+        {
+            //this is only a sample and should be overriden
+            
+            /*var skillConditions = SkillConditionAssets;
+            foreach (var skillCondition in skillConditions)
+            {
+                skill.SkillLogic.SkillEvents.EDragSkillTarget += SkillConditionTarget;
+
+            }*/
+            
             LogicTree.EndSequence();  
             yield return null;
             

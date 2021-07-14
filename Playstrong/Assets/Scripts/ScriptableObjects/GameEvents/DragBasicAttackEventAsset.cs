@@ -7,7 +7,7 @@ namespace ScriptableObjects.GameEvents
     [CreateAssetMenu(fileName = "DragBasicAttack", menuName = "SO's/GameEvents/DragBasicAttack")]
     public class DragBasicAttackEventAsset : GameEvents
     {
-        protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
+        protected override IEnumerator SubscribeToHeroEventsCoroutine(IHero hero)
         {
             //Index = 0;
             

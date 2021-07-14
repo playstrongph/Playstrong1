@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interfaces;
+using References;
 using UnityEngine;
 
 namespace ScriptableObjects.GameEvents
@@ -7,15 +8,12 @@ namespace ScriptableObjects.GameEvents
     [CreateAssetMenu(fileName = "DragSkillTarget", menuName = "SO's/GameEvents/DragSkillTarget")]
     public class DragSkillTargetEventAsset : GameEvents
     {
-        protected override IEnumerator SubscribeToEventCoroutine(IHero hero)
+        protected override IEnumerator SubscribeToSkillEventsCoroutine(ISkill skill)
         {
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-           
-                hero.HeroLogic.HeroEvents.EDragSkillTarget += skillCondition.Target;
-                
-           
+                skill.SkillLogic.SkillEvents.EDragSkillTarget += skillCondition.Target;
                 Debug.Log("EDragSkillTarget Subscribe");
             }
             

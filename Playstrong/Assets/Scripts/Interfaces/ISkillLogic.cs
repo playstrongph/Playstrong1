@@ -21,6 +21,8 @@ namespace Interfaces
 
         IInitializePassiveSkill InitializePassiveSkill { get; }
 
+        ISkillEvents SkillEvents { get; }
+
 
 
     }

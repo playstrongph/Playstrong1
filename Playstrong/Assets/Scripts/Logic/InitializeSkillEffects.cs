@@ -44,7 +44,7 @@ namespace Logic
                     var skill = skillObject.GetComponent<ISkill>();
                     var hero = skill.Hero;
                     
-                    skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero, hero);
+                    skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero, hero, skill);
                     
                     
                 }
@@ -66,7 +66,7 @@ namespace Logic
                     var skill = skillObject.GetComponent<ISkill>();
                     var hero = skill.Hero;
                     
-                    skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero, hero);
+                    skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero, hero, skill);
                     
                     
                 }

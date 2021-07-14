@@ -95,7 +95,7 @@ namespace Logic
             
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
 
-            BasicAttackEvent.SubscribeToEvent(_heroLogic.Hero);
+            BasicAttackEvent.SubscribeToHeroEvents(_heroLogic.Hero);
            
         }
         

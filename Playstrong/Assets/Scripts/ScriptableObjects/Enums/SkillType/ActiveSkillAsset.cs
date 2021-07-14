@@ -19,7 +19,9 @@ namespace ScriptableObjects.Enums.SkillType
 
         public void UseActiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
         {
-           targetSkill.Skill.Hero.HeroLogic.HeroEvents.DragSkillTarget(thisHero, targetHero);
+            //TODO: Replace will specific skill event
+            //targetSkill.Skill.Hero.HeroLogic.HeroEvents.DragSkillTarget(thisHero, targetHero);
+            targetSkill.Skill.SkillLogic.SkillEvents.DragSkillTarget(thisHero, targetHero);
         }
         
         public void UsePassiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)

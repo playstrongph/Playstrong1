@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using References;
 using ScriptableObjects.GameEvents;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
@@ -22,21 +23,21 @@ namespace ScriptableObjects.SkillEffects
 
 
         //TODO:  Call this at the start of the game
-        public void RegisterSkillEffect(IHero thisHero, IHero targetHero)
+        public void RegisterSkillEffect(IHero thisHero, IHero targetHero, ISkill skill)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(RegisterSkillEffectCoroutine(thisHero, targetHero));
+            logicTree.AddCurrent(RegisterSkillEffectCoroutine(thisHero, targetHero, skill));
         }
         
         
         //TODO:  Change this to events instead of conditions
 
-        private IEnumerator RegisterSkillEffectCoroutine(IHero thisHero, IHero targetHero)
+        private IEnumerator RegisterSkillEffectCoroutine(IHero thisHero, IHero targetHero, ISkill skill)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            SkillEffectEvent.SubscribeToEvent(thisHero);
+            SkillEffectEvent.SubscribeToHeroEvents(thisHero);
             
             logicTree.EndSequence();
             yield return null;

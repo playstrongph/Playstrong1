@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 8812135533650823766}
   - component: {fileID: 1201806372}
   - component: {fileID: 70879908055400465}
+  - component: {fileID: 4851451681273819000}
   m_Layer: 0
   m_Name: SkillLogic
   m_TagString: Untagged
@@ -285,6 +286,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 265516ca28bba9a4da77330677560b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4851451681273819000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956212357985600038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd99217258ce95d41a234eaaaf70009a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &956212358033504289
@@ -2154,7 +2167,7 @@ GameObject:
   - component: {fileID: 1352393578515258590}
   - component: {fileID: 1352393578515258584}
   m_Layer: 0
-  m_Name: SkilPrefab
+  m_Name: SkillPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
