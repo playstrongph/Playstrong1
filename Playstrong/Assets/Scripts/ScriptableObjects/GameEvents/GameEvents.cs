@@ -42,18 +42,11 @@ namespace ScriptableObjects.GameEvents
             
         }
         
+        /// <summary>
+        /// Basic Attack and Passive Skills subscribe here since they'll be using hero events
+        /// </summary>
         protected virtual IEnumerator SubscribeToHeroEventsCoroutine(IHero hero)
         {
-            //this is only a sample and should be overriden
-            
-            /*index = 0;
-            var skillConditions = SkillConditionAssets;
-            foreach (var skillCondition in skillConditions)
-            {
-                hero.HeroLogic.HeroEvents.EBeforeAttacking += SkillConditionTarget;    
-                index++;
-            }*/
-
             LogicTree.EndSequence();  
             yield return null;
             
@@ -66,17 +59,14 @@ namespace ScriptableObjects.GameEvents
             
         }
         
+        /// <summary>
+        /// Active skills shall subscribe here, since DragSkillTarget events should be
+        /// unique per skill - not per hero.
+        /// </summary>
+        /// <param name="skill"></param>
+        /// <returns></returns>
         protected virtual IEnumerator SubscribeToSkillEventsCoroutine(ISkill skill)
         {
-            //this is only a sample and should be overriden
-            
-            /*var skillConditions = SkillConditionAssets;
-            foreach (var skillCondition in skillConditions)
-            {
-                skill.SkillLogic.SkillEvents.EDragSkillTarget += SkillConditionTarget;
-
-            }*/
-            
             LogicTree.EndSequence();  
             yield return null;
             

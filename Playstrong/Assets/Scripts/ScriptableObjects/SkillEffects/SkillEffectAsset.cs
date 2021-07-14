@@ -22,7 +22,7 @@ namespace ScriptableObjects.SkillEffects
         private IGameEvents SkillEffectEvent => _skilEffectEvent as IGameEvents;
 
 
-        //TODO:  Call this at the start of the game
+        
         public void RegisterSkillEffect(IHero thisHero, IHero targetHero, ISkill skill)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
@@ -31,13 +31,13 @@ namespace ScriptableObjects.SkillEffects
         }
         
         
-        //TODO:  Change this to events instead of conditions
-
+        
         private IEnumerator RegisterSkillEffectCoroutine(IHero thisHero, IHero targetHero, ISkill skill)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             SkillEffectEvent.SubscribeToHeroEvents(thisHero);
+            SkillEffectEvent.SubscribeToSkillEvents(skill);
             
             logicTree.EndSequence();
             yield return null;
