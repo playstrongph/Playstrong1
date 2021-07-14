@@ -97,8 +97,6 @@ namespace Logic
             LogicTree.AddCurrent(_initTurnController.InitializeTurnController());
             LogicTree.AddCurrent(_startBattle.BattleStart());
             
-            LogicTree.AddCurrent(_initializeHeroPassiveSkills.InitPassiveSkills());
-
             yield return null;
             LogicTree.EndSequence();
         }
