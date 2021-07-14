@@ -17,5 +17,9 @@ namespace Logic
         int TimerFull { get; }
 
         bool FreezeTimers { get; set; }
+
+        IBattleSceneManager BattleSceneManager { get; }
+
+        IInitializeSkillEffects InitializeSkillEffects { get; }
     }
 }

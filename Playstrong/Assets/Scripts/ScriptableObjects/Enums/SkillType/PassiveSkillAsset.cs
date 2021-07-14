@@ -21,12 +21,14 @@ namespace ScriptableObjects.Enums.SkillType
         //TEMP - this will change to loading actions and not direct to UseSkillEffect
         public void UsePassiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
         {
-            //targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(thisHero, targetHero);
+            targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(thisHero, targetHero);
             //Debug.Log("Use Passive Skill");
         }
-        
+
         public void UseActiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
-        { }
+        {
+            
+        }
 
        
 

@@ -30,9 +30,12 @@ namespace Visual
             skillAttributes.SkillStatus = skillAsset.SkillStatus;
             skillAttributes.SkillEffect = skillAsset.SkillEffect;
 
+         
+
         }
         
-       
+        
+        
 
 
     }

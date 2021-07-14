@@ -21,18 +21,18 @@ namespace ScriptableObjects.SkillEffects
         private IGameEvents SkillEffectEvent => _skilEffectEvent as IGameEvents;
 
 
-        //TODO:  Call this after setting skill effect in skill attributes
-        public void UseSkillEffect(IHero thisHero, IHero targetHero)
+        //TODO:  Call this at the start of the game
+        public void RegisterSkillEffect(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(UseSkillEffectCoroutine(thisHero, targetHero));
+            logicTree.AddCurrent(RegisterSkillEffectCoroutine(thisHero, targetHero));
         }
         
         
         //TODO:  Change this to events instead of conditions
 
-        private IEnumerator UseSkillEffectCoroutine(IHero thisHero, IHero targetHero)
+        private IEnumerator RegisterSkillEffectCoroutine(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 

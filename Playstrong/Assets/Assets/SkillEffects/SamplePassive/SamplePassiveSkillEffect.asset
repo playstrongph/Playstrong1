@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77489c08e8c8db94d816534fc7c20a25, type: 3}
   m_Name: SamplePassiveSkillEffect
   m_EditorClassIdentifier: 
-  _skillConditionAssets:
-  - {fileID: 11400000, guid: 9411af9fa2ea0824ab3966a95487cfd5, type: 2}
+  _skilEffectEvent: {fileID: 11400000, guid: 8ce7c62bb030062468d88df8e6527d78, type: 2}

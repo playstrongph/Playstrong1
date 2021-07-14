@@ -50,20 +50,29 @@ namespace Logic
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
         private IUpdateHeroTimers _updateHeroTimers;
-        
-       
+
+        private IBattleSceneManager _battleSceneManager;
+        public IBattleSceneManager BattleSceneManager => _battleSceneManager;
+
+        private IInitializeSkillEffects _initializeSkillEffects;
+        public IInitializeSkillEffects InitializeSkillEffects => _initializeSkillEffects;
+
 
         private void Awake()
         {
             _setHeroStatus = GetComponent<ISetHeroStatus>();
             _sortHeroesByEnergy = GetComponent<ISortHeroesByEnergy>();
             _updateHeroTimers = GetComponent<IUpdateHeroTimers>();
+            _battleSceneManager = GetComponentInParent<IBattleSceneManager>();
+            _initializeSkillEffects = GetComponent<IInitializeSkillEffects>();
         }
 
         private void Start()
         {
             _logicTree = GlobalTrees.MainLogicTree;
             _visualTree = GlobalTrees.MainVisualTree;
+
+           
         }
         
         /// <summary>
@@ -71,17 +80,11 @@ namespace Logic
         /// </summary>
         public void StartHeroTurns()
         {
+            _logicTree.AddCurrent(InitializeSkillEffects.InitAllSkills());
             
             _visualTree.AddCurrent(RunHeroTimers());
         }
 
-        private IEnumerator InitializePassiveSkills()
-        {
-            
-            
-            _logicTree.EndSequence();
-            yield return null;
-        }
 
         private IEnumerator RunHeroTimers()
         {

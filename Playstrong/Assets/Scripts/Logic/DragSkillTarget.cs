@@ -143,6 +143,7 @@ namespace Logic
             var activeSkill = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillType;
             
             Debug.Assert(activeSkill != null, nameof(activeSkill) + " != null");
+            
             activeSkill.UseActiveSkill(_targetSkill, _thisHero.Hero, _targetHero.Hero);
             
             _logicTree.EndSequence();
