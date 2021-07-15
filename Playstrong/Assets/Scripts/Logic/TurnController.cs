@@ -50,12 +50,17 @@ namespace Logic
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
         private IUpdateHeroTimers _updateHeroTimers;
+        private IStartOfGameEvent _startOfGameEvent;
+        
 
         private IBattleSceneManager _battleSceneManager;
         public IBattleSceneManager BattleSceneManager => _battleSceneManager;
 
         private IInitializeSkillEffects _initializeSkillEffects;
         public IInitializeSkillEffects InitializeSkillEffects => _initializeSkillEffects;
+
+        
+        
 
 
         private void Awake()
@@ -65,6 +70,7 @@ namespace Logic
             _updateHeroTimers = GetComponent<IUpdateHeroTimers>();
             _battleSceneManager = GetComponentInParent<IBattleSceneManager>();
             _initializeSkillEffects = GetComponent<IInitializeSkillEffects>();
+            _startOfGameEvent = GetComponent<IStartOfGameEvent>();
         }
 
         private void Start()
@@ -81,6 +87,9 @@ namespace Logic
         public void StartHeroTurns()
         {
             _logicTree.AddCurrent(InitializeSkillEffects.InitAllSkills());
+            
+            //TODO: Call all heroes start of game event
+            _logicTree.AddCurrent(_startOfGameEvent.GameStartEvent());
             
             _visualTree.AddCurrent(RunHeroTimers());
         }

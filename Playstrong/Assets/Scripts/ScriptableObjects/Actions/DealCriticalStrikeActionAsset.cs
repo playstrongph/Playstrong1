@@ -26,7 +26,6 @@ namespace ScriptableObjects.Actions
         {
             var criticalStrikeAttackIndex = 1;
             ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
-            Debug.Log("Set Attack Index: "+ThisHero.HeroLogic.BasicAttack.SetAttackIndex);
         }
 
 

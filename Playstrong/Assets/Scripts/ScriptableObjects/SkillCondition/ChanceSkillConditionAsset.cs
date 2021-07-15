@@ -20,8 +20,6 @@ namespace ScriptableObjects.SkillCondition
         {
             if(SkillCondition())
                 base.Target(thisHero,targetHero);
-            
-            Debug.Log("Chance Value: " +_chanceValue);
         }
 
         /// <summary>

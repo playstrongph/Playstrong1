@@ -14,7 +14,7 @@ namespace ScriptableObjects.SkillCondition
         {
             base.Target(thisHero,targetHero);
             
-            Debug.Log("NoSkillConditionAsset Target");
+           
         }
 
         

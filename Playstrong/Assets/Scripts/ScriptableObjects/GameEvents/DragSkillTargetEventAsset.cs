@@ -14,7 +14,7 @@ namespace ScriptableObjects.GameEvents
             foreach (var skillCondition in skillConditions)
             {
                 skill.SkillLogic.SkillEvents.EDragSkillTarget += skillCondition.Target;
-                Debug.Log("EDragSkillTarget Subscribe");
+             
             }
             
             LogicTree.EndSequence();  

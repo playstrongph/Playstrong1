@@ -25,6 +25,8 @@ namespace Logic
         
         public event HeroesEvent EDragSkillTarget;
         
+        public event HeroesEvent EStartOfGame;
+        
         
         
         private IHeroLogic _heroLogic;
@@ -195,6 +197,21 @@ namespace Logic
                     EDragSkillTarget -= client as HeroesEvent;
                 }
         }
+        
+        public void StartOfGame(IHero initiatorHero, IHero targetHero)
+        {
+            EStartOfGame?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeStartOfGameClients()
+        {
+            var clients = EStartOfGame?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EStartOfGame -= client as HeroesEvent;
+                }
+        }
 
         private void OnDisable()
         {
@@ -218,6 +235,7 @@ namespace Logic
             UnsubscribeAfterCriticalStrikeClients();
             UnsubscribeDragBasicAttackClients();
             UnsubscribeDragSkillTargetClients();
+            UnsubscribeStartOfGameClients();
         }
         
         

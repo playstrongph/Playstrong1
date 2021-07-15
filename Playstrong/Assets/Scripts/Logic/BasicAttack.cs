@@ -47,8 +47,6 @@ namespace Logic
                 {
                     attackActions.Add(attackAction as IHeroAction);
                 }
-                
-                Debug.Log("AttackActions: Attack Index: " +attackIndex);
                 return attackActions;
             }
         }
@@ -154,9 +152,7 @@ namespace Logic
         {
             var normalAttackIndex = 0;
             SetAttackIndex = normalAttackIndex;
-            
-            Debug.Log("Reset Attack Index: " +attackIndex);
-            
+
             _logicTree.EndSequence();
             yield return null;
         }
