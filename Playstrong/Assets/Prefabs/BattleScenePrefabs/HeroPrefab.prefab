@@ -3572,6 +3572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _basicAttackEvent: {fileID: 11400000, guid: 52925e680cc2b474b9cb9889cc9c7084, type: 2}
+  _basicAttaclSkillEffect: {fileID: 11400000, guid: 4f723abfa1ee494438ea82a851221bd2,
+    type: 2}
   attackIndex: 0
   _attackActions:
   - {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}

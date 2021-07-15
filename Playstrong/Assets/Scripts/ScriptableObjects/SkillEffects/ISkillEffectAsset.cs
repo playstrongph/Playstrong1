@@ -8,8 +8,10 @@ namespace ScriptableObjects.SkillEffects
 {
     public interface ISkillEffectAsset
     {
-        void RegisterSkillEffect(IHero thisHero, IHero targetHero, ISkill skill);
+        void RegisterSkillEffect(ISkill skill);
 
-       
+        void RegisterSkillEffect(IHero thisHero);
+
+
     }
 }

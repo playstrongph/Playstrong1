@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7514b01b7f52146bdad0caf888bf88, type: 3}
-  m_Name: SamplePassiveChanceCriticalCondition
+  m_Script: {fileID: 11500000, guid: aacf464bc8924864cbcb5a636f1f1aa6, type: 3}
+  m_Name: SamplePassiveDealCriticalStrikeAction
   m_EditorClassIdentifier: 
-  _skillActionAssets:
-  - {fileID: 11400000, guid: 5b42fc88bede8de4c8c525499c28c19d, type: 2}
-  _skillChance: 100

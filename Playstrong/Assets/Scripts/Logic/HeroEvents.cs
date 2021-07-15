@@ -10,26 +10,25 @@ namespace Logic
 
     public class HeroEvents : MonoBehaviour, IHeroEvents
     {
-        public delegate void HeroEvent(IHero initiatorHero, IHero targetHero);
+        public delegate void HeroesEvent(IHero initiatorHero, IHero targetHero);
+
+        public event HeroesEvent EPreAttack;
+        public event HeroesEvent EPostAttack;
+        public event HeroesEvent EPreCriticalStrike;
+        public event HeroesEvent EPostCriticalStrike;
+        public event HeroesEvent EBeforeAttacking;
+        public event HeroesEvent EAfterAttacking;
+        public event HeroesEvent EBeforeCriticalStrike;
+        public event HeroesEvent EAfterCriticalStrike;
         
+        public event HeroesEvent EDragBasicAttack;
         
-        public event HeroEvent EPreAttack;
-        public event HeroEvent EPostAttack;
-        public event HeroEvent EPreCriticalStrike;
-        public event HeroEvent EPostCriticalStrike;
-        public event HeroEvent EBeforeAttacking;
-        public event HeroEvent EAfterAttacking;
-        public event HeroEvent EBeforeCriticalStrike;
-        public event HeroEvent EAfterCriticalStrike;
-        
-        public event HeroEvent EDragBasicAttack;
-        
-        public event HeroEvent EDragSkillTarget;
+        public event HeroesEvent EDragSkillTarget;
         
         
         
         private IHeroLogic _heroLogic;
-        private List<HeroEvent> _heroEventsList = new List<HeroEvent>();
+        private List<HeroesEvent> _heroEventsList = new List<HeroesEvent>();
         
         private void Awake()
         {
@@ -50,7 +49,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EPreAttack -= client as HeroEvent;
+                    EPreAttack -= client as HeroesEvent;
                 }
         }
         
@@ -67,7 +66,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EPostAttack -= client as HeroEvent;
+                    EPostAttack -= client as HeroesEvent;
                 }
         }
         
@@ -82,7 +81,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EPreCriticalStrike -= client as HeroEvent;
+                    EPreCriticalStrike -= client as HeroesEvent;
                 }
         }
 
@@ -100,7 +99,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EPostCriticalStrike -= client as HeroEvent;
+                    EPostCriticalStrike -= client as HeroesEvent;
                 }
         }
         
@@ -116,7 +115,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EBeforeAttacking -= client as HeroEvent;
+                    EBeforeAttacking -= client as HeroesEvent;
                 }
         }
         
@@ -132,7 +131,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EAfterAttacking -= client as HeroEvent;
+                    EAfterAttacking -= client as HeroesEvent;
                 }
         }
         
@@ -147,7 +146,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EBeforeCriticalStrike -= client as HeroEvent;
+                    EBeforeCriticalStrike -= client as HeroesEvent;
                 }
         }
         
@@ -163,7 +162,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EAfterCriticalStrike -= client as HeroEvent;
+                    EAfterCriticalStrike -= client as HeroesEvent;
                 }
         }
         
@@ -178,7 +177,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EDragBasicAttack -= client as HeroEvent;
+                    EDragBasicAttack -= client as HeroesEvent;
                 }
         }
         
@@ -193,7 +192,7 @@ namespace Logic
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EDragSkillTarget -= client as HeroEvent;
+                    EDragSkillTarget -= client as HeroesEvent;
                 }
         }
 

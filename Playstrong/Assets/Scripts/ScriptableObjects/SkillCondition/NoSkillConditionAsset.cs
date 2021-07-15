@@ -12,20 +12,12 @@ namespace ScriptableObjects.SkillCondition
     {
         public  override void Target(IHero thisHero, IHero targetHero)
         {
-            if(SkillCondition())
-                base.Target(thisHero,targetHero);
+            base.Target(thisHero,targetHero);
             
             Debug.Log("NoSkillConditionAsset Target");
         }
 
-        /// <summary>
-        /// This is unique for each Skill Condition Asset
-        /// </summary>
-        /// <returns></returns>
-        private bool SkillCondition()
-        {
-            return true;
-        }
+        
 
 
     }

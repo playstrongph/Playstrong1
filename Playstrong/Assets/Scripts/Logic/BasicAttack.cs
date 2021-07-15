@@ -5,6 +5,7 @@ using Interfaces;
 using UnityEngine;
 using DG.Tweening;
 using ScriptableObjects.GameEvents;
+using ScriptableObjects.SkillEffects;
 using Utilities;
 using Object = UnityEngine.Object;
 
@@ -13,10 +14,10 @@ namespace Logic
     public class BasicAttack : MonoBehaviour, IBasicAttack
     {
 
-        [SerializeField] [RequireInterface(typeof(IGameEvents))]
-        private Object _basicAttackEvent;
-        private IGameEvents BasicAttackEvent => _basicAttackEvent as IGameEvents;
-        
+        [SerializeField] [RequireInterface(typeof(ISkillEffectAsset))]
+        private Object _basicAttaclSkillEffect;
+
+        private ISkillEffectAsset BasicAttackSkillEffect => _basicAttaclSkillEffect as ISkillEffectAsset;
         
         
         
@@ -94,8 +95,8 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
             
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-
-            BasicAttackEvent.SubscribeToHeroEvents(_heroLogic.Hero);
+            
+            BasicAttackSkillEffect.RegisterSkillEffect(_heroLogic.Hero);
            
         }
         

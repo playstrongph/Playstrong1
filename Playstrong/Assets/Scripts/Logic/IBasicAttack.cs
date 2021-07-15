@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.SkillEffects;
 
 namespace Logic
 {
@@ -17,6 +18,8 @@ namespace Logic
         void RemoveFromAttackActions(IHeroAction heroAction);
 
         int SetAttackIndex { get; set; }
+
+       
 
 
 

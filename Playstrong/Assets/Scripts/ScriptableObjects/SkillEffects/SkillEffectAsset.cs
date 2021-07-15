@@ -23,22 +23,39 @@ namespace ScriptableObjects.SkillEffects
 
 
         
-        public void RegisterSkillEffect(IHero thisHero, IHero targetHero, ISkill skill)
+        public void RegisterSkillEffect(ISkill skill)
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(RegisterSkillEffectCoroutine(thisHero, targetHero, skill));
+            logicTree.AddCurrent(RegisterSkillEffectCoroutine(skill));
         }
         
         
         
-        private IEnumerator RegisterSkillEffectCoroutine(IHero thisHero, IHero targetHero, ISkill skill)
+        private IEnumerator RegisterSkillEffectCoroutine(ISkill skill)
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
 
-            SkillEffectEvent.SubscribeToHeroEvents(thisHero);
+            //SkillEffectEvent.SubscribeToHeroEvents(thisHero);
             SkillEffectEvent.SubscribeToSkillEvents(skill);
             
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public void RegisterSkillEffect(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(RegisterSkillEffectCoroutine(thisHero));
+        }
+        
+        private IEnumerator RegisterSkillEffectCoroutine(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+
+            SkillEffectEvent.SubscribeToHeroEvents(thisHero);
+
             logicTree.EndSequence();
             yield return null;
         }

@@ -6,23 +6,23 @@ namespace Logic
     {
         
       
-        event HeroEvents.HeroEvent EPreAttack;
-        event HeroEvents.HeroEvent EPostAttack;
+        event HeroEvents.HeroesEvent EPreAttack;
+        event HeroEvents.HeroesEvent EPostAttack;
         
-        event HeroEvents.HeroEvent EPreCriticalStrike;
-        event HeroEvents.HeroEvent EPostCriticalStrike;
+        event HeroEvents.HeroesEvent EPreCriticalStrike;
+        event HeroEvents.HeroesEvent EPostCriticalStrike;
         
-        event HeroEvents.HeroEvent EBeforeAttacking;
+        event HeroEvents.HeroesEvent EBeforeAttacking;
         
-        event HeroEvents.HeroEvent EAfterAttacking;
+        event HeroEvents.HeroesEvent EAfterAttacking;
         
-        event HeroEvents.HeroEvent EBeforeCriticalStrike;
+        event HeroEvents.HeroesEvent EBeforeCriticalStrike;
         
-        event HeroEvents.HeroEvent EAfterCriticalStrike;
+        event HeroEvents.HeroesEvent EAfterCriticalStrike;
         
-        event HeroEvents.HeroEvent EDragBasicAttack;
+        event HeroEvents.HeroesEvent EDragBasicAttack;
         
-        event HeroEvents.HeroEvent EDragSkillTarget;
+        event HeroEvents.HeroesEvent EDragSkillTarget;
         
         
         
