@@ -38,17 +38,19 @@ namespace Logic
             {
                 var hero = heroObject.GetComponent<IHero>();
                 hero.HeroLogic.HeroEvents.StartOfGame(hero, hero);
+                Debug.Log("Ally Start Game: " +hero.HeroName);
             }
         }
         
         private void EnemiesStartOfGame()
         {
             //Hero Game Objects
-            var heroObjects = _turnController.BattleSceneManager.MainPlayer.LivingHeroes.HeroesList;
+            var heroObjects = _turnController.BattleSceneManager.EnemyPlayer.LivingHeroes.HeroesList;
             foreach (var heroObject in heroObjects)
             {
                 var hero = heroObject.GetComponent<IHero>();
                 hero.HeroLogic.HeroEvents.StartOfGame(hero, hero);
+                Debug.Log("Enemy Start Game: " +hero.HeroName);
             }
         }
 
