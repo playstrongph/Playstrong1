@@ -15,9 +15,9 @@ namespace ScriptableObjects.Actions
         
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-            InitializeValues(thisHero, targetHero);
+           InitializeValues(thisHero, targetHero);
 
-           
+           AllAlliesBaseAttackIncrease(thisHero);
             
            LogicTree.EndSequence();
            yield return null;
@@ -32,10 +32,14 @@ namespace ScriptableObjects.Actions
             {
                 var allyHero = allyHeroObject.GetComponent<IHero>();
 
-                var amountIncrease = Mathf.FloorToInt(allyHero.HeroLogic.HeroAttributes.BaseAttack * percentIncrease);
-                var newAttack = allyHero.HeroLogic.HeroAttributes.BaseAttack + amountIncrease;
+                var amountIncrease = Mathf.FloorToInt(allyHero.HeroLogic.HeroAttributes.HeroAssetAttack * percentIncrease);
                 
-                //TODO: to be continued
+                allyHero.HeroLogic.HeroAttributes.BaseAttack += amountIncrease;
+                allyHero.HeroLogic.HeroAttributes.Attack += amountIncrease;
+
+                var attackValue = allyHero.HeroLogic.HeroAttributes.Attack;
+                allyHero.HeroVisual.AttackVisual.SetAttackText(attackValue.ToString());
+
             }
             
         }

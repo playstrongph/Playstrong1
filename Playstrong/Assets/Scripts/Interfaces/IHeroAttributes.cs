@@ -13,5 +13,13 @@
         int Chance { get; set; }
         int BaseChance { get; set; }
         int Energy { get; set; }
+
+        int HeroAssetAttack { get; set; }
+        
+        int HeroAssetSpeed { get; set; }
+        
+        int HeroAssetHealth { get; set; }
+        
+        int HeroAssetChance { get; set; }
     }
 }

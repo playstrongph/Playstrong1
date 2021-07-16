@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffa2f5fa81660249bef20c523f5d8cc, type: 3}
   m_Name: SampleStaticNoSkillCondition
   m_EditorClassIdentifier: 
-  _skillActionAssets: []
+  _skillActionAssets:
+  - {fileID: 11400000, guid: 3a18b76fdc89f7c47894c89a259aaff3, type: 2}
