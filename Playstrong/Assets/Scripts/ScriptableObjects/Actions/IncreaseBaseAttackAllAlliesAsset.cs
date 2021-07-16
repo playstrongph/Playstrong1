@@ -32,7 +32,7 @@ namespace ScriptableObjects.Actions
             {
                 var allyHero = allyHeroObject.GetComponent<IHero>();
 
-                var amountIncrease = Mathf.FloorToInt(allyHero.HeroLogic.HeroAttributes.HeroAssetAttack * percentIncrease);
+                var amountIncrease = Mathf.FloorToInt(allyHero.HeroLogic.HeroAttributes.HeroAssetAttack * percentIncrease/100);
                 
                 allyHero.HeroLogic.HeroAttributes.BaseAttack += amountIncrease;
                 allyHero.HeroLogic.HeroAttributes.Attack += amountIncrease;
