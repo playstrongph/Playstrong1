@@ -88,14 +88,21 @@ namespace Logic
         {
             _logicTree.AddCurrent(InitializeSkillEffects.InitAllSkills());
             
-            //TODO: Call all heroes start of game event
             _logicTree.AddCurrent(_startOfGameEvent.GameStartEvent());
+
+            _logicTree.AddCurrent(RunHeroTimers());
+        }
+
+        private IEnumerator RunHeroTimers()
+        {
+            _visualTree.AddCurrent(RunHeroTimersVisual());
             
-            _visualTree.AddCurrent(RunHeroTimers());
+            _logicTree.EndSequence();
+            yield return null;
         }
 
 
-        private IEnumerator RunHeroTimers()
+        private IEnumerator RunHeroTimersVisual()
         {
             _freezeTimers = false;
 
@@ -184,7 +191,7 @@ namespace Logic
                 _logicTree.AddCurrent(SetHeroActive());
             
             else
-                _visualTree.AddCurrent(RunHeroTimers());
+                _logicTree.AddCurrent(RunHeroTimers());
 
             _logicTree.EndSequence();
             yield return null;
