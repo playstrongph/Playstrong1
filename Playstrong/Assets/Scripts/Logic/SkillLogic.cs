@@ -34,9 +34,6 @@ namespace Logic
         private IUpdateSkillStatus _updateSkillStatus;
         public IUpdateSkillStatus UpdateSkillStatus => _updateSkillStatus;
 
-        private IInitializePassiveSkill _initializePassiveSkill;
-        public IInitializePassiveSkill InitializePassiveSkill => _initializePassiveSkill;
-
         private ISkillEvents _skillEvents;
         public ISkillEvents SkillEvents => _skillEvents;
 
@@ -47,7 +44,6 @@ namespace Logic
             _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
             _resetSkillCooldown = GetComponent<IResetSkillCooldown>();
             _updateSkillStatus = GetComponent<IUpdateSkillStatus>();
-            _initializePassiveSkill = GetComponent<IInitializePassiveSkill>();
             _skillEvents = GetComponent<ISkillEvents>();
 
         }

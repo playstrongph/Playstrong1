@@ -38,7 +38,6 @@ namespace Logic
             {
                 var hero = heroObject.GetComponent<IHero>();
                 hero.HeroLogic.HeroEvents.StartOfGame(hero, hero);
-                Debug.Log("Ally Start Game: " +hero.HeroName);
             }
         }
         
@@ -50,7 +49,6 @@ namespace Logic
             {
                 var hero = heroObject.GetComponent<IHero>();
                 hero.HeroLogic.HeroEvents.StartOfGame(hero, hero);
-                Debug.Log("Enemy Start Game: " +hero.HeroName);
             }
         }
 

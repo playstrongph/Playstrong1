@@ -19,8 +19,6 @@ namespace Interfaces
 
         IUpdateSkillStatus UpdateSkillStatus { get; }
 
-        IInitializePassiveSkill InitializePassiveSkill { get; }
-
         ISkillEvents SkillEvents { get; }
 
 
