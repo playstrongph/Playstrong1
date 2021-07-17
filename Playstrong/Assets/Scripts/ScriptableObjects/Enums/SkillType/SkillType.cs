@@ -12,5 +12,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             //set cooldown.enabled status
         }
+        
+        
     }
 }

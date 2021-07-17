@@ -6,7 +6,7 @@ using Visual;
 
 namespace ScriptableObjects.Enums.SkillType
 {
-    [CreateAssetMenu(fileName = "Active Skill", menuName = "SO's/Scriptable Enums/Active Skill")]
+    [CreateAssetMenu(fileName = "ActiveSkill", menuName = "SO's/Skill Type/Active Skill")]
     public class ActiveSkillAsset : SkillType
     {
         public override void SkillCooldownDisplay(TextMeshProUGUI cooldown)

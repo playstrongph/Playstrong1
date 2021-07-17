@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillType
 {
-    [CreateAssetMenu(fileName = "Passive Skill", menuName = "SO's/Scriptable Enums/Passive Skill")]
+    [CreateAssetMenu(fileName = "PassiveSkill", menuName = "SO's/Skill Type/Passive Skill")]
     public class PassiveSkillAsset : SkillType
     {
         public override void SkillCooldownDisplay(TextMeshProUGUI cooldown)

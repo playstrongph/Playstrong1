@@ -47,7 +47,7 @@ namespace Logic
             var maxSkillCd = skillAttributes.BaseCooldown;
 
             skillAttributes.Cooldown = maxSkillCd;  
-          _skillLogic.UpdateSkillStatus.SetStatus(maxSkillCd);
+          _skillLogic.SkillReadiness.SetStatus(maxSkillCd);
           
           //TODO: SetSkill Status NotReady
       

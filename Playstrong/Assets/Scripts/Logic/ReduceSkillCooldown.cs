@@ -9,11 +9,6 @@ namespace Logic
 {
     public class ReduceSkillCooldown : MonoBehaviour, IReduceSkillCooldown
     {
-        
-        
-        
-        
-        
         private ISkillLogic _skillLogic;
 
         private delegate void SkillCdAction(int counter);
@@ -36,14 +31,10 @@ namespace Logic
 
         public IEnumerator ReduceCd(int counter)
         {
-           var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            
-           logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var skillType = _skillLogic.SkillAttributes.SkillType;
-            _actionIndex = skillType.SkillCdIndex;
             
+            _actionIndex = skillType.SkillCdIndex;
             _skillCdAction[_actionIndex](counter);
             
             logicTree.EndSequence();
@@ -59,9 +50,13 @@ namespace Logic
             
             skillCd -= counter;
             //Note: Multiplier of 10(exaggerated) used to allow CD to go beyond max Skill CD.
-            skillCd = Mathf.Clamp(skillCd, 0, maxSkillCd * 10);
+            // this is basically if skillCD < 0, then is = 0;
+            //skillCd = Mathf.Clamp(skillCd, 0, maxSkillCd * 10);
+            if (skillCd < 0) skillCd = 0;
+
             skillAttributes.Cooldown = skillCd;
-            _skillLogic.UpdateSkillStatus.SetStatus(skillCd);
+
+            _skillLogic.SkillReadiness.SetStatus(skillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));

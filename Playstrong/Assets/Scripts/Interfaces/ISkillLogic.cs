@@ -17,7 +17,7 @@ namespace Interfaces
         
         IResetSkillCooldown ResetSkillCooldown { get; }
 
-        IUpdateSkillStatus UpdateSkillStatus { get; }
+        IUpdateSkillStatus SkillReadiness { get; }
 
         ISkillEvents SkillEvents { get; }
 

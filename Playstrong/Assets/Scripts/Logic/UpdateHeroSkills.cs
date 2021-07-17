@@ -40,6 +40,7 @@ namespace Logic
                  var skill = skillObject.GetComponent<ISkill>();
                  var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
 
+                 //TODO:  Make this pass by skill type
                  logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
             }
         }
