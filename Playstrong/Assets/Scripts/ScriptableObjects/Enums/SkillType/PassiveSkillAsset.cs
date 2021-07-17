@@ -1,6 +1,7 @@
 ﻿
 using Interfaces;
 using Logic;
+using References;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,11 @@ namespace ScriptableObjects.Enums.SkillType
         public override void SkillCooldownDisplay(TextMeshProUGUI cooldown)
         {
             cooldown.enabled = false;
+        }
+        
+        public override void ReduceSkillCd(ISkill skill, int counter)
+        {
+           //Do nothing for Passive Skills
         }
     }
 }

@@ -41,7 +41,9 @@ namespace Logic
                  var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
 
                  //TODO:  Make this pass by skill type
-                 logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
+                 //logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
+                 
+                 skill.SkillLogic.SkillAttributes.SkillType.ReduceSkillCd(skill, _skillCdCounter);
             }
         }
 
