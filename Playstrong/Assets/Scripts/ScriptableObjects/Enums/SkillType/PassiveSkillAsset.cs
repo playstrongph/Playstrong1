@@ -17,18 +17,8 @@ namespace ScriptableObjects.Enums.SkillType
         {
             cooldown.enabled = false;
         }
+
         
-       
-        public void UsePassiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
-        {
-          
-        }
-
-        public void UseActiveSkill(ITargetSkill targetSkill, IHero thisHero, IHero targetHero)
-        {
-            
-        }
-
        
 
 

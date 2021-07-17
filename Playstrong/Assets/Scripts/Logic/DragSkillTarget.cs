@@ -121,35 +121,34 @@ namespace Logic
         private void UseHeroSkill()
         {
             
-            var turnController = _targetSkill.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            
-            
-            
             _logicTree.AddCurrent(ApplySkillEffect());
             
-            _logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd()); 
+            _logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd());
 
-            //Calls an Ienumerator
-            turnController.EndTurn();
+            _logicTree.AddCurrent(HeroEndTurn());
 
         }
-
+        
         private IEnumerator ApplySkillEffect()
         {
             _thisHero = _targetSkill.Skill.Hero.TargetHero;
             
-            //_targetSkill.Skill.SkillLogic.SkillAttributes.SkillEffect.UseSkillEffect(_thisHero.Hero, _targetHero.Hero);
-
-            var activeSkill = _targetSkill.Skill.SkillLogic.SkillAttributes.SkillType;
-            
-            Debug.Assert(activeSkill != null, nameof(activeSkill) + " != null");
-            
-            activeSkill.UseActiveSkill(_targetSkill, _thisHero.Hero, _targetHero.Hero);
+            _targetSkill.Skill.SkillLogic.SkillEvents.DragSkillTarget(_thisHero.Hero, _targetHero.Hero);
             
             _logicTree.EndSequence();
             yield return null;
             
         }
+
+        private IEnumerator HeroEndTurn()
+        {
+            var turnController = _targetSkill.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            turnController.EndTurn();
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+      
         
 
 
