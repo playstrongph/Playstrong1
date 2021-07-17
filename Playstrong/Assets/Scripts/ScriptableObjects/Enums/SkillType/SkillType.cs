@@ -5,12 +5,12 @@ namespace ScriptableObjects.Enums.SkillType
 {
     public class SkillType : ScriptableObject, ISkillType
     {
-        [SerializeField] private int _skillCdIndex = 0;
+        [SerializeField] private int _skillCdIndex;
         public int SkillCdIndex => _skillCdIndex;
 
-        public void SkillCooldownDisplay(TextMeshProUGUI cooldown)
+        public virtual void SkillCooldownDisplay(TextMeshProUGUI cooldown)
         {
-            cooldown.enabled = true;
+            //set cooldown.enabled status
         }
     }
 }

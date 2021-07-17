@@ -7,21 +7,12 @@ using Visual;
 namespace ScriptableObjects.Enums.SkillType
 {
     [CreateAssetMenu(fileName = "Active Skill", menuName = "SO's/Scriptable Enums/Active Skill")]
-    public class ActiveSkillAsset : ScriptableObject, ISkillType
+    public class ActiveSkillAsset : SkillType
     {
-        [SerializeField] private int _skillCdIndex = 0;
-        public int SkillCdIndex => _skillCdIndex;
-
-        public void SkillCooldownDisplay(TextMeshProUGUI cooldown)
+        public override void SkillCooldownDisplay(TextMeshProUGUI cooldown)
         {
             cooldown.enabled = true;
         }
-
-        
-        
-       
-
-        
 
     }
 }
