@@ -50,6 +50,7 @@ namespace Logic
           _skillLogic.UpdateSkillStatus.SetStatus(maxSkillCd);
           
           //TODO: SetSkill Status NotReady
+      
 
            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
            visualTree.AddCurrent(VisualReduceCdAction());

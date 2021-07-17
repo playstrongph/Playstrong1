@@ -1,13 +1,9 @@
-﻿using Interfaces;
-using Logic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using Visual;
 
 namespace ScriptableObjects.Enums.SkillType
 {
-    [CreateAssetMenu(fileName = "Active Skill", menuName = "SO's/Scriptable Enums/Active Skill")]
-    public class ActiveSkillAsset : ScriptableObject, ISkillType
+    public class SkillType : ScriptableObject, ISkillType
     {
         [SerializeField] private int _skillCdIndex = 0;
         public int SkillCdIndex => _skillCdIndex;
@@ -16,12 +12,5 @@ namespace ScriptableObjects.Enums.SkillType
         {
             cooldown.enabled = true;
         }
-
-        
-        
-       
-
-        
-
     }
 }

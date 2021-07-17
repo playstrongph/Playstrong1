@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ScriptableObjects.Enums.SkillType
 {
     [CreateAssetMenu(fileName = "Passive Skill", menuName = "SO's/Scriptable Enums/Passive Skill")]
-    public class PassiveSkillAsset : ScriptableObject, IPassiveSkillAsset, ISkillType
+    public class PassiveSkillAsset : ScriptableObject, ISkillType
     {
         private ITargetSkill _targetSkill;
 
