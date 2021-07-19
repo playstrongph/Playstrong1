@@ -21,5 +21,12 @@ namespace ScriptableObjects.Enums.SkillType
             //ReduceCd for Active Skills
             //ReduceCD for CdPassiveSkills
         }
+
+        public virtual void ResetSkillCd(ISkill skill)
+        {
+            //No action for Passive Skills
+            //Max Cooldown for Active Skills
+            //Max Cooldown for CdPassive Skills
+        }
     }
 }

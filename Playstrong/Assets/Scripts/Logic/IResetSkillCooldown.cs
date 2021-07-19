@@ -4,6 +4,6 @@ namespace Logic
 {
     public interface IResetSkillCooldown
     {
-        IEnumerator ResetCd();
+        IEnumerator UpdateCooldown();
     }
 }

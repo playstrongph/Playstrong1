@@ -24,12 +24,12 @@ namespace Logic
         {
             _skillLogic = GetComponent<ISkillLogic>();
 
-            _skillCdAction.Add(ReduceCdAction);
+            _skillCdAction.Add(ReduceCooldown);
             _skillCdAction.Add(DoNothing);
         }
 
 
-        public IEnumerator ReduceCd(int counter)
+        public IEnumerator UpdateCooldown(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var skillType = _skillLogic.SkillAttributes.SkillType;
@@ -37,25 +37,22 @@ namespace Logic
             _actionIndex = skillType.SkillCdIndex;
             _skillCdAction[_actionIndex](counter);
             
+            
+            
             logicTree.EndSequence();
             yield return null;
             
         }
 
-        private void ReduceCdAction(int counter)
+        private void ReduceCooldown(int counter)
         {
             var skillAttributes = _skillLogic.SkillAttributes;     
             var skillCd = skillAttributes.Cooldown;
-            var maxSkillCd = skillAttributes.BaseCooldown;
-            
+
             skillCd -= counter;
-            //Note: Multiplier of 10(exaggerated) used to allow CD to go beyond max Skill CD.
-            // this is basically if skillCD < 0, then is = 0;
-            //skillCd = Mathf.Clamp(skillCd, 0, maxSkillCd * 10);
             if (skillCd < 0) skillCd = 0;
 
             skillAttributes.Cooldown = skillCd;
-
             _skillLogic.SkillReadiness.SetStatus(skillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;

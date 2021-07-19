@@ -4,6 +4,6 @@ namespace Logic
 {
     public interface IReduceSkillCooldown
     {
-        IEnumerator ReduceCd(int counter);
+        IEnumerator UpdateCooldown(int counter);
     }
 }

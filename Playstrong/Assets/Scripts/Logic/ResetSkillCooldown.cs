@@ -28,7 +28,7 @@ namespace Logic
         }
 
 
-        public IEnumerator ResetCd()
+        public IEnumerator UpdateCooldown()
         {
            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
            var skillType = _skillLogic.SkillAttributes.SkillType;
@@ -47,23 +47,20 @@ namespace Logic
             var maxSkillCd = skillAttributes.BaseCooldown;
 
             skillAttributes.Cooldown = maxSkillCd;  
-          _skillLogic.SkillReadiness.SetStatus(maxSkillCd);
-          
-          //TODO: SetSkill Status NotReady
-      
+            _skillLogic.SkillReadiness.SetStatus(maxSkillCd);
 
-           var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-           visualTree.AddCurrent(VisualReduceCdAction());
+            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            visualTree.AddCurrent(VisualReduceCdAction(maxSkillCd));
         }
 
-        private IEnumerator VisualReduceCdAction()
+        private IEnumerator VisualReduceCdAction(int skillCd)
         {
              var skillVisual = _skillLogic.Skill.SkillVisual;
-             var maxSkillCd = _skillLogic.SkillAttributes.BaseCooldown;
-             
-             skillVisual.SkillCooldownVisual.UpdateCooldown(maxSkillCd);
-             
              var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+
+             skillVisual.SkillCooldownVisual.UpdateCooldown(skillCd);
+             
+           
              visualTree.EndSequence();
              yield return null;
             

@@ -12,5 +12,7 @@ namespace ScriptableObjects.Enums.SkillType
 
         void ReduceSkillCd(ISkill skill, int counter);
 
+        void ResetSkillCd(ISkill skill);
+
     }
 }

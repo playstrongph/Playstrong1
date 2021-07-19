@@ -20,7 +20,7 @@ namespace Logic
         public void DragSkillTarget(IHero initiatorHero, IHero targetHero)
         {
             EDragSkillTarget?.Invoke(initiatorHero, targetHero);
-            Debug.Log("Drag Skill Target");
+           
         }
         
         private void UnsubscribeDragSkillTargetClients()

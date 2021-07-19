@@ -122,12 +122,15 @@ namespace Logic
         {
             
             _logicTree.AddCurrent(ApplySkillEffect());
-            
-            _logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.ResetCd());
+
+            //_logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.UpdateCooldown());
+            _logicTree.AddCurrent(ResetSkillCooldown());
 
             _logicTree.AddCurrent(HeroEndTurn());
 
         }
+        
+        
         
         private IEnumerator ApplySkillEffect()
         {
@@ -138,6 +141,19 @@ namespace Logic
             _logicTree.EndSequence();
             yield return null;
             
+        }
+        
+        /// <summary>
+        /// Resets skill cooldown to Maximum CD
+        /// </summary>
+        private IEnumerator ResetSkillCooldown()
+        {
+            var skill = _targetSkill.Skill;
+            
+            skill.SkillLogic.SkillAttributes.SkillType.ResetSkillCd(skill);
+
+            _logicTree.EndSequence();
+            yield return null;
         }
 
         private IEnumerator HeroEndTurn()
