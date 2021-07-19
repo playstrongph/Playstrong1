@@ -8,22 +8,11 @@ namespace Interfaces
     public interface ISkillLogic
     {
         ISkillAttributes SkillAttributes { get; }
-
         ILoadSkillAttributes LoadSkillAttributes { get; }
-
         ISkill Skill { get; }
-
-        /*IReduceSkillCooldown ReduceSkillCooldown { get; }
-        
-        IResetSkillCooldown ResetSkillCooldown { get; }*/
-
         IUpdateSkillStatus SkillReadiness { get; }
-
         ISkillEvents SkillEvents { get; }
-
         IChangeSkillCooldown ChangeSkillCooldown { get; }
-
-
 
     }
 }
