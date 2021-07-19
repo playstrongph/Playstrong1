@@ -28,6 +28,7 @@ namespace ScriptableObjects.SkillEffects
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(RegisterSkillEffectCoroutine(skill));
+           
         }
         
         

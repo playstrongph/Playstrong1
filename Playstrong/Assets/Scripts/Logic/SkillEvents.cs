@@ -33,13 +33,14 @@ namespace Logic
                 }
         }
         
-        private void OnDisable()
+        private void OnDestroy()
         {
             UnsubscribeAllClients();           
         }
 
         private void UnsubscribeAllClients()
         {
+          
             UnsubscribeDragSkillTargetClients();
         }
     }
