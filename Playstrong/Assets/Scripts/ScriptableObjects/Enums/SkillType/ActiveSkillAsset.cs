@@ -19,14 +19,16 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ChangeCooldown(counter));
+            //logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ChangeCooldown(counter));
+            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ReduceCooldown(counter));
         }
         
         public override void ResetSkillCd(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(skill.SkillLogic.ResetSkillCooldown.ChangeCooldown());
+            //logicTree.AddCurrent(skill.SkillLogic.ResetSkillCooldown.ChangeCooldown());
+            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
         }
 
     }

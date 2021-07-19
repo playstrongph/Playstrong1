@@ -22,11 +22,11 @@ namespace Logic
         private Object _loadSkillAttributes;
         public ILoadSkillAttributes LoadSkillAttributes => _loadSkillAttributes as ILoadSkillAttributes;
 
-        private IReduceSkillCooldown _reduceSkillCooldown;
+        /*private IReduceSkillCooldown _reduceSkillCooldown;
         public IReduceSkillCooldown ReduceSkillCooldown => _reduceSkillCooldown;
 
         private IResetSkillCooldown _resetSkillCooldown;
-        public IResetSkillCooldown ResetSkillCooldown => _resetSkillCooldown;
+        public IResetSkillCooldown ResetSkillCooldown => _resetSkillCooldown;*/
 
         private ISkill _skill;
         public ISkill Skill => _skill;
@@ -37,14 +37,18 @@ namespace Logic
         private ISkillEvents _skillEvents;
         public ISkillEvents SkillEvents => _skillEvents;
 
+        private IChangeSkillCooldown _changeSkillCooldown;
+        public IChangeSkillCooldown ChangeSkillCooldown => _changeSkillCooldown;
+
         private void Awake()
         {
             _skill = GetComponentInParent<ISkill>();
             
-            _reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
-            _resetSkillCooldown = GetComponent<IResetSkillCooldown>();
+            //_reduceSkillCooldown = GetComponent<IReduceSkillCooldown>();
+            //_resetSkillCooldown = GetComponent<IResetSkillCooldown>();
             _skillReadiness = GetComponent<IUpdateSkillStatus>();
             _skillEvents = GetComponent<ISkillEvents>();
+            _changeSkillCooldown = GetComponent<IChangeSkillCooldown>();
 
         }
     }
