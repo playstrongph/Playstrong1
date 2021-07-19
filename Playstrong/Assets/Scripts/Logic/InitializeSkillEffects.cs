@@ -47,6 +47,9 @@ namespace Logic
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero);
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
                     
+                    //TEST
+                    skill.SkillLogic.SkillAttributes.SkillEffect.SetEventReferenceSkill(skill);
+                    
                     
                 }
                 
@@ -70,7 +73,9 @@ namespace Logic
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero);
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
                     
-                    
+                    //TEST
+                    skill.SkillLogic.SkillAttributes.SkillEffect.SetEventReferenceSkill(skill);
+
                 }
                 
             }

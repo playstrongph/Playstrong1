@@ -21,7 +21,7 @@ namespace ScriptableObjects.SkillEffects
         private Object _skilEffectEvent;
         private IGameEvents SkillEffectEvent => _skilEffectEvent as IGameEvents;
 
-
+      
         
         public void RegisterSkillEffect(ISkill skill)
         {
@@ -30,16 +30,14 @@ namespace ScriptableObjects.SkillEffects
             logicTree.AddCurrent(RegisterSkillEffectCoroutine(skill));
            
         }
-        
-        
-        
+
         private IEnumerator RegisterSkillEffectCoroutine(ISkill skill)
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
-
-            //SkillEffectEvent.SubscribeToHeroEvents(thisHero);
-            SkillEffectEvent.SubscribeToSkillEvents(skill);
             
+            SkillEffectEvent.SubscribeToSkillEvents(skill);
+          
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -56,9 +54,15 @@ namespace ScriptableObjects.SkillEffects
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             SkillEffectEvent.SubscribeToHeroEvents(thisHero);
+           
 
             logicTree.EndSequence();
             yield return null;
+        }
+
+        public void SetEventReferenceSkill(ISkill skill)
+        {
+            SkillEffectEvent.ReferenceSkill = skill;
         }
 
 
