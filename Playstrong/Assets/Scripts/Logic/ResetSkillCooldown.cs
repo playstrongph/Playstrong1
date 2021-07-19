@@ -10,32 +10,18 @@ namespace Logic
     public class ResetSkillCooldown : MonoBehaviour, IResetSkillCooldown
     {
         private ISkillLogic _skillLogic;
-        
-        private List<Action> _skillCdAction = new List<Action>();
-       
-        /// <summary>
-        /// Set to 0 for ActiveSkills
-        /// Set to 1 for PassiveSkills
-        /// </summary>
-        private int _actionIndex = 0;
 
         private void Awake()
         {
             _skillLogic = GetComponent<ISkillLogic>();
-
-            _skillCdAction.Add(ResetCdAction);
-            _skillCdAction.Add(DoNothing);
         }
 
 
-        public IEnumerator UpdateCooldown()
+        public IEnumerator ChangeCooldown()
         {
            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-           var skillType = _skillLogic.SkillAttributes.SkillType;
-           
-            _actionIndex = skillType.SkillCdIndex;
-            
-            _skillCdAction[_actionIndex]();
+
+           ResetCdAction();
             
             logicTree.EndSequence();
             yield return null;
@@ -59,17 +45,13 @@ namespace Logic
              var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
 
              skillVisual.SkillCooldownVisual.UpdateCooldown(skillCd);
-             
-           
+
              visualTree.EndSequence();
              yield return null;
             
         }
 
-        private void DoNothing()
-        {
-            
-        }
+      
 
 
     }

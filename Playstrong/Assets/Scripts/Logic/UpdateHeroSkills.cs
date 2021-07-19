@@ -11,7 +11,9 @@ namespace Logic
     public class UpdateHeroSkills : MonoBehaviour, IUpdateHeroSkills
     {
         private ISkillsPanel _skillsPanel;
-        private int _skillCdCounter = 1;
+        
+        [SerializeField]
+        private int skillCdCounter = 1;
 
         
 
@@ -40,15 +42,22 @@ namespace Logic
                  var skill = skillObject.GetComponent<ISkill>();
                  var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
 
-                 //TODO:  Make this pass by skill type
-                 //logicTree.AddCurrent(skill.SkillLogic.ReduceSkillCooldown.ReduceCd(_skillCdCounter));
-                 
-                 skill.SkillLogic.SkillAttributes.SkillType.ReduceSkillCd(skill, _skillCdCounter);
+                 logicTree.AddCurrent(ReduceSkillCooldown(skill, skillCdCounter));
             }
         }
 
-        
-        
-        
+        private IEnumerator ReduceSkillCooldown(ISkill skill, int value)
+        {
+            skill.SkillLogic.SkillAttributes.SkillType.ReduceSkillCd(skill, skillCdCounter);
+            
+            var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+
+
+
+
     }
 }

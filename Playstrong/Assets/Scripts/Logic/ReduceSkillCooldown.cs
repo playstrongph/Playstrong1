@@ -10,34 +10,18 @@ namespace Logic
     public class ReduceSkillCooldown : MonoBehaviour, IReduceSkillCooldown
     {
         private ISkillLogic _skillLogic;
-
-        private delegate void SkillCdAction(int counter);
-        private List<SkillCdAction> _skillCdAction = new List<SkillCdAction>();
-       
-        /// <summary>
-        /// Set to 0 for ActiveSkills
-        /// Set to 1 for PassiveSkills
-        /// </summary>
-        private int _actionIndex = 0;
-
+        
         private void Awake()
         {
             _skillLogic = GetComponent<ISkillLogic>();
-
-            _skillCdAction.Add(ReduceCooldown);
-            _skillCdAction.Add(DoNothing);
         }
 
 
-        public IEnumerator UpdateCooldown(int counter)
+        public IEnumerator ChangeCooldown(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var skillType = _skillLogic.SkillAttributes.SkillType;
             
-            _actionIndex = skillType.SkillCdIndex;
-            _skillCdAction[_actionIndex](counter);
-            
-            
+            ReduceCooldown(counter);
             
             logicTree.EndSequence();
             yield return null;
@@ -71,10 +55,7 @@ namespace Logic
             
         }
 
-        private void DoNothing(int counter)
-        {
-            
-        }
+       
 
 
     }

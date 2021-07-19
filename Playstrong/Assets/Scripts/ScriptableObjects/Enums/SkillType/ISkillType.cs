@@ -7,7 +7,7 @@ namespace ScriptableObjects.Enums.SkillType
 {
     public interface ISkillType
     {
-        int SkillCdIndex { get; }
+        //int SkillCdIndex { get; }
         void SkillCooldownDisplay(TextMeshProUGUI cooldown);
 
         void ReduceSkillCd(ISkill skill, int counter);
