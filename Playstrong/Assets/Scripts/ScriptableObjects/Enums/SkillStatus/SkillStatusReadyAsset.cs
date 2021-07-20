@@ -25,7 +25,6 @@ namespace ScriptableObjects.Enums.SkillStatus
             
            _logicTree.AddCurrent(SetSkillReady());
         }
-
         private IEnumerator SetSkillReady()
         {
            
@@ -65,10 +64,10 @@ namespace ScriptableObjects.Enums.SkillStatus
             yield return null;
         }
 
-
-
-
-
-
+        public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
+        {
+           base.StartAction(skillAction, thisHero, targetHero);
+           Debug.Log("Skill Status Ready Asset");
+        }
     }
 }

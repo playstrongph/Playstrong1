@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
 using Utilities;
@@ -35,10 +36,17 @@ namespace ScriptableObjects.GameEvents
 
         protected ICoroutineTree LogicTree;
         
+        //TEST
+        public ISkillStatus SkillReadinessReference { get; set; }
+        
         public void SubscribeToHeroEvents(IHero hero)
         {
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
             LogicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
+            
+            //TEST
+            SetConditionsSkillReadinessReference();
+            
             
         }
         
@@ -57,6 +65,9 @@ namespace ScriptableObjects.GameEvents
             LogicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             LogicTree.AddCurrent(SubscribeToSkillEventsCoroutine(skill));
             
+            //TEST
+            SetConditionsSkillReadinessReference();
+
         }
         
         /// <summary>
@@ -71,8 +82,18 @@ namespace ScriptableObjects.GameEvents
             yield return null;
             
         }
-        
-       
+
+        private void SetConditionsSkillReadinessReference()
+        {
+            foreach (var skillCondition in SkillConditionAssets)
+            {
+                skillCondition.SkillReadinessReference = SkillReadinessReference;
+            }
+        }
+
+
+
+
 
 
 

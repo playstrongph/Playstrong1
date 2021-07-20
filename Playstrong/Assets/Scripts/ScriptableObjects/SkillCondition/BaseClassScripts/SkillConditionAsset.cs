@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using ScriptableObjects.Actions.BaseClassScripts;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
@@ -38,6 +39,9 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             }
             
         }
+        
+        //TEST
+        public ISkillStatus SkillReadinessReference { get; set; }
 
         /// <summary>
         /// Run all skill actions assigned to the skill condition
@@ -56,8 +60,10 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             foreach (var skillAction in skillActions)
             {
                 //skillAction.Target(hero);   
-                _logicTree.AddCurrent(skillAction.StartAction(thisHero, targetHero));
-            }
+                //_logicTree.AddCurrent(skillAction.StartAction(thisHero, targetHero));
+                
+                SkillReadinessReference.StartAction(skillAction,thisHero,targetHero);
+            }   
             
             _logicTree.EndSequence();
             yield return null;

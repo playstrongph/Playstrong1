@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using References;
+using ScriptableObjects.Enums.SkillStatus;
 
 namespace ScriptableObjects.GameEvents
 {
@@ -8,5 +9,7 @@ namespace ScriptableObjects.GameEvents
         void SubscribeToHeroEvents(IHero hero);
 
         void SubscribeToSkillEvents(ISkill skill);
+        
+        ISkillStatus SkillReadinessReference { get; set; }
     }
 }

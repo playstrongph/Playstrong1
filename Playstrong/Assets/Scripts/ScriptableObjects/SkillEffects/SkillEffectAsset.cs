@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using References;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.GameEvents;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
@@ -21,8 +22,10 @@ namespace ScriptableObjects.SkillEffects
         private Object _skilEffectEvent;
         private IGameEvents SkillEffectEvent => _skilEffectEvent as IGameEvents;
 
-
         
+        //TEST
+        public ISkillStatus SkillReadinessReference { get; set; }
+
         public void RegisterSkillEffect(ISkill skill)
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
@@ -32,13 +35,18 @@ namespace ScriptableObjects.SkillEffects
         }
         
         
-        
+        /// <summary>
+        /// This is only used to subscribe to SKillTarget Event
+        /// </summary>
         private IEnumerator RegisterSkillEffectCoroutine(ISkill skill)
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
 
             //SkillEffectEvent.SubscribeToHeroEvents(thisHero);
             SkillEffectEvent.SubscribeToSkillEvents(skill);
+            
+            //TEST
+            SkillEffectEvent.SkillReadinessReference = SkillReadinessReference;
             
             logicTree.EndSequence();
             yield return null;
@@ -56,10 +64,15 @@ namespace ScriptableObjects.SkillEffects
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             SkillEffectEvent.SubscribeToHeroEvents(thisHero);
+            
+            //TEST
+            SkillEffectEvent.SkillReadinessReference = SkillReadinessReference;
 
             logicTree.EndSequence();
             yield return null;
         }
+
+       
 
 
 

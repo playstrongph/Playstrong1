@@ -47,7 +47,9 @@ namespace Logic
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero);
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
                     
-                    
+                    //Test
+                    skill.SkillLogic.SkillAttributes.SkillEffect.SkillReadinessReference =
+                        skill.SkillLogic.SkillAttributes.SkillStatus;
                 }
                 
             }
@@ -70,7 +72,10 @@ namespace Logic
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero);
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
                     
-                    
+                    //Test
+                    skill.SkillLogic.SkillAttributes.SkillEffect.SkillReadinessReference =
+                        skill.SkillLogic.SkillAttributes.SkillStatus;
+
                 }
                 
             }

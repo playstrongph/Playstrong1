@@ -101,10 +101,18 @@ namespace Logic
             
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
-            BasicAttackSkillEffect.RegisterSkillEffect(_heroLogic.Hero);
+           
            
         }
-        
+
+        private void Start()
+        {
+            BasicAttackSkillEffect.RegisterSkillEffect(_heroLogic.Hero);
+
+            //Test
+            BasicAttackSkillEffect.SkillReadinessReference = this.SkillReadiness;
+        }
+
 
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)
         {
