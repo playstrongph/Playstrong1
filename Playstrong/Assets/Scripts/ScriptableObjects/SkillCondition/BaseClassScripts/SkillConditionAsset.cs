@@ -62,12 +62,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
             {
-                //skillAction.Target(hero);   
-                //_logicTree.AddCurrent(skillAction.StartAction(thisHero, targetHero));
-                
-                //SkillReadinessReference.StartAction(skillAction,thisHero,targetHero);
-                
-                SkillAttributes.SkillStatus.StartAction(skillAction,thisHero,targetHero);
+                SkillAttributes.SkillStatus.StartAction(skillAction,thisHero,targetHero);  //Checks Skill Readiness before calling start action
             }   
             
             _logicTree.EndSequence();
