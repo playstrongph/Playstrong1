@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ScriptableObjects.Enums.SkillStatus
 {
     [CreateAssetMenu(fileName = "SkillStatusPassive", menuName = "SO's/Scriptable Enums/Skill Status/Skill Status Passive")]
-    public class SkillStatusPassiveAsset : ScriptableObject, ISkillStatus
+    public class SkillStatusPassiveAsset : SkillStatus
     {
         
         private ISkillLogic _skillLogic;
@@ -16,7 +16,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         
         private ITurnController _turnController;
         
-        public void StatusAction(ISkillLogic skillLogic)
+        public override void StatusAction(ISkillLogic skillLogic)
         {
             _skillLogic = skillLogic;
             _logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;

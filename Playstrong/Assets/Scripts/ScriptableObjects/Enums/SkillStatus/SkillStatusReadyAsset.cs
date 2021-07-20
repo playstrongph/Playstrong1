@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ScriptableObjects.Enums.SkillStatus
 {
     [CreateAssetMenu(fileName = "SkillStatusReady", menuName = "SO's/Scriptable Enums/Skill Status/Skill Status Ready")]
-    public class SkillStatusReadyAsset : ScriptableObject, ISkillStatus
+    public class SkillStatusReadyAsset : SkillStatus
     {
 
         private ISkillLogic _skillLogic;
@@ -16,7 +16,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         private ICoroutineTree _visualTree;
         private ITurnController _turnController;
 
-        public void StatusAction(ISkillLogic skillLogic)
+        public override void StatusAction(ISkillLogic skillLogic)
         {
             _skillLogic = skillLogic;
             _logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;

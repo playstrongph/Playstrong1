@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using DG.Tweening;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.GameEvents;
 using ScriptableObjects.SkillEffects;
 using Utilities;
@@ -14,6 +15,12 @@ namespace Logic
     public class BasicAttack : MonoBehaviour, IBasicAttack
     {
 
+        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        private Object _skillReadiness;
+
+        public ISkillStatus SkillReadiness => _skillReadiness as ISkillStatus;
+        
+        
         [SerializeField] [RequireInterface(typeof(ISkillEffectAsset))]
         private Object _basicAttaclSkillEffect;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.SkillEffects;
 
 namespace Logic
@@ -19,7 +20,9 @@ namespace Logic
 
         int SetAttackIndex { get; set; }
 
-       
+        ISkillStatus SkillReadiness { get; }
+
+
 
 
 
