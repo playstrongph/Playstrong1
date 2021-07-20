@@ -92,7 +92,8 @@ namespace ScriptableObjects.GameEvents
             foreach (var skillCondition in SkillConditionAssets)
             {
                 skillCondition.SkillReadinessReference = SkillReadinessReference;
-                
+                skillCondition.SkillAttributes = SkillAttributes;
+
             }
         }
 
