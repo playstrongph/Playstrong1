@@ -5,6 +5,8 @@ using Interfaces;
 using UnityEngine;
 using DG.Tweening;
 using ScriptableObjects.Enums.SkillStatus;
+using ScriptableObjects.Enums.SkillTarget;
+using ScriptableObjects.Enums.SkillType;
 using ScriptableObjects.GameEvents;
 using ScriptableObjects.SkillEffects;
 using Utilities;
@@ -12,22 +14,60 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class BasicAttack : MonoBehaviour, IBasicAttack
+    public class BasicAttack : MonoBehaviour, IBasicAttack, ISkillAttributes
     {
+        [SerializeField] private int cooldown;
 
-        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
-        private Object _skillReadiness;
+        public int Cooldown
+        {
+            get => cooldown;
+            set => cooldown = value;
 
-        public ISkillStatus SkillReadiness => _skillReadiness as ISkillStatus;
+        }
         
+        [SerializeField] private int baseCooldown;
+
+        public int BaseCooldown
+        {
+            get => baseCooldown;
+            set => baseCooldown = value;
+
+        }
+
+        [SerializeField] [RequireInterface(typeof(ISkillType))]
+        private Object skillType;
+
+        public ISkillType SkillType{
+            get => skillType as ISkillType;
+            set => skillType = value as Object;
+        }
+        
+        [SerializeField] [RequireInterface(typeof(ISkillTarget))]
+        private Object skillTarget;
+
+        public ISkillTarget SkillTarget{
+            get => skillTarget as ISkillTarget;
+            set => skillTarget = value as Object;
+        }
+        
+        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        private Object skillStatus;
+
+        public ISkillStatus SkillStatus{
+            get => skillStatus as ISkillStatus;
+            set => skillStatus = value as Object;
+        }
         
         [SerializeField] [RequireInterface(typeof(ISkillEffectAsset))]
-        private Object _basicAttaclSkillEffect;
+        private Object skillEffect;
 
-        private ISkillEffectAsset BasicAttackSkillEffect => _basicAttaclSkillEffect as ISkillEffectAsset;
-        
-        
-        
+        public ISkillEffectAsset SkillEffect{
+            get => skillEffect as ISkillEffectAsset;
+            set => skillEffect = value as Object;
+        }
+
+
+
         [SerializeField]
         private int attackIndex;
         
@@ -107,10 +147,10 @@ namespace Logic
 
         private void Start()
         {
-            BasicAttackSkillEffect.RegisterSkillEffect(_heroLogic.Hero);
+            SkillEffect.RegisterSkillEffect(_heroLogic.Hero);
 
             //Test
-            BasicAttackSkillEffect.SkillReadinessReference = this.SkillReadiness;
+            SkillEffect.SkillReadinessReference = this.SkillStatus;
         }
 
 

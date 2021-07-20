@@ -20,9 +20,9 @@ namespace Logic
 
         int SetAttackIndex { get; set; }
 
-        ISkillStatus SkillReadiness { get; }
+        //ISkillStatus SkillReadiness { get; }
 
-
+        ISkillStatus SkillStatus { get; }
 
 
 

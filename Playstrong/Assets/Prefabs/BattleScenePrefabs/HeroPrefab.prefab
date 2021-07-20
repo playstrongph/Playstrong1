@@ -3575,9 +3575,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d13540e870471488a22bee89237958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillReadiness: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
-  _basicAttaclSkillEffect: {fileID: 11400000, guid: 4f723abfa1ee494438ea82a851221bd2,
-    type: 2}
+  cooldown: 0
+  baseCooldown: 0
+  skillType: {fileID: 11400000, guid: 40472d3b2f02b9e4189a2c147f85facd, type: 2}
+  skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
+  skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
+  skillEffect: {fileID: 11400000, guid: 4f723abfa1ee494438ea82a851221bd2, type: 2}
   attackIndex: 0
   _attackActions:
   - {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}
