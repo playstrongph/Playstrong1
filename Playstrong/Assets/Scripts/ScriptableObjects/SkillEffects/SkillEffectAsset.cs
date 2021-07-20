@@ -25,6 +25,8 @@ namespace ScriptableObjects.SkillEffects
         
         //TEST
         public ISkillStatus SkillReadinessReference { get; set; }
+        public ISkillAttributes SkillAttributes { get; set; }
+        //TEST END
 
         public void RegisterSkillEffect(ISkill skill)
         {
@@ -47,6 +49,8 @@ namespace ScriptableObjects.SkillEffects
             
             //TEST
             SkillEffectEvent.SkillReadinessReference = SkillReadinessReference;
+            SkillEffectEvent.SkillAttributes = SkillAttributes;
+            //TEST END
             
             logicTree.EndSequence();
             yield return null;
@@ -67,6 +71,8 @@ namespace ScriptableObjects.SkillEffects
             
             //TEST
             SkillEffectEvent.SkillReadinessReference = SkillReadinessReference;
+            SkillEffectEvent.SkillAttributes = SkillAttributes;
+            //TEST END
 
             logicTree.EndSequence();
             yield return null;

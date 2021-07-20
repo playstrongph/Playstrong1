@@ -38,6 +38,9 @@ namespace ScriptableObjects.GameEvents
         
         //TEST
         public ISkillStatus SkillReadinessReference { get; set; }
+
+        public ISkillAttributes SkillAttributes { get; set; }
+        //TEST END
         
         public void SubscribeToHeroEvents(IHero hero)
         {
@@ -82,12 +85,14 @@ namespace ScriptableObjects.GameEvents
             yield return null;
             
         }
-
+        
+        //TEST
         private void SetConditionsSkillReadinessReference()
         {
             foreach (var skillCondition in SkillConditionAssets)
             {
                 skillCondition.SkillReadinessReference = SkillReadinessReference;
+                
             }
         }
 

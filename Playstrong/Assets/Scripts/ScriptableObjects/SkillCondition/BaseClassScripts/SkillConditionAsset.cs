@@ -43,6 +43,9 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         //TEST
         public ISkillStatus SkillReadinessReference { get; set; }
 
+        public ISkillAttributes SkillAttributes { get; set; }
+        //TEST END
+
         /// <summary>
         /// Run all skill actions assigned to the skill condition
         /// </summary>
@@ -62,7 +65,9 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
                 //skillAction.Target(hero);   
                 //_logicTree.AddCurrent(skillAction.StartAction(thisHero, targetHero));
                 
-                SkillReadinessReference.StartAction(skillAction,thisHero,targetHero);
+                //SkillReadinessReference.StartAction(skillAction,thisHero,targetHero);
+                
+                SkillAttributes.SkillStatus.StartAction(skillAction,thisHero,targetHero);
             }   
             
             _logicTree.EndSequence();

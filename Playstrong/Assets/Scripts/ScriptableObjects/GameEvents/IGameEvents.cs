@@ -10,6 +10,10 @@ namespace ScriptableObjects.GameEvents
 
         void SubscribeToSkillEvents(ISkill skill);
         
+        //TEST
         ISkillStatus SkillReadinessReference { get; set; }
+        ISkillAttributes SkillAttributes { get; set; }
+        //TEST END
+        
     }
 }

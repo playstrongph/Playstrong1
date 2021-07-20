@@ -13,7 +13,10 @@ namespace ScriptableObjects.SkillEffects
 
         void RegisterSkillEffect(IHero thisHero);
         
+        //TEST
+        
         ISkillStatus SkillReadinessReference { get; set; }
+        ISkillAttributes SkillAttributes { get; set; }
 
 
     }

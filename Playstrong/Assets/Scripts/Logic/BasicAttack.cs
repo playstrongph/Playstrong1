@@ -151,6 +151,7 @@ namespace Logic
 
             //Test
             SkillEffect.SkillReadinessReference = this.SkillStatus;
+            SkillEffect.SkillAttributes = this;
         }
 
 
