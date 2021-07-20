@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Interfaces;
 using Logic;
-using References;
 using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.Others;
 using UnityEngine;
@@ -23,7 +22,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         [RequireInterface(typeof(IHeroAction))]
         private List<Object> _skillActionAssets = new List<Object>();
 
-        private List<IHeroAction> SkillActionAssets
+        public List<IHeroAction> SkillActionAssets
         {
             get
             {
@@ -39,8 +38,6 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             }
             
         }
-        
-        public ISkill ReferenceSkill { get; set; }
 
         /// <summary>
         /// Run all skill actions assigned to the skill condition
@@ -50,10 +47,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         {
             _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TEST
-            //TODO:  Check either skill cooldown <=0 or skill readiness here
-            //if(ReferenceSkill.SkillLogic.SkillAttributes.Cooldown <= 0)
-                _logicTree.AddCurrent(TargetCoroutine(thisHero, targetHero));
+           _logicTree.AddCurrent(TargetCoroutine(thisHero, targetHero));
         }
 
         private IEnumerator TargetCoroutine(IHero thisHero, IHero targetHero)
@@ -61,7 +55,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
             {
-                
+                //skillAction.Target(hero);   
                 _logicTree.AddCurrent(skillAction.StartAction(thisHero, targetHero));
             }
             

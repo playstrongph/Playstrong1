@@ -18,9 +18,6 @@ namespace ScriptableObjects.GameEvents
         [SerializeField] [RequireInterface(typeof(ISkillConditionAsset))]
         private List<Object> skillConditionAssets;
 
-
-        public ISkill ReferenceSkill { get; set; }
-
         protected List<ISkillConditionAsset> SkillConditionAssets
         {
             get
@@ -43,8 +40,6 @@ namespace ScriptableObjects.GameEvents
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
             LogicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
             
-            //Set Condition Reference skill here
-            
         }
         
         /// <summary>
@@ -52,9 +47,6 @@ namespace ScriptableObjects.GameEvents
         /// </summary>
         protected virtual IEnumerator SubscribeToHeroEventsCoroutine(IHero hero)
         {
-            //TEST
-            SetConditionReferenceSkill();
-            
             LogicTree.EndSequence();  
             yield return null;
             
@@ -62,13 +54,8 @@ namespace ScriptableObjects.GameEvents
         
         public void SubscribeToSkillEvents(ISkill skill)
         {
-            //TEST
-            SetConditionReferenceSkill();
-            
             LogicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             LogicTree.AddCurrent(SubscribeToSkillEventsCoroutine(skill));
-            
-            //Set Condition Reference skill here
             
         }
         
@@ -84,20 +71,6 @@ namespace ScriptableObjects.GameEvents
             yield return null;
             
         }
-        
-        private void SetConditionReferenceSkill()
-        {
-            var skillConditions = SkillConditionAssets;
-            foreach (var skillCondition in skillConditions)
-            {
-                skillCondition.ReferenceSkill = ReferenceSkill;
-
-            }
-            
-           
-        }
-        
-        
         
        
 

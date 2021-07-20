@@ -12,10 +12,6 @@ namespace ScriptableObjects.SkillEffects
 
         void RegisterSkillEffect(IHero thisHero);
 
-        void SetEventReferenceSkill(ISkill skill);
-        
-        
-
 
     }
 }
