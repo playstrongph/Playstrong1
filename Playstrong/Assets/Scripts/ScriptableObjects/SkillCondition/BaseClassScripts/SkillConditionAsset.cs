@@ -40,16 +40,13 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             
         }
         
-        //TEST
-        public ISkillStatus SkillReadinessReference { get; set; }
-
+      
         public ISkillAttributes SkillAttributes { get; set; }
-        //TEST END
+       
 
         /// <summary>
         /// Run all skill actions assigned to the skill condition
         /// </summary>
-        /// <param name="hero"></param>
         public virtual void Target(IHero thisHero, IHero targetHero)
         {
             _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;

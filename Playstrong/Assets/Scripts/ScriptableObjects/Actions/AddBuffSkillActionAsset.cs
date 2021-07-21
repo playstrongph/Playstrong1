@@ -41,8 +41,7 @@ namespace ScriptableObjects.SkillActions
 
         private IEnumerator AddBuffCoroutine(IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
-            Debug.Log("AddBuffCoroutine");
-            
+           
             BuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters);
        
             

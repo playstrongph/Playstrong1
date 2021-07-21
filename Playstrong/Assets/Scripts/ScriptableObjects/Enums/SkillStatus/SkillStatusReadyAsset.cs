@@ -67,7 +67,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
         {
            base.StartAction(skillAction, thisHero, targetHero);
-           Debug.Log("Skill Status Ready Asset");
+         
         }
     }
 }

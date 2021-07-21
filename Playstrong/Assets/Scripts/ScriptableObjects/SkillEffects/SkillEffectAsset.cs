@@ -22,11 +22,8 @@ namespace ScriptableObjects.SkillEffects
         private Object _skilEffectEvent;
         private IGameEvents SkillEffectEvent => _skilEffectEvent as IGameEvents;
 
-        
-        //TEST
-        public ISkillStatus SkillReadinessReference { get; set; }
         public ISkillAttributes SkillAttributes { get; set; }
-        //TEST END
+      
 
         public void RegisterSkillEffect(ISkill skill)
         {
@@ -44,13 +41,10 @@ namespace ScriptableObjects.SkillEffects
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
 
-            //SkillEffectEvent.SubscribeToHeroEvents(thisHero);
             SkillEffectEvent.SubscribeToSkillEvents(skill);
-            
-            //TEST
-            SkillEffectEvent.SkillReadinessReference = SkillReadinessReference;
+
             SkillEffectEvent.SkillAttributes = SkillAttributes;
-            //TEST END
+           
             
             logicTree.EndSequence();
             yield return null;
@@ -68,11 +62,8 @@ namespace ScriptableObjects.SkillEffects
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             SkillEffectEvent.SubscribeToHeroEvents(thisHero);
-            
-            //TEST
-            SkillEffectEvent.SkillReadinessReference = SkillReadinessReference;
+
             SkillEffectEvent.SkillAttributes = SkillAttributes;
-            //TEST END
 
             logicTree.EndSequence();
             yield return null;

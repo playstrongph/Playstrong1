@@ -46,14 +46,7 @@ namespace Logic
                     
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero);
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
-                    
-                    //TEST END
-                    skill.SkillLogic.SkillAttributes.SkillEffect.SkillReadinessReference =
-                        skill.SkillLogic.SkillAttributes.SkillStatus;
-                    
                     skill.SkillLogic.SkillAttributes.SkillEffect.SkillAttributes = skill.SkillLogic.SkillAttributes;
-
-                    //TEST END
                 }
                 
             }
@@ -75,14 +68,7 @@ namespace Logic
                     
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(hero);
                     skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
-                    
-                    //Test
-                    skill.SkillLogic.SkillAttributes.SkillEffect.SkillReadinessReference =
-                        skill.SkillLogic.SkillAttributes.SkillStatus;
-                    
                     skill.SkillLogic.SkillAttributes.SkillEffect.SkillAttributes = skill.SkillLogic.SkillAttributes;
-                    //Test End
-
                 }
                 
             }

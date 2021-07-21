@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Weaken
   _description: Deal 10 damage, inflict ATTACK-DOWN(2), SLOW(2), and ANTI-BUFF(2).
-  _skillEffect: {fileID: 11400000, guid: 818eeb4dcbf78904ab17c729428bffbc, type: 2}
-  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  _skillEffect: {fileID: 11400000, guid: fc72e6dc2a99ec347bb8345a5791479c, type: 2}
+  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: a68425dd71f060342a408cb79674550f, type: 3}
-  _cooldown: 1
-  _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
+  _cooldown: 0
+  _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}

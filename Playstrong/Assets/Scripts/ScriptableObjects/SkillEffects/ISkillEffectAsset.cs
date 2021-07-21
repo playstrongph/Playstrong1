@@ -10,14 +10,7 @@ namespace ScriptableObjects.SkillEffects
     public interface ISkillEffectAsset
     {
         void RegisterSkillEffect(ISkill skill);
-
         void RegisterSkillEffect(IHero thisHero);
-        
-        //TEST
-        
-        ISkillStatus SkillReadinessReference { get; set; }
         ISkillAttributes SkillAttributes { get; set; }
-
-
     }
 }

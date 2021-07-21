@@ -48,7 +48,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             //TEMP. TODO: Transfer this to LoadValues
             heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
             
-            Debug.Log("Create Status Effect");
+          
 
           
         }
