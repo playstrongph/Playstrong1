@@ -8,6 +8,6 @@ namespace ScriptableObjects.GameEvents
     {
         void SubscribeToHeroEvents(IHero hero);
         void SubscribeToSkillEvents(ISkill skill);
-        ISkillAttributes SkillAttributes { get; set; }
+    
     }
 }

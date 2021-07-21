@@ -148,7 +148,6 @@ namespace Logic
         private void Start()
         {
             SkillEffect.RegisterSkillEffect(_heroLogic.Hero);
-            SkillEffect.SkillAttributes = this;
         }
 
 

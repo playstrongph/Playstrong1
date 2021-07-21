@@ -101,6 +101,9 @@ namespace Logic
 
         public IHeroEvents HeroEvents => _heroEvents;
 
+        private ISkillAttributes _basicAttackSkillAttributes;
+        public ISkillAttributes BasicAttackSkillAttributes => _basicAttackSkillAttributes;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
@@ -111,6 +114,7 @@ namespace Logic
             _setHeroHealth = GetComponent<ISetHeroHealth>();
             _setHeroArmor = GetComponent<ISetHeroArmor>();
             _heroEvents = GetComponent<IHeroEvents>();
+            _basicAttackSkillAttributes = GetComponent<ISkillAttributes>();
         }
     }
 }

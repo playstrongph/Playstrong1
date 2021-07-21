@@ -37,6 +37,8 @@ namespace Interfaces
 
         IHeroEvents HeroEvents { get; }
 
+        ISkillAttributes BasicAttackSkillAttributes { get; }
+
 
 
 

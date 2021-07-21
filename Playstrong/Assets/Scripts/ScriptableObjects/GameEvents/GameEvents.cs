@@ -35,15 +35,13 @@ namespace ScriptableObjects.GameEvents
         }
 
         protected ICoroutineTree LogicTree;
-        public ISkillAttributes SkillAttributes { get; set; }
-        //TEST END
-        
+
         public void SubscribeToHeroEvents(IHero hero)
         {
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
             LogicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
 
-            SetSkillAttributesReference();
+            SetSkillAttributesReference(hero);
         }
         
         /// <summary>
@@ -60,8 +58,8 @@ namespace ScriptableObjects.GameEvents
         {
             LogicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             LogicTree.AddCurrent(SubscribeToSkillEventsCoroutine(skill));
-
-            SetSkillAttributesReference();
+            
+            SetSkillAttributesReference(skill);
         }
         
         /// <summary>
@@ -78,11 +76,19 @@ namespace ScriptableObjects.GameEvents
         }
         
         
-        private void SetSkillAttributesReference()
+        private void SetSkillAttributesReference(ISkill skill)
         {
             foreach (var skillCondition in SkillConditionAssets)
             {
-                skillCondition.SkillAttributes = SkillAttributes;
+                skillCondition.SkillAttributes = skill.SkillLogic.SkillAttributes;
+            }
+        }
+        
+        private void SetSkillAttributesReference(IHero hero)
+        {
+            foreach (var skillCondition in SkillConditionAssets)
+            {
+                skillCondition.SkillAttributes = hero.HeroLogic.BasicAttackSkillAttributes;
             }
         }
 

@@ -11,6 +11,6 @@ namespace ScriptableObjects.SkillEffects
     {
         void RegisterSkillEffect(ISkill skill);
         void RegisterSkillEffect(IHero thisHero);
-        ISkillAttributes SkillAttributes { get; set; }
+       
     }
 }
