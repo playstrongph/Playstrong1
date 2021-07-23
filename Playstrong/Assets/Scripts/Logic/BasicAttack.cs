@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using DG.Tweening;
+using References;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
@@ -208,6 +209,10 @@ namespace Logic
             _logicTree.EndSequence();
             yield return null;
         }
+        
+        
+        //TEST
+        public ISkill SkillReference { get; set; }
 
     }
 }

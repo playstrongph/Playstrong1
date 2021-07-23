@@ -20,9 +20,6 @@ namespace Visual
 
         public void LoadSkillAttributesFromAsset(IHeroSkillAsset skillAsset)
         {
-            
-            
-            
             var skillAttributes = _skillLogic.SkillAttributes;
             
             skillAttributes.Cooldown = skillAsset.Cooldown;
@@ -32,6 +29,9 @@ namespace Visual
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillStatus = skillAsset.SkillStatus;
             skillAttributes.SkillEffect = skillAsset.SkillEffect;
+
+            //TEST
+            skillAttributes.SkillReference = _skillLogic.Skill;
 
 
         }

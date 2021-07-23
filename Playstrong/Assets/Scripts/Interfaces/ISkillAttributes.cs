@@ -1,4 +1,5 @@
-﻿using ScriptableObjects.Enums;
+﻿using References;
+using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
@@ -18,5 +19,7 @@ namespace Interfaces
         ISkillStatus SkillStatus { get; set; }
 
         ISkillEffectAsset SkillEffect { get; set; }
+        
+        ISkill SkillReference { get; set; }
     }
 }

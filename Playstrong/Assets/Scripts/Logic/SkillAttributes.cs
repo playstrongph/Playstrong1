@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using References;
 using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
@@ -68,7 +69,8 @@ namespace Logic
             set => _skillEffect = value as Object;
         }
 
-       
+        //Test
+        public ISkill SkillReference { get; set; }
 
 
     }
