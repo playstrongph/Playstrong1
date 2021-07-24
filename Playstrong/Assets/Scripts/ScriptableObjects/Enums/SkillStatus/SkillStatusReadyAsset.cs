@@ -69,5 +69,12 @@ namespace ScriptableObjects.Enums.SkillStatus
            base.StartAction(skillAction, thisHero, targetHero);
            Debug.Log("Skill Status Ready: " +skillAction.ToString());
         }
+        
+        public override void ResetSkillCooldown(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+
+        }
     }
 }

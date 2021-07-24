@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using References;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
@@ -16,6 +17,12 @@ namespace ScriptableObjects.Enums.SkillStatus
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(skillAction.StartAction(thisHero,targetHero));
+        }
+
+        public virtual void ResetSkillCooldown(ISkill skill)
+        {
+            
+
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using References;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
@@ -8,5 +9,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         void StatusAction(ISkillLogic skillLogic);
 
         void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero);
+
+        void ResetSkillCooldown(ISkill skill);
     }
 }

@@ -22,11 +22,15 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ReduceCooldown(counter));
         }
         
+        
+        //Reset when skill cooldown = 0, i.e. SkillReadyStatus
         public override void ResetSkillCd(ISkill skill)
         {
-            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-
-            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+           //var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+           //logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+            
+            skill.SkillLogic.SkillAttributes.SkillStatus.ResetSkillCooldown(skill);
+            
             Debug.Log("Cd Passive Skill Asset");
         }
 
