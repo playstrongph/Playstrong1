@@ -27,6 +27,7 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+            Debug.Log("Cd Passive Skill Asset");
         }
 
     }
