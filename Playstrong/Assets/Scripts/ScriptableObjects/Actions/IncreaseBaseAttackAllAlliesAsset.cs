@@ -26,8 +26,6 @@ namespace ScriptableObjects.Actions
 
         private void AllAlliesBaseAttackIncrease(IHero thisHero)
         {
-            Debug.Log("AllAlliesBaseAttackIncrease");
-            
             var allyHeroObjects = thisHero.LivingHeroes.HeroesList;
 
             foreach (var allyHeroObject in allyHeroObjects)

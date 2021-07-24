@@ -22,18 +22,22 @@ namespace ScriptableObjects.Enums.SkillStatus
             _logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             _turnController = _skillLogic.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            
-           _logicTree.AddCurrent(SetSkillReady());
-        }
-        private IEnumerator SetSkillReady()
-        {
-           
-            _logicTree.AddCurrent(EnableDragSkillTarget());
-            _logicTree.AddCurrent(EnableTargetVisual());
-            
-            _visualTree.AddCurrent(VisualEnableSkillGlow());
+            var skillType = skillLogic.SkillAttributes.SkillType;
 
-            _logicTree.EndSequence();
+            _logicTree.AddCurrent(skillType.SetSkillReady(skillLogic));
+        }
+        
+        //TODO: Only for active skill type
+        public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
+            logicTree.AddCurrent(EnableDragSkillTarget());
+            logicTree.AddCurrent(EnableTargetVisual());
+            visualTree.AddCurrent(VisualEnableSkillGlow());
+
+            logicTree.EndSequence();
             yield return null;
         }
 
@@ -67,7 +71,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
         {
            base.StartAction(skillAction, thisHero, targetHero);
-           Debug.Log("Skill Status Ready: " +skillAction.ToString());
+       
         }
         
         public override void ResetSkillCooldown(ISkill skill)

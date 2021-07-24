@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using References;
 using TMPro;
@@ -13,6 +14,8 @@ namespace ScriptableObjects.Enums.SkillType
         void ReduceSkillCd(ISkill skill, int counter);
 
         void ResetSkillCd(ISkill skill);
+        
+        IEnumerator SetSkillReady(ISkillLogic skillLogic);
 
     }
 }

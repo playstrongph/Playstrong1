@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using References;
 using TMPro;
@@ -27,6 +28,18 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+        }
+        
+        public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var skillReady = skillLogic.SkillAttributes.SkillStatus;
+            
+            logicTree.AddCurrent(skillReady.SetSkillReady(skillLogic));
+            
+
+            logicTree.EndSequence();
+            yield return null;
         }
 
     }

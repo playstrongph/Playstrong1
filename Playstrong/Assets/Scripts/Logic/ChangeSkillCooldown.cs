@@ -137,12 +137,7 @@ namespace Logic
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(0));
         }
-        
-        
-        
-        
-        
-        
+
 
         private IEnumerator VisualReduceCdAction(int skillCd)
         {

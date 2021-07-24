@@ -86,7 +86,7 @@ namespace Logic
         /// </summary>
         public void StartHeroTurns()
         {
-           Debug.Log("Start Hero Turns");
+         
             _logicTree.AddCurrent(InitializeSkillEffects.InitAllSkills());
             
             _logicTree.AddCurrent(_startOfGameEvent.GameStartEvent());

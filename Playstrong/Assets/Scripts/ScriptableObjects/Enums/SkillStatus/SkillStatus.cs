@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using References;
 using UnityEngine;
@@ -23,6 +24,14 @@ namespace ScriptableObjects.Enums.SkillStatus
         {
             
 
+        }
+
+        public virtual IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
         }
 
 

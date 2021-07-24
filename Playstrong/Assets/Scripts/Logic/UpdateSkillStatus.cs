@@ -37,8 +37,11 @@ namespace Logic
         public void SetStatus(int cooldown)
         {
             var index = Mathf.Clamp(cooldown, 0, 1);
+            
+            //Sets SkillReady or SkillNotReady
             _setStatus[index]();
             
+            //Runs Status Action inside SkillReady or SkillNotReady
             SkillStatusAction();
         }
 

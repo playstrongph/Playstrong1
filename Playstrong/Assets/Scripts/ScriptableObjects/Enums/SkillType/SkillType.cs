@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using References;
 using TMPro;
 using UnityEngine;
@@ -25,5 +26,17 @@ namespace ScriptableObjects.Enums.SkillType
             //Max Cooldown for Active Skills
             //Max Cooldown for CdPassive Skills
         }
+        
+        
+        //For CD Passive and Active skills
+        public virtual IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
     }
 }
