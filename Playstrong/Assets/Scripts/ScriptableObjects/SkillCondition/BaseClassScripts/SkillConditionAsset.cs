@@ -47,14 +47,14 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
         /// <summary>
         /// Run all skill actions assigned to the skill condition
         /// </summary>
-        public virtual void Target(IHero thisHero, IHero targetHero)
+        public virtual void UseSkillAction(IHero thisHero, IHero targetHero)
         {
             _logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-           _logicTree.AddCurrent(TargetCoroutine(thisHero, targetHero));
+           _logicTree.AddCurrent(UseSkillActionCoroutine(thisHero, targetHero));
         }
 
-        private IEnumerator TargetCoroutine(IHero thisHero, IHero targetHero)
+        private IEnumerator UseSkillActionCoroutine(IHero thisHero, IHero targetHero)
         {
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
@@ -62,7 +62,6 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
                 SkillAttributes.SkillStatus.StartAction(skillAction,thisHero,targetHero);  //Checks Skill Readiness before calling start action
             }   
             
-            //TEST - Reset Skill CD
             SkillAttributes.SkillType.ResetSkillCd(SkillAttributes.SkillReference);
             
             

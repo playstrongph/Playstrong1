@@ -7,7 +7,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
 {
     public interface ISkillConditionAsset
     {
-        void Target(IHero thisHero, IHero targetHero);
+        void UseSkillAction(IHero thisHero, IHero targetHero);
 
         ISkillAttributes SkillAttributes { get; set; }
      

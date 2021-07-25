@@ -35,7 +35,7 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var skillReady = skillLogic.SkillAttributes.SkillStatus;
             
-            logicTree.AddCurrent(skillReady.SetSkillReady(skillLogic));
+            logicTree.AddCurrent(skillReady.SetActiveSkillReady(skillLogic));
             
 
             logicTree.EndSequence();

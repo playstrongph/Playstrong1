@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
@@ -31,8 +32,10 @@ namespace ScriptableObjects.Enums.SkillStatus
         {
             _logicTree.AddCurrent(DisableDragSkillTarget());
             _logicTree.AddCurrent(DisableTargetVisual());
-            
             _visualTree.AddCurrent(VisualDisableSkillGlow());
+            
+            //TEST
+            _visualTree.AddCurrent(ShowCooldownText());
 
             _logicTree.EndSequence();
             yield return null;
@@ -65,9 +68,19 @@ namespace ScriptableObjects.Enums.SkillStatus
             yield return null;
         }
         
+        private IEnumerator ShowCooldownText()
+        {
+            var cooldownText = _skillLogic.Skill.SkillVisual.CooldownText;
+
+            cooldownText.enabled = true;
+            
+            _visualTree.EndSequence();
+            yield return null;
+        }
+        
         public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
         {
-
+            //Don't perform default action
         }
         
         

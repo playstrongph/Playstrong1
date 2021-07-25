@@ -26,13 +26,23 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         }
 
-        public virtual IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        public virtual IEnumerator SetActiveSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public virtual IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
 
 
     }

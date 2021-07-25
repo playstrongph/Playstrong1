@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
@@ -27,8 +28,8 @@ namespace ScriptableObjects.Enums.SkillStatus
             _logicTree.AddCurrent(skillType.SetSkillReady(skillLogic));
         }
         
-        //TODO: Only for active skill type
-        public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        
+        public override IEnumerator SetActiveSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
@@ -36,6 +37,19 @@ namespace ScriptableObjects.Enums.SkillStatus
             logicTree.AddCurrent(EnableDragSkillTarget());
             logicTree.AddCurrent(EnableTargetVisual());
             visualTree.AddCurrent(VisualEnableSkillGlow());
+            visualTree.AddCurrent(HideCooldownText());
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+       
+        public override IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+
+            visualTree.AddCurrent(HideCooldownText());
 
             logicTree.EndSequence();
             yield return null;
@@ -68,12 +82,16 @@ namespace ScriptableObjects.Enums.SkillStatus
             yield return null;
         }
 
-        public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
+        private IEnumerator HideCooldownText()
         {
-           base.StartAction(skillAction, thisHero, targetHero);
-       
+            var cooldownText = _skillLogic.Skill.SkillVisual.CooldownText;
+
+            cooldownText.enabled = false;
+            
+            _visualTree.EndSequence();
+            yield return null;
         }
-        
+
         public override void ResetSkillCooldown(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;

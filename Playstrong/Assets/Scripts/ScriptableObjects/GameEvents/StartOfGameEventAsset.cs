@@ -14,7 +14,7 @@ namespace ScriptableObjects.GameEvents
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-                hero.HeroLogic.HeroEvents.EStartOfGame += skillCondition.Target;
+                hero.HeroLogic.HeroEvents.EStartOfGame += skillCondition.UseSkillAction;
             }
             
             LogicTree.EndSequence();  

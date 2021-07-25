@@ -10,9 +10,9 @@ namespace ScriptableObjects.SkillCondition
     
     public class NoSkillConditionAsset : SkillConditionAsset
     {
-        public  override void Target(IHero thisHero, IHero targetHero)
+        public  override void UseSkillAction(IHero thisHero, IHero targetHero)
         {
-            base.Target(thisHero,targetHero);
+            base.UseSkillAction(thisHero,targetHero);
             
            
         }

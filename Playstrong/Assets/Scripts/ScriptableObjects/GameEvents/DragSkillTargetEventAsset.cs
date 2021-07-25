@@ -13,7 +13,7 @@ namespace ScriptableObjects.GameEvents
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
-                skill.SkillLogic.SkillEvents.EDragSkillTarget += skillCondition.Target;
+                skill.SkillLogic.SkillEvents.EDragSkillTarget += skillCondition.UseSkillAction;
                 
                 //Debug.Log("Register to EDragSkillTarget: " +skill.SkillName);
              

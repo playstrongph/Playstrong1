@@ -16,16 +16,13 @@ namespace ScriptableObjects.SkillCondition
 
         private int _chanceValue;
 
-        public  override void Target(IHero thisHero, IHero targetHero)
+        public  override void UseSkillAction(IHero thisHero, IHero targetHero)
         {
             if(SkillCondition())
-                base.Target(thisHero,targetHero);
+                base.UseSkillAction(thisHero,targetHero);
         }
 
-        /// <summary>
-        /// This is unique for each Skill Condition Asset
-        /// </summary>
-        /// <returns></returns>
+         
         private bool SkillCondition()
         {
             _chanceValue = Random.Range(0, 100);
