@@ -9,22 +9,30 @@ namespace Logic
     {
         private IHeroLogic _heroLogic;
 
-        public int FinalDamageDealt { get; set; }
+        [SerializeField] private int finalDamageDealt;
+
+        public int FinalDamageDealt
+        {
+            get => finalDamageDealt;
+            set => finalDamageDealt = value;
+        }
 
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
         }
 
-        public IEnumerator DealDamageHero(IHero targetHero, int finalAttackValue)
+        public IEnumerator DealDamageHero(IHero attackerHero, IHero targetHero, int finalAttackValue)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(finalAttackValue));
-            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(finalAttackValue, attackerHero));
+
             logicTree.EndSequence();
             yield return null;
         }
+
+        
 
 
     }

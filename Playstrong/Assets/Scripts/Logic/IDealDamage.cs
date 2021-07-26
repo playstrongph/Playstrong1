@@ -6,6 +6,6 @@ namespace Logic
     public interface IDealDamage
     {
         int FinalDamageDealt { get; set; }
-        IEnumerator DealDamageHero(IHero targetHero, int finalAttackValue);
+        IEnumerator DealDamageHero(IHero attackerHero, IHero targetHero, int finalAttackValue);
     }
 }

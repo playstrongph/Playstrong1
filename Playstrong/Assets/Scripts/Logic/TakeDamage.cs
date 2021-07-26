@@ -51,12 +51,17 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
 
-        public IEnumerator DamageHero(int damageValue)
+        public IEnumerator DamageHero(int damageValue, IHero attacker)
         {
             _targetArmor = _thisHeroLogic.HeroAttributes.Armor;
             _targetHealth = _thisHeroLogic.HeroAttributes.Health;
 
             var finalDamage = ComputeFinalDamage(damageValue);
+            
+            //TEST - feedback to attack for actual damage he dealt
+            attacker.HeroLogic.DealDamage.FinalDamageDealt = finalDamage;
+            Debug.Log(attacker.HeroName+"-Final Damage Dealt: " +attacker.HeroLogic.DealDamage.FinalDamageDealt);
+            //TEST END
 
             ComputeNewArmor(_targetArmor, finalDamage);
             ComputeNewHealth(_targetHealth, _residualDamage);

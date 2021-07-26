@@ -34,7 +34,7 @@ namespace ScriptableObjects.Actions
             //LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
 
             var dealDamage = TargetHero.HeroLogic.DealDamage;
-            LogicTree.AddCurrent(dealDamage.DealDamageHero(TargetHero,_finalAttackValue));
+            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,_finalAttackValue));
             
             LogicTree.EndSequence();
             yield return null;

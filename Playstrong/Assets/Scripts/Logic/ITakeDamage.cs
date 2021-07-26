@@ -7,7 +7,7 @@ namespace Logic
 {
     public interface ITakeDamage
     {
-        IEnumerator DamageHero(int damageValue);
+        IEnumerator DamageHero(int damageValue, IHero attacker);
 
         List<IModifier> DamageModifiers { get; }
 
