@@ -30,10 +30,6 @@ namespace ScriptableObjects.StatusEffects
 
         IStatusEffectInstance StatusEffectInstance { get; }
 
-        IHeroAction SkillAction { get; }
-
-
-
 
     }
 }

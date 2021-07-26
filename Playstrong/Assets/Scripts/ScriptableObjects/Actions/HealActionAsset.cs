@@ -37,9 +37,7 @@ namespace ScriptableObjects.Actions
         private IEnumerator HealCoroutine()
         {
             VisualTree.AddCurrent(HealVisual());
-        
-            //var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
-            
+
             var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healMultiplier* TargetHero.HeroLogic.HeroAttributes.BaseHealth);
             
             TargetHero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
@@ -47,13 +45,9 @@ namespace ScriptableObjects.Actions
             LogicTree.EndSequence();
             yield return null;
         }
-        
-        
-        //TEMP
+
         private IEnumerator HealVisual()
         {
-            //TargetHero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
-            
             TargetHero.DamageEffect.ShowDamage(Mathf.FloorToInt(healMultiplier* TargetHero.HeroLogic.HeroAttributes.BaseHealth));
 
             VisualTree.EndSequence();
