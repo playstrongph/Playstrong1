@@ -10,18 +10,18 @@ namespace ScriptableObjects.Actions
 {
     [CreateAssetMenu(fileName = "HealActionAsset", menuName = "SO's/SkillActions/HealActionAsset")]
     
-    public class HealActionAsset : SkillActionAsset, IHealActionAsset
+    public class HealActionAsset : SkillActionAsset
     {
         /// <summary>
         /// Heal Amount can be a Fixed Value set in the Modifier SO
         /// or, it can be set in script
         /// </summary>
-        [SerializeField] [RequireInterface(typeof(IModifier))]
+        /*[SerializeField] [RequireInterface(typeof(IModifier))]
         private ScriptableObject _healAmount;
 
-        public IModifier HealAmount => _healAmount as IModifier;
+        public IModifier HealAmount => _healAmount as IModifier;*/
 
-        [SerializeField] private int healValue;
+        [SerializeField] private float healMultiplier;
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
@@ -38,9 +38,9 @@ namespace ScriptableObjects.Actions
         {
             VisualTree.AddCurrent(HealVisual());
         
-            var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
+            //var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
             
-            //var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healValue* TargetHero.HeroLogic.HeroAttributes.Health);
+            var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healMultiplier* TargetHero.HeroLogic.HeroAttributes.BaseHealth);
             
             TargetHero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
             
@@ -52,9 +52,9 @@ namespace ScriptableObjects.Actions
         //TEMP
         private IEnumerator HealVisual()
         {
-            TargetHero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
+            //TargetHero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
             
-            //TargetHero.DamageEffect.ShowDamage(Mathf.FloorToInt(healValue* TargetHero.HeroLogic.HeroAttributes.Health));
+            TargetHero.DamageEffect.ShowDamage(Mathf.FloorToInt(healMultiplier* TargetHero.HeroLogic.HeroAttributes.BaseHealth));
 
             VisualTree.EndSequence();
             yield return null;

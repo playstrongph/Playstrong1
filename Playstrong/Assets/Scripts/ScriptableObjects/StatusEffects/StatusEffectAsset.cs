@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
@@ -70,8 +71,13 @@ namespace ScriptableObjects.StatusEffects
         public virtual void EndTurnStatusEffect(IHero hero)
         {
         }
-        
-        
+
+        public virtual IEnumerator StartSkillAction()
+        {
+            LogicTree.EndSequence();
+            yield return null;
+        }
+
 
     }
 }
