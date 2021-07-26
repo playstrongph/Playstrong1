@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Logic;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
@@ -35,6 +36,12 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
+        
+        [SerializeField]
+        [RequireInterface(typeof(IHeroAction))]
+        private ScriptableObject _skillAction;
+
+        public IHeroAction SkillAction => _skillAction as IHeroAction;
         
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;

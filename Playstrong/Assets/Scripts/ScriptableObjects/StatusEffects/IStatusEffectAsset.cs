@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using Logic;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
@@ -28,9 +29,11 @@ namespace ScriptableObjects.StatusEffects
         IStatusEffectCounterUpdate UpdateTiming { get; }
 
         IStatusEffectInstance StatusEffectInstance { get; }
-        
 
-        
+        IHeroAction SkillAction { get; }
+
+
+
 
     }
 }

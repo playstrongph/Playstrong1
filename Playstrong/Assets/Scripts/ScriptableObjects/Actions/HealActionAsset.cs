@@ -21,6 +21,8 @@ namespace ScriptableObjects.Actions
 
         public IModifier HealAmount => _healAmount as IModifier;
 
+        [SerializeField] private int healValue;
+
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
            InitializeValues(thisHero, targetHero);
@@ -37,6 +39,9 @@ namespace ScriptableObjects.Actions
             VisualTree.AddCurrent(HealVisual());
         
             var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + (int)HealAmount.ModValue;
+            
+            //var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healValue* TargetHero.HeroLogic.HeroAttributes.Health);
+            
             TargetHero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
             
             LogicTree.EndSequence();
@@ -49,6 +54,8 @@ namespace ScriptableObjects.Actions
         {
             TargetHero.DamageEffect.ShowDamage((int)HealAmount.ModValue);
             
+            //TargetHero.DamageEffect.ShowDamage(Mathf.FloorToInt(healValue* TargetHero.HeroLogic.HeroAttributes.Health));
+
             VisualTree.EndSequence();
             yield return null;
         }
