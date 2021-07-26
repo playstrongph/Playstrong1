@@ -39,6 +39,8 @@ namespace Interfaces
 
         ISkillAttributes BasicAttackSkillAttributes { get; }
 
+        IDealDamage DealDamage { get; }
+
 
 
 

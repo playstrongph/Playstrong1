@@ -29,7 +29,12 @@ namespace ScriptableObjects.Actions
         private IEnumerator AttackHero()
         {
             VisualTree.AddCurrent(AttackHeroVisual());
-            LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
+            
+            //TODO - transfer this to Deal Damage
+            //LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
+
+            var dealDamage = TargetHero.HeroLogic.DealDamage;
+            LogicTree.AddCurrent(dealDamage.DealDamageHero(TargetHero,_finalAttackValue));
             
             LogicTree.EndSequence();
             yield return null;
