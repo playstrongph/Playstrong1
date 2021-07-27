@@ -98,8 +98,12 @@ namespace Logic
         {
             SetHeroDeadStatus(hero);
             DestroyAllStatusEffects(hero);
+            //TODO: Reset Base Values
+            //Remove from TurnController
+            //Disable Skills
+            //Disable Target Visuals
 
-            //Visual actions need to be queued.
+            //Note: Visual actions need to be queued.
         }
 
         private void SetHeroDeadStatus(IHero hero)
