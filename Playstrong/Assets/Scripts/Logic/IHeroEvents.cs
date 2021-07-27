@@ -27,7 +27,11 @@ namespace Logic
         event HeroEvents.HeroesEvent EStartOfGame;
         
         
+        //Single Hero Events
+        event HeroEvents.HeroEvent EBeforeHeroDies;
         
+        event HeroEvents.HeroEvent EAfterHeroDies;
+
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PostAttack(IHero initiatorHero, IHero targetHero);
         
@@ -47,5 +51,9 @@ namespace Logic
         void DragSkillTarget(IHero initiatorHero, IHero targetHero);
         
         void StartOfGame(IHero initiatorHero, IHero targetHero);
+
+        //Single Hero Events
+        void BeforeHeroDies(IHero hero);
+        void AfterHeroDies(IHero hero);
     }
 }

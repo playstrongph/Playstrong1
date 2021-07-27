@@ -11,7 +11,9 @@ namespace Logic
     public class HeroEvents : MonoBehaviour, IHeroEvents
     {
         public delegate void HeroesEvent(IHero initiatorHero, IHero targetHero);
-
+        
+        public delegate void HeroEvent(IHero hero);
+        
         public event HeroesEvent EPreAttack;
         public event HeroesEvent EPostAttack;
         public event HeroesEvent EPreCriticalStrike;
@@ -20,13 +22,13 @@ namespace Logic
         public event HeroesEvent EAfterAttacking;
         public event HeroesEvent EBeforeCriticalStrike;
         public event HeroesEvent EAfterCriticalStrike;
-        
         public event HeroesEvent EDragBasicAttack;
-        
         public event HeroesEvent EDragSkillTarget;
-        
         public event HeroesEvent EStartOfGame;
+
+        public event HeroEvent EBeforeHeroDies;
         
+        public event HeroEvent EAfterHeroDies;
         
         
         private IHeroLogic _heroLogic;
@@ -212,6 +214,36 @@ namespace Logic
                     EStartOfGame -= client as HeroesEvent;
                 }
         }
+        
+        public void BeforeHeroDies(IHero hero)
+        {
+            EBeforeHeroDies?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroDiesClients()
+        {
+            var clients = EBeforeHeroDies?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroDies -= client as HeroEvent;
+                }
+        }
+        
+        public void AfterHeroDies(IHero hero)
+        {
+            EAfterHeroDies?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroDiesClients()
+        {
+            var clients = EAfterHeroDies?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroDies -= client as HeroEvent;
+                }
+        }
 
         private void OnDestroy()
         {
@@ -236,6 +268,8 @@ namespace Logic
             UnsubscribeDragBasicAttackClients();
             UnsubscribeDragSkillTargetClients();
             UnsubscribeStartOfGameClients();
+            UnsubscribeBeforeHeroDiesClients();
+            UnsubscribeAfterHeroDiesClients();
         }
         
         
