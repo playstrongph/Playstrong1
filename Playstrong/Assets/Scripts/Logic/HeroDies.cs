@@ -27,8 +27,6 @@ namespace Logic
 
         public IEnumerator CheckHeroDeath(IHero hero)
         {
-            Debug.Log("Check Hero Death");
-            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(BeforeHeroDiesEvent(hero));
@@ -46,15 +44,9 @@ namespace Logic
         private IEnumerator BeforeHeroDiesEvent(IHero hero)
         {
             var heroHealth = hero.HeroLogic.HeroAttributes.Health;
-            Debug.Log("BeforeHeroDiesEvent, Health: " +heroHealth);
             
             if (heroHealth <= 0)
-            {
-                //Debug.Log("BeforeHeroDiesEvent");
-                hero.HeroLogic.HeroEvents.BeforeHeroDies(hero);    
-            }
-
-            
+                hero.HeroLogic.HeroEvents.BeforeHeroDies(hero);
 
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
@@ -70,7 +62,6 @@ namespace Logic
 
             if (heroHealth <= 0)
             {
-                Debug.Log("HeroDiesAction");
                 logicTree.AddCurrent(HeroDeathActions(hero));
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
             }
@@ -78,9 +69,6 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
-
-
-
 
         /// <summary>
         /// Event where hero death is confirmed.
@@ -104,7 +92,8 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
-
+        
+        //TODO - Work In Progress
         private void DeathActions(IHero hero)
         {
             hero.HeroLogic.HeroLivingStatus = HeroLivingStatus;

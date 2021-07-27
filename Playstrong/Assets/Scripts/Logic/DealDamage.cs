@@ -27,6 +27,9 @@ namespace Logic
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(finalAttackValue, attackerHero));
+            
+            //TEST
+            //targetHero.HeroLogic.TakeDamage.DamageHeroTest(finalAttackValue, attackerHero);
 
             logicTree.EndSequence();
             yield return null;

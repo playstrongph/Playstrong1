@@ -14,5 +14,6 @@ namespace Logic
         void AddToDamageModifiersList(IModifier modifier);
 
         void RemoveFromDamageModifiersList(IModifier modifier);
+
     }
 }
