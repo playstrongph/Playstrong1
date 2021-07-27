@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Loren
   _description: Cowgirl
   _heroSprite: {fileID: 21300000, guid: c4d6adea9d99e42409597e26936743cb, type: 3}
-  _health: 92
+  _health: 5
   _attack: 7
   _speed: 102
   _chance: 75

@@ -46,9 +46,15 @@ namespace Logic
         private IEnumerator BeforeHeroDiesEvent(IHero hero)
         {
             var heroHealth = hero.HeroLogic.HeroAttributes.Health;
+            Debug.Log("BeforeHeroDiesEvent, Health: " +heroHealth);
             
-            if(heroHealth <= 0)
-                hero.HeroLogic.HeroEvents.BeforeHeroDies(hero);
+            if (heroHealth <= 0)
+            {
+                //Debug.Log("BeforeHeroDiesEvent");
+                hero.HeroLogic.HeroEvents.BeforeHeroDies(hero);    
+            }
+
+            
 
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
@@ -64,6 +70,7 @@ namespace Logic
 
             if (heroHealth <= 0)
             {
+                Debug.Log("HeroDiesAction");
                 logicTree.AddCurrent(HeroDeathActions(hero));
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
             }
