@@ -96,8 +96,33 @@ namespace Logic
         //TODO - Work In Progress
         private void DeathActions(IHero hero)
         {
+            SetHeroDeadStatus(hero);
+            DestroyAllStatusEffects(hero);
+
+            //Visual actions need to be queued.
+        }
+
+        private void SetHeroDeadStatus(IHero hero)
+        {
             hero.HeroLogic.HeroLivingStatus = HeroLivingStatus;
         }
+
+        private void DestroyAllStatusEffects(IHero hero)
+        {
+            var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
+            var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+
+            foreach (var buff in buffs)
+            {
+                buff.RemoveStatusEffect.RemoveEffect(hero);
+            }
+            
+            foreach (var debuff in debuffs)
+            {
+                debuff.RemoveStatusEffect.RemoveEffect(hero);
+            }
+        }
+
 
     }
 }
