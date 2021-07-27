@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using References;
 using ScriptableObjects.Modifiers;
 using UnityEngine;
 using Utilities;
@@ -53,6 +54,20 @@ namespace Logic
 
         public IEnumerator DamageHero(int damageValue, IHero attacker)
         {
+            //TEST
+            _logicTree.AddCurrent(HeroTakesDamage(damageValue, attacker));
+            
+            //TODO: CheckHeroDeath
+            
+            
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+        
+        //TEST
+        private IEnumerator HeroTakesDamage(int damageValue, IHero attacker)
+        {
             _targetArmor = _thisHeroLogic.HeroAttributes.Armor;
             _targetHealth = _thisHeroLogic.HeroAttributes.Health;
 
@@ -60,13 +75,38 @@ namespace Logic
 
             ComputeNewArmor(_targetArmor, finalDamage);
             ComputeNewHealth(_targetHealth, _residualDamage);
-            
             _visualTree.AddCurrent(ApplyFinalDamage(finalDamage));
 
             yield return null;
             _logicTree.EndSequence();
         }
+
         
+        //private IEnumerator CheckHeroDie
+        
+        private IEnumerator BeforeHeroDies()
+        {
+            if(_targetHealth <= 0)
+                _thisHeroLogic.HeroEvents.BeforeHeroDies(_thisHeroLogic.Hero);
+            
+            yield return null;
+            _logicTree.EndSequence();
+        }
+        
+        private IEnumerator AfterHeroDies()
+        {
+            if(_targetHealth <= 0)
+                _thisHeroLogic.HeroEvents.AfterHeroDies(_thisHeroLogic.Hero);
+
+
+            yield return null;
+            _logicTree.EndSequence();
+        }
+
+        //TEST END
+
+
+
         public void AddToDamageModifiersList(IModifier modifier)
         {
             var modifierObject = modifier as ScriptableObject;
@@ -89,16 +129,13 @@ namespace Logic
             {
                 var modifier = damageMod.ModValue;
                 damage = (int) Mathf.Ceil(damage * (1 + modifier));
-               
             }
-            
             return damage;
         }
 
         private IEnumerator ApplyFinalDamage(int damageValue)
         {
             _thisHeroLogic.Hero.DamageEffect.ShowDamage(damageValue);
-            
             _thisHeroLogic.SetHeroArmor.SetArmor(_targetArmor);
             _thisHeroLogic.SetHeroHealth.SetHealth(_targetHealth);
 
