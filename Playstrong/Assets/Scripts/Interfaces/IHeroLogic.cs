@@ -41,6 +41,8 @@ namespace Interfaces
 
         IDealDamage DealDamage { get; }
 
+        IHeroDies HeroDies { get; }
+
 
 
 

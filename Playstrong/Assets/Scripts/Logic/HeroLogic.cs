@@ -107,6 +107,9 @@ namespace Logic
         private IDealDamage _dealDamage;
         public IDealDamage DealDamage => _dealDamage;
 
+        private IHeroDies _heroDies;
+        public IHeroDies HeroDies => _heroDies;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
@@ -119,6 +122,7 @@ namespace Logic
             _heroEvents = GetComponent<IHeroEvents>();
             _basicAttackSkillAttributes = GetComponent<ISkillAttributes>();
             _dealDamage = GetComponent<IDealDamage>();
+            _heroDies = GetComponent<IHeroDies>();
         }
     }
 }

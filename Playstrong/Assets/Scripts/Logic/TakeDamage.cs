@@ -54,18 +54,19 @@ namespace Logic
 
         public IEnumerator DamageHero(int damageValue, IHero attacker)
         {
-            //TEST
+            var thisHero = _thisHeroLogic.Hero;
+            
             _logicTree.AddCurrent(HeroTakesDamage(damageValue, attacker));
             
-            //TODO: CheckHeroDeath
-            
-            
-            
-            yield return null;
+            //TEST
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
+
             _logicTree.EndSequence();
+            yield return null;
+          
         }
         
-        //TEST
+      
         private IEnumerator HeroTakesDamage(int damageValue, IHero attacker)
         {
             _targetArmor = _thisHeroLogic.HeroAttributes.Armor;
@@ -76,37 +77,12 @@ namespace Logic
             ComputeNewArmor(_targetArmor, finalDamage);
             ComputeNewHealth(_targetHealth, _residualDamage);
             _visualTree.AddCurrent(ApplyFinalDamage(finalDamage));
-
-            yield return null;
-            _logicTree.EndSequence();
-        }
-
-        
-        //private IEnumerator CheckHeroDie
-        
-        private IEnumerator BeforeHeroDies()
-        {
-            if(_targetHealth <= 0)
-                _thisHeroLogic.HeroEvents.BeforeHeroDies(_thisHeroLogic.Hero);
             
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+           
         }
         
-        private IEnumerator AfterHeroDies()
-        {
-            if(_targetHealth <= 0)
-                _thisHeroLogic.HeroEvents.AfterHeroDies(_thisHeroLogic.Hero);
-
-
-            yield return null;
-            _logicTree.EndSequence();
-        }
-
-        //TEST END
-
-
-
         public void AddToDamageModifiersList(IModifier modifier)
         {
             var modifierObject = modifier as ScriptableObject;
@@ -139,8 +115,9 @@ namespace Logic
             _thisHeroLogic.SetHeroArmor.SetArmor(_targetArmor);
             _thisHeroLogic.SetHeroHealth.SetHealth(_targetHealth);
 
-            yield return null;
             _visualTree.EndSequence();
+            yield return null;
+          
         }
 
         private void ComputeNewArmor(int armor, int damage)
