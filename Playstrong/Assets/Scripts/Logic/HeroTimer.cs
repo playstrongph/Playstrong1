@@ -42,7 +42,10 @@ namespace Logic
             
            TimerValue = 0;
            TimerValuePercentage = 0;
+           HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
+           
            heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
+           
         }
     }
 }

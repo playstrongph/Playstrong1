@@ -98,7 +98,8 @@ namespace Logic
         {
             SetHeroDeadStatus(hero);
             DestroyAllStatusEffects(hero);
-            //TODO: Reset Base Values
+            ResetHeroAttributes(hero);
+            
             //Remove from TurnController
             //Disable Skills
             //Disable Target Visuals
@@ -125,6 +126,28 @@ namespace Logic
             {
                 debuff.RemoveStatusEffect.RemoveEffect(hero);
             }
+        }
+
+        private void ResetHeroAttributes(IHero hero)
+        {
+            var heroAttributes = hero.HeroLogic.HeroAttributes;
+            var heroLogic = hero.HeroLogic;
+
+            //Only displayed in Hero Preview
+            heroAttributes.Chance = heroAttributes.BaseChance;
+
+            heroLogic.SetHeroAttack.SetAttack(heroAttributes.BaseAttack);
+            heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
+            heroLogic.SetHeroArmor.SetArmor(heroAttributes.BaseArmor);
+            heroLogic.SetHeroSpeed.SetSpeed(heroAttributes.BaseSpeed);
+            heroLogic.HeroTimer.ResetHeroTimer();
+        }
+
+        private void HideHeroVisuals()
+        {
+            //Disable TargetVisual GameObject (Need to create reference for TargetHero)
+            //Disable TargetHero BoxCollider
+            //Disable HeroVisual Canvas
         }
 
 

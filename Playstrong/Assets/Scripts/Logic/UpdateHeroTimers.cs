@@ -29,6 +29,7 @@ namespace Logic
 
                 heroTimer.TimerValue += heroSpeed * Time.deltaTime * speedConstant;
                 heroTimer.TimerValuePercentage = Mathf.FloorToInt(heroTimer.TimerValue * 100 / timerFull);
+                heroTimer.HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(heroTimer.TimerValuePercentage);
                 
                 heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
                 
