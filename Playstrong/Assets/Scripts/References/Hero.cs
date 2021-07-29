@@ -70,18 +70,6 @@ namespace References
         private Object _targetHero;
         public ITargetHero TargetHero => _targetHero as ITargetHero;
 
-        [SerializeField] [RequireInterface(typeof(ILivingHeroes))]
-        private Object _livingHeroes;
-        
-        public ILivingHeroes LivingHeroes
-        {
-            get { return _livingHeroes as ILivingHeroes; }
-            private set
-            {
-                _livingHeroes = value as Object;
-            }
-        }
-        
         [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
         private Object _coroutineTreeAsset;
         public ICoroutineTreesAsset CoroutineTreesAsset => _coroutineTreeAsset as ICoroutineTreesAsset;
@@ -91,15 +79,24 @@ namespace References
 
         private IDamageEffect _damageEffect;
         public IDamageEffect DamageEffect => _damageEffect;
+        
+        
+        private ILivingHeroes _livingHeroes;
+        public ILivingHeroes LivingHeroes => _livingHeroes;
+
+        private IDeadHeroes _deadHeroes;
+        public IDeadHeroes DeadHeroes => _deadHeroes;
 
         
 
         private void Awake()
         {
-            _livingHeroes = GetComponentInParent<ILivingHeroes>() as Object;
             _heroTransfrom = this.transform;
             _damageEffect = GetComponentInChildren<IDamageEffect>();
+            _livingHeroes = GetComponentInParent<ILivingHeroes>();
            
+          
+
         }
     }
 }

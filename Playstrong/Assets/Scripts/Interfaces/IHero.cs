@@ -28,6 +28,8 @@ namespace Interfaces
 
         ILivingHeroes LivingHeroes { get; }
 
+        IDeadHeroes DeadHeroes { get; }
+
         ICoroutineTreesAsset CoroutineTreesAsset { get; }
         ITargetHero TargetHero { get; }
 

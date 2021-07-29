@@ -13,5 +13,7 @@ namespace Logic
         IPanelPortaitAndSkillDisplay PanelPortaitAndSkillDisplay { get; }
 
         IPlayer Player { get; }
+
+      
     }
 }

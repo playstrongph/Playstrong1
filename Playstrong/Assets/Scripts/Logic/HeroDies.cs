@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using ScriptableObjects.HeroLivingStatus;
 using UnityEngine;
@@ -102,6 +103,8 @@ namespace Logic
             HideHeroVisuals(hero);
             
             //Remove from TurnController
+            DisableHeroTimer(hero);
+            
             //Disable Skills
             //Disable Target Visuals
 
@@ -152,7 +155,30 @@ namespace Logic
             //Disable TargetHero BoxCollider
             hero.TargetHero.HeroBoxCollider.enabled = false;
 
-            //Disable HeroVisual Canvas
+            //TODO: Disable HeroVisual Canvas
+        }
+
+        private void DisableHeroTimer(IHero hero)
+        {
+            UpdateLivingAndDeadHeroLists(hero);
+        }
+
+        private void UpdateLivingAndDeadHeroLists(IHero hero)
+        {
+            var deadHeroes = hero.LivingHeroes.Player.DeadHeroes.HeroesList;
+            var livingHeroes = hero.LivingHeroes.HeroesList;
+            
+            GameObject deadHeroGameObject = null;
+            foreach (var heroGameObject in hero.LivingHeroes.HeroesList)
+            {
+                if (heroGameObject.GetComponent<IHero>() == hero)
+                    deadHeroGameObject = heroGameObject;
+            }
+
+            livingHeroes.Remove(deadHeroGameObject);
+            deadHeroes.Add(deadHeroGameObject);
+
+
         }
 
 
