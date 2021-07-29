@@ -110,6 +110,8 @@ namespace Logic
             while (!_freezeTimers)
             {
                 yield return null;
+                
+                //TODO: make this pass by LivingStatus
                 _updateHeroTimers.UpdateTimers();
             }
             
