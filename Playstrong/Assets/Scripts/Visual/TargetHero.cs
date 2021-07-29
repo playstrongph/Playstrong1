@@ -23,13 +23,21 @@ namespace Visual
 
       private IGetAttackTargets _getAttackTargets;
       public IGetAttackTargets GetAttackTargets => _getAttackTargets;
+
+      private BoxCollider _heroBoxCollider;
+      public BoxCollider HeroBoxCollider => _heroBoxCollider;
+
+      private ITargetVisual _targetVisual;
+      public ITargetVisual TargetVisual => _targetVisual;
       
       private void Awake()
       {
          _heroPreview = GetComponent<ITargetPreview>();
          _dragHeroAttack = GetComponent<IDragHeroAttack>();
          _getAttackTargets = GetComponent<IGetAttackTargets>();
-      
+         _heroBoxCollider = GetComponent<BoxCollider>();
+         _targetVisual = GetComponentInChildren<ITargetVisual>();
+
       }
    }
 }

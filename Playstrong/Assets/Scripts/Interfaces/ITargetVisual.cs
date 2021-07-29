@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Visual;
 
 namespace Interfaces
 {
@@ -8,5 +9,7 @@ namespace Interfaces
         GameObject TargetCrossHair { get; }
         GameObject TargetTriangle { get; }
         LineRenderer TargetLineR { get; }
+
+        ITargetHero TargetHero { get; }
     }
 }

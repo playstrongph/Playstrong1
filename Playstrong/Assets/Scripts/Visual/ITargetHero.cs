@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using UnityEngine;
 
 namespace Visual
 {
@@ -12,5 +13,9 @@ namespace Visual
         IDragHeroAttack DragHeroAttack { get; }
 
         IGetAttackTargets GetAttackTargets { get; }
+
+        BoxCollider HeroBoxCollider { get; }
+
+        ITargetVisual TargetVisual { get; }
     }
 }

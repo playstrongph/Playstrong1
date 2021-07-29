@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,13 @@ namespace Visual
 
         [SerializeField] private LineRenderer _targetLineR;
         public LineRenderer TargetLineR => _targetLineR;
-    
-    
 
+        private ITargetHero _targetHero;
+        public ITargetHero TargetHero => _targetHero;
+
+        private void Awake()
+        {
+            _targetHero = GetComponentInParent<ITargetHero>();
+        }
     }
 }

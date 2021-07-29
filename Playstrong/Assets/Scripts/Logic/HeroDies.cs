@@ -99,6 +99,7 @@ namespace Logic
             SetHeroDeadStatus(hero);
             DestroyAllStatusEffects(hero);
             ResetHeroAttributes(hero);
+            HideHeroVisuals(hero);
             
             //Remove from TurnController
             //Disable Skills
@@ -143,10 +144,14 @@ namespace Logic
             heroLogic.HeroTimer.ResetHeroTimer();
         }
 
-        private void HideHeroVisuals()
+        private void HideHeroVisuals(IHero hero)
         {
             //Disable TargetVisual GameObject (Need to create reference for TargetHero)
+            hero.TargetHero.TargetVisual.TargetCanvas.enabled = false;
+            
             //Disable TargetHero BoxCollider
+            hero.TargetHero.HeroBoxCollider.enabled = false;
+
             //Disable HeroVisual Canvas
         }
 
