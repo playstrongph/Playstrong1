@@ -18,45 +18,6 @@ namespace Logic
         {
             _turnController = GetComponent<ITurnController>();
         }
-        
-
-        public void UpdateTimers2()
-        {
-            var heroTimers = _turnController.HeroTimers;
-            
-            foreach (var heroTimerObject in heroTimers)
-            {
-                UpdateHeroTimer(_turnController, heroTimerObject);
-            }
-
-        }
-        
-        //TODO: Transfer this to HeroTimer and access via livingStatus
-        private void UpdateHeroTimer(ITurnController turnController, Object heroTimerObject)
-        {
-            var speedConstant = turnController.SpeedConstant;
-            var timerFull = turnController.TimerFull;
-            var activeHeroes = turnController.ActiveHeroes;
-            
-            
-            var heroTimer = heroTimerObject as IHeroTimer;
-            var heroSpeed = heroTimer.HeroLogic.HeroAttributes.Speed;
-            var heroEnergyVisual = heroTimer.HeroLogic.Hero.HeroVisual.EnergyVisual;
-            heroTimerObject.name = heroTimer.HeroLogic.Hero.ToString();
-
-            heroTimer.TimerValue += heroSpeed * Time.deltaTime * speedConstant;
-            heroTimer.TimerValuePercentage = Mathf.FloorToInt(heroTimer.TimerValue * 100 / timerFull);
-            heroTimer.HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(heroTimer.TimerValuePercentage);
-            heroEnergyVisual.SetEnergyTextAndBarFill((int)heroTimer.TimerValuePercentage);
-                
-            if (heroTimer.TimerValue >= timerFull)
-            {
-                _turnController.FreezeTimers = true;
-                activeHeroes.Add(heroTimerObject);
-            }
-        }
-        
-        //TEST START
 
         public void UpdateTimers()
         {
@@ -71,36 +32,26 @@ namespace Logic
                 var hero = heroObject.GetComponent<IHero>();
                 var heroTimer = hero.HeroLogic.HeroTimer;
                 heroTimer.UpdateHeroTimer(_turnController);
-                
-                 if (heroTimer.TimerValue >= _turnController.TimerFull)
-                 {
-                     _turnController.FreezeTimers = true;
-                     _turnController.ActiveHeroes.Add(heroTimer as Object);
-                 }
             }
         }
 
         private void GetAllLivingHeroes()
         {
-            var allyHeroes = _turnController.BattleSceneManager.MainPlayer.LivingHeroes.HeroesList;
-            var enemyHeroes = _turnController.BattleSceneManager.EnemyPlayer.LivingHeroes.HeroesList;
+            var allyHeroes = _turnController.BattleSceneManager.MainPlayer.LivingHeroes;
+            var enemyHeroes = _turnController.BattleSceneManager.EnemyPlayer.LivingHeroes;
             
             _allLivingHeroes.Clear();
             
-            foreach (var allyHero in allyHeroes)
+            foreach (var allyHero in allyHeroes.HeroesList)
             {
                 _allLivingHeroes.Add(allyHero);
             }
             
-            foreach (var enemyHero in enemyHeroes)
+            foreach (var enemyHero in enemyHeroes.HeroesList)
             {
                 _allLivingHeroes.Add(enemyHero);
             }
         }
-
-        //TEST END
-
-
 
     }
 }
