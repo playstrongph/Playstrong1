@@ -4,6 +4,7 @@ using Interfaces;
 using Logic;
 using ScriptableObjects.Others;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace ScriptableObjects.HeroStatus
 {
@@ -93,10 +94,15 @@ namespace ScriptableObjects.HeroStatus
             yield return null;
         }
 
+        public void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
+        {
+            _turnController.ActiveHeroes.Remove(heroTimer);
+        }
 
-        
-        
-        
+
+
+
+
 
 
     }

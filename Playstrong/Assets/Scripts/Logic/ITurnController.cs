@@ -21,5 +21,7 @@ namespace Logic
         IBattleSceneManager BattleSceneManager { get; }
 
         IInitializeSkillEffects InitializeSkillEffects { get; }
+
+        ISetHeroStatus SetHeroStatus { get; }
     }
 }

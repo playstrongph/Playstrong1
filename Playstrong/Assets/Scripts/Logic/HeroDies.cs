@@ -5,6 +5,7 @@ using Interfaces;
 using ScriptableObjects.HeroLivingStatus;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
@@ -101,9 +102,7 @@ namespace Logic
             DestroyAllStatusEffects(hero);
             ResetHeroAttributes(hero);
             HideHeroVisuals(hero);
-            
-            //Remove from TurnController
-            DisableHeroTimer(hero);
+            DisableHeroTurns(hero);
             
             //Disable Skills
             //Disable Target Visuals
@@ -158,9 +157,10 @@ namespace Logic
             //TODO: Disable HeroVisual Canvas
         }
 
-        private void DisableHeroTimer(IHero hero)
+        private void DisableHeroTurns(IHero hero)
         {
             UpdateLivingAndDeadHeroLists(hero);
+            UpdateActiveHeroesList(hero);
         }
 
         private void UpdateLivingAndDeadHeroLists(IHero hero)
@@ -179,6 +179,19 @@ namespace Logic
             deadHeroes.Add(deadHeroGameObject);
 
 
+        }
+        
+        /// <summary>
+        /// If hero is active, removes hero from ActiveHeroes Queue and changes state to inactive
+        /// </summary>
+        private void UpdateActiveHeroesList(IHero hero)
+        {
+            var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            var heroInactiveStatus = turnController.SetHeroStatus.HeroInactive;
+            var heroTimerObject = hero.HeroLogic.HeroTimer as Object;
+            
+            hero.HeroLogic.HeroStatus.RemoveFromActiveHeroesList(turnController, heroTimerObject);
+            hero.HeroLogic.HeroStatus = heroInactiveStatus;
         }
 
 

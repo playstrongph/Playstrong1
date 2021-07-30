@@ -43,7 +43,10 @@ namespace Logic
         
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
+        
         private ISetHeroStatus _setHeroStatus;
+        public ISetHeroStatus SetHeroStatus => _setHeroStatus;
+        
         private IHeroLogic _activeHeroLogic;
         private int _activeHeroIndex;
         private float _endTurnDelaySeconds = 0.5f;
@@ -58,9 +61,6 @@ namespace Logic
 
         private IInitializeSkillEffects _initializeSkillEffects;
         public IInitializeSkillEffects InitializeSkillEffects => _initializeSkillEffects;
-
-        
-        
 
 
         private void Awake()

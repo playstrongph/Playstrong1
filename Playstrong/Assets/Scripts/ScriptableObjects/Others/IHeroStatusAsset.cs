@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using UnityEngine;
 
 namespace ScriptableObjects.Others
 {
@@ -8,6 +9,8 @@ namespace ScriptableObjects.Others
 
         void StatusAction(IHeroLogic heroLogic);
         void InitializeTurnController(ITurnController turnController);
+
+        void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer);
 
     }
 }
