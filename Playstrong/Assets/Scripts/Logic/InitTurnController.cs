@@ -24,9 +24,7 @@ namespace Logic
                 heroTimerObject.name = heroTimer.HeroLogic.Hero.HeroName;
                 
                 _battleSceneManager.TurnController.HeroTimers.Add(heroTimerObject);
-                
 
-                
             }
             
             foreach (var heroGameObject in _battleSceneManager.EnemyPlayer.LivingHeroes.HeroesList)

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
@@ -17,24 +18,21 @@ namespace Logic
 
         public IEnumerator SortByEnergy()
         {
-            var returnList = new List<IHeroTimer>();
             var activeHeroes = _turnController.ActiveHeroes;
             var logicTree = _turnController.GlobalTrees.MainLogicTree;
 
-            foreach (var activeHero in activeHeroes)
-            {
-                returnList.Add(activeHero as IHeroTimer);
-            }
+            _turnController.ActiveHeroes.Sort(CompareListByATB);
             
-            returnList.Sort(CompareListByATB);
-
-            yield return returnList;
+            yield return null;
             logicTree.EndSequence(); 
         }
-        
-        private int CompareListByATB(IHeroTimer i1, IHeroTimer i2)
+
+        private int CompareListByATB(Object i1, Object i2)
         {
-            var x = i1.TimerValue.CompareTo(i2.TimerValue);
+            var ix1 = i1 as IHeroTimer;
+            var ix2 = i2 as IHeroTimer;
+            
+            var x = ix1.TimerValue.CompareTo(ix2.TimerValue);
             return x;
         }
         
