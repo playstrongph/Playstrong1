@@ -20,14 +20,23 @@ namespace Logic
             {
                 var heroTimer = heroGameObject.GetComponent<IHero>().HeroLogic.HeroTimer;
                 
-                _battleSceneManager.TurnController.HeroTimers.Add(heroTimer as Object);
+                var heroTimerObject = heroTimer as Object;
+                heroTimerObject.name = heroTimer.HeroLogic.Hero.HeroName;
+                
+                _battleSceneManager.TurnController.HeroTimers.Add(heroTimerObject);
+                
+
+                
             }
             
             foreach (var heroGameObject in _battleSceneManager.EnemyPlayer.LivingHeroes.HeroesList)
             {
                 var heroTimer = heroGameObject.GetComponent<IHero>().HeroLogic.HeroTimer;
+
+                var heroTimerObject = heroTimer as Object;
+                heroTimerObject.name = heroTimer.HeroLogic.Hero.HeroName;
                 
-                _battleSceneManager.TurnController.HeroTimers.Add(heroTimer as Object);
+                _battleSceneManager.TurnController.HeroTimers.Add(heroTimerObject);
             }
 
             var logicTree = _battleSceneManager.GlobalTrees.MainLogicTree;
