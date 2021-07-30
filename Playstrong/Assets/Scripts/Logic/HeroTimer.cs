@@ -47,5 +47,28 @@ namespace Logic
            heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
            
         }
+
+        public void UpdateHeroTimer(ITurnController turnController)
+        {
+            var speedConstant = turnController.SpeedConstant;
+            var timerFull = turnController.TimerFull;
+            var activeHeroes = turnController.ActiveHeroes;
+
+            var heroSpeed = HeroLogic.HeroAttributes.Speed;
+            var heroEnergyVisual = HeroLogic.Hero.HeroVisual.EnergyVisual;
+            
+            TimerValue += heroSpeed * Time.deltaTime * speedConstant;
+            TimerValuePercentage = Mathf.FloorToInt(TimerValue * 100 / timerFull);
+            HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
+            heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
+                
+            if (TimerValue >= timerFull)
+            {
+                turnController.FreezeTimers = true;
+                activeHeroes.Add(this as Object);
+            }
+        }
+
+
     }
 }

@@ -10,5 +10,7 @@ namespace Logic
         IHeroLogic HeroLogic { get; }
 
         void ResetHeroTimer();
+
+        void UpdateHeroTimer(ITurnController turnController);
     }
 }
