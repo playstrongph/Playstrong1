@@ -86,6 +86,9 @@ namespace References
 
         private IDeadHeroes _deadHeroes;
         public IDeadHeroes DeadHeroes => _deadHeroes;
+        
+        
+        
 
         
 
