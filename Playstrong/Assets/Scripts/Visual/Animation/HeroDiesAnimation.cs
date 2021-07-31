@@ -54,14 +54,14 @@ namespace Visual.Animation
 
             s.AppendCallback(() =>
             {
-                _dieAnimEffect = GameObject.Instantiate(AnimationEffects[0], hero.HeroTransform);
+                _dieAnimEffect = Instantiate(AnimationEffects[0], hero.HeroTransform);
             });
             
             s.AppendInterval(skullAnimDuration);
 
             s.AppendCallback(() =>
             {
-                GameObject.Destroy(_dieAnimEffect);
+                Destroy(_dieAnimEffect);
                 hero.HeroVisual.HeroCanvas.enabled = false;
             });
 

@@ -5,6 +5,7 @@ using Interfaces;
 using ScriptableObjects.HeroLivingStatus;
 using UnityEngine;
 using Utilities;
+using Visual.Animation;
 using Object = UnityEngine.Object;
 
 namespace Logic
@@ -17,9 +18,14 @@ namespace Logic
         private ScriptableObject _heroLivingStatus;
         
         private IHeroLivingStatusAsset HeroLivingStatus => _heroLivingStatus as IHeroLivingStatusAsset;
-        
-        
+
         private IHeroLogic _heroLogic;
+        
+        //TEST
+        [SerializeField]
+        [RequireInterface(typeof(IAnimations))]
+        private Object _dieAnimation;
+        private IAnimations DieAnimation => _dieAnimation as IAnimations;
 
         private void Awake()
         {
@@ -103,9 +109,14 @@ namespace Logic
             ResetHeroAttributes(hero);
             HideHeroVisuals(hero);
             DisableHeroTurns(hero);
-            
             //Disable Skills
+            
             //Disable Target Visuals
+            
+            //HeroDies Animation and Disable Hero Canvas
+            //TEST
+            HeroDiesAnimation(hero);
+            
 
             //Note: Visual actions need to be queued.
         }
@@ -192,6 +203,13 @@ namespace Logic
             
             hero.HeroLogic.HeroStatus.RemoveFromActiveHeroesList(turnController, heroTimerObject);
             hero.HeroLogic.HeroStatus = heroInactiveStatus;
+        }
+
+        private void HeroDiesAnimation(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            visualTree.AddCurrent(DieAnimation.StartAnimation(hero));
+            
         }
 
 

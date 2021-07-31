@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interfaces;
+using Visual.Animation;
 
 namespace Logic
 {

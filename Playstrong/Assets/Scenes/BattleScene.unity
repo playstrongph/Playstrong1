@@ -1723,6 +1723,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
+    - target: {fileID: 1550127320965468234, guid: 55d0158ae4095ed459b6c7d1bccedb52,
+        type: 3}
+      propertyPath: _dieAnimation
+      value: 
+      objectReference: {fileID: 11400000, guid: 9671ac9a0d7a27149be4a5a644837db2,
+        type: 2}
     - target: {fileID: 3820792405746686396, guid: 55d0158ae4095ed459b6c7d1bccedb52,
         type: 3}
       propertyPath: m_Name
