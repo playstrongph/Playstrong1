@@ -32,7 +32,7 @@ namespace Logic
         
         
         //Single Hero Events
-        event HeroEvents.HeroEvent EBeforeHeroDies;
+        event HeroEvents.HeroEvent EHeroTakesFatalDamage;
         
         event HeroEvents.HeroEvent EAfterHeroDies;
         
@@ -61,7 +61,7 @@ namespace Logic
         void StartOfGame(IHero initiatorHero, IHero targetHero);
 
         //Single Hero Events
-        void BeforeHeroDies(IHero hero);
+        void HeroTakesFatalDamage(IHero hero);
         void AfterHeroDies(IHero hero);
 
         void PostHeroDeath(IHero hero);

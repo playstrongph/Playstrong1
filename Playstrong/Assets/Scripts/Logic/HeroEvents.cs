@@ -26,7 +26,7 @@ namespace Logic
         public event HeroesEvent EDragSkillTarget;
         public event HeroesEvent EStartOfGame;
 
-        public event HeroEvent EBeforeHeroDies;
+        public event HeroEvent EHeroTakesFatalDamage;
         
         public event HeroEvent EAfterHeroDies;
         
@@ -217,18 +217,18 @@ namespace Logic
                 }
         }
         
-        public void BeforeHeroDies(IHero hero)
+        public void HeroTakesFatalDamage(IHero hero)
         {
-            EBeforeHeroDies?.Invoke(hero);
+            EHeroTakesFatalDamage?.Invoke(hero);
         }
         
-        private void UnsubscribeBeforeHeroDiesClients()
+        private void UnsubscribeHeroTakesFatalDamageClients()
         {
-            var clients = EBeforeHeroDies?.GetInvocationList();
+            var clients = EHeroTakesFatalDamage?.GetInvocationList();
             if (clients != null)
                 foreach (var client in clients)
                 {
-                    EBeforeHeroDies -= client as HeroEvent;
+                    EHeroTakesFatalDamage -= client as HeroEvent;
                 }
         }
         
@@ -288,7 +288,7 @@ namespace Logic
             UnsubscribeDragBasicAttackClients();
             UnsubscribeDragSkillTargetClients();
             UnsubscribeStartOfGameClients();
-            UnsubscribeBeforeHeroDiesClients();
+            UnsubscribeHeroTakesFatalDamageClients();
             UnsubscribeAfterHeroDiesClients();
             UnsubscribePostHeroDeathClients();
         }

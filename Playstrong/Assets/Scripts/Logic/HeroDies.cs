@@ -37,7 +37,7 @@ namespace Logic
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(BeforeHeroDiesEvent(hero));
+            logicTree.AddCurrent(HeroTakesFatalDamageEvent(hero));
 
             logicTree.AddCurrent(HeroDiesAction(hero));
 
@@ -49,12 +49,12 @@ namespace Logic
         /// Event where possible death interruption to the hero is called
         /// Example - immortal, evade death skill, etc.
         /// </summary>
-        private IEnumerator BeforeHeroDiesEvent(IHero hero)
+        private IEnumerator HeroTakesFatalDamageEvent(IHero hero)
         {
             var heroHealth = hero.HeroLogic.HeroAttributes.Health;
             
             if (heroHealth <= 0)
-                hero.HeroLogic.HeroEvents.BeforeHeroDies(hero);
+                hero.HeroLogic.HeroEvents.HeroTakesFatalDamage(hero);
 
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
@@ -102,7 +102,9 @@ namespace Logic
            
         }
 
-
+        /// <summary>
+        /// This is where Revive is called
+        /// </summary>
         private IEnumerator PostHeroDeath(IHero hero)
         {
             hero.HeroLogic.HeroEvents.PostHeroDeath(hero);
