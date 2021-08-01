@@ -8,6 +8,10 @@ namespace ScriptableObjects.GameEvents
     {
         void SubscribeToHeroEvents(IHero hero);
         void SubscribeToSkillEvents(ISkill skill);
-    
+
+        void UnsubscribeToHeroEvents(IHero hero);
+
+        void UnsubscribeToSkillEvents(ISkill skill);
+
     }
 }

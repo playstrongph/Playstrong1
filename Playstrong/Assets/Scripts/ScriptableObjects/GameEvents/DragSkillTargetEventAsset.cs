@@ -14,9 +14,19 @@ namespace ScriptableObjects.GameEvents
             foreach (var skillCondition in skillConditions)
             {
                 skill.SkillLogic.SkillEvents.EDragSkillTarget += skillCondition.UseSkillAction;
-                
-                //Debug.Log("Register to EDragSkillTarget: " +skill.SkillName);
-             
+
+            }
+            
+            LogicTree.EndSequence();  
+            yield return null;
+        }
+        
+        protected override IEnumerator UnsubscribeToSkillEventsCoroutine(ISkill skill)
+        {
+            var skillConditions = SkillConditionAssets;
+            foreach (var skillCondition in skillConditions)
+            {
+                skill.SkillLogic.SkillEvents.EDragSkillTarget -= skillCondition.UseSkillAction;
             }
             
             LogicTree.EndSequence();  

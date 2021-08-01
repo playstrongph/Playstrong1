@@ -9,8 +9,6 @@ namespace ScriptableObjects.GameEvents
     {
         protected override IEnumerator SubscribeToHeroEventsCoroutine(IHero hero)
         {
-          
-            
             var skillConditions = SkillConditionAssets;
             foreach (var skillCondition in skillConditions)
             {
@@ -20,6 +18,19 @@ namespace ScriptableObjects.GameEvents
             LogicTree.EndSequence();  
             yield return null;
         }
+        
+        protected override IEnumerator UnsubscribeToHeroEventsCoroutine(IHero hero)
+        {
+            var skillConditions = SkillConditionAssets;
+            foreach (var skillCondition in skillConditions)
+            {
+                hero.HeroLogic.HeroEvents.EDragBasicAttack -= skillCondition.UseSkillAction;
+            }
+            
+            LogicTree.EndSequence();  
+            yield return null;
+        }
+
 
 
     }

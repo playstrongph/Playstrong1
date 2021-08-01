@@ -110,9 +110,7 @@ namespace Logic
             HideHeroVisuals(hero);
             DisableHeroTurns(hero);
             //Disable Skills
-            
-            //Disable Target Visuals
-            
+
             //HeroDies Animation and Disable Hero Canvas
             //TEST
             HeroDiesAnimation(hero);
