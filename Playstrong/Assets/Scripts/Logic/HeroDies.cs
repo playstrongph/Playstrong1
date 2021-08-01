@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using References;
 using ScriptableObjects.HeroLivingStatus;
 using UnityEngine;
 using Utilities;
@@ -101,22 +102,25 @@ namespace Logic
             yield return null;
         }
         
-        //TODO - Work In Progress
+        //TODO - Work In Progress.  Change all to enumerators
         private void DeathActions(IHero hero)
         {
-            SetHeroDeadStatus(hero);
-            DestroyAllStatusEffects(hero);
-            ResetHeroAttributes(hero);
-            HideHeroVisuals(hero);
-            DisableHeroTurns(hero);
-            //Disable Skills
-
-            //HeroDies Animation and Disable Hero Canvas
-            //TEST
-            HeroDiesAnimation(hero);
             
 
-            //Note: Visual actions need to be queued.
+            SetHeroDeadStatus(hero);
+            DestroyAllStatusEffects(hero);
+            
+            //Disable Skills
+            UnRegisterSkills(hero);
+            
+            ResetHeroAttributes(hero);
+            
+            HideHeroVisuals(hero);
+            DisableHeroTurns(hero);
+
+            //Ongoing WIP
+            HeroDiesAnimation(hero);
+
         }
 
         private void SetHeroDeadStatus(IHero hero)
@@ -208,6 +212,19 @@ namespace Logic
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(DieAnimation.StartAnimation(hero));
             
+        }
+
+        private void UnRegisterSkills(IHero hero)
+        {
+            var heroSkillsReference = hero.HeroSkills.Skills;
+            var heroSkillsObjects = heroSkillsReference.GetComponent<ISkillsPanel>().SkillList;
+
+            foreach (var skillObject in heroSkillsObjects)
+            {
+                var skill = skillObject.GetComponent<ISkill>();
+                skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            }
+
         }
 
 

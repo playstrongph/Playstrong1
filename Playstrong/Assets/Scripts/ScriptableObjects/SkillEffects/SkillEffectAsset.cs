@@ -52,9 +52,7 @@ namespace ScriptableObjects.SkillEffects
             
             logicTree.AddCurrent(UnregisterSkillEffectCoroutine(thisHero));
         }
-        
-        
-        
+
 
         /// <summary>
         /// This is only used to subscribe to SKillTarget Event
