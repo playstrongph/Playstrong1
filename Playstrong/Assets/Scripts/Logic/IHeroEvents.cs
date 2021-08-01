@@ -26,17 +26,25 @@ namespace Logic
         
         event HeroEvents.HeroesEvent EStartOfGame;
         
+       
+    
+        
+        
         
         //Single Hero Events
         event HeroEvents.HeroEvent EBeforeHeroDies;
         
         event HeroEvents.HeroEvent EAfterHeroDies;
+        
+        event HeroEvents.HeroEvent EPostHeroDeath;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PostAttack(IHero initiatorHero, IHero targetHero);
         
         void PreCriticalStrike(IHero initiatorHero, IHero targetHero);
         void PostCriticalStrike(IHero initiatorHero, IHero targetHero);
+        
+        
 
         void BeforeAttacking(IHero initiatorHero, IHero targetHero);
 
@@ -55,5 +63,7 @@ namespace Logic
         //Single Hero Events
         void BeforeHeroDies(IHero hero);
         void AfterHeroDies(IHero hero);
+
+        void PostHeroDeath(IHero hero);
     }
 }

@@ -30,6 +30,8 @@ namespace Logic
         
         public event HeroEvent EAfterHeroDies;
         
+        public event HeroEvent EPostHeroDeath;
+        
         
         private IHeroLogic _heroLogic;
         private List<HeroesEvent> _heroEventsList = new List<HeroesEvent>();
@@ -244,6 +246,24 @@ namespace Logic
                     EAfterHeroDies -= client as HeroEvent;
                 }
         }
+        
+        /// <summary>
+        /// Called after AfterHeroDies.  This event calls any revive effect for the hero
+        /// </summary>
+        public void PostHeroDeath(IHero hero)
+        {
+            EPostHeroDeath?.Invoke(hero);
+        }
+        
+        private void UnsubscribePostHeroDeathClients()
+        {
+            var clients = EPostHeroDeath?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EPostHeroDeath -= client as HeroEvent;
+                }
+        }
 
         private void OnDestroy()
         {
@@ -270,6 +290,7 @@ namespace Logic
             UnsubscribeStartOfGameClients();
             UnsubscribeBeforeHeroDiesClients();
             UnsubscribeAfterHeroDiesClients();
+            UnsubscribePostHeroDeathClients();
         }
         
         

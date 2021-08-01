@@ -22,7 +22,6 @@ namespace Logic
 
         private IHeroLogic _heroLogic;
         
-        //TEST
         [SerializeField]
         [RequireInterface(typeof(IAnimations))]
         private Object _dieAnimation;
@@ -73,15 +72,25 @@ namespace Logic
             {
                 logicTree.AddCurrent(HeroDeathActions(hero));
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
+                logicTree.AddCurrent(PostHeroDeath(hero));
             }
 
             logicTree.EndSequence();
             yield return null;
         }
-
+        
+        private IEnumerator HeroDeathActions(IHero hero)
+        {
+            DeathActions(hero);
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
         /// <summary>
-        /// Event where hero death is confirmed.
-        /// Example of actions here - revive, death rattle effects, etc.
+        /// Event right after hero death.
+        /// Death rattle actions are called here
         /// </summary>
         private IEnumerator AfterHeroDiesEvent(IHero hero)
         {
@@ -93,42 +102,44 @@ namespace Logic
            
         }
 
-        private IEnumerator HeroDeathActions(IHero hero)
+
+        private IEnumerator PostHeroDeath(IHero hero)
         {
-            DeathActions(hero);
+            hero.HeroLogic.HeroEvents.PostHeroDeath(hero);
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;
         }
-        
+
+
+
         //TODO - Work In Progress.  Change all to enumerators
         private void DeathActions(IHero hero)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-
-            SetHeroDeadStatus(hero);
-            DestroyAllStatusEffects(hero);
+            logicTree.AddCurrent(SetHeroDeadStatus(hero));
+            logicTree.AddCurrent(DestroyAllStatusEffects(hero));
+            logicTree.AddCurrent(UnRegisterSkills(hero));
+            logicTree.AddCurrent(DisableHeroTurns(hero)); 
             
-            //Disable Skills
-            UnRegisterSkills(hero);
-            
-            ResetHeroAttributes(hero);
-            
-            HideHeroVisuals(hero);
-            DisableHeroTurns(hero);
-
-            //Ongoing WIP
-            HeroDiesAnimation(hero);
-
+            //Visual
+            logicTree.AddCurrent(HeroDiesAnimation(hero));
+            logicTree.AddCurrent(HideHeroVisuals(hero));
+            logicTree.AddCurrent(ResetHeroAttributes(hero));
         }
 
-        private void SetHeroDeadStatus(IHero hero)
+        private IEnumerator SetHeroDeadStatus(IHero hero)
         {
             hero.HeroLogic.HeroLivingStatus = HeroLivingStatus;
+
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
         }
 
-        private void DestroyAllStatusEffects(IHero hero)
+        private IEnumerator DestroyAllStatusEffects(IHero hero)
         {
             var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
             var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
@@ -142,9 +153,40 @@ namespace Logic
             {
                 debuff.RemoveStatusEffect.RemoveEffect(hero);
             }
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator UnRegisterSkills(IHero hero)
+        {
+            var heroSkillsReference = hero.HeroSkills.Skills;
+            var heroSkillsObjects = heroSkillsReference.GetComponent<ISkillsPanel>().SkillList;
+
+            foreach (var skillObject in heroSkillsObjects)
+            {
+                var skill = skillObject.GetComponent<ISkill>();
+                skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            }
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+
         }
 
-        private void ResetHeroAttributes(IHero hero)
+        private IEnumerator HideHeroVisuals(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            visualTree.AddCurrent(HideVisuals(hero));
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator ResetHeroAttributes(IHero hero)
         {
             var heroAttributes = hero.HeroLogic.HeroAttributes;
             var heroLogic = hero.HeroLogic;
@@ -157,23 +199,33 @@ namespace Logic
             heroLogic.SetHeroArmor.SetArmor(heroAttributes.BaseArmor);
             heroLogic.SetHeroSpeed.SetSpeed(heroAttributes.BaseSpeed);
             heroLogic.HeroTimer.ResetHeroTimer();
-        }
-
-        private void HideHeroVisuals(IHero hero)
-        {
-            //Disable TargetVisual GameObject (Need to create reference for TargetHero)
-            hero.TargetHero.TargetVisual.TargetCanvas.enabled = false;
             
-            //Disable TargetHero BoxCollider
-            hero.TargetHero.HeroBoxCollider.enabled = false;
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
 
-            //TODO: Disable HeroVisual Canvas
         }
 
-        private void DisableHeroTurns(IHero hero)
+        private IEnumerator DisableHeroTurns(IHero hero)
         {
             UpdateLivingAndDeadHeroLists(hero);
             UpdateActiveHeroesList(hero);
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        private IEnumerator HeroDiesAnimation(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            visualTree.AddCurrent(DieAnimation.StartAnimation(hero));
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+            
         }
 
         private void UpdateLivingAndDeadHeroLists(IHero hero)
@@ -206,26 +258,20 @@ namespace Logic
             hero.HeroLogic.HeroStatus.RemoveFromActiveHeroesList(turnController, heroTimerObject);
             hero.HeroLogic.HeroStatus = heroInactiveStatus;
         }
-
-        private void HeroDiesAnimation(IHero hero)
+        
+        private IEnumerator HideVisuals(IHero hero)
         {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            visualTree.AddCurrent(DieAnimation.StartAnimation(hero));
+            hero.TargetHero.TargetVisual.TargetCanvas.enabled = false;
+            hero.TargetHero.HeroBoxCollider.enabled = false;
             
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            visualTree.EndSequence();
+            yield return null;
         }
 
-        private void UnRegisterSkills(IHero hero)
-        {
-            var heroSkillsReference = hero.HeroSkills.Skills;
-            var heroSkillsObjects = heroSkillsReference.GetComponent<ISkillsPanel>().SkillList;
+      
 
-            foreach (var skillObject in heroSkillsObjects)
-            {
-                var skill = skillObject.GetComponent<ISkill>();
-                skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
-            }
-
-        }
+      
 
 
     }
