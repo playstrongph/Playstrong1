@@ -143,24 +143,14 @@ namespace Logic
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
             
             //HeroActive and HeroInactive Status Action
-            //TODO: Convert to coroutine
-            //_activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
-            _logicTree.AddCurrent(HeroActiveInactiveStatusActon());
+            _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
             
             //Start of Turn Event
-            //TODO: Convert to coroutine
-            //_activeHeroLogic.HeroEvents.HeroStartTurn(_activeHeroLogic.Hero);
             _logicTree.AddCurrent(HeroStartTurnEvent());
             
             //Update Skill Cooldown and Status Effect Counters
             _logicTree.AddCurrent(updateSkills);
-            
-            //TODO: Convert to Coroutine
-            //_activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
-            _logicTree.AddCurrent(UpdateStatusEffectCounters());
-            
-            //Status Effect Triggers
-            //_activeHeroLogic.Hero.HeroStatusEffects.StartTurnStatusEffects.TriggerStatusEffect();
+            _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
 
             _logicTree.EndSequence(); 
             yield return null;
@@ -170,19 +160,17 @@ namespace Logic
         private IEnumerator SetHeroInactive()
         {
             var i = ActiveHeroes.Count - 1;
-            
-            //Status Effect Triggers
-            _activeHeroLogic.Hero.HeroStatusEffects.EndTurnStatusEffects.TriggerStatusEffect();
-            _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersEndTurn();
-            
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
-            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
-
             _activeHeroes.RemoveAt(i);
             
+            _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
+            
+            _logicTree.AddCurrent(HeroEndTurnEvent());
+            
+            _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
+
             _logicTree.EndSequence(); 
             yield return null;
-           
         }
 
         private IEnumerator StartNextTurn()
@@ -219,7 +207,7 @@ namespace Logic
         }
         
         //SetHeroActive Sub-methods
-        private IEnumerator HeroActiveInactiveStatusActon()
+        private IEnumerator HeroActiveInactiveStatusAction()
         {
             var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
@@ -239,7 +227,7 @@ namespace Logic
             yield return null;
         }
         
-        private IEnumerator UpdateStatusEffectCounters()
+        private IEnumerator UpdateStatusEffectCountersStartTurn()
         {
             var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
@@ -248,6 +236,28 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //SetHeroInactive Sub-Methods
+        private IEnumerator HeroEndTurnEvent()
+        {
+            var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _activeHeroLogic.HeroEvents.HeroEndTurn(_activeHeroLogic.Hero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator UpdateStatusEffectCountersEndTurn()
+        {
+            var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersEndTurn();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
         
         
         

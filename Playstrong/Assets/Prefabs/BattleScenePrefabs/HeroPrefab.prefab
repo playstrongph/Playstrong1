@@ -1005,8 +1005,6 @@ GameObject:
   - component: {fileID: 6281211539542690288}
   - component: {fileID: 1145517578527464591}
   - component: {fileID: 757506710205901491}
-  - component: {fileID: 3526157909305851937}
-  - component: {fileID: 4934580090461465438}
   m_Layer: 0
   m_Name: HeroStatusEffects
   m_TagString: Untagged
@@ -1095,30 +1093,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dc796bf3b33c9b41a9d889ddaf0df8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3526157909305851937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3820792405558328800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e7fd5d708859d43952b7d0f57e6d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4934580090461465438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3820792405558328800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28f5c98a58b794240a6edb398489f6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3820792405570257719

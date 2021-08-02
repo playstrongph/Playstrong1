@@ -14,10 +14,6 @@ namespace ScriptableObjects.StatusEffects
         void ApplyStatusEffect(IHero hero);
         void UnapplyStatusEffect(IHero hero);
 
-        void StartTurnStatusEffect(IHero hero);
-
-        void EndTurnStatusEffect(IHero hero);
-
         string Name { get; }
 
         string Description { get; }

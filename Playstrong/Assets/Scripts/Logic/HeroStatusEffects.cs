@@ -40,12 +40,7 @@ namespace Logic
 
         private IUpdateStatusEffectCounters _updateStatusEffectCounters;
         public IUpdateStatusEffectCounters UpdateStatusEffectCounters => _updateStatusEffectCounters as IUpdateStatusEffectCounters;
-
-        private IStartTurnStatusEffects _startTurnStatusEffects;
-        public IStartTurnStatusEffects StartTurnStatusEffects => _startTurnStatusEffects as IStartTurnStatusEffects;
-
-        private IEndTurnStatusEffects _endTurnStatusEffects;
-        public IEndTurnStatusEffects EndTurnStatusEffects => _endTurnStatusEffects as IEndTurnStatusEffects;
+     
         
         private void Awake()
         {
@@ -53,9 +48,6 @@ namespace Logic
             _heroBuffEffects = GetComponent<IHeroBuffEffects>();
             _heroDebuffEffects = GetComponent<IHeroDebuffEffects>();
             _updateStatusEffectCounters = GetComponent<IUpdateStatusEffectCounters>();
-            _startTurnStatusEffects = GetComponent<IStartTurnStatusEffects>();
-            _endTurnStatusEffects = GetComponent<IEndTurnStatusEffects>();
-
 
 
         }

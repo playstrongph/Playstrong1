@@ -13,6 +13,11 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private ScriptableObject damageModifier;
         private IModifier DamageModifier => damageModifier as IModifier;
 
+        //TEST
+        [SerializeField] private float _damageModifier2 = 0.5f;
+        private float DamageModifier2 => _damageModifier2;
+        //TEST END
+
 
         public override void ApplyStatusEffect(IHero hero)
         {
