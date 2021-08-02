@@ -31,6 +31,8 @@ namespace Logic
         public event HeroEvent EAfterHeroDies;
         
         public event HeroEvent EPostHeroDeath;
+
+        public event HeroEvent EHeroStartTurn;
         
         
         private IHeroLogic _heroLogic;
@@ -264,6 +266,21 @@ namespace Logic
                     EPostHeroDeath -= client as HeroEvent;
                 }
         }
+        
+        public void HeroStartTurn(IHero hero)
+        {
+            EHeroStartTurn?.Invoke(hero);
+        }
+        
+        private void UnsubscribeHeroStartTurnClients()
+        {
+            var clients = EHeroStartTurn?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EHeroStartTurn -= client as HeroEvent;
+                }
+        }
 
         private void OnDestroy()
         {
@@ -291,6 +308,7 @@ namespace Logic
             UnsubscribeHeroTakesFatalDamageClients();
             UnsubscribeAfterHeroDiesClients();
             UnsubscribePostHeroDeathClients();
+            UnsubscribeHeroStartTurnClients();
         }
         
         

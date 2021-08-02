@@ -21,6 +21,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
             LogicTree.AddCurrent(RecoveryEffect());
         }
+        
 
         private IEnumerator RecoveryEffect()
         {
@@ -34,8 +35,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             yield return null;
         }
 
-        
-            
+
         //TEMP - need to change animation to heal animation
         private IEnumerator HealVisual()
         {

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02ad037ee6ad664c965ffafade3d13e, type: 3}
+  m_Name: Immortality
+  m_EditorClassIdentifier: 
+  _name: Immortality
+  _description: Hero can't die.
+  _icon: {fileID: 21300000, guid: 134b3032e125c3e4989a85de3030e1a4, type: 3}
+  _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
+  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
+    type: 2}
+  setLife: 1

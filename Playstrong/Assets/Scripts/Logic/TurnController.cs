@@ -137,23 +137,28 @@ namespace Logic
         {
             _activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
-            
             _activeHeroLogic = activeHeroTimer.HeroLogic;
-            
-            //HeroStatus to HeroActive
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
+            var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
+            
+            //HeroActive and HeroInactive Status Action
+            //TODO: Convert to coroutine
             _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
             
-            //TODO: Start Of Turn Skill Triggers - Event Here
+            //Start of Turn Event
+            //TODO: Convert to coroutine
+            _activeHeroLogic.HeroEvents.HeroStartTurn(_activeHeroLogic.Hero);
             
-            //UpdateSkillsStatus on HeroActive, primarily skill cooldowns
-            var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
+            //Update Skill Cooldown and Status Effect Counters
+            
             _logicTree.AddCurrent(updateSkills);
             
-            //Status Effect Triggers
-            _activeHeroLogic.Hero.HeroStatusEffects.StartTurnStatusEffects.TriggerStatusEffect();
+            //TODO: Convert to Coroutine
             _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
             
+            
+            //Status Effect Triggers
+            //_activeHeroLogic.Hero.HeroStatusEffects.StartTurnStatusEffects.TriggerStatusEffect();
 
             _logicTree.EndSequence(); 
             yield return null;
