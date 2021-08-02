@@ -13,35 +13,48 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class RecoveryAsset : StatusEffectAsset
     {
         [SerializeField] private float healthMultiplier;
-        
-        
-        public override void StartTurnStatusEffect(IHero hero)
-        {
-            InitializeValues(hero);
 
-            LogicTree.AddCurrent(RecoveryEffect());
+        public override void ApplyStatusEffect(IHero hero)
+        {
+            hero.HeroLogic.HeroEvents.EHeroStartTurn += RecoveryEffect;
         }
         
-
-        private IEnumerator RecoveryEffect()
+        public override void UnapplyStatusEffect(IHero hero)
         {
-            VisualTree.AddCurrent(HealVisual());
+            hero.HeroLogic.HeroEvents.EHeroStartTurn -= RecoveryEffect;
+        }
 
-            var newHealth = Hero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healthMultiplier* Hero.HeroLogic.HeroAttributes.BaseHealth);
+        private void RecoveryEffect(IHero hero)
+        {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(RecoveryEffectCoroutine(hero));
+        }
+
+
+        private IEnumerator RecoveryEffectCoroutine(IHero hero)
+        {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             
-            Hero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
+            visualTree.AddCurrent(HealVisual(hero));
+
+            var newHealth = hero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healthMultiplier* hero.HeroLogic.HeroAttributes.BaseHealth);
             
-            LogicTree.EndSequence();
+            hero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
+            
+            logicTree.EndSequence();
             yield return null;
         }
 
 
         //TEMP - need to change animation to heal animation
-        private IEnumerator HealVisual()
+        private IEnumerator HealVisual(IHero hero)
         {
-            Hero.DamageEffect.ShowDamage(Mathf.FloorToInt(healthMultiplier* Hero.HeroLogic.HeroAttributes.BaseHealth));
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            
+            hero.DamageEffect.ShowDamage(Mathf.FloorToInt(healthMultiplier* hero.HeroLogic.HeroAttributes.BaseHealth));
 
-            VisualTree.EndSequence();
+            visualTree.EndSequence();
             yield return null;
         }
 

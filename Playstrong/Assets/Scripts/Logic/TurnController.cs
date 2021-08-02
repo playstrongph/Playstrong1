@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Runtime.CompilerServices;
 using Interfaces;
 using ScriptableObjects;
@@ -143,19 +144,20 @@ namespace Logic
             
             //HeroActive and HeroInactive Status Action
             //TODO: Convert to coroutine
-            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            //_activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            _logicTree.AddCurrent(HeroActiveInactiveStatusActon());
             
             //Start of Turn Event
             //TODO: Convert to coroutine
-            _activeHeroLogic.HeroEvents.HeroStartTurn(_activeHeroLogic.Hero);
+            //_activeHeroLogic.HeroEvents.HeroStartTurn(_activeHeroLogic.Hero);
+            _logicTree.AddCurrent(HeroStartTurnEvent());
             
             //Update Skill Cooldown and Status Effect Counters
-            
             _logicTree.AddCurrent(updateSkills);
             
             //TODO: Convert to Coroutine
-            _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
-            
+            //_activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
+            _logicTree.AddCurrent(UpdateStatusEffectCounters());
             
             //Status Effect Triggers
             //_activeHeroLogic.Hero.HeroStatusEffects.StartTurnStatusEffects.TriggerStatusEffect();
@@ -215,6 +217,40 @@ namespace Logic
             
             _logicTree.AddCurrent(StartNextTurn());
         }
+        
+        //SetHeroActive Sub-methods
+        private IEnumerator HeroActiveInactiveStatusActon()
+        {
+            var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _activeHeroLogic.HeroStatus.StatusAction(_activeHeroLogic);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator HeroStartTurnEvent()
+        {
+            var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _activeHeroLogic.HeroEvents.HeroStartTurn(_activeHeroLogic.Hero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator UpdateStatusEffectCounters()
+        {
+            var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _activeHeroLogic.Hero.HeroStatusEffects.UpdateStatusEffectCounters.UpdateCountersStartTurn();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        
 
 
 
