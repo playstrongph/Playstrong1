@@ -91,6 +91,8 @@ namespace Logic
             _damageModifiers.Remove(modifierObject);
         }
 
+            
+        //TODO: Use Only the smallest damage modifier
         private int ComputeFinalDamage(int value)
         {
             var damage = value;
