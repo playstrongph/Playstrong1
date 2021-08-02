@@ -30,6 +30,8 @@ namespace ScriptableObjects.StatusEffects
 
         IStatusEffectInstance StatusEffectInstance { get; }
 
+        void StartEventStatusEffect(IHero hero);
+
 
     }
 }

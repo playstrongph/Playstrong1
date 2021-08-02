@@ -15,7 +15,8 @@ namespace Logic
         {
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
             {                            
-                statusEffect.StatusEffectAsset.StartTurnStatusEffect(statusEffect.Hero);
+                statusEffect.StatusEffectAsset.
+                    StartTurnStatusEffect(statusEffect.Hero);
             }
             
             //Hero Debuffs

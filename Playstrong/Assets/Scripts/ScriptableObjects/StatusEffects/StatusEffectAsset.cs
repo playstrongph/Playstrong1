@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using References;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
@@ -70,6 +71,15 @@ namespace ScriptableObjects.StatusEffects
         {
             LogicTree.EndSequence();
             yield return null;
+        }
+        
+        /// <summary>
+        /// For status effects called by events
+        /// </summary>
+        /// <param name="hero"></param>
+        public virtual void StartEventStatusEffect(IHero hero)
+        {
+            
         }
 
 
