@@ -1723,6 +1723,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
+    - target: {fileID: 190191286671394562, guid: 55d0158ae4095ed459b6c7d1bccedb52,
+        type: 3}
+      propertyPath: _criticalFactor.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1550127320965468234, guid: 55d0158ae4095ed459b6c7d1bccedb52,
         type: 3}
       propertyPath: _dieAnimation

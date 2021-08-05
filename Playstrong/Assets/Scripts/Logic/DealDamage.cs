@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 
@@ -27,15 +28,44 @@ namespace Logic
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(finalAttackValue, attackerHero));
-            
-            //TEST
-            //targetHero.HeroLogic.TakeDamage.DamageHeroTest(finalAttackValue, attackerHero);
 
             logicTree.EndSequence();
             yield return null;
         }
-
         
+        //TEST START - NEW DEAL DAMAGE
+
+        [Header("TEST FIELDS")]
+        
+        [SerializeField] private int _normalDamage;
+        public int NormalDamage => _normalDamage;
+
+        [SerializeField] private int _criticalDamage;
+        public int CriticalDamage => _criticalDamage;
+
+        private int _otherDamage;
+
+        public int OtherDamage
+        {
+            get => _otherDamage;
+            set => _otherDamage = value;
+        }
+
+
+        [SerializeField] private List<float> _criticalFactor = new List<float>();
+        public List<float> CriticalFactor => _criticalFactor;
+
+
+       
+
+
+
+
+
+
+        //TEST END
+
+
 
 
     }

@@ -15,14 +15,7 @@ namespace Logic
             set { _attack = value; }
         }
     
-        [SerializeField] private int _baseAttack;
-
-        public int BaseAttack
-        {
-            get { return _baseAttack; }
-            set { _baseAttack = value; }
-        }
-    
+      
     
         [SerializeField] private int _health;
 
@@ -32,13 +25,7 @@ namespace Logic
             set { _health = value; }
         }
     
-        [SerializeField] private int _baseHealth;
-
-        public int BaseHealth
-        {
-            get { return _baseHealth; }
-            set { _baseHealth = value; }
-        }
+       
     
         [SerializeField] private int _armor;
 
@@ -51,13 +38,7 @@ namespace Logic
             }
         }
     
-        [SerializeField] private int _baseArmor;
-
-        public int BaseArmor
-        {
-            get { return _baseArmor; }
-            set { _baseArmor = value; }
-        }
+     
     
         [SerializeField] private int _speed;
 
@@ -67,14 +48,7 @@ namespace Logic
             set { _speed = value; }
         }
     
-        [SerializeField] private int _baseSpeed;
-
-        public int BaseSpeed
-        {
-            get { return _baseSpeed; }
-            set { _baseSpeed = value; }
-        }
-
+        
         [SerializeField] private int _chance;
 
         public int Chance
@@ -83,13 +57,7 @@ namespace Logic
             set { _chance = value; }
         }
     
-        [SerializeField] private int _baseChance;
-
-        public int BaseChance
-        {
-            get { return _baseChance; }
-            set { _baseChance = value; }
-        }
+       
     
         [SerializeField] private int _energy;
 
@@ -98,6 +66,50 @@ namespace Logic
             get { return _energy; }
             set { _energy = value; }
         }
+        
+        [Header("Base Values")]
+        
+        [SerializeField] private int _baseAttack;
+
+        public int BaseAttack
+        {
+            get { return _baseAttack; }
+            set { _baseAttack = value; }
+        }
+        
+        [SerializeField] private int _baseHealth;
+
+        public int BaseHealth
+        {
+            get { return _baseHealth; }
+            set { _baseHealth = value; }
+        }
+        
+        [SerializeField] private int _baseArmor;
+
+        public int BaseArmor
+        {
+            get { return _baseArmor; }
+            set { _baseArmor = value; }
+        }
+        
+        [SerializeField] private int _baseSpeed;
+
+        public int BaseSpeed
+        {
+            get { return _baseSpeed; }
+            set { _baseSpeed = value; }
+        }
+        
+        [SerializeField] private int _baseChance;
+
+        public int BaseChance
+        {
+            get { return _baseChance; }
+            set { _baseChance = value; }
+        }
+
+
         
         [Header("Original Values")]
 
@@ -130,8 +142,21 @@ namespace Logic
             get => _heroAssetChance;
             set => _heroAssetChance = value;
         }
+
+        [Header("Other Attributes")] [SerializeField]
+        private int _criticalChance;
+        public int CriticalChance => _criticalChance;
+
+        [SerializeField] private int _criticalDamage;
+        public int CriticalDamage => _criticalDamage;
+
+        [SerializeField] private int _accuracy;
+        public int Accuracy => _accuracy;
         
+        [SerializeField] private int _resistance;
+        public int Resistance => _resistance;
         
+
 
 
 
