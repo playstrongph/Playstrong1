@@ -10,30 +10,10 @@ namespace Logic
 {
     public class TakeDamage : MonoBehaviour, ITakeDamage
     {
-        [SerializeField] [RequireInterface(typeof(IModifier))]
-        private List<ScriptableObject> _damageModifiers = new List<ScriptableObject>();
-
-        public List<IModifier> DamageModifiers
-        {
-            get
-            {
-                var damageModifiers = new List<IModifier>();
-                foreach (var damageMod in _damageModifiers)
-                {
-                    var damageModifier = damageMod as IModifier;
-                    damageModifiers.Add(damageModifier);
-                }
-
-                return damageModifiers;
-            }
-        }
-
-
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
         private IHeroLogic _thisHeroLogic;
-        
         private int _residualDamage;
         
         
@@ -50,60 +30,6 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
 
-        public IEnumerator DamageHero(int damageValue, IHero attacker)
-        {
-            var thisHero = _thisHeroLogic.Hero;
-            
-            _logicTree.AddCurrent(HeroTakesDamage(damageValue, attacker));
-
-            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
-
-            _logicTree.EndSequence();
-            yield return null;
-          
-        }
-
-        private IEnumerator HeroTakesDamage(int damageValue, IHero attacker)
-        {
-            var finalDamage = ComputeFinalDamage(damageValue);
-
-            ComputeNewArmor(_thisHeroLogic, finalDamage);
-            ComputeNewHealth(_thisHeroLogic, _residualDamage);
-            
-            _visualTree.AddCurrent(ApplyFinalDamage(finalDamage));
-            
-            _logicTree.EndSequence();
-            yield return null;
-           
-        }
-        
-        public void AddToDamageModifiersList(IModifier modifier)
-        {
-            var modifierObject = modifier as ScriptableObject;
-            DamageModifiers.Add(modifier);
-            _damageModifiers.Add(modifierObject);
-        }
-        
-        public void RemoveFromDamageModifiersList(IModifier modifier)
-        {
-            var modifierObject = modifier as ScriptableObject;
-            DamageModifiers.Remove(modifier);
-            _damageModifiers.Remove(modifierObject);
-        }
-
-
-        private int ComputeFinalDamage(int value)
-        {
-            var damage = value;
-            
-            foreach (var damageMod in DamageModifiers)
-            {
-                var modifier = damageMod.ModValue;
-                damage = (int) Mathf.Ceil(damage * (1 + modifier));
-            }
-            return damage;
-        }
-        
         //TEST START
         public IEnumerator DamageHeroTest(int normalDamage, int criticalDamage, IHero attacker)
         {

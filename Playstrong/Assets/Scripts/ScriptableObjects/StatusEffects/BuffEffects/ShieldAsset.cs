@@ -23,12 +23,12 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             InitializeValues(hero);
             
-            hero.HeroLogic.TakeDamage.AddToDamageModifiersList(DamageModifier);
+            //hero.HeroLogic.TakeDamage.AddToDamageModifiersList(DamageModifier);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.TakeDamage.RemoveFromDamageModifiersList(DamageModifier);
+            //hero.HeroLogic.TakeDamage.RemoveFromDamageModifiersList(DamageModifier);
             
         }
 

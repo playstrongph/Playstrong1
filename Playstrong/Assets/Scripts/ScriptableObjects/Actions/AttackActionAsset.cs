@@ -18,51 +18,14 @@ namespace ScriptableObjects.Actions
         {
             InitializeValues(thisHero, targetHero);
 
-            //Originals START
-            //LogicTree.AddCurrent(ComputeFinalDamage());
-            //LogicTree.AddCurrent(AttackHero());
-            //Originals END
-            
-            Debug.Log("Normal Attack");
-            
             LogicTree.AddCurrent(AttackHeroTest());
-            
-            //TEST START
-            
-            //TEST END
-            
 
             LogicTree.EndSequence();
             yield return null;
 
-        }
-
-        private IEnumerator AttackHero()
-        {
-            VisualTree.AddCurrent(AttackHeroVisual());
-
-            var dealDamage = TargetHero.HeroLogic.DealDamage;
-            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,_finalAttackValue));
-            
-            LogicTree.EndSequence();
-            yield return null;
-        }
-
-        private IEnumerator ComputeFinalDamage()
-        {
-            var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
-            
-
-            foreach (var finalAttackModifier in finalAttackModifiers)
-            {
-                _finalAttackValue = Mathf.FloorToInt(finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack);
-            }
-            
-            LogicTree.EndSequence();
-            yield return null;
         }
         
-        //TEST
+
         private IEnumerator AttackHeroTest()
         {
             VisualTree.AddCurrent(AttackHeroVisual());
@@ -76,12 +39,7 @@ namespace ScriptableObjects.Actions
             LogicTree.EndSequence();
             yield return null;
         }
-        
-        //TEST END
-        
-        
-        
-        
+
         /// <summary>
         /// Attack Animation
         /// TODO: Separate this

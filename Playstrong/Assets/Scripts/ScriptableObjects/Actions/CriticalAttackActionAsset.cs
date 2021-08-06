@@ -20,14 +20,7 @@ namespace ScriptableObjects.Actions
             InitializeValues(thisHero, targetHero);
             
             LogicTree.AddCurrent(PreCriticalStrikeEvents());
-            
-            //Originals START
-            //LogicTree.AddCurrent(ComputeFinalDamage());
-            //LogicTree.AddCurrent(AttackHero());
-            //Originals END
-            
-            Debug.Log("Critical Attack");
-            
+
             LogicTree.AddCurrent(AttackHeroTest());
             
             LogicTree.AddCurrent(PostCriticalStrikeEvents());
@@ -55,41 +48,6 @@ namespace ScriptableObjects.Actions
             LogicTree.EndSequence();
             yield return null;
         }
-
-        private IEnumerator AttackHero()
-        {
-            VisualTree.AddCurrent(AttackHeroVisual());
-            
-            
-            //TODO - transfer this to Deal Damage
-            //LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
-            
-            var dealDamage = TargetHero.HeroLogic.DealDamage;
-            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,_finalAttackValue));
-            
-            LogicTree.EndSequence();
-            yield return null;
-        }
-
-        private IEnumerator ComputeFinalDamage()
-        {
-            _criticalMultiplier = Mathf.Max(ThisHero.HeroLogic.BasicAttack.CriticalAttackModifiers.ToArray());
-            
-            var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
-            
-           
-            foreach (var finalAttackModifier in finalAttackModifiers)
-            {
-                _preAttackValue = finalAttackModifier * ThisHero.HeroLogic.HeroAttributes.Attack;
-            }
-
-            _finalAttackValue = Mathf.FloorToInt(_criticalMultiplier * _preAttackValue);
-            
-            LogicTree.EndSequence();
-            yield return null;
-        }
-        
-        //TEST START
         private IEnumerator AttackHeroTest()
         {
             VisualTree.AddCurrent(AttackHeroVisual());
@@ -103,11 +61,7 @@ namespace ScriptableObjects.Actions
             LogicTree.EndSequence();
             yield return null;
         }
-        
-        //TEST END
-        
-        
-        
+
         /// <summary>
         /// Critical Attack Animation
         /// </summary>

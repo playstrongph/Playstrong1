@@ -10,16 +10,6 @@ namespace Logic
     {
         private IHeroLogic _heroLogic;
 
-        [SerializeField] private int finalDamageDealt;
-
-        public int FinalDamageDealt
-        {
-            get => finalDamageDealt;
-            set => finalDamageDealt = value;
-        }
-
-        [Header("TEST FIELDS")]
-        
         [SerializeField] private int _normalDamage;
 
         private int NormalDamage
@@ -36,27 +26,12 @@ namespace Logic
             get => _otherDamage;
             set => _otherDamage = value;
         }
-
-
-        [SerializeField] private List<float> _criticalFactor = new List<float>();
-        public List<float> CriticalFactor => _criticalFactor;
         
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
         }
-
-        public IEnumerator DealDamageHero(IHero attackerHero, IHero targetHero, int finalAttackValue)
-        {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(finalAttackValue, attackerHero));
-
-            logicTree.EndSequence();
-            yield return null;
-        }
         
-        //TEST START - DEALDAMAGEHEROTEST
         public IEnumerator DealDamageHeroTest(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -67,11 +42,14 @@ namespace Logic
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHeroTest(NormalDamage, criticalDamage, attackerHero));
 
+            //TO TEST - Reset Other Damage to default of 0.
+            //OtherDamage = 0;
+            
             logicTree.EndSequence();
             yield return null;
         }
         
-        //TEST END
+       
 
 
        
