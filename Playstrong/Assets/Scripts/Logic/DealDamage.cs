@@ -18,6 +18,29 @@ namespace Logic
             set => finalDamageDealt = value;
         }
 
+        [Header("TEST FIELDS")]
+        
+        [SerializeField] private int _normalDamage;
+
+        private int NormalDamage
+        {
+            get => _normalDamage;
+            set => _normalDamage = value;
+        }
+
+        [SerializeField]
+        private int _otherDamage;
+
+        public int OtherDamage
+        {
+            get => _otherDamage;
+            set => _otherDamage = value;
+        }
+
+
+        [SerializeField] private List<float> _criticalFactor = new List<float>();
+        public List<float> CriticalFactor => _criticalFactor;
+        
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
@@ -33,27 +56,20 @@ namespace Logic
             yield return null;
         }
         
-        //TEST START - NEW DEAL DAMAGE
-
-        [Header("TEST FIELDS")]
-        
-        [SerializeField] private int _normalDamage;
-        public int NormalDamage => _normalDamage;
-
-        [SerializeField] private int _criticalDamage;
-        public int CriticalDamage => _criticalDamage;
-
-        private int _otherDamage;
-
-        public int OtherDamage
+        //TEST START - DEALDAMAGEHEROTEST
+        public IEnumerator DealDamageHeroTest(IHero attackerHero, IHero targetHero, int attackPower, int criticalDamage)
         {
-            get => _otherDamage;
-            set => _otherDamage = value;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            NormalDamage = attackPower + OtherDamage;
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHeroTest(NormalDamage, criticalDamage, attackerHero));
+
+            logicTree.EndSequence();
+            yield return null;
         }
-
-
-        [SerializeField] private List<float> _criticalFactor = new List<float>();
-        public List<float> CriticalFactor => _criticalFactor;
+        
+        //TEST END
 
 
        
@@ -63,7 +79,7 @@ namespace Logic
 
 
 
-        //TEST END
+     
 
 
 

@@ -152,12 +152,12 @@ namespace Logic
             set => _criticalChance = value;
         }
 
-        [SerializeField] private float _criticalDamage;
+        [SerializeField] private float _criticalDamageMultiplier;
 
-        public float CriticalDamage
+        public float CriticalDamageMultiplier
         {
-            get => _criticalDamage;
-            set => _criticalDamage = value;
+            get => _criticalDamageMultiplier;
+            set => _criticalDamageMultiplier = value;
         }
 
         [SerializeField] private float _accuracy;

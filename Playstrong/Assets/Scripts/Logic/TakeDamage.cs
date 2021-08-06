@@ -66,8 +66,6 @@ namespace Logic
         private IEnumerator HeroTakesDamage(int damageValue, IHero attacker)
         {
             var finalDamage = ComputeFinalDamage(damageValue);
-            
-            //TODO: Call ComputeFinalDamageTest Here
 
             ComputeNewArmor(_thisHeroLogic, finalDamage);
             ComputeNewHealth(_thisHeroLogic, _residualDamage);
@@ -93,8 +91,7 @@ namespace Logic
             _damageModifiers.Remove(modifierObject);
         }
 
-            
-        
+
         private int ComputeFinalDamage(int value)
         {
             var damage = value;
@@ -107,7 +104,35 @@ namespace Logic
             return damage;
         }
         
-        //TEST
+        //TEST START
+        public IEnumerator DamageHeroTest(int normalDamage, int criticalDamage, IHero attacker)
+        {
+            var thisHero = _thisHeroLogic.Hero;
+            
+            _logicTree.AddCurrent(HeroTakesDamageTest(normalDamage,criticalDamage,attacker));
+
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
+
+            _logicTree.EndSequence();
+            yield return null;
+          
+        }
+        
+        private IEnumerator HeroTakesDamageTest(int normalDamage, int criticalDamage, IHero attacker)
+        {
+            var finalDamage = ComputeFinalDamageTest(normalDamage, criticalDamage);
+
+            ComputeNewArmor(_thisHeroLogic, finalDamage);
+            ComputeNewHealth(_thisHeroLogic, _residualDamage);
+            
+            _visualTree.AddCurrent(ApplyFinalDamage(finalDamage));
+            
+            _logicTree.EndSequence();
+            yield return null;
+           
+        }
+        
+        
         private int ComputeFinalDamageTest(int normalDamage, int criticalDamage)
         {
             

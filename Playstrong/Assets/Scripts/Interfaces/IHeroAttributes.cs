@@ -24,7 +24,7 @@
 
         float CriticalChance { get; set; }
 
-        float CriticalDamage { get; set; }
+        float CriticalDamageMultiplier { get; set; }
 
         float Accuracy { get; set; }
 

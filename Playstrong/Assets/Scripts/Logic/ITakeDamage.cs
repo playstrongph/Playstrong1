@@ -9,6 +9,8 @@ namespace Logic
     {
         IEnumerator DamageHero(int damageValue, IHero attacker);
 
+        IEnumerator DamageHeroTest(int normalDamage, int criticalDamage, IHero attacker);
+
         List<IModifier> DamageModifiers { get; }
 
         void AddToDamageModifiersList(IModifier modifier);
