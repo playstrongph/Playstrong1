@@ -144,18 +144,55 @@ namespace Logic
         }
 
         [Header("Other Attributes")] [SerializeField]
-        private int _criticalChance;
-        public int CriticalChance => _criticalChance;
+        private float _criticalChance;
 
-        [SerializeField] private int _criticalDamage;
-        public int CriticalDamage => _criticalDamage;
+        public float CriticalChance
+        {
+            get => _criticalChance;
+            set => _criticalChance = value;
+        }
 
-        [SerializeField] private int _accuracy;
-        public int Accuracy => _accuracy;
-        
-        [SerializeField] private int _resistance;
-        public int Resistance => _resistance;
-        
+        [SerializeField] private float _criticalDamage;
+
+        public float CriticalDamage
+        {
+            get => _criticalDamage;
+            set => _criticalDamage = value;
+        }
+
+        [SerializeField] private float _accuracy;
+
+        public float Accuracy
+        {
+            get => _accuracy;
+            set => _accuracy = value;
+        }
+
+        [SerializeField] private float _resistance;
+
+        public float Resistance
+        {
+            get => _resistance;
+            set => _resistance = value;
+        }
+
+        [SerializeField] private float _totalDamageReduction;
+
+        public float TotalDamageReduction
+        {
+            get => _totalDamageReduction;
+            set => _totalDamageReduction = value;
+
+        }
+
+        [SerializeField] private float _criticalDamageReduction;
+
+        public float CriticalDamageReduction
+        {
+            get => _criticalDamageReduction;
+            set => _criticalDamageReduction = value;
+        }
+
 
 
 

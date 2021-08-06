@@ -21,5 +21,19 @@
         int HeroAssetHealth { get; set; }
         
         int HeroAssetChance { get; set; }
+
+        float CriticalChance { get; set; }
+
+        float CriticalDamage { get; set; }
+
+        float Accuracy { get; set; }
+
+        float Resistance { get; set; }
+
+        float TotalDamageReduction { get; set; }
+
+        float CriticalDamageReduction { get; set; }
+
+
     }
 }

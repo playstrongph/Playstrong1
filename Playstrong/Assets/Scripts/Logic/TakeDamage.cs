@@ -66,6 +66,8 @@ namespace Logic
         private IEnumerator HeroTakesDamage(int damageValue, IHero attacker)
         {
             var finalDamage = ComputeFinalDamage(damageValue);
+            
+            //TODO: Call ComputeFinalDamageTest Here
 
             ComputeNewArmor(_thisHeroLogic, finalDamage);
             ComputeNewHealth(_thisHeroLogic, _residualDamage);
@@ -92,7 +94,7 @@ namespace Logic
         }
 
             
-        //TODO: Use Only the smallest damage modifier
+        
         private int ComputeFinalDamage(int value)
         {
             var damage = value;
@@ -104,6 +106,24 @@ namespace Logic
             }
             return damage;
         }
+        
+        //TEST
+        private int ComputeFinalDamageTest(int normalDamage, int criticalDamage)
+        {
+            
+            var criticalDamageReductionFactor = _thisHeroLogic.HeroAttributes.CriticalDamageReduction/100;
+            var totalDamageReductionFactor = _thisHeroLogic.HeroAttributes.TotalDamageReduction / 100;
+            
+            var finalCriticalDamage = (1-criticalDamageReductionFactor)*(criticalDamage);
+
+            var floatFinalDamage = (1 - totalDamageReductionFactor) * (normalDamage + finalCriticalDamage);
+
+            var finalDamage = Mathf.FloorToInt(floatFinalDamage);
+
+            return finalDamage;
+        }
+
+        //TEST END
 
         private IEnumerator ApplyFinalDamage(int damageValue)
         {
