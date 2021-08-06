@@ -23,6 +23,8 @@ namespace ScriptableObjects.Actions
             //LogicTree.AddCurrent(AttackHero());
             //Originals END
             
+            Debug.Log("Normal Attack");
+            
             LogicTree.AddCurrent(AttackHeroTest());
             
             //TEST START

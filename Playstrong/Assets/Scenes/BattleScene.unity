@@ -1723,21 +1723,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
-    - target: {fileID: 190191286671394562, guid: 55d0158ae4095ed459b6c7d1bccedb52,
-        type: 3}
-      propertyPath: _criticalFactor.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550127320965468234, guid: 55d0158ae4095ed459b6c7d1bccedb52,
-        type: 3}
-      propertyPath: _dieAnimation
-      value: 
-      objectReference: {fileID: 11400000, guid: 9671ac9a0d7a27149be4a5a644837db2,
-        type: 2}
     - target: {fileID: 3820792405746686396, guid: 55d0158ae4095ed459b6c7d1bccedb52,
         type: 3}
       propertyPath: m_Name
       value: HeroPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820792406562021603, guid: 55d0158ae4095ed459b6c7d1bccedb52,
+        type: 3}
+      propertyPath: _criticalDamageMultiplier
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3820792407251447775, guid: 55d0158ae4095ed459b6c7d1bccedb52,
         type: 3}
@@ -1844,9 +1838,7 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3526157909305851937, guid: 55d0158ae4095ed459b6c7d1bccedb52, type: 3}
-    - {fileID: 4934580090461465438, guid: 55d0158ae4095ed459b6c7d1bccedb52, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55d0158ae4095ed459b6c7d1bccedb52, type: 3}
 --- !u!224 &1900826687 stripped
 RectTransform:

@@ -21,8 +21,14 @@ namespace ScriptableObjects.Actions
             
             LogicTree.AddCurrent(PreCriticalStrikeEvents());
             
-            LogicTree.AddCurrent(ComputeFinalDamage());
-            LogicTree.AddCurrent(AttackHero());
+            //Originals START
+            //LogicTree.AddCurrent(ComputeFinalDamage());
+            //LogicTree.AddCurrent(AttackHero());
+            //Originals END
+            
+            Debug.Log("Critical Attack");
+            
+            LogicTree.AddCurrent(AttackHeroTest());
             
             LogicTree.AddCurrent(PostCriticalStrikeEvents());
             
@@ -88,12 +94,11 @@ namespace ScriptableObjects.Actions
         {
             VisualTree.AddCurrent(AttackHeroVisual());
             
-            
-            //TODO - transfer this to Deal Damage
-            //LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
-            
             var dealDamage = TargetHero.HeroLogic.DealDamage;
-            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,_finalAttackValue));
+            var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
+            var criticalFactor = ThisHero.HeroLogic.HeroAttributes.CriticalDamageMultiplier;
+            
+            LogicTree.AddCurrent(dealDamage.DealDamageHeroTest(ThisHero, TargetHero,attackPower, criticalFactor));
             
             LogicTree.EndSequence();
             yield return null;
