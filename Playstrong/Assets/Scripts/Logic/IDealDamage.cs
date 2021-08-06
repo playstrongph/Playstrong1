@@ -5,7 +5,7 @@ namespace Logic
 {
     public interface IDealDamage
     {
-       IEnumerator DealDamageHeroTest(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
+       IEnumerator DealDamageHero(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
        int OtherDamage { get; set; }
     }
 }

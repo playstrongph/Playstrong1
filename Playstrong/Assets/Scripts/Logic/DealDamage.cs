@@ -32,19 +32,15 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
         }
         
-        public IEnumerator DealDamageHeroTest(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
+        public IEnumerator DealDamageHero(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-
             NormalDamage = attackPower + OtherDamage;
             var criticalDamage = Mathf.FloorToInt(criticalFactor * NormalDamage);
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHeroTest(NormalDamage, criticalDamage, attackerHero));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(NormalDamage, criticalDamage, attackerHero));
 
-            //TO TEST - Reset Other Damage to default of 0.
-            //OtherDamage = 0;
-            
             logicTree.EndSequence();
             yield return null;
         }

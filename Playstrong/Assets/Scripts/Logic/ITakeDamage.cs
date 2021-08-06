@@ -7,7 +7,7 @@ namespace Logic
 {
     public interface ITakeDamage
     {
-        IEnumerator DamageHeroTest(int normalDamage, int criticalDamage, IHero attacker);
+        IEnumerator DamageHero(int normalDamage, int criticalDamage, IHero attacker);
 
     }
 }

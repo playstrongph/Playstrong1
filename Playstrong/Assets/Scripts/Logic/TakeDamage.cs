@@ -29,13 +29,12 @@ namespace Logic
             _logicTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
-
-        //TEST START
-        public IEnumerator DamageHeroTest(int normalDamage, int criticalDamage, IHero attacker)
+        
+        public IEnumerator DamageHero(int normalDamage, int criticalDamage, IHero attacker)
         {
             var thisHero = _thisHeroLogic.Hero;
             
-            _logicTree.AddCurrent(HeroTakesDamageTest(normalDamage,criticalDamage,attacker));
+            _logicTree.AddCurrent(HeroTakesDamage(normalDamage,criticalDamage,attacker));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
 
@@ -44,9 +43,9 @@ namespace Logic
           
         }
         
-        private IEnumerator HeroTakesDamageTest(int normalDamage, int criticalDamage, IHero attacker)
+        private IEnumerator HeroTakesDamage(int normalDamage, int criticalDamage, IHero attacker)
         {
-            var finalDamage = ComputeFinalDamageTest(normalDamage, criticalDamage);
+            var finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
 
             ComputeNewArmor(_thisHeroLogic, finalDamage);
             ComputeNewHealth(_thisHeroLogic, _residualDamage);
@@ -57,9 +56,7 @@ namespace Logic
             yield return null;
            
         }
-        
-        
-        private int ComputeFinalDamageTest(int normalDamage, int criticalDamage)
+        private int ComputeFinalDamage(int normalDamage, int criticalDamage)
         {
             
             var criticalDamageReductionFactor = _thisHeroLogic.HeroAttributes.CriticalDamageReduction/100;
@@ -73,8 +70,6 @@ namespace Logic
 
             return finalDamage;
         }
-
-        //TEST END
 
         private IEnumerator ApplyFinalDamage(int damageValue)
         {

@@ -8,8 +8,7 @@ namespace ScriptableObjects.Actions
 {
     [CreateAssetMenu(fileName = "AttackActionAsset", menuName = "SO's/SkillActions/AttackActionAsset")]
     
-    public class AttackActionAsset : SkillActionAsset
-    {
+    public class AttackActionAsset : SkillActionAsset {
         
        
         private int _finalAttackValue;
@@ -18,7 +17,7 @@ namespace ScriptableObjects.Actions
         {
             InitializeValues(thisHero, targetHero);
 
-            LogicTree.AddCurrent(AttackHeroTest());
+            LogicTree.AddCurrent(AttackHero());
 
             LogicTree.EndSequence();
             yield return null;
@@ -26,7 +25,7 @@ namespace ScriptableObjects.Actions
         }
         
 
-        private IEnumerator AttackHeroTest()
+        private IEnumerator AttackHero()
         {
             VisualTree.AddCurrent(AttackHeroVisual());
             
@@ -34,7 +33,7 @@ namespace ScriptableObjects.Actions
             var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
             var criticalFactor = 0;
             
-            LogicTree.AddCurrent(dealDamage.DealDamageHeroTest(ThisHero, TargetHero,attackPower, criticalFactor));
+            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
             
             LogicTree.EndSequence();
             yield return null;
