@@ -67,9 +67,9 @@ namespace ScriptableObjects.Actions
             
             var dealDamage = TargetHero.HeroLogic.DealDamage;
             var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
-            var criticalDamage = 0;
+            var criticalFactor = 0;
             
-            LogicTree.AddCurrent(dealDamage.DealDamageHeroTest(ThisHero, TargetHero,attackPower, criticalDamage));
+            LogicTree.AddCurrent(dealDamage.DealDamageHeroTest(ThisHero, TargetHero,attackPower, criticalFactor));
             
             LogicTree.EndSequence();
             yield return null;

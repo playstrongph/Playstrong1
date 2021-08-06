@@ -83,7 +83,30 @@ namespace ScriptableObjects.Actions
             yield return null;
         }
         
-
+        //TEST START
+        private IEnumerator AttackHeroTest()
+        {
+            VisualTree.AddCurrent(AttackHeroVisual());
+            
+            
+            //TODO - transfer this to Deal Damage
+            //LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
+            
+            var dealDamage = TargetHero.HeroLogic.DealDamage;
+            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,_finalAttackValue));
+            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+        
+        //TEST END
+        
+        
+        
+        /// <summary>
+        /// Critical Attack Animation
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator AttackHeroVisual()
         {
             var doMoveDuration = 0.7f;

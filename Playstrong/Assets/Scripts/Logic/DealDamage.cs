@@ -57,11 +57,13 @@ namespace Logic
         }
         
         //TEST START - DEALDAMAGEHEROTEST
-        public IEnumerator DealDamageHeroTest(IHero attackerHero, IHero targetHero, int attackPower, int criticalDamage)
+        public IEnumerator DealDamageHeroTest(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
 
             NormalDamage = attackPower + OtherDamage;
+            var criticalDamage = Mathf.FloorToInt(criticalFactor * NormalDamage);
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHeroTest(NormalDamage, criticalDamage, attackerHero));
 
