@@ -3497,20 +3497,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attack: 0
-  _baseAttack: 0
   _health: 0
-  _baseHealth: 0
   _armor: 0
-  _baseArmor: 0
   _speed: 0
-  _baseSpeed: 0
   _chance: 0
-  _baseChance: 0
   _energy: 0
+  _baseAttack: 0
+  _baseHealth: 0
+  _baseArmor: 0
+  _baseSpeed: 0
+  _baseChance: 0
   _heroAssetAttack: 0
   _heroAssetHealth: 0
   _heroAssetSpeed: 0
   _heroAssetChance: 0
+  _criticalChance: 0
+  _criticalDamageMultiplier: 1
+  _accuracy: 0
+  _resistance: 0
+  _totalDamageReduction: 0
+  _criticalDamageReduction: 0
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,6 +3683,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalDamageDealt: 0
+  _normalDamage: 0
+  _otherDamage: 0
+  _criticalFactor:
+  - 0
 --- !u!114 &1550127320965468234
 MonoBehaviour:
   m_ObjectHideFlags: 0

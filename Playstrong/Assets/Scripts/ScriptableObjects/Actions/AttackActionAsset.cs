@@ -18,8 +18,17 @@ namespace ScriptableObjects.Actions
         {
             InitializeValues(thisHero, targetHero);
 
-            LogicTree.AddCurrent(ComputeFinalDamage());
-            LogicTree.AddCurrent(AttackHero());
+            //Originals START
+            //LogicTree.AddCurrent(ComputeFinalDamage());
+            //LogicTree.AddCurrent(AttackHero());
+            //Originals END
+            
+            LogicTree.AddCurrent(AttackHeroTest());
+            
+            //TEST START
+            
+            //TEST END
+            
 
             LogicTree.EndSequence();
             yield return null;
@@ -29,9 +38,6 @@ namespace ScriptableObjects.Actions
         private IEnumerator AttackHero()
         {
             VisualTree.AddCurrent(AttackHeroVisual());
-            
-            //TODO - transfer this to Deal Damage
-            //LogicTree.AddCurrent(TargetHero.HeroLogic.TakeDamage.DamageHero(_finalAttackValue));
 
             var dealDamage = TargetHero.HeroLogic.DealDamage;
             LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,_finalAttackValue));
@@ -39,6 +45,7 @@ namespace ScriptableObjects.Actions
             LogicTree.EndSequence();
             yield return null;
         }
+
         private IEnumerator ComputeFinalDamage()
         {
             var finalAttackModifiers = ThisHero.HeroLogic.BasicAttack.UniqueAttackModifiers;
@@ -53,7 +60,30 @@ namespace ScriptableObjects.Actions
             yield return null;
         }
         
-
+        //TEST
+        private IEnumerator AttackHeroTest()
+        {
+            VisualTree.AddCurrent(AttackHeroVisual());
+            
+            var dealDamage = TargetHero.HeroLogic.DealDamage;
+            var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
+            var criticalDamage = 0;
+            
+            LogicTree.AddCurrent(dealDamage.DealDamageHeroTest(ThisHero, TargetHero,attackPower, criticalDamage));
+            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+        
+        //TEST END
+        
+        
+        
+        
+        /// <summary>
+        /// Attack Animation
+        /// TODO: Separate this
+        /// </summary>
         private IEnumerator AttackHeroVisual()
         {
             var doMoveDuration = 0.7f;
