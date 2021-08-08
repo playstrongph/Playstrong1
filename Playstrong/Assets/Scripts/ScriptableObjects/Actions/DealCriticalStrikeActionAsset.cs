@@ -27,27 +27,14 @@ namespace ScriptableObjects.Actions
 
         private void SetCriticalAttackIndex()
         {
-            //Original
-            //var criticalStrikeAttackIndex = 1;
-            //ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
-            
-            //TEST
-            //ThisHero.HeroLogic.HeroEvents.EBeforeAttacking += IncreaseCriticalChance;
-
-            ThisHero.HeroLogic.HeroAttributes.CriticalChance += criticalChance;
+            ThisHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalChance;
             
             ThisHero.HeroLogic.HeroEvents.EAfterAttacking += RemoveCriticalChanceIncrease;
         }
 
-        private void IncreaseCriticalChance(IHero thisHero, IHero dummyHero)
-        {
-            thisHero.HeroLogic.HeroAttributes.CriticalChance += criticalChance;
-            ThisHero.HeroLogic.HeroEvents.EBeforeAttacking -= IncreaseCriticalChance;
-        }
-        
         private void RemoveCriticalChanceIncrease(IHero thisHero, IHero dummyHero)
         {
-            thisHero.HeroLogic.HeroAttributes.CriticalChance -= criticalChance;
+            thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance -= criticalChance;
             ThisHero.HeroLogic.HeroEvents.EAfterAttacking -= RemoveCriticalChanceIncrease;
         }
         

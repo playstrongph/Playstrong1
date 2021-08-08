@@ -136,6 +136,8 @@ namespace Logic
         private IHero _thisHero;
         private IHero _targetHero;
 
+        [SerializeField] private float criticalChanceThreshold = 100f;
+
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
@@ -173,19 +175,30 @@ namespace Logic
         {
             //Original
             //_logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(thisHero, targetHero));
+
+            var selectAttackIndex = SetAttackIndexTest(thisHero, targetHero);  
             
             //TEST
-            _logicTree.AddCurrent(AttackActions[SetAttackIndexTest(thisHero)].StartAction(thisHero, targetHero));
-            
+            _logicTree.AddCurrent(AttackActions[selectAttackIndex].StartAction(thisHero, targetHero));
+
             _logicTree.EndSequence();
             yield return null;
         }
         
-        //TEST
-        private int SetAttackIndexTest(IHero thisHero)
+        //Determines Critical or Normal Attack
+        private int SetAttackIndexTest(IHero thisHero, IHero targetHero)
         {
-            var criticalChance = thisHero.HeroLogic.HeroAttributes.CriticalChance;
-            if (criticalChance >= 100)
+            var thisHeroCriticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
+            var targetHeroCriticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
+
+            //Original
+            //var criticalChance = thisHero.HeroLogic.HeroAttributes.CriticalChance;
+            
+            //TEST
+            var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
+            criticalChance = Mathf.Clamp(criticalChance, 0, 100);
+
+            if (criticalChance >= criticalChanceThreshold)
                 return 1;
             else
                 return 0;
