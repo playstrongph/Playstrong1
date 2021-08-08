@@ -171,10 +171,24 @@ namespace Logic
 
         private IEnumerator StartAttackActions(IHero thisHero, IHero targetHero)
         {
-            _logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(thisHero, targetHero));
+            //Original
+            //_logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(thisHero, targetHero));
+            
+            //TEST
+            _logicTree.AddCurrent(AttackActions[SetAttackIndexTest(thisHero)].StartAction(thisHero, targetHero));
             
             _logicTree.EndSequence();
             yield return null;
+        }
+        
+        //TEST
+        private int SetAttackIndexTest(IHero thisHero)
+        {
+            var criticalChance = thisHero.HeroLogic.HeroAttributes.CriticalChance;
+            if (criticalChance >= 100)
+                return 1;
+            else
+                return 0;
         }
 
 

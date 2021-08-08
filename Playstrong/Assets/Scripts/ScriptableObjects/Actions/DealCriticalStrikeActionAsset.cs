@@ -10,6 +10,9 @@ namespace ScriptableObjects.Actions
     
     public class DealCriticalStrikeActionAsset : SkillActionAsset
     {
+
+        [SerializeField] private float criticalChance = 100f;
+        
         
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
@@ -24,17 +27,41 @@ namespace ScriptableObjects.Actions
 
         private void SetCriticalAttackIndex()
         {
-            var criticalStrikeAttackIndex = 1;
-            ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
+            //Original
+            //var criticalStrikeAttackIndex = 1;
+            //ThisHero.HeroLogic.BasicAttack.SetAttackIndex = criticalStrikeAttackIndex;
+            
+            //TEST
+            //ThisHero.HeroLogic.HeroEvents.EBeforeAttacking += IncreaseCriticalChance;
+
+            ThisHero.HeroLogic.HeroAttributes.CriticalChance += criticalChance;
+            
+            ThisHero.HeroLogic.HeroEvents.EAfterAttacking += RemoveCriticalChanceIncrease;
         }
 
-
-
+        private void IncreaseCriticalChance(IHero thisHero, IHero dummyHero)
+        {
+            thisHero.HeroLogic.HeroAttributes.CriticalChance += criticalChance;
+            ThisHero.HeroLogic.HeroEvents.EBeforeAttacking -= IncreaseCriticalChance;
+        }
+        
+        private void RemoveCriticalChanceIncrease(IHero thisHero, IHero dummyHero)
+        {
+            thisHero.HeroLogic.HeroAttributes.CriticalChance -= criticalChance;
+            ThisHero.HeroLogic.HeroEvents.EAfterAttacking -= RemoveCriticalChanceIncrease;
+        }
+        
+        
+        
         
 
 
 
-      
+
+
+
+
+
 
 
     }

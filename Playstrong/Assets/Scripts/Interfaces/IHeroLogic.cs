@@ -43,6 +43,8 @@ namespace Interfaces
 
         IHeroDies HeroDies { get; }
 
+        IOtherAttributes OtherAttributes { get; }
+
 
 
 

@@ -3431,6 +3431,7 @@ GameObject:
   - component: {fileID: 3820792406562021604}
   - component: {fileID: 3820792406562021601}
   - component: {fileID: 3820792406562021603}
+  - component: {fileID: 462356673534841368}
   - component: {fileID: 7231591812556641881}
   - component: {fileID: 7320035436552554723}
   - component: {fileID: 1714413992}
@@ -3517,6 +3518,18 @@ MonoBehaviour:
   _resistance: 0
   _totalDamageReduction: 0
   _criticalDamageReduction: 0
+--- !u!114 &462356673534841368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b263c4854133b1479d3011d0d35eb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3594,8 +3607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6a0bf8e7528c4698866652f5f5de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageModifiers:
-  - {fileID: 11400000, guid: 30b34b5181dd2a849b16b05cda6e7c2b, type: 2}
 --- !u!114 &5111372421542366580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3682,11 +3693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0ab9669dbd6744979ae0185f2d4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalDamageDealt: 0
   _normalDamage: 0
   _otherDamage: 0
-  _criticalFactor:
-  - 0
 --- !u!114 &1550127320965468234
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,8 +17,7 @@ namespace Logic
     /// </summary>
     public class HeroLogic : MonoBehaviour, IHeroLogic
     {
-
-       [SerializeField] [RequireInterface(typeof(IHeroStatusAsset))]
+        [SerializeField] [RequireInterface(typeof(IHeroStatusAsset))]
         private ScriptableObject _heroStatus;
        
         public IHeroStatusAsset HeroStatus
@@ -110,6 +109,10 @@ namespace Logic
         private IHeroDies _heroDies;
         public IHeroDies HeroDies => _heroDies;
 
+        private IOtherAttributes _otherAttributes;
+
+        public IOtherAttributes OtherAttributes => _otherAttributes;
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
@@ -123,6 +126,7 @@ namespace Logic
             _basicAttackSkillAttributes = GetComponent<ISkillAttributes>();
             _dealDamage = GetComponent<IDealDamage>();
             _heroDies = GetComponent<IHeroDies>();
+            _otherAttributes = GetComponent<IOtherAttributes>();
         }
     }
 }
