@@ -58,13 +58,11 @@ namespace Logic
         }
         private int ComputeFinalDamage(int normalDamage, int criticalDamage)
         {
-            
-            var criticalDamageReductionFactor = _thisHeroLogic.HeroAttributes.CriticalDamageReduction/100;
-            var totalDamageReductionFactor = _thisHeroLogic.HeroAttributes.TotalDamageReduction / 100;
-            
-            var finalCriticalDamage = (1-criticalDamageReductionFactor)*(criticalDamage);
+           
+            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+            damageReduction = Mathf.Clamp(damageReduction, 0, 1);
 
-            var floatFinalDamage = (1 - totalDamageReductionFactor) * (normalDamage + finalCriticalDamage);
+            var floatFinalDamage = (1 - damageReduction) * (normalDamage + criticalDamage);
 
             var finalDamage = Mathf.FloorToInt(floatFinalDamage);
 

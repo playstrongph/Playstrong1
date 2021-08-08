@@ -187,6 +187,8 @@ namespace Logic
             var normalAttack = AttackActions[0].StartAction(thisHero, targetHero);
             var criticalAttack = AttackActions[1].StartAction(thisHero, targetHero);
             var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
+
+           
             
             criticalChance = Mathf.Clamp(criticalChance, 0, 100);
 
