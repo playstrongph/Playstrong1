@@ -1,8 +1,10 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillActions;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ScriptableObjects.SkillCondition
 {
@@ -14,19 +16,23 @@ namespace ScriptableObjects.SkillCondition
         [SerializeField] private int _skillChance;
         private int SkillChance => _skillChance;
 
-        private int _chanceValue;
-
         public  override void UseSkillAction(IHero thisHero, IHero targetHero)
         {
-            if(SkillCondition())
+            if(SkillCondition(thisHero))
                 base.UseSkillAction(thisHero,targetHero);
         }
 
          
-        private bool SkillCondition()
+        private bool SkillCondition(IHero thisHero)
         {
-            _chanceValue = Random.Range(0, 100);
-            var chanceSuccess = _chanceValue <= SkillChance;
+            var chanceValue = Random.Range(0, 100);
+            var skillChanceBonus = thisHero.HeroLogic.OtherAttributes.SkillChanceBonus;
+            var finalSkillChance = SkillChance + skillChanceBonus;
+            
+            
+            finalSkillChance = Mathf.Clamp(finalSkillChance, 0, 100);
+            var chanceSuccess = chanceValue <= finalSkillChance;
+             
             return chanceSuccess;
         }
 
