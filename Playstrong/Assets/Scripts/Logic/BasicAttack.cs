@@ -173,31 +173,27 @@ namespace Logic
 
         private IEnumerator StartAttackActions(IHero thisHero, IHero targetHero)
         {
-            //Original
-            //_logicTree.AddCurrent(AttackActions[SetAttackIndex].StartAction(thisHero, targetHero));
-
-            var selectAttackIndex = SetAttackIndexTest(thisHero, targetHero);  
-            
-            //TEST
-            _logicTree.AddCurrent(AttackActions[selectAttackIndex].StartAction(thisHero, targetHero));
+            _logicTree.AddCurrent(SetAttack(thisHero,targetHero));
 
             _logicTree.EndSequence();
             yield return null;
         }
         
         //Determines Critical or Normal Attack
-        private int SetAttackIndexTest(IHero thisHero, IHero targetHero)
+        private IEnumerator SetAttack(IHero thisHero, IHero targetHero)
         {
             var thisHeroCriticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
             var targetHeroCriticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
-
+            var normalAttack = AttackActions[0].StartAction(thisHero, targetHero);
+            var criticalAttack = AttackActions[1].StartAction(thisHero, targetHero);
             var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
+            
             criticalChance = Mathf.Clamp(criticalChance, 0, 100);
 
             if (criticalChance >= criticalChanceThreshold)
-                return 1;
+                return criticalAttack;
             else
-                return 0;
+                return normalAttack;
         }
 
 
