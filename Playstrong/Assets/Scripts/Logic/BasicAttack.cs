@@ -191,10 +191,6 @@ namespace Logic
             var thisHeroCriticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
             var targetHeroCriticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
 
-            //Original
-            //var criticalChance = thisHero.HeroLogic.HeroAttributes.CriticalChance;
-            
-            //TEST
             var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
             criticalChance = Mathf.Clamp(criticalChance, 0, 100);
 

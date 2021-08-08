@@ -17,12 +17,12 @@ namespace Logic
         }
         
         [SerializeField]
-        private float _damageMultiplier = 0f;
+        private float _criticalDamageMultiplier = 100f;
 
-        public float DamageMultiplier
+        public float CriticalDamageMultiplier
         {
-            get => _damageMultiplier;
-            set => _damageMultiplier = value;
+            get => _criticalDamageMultiplier;
+            set => _criticalDamageMultiplier = value;
         }
         
         [Header("Hero Resistances")]
@@ -92,6 +92,94 @@ namespace Logic
         {
             get => _resurrectChance;
             set => _resurrectChance = value;
+        }
+
+        [Header("Damage Multipliers")]
+        [Header("Base Values")] [SerializeField]
+        private float _baseDamageReduction = 0f;
+
+        public float BaseDamageReduction
+        {
+            get => _baseDamageReduction;
+            set => _baseDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseCriticalDamageMultiplier = 100f;
+
+        public float BaseCriticalDamageMultiplier
+        {
+            get => _baseCriticalDamageMultiplier;
+            set => _baseCriticalDamageMultiplier = value;
+        }
+        
+        [Header("Hero Resistances")]
+        
+        [SerializeField]
+        private float _baseHealResistance = 0f;
+
+        public float BaseHealResistance
+        {
+            get => _baseHealResistance;
+            set => _baseHealResistance = value;
+        }
+        
+        [SerializeField]
+        private float _baseCriticalStrikeResistance = 0f;
+
+        public float BaseCriticalStrikeResistance
+        {
+            get => _baseCriticalStrikeResistance;
+            set => _baseCriticalStrikeResistance = value;
+        }
+        
+        [SerializeField]
+        private float _baseDebuffResistance = 15f;
+
+        public float BaseDebuffResistance
+        {
+            get => _baseDebuffResistance;
+            set => _baseDebuffResistance = value;
+        }
+        
+        [SerializeField]
+        private float _baseBuffResistance = 0f;
+
+        public float BaseBuffResistance
+        {
+            get => _baseBuffResistance;
+            set => _baseBuffResistance = value;
+            
+        }
+        
+        [Header("Hero Chances")]
+        [SerializeField]
+        private float _baseCriticalStrikeChance = 0f;
+
+        public float BaseCriticalStrikeChance
+        {
+            get => _baseCriticalStrikeChance;
+            set => _baseCriticalStrikeChance = value;
+            
+        }
+        
+        [SerializeField]
+        private float _baseSkillChanceBonus = 0f;
+
+        public float BaseSkillChanceBonus
+        {
+            get => _baseSkillChanceBonus;
+            set => _baseSkillChanceBonus = value;
+            
+        }
+        
+        [SerializeField]
+        private float _baseResurrectChance = 0f;
+
+        public float BaseResurrectChance
+        {
+            get => _baseResurrectChance;
+            set => _baseResurrectChance = value;
         }
         
         //Script References

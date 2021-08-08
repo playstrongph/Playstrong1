@@ -3,7 +3,7 @@
     public interface IOtherAttributes
     {
         float DamageReduction { get; set; }
-        float DamageMultiplier { get; set; }
+        float CriticalDamageMultiplier { get; set; }
         float HealResistance { get; set; }
         float CriticalStrikeResistance { get; set; }
         float DebuffResistance { get; set; }
