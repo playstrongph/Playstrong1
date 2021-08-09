@@ -26,8 +26,15 @@ namespace ScriptableObjects.Actions
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
            InitializeValues(thisHero, targetHero);
-            
-           LogicTree.AddCurrent(HealCoroutine());
+           var targetHealChance = targetHero.HeroLogic.OtherAttributes.HealChance;
+           var targetHealResistance = targetHero.HeroLogic.OtherAttributes.HealResistance;
+           var randomValue = Random.Range(1f, 100f);
+           var netHealChance = targetHealChance - targetHealResistance;
+           
+           netHealChance = Mathf.Clamp(netHealChance,0, 100);
+
+           if(randomValue <= netHealChance)
+              LogicTree.AddCurrent(HealCoroutine());
            
            LogicTree.EndSequence();
            yield return null;
@@ -39,9 +46,8 @@ namespace ScriptableObjects.Actions
             VisualTree.AddCurrent(HealVisual());
 
             var newHealth = TargetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healMultiplier* TargetHero.HeroLogic.HeroAttributes.BaseHealth);
-            
             TargetHero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
-            
+
             LogicTree.EndSequence();
             yield return null;
         }

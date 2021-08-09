@@ -39,6 +39,12 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
 
+        [SerializeField] [RequireInterface(typeof(IHeroAction))]
+        private ScriptableObject _skillActionAsset;
+
+        public IHeroAction SkillActionAsset => _skillActionAsset as IHeroAction;
+        
+
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         protected IHero Hero;

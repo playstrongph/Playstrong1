@@ -34,29 +34,14 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private IEnumerator RecoveryEffectCoroutine(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             
-            visualTree.AddCurrent(HealVisual(hero));
+            logicTree.AddCurrent(SkillActionAsset.ActionTarget(hero,hero));
 
-            var newHealth = hero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healthMultiplier* hero.HeroLogic.HeroAttributes.BaseHealth);
-            
-            hero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
-            
             logicTree.EndSequence();
             yield return null;
         }
 
 
-        //TEMP - need to change animation to heal animation
-        private IEnumerator HealVisual(IHero hero)
-        {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            
-            hero.DamageEffect.ShowDamage(Mathf.FloorToInt(healthMultiplier* hero.HeroLogic.HeroAttributes.BaseHealth));
-
-            visualTree.EndSequence();
-            yield return null;
-        }
 
 
 
