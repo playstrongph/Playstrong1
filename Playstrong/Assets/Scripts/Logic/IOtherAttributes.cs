@@ -27,10 +27,34 @@
         float BuffChance { get; set; }
         float SkillChanceBonus { get; set; }
         float ResurrectChance { get; set; }
+
+        /// <summary>
+        /// Base Damage Multipliers
+        /// </summary>
+        float BaseDamageReduction { get; set; }
+        float BaseCriticalDamageMultiplier { get; set; }
         
+        /// <summary>
+        /// Base Hero Resistances
+        /// </summary>
+        float BaseHealResistance { get; set; }
+        float BaseCriticalStrikeResistance { get; set; }
+        float BaseDebuffResistance { get; set; }
+        float BaseBuffResistance { get; set; }
+        float BaseSkillChanceResistance { get; set; }
+        float BaseResurrectResistance { get; set; }
         
-        
-        
-        
+        /// <summary>
+        /// Base Hero Chances
+        /// </summary>
+        float BaseHealChance { get; set; }
+        float BaseCriticalStrikeChance { get; set; }
+        float BaseDebuffChance { get; set; }
+        float BaseBuffChance { get; set; }
+        float BaseSkillChanceBonus { get; set; }
+        float BaseResurrectChance { get; set; }
+
+
+
     }
 }
