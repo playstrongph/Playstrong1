@@ -5,7 +5,10 @@ using UnityEngine;
 namespace Logic
 {
     public class OtherAttributes : MonoBehaviour, IOtherAttributes
-    {
+    {   
+        /// <summary>
+        /// Damage Multipliers
+        /// </summary>
 
         [Header("Damage Multipliers")] [SerializeField]
         private float _damageReduction = 0f;
@@ -24,6 +27,10 @@ namespace Logic
             get => _criticalDamageMultiplier;
             set => _criticalDamageMultiplier = value;
         }
+        
+        /// <summary>
+        /// Hero Resistances
+        /// </summary>
         
         [Header("Hero Resistances")]
         
@@ -84,6 +91,10 @@ namespace Logic
             
         }
         
+        /// <summary>
+        /// Hero Chances
+        /// </summary>
+        
         [Header("Hero Chances")]
         [SerializeField]
         private float _healChance = 0f;
@@ -122,11 +133,8 @@ namespace Logic
         {
             get => _buffChance;
             set => _buffChance = value;
-            
         }
-        
-        
-        
+
         [SerializeField]
         private float _skillChanceBonus = 0f;
 
@@ -145,6 +153,10 @@ namespace Logic
             get => _resurrectChance;
             set => _resurrectChance = value;
         }
+        
+        /// <summary>
+        /// Base Damage Multipliers
+        /// </summary>
 
         [Header("Damage Multipliers")]
         [Header("Base Values")] [SerializeField]
@@ -164,6 +176,10 @@ namespace Logic
             get => _baseCriticalDamageMultiplier;
             set => _baseCriticalDamageMultiplier = value;
         }
+        
+        /// <summary>
+        /// Base Hero Resistances
+        /// </summary>
         
         [Header("Hero Resistances")]
         
@@ -204,6 +220,29 @@ namespace Logic
             
         }
         
+        [SerializeField]
+        private float _baseSkillChanceResistance = 0f;
+
+        public float BaseSkillChanceResistance
+        {
+            get => _baseSkillChanceResistance;
+            set => _baseSkillChanceResistance = value;
+        }
+        
+        [SerializeField]
+        private float _baseResurrectResistance = 0f;
+
+        public float BaseResurrectResistance
+        {
+            get => _baseResurrectResistance;
+            set => _baseResurrectResistance = value;
+            
+        }
+        
+        /// <summary>
+        /// Base Hero Chances
+        /// </summary>
+        
         [Header("Hero Chances")]
         
         [SerializeField]
@@ -227,6 +266,26 @@ namespace Logic
         }
         
         [SerializeField]
+        private float _baseDebuffChance = 0f;
+
+        public float BaseDebuffChance
+        {
+            get => _baseDebuffChance;
+            set => _baseDebuffChance = value;
+            
+        }
+        
+        [SerializeField]
+        private float _baseBuffChance = 0f;
+
+        public float BaseBuffChance
+        {
+            get => _baseBuffChance;
+            set => _baseBuffChance = value;
+            
+        }
+        
+        [SerializeField]
         private float _baseSkillChanceBonus = 0f;
 
         public float BaseSkillChanceBonus
@@ -245,7 +304,9 @@ namespace Logic
             set => _baseResurrectChance = value;
         }
         
-        //Script References
+        /// <summary>
+        /// Script References
+        /// </summary>
         private IHeroLogic _heroLogic;
 
         private void Awake()
