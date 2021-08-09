@@ -64,7 +64,37 @@ namespace Logic
             
         }
         
+        [SerializeField]
+        private float _skillChanceResistance = 0f;
+
+        public float SkillChanceResistance
+        {
+            get => _skillChanceResistance;
+            set => _skillChanceResistance = value;
+            
+        }
+        
+        [SerializeField]
+        private float _resurrectResistance = 0f;
+
+        public float ResurrectResistance
+        {
+            get => _resurrectResistance;
+            set => _resurrectResistance = value;
+            
+        }
+        
         [Header("Hero Chances")]
+        [SerializeField]
+        private float _healChance = 0f;
+
+        public float HealChance
+        {
+            get => _healChance;
+            set => _healChance = value;
+            
+        }
+        
         [SerializeField]
         private float _criticalStrikeChance = 0f;
 
@@ -74,6 +104,28 @@ namespace Logic
             set => _criticalStrikeChance = value;
             
         }
+        
+        [SerializeField]
+        private float _debuffChance = 0f;
+
+        public float DebuffChance
+        {
+            get => _debuffChance;
+            set => _debuffChance = value;
+            
+        }
+        
+        [SerializeField]
+        private float _buffChance = 0f;
+
+        public float BuffChance
+        {
+            get => _buffChance;
+            set => _buffChance = value;
+            
+        }
+        
+        
         
         [SerializeField]
         private float _skillChanceBonus = 0f;
@@ -153,6 +205,17 @@ namespace Logic
         }
         
         [Header("Hero Chances")]
+        
+        [SerializeField]
+        private float _baseHealChance = 0f;
+
+        public float BaseHealChance
+        {
+            get => _baseHealChance;
+            set => _baseHealChance = value;
+            
+        }
+        
         [SerializeField]
         private float _baseCriticalStrikeChance = 0f;
 
