@@ -97,7 +97,7 @@ namespace Logic
         
         [Header("Hero Chances")]
         [SerializeField]
-        private float _healChance = 0f;
+        private float _healChance = 100f;
 
         public float HealChance
         {
@@ -117,7 +117,7 @@ namespace Logic
         }
         
         [SerializeField]
-        private float _debuffChance = 0f;
+        private float _debuffChance = 100f;
 
         public float DebuffChance
         {
@@ -127,7 +127,7 @@ namespace Logic
         }
         
         [SerializeField]
-        private float _buffChance = 0f;
+        private float _buffChance = 100f;
 
         public float BuffChance
         {

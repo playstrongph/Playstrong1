@@ -3536,7 +3536,12 @@ MonoBehaviour:
   _criticalStrikeResistance: 0
   _debuffResistance: 15
   _buffResistance: 0
+  _skillChanceResistance: 0
+  _resurrectResistance: 0
+  _healChance: 100
   _criticalStrikeChance: 0
+  _debuffChance: 100
+  _buffChance: 100
   _skillChanceBonus: 0
   _resurrectChance: 0
   _baseDamageReduction: 0
@@ -3545,7 +3550,12 @@ MonoBehaviour:
   _baseCriticalStrikeResistance: 0
   _baseDebuffResistance: 15
   _baseBuffResistance: 0
+  _baseSkillChanceResistance: 0
+  _baseResurrectResistance: 0
+  _baseHealChance: 100
   _baseCriticalStrikeChance: 0
+  _baseDebuffChance: 100
+  _baseBuffChance: 100
   _baseSkillChanceBonus: 0
   _baseResurrectChance: 0
 --- !u!114 &7231591812556641881
