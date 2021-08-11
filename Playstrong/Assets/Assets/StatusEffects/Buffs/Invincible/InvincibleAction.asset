@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bcb338cf557ce443b439891d9eacb2b, type: 3}
-  m_Name: RecoveryAction
+  m_Script: {fileID: 11500000, guid: 23a0823ecd2545b409336ed766f761cd, type: 3}
+  m_Name: InvincibleAction
   m_EditorClassIdentifier: 
-  healMultiplier: 0.15
+  damageReductionValue: 0

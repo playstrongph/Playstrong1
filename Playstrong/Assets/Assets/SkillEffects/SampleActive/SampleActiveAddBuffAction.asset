@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054fdb327b266164b89446891401f3e6, type: 3}
   m_Name: SampleActiveAddBuffAction
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: af2a40912c2688d498bdb53572385a39, type: 2}
+  _buffEffectAsset: {fileID: 11400000, guid: 62fba1ece1e1a48448baf0d4cce59100, type: 2}
   _buffCounters: 1

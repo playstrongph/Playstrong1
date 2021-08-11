@@ -9,17 +9,17 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class InvincibleAsset : StatusEffectAsset
     {
 
-        [SerializeField] private int reductionValue = 100;
+        [SerializeField] private float reductionValue = 100f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            var otherAttributes = hero.HeroLogic.OtherAttributes;
-            otherAttributes.DamageReduction += reductionValue;
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, reductionValue));
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var otherAttributes = hero.HeroLogic.OtherAttributes;
-            otherAttributes.DamageReduction -= reductionValue;
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -reductionValue));
         }
 
        
