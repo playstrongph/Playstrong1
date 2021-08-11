@@ -10,6 +10,6 @@ namespace Logic
         
         IEnumerator StartAction(IHero thisHero, IHero targetHero);
 
-        IEnumerator StartAction(IHero targetHero, IStatusEffectAsset statusEffectAsset);
+        IEnumerator StartAction(IHero targetHero, float value);
     }
 }

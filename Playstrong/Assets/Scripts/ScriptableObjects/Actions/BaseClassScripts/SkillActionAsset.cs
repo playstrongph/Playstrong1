@@ -41,7 +41,7 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         /// <summary>
         /// StartAction for StatusEffects
         /// </summary>
-        public virtual IEnumerator StartAction(IHero targetHero, IStatusEffectAsset statusEffectAsset)
+        public virtual IEnumerator StartAction(IHero targetHero, float value)
         {
             
             

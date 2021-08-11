@@ -16,12 +16,12 @@ namespace ScriptableObjects.Actions
         [SerializeField] private int attackIncrease;
 
        
-        public override IEnumerator StartAction(IHero targetHero, IStatusEffectAsset statusEffectAsset)
+        public override IEnumerator StartAction(IHero targetHero, float value)
         {
+            attackIncrease = (int)value;
+            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            attackIncrease = (int)statusEffectAsset.EffectValue;
-            
             var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + attackIncrease;
             targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
 
