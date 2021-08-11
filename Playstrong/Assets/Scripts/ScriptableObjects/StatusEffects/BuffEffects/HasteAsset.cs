@@ -7,33 +7,28 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class HasteAsset : StatusEffectAsset
     {
         [SerializeField]
-        private float _multiplier;
+        private float multiplier =  0.3f;
         
         private int _speedIncrease;
 
         public override void ApplyStatusEffect(IHero hero)
         {
-            InitializeValues(hero);
-            ComputeSpeedIncrease();
+            ComputeSpeedIncrease(hero);
 
-            var newSpeedValue = hero.HeroLogic.HeroAttributes.Speed + _speedIncrease;
-            hero.HeroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
-            
-            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var newSpeedValue = hero.HeroLogic.HeroAttributes.Speed - _speedIncrease;
-            
-            hero.HeroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
-            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -EffectValue));
         }
 
-        private void ComputeSpeedIncrease()
+        private void ComputeSpeedIncrease(IHero hero)
         {
-            var baseSpeed = Hero.HeroLogic.HeroAttributes.Speed;
-            _speedIncrease = Mathf.FloorToInt(_multiplier * baseSpeed);
+            var baseSpeed = hero.HeroLogic.HeroAttributes.Speed;
+            EffectValue = Mathf.FloorToInt(multiplier * baseSpeed);
         }
 
 

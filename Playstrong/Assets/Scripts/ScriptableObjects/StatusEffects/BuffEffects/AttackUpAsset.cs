@@ -7,15 +7,11 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class AttackUpAsset : StatusEffectAsset
     {
         [SerializeField]
-        private float _multiplier =0.5f;
-        
-       
-        
-        
-        
+        private float multiplier =0.5f;
+
         public override void ApplyStatusEffect(IHero hero)
         {
-            ComputeAttackIncrease();
+            ComputeAttackIncrease(hero);
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
@@ -28,10 +24,10 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -EffectValue));
         }
 
-        private void ComputeAttackIncrease()
+        private void ComputeAttackIncrease(IHero hero)
         {
-            var baseAttack = Hero.HeroLogic.HeroAttributes.BaseAttack;
-            EffectValue = Mathf.FloorToInt(_multiplier * baseAttack);
+            var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
+            EffectValue = Mathf.FloorToInt(multiplier * baseAttack);
             
         }
 
