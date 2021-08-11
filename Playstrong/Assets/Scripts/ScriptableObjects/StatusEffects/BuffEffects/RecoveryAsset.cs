@@ -12,12 +12,6 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Recovery", menuName = "SO's/Status Effects/Buffs/Recovery")]
     public class RecoveryAsset : StatusEffectAsset
     {
-      
-
-        [SerializeField] private Object _healActionAsset;
-        
-        private IHeroAction HealActionAsset => _healActionAsset as IHeroAction;
-
         public override void ApplyStatusEffect(IHero hero)
         {
             hero.HeroLogic.HeroEvents.EHeroStartTurn += RecoveryEffect;
@@ -40,7 +34,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(HealActionAsset.ActionTarget(hero,hero));     
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,hero));     
 
             logicTree.EndSequence();
             yield return null;
