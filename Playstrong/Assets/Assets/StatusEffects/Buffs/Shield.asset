@@ -19,4 +19,4 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b8efb27b2ad00fe4e82edb681246f119,
     type: 2}
-  damageModifier: {fileID: 11400000, guid: be985f1593640d940b1b500dd52abd28, type: 2}
+  reductionValue: 50

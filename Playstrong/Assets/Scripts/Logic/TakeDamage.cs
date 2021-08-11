@@ -64,7 +64,7 @@ namespace Logic
 
             var floatFinalDamage = (1 - damageReduction) * (normalDamage + criticalDamage);
 
-            var finalDamage = Mathf.FloorToInt(floatFinalDamage);
+            var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
             return finalDamage;
         }
