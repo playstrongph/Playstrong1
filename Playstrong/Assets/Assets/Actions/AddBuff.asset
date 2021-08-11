@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AddBuff
   m_EditorClassIdentifier: 
   _buffEffectAsset: {fileID: 0}
-  _buffCounters: 1
+  _buffCounters: 0

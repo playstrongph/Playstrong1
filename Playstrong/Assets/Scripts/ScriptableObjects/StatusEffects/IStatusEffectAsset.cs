@@ -28,7 +28,7 @@ namespace ScriptableObjects.StatusEffects
 
         void StartEventStatusEffect(IHero hero);
 
-        IHeroAction SkillActionAsset { get; }
+      
 
 
     }

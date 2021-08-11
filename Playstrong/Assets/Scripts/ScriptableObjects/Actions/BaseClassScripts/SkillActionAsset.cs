@@ -15,15 +15,6 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         
-        public virtual IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
-        {
-            InitializeValues(thisHero, targetHero);
-            
-            LogicTree.EndSequence();
-            yield return null;
-
-        }
-        
         public virtual IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
@@ -32,6 +23,18 @@ namespace ScriptableObjects.Actions.BaseClassScripts
             
             LogicTree.EndSequence();
             yield return null;
+        }
+        
+        /// <summary>
+        /// Should only be accessed by AliveLivingHero.DoHeroAction
+        /// </summary>
+        public virtual IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
+        {
+            InitializeValues(thisHero, targetHero);
+            
+            LogicTree.EndSequence();
+            yield return null;
+
         }
 
         protected void InitializeValues(IHero thisHero, IHero targetHero)
