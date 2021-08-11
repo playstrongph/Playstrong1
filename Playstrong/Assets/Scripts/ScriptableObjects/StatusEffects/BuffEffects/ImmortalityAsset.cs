@@ -28,9 +28,10 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         private IEnumerator ImmortalityEffectCoroutine(IHero hero)
         {
-            hero.HeroLogic.SetHeroHealth.SetHealth(setLife);
-            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, setLife));
+            
             logicTree.EndSequence();
             yield return null;
         }
