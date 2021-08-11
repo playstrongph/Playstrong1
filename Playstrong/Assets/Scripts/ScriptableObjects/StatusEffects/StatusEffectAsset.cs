@@ -39,10 +39,24 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
 
-
+        [SerializeField] private ScriptableObject _skillactionAsset;
+        public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
+        
+        
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         protected IHero Hero;
+        
+        //TEST
+        [SerializeField] private float _effectValue;
+
+        public float EffectValue
+        {
+            get => _effectValue;
+            set => _effectValue = value;
+        }
+
+        //TEST END
         
         protected void InitializeValues(IHero hero)
         {

@@ -7,7 +7,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class AttackUpAsset : StatusEffectAsset
     {
         [SerializeField]
-        private float _multiplier;
+        private float _multiplier =0.5f;
         
         private int _attackIncrease;
         
@@ -20,6 +20,10 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
              
             var newAttackValue = hero.HeroLogic.HeroAttributes.Attack + _attackIncrease;
             hero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
+            
+            //TEST
+            SkillActionAsset.StartAction(hero, this);
+            //TEST END
         }
         
         public override void UnapplyStatusEffect(IHero hero)
