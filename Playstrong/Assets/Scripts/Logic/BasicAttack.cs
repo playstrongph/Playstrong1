@@ -168,10 +168,6 @@ namespace Logic
         
         private IEnumerator CounterAttackCoroutine(IHero thisHero, IHero targetHero)
         {
-            
-            Debug.Log("thisHero: " +thisHero.HeroName );
-            Debug.Log("targetHero: " +targetHero.HeroName);
-            
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             var counterAttackChance = thisHero.HeroLogic.OtherAttributes.CounterAttackChance;
@@ -181,22 +177,14 @@ namespace Logic
             netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 0f, 100f);
             var randomNumber = Random.Range(0f, 100f);
 
-            Debug.Log(" thisNetChance: " + netCounterAttackChance);
-            Debug.Log("randomNumber: " + randomNumber);
-
             if (randomNumber <= netCounterAttackChance)
             {
-                Debug.Log("CounterAttack Success");
                 logicTree.AddCurrent(StartAttack(thisHero,targetHero));    
             }
 
             logicTree.EndSequence();
             yield return null;
         }
-        
-        
-        
-        
         //TEST END
         
         
