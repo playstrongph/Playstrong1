@@ -17,6 +17,7 @@
         float BuffResistance { get; set; }
         float SkillChanceResistance { get; set; }
         float ResurrectResistance { get; set; }
+        float CounterAttackResistance { get; set; }
         
         /// <summary>
         /// Hero Chances
@@ -27,6 +28,7 @@
         float BuffChance { get; set; }
         float SkillChanceBonus { get; set; }
         float ResurrectChance { get; set; }
+        float CounterAttackChance { get; set; }
 
         /// <summary>
         /// Base Damage Multipliers
@@ -43,7 +45,8 @@
         float BaseBuffResistance { get; set; }
         float BaseSkillChanceResistance { get; set; }
         float BaseResurrectResistance { get; set; }
-        
+        float BaseCounterAttackResistance { get; set; }
+
         /// <summary>
         /// Base Hero Chances
         /// </summary>
@@ -53,6 +56,8 @@
         float BaseBuffChance { get; set; }
         float BaseSkillChanceBonus { get; set; }
         float BaseResurrectChance { get; set; }
+
+        float BaseCounterAttackChance { get; set; }
 
 
 

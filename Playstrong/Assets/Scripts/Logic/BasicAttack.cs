@@ -12,6 +12,7 @@ using ScriptableObjects.GameEvents;
 using ScriptableObjects.SkillEffects;
 using Utilities;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Logic
 {
@@ -136,8 +137,7 @@ namespace Logic
         private IHero _thisHero;
         private IHero _targetHero;
 
-        [SerializeField] private float criticalChanceThreshold = 100f;
-
+      
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
@@ -187,12 +187,13 @@ namespace Logic
             var normalAttack = AttackActions[0].StartAction(thisHero, targetHero);
             var criticalAttack = AttackActions[1].StartAction(thisHero, targetHero);
             var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
+            var randomNumber = Random.Range(0f, 100f);
 
            
             
             criticalChance = Mathf.Clamp(criticalChance, 0, 100);
 
-            if (criticalChance >= criticalChanceThreshold)
+            if (randomNumber <= criticalChance)
                 return criticalAttack;
             else
                 return normalAttack;

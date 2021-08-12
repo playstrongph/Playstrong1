@@ -91,6 +91,18 @@ namespace Logic
             
         }
         
+        [SerializeField]
+        private float _counterAttackResistance = 0f;
+
+        public float CounterAttackResistance
+        {
+            get => _counterAttackResistance;
+            set => _counterAttackResistance = value;
+            
+        }
+        
+        
+        
         /// <summary>
         /// Hero Chances
         /// </summary>
@@ -153,6 +165,17 @@ namespace Logic
             get => _resurrectChance;
             set => _resurrectChance = value;
         }
+        
+        [SerializeField]
+        private float _counterAttackChance = 0f;
+
+        public float CounterAttackChance
+        {
+            get => _counterAttackChance;
+            set => _counterAttackChance = value;
+        }
+        
+        
         
         /// <summary>
         /// Base Damage Multipliers
@@ -239,6 +262,18 @@ namespace Logic
             
         }
         
+        [SerializeField]
+        private float _baseCounterAttackResistance = 0f;
+
+        public float BaseCounterAttackResistance
+        {
+            get => _baseCounterAttackResistance;
+            set => _baseCounterAttackResistance = value;
+        }
+        
+        
+        
+        
         /// <summary>
         /// Base Hero Chances
         /// </summary>
@@ -302,6 +337,15 @@ namespace Logic
         {
             get => _baseResurrectChance;
             set => _baseResurrectChance = value;
+        }
+        
+        [SerializeField]
+        private float _baseCounterAttackChance = 0f;
+
+        public float BaseCounterAttackChance
+        {
+            get => _baseCounterAttackChance;
+            set => _baseCounterAttackChance = value;
         }
         
         /// <summary>
