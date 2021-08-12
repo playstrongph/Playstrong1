@@ -151,7 +151,42 @@ namespace Logic
         private void Start()
         {
             SkillEffect.RegisterSkillEffect(_heroLogic.Hero);
+            
+            
+            //TEST FOR COUNTERATTACK
+            _heroLogic.HeroEvents.EPostAttack += CounterAttack;
+
+            //
         }
+        
+        //TEST
+        private void CounterAttack(IHero thisHero, IHero targetHero)
+        {
+            Debug.Log("thisHero: " +thisHero.HeroName );
+            Debug.Log("targetHero: " +targetHero.HeroName);
+            
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            var counterAttackChance = thisHero.HeroLogic.OtherAttributes.CounterAttackChance;
+            var counterAttackResistance = targetHero.HeroLogic.OtherAttributes.CounterAttackResistance;
+            
+            var netCounterAttackChance = counterAttackChance - counterAttackResistance;
+            netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 0f, 100f);
+            var randomNumber = Random.Range(0f, 100f);
+
+            Debug.Log(" thisNetChance: " + netCounterAttackChance);
+            Debug.Log("randomNumber: " + randomNumber);
+
+            if (randomNumber <= netCounterAttackChance)
+            {
+                Debug.Log("CounterAttack Success");
+                logicTree.AddCurrent(StartAttack(thisHero,targetHero));    
+            }
+
+            
+
+        }
+        //TEST END
 
 
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)
@@ -203,7 +238,7 @@ namespace Logic
         private IEnumerator PreAttackEvents()
         {
             _thisHero.HeroLogic.HeroEvents.BeforeAttacking(_thisHero, _targetHero);
-            _targetHero.HeroLogic.HeroEvents.PreAttack(_thisHero,_targetHero);
+            _targetHero.HeroLogic.HeroEvents.PreAttack(_targetHero,_thisHero);
             
             _logicTree.EndSequence();
             yield return null;
@@ -212,7 +247,7 @@ namespace Logic
         private IEnumerator PostAttackEvents()
         {
             _thisHero.HeroLogic.HeroEvents.AfterAttacking(_thisHero, _targetHero);
-            _targetHero.HeroLogic.HeroEvents.PostAttack(_thisHero,_targetHero);
+            _targetHero.HeroLogic.HeroEvents.PostAttack(_targetHero,_thisHero);
          
 
             _logicTree.EndSequence();
