@@ -75,7 +75,7 @@ namespace ScriptableObjects.Actions
             */
             
             
-            s1.AppendInterval(2f * doMoveDuration)
+            s1.AppendInterval(doMoveDuration)
 
 
                 .OnComplete(() =>                  //No Interval for OnComplete, that's why it's called at the same time as DoPunch
@@ -112,14 +112,14 @@ namespace ScriptableObjects.Actions
         {
             var s = DOTween.Sequence();
             
-            var doMoveDuration = 5f;
+            var doMoveDuration = 0.7f;
             s.AppendCallback(() =>
                 
                Debug.Log("Interval Delay")
                 
             );
             
-            s.AppendInterval(doMoveDuration)
+            s.AppendInterval(2f*doMoveDuration)
                 
                 .OnComplete(() =>                  
                 {
