@@ -162,6 +162,13 @@ namespace Logic
         //TEST
         private void CounterAttack(IHero thisHero, IHero targetHero)
         {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(CounterAttackCoroutine(thisHero,targetHero));
+        }
+        
+        private IEnumerator CounterAttackCoroutine(IHero thisHero, IHero targetHero)
+        {
+            
             Debug.Log("thisHero: " +thisHero.HeroName );
             Debug.Log("targetHero: " +targetHero.HeroName);
             
@@ -183,10 +190,16 @@ namespace Logic
                 logicTree.AddCurrent(StartAttack(thisHero,targetHero));    
             }
 
-            
-
+            logicTree.EndSequence();
+            yield return null;
         }
+        
+        
+        
+        
         //TEST END
+        
+        
 
 
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)

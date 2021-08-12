@@ -3,6 +3,7 @@ using DG.Tweening;
 using Interfaces;
 using ScriptableObjects.Actions.BaseClassScripts;
 using UnityEngine;
+using UnityEngine.Accessibility;
 
 namespace ScriptableObjects.Actions
 {
@@ -27,13 +28,17 @@ namespace ScriptableObjects.Actions
 
         private IEnumerator AttackHero()
         {
-            VisualTree.AddCurrent(AttackHeroVisual());
+            //VisualTree.AddCurrent(AttackHeroVisual());
+            LogicTree.AddCurrent(AttackHeroLogic());
             
             var dealDamage = TargetHero.HeroLogic.DealDamage;
             var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
             var criticalFactor = 0;
             
             LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
+            
+            //Insert Delay Here
+            LogicTree.AddCurrent(AttackInterval());
             
             LogicTree.EndSequence();
             yield return null;
@@ -52,6 +57,7 @@ namespace ScriptableObjects.Actions
             var tweenElasticity = 0.5f;
             var tweenSnapping = false;
             var s = DOTween.Sequence();
+            
 
             s.AppendCallback(() => ThisHero.HeroTransform.DOMove(TargetHero.HeroTransform.position, doMoveDuration)
                     .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
@@ -61,9 +67,10 @@ namespace ScriptableObjects.Actions
                         doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
                 );
 
-            s.AppendInterval(doMoveDuration)
+            s.AppendInterval(doMoveDuration)       //this is the interval for the DO PunchPosition
+            
 
-                .OnComplete(() =>
+                .OnComplete(() =>                  //No Interval for OnComplete, that's why it's called at the same time as DoPunch
                 {
                     VisualTree.EndSequence();
                 });
@@ -73,8 +80,47 @@ namespace ScriptableObjects.Actions
             yield return null;
         }
         
-       
+        
+        //TEST
 
+        private IEnumerator AttackHeroLogic()
+        {
+            VisualTree.AddCurrent(AttackHeroVisual());
+            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+
+        private IEnumerator AttackInterval()
+        {
+            VisualTree.AddCurrent(ReturnToPositionInterval());
+            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+
+
+        private IEnumerator ReturnToPositionInterval()
+        {
+            var s = DOTween.Sequence();
+            
+            var doMoveDuration = 5f;
+            s.AppendCallback(() =>
+                
+               Debug.Log("Interval Delay")
+                
+            );
+            
+            s.AppendInterval(doMoveDuration)
+                
+                .OnComplete(() =>                  
+                {
+                    VisualTree.EndSequence();
+                });
+            
+            
+            yield return null;
+        }
 
 
 
