@@ -58,23 +58,31 @@ namespace ScriptableObjects.Actions
             var tweenSnapping = false;
             var s = DOTween.Sequence();
             
+            var s1 = DOTween.Sequence();
+
 
             s.AppendCallback(() => ThisHero.HeroTransform.DOMove(TargetHero.HeroTransform.position, doMoveDuration)
-                    .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
+                .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack));
+                
+                /*
                 .OnStepComplete(() =>
                     
                     TargetHero.HeroTransform.DOPunchPosition(TargetHero.HeroTransform.position/7 - ThisHero.HeroTransform.position/7, 
                         doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
                 );
 
-            s.AppendInterval(doMoveDuration)       //this is the interval for the DO PunchPosition
+            s.AppendInterval(doMoveDuration);       //this is the interval for the DO PunchPosition
+            */
             
+            
+            s1.AppendInterval(2f * doMoveDuration)
+
 
                 .OnComplete(() =>                  //No Interval for OnComplete, that's why it's called at the same time as DoPunch
                 {
                     VisualTree.EndSequence();
                 });
-            
+
             
             
             yield return null;
