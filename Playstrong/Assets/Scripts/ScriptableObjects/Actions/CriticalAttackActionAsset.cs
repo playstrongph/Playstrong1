@@ -34,7 +34,7 @@ namespace ScriptableObjects.Actions
         private IEnumerator PreCriticalStrikeEvents()
         {
             ThisHero.HeroLogic.HeroEvents.BeforeCriticalStrike(ThisHero, TargetHero);
-            TargetHero.HeroLogic.HeroEvents.PreCriticalStrike(ThisHero, TargetHero);
+            TargetHero.HeroLogic.HeroEvents.PreCriticalStrike(TargetHero, ThisHero);
             
             LogicTree.EndSequence();
             yield return null;
@@ -43,7 +43,7 @@ namespace ScriptableObjects.Actions
         private IEnumerator PostCriticalStrikeEvents()
         {
             ThisHero.HeroLogic.HeroEvents.AfterCriticalStrike(ThisHero, TargetHero);
-            TargetHero.HeroLogic.HeroEvents.PostCriticalStrike(ThisHero, TargetHero);
+            TargetHero.HeroLogic.HeroEvents.PostCriticalStrike(TargetHero, ThisHero);
             
             LogicTree.EndSequence();
             yield return null;
