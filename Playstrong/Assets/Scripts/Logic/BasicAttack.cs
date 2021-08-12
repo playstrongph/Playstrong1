@@ -224,8 +224,6 @@ namespace Logic
             var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
             var randomNumber = Random.Range(0f, 100f);
 
-           
-            
             criticalChance = Mathf.Clamp(criticalChance, 0, 100);
 
             if (randomNumber <= criticalChance)
