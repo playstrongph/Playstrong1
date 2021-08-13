@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a062ad15a8f14ce4bb2ceb395c76985c, type: 3}
-  m_Name: IncreaseCounterAttack
+  m_Script: {fileID: 11500000, guid: ba7969c3ab02f654281baadbdad3b74f, type: 3}
+  m_Name: IncreaseCounterAttackResistance
   m_EditorClassIdentifier: 
-  counterAttackChanceIncrease: 0
+  counterAttackResistanceIncrease: 0

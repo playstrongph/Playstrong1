@@ -22,3 +22,5 @@ MonoBehaviour:
   _skillactionAsset: {fileID: 11400000, guid: fa6a1013411df794cbbfcb46141d3b03, type: 2}
   _effectValue: 100
   counterattackValue: 100
+  _counterResistance: {fileID: 11400000, guid: d4a3c23dca209774fb7923ca50536360, type: 2}
+  counterResistanceValue: 200
