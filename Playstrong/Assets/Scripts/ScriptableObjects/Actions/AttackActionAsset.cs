@@ -38,7 +38,7 @@ namespace ScriptableObjects.Actions
             LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
             
             //Insert Delay Here
-            LogicTree.AddCurrent(AttackInterval());
+            //LogicTree.AddCurrent(AttackInterval());
             
             LogicTree.EndSequence();
             yield return null;
@@ -75,7 +75,7 @@ namespace ScriptableObjects.Actions
             */
             
             
-            s1.AppendInterval(doMoveDuration)
+            s1.AppendInterval(2f*doMoveDuration)
 
 
                 .OnComplete(() =>                  //No Interval for OnComplete, that's why it's called at the same time as DoPunch

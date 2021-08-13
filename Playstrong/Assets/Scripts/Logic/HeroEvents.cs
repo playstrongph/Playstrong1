@@ -10,10 +10,10 @@ namespace Logic
 
     public class HeroEvents : MonoBehaviour, IHeroEvents
     {
+        /// <summary>
+        /// Double Hero Events
+        /// </summary>
         public delegate void HeroesEvent(IHero initiatorHero, IHero targetHero);
-        
-        public delegate void HeroEvent(IHero hero);
-        
         public event HeroesEvent EPreAttack;
         public event HeroesEvent EPostAttack;
         public event HeroesEvent EPreCriticalStrike;
@@ -25,6 +25,18 @@ namespace Logic
         public event HeroesEvent EDragBasicAttack;
         public event HeroesEvent EDragSkillTarget;
         public event HeroesEvent EStartOfGame;
+        
+        public event HeroesEvent EBeforeCounterAttack;
+        public event HeroesEvent EAfterCounterAttack;
+        public event HeroesEvent EPreCounterAttack;
+        public event HeroesEvent EPostCounterAttack;
+        
+        
+        /// <summary>
+        /// Single Hero Events
+        /// </summary>
+        
+        public delegate void HeroEvent(IHero hero);
 
         public event HeroEvent EHeroTakesFatalDamage;
         
@@ -221,6 +233,78 @@ namespace Logic
                 }
         }
         
+        public void BeforeCounterAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EBeforeCounterAttack?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeBeforeCounterAttackClients()
+        {
+            var clients = EBeforeCounterAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeCounterAttack -= client as HeroesEvent;
+                }
+        }
+        
+        public void AfterCounterAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EAfterCounterAttack?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeAfterCounterAttackClients()
+        {
+            var clients = EAfterCounterAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterCounterAttack -= client as HeroesEvent;
+                }
+        }
+        
+        public void PreCounterAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EPreCounterAttack?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribePreCounterAttackClients()
+        {
+            var clients = EPreCounterAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EPreCounterAttack -= client as HeroesEvent;
+                }
+        }
+        
+        public void PostCounterAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EPostCounterAttack?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribePostCounterAttackClients()
+        {
+            var clients = EPostCounterAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EPostCounterAttack -= client as HeroesEvent;
+                }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        /// <summary>
+        /// Single Hero Events
+        /// </summary>
+        /// <param name="hero"></param>
+        
         public void HeroTakesFatalDamage(IHero hero)
         {
             EHeroTakesFatalDamage?.Invoke(hero);
@@ -327,6 +411,13 @@ namespace Logic
             UnsubscribePostHeroDeathClients();
             UnsubscribeHeroStartTurnClients();
             UnsubscribeHeroEndTurnClients();
+
+            UnsubscribePostCounterAttackClients();
+            UnsubscribePreCounterAttackClients();
+            UnsubscribeBeforeCounterAttackClients();
+            UnsubscribeAfterCounterAttackClients();
+
+
         }
         
         

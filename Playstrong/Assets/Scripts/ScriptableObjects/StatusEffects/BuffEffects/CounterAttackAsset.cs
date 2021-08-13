@@ -26,8 +26,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             logicTree.AddCurrent(SkillActionAsset.StartAction(hero, counterattackValue));
             
             //Register CounterResistance Effect here:  BeforeAttacking and Afterattacking
-            hero.HeroLogic.HeroEvents.EBeforeAttacking += TemporaryCounterResistanceIncrease;
-            hero.HeroLogic.HeroEvents.EAfterAttacking += RemoveTemporaryCounterResistanceIncrease;
+            //hero.HeroLogic.HeroEvents.EBeforeAttacking += TemporaryCounterResistanceIncrease;
+            //hero.HeroLogic.HeroEvents.EAfterAttacking += RemoveTemporaryCounterResistanceIncrease;
 
         }
         
@@ -37,8 +37,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -counterattackValue));
             
             //Remove Register CounterResistance Effect here:  BeforeAttacking and Afterattacking
-            hero.HeroLogic.HeroEvents.EBeforeAttacking -= TemporaryCounterResistanceIncrease;
-            hero.HeroLogic.HeroEvents.EAfterAttacking -= RemoveTemporaryCounterResistanceIncrease;
+            hero.HeroLogic.HeroEvents.EBeforeCounterAttack -= TemporaryCounterResistanceIncrease;
+            hero.HeroLogic.HeroEvents.EAfterCounterAttack -= RemoveTemporaryCounterResistanceIncrease;
         }
 
 

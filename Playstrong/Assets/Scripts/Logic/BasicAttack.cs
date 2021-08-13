@@ -164,8 +164,11 @@ namespace Logic
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(CounterAttackCoroutine(thisHero,targetHero));
+           
         }
+
         
+
         private IEnumerator CounterAttackCoroutine(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
@@ -179,9 +182,33 @@ namespace Logic
 
             if (randomNumber <= netCounterAttackChance)
             {
+                logicTree.AddCurrent(BeforeCounterAttackEvents(thisHero,targetHero));
                 logicTree.AddCurrent(StartAttack(thisHero,targetHero));    
+                logicTree.AddCurrent(AfterCounterAttackEvents(thisHero,targetHero));
             }
 
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator BeforeCounterAttackEvents(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.BeforeCounterAttack(thisHero,targetHero);
+            targetHero.HeroLogic.HeroEvents.PreCounterAttack(targetHero,thisHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator AfterCounterAttackEvents(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.AfterCounterAttack(thisHero,targetHero);
+            targetHero.HeroLogic.HeroEvents.PostCounterAttack(targetHero,thisHero);
+            
             logicTree.EndSequence();
             yield return null;
         }
