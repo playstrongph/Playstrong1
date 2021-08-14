@@ -7,7 +7,7 @@ using Utilities;
 namespace ScriptableObjects.StatusEffects.BuffEffects
 {
     [CreateAssetMenu(fileName = "CounterAttack", menuName = "SO's/Status Effects/Buffs/CounterAttack")]
-    public class CounterAttack : StatusEffectAsset
+    public class CounterAttackAsset : StatusEffectAsset
     {
         [SerializeField]
         private float counterattackValue = 100f;

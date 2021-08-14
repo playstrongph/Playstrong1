@@ -113,6 +113,11 @@ namespace Logic
 
         public IOtherAttributes OtherAttributes => _otherAttributes;
 
+        private ICounterAttack _counterAttack;
+        public ICounterAttack CounterAttack => _counterAttack;
+        
+        
+
         private void Awake()
         {
             _basicAttack = GetComponent<IBasicAttack>();
@@ -127,6 +132,7 @@ namespace Logic
             _dealDamage = GetComponent<IDealDamage>();
             _heroDies = GetComponent<IHeroDies>();
             _otherAttributes = GetComponent<IOtherAttributes>();
+            _counterAttack = GetComponent<ICounterAttack>();
         }
     }
 }

@@ -45,6 +45,8 @@ namespace Interfaces
 
         IOtherAttributes OtherAttributes { get; }
 
+        ICounterAttack CounterAttack { get; }
+
 
 
 

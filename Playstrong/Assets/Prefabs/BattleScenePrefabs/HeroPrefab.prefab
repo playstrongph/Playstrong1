@@ -3445,6 +3445,7 @@ GameObject:
   - component: {fileID: 6667779569997865319}
   - component: {fileID: 190191286671394562}
   - component: {fileID: 1550127320965468234}
+  - component: {fileID: 1900826689}
   m_Layer: 0
   m_Name: HeroLogic
   m_TagString: Untagged
@@ -3538,12 +3539,14 @@ MonoBehaviour:
   _buffResistance: 0
   _skillChanceResistance: 0
   _resurrectResistance: 0
+  _counterAttackResistance: 0
   _healChance: 100
   _criticalStrikeChance: 0
   _debuffChance: 100
   _buffChance: 100
   _skillChanceBonus: 0
   _resurrectChance: 0
+  _counterAttackChance: 0
   _baseDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
@@ -3552,12 +3555,14 @@ MonoBehaviour:
   _baseBuffResistance: 0
   _baseSkillChanceResistance: 0
   _baseResurrectResistance: 0
+  _baseCounterAttackResistance: 0
   _baseHealChance: 100
   _baseCriticalStrikeChance: 0
   _baseDebuffChance: 100
   _baseBuffChance: 100
   _baseSkillChanceBonus: 0
   _baseResurrectChance: 0
+  _baseCounterAttackChance: 0
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3611,7 +3616,6 @@ MonoBehaviour:
   - 2
   uniqueAttackModifiers:
   - 1
-  criticalChanceThreshold: 100
 --- !u!114 &3820792406562021602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3738,6 +3742,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroLivingStatus: {fileID: 11400000, guid: 1770149bbcc780f40b96b215c9f012c3, type: 2}
   _dieAnimation: {fileID: 11400000, guid: 9671ac9a0d7a27149be4a5a644837db2, type: 2}
+--- !u!114 &1900826689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486336449ee5bec4e80483be8958aa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3820792406563672979
 GameObject:
   m_ObjectHideFlags: 0
