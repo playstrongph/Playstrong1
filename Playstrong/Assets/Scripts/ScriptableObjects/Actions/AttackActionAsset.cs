@@ -27,7 +27,7 @@ namespace ScriptableObjects.Actions
         {
             InitializeValues(thisHero, targetHero);
 
-            LogicTree.AddCurrent(AttackHero());
+            LogicTree.AddCurrent(AttackHero(thisHero,targetHero));
 
             LogicTree.EndSequence();
             yield return null;
@@ -35,19 +35,19 @@ namespace ScriptableObjects.Actions
         }
         
 
-        private IEnumerator AttackHero()
+        private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {
             
-            var dealDamage = TargetHero.HeroLogic.DealDamage;
-            var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
+            var dealDamage = targetHero.HeroLogic.DealDamage;
+            var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
             var criticalFactor = 0;
 
             
-            LogicTree.AddCurrent(AttackHeroLogic());
+            LogicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
             
-            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
+            LogicTree.AddCurrent(dealDamage.DealDamageHero(thisHero, targetHero,attackPower, criticalFactor));
             
-            LogicTree.AddCurrent(AttackInterval());
+            LogicTree.AddCurrent(AttackInterval(thisHero,targetHero));
 
             LogicTree.EndSequence();
             yield return null;
@@ -56,9 +56,9 @@ namespace ScriptableObjects.Actions
         
         
         
-        private IEnumerator AttackHeroLogic()
+        private IEnumerator AttackHeroLogic(IHero thisHero, IHero targetHero)
         {
-            VisualTree.AddCurrent(AttackHeroVisual());
+            VisualTree.AddCurrent(AttackHeroVisual(thisHero,targetHero));
             
             LogicTree.EndSequence();
             yield return null;
@@ -68,26 +68,26 @@ namespace ScriptableObjects.Actions
         /// Attack Animation
         /// TODO: Separate this
         /// </summary>
-        private IEnumerator AttackHeroVisual()
+        private IEnumerator AttackHeroVisual(IHero thisHero, IHero targetHero)
         {
             
-            Debug.Log("AttackHeroVisual Start: " +ThisHero.HeroName);
+            Debug.Log("AttackHeroVisual Start: " +thisHero.HeroName);
             
             var s = DOTween.Sequence();
             var s1 = DOTween.Sequence();
 
-            var targetPosition = TargetHero.HeroTransform.position;
-            var attackerPosition = ThisHero.HeroTransform.position;
+            var targetPosition = targetHero.HeroTransform.position;
+            var attackerPosition = thisHero.HeroTransform.position;
 
             
-            s.AppendCallback(() => ThisHero.HeroTransform.DOMove(TargetHero.HeroTransform.position, _doMoveDuration).SetLoops(_doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
+            s.AppendCallback(() => thisHero.HeroTransform.DOMove(targetHero.HeroTransform.position, _doMoveDuration).SetLoops(_doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
                 .OnStepComplete(() =>
-                    TargetHero.HeroTransform.DOPunchPosition((targetPosition - attackerPosition)/_doPunchDivisor,_doPunchDuration, _tweebVibrato, _tweenElasticity, _tweenSnapping)
+                    targetHero.HeroTransform.DOPunchPosition((targetPosition - attackerPosition)/_doPunchDivisor,_doPunchDuration, _tweebVibrato, _tweenElasticity, _tweenSnapping)
                 );
             s.AppendInterval(_doMoveDuration)     
             .OnComplete(() =>                  
                 {
-                    Debug.Log("AttackHeroVisual End: " +ThisHero.HeroName);
+                    Debug.Log("AttackHeroVisual End: " +thisHero.HeroName);
                     VisualTree.EndSequence();
                 });
             yield return null;
@@ -96,24 +96,24 @@ namespace ScriptableObjects.Actions
         
         
 
-        private IEnumerator AttackInterval()
+        private IEnumerator AttackInterval(IHero thisHero, IHero targetHero)
         {
-            VisualTree.AddCurrent(ReturnToPositionInterval());
+            VisualTree.AddCurrent(ReturnToPositionInterval(thisHero,targetHero));
             
             LogicTree.EndSequence();
             yield return null;
         }
 
 
-        private IEnumerator ReturnToPositionInterval()
+        private IEnumerator ReturnToPositionInterval(IHero thisHero, IHero targetHero)
         {
-            Debug.Log("Attack Interval Start: " +ThisHero.HeroName);
+            Debug.Log("Attack Interval Start: " +thisHero.HeroName);
             var s3 = DOTween.Sequence();
-            s3.AppendInterval(_doMoveDuration)
+            s3.AppendInterval(_doPunchDuration)
                 
                 .OnComplete(() =>                  
                 {
-                    Debug.Log("Attack Interval End: " +ThisHero.HeroName);
+                    Debug.Log("Attack Interval End: " +thisHero.HeroName);
                     VisualTree.EndSequence();
                 });
             
