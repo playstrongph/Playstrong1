@@ -9,9 +9,18 @@ namespace ScriptableObjects.Actions
 {
     [CreateAssetMenu(fileName = "AttackActionAsset", menuName = "SO's/SkillActions/AttackActionAsset")]
     
-    public class AttackActionAsset : SkillActionAsset {
-        
-       
+    public class AttackActionAsset : SkillActionAsset
+    {
+
+        [SerializeField] private float _doMoveDuration = 0.7f;
+        [SerializeField] private float _doPunchDuration = 0.7f;
+        [SerializeField] private float _doPunchDivisor = 5f;
+        [SerializeField] private int _doMoveLoops = 2;
+        [SerializeField] private int _tweebVibrato = 5;
+        [SerializeField] private float _tweenElasticity = 0.5f;
+        [SerializeField] private bool _tweenSnapping = false;
+
+
         private int _finalAttackValue;
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
@@ -28,7 +37,7 @@ namespace ScriptableObjects.Actions
 
         private IEnumerator AttackHero()
         {
-            //VisualTree.AddCurrent(AttackHeroVisual());
+            
             LogicTree.AddCurrent(AttackHeroLogic());
             
             var dealDamage = TargetHero.HeroLogic.DealDamage;
@@ -36,10 +45,7 @@ namespace ScriptableObjects.Actions
             var criticalFactor = 0;
             
             LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
-            
-            //Insert Delay Here
-            //LogicTree.AddCurrent(AttackInterval());
-            
+
             LogicTree.EndSequence();
             yield return null;
         }
@@ -50,41 +56,22 @@ namespace ScriptableObjects.Actions
         /// </summary>
         private IEnumerator AttackHeroVisual()
         {
-            var doMoveDuration = 0.7f;
-            var doMoveLoops = 2;
-            var doPunchDuration = 1f;
-            var tweenVibrato = 5;
-            var tweenElasticity = 0.5f;
-            var tweenSnapping = false;
             var s = DOTween.Sequence();
-            
             var s1 = DOTween.Sequence();
 
+            var targetPosition = TargetHero.HeroTransform.position;
+            var attackerPosition = ThisHero.HeroTransform.position;
 
-            s.AppendCallback(() => ThisHero.HeroTransform.DOMove(TargetHero.HeroTransform.position, doMoveDuration)
-                .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack));
-                
-                /*
+            
+            s.AppendCallback(() => ThisHero.HeroTransform.DOMove(TargetHero.HeroTransform.position, _doMoveDuration).SetLoops(_doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
                 .OnStepComplete(() =>
-                    
-                    TargetHero.HeroTransform.DOPunchPosition(TargetHero.HeroTransform.position/7 - ThisHero.HeroTransform.position/7, 
-                        doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
+                    TargetHero.HeroTransform.DOPunchPosition((targetPosition - attackerPosition)/_doPunchDivisor,_doPunchDuration, _tweebVibrato, _tweenElasticity, _tweenSnapping)
                 );
-
-            s.AppendInterval(doMoveDuration);       //this is the interval for the DO PunchPosition
-            */
-            
-            
-            s1.AppendInterval(2f*doMoveDuration)
-
-
-                .OnComplete(() =>                  //No Interval for OnComplete, that's why it's called at the same time as DoPunch
+            s.AppendInterval(_doMoveDuration)     
+            .OnComplete(() =>                  
                 {
                     VisualTree.EndSequence();
                 });
-
-            
-            
             yield return null;
         }
         
