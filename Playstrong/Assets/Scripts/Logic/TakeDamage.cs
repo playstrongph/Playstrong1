@@ -71,12 +71,16 @@ namespace Logic
 
         private IEnumerator ApplyFinalDamage(int damageValue)
         {
+            Debug.Log("ApplyFinalDamage Start: " +_thisHeroLogic.Hero.HeroName);
+            
             var armor = _thisHeroLogic.HeroAttributes.Armor;
             var health = _thisHeroLogic.HeroAttributes.Health;
             
             _thisHeroLogic.Hero.DamageEffect.ShowDamage(damageValue);
             _thisHeroLogic.SetHeroArmor.SetArmor(armor);
             _thisHeroLogic.SetHeroHealth.SetHealth(health);
+            
+            Debug.Log("ApplyFinalDamage End: " +_thisHeroLogic.Hero.HeroName);
 
             _visualTree.EndSequence();
             yield return null;

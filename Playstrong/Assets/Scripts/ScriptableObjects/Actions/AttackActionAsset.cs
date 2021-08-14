@@ -12,7 +12,7 @@ namespace ScriptableObjects.Actions
     public class AttackActionAsset : SkillActionAsset
     {
 
-        [SerializeField] private float _doMoveDuration = 0.7f;
+        [SerializeField] private float _doMoveDuration = 1f;
         [SerializeField] private float _doPunchDuration = 0.7f;
         [SerializeField] private float _doPunchDivisor = 5f;
         [SerializeField] private int _doMoveLoops = 2;
@@ -38,14 +38,28 @@ namespace ScriptableObjects.Actions
         private IEnumerator AttackHero()
         {
             
-            LogicTree.AddCurrent(AttackHeroLogic());
-            
             var dealDamage = TargetHero.HeroLogic.DealDamage;
             var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
             var criticalFactor = 0;
+
+            
+            LogicTree.AddCurrent(AttackHeroLogic());
             
             LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
+            
+            LogicTree.AddCurrent(AttackInterval());
 
+            LogicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        
+        
+        private IEnumerator AttackHeroLogic()
+        {
+            VisualTree.AddCurrent(AttackHeroVisual());
+            
             LogicTree.EndSequence();
             yield return null;
         }
@@ -56,6 +70,9 @@ namespace ScriptableObjects.Actions
         /// </summary>
         private IEnumerator AttackHeroVisual()
         {
+            
+            Debug.Log("AttackHeroVisual Start: " +ThisHero.HeroName);
+            
             var s = DOTween.Sequence();
             var s1 = DOTween.Sequence();
 
@@ -70,21 +87,14 @@ namespace ScriptableObjects.Actions
             s.AppendInterval(_doMoveDuration)     
             .OnComplete(() =>                  
                 {
+                    Debug.Log("AttackHeroVisual End: " +ThisHero.HeroName);
                     VisualTree.EndSequence();
                 });
             yield return null;
         }
         
         
-        //TEST
-
-        private IEnumerator AttackHeroLogic()
-        {
-            VisualTree.AddCurrent(AttackHeroVisual());
-            
-            LogicTree.EndSequence();
-            yield return null;
-        }
+        
 
         private IEnumerator AttackInterval()
         {
@@ -97,19 +107,13 @@ namespace ScriptableObjects.Actions
 
         private IEnumerator ReturnToPositionInterval()
         {
-            var s = DOTween.Sequence();
-            
-            var doMoveDuration = 0.7f;
-            s.AppendCallback(() =>
-                
-               Debug.Log("Interval Delay")
-                
-            );
-            
-            s.AppendInterval(2f*doMoveDuration)
+            Debug.Log("Attack Interval Start: " +ThisHero.HeroName);
+            var s3 = DOTween.Sequence();
+            s3.AppendInterval(_doMoveDuration)
                 
                 .OnComplete(() =>                  
                 {
+                    Debug.Log("Attack Interval End: " +ThisHero.HeroName);
                     VisualTree.EndSequence();
                 });
             

@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951ddfdd8c6f55045bc14ce34309d1c0, type: 3}
   m_Name: NormalAttack
   m_EditorClassIdentifier: 
+  _doMoveDuration: 1
+  _doPunchDuration: 1
+  _doPunchDivisor: 6
+  _doMoveLoops: 2
+  _tweebVibrato: 5
+  _tweenElasticity: 0.5
+  _tweenSnapping: 0
