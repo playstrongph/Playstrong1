@@ -256,9 +256,12 @@ namespace Logic
             var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             var heroInactiveStatus = turnController.SetHeroStatus.HeroInactive;
             var heroTimerObject = hero.HeroLogic.HeroTimer as Object;
-            
+           
             hero.HeroLogic.HeroStatus.RemoveFromActiveHeroesList(turnController, heroTimerObject);
+            
             hero.HeroLogic.HeroStatus = heroInactiveStatus;
+           
+           
         }
         
         private IEnumerator HideVisuals(IHero hero)

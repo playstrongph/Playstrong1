@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Interfaces;
 using ScriptableObjects;
@@ -159,9 +160,20 @@ namespace Logic
 
         private IEnumerator SetHeroInactive()
         {
-            var i = ActiveHeroes.Count - 1;
+            
+          
+            
+            //TEST
+            var heroTimer = _activeHeroLogic.HeroTimer;
+            var heroTimerObject = heroTimer as Object;
+            if(ActiveHeroes.Contains(heroTimerObject))
+                _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
+            //TEST END
+            
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
-            _activeHeroes.RemoveAt(i);
+            
+            //var i = ActiveHeroes.Count - 1;
+            //_activeHeroes.RemoveAt(i);
             
             _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
             
@@ -175,8 +187,10 @@ namespace Logic
 
         private IEnumerator StartNextTurn()
         {
+            
             _logicTree.AddCurrent(SetHeroInactive());
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
+            
             _logicTree.AddCurrent(NextActiveHero());
             
             _logicTree.EndSequence();
