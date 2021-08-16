@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doMoveDuration: 0.7
   doPunchDuration: 1
-  doPunchDivisor: 5
+  doPunchDivisor: 100
   doMoveLoops: 2
   tweebVibrato: 5
   tweenElasticity: 0.5
   tweenSnapping: 0
-  criticalFactor: 0
