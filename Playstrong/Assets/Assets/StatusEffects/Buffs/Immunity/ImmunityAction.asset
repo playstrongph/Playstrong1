@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054fdb327b266164b89446891401f3e6, type: 3}
-  m_Name: SampleActiveAddBuffAction
+  m_Script: {fileID: 11500000, guid: 075b74418e84a4c4aa4b76d95a9041ab, type: 3}
+  m_Name: ImmunityAction
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: 12c2ed2a83d411d44ac80c13ba3e6d12, type: 2}
-  _buffCounters: 3
+  debuffResistanceIncrease: 200
