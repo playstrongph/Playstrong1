@@ -12,15 +12,14 @@ namespace ScriptableObjects.Actions
     public class AttackActionAsset : SkillActionAsset
     {
 
-        [SerializeField] private float doMoveDuration = 1f;
-        [SerializeField] private float doPunchDuration = 0.7f;
+        [SerializeField] private float doMoveDuration = 0.7f;
+        [SerializeField] private float doPunchDuration = 1f;
         [SerializeField] private float doPunchDivisor = 5f;
         [SerializeField] private int doMoveLoops = 2;
         [SerializeField] private int tweebVibrato = 5;
         [SerializeField] private float tweenElasticity = 0.5f;
         [SerializeField] private bool tweenSnapping = false;
-        [SerializeField] private int criticalFactor = 0;
-        
+
         private int _finalAttackValue;
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
@@ -40,7 +39,7 @@ namespace ScriptableObjects.Actions
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var dealDamage = targetHero.HeroLogic.DealDamage;
             var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
-            
+            var criticalFactor = 0;
 
             
             logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));

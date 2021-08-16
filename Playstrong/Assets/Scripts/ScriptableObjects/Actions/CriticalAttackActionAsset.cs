@@ -14,52 +14,76 @@ namespace ScriptableObjects.Actions
         private float _preAttackValue;
         private int _finalAttackValue;
         private float _criticalMultiplier;
+        
+        [SerializeField] private float doMoveDuration = 0.7f;
+        [SerializeField] private float doPunchDuration = 1f;
+        [SerializeField] private float doPunchDivisor = 5f;
+        [SerializeField] private int doMoveLoops = 2;
+        [SerializeField] private int tweebVibrato = 5;
+        [SerializeField] private float tweenElasticity = 0.5f;
+        [SerializeField] private bool tweenSnapping = false;
+       
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-            InitializeValues(thisHero, targetHero);
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            LogicTree.AddCurrent(PreCriticalStrikeEvents());
+            logicTree.AddCurrent(PreCriticalStrikeEvents(thisHero,targetHero));
 
-            LogicTree.AddCurrent(AttackHero());
+            logicTree.AddCurrent(AttackHero(thisHero,targetHero));
             
-            LogicTree.AddCurrent(PostCriticalStrikeEvents());
+            logicTree.AddCurrent(PostCriticalStrikeEvents(thisHero,targetHero));
             
 
-            LogicTree.EndSequence();
+            logicTree.EndSequence();
             yield return null;
 
         }
 
-        private IEnumerator PreCriticalStrikeEvents()
+        private IEnumerator PreCriticalStrikeEvents(IHero thisHero, IHero targetHero)
         {
-            ThisHero.HeroLogic.HeroEvents.BeforeCriticalStrike(ThisHero, TargetHero);
-            TargetHero.HeroLogic.HeroEvents.PreCriticalStrike(TargetHero, ThisHero);
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            LogicTree.EndSequence();
+            thisHero.HeroLogic.HeroEvents.BeforeCriticalStrike(thisHero, targetHero);
+            targetHero.HeroLogic.HeroEvents.PreCriticalStrike(targetHero, thisHero);
+            
+            logicTree.EndSequence();
             yield return null;
         }
         
-        private IEnumerator PostCriticalStrikeEvents()
+        private IEnumerator PostCriticalStrikeEvents(IHero thisHero, IHero targetHero)
         {
-            ThisHero.HeroLogic.HeroEvents.AfterCriticalStrike(ThisHero, TargetHero);
-            TargetHero.HeroLogic.HeroEvents.PostCriticalStrike(TargetHero, ThisHero);
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            LogicTree.EndSequence();
+            thisHero.HeroLogic.HeroEvents.AfterCriticalStrike(thisHero, targetHero);
+            targetHero.HeroLogic.HeroEvents.PostCriticalStrike(targetHero, thisHero);
+            
+            logicTree.EndSequence();
             yield return null;
         }
-        private IEnumerator AttackHero()
+        private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {
-            VisualTree.AddCurrent(AttackHeroVisual());
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var dealDamage = targetHero.HeroLogic.DealDamage;
+            var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
+            var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
             
-            var dealDamage = TargetHero.HeroLogic.DealDamage;
-            var attackPower = ThisHero.HeroLogic.HeroAttributes.Attack;
+            logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
+            logicTree.AddCurrent(dealDamage.DealDamageHero(thisHero, targetHero,attackPower, criticalFactor));
+            logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
             
-            var criticalFactor = ThisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
-
-            LogicTree.AddCurrent(dealDamage.DealDamageHero(ThisHero, TargetHero,attackPower, criticalFactor));
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator AttackHeroLogic(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
             
-            LogicTree.EndSequence();
+            visualTree.AddCurrent(AttackHeroVisual(thisHero,targetHero));
+            
+            logicTree.EndSequence();
             yield return null;
         }
 
@@ -67,31 +91,54 @@ namespace ScriptableObjects.Actions
         /// Critical Attack Animation
         /// </summary>
         /// <returns></returns>
-        private IEnumerator AttackHeroVisual()
+        private IEnumerator AttackHeroVisual(IHero thisHero, IHero targetHero)
         {
-            var doMoveDuration = 0.7f;
-            var doMoveLoops = 2;
-            var doPunchDuration = 1f;
-            var tweenVibrato = 5;
-            var tweenElasticity = 0.5f;
-            var tweenSnapping = false;
-            var s = DOTween.Sequence();
-
-            s.AppendCallback(() => ThisHero.HeroTransform.DOMove(TargetHero.HeroTransform.position, doMoveDuration)
-                    .SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
-                .OnStepComplete(() =>
-                    
-                    TargetHero.HeroTransform.DOPunchPosition(TargetHero.HeroTransform.position/7 - ThisHero.HeroTransform.position/7, 
-                        doPunchDuration, tweenVibrato, tweenElasticity, tweenSnapping)
-                );
-
-            s.AppendInterval(doMoveDuration)
-
-                .OnComplete(() =>
-                {
-                    VisualTree.EndSequence();
-                });
+            Debug.Log("CriticalAttackHeroVisual Start: " +thisHero.HeroName);
             
+            var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
+            var s = DOTween.Sequence();
+            var targetPosition = targetHero.HeroTransform.position;
+            var attackerPosition = thisHero.HeroTransform.position;
+
+            
+            s.AppendCallback(() => thisHero.HeroTransform.DOMove(targetHero.HeroTransform.position, doMoveDuration).SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
+                .OnStepComplete(() =>
+                    targetHero.HeroTransform.DOPunchPosition((targetPosition - attackerPosition)/doPunchDivisor,doPunchDuration, tweebVibrato, tweenElasticity, tweenSnapping)
+                );
+            s.AppendInterval(doMoveDuration)     
+                .OnComplete(() =>                  
+                {
+                    Debug.Log("CriticalAttackHeroVisual End: " +thisHero.HeroName);
+                    visualTree.EndSequence();
+                });
+            yield return null;
+        }
+        
+        private IEnumerator AttackInterval(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
+            
+            visualTree.AddCurrent(ReturnToPositionInterval(thisHero,targetHero));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
+        private IEnumerator ReturnToPositionInterval(IHero thisHero, IHero targetHero)
+        {
+            var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
+            
+            Debug.Log("Attack Interval Start: " +thisHero.HeroName);
+            var s1 = DOTween.Sequence();
+            s1.AppendInterval(doPunchDuration)
+                
+                .OnComplete(() =>                  
+                {
+                    Debug.Log("Attack Interval End: " +thisHero.HeroName);
+                    visualTree.EndSequence();
+                });
             
             
             yield return null;
