@@ -160,20 +160,12 @@ namespace Logic
 
         private IEnumerator SetHeroInactive()
         {
-            
-          
-            
-            //TEST
             var heroTimer = _activeHeroLogic.HeroTimer;
             var heroTimerObject = heroTimer as Object;
-            if(ActiveHeroes.Contains(heroTimerObject))
-                _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
-            //TEST END
+
+            _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
             
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
-            
-            //var i = ActiveHeroes.Count - 1;
-            //_activeHeroes.RemoveAt(i);
             
             _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
             
