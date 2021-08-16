@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a60f1c01fdf0c04b9e61e158835e92d, type: 3}
-  m_Name: Evasion
+  m_Script: {fileID: 11500000, guid: 9a48b7f59c951674c92c93155a2e9245, type: 3}
+  m_Name: IncreaseCriticalDamage
   m_EditorClassIdentifier: 
-  _name: Evasion
-  _description: Hero can't be dealt Critical Strike
-  _icon: {fileID: 21300000, guid: 81d00ce9fbf97cc4f9d6ca955a1a3eb5, type: 3}
+  _name: IncreaseCriticalDamage
+  _description: '+50% Critical Damage '
+  _icon: {fileID: 21300000, guid: 761d11c5774e86b4784db39887a3d5a4, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
   updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 0d6633c0a5de368408909ad412de8d6e, type: 2}
-  _effectValue: 0
-  resistanceValue: 200
+  _skillactionAsset: {fileID: 11400000, guid: b6aa013f51896fb4dbf7e4c0555b957e, type: 2}
+  _effectValue: 50
+  ciritcalDamageValue: 50

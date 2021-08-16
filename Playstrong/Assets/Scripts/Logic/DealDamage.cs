@@ -38,7 +38,7 @@ namespace Logic
             
             NormalDamage = attackPower + OtherDamage;
             
-            var criticalDamage = Mathf.FloorToInt(criticalFactor * NormalDamage);
+            var criticalDamage = Mathf.CeilToInt(criticalFactor * NormalDamage);
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(NormalDamage, criticalDamage, attackerHero));
 
