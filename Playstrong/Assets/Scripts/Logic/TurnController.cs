@@ -163,6 +163,7 @@ namespace Logic
             var heroTimer = _activeHeroLogic.HeroTimer;
             var heroTimerObject = heroTimer as Object;
 
+            //This needs to come first before change of herostatus
             _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
             
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
