@@ -65,6 +65,8 @@ namespace Logic
 
         private void GetAllyTargets()
         {
+            _validTargets.Clear();
+            
             var thisHero =  _targetSkill.Skill.Hero;
             var allies = thisHero.LivingHeroes.HeroesList;
             foreach (var ally in allies)
@@ -76,6 +78,8 @@ namespace Logic
         
         private void GetEnemyTargets()
         {
+            _validTargets.Clear();
+            
             SetEnemyTargetLists();
             SetEnemyStealthTargets();
             SetEnemyTauntTargets();
