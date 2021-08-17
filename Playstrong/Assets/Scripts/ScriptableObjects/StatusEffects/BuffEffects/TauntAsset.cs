@@ -29,14 +29,14 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(SkillActionAsset.StartAction(hero,tauntChance));
-            ApplyTargetResistanceAllyHeroes(hero,tauntResistance);
+            //ApplyTargetResistanceAllyHeroes(hero,tauntResistance);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(SkillActionAsset.StartAction(hero,-tauntChance));
-            ApplyTargetResistanceAllyHeroes(hero,-tauntResistance);
+            //ApplyTargetResistanceAllyHeroes(hero,-tauntResistance);
           
         }
 
