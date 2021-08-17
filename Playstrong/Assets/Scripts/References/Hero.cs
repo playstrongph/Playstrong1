@@ -97,8 +97,9 @@ namespace References
             _heroTransfrom = this.transform;
             _damageEffect = GetComponentInChildren<IDamageEffect>();
             _livingHeroes = GetComponentInParent<ILivingHeroes>();
-           
-          
+            _deadHeroes = _livingHeroes.Player.DeadHeroes;
+
+
 
         }
     }
