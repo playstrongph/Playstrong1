@@ -21,7 +21,7 @@ namespace ScriptableObjects.Actions
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.AttackTargetChance += attackTargetResistanceIncrease;
+            targetHero.HeroLogic.OtherAttributes.AttackTargetResistance += attackTargetResistanceIncrease;
             
             logicTree.EndSequence();
             yield return null;

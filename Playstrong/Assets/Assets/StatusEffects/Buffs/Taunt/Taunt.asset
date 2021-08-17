@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 234aec5f2ac04424093d24246448ccdf, type: 3}
+  m_Name: Taunt
+  m_EditorClassIdentifier: 
+  _name: Taunt
+  _description: Enemies can't attack other non-taunt heroes.
+  _icon: {fileID: 21300000, guid: 85a2bf0a98c469948b4a575483e69e81, type: 3}
+  _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
+  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
+    type: 2}
+  _skillactionAsset: {fileID: 11400000, guid: 880534a311e30134f975a35c6509717c, type: 2}
+  _effectValue: 1000
+  tauntChance: 1000
+  tauntTargetResistance: {fileID: 11400000, guid: 61709f244bbc8c84989774ab95530729,
+    type: 2}
+  tauntResistance: 101

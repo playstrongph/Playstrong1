@@ -11,18 +11,18 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class TauntAsset : StatusEffectAsset
     {
         [SerializeField]
-        private float targetChanceValue = 100f;
+        private float tauntChance = 1000f;
         
         [Header("Additional Attributes")]
         [SerializeField] private ScriptableObject tauntTargetResistance;
         private IHeroAction TauntTargetResistance => tauntTargetResistance as IHeroAction;
 
-        [SerializeField] private float tauntChance = 1000f;
+       
         [SerializeField] private float tauntResistance = 101f;
         
         
         //local variables
-        private List<IHero> allAllyHeroes = new List<IHero>();
+       // private List<IHero> allAllyHeroes = new List<IHero>();
         
         
         public override void ApplyStatusEffect(IHero hero)
@@ -43,16 +43,16 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private void ApplyTargetResistanceAllyHeroes(IHero hero, float value)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            var allAllyHeroes = GetAllAllyHeroes(hero);
             
-            GetAllAllyHeroes(hero);
             foreach (var allyHero in allAllyHeroes)
             {
-                logicTree.AddCurrent(TauntTargetResistance.StartAction(hero,value));
+                logicTree.AddCurrent(TauntTargetResistance.StartAction(allyHero,value));
             }
         }
         
         //all allies - dead or living, in consideration for resurrect.
-        private void GetAllAllyHeroes(IHero hero)
+        private List<IHero> GetAllAllyHeroes(IHero hero)
         {
             var livingAlliesObjects = hero.LivingHeroes.HeroesList;
             var deadAlliesObjects = hero.DeadHeroes.HeroesList;
@@ -69,6 +69,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
                 var ally = deadAllyObject.GetComponent<IHero>();
                 allAllyHeroes.Add(ally);
             }
+
+            return allAllyHeroes;
         }
 
 

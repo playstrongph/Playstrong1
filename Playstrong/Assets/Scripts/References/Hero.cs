@@ -86,21 +86,20 @@ namespace References
 
         private IDeadHeroes _deadHeroes;
         public IDeadHeroes DeadHeroes => _deadHeroes;
-        
-        
-        
 
-        
 
         private void Awake()
         {
             _heroTransfrom = this.transform;
             _damageEffect = GetComponentInChildren<IDamageEffect>();
             _livingHeroes = GetComponentInParent<ILivingHeroes>();
-            _deadHeroes = _livingHeroes.Player.DeadHeroes;
+            //_deadHeroes = LivingHeroes.Player.DeadHeroes;
 
+        }
 
-
+        private void Start()
+        {
+            _deadHeroes = LivingHeroes.Player.DeadHeroes;
         }
     }
 }
