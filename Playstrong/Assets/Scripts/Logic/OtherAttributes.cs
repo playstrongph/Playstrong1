@@ -101,12 +101,12 @@ namespace Logic
             
         }
 
-        [SerializeField] private float selectableTargetResistance = 0f;
+        [SerializeField] private float attackTargetResistance = 0f;
 
-        public float SelectableTargetResistance
+        public float AttackTargetResistance
         {
-            get => selectableTargetResistance;
-            set => selectableTargetResistance = value;
+            get => attackTargetResistance;
+            set => attackTargetResistance = value;
         }
 
 
@@ -185,12 +185,12 @@ namespace Logic
             set => _counterAttackChance = value;
         }
         
-        [SerializeField] private float selectableTargetChance = 100f;
+        [SerializeField] private float attackTargetChance = 100f;
 
-        public float SelectableTargetChance
+        public float AttackTargetChance
         {
-            get => selectableTargetChance;
-            set => selectableTargetChance = value;
+            get => attackTargetChance;
+            set => attackTargetChance = value;
         }
         
         
@@ -289,12 +289,12 @@ namespace Logic
             set => _baseCounterAttackResistance = value;
         }
         
-        [SerializeField] private float baseSelectableTargetResistance = 0f;
+        [SerializeField] private float baseAttackTargetResistance = 0f;
 
-        public float BaseSelectableTargetResistance
+        public float BaseAttackTargetResistance
         {
-            get => baseSelectableTargetResistance;
-            set => baseSelectableTargetResistance = value;
+            get => baseAttackTargetResistance;
+            set => baseAttackTargetResistance = value;
         }
         
         
@@ -374,12 +374,12 @@ namespace Logic
             set => _baseCounterAttackChance = value;
         }
         
-        [SerializeField] private float baseSelectableTargetChance = 100f;
+        [SerializeField] private float baseAttackTargetChance = 100f;
 
-        public float BaseSelectableTargetChance
+        public float BaseAttackTargetChance
         {
-            get => baseSelectableTargetChance;
-            set => baseSelectableTargetChance = value;
+            get => baseAttackTargetChance;
+            set => baseAttackTargetChance = value;
         }
         
         
