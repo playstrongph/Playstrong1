@@ -28,6 +28,7 @@ namespace Logic
         private Action _showTargetsGlow;
 
         private int _targetIndex = 0;
+        private float stealthChanceCompensation = 3000f;
 
         public int TargetIndex
         {
@@ -45,6 +46,8 @@ namespace Logic
 
             _showTargetsGlow = NoAction;
         }
+        
+        
         
         public List<IHero> GetValidTargets()
         {
@@ -76,14 +79,67 @@ namespace Logic
             }
         }
         
+        //TODO: Copy from GetAttackTarget
         private void GetEnemyTargets()
         {
             _validTargets.Clear();
+            var targetHero = _targetSkill.Skill.Hero;
             
-            SetEnemyTargetLists();
-            SetEnemyStealthTargets();
-            SetEnemyTauntTargets();
-            SetEnemyNormalTargets();
+            var enemiesObjects = targetHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
+            var allEnemiesStealthChance = AllStealthEnemies(enemiesObjects);
+            var tauntEnemies = new List<IHero>();
+
+            
+            //this loop gets all non-stealth targets
+            foreach (var enemyObject in enemiesObjects)
+            {
+                var enemy = enemyObject.GetComponent<IHero>();
+                var netAttackTargetChance = enemy.HeroLogic.OtherAttributes.AttackTargetChance - enemy.HeroLogic.OtherAttributes.AttackTargetResistance;
+                var netChance = netAttackTargetChance + allEnemiesStealthChance;
+
+                if(netChance >= 100)
+                    _validTargets.Add(enemy);
+            }
+            
+            //this loop gets all taunt targets
+            tauntEnemies.Clear();
+            foreach (var validEnemyTarget in _validTargets)
+            {
+                var netAttackTargetChance = validEnemyTarget.HeroLogic.OtherAttributes.AttackTargetChance - validEnemyTarget.HeroLogic.OtherAttributes.AttackTargetResistance;
+                var netChance = netAttackTargetChance;
+
+                if (netChance >= 500)
+                {
+                    tauntEnemies.Add(validEnemyTarget);    
+                }
+            }
+
+            if (tauntEnemies.Count > 0)
+            {
+                _validTargets.Clear();
+                _validTargets = tauntEnemies;
+            }
+        }
+        
+        private float AllStealthEnemies(List<GameObject> enemiesObjects)
+        {
+            var allEnemiesStealthChance = 0f;
+            var validTargets = 0f;
+
+            foreach (var enemyObject in enemiesObjects)
+            {
+                var enemy = enemyObject.GetComponent<IHero>();
+                var netAttackTargetChance = enemy.HeroLogic.OtherAttributes.AttackTargetChance - enemy.HeroLogic.OtherAttributes.AttackTargetResistance;
+
+                if (netAttackTargetChance >= 100)
+                    validTargets += 1;
+            }
+            
+            //if all targets are stealth - i.e. if there are no valid targets
+            if (validTargets < 1)
+                allEnemiesStealthChance = stealthChanceCompensation;
+            
+            return allEnemiesStealthChance;
         }
         
         private void SetEnemyTargetLists()
