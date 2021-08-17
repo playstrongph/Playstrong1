@@ -35,13 +35,13 @@ namespace Logic
             //Note: Sequence of method calls is important
             _validEnemyTargets.Clear();
             
+            SetTargetListsTest();
             
-            SetTargetLists();
+            //SetTargetLists();
+            //SetStealthTargets();
+            //SetTauntTargets();
+            //SetNormalTargets();
             
-            
-            SetStealthTargets();
-            SetTauntTargets();
-            SetNormalTargets();
             return _validEnemyTargets;
         }
         
@@ -63,6 +63,7 @@ namespace Logic
         private void SetTargetListsTest()
         {
             var allEnemiesStealthChance = AllStealthEnemies();
+            _validEnemyTargets.Clear();
             
             var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
             foreach (var enemy in enemies)
@@ -71,9 +72,14 @@ namespace Logic
                 var netAttackTargetChance = enemyHero.HeroLogic.OtherAttributes.AttackTargetChance - enemyHero.HeroLogic.OtherAttributes.AttackTargetResistance;
                 var netChance = netAttackTargetChance + allEnemiesStealthChance;
                 
+                
+
                 if(netChance >= 100)
-                    enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
+                    //enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
+                    _validEnemyTargets.Add(enemyHero);
             }
+            
+            
         }
         
         private float AllStealthEnemies()
@@ -81,16 +87,6 @@ namespace Logic
             var allEnemiesStealthChance = 0f;
             
             //TODO: set allEnemiesStealthChance value to 3000 if all enemies have stealth
-            
-            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
-            foreach (var enemy in enemies)
-            {
-                var enemyHero = enemy.GetComponent<IHero>();
-                var netAttackTargetChance = enemyHero.HeroLogic.OtherAttributes.AttackTargetChance - enemyHero.HeroLogic.OtherAttributes.AttackTargetResistance; 
-                
-                
-                enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
-            }
 
             return allEnemiesStealthChance;
         }
