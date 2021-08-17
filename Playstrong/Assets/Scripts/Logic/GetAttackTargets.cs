@@ -71,7 +71,7 @@ namespace Logic
                     validTargets += 1;
             }
             
-            //if there are no valid targets
+            //if all targets are stealth - i.e. if there are no valid targets
             if (validTargets < 1)
                 allEnemiesStealthChance = stealthChanceCompensation;
             
