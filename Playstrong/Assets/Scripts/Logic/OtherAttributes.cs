@@ -100,9 +100,19 @@ namespace Logic
             set => _counterAttackResistance = value;
             
         }
-        
-        
-        
+
+        [SerializeField] private float selectableTargetResistance = 0f;
+
+        public float SelectableTargetResistance
+        {
+            get => selectableTargetResistance;
+            set => selectableTargetResistance = value;
+        }
+
+
+
+
+
         /// <summary>
         /// Hero Chances
         /// </summary>
@@ -173,6 +183,14 @@ namespace Logic
         {
             get => _counterAttackChance;
             set => _counterAttackChance = value;
+        }
+        
+        [SerializeField] private float selectableTargetChance = 100f;
+
+        public float SelectableTargetChance
+        {
+            get => selectableTargetChance;
+            set => selectableTargetChance = value;
         }
         
         
@@ -271,6 +289,14 @@ namespace Logic
             set => _baseCounterAttackResistance = value;
         }
         
+        [SerializeField] private float baseSelectableTargetResistance = 0f;
+
+        public float BaseSelectableTargetResistance
+        {
+            get => baseSelectableTargetResistance;
+            set => baseSelectableTargetResistance = value;
+        }
+        
         
         
         
@@ -347,6 +373,15 @@ namespace Logic
             get => _baseCounterAttackChance;
             set => _baseCounterAttackChance = value;
         }
+        
+        [SerializeField] private float baseSelectableTargetChance = 100f;
+
+        public float BaseSelectableTargetChance
+        {
+            get => baseSelectableTargetChance;
+            set => baseSelectableTargetChance = value;
+        }
+        
         
         /// <summary>
         /// Script References

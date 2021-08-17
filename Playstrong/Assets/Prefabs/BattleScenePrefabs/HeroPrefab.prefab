@@ -3540,6 +3540,7 @@ MonoBehaviour:
   _skillChanceResistance: 0
   _resurrectResistance: 0
   _counterAttackResistance: 0
+  selectableTargetResistance: 0
   _healChance: 100
   _criticalStrikeChance: 50
   _debuffChance: 100
@@ -3547,6 +3548,7 @@ MonoBehaviour:
   _skillChanceBonus: 0
   _resurrectChance: 0
   _counterAttackChance: 0
+  selectableTargetChance: 100
   _baseDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
@@ -3556,13 +3558,15 @@ MonoBehaviour:
   _baseSkillChanceResistance: 0
   _baseResurrectResistance: 0
   _baseCounterAttackResistance: 0
+  baseSelectableTargetResistance: 0
   _baseHealChance: 100
-  _baseCriticalStrikeChance: 0
+  _baseCriticalStrikeChance: 50
   _baseDebuffChance: 100
   _baseBuffChance: 100
   _baseSkillChanceBonus: 0
   _baseResurrectChance: 0
   _baseCounterAttackChance: 0
+  baseSelectableTargetChance: 100
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
