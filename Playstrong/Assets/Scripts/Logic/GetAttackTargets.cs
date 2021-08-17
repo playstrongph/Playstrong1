@@ -45,7 +45,6 @@ namespace Logic
             
             var enemiesObjects = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
             var allEnemiesStealthChance = AllStealthEnemies(enemiesObjects);
-
             var tauntEnemies = new List<IHero>();
 
             
@@ -65,7 +64,7 @@ namespace Logic
             foreach (var validEnemyTarget in _validEnemyTargets)
             {
                 var netAttackTargetChance = validEnemyTarget.HeroLogic.OtherAttributes.AttackTargetChance - validEnemyTarget.HeroLogic.OtherAttributes.AttackTargetResistance;
-                var netChance = netAttackTargetChance + allEnemiesStealthChance;
+                var netChance = netAttackTargetChance;
 
                 if (netChance >= 500)
                 {
