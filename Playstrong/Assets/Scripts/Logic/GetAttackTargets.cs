@@ -20,6 +20,7 @@ namespace Logic
         
 
         private Action _showTargetsGlow;
+        private float stealthChanceCompensation = 3000f;
     
         private void Awake()
         {
@@ -32,105 +33,54 @@ namespace Logic
         
         public List<IHero> GetValidEnemyTargets()
         {
-            //Note: Sequence of method calls is important
             _validEnemyTargets.Clear();
-            
-            SetTargetListsTest();
-            
-            //SetTargetLists();
-            //SetStealthTargets();
-            //SetTauntTargets();
-            //SetNormalTargets();
-            
+            GetTargets();
             return _validEnemyTargets;
         }
-        
-        /// <summary>
-        /// Adds all enemies to the respective lists of normal heroes, stealth heroes, and taunt heroes
-        /// the list is populated using a scriptable object implementing the interface ITargetStatus 
-        /// </summary>
-        private void SetTargetLists()
+
+       
+        private void GetTargets()
         {
-            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
-            foreach (var enemy in enemies)
-            {
-                var enemyHero = enemy.GetComponent<IHero>();
-                enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
-            }
-        }
-        
-        //TEST
-        private void SetTargetListsTest()
-        {
-            var allEnemiesStealthChance = AllStealthEnemies();
             _validEnemyTargets.Clear();
             
-            var enemies = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
-            foreach (var enemy in enemies)
+            var enemiesObjects = _targetHero.Hero.LivingHeroes.Player.OtherPlayer.LivingHeroes.HeroesList;
+            var allEnemiesStealthChance = AllStealthEnemies(enemiesObjects);
+
+            foreach (var enemyObject in enemiesObjects)
             {
-                var enemyHero = enemy.GetComponent<IHero>();
-                var netAttackTargetChance = enemyHero.HeroLogic.OtherAttributes.AttackTargetChance - enemyHero.HeroLogic.OtherAttributes.AttackTargetResistance;
+                var enemy = enemyObject.GetComponent<IHero>();
+                var netAttackTargetChance = enemy.HeroLogic.OtherAttributes.AttackTargetChance - enemy.HeroLogic.OtherAttributes.AttackTargetResistance;
                 var netChance = netAttackTargetChance + allEnemiesStealthChance;
-                
-                
 
                 if(netChance >= 100)
-                    //enemyHero.HeroLogic.TargetStatus.AddToTargetList(enemyHero,_enemyNormalHeroes, _enemyTauntHeroes, _enemyStealthHeroes);
-                    _validEnemyTargets.Add(enemyHero);
+                    _validEnemyTargets.Add(enemy);
             }
-            
-            
         }
         
-        private float AllStealthEnemies()
+        private float AllStealthEnemies(List<GameObject> enemiesObjects)
         {
             var allEnemiesStealthChance = 0f;
-            
-            //TODO: set allEnemiesStealthChance value to 3000 if all enemies have stealth
+            var validTargets = 0f;
 
+            foreach (var enemyObject in enemiesObjects)
+            {
+                var enemy = enemyObject.GetComponent<IHero>();
+                var netAttackTargetChance = enemy.HeroLogic.OtherAttributes.AttackTargetChance - enemy.HeroLogic.OtherAttributes.AttackTargetResistance;
+
+                if (netAttackTargetChance >= 100)
+                    validTargets += 1;
+            }
+            
+            //if there are no valid targets
+            if (validTargets < 1)
+                allEnemiesStealthChance = stealthChanceCompensation;
+            
             return allEnemiesStealthChance;
         }
-        //TEST END
-        
-        /// <summary>
-        /// If a stealth hero is present, remove it from the validTargets list 
-        /// </summary>
 
-        private void SetStealthTargets()
-        {
-            foreach (var enemy in _enemyStealthHeroes)
-            {
-                //Do stealth effects here.
-            }
-        }
-        
-        /// <summary>
-        /// If a taunt hero is present, clear the normal enemies list and add
-        /// only the taunt heroes in the validTargets list
-        /// </summary>
+      
 
-        private void SetTauntTargets()
-        {
-            foreach (var enemy in _enemyTauntHeroes)
-            {
-                _enemyNormalHeroes.Clear();
-                _validEnemyTargets.Add(enemy);
-            }
-        }
-        
-        /// <summary>
-        /// Add enemy heroes to the validTargets list
-        /// this method is called after stealth and taunt target processing
-        /// </summary>
 
-        private void SetNormalTargets()
-        {
-            foreach (var enemy in _enemyNormalHeroes)
-            {
-                _validEnemyTargets.Add(enemy);
-            }
-        }
-        
         private void OnMouseDown()
         {
             _showTargetsGlow();
