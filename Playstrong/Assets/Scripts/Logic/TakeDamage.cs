@@ -30,12 +30,11 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
         
-        public IEnumerator TakeAttackDamage(int normalDamage, int criticalDamage, IHero attacker)
+        public IEnumerator TakeAllDamage(int normalDamage, int criticalDamage)
         {
             var thisHero = _thisHeroLogic.Hero;
             
             _logicTree.AddCurrent(HeroTakesDamage(normalDamage,criticalDamage));
-
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
 
             _logicTree.EndSequence();
@@ -43,15 +42,7 @@ namespace Logic
           
         }
         
-        public IEnumerator TakeDirectDamage(int damage)
-        {
-            var thisHero = _thisHeroLogic.Hero;
-            
-           
-
-            _logicTree.EndSequence();
-            yield return null;
-        }
+        
         
         private IEnumerator HeroTakesDamage(int normalDamage, int criticalDamage)
         {

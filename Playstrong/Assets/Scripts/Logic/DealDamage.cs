@@ -40,25 +40,18 @@ namespace Logic
             
             var criticalDamage = Mathf.CeilToInt(criticalFactor * NormalDamage);
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAttackDamage(NormalDamage, criticalDamage, attackerHero));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(NormalDamage, criticalDamage));
 
             logicTree.EndSequence();
             yield return null;
         }
         
-        public void DealDirectDamage(IHero targetHero, int damage)
+        public IEnumerator DealDirectDamage(IHero targetHero, int normalDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var criticalDamage = 0;
             
-            
-           
-           
-        }
-        
-        public IEnumerator DealDirectDamageCoroutine(IHero targetHero, int damage)
-        {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(normalDamage,criticalDamage));
             
             logicTree.EndSequence();
             yield return null;
