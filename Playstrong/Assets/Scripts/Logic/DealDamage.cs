@@ -32,7 +32,7 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
         }
         
-        public IEnumerator DealDamageHero(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
+        public IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
@@ -40,13 +40,31 @@ namespace Logic
             
             var criticalDamage = Mathf.CeilToInt(criticalFactor * NormalDamage);
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.DamageHero(NormalDamage, criticalDamage, attackerHero));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAttackDamage(NormalDamage, criticalDamage, attackerHero));
 
             logicTree.EndSequence();
             yield return null;
         }
         
-       
+        public void DealDirectDamage(IHero targetHero, int damage)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            
+           
+           
+        }
+        
+        public IEnumerator DealDirectDamageCoroutine(IHero targetHero, int damage)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
 
 
        

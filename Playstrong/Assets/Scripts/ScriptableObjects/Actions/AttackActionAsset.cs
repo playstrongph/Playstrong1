@@ -44,7 +44,7 @@ namespace ScriptableObjects.Actions
             
             logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
             
-            logicTree.AddCurrent(dealDamage.DealDamageHero(thisHero, targetHero,attackPower, criticalFactor));
+            logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
             
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
 
