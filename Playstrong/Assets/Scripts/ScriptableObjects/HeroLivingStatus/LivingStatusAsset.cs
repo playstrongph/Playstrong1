@@ -1,18 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Interfaces;
+using Logic;
 using UnityEngine;
 
-public class LivingStatusAsset : MonoBehaviour
+namespace ScriptableObjects.HeroLivingStatus
 {
-    // Start is called before the first frame update
-    void Start()
+    public class LivingStatusAsset : ScriptableObject, IHeroLivingStatusAsset
     {
+        /// <summary>
+        /// If the target hero is alive, this will call the initiator's DoAction Method
+        /// </summary>
+        public virtual void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
+        {
+            //initiator.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, initiator, recipient);
+           
+        }
         
-    }
+        /// <summary>
+        /// If the initiator hero is alive, this will call the initiator's TargetHero method
+        /// </summary>
+        public virtual void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
+        {
+            //var logicTree = recipient.CoroutineTreesAsset.MainLogicTree;
+            //logicTree.AddCurrent(heroAction.ActionTarget(initiator, recipient));
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }

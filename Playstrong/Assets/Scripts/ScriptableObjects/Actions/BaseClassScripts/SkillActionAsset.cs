@@ -43,8 +43,12 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         /// </summary>
         public virtual IEnumerator StartAction(IHero targetHero, float value)
         {
-            
-            
+            LogicTree.EndSequence();
+            yield return null;
+        }
+        
+        public virtual IEnumerator ActionTarget(IHero targetHero, float value)
+        {
             LogicTree.EndSequence();
             yield return null;
         }

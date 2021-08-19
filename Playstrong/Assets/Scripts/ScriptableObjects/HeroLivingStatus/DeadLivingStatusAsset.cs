@@ -6,12 +6,12 @@ using UnityEngine;
 namespace ScriptableObjects.HeroLivingStatus
 {
     [CreateAssetMenu(fileName = "DeadLivingStatus", menuName = "SO's/HeroLivingStatus/DeadLivingStatus")]
-    public class DeadLivingStatusAsset : ScriptableObject, IHeroLivingStatusAsset
+    public class DeadLivingStatusAsset : LivingStatusAsset
     {
         /// <summary>
         /// If the target hero is dead, Do Nothing
         /// </summary>
-        public void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
+        public override void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
             
         }
@@ -19,7 +19,7 @@ namespace ScriptableObjects.HeroLivingStatus
         /// <summary>
         /// If the initiator hero is dead, Do Nothing
         /// </summary>
-        public void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
+        public override void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
             
         }

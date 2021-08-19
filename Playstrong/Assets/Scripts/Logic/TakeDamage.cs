@@ -16,6 +16,10 @@ namespace Logic
         private IHeroLogic _thisHeroLogic;
         private int _residualDamage;
         
+        [SerializeField]
+        private int _finalDamage;
+        public int FinalDamage => _finalDamage;
+        
         
 
         private void Awake()
@@ -46,12 +50,12 @@ namespace Logic
         
         private IEnumerator HeroTakesDamage(int normalDamage, int criticalDamage)
         {
-            var finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
+             _finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
 
-            ComputeNewArmor(_thisHeroLogic, finalDamage);
+            ComputeNewArmor(_thisHeroLogic, _finalDamage);
             ComputeNewHealth(_thisHeroLogic, _residualDamage);
             
-            _visualTree.AddCurrent(ApplyFinalDamage(finalDamage));
+            _visualTree.AddCurrent(ApplyFinalDamage(_finalDamage));
             
             _logicTree.EndSequence();
             yield return null;
@@ -80,8 +84,6 @@ namespace Logic
             _thisHeroLogic.Hero.DamageEffect.ShowDamage(damageValue);
             _thisHeroLogic.SetHeroArmor.SetArmor(armor);
             _thisHeroLogic.SetHeroHealth.SetHealth(health);
-            
-            Debug.Log("ApplyFinalDamage End: " +_thisHeroLogic.Hero.HeroName);
 
             _visualTree.EndSequence();
             yield return null;

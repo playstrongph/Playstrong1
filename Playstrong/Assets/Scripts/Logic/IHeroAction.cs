@@ -11,5 +11,7 @@ namespace Logic
         IEnumerator StartAction(IHero thisHero, IHero targetHero);
 
         IEnumerator StartAction(IHero targetHero, float value);
+
+        IEnumerator ActionTarget(IHero targetHero, float value);
     }
 }

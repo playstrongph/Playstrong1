@@ -8,7 +8,9 @@ namespace Logic
     public interface ITakeDamage
     {
         IEnumerator TakeAllDamage(int normalDamage, int criticalDamage);
-       
+
+        int FinalDamage { get; }
+
 
     }
 }
