@@ -4,13 +4,14 @@ using UnityEngine;
 using DG.Tweening;
 using Interfaces;
 using References;
+using ScriptableObjects.AnimationSOscripts;
 
 namespace Visual.Animation
 {
     
     [CreateAssetMenu(fileName = "DieAnimation", menuName = "SO's/Animations/DieAnimation")]
     
-    public class HeroDiesAnimation : ScriptableObject, IHeroDiesAnimation, IAnimations
+    public class HeroDiesAnimation : GameAnimations
     {
         //Can be placed in a baseclass
         [SerializeField]
@@ -31,7 +32,7 @@ namespace Visual.Animation
 
         private GameObject _dieAnimEffect;
 
-        public IEnumerator StartAnimation(IHero hero)
+        public override IEnumerator StartAnimation(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             

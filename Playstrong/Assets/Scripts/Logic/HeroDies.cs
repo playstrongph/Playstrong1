@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using References;
+using ScriptableObjects.AnimationSOscripts;
 using ScriptableObjects.HeroLivingStatus;
 using UnityEngine;
 using Utilities;
@@ -25,7 +26,7 @@ namespace Logic
         [SerializeField]
         [RequireInterface(typeof(IAnimations))]
         private Object _dieAnimation;
-        private IAnimations DieAnimation => _dieAnimation as IAnimations;
+        private IGameAnimations DieAnimation => _dieAnimation as IGameAnimations;
 
         private void Awake()
         {
