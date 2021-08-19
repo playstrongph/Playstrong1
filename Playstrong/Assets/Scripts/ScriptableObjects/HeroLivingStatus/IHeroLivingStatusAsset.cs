@@ -14,6 +14,8 @@ namespace ScriptableObjects.HeroLivingStatus
         
         void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
 
-       
+        void ReceiveHeroAction(IHeroAction heroAction, IHero target,  float value);
+
+        void DoHeroAction(IHeroAction heroAction, IHero target,  float value);
     }
 }

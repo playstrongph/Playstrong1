@@ -11,7 +11,7 @@ namespace ScriptableObjects.HeroLivingStatus
         /// </summary>
         public virtual void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
-            //initiator.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, initiator, recipient);
+           
            
         }
         
@@ -20,9 +20,27 @@ namespace ScriptableObjects.HeroLivingStatus
         /// </summary>
         public virtual void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
         {
-            //var logicTree = recipient.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(heroAction.ActionTarget(initiator, recipient));
+           
 
         }
+        
+        
+        /// <summary>
+        /// For Buffs, you only need to check if the target is alive, since if the initiator is dead, the buff
+        /// gets destroyed.
+        /// </summary>
+        public virtual void ReceiveHeroAction(IHeroAction heroAction, IHero target, float value)
+        {
+           
+           
+        }
+        
+        public virtual void DoHeroAction(IHeroAction heroAction, IHero target, float value)
+        {
+           
+
+        }
+        
+        
     }
 }

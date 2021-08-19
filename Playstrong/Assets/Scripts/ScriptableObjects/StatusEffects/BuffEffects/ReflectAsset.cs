@@ -15,17 +15,11 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-
             hero.HeroLogic.HeroEvents.EPostAttack += DealReflectDamage;
-
-
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
             hero.HeroLogic.HeroEvents.EPostAttack -= DealReflectDamage;
         }
 

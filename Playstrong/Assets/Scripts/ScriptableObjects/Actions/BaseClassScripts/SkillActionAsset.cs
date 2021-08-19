@@ -43,12 +43,18 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         /// </summary>
         public virtual IEnumerator StartAction(IHero targetHero, float value)
         {
+            InitializeValues(targetHero, targetHero);
+
+            targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, targetHero, value);
+            
             LogicTree.EndSequence();
             yield return null;
         }
         
         public virtual IEnumerator ActionTarget(IHero targetHero, float value)
         {
+            InitializeValues(targetHero, targetHero);
+            
             LogicTree.EndSequence();
             yield return null;
         }

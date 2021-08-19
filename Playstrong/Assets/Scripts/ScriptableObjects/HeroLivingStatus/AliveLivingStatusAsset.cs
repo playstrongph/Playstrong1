@@ -28,6 +28,22 @@ namespace ScriptableObjects.HeroLivingStatus
             logicTree.AddCurrent(heroAction.ActionTarget(initiator, recipient));
 
         }
+        
+        public override void ReceiveHeroAction(IHeroAction heroAction, IHero target,  float value)
+        {
+            target.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, target, value);
+           
+        }
+        
+        public override void DoHeroAction(IHeroAction heroAction, IHero target,  float value)
+        {
+            var logicTree = target.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(heroAction.ActionTarget(target,value));
+
+        }
+        
+        
+        
 
 
 

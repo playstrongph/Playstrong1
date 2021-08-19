@@ -23,6 +23,22 @@ namespace ScriptableObjects.HeroLivingStatus
         {
             
         }
+        
+        
+        /// <summary>
+        /// Used by Status Effects
+        /// </summary>
+        public override void ReceiveHeroAction(IHeroAction heroAction, IHero target, float value)
+        {
+            
+           
+        }
+        
+        public override void DoHeroAction(IHeroAction heroAction, IHero target, float value)
+        {
+            
+
+        }
 
 
 
