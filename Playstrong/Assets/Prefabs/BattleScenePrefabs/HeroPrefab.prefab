@@ -3540,7 +3540,7 @@ MonoBehaviour:
   _skillChanceResistance: 0
   _resurrectResistance: 0
   _counterAttackResistance: 0
-  selectableTargetResistance: 0
+  attackTargetResistance: 0
   _healChance: 100
   _criticalStrikeChance: 50
   _debuffChance: 100
@@ -3548,7 +3548,7 @@ MonoBehaviour:
   _skillChanceBonus: 0
   _resurrectChance: 0
   _counterAttackChance: 0
-  selectableTargetChance: 100
+  attackTargetChance: 100
   _baseDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
@@ -3558,7 +3558,7 @@ MonoBehaviour:
   _baseSkillChanceResistance: 0
   _baseResurrectResistance: 0
   _baseCounterAttackResistance: 0
-  baseSelectableTargetResistance: 0
+  baseAttackTargetResistance: 0
   _baseHealChance: 100
   _baseCriticalStrikeChance: 50
   _baseDebuffChance: 100
@@ -3566,7 +3566,7 @@ MonoBehaviour:
   _baseSkillChanceBonus: 0
   _baseResurrectChance: 0
   _baseCounterAttackChance: 0
-  baseSelectableTargetChance: 100
+  baseAttackTargetChance: 100
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3614,7 +3614,7 @@ MonoBehaviour:
   skillEffect: {fileID: 11400000, guid: 4f723abfa1ee494438ea82a851221bd2, type: 2}
   attackIndex: 0
   _attackActions:
-  - {fileID: 11400000, guid: 6139a9ef9c1ef4a4987f29a3a0591a28, type: 2}
+  - {fileID: 11400000, guid: 5b3e3bc7072222f4da3d4d99e4d536ab, type: 2}
   - {fileID: 11400000, guid: 73ea519bdd12b534da8dda49d15a8491, type: 2}
   criticalAttackModifiers:
   - 2
@@ -3644,6 +3644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6a0bf8e7528c4698866652f5f5de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _finalDamage: 0
 --- !u!114 &5111372421542366580
 MonoBehaviour:
   m_ObjectHideFlags: 0

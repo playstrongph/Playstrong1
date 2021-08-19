@@ -67,7 +67,6 @@ namespace Logic
         {
             yield return new WaitForSeconds(seconds);
             yield return StartCoroutine(InsertDelay(tree));
-            
             yield return null;
 
         }
