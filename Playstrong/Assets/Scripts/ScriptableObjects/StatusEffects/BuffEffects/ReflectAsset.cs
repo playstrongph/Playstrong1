@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
@@ -10,52 +11,49 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class ReflectAsset : StatusEffectAsset
     {
         [SerializeField]
-        private float counterattackValue = 100f;
-        
-        [Header("Additional Attributes")]
-        [SerializeField] private ScriptableObject _counterResistance;
-        private IHeroAction CounterResistance => _counterResistance as IHeroAction;
-
-        [SerializeField] private float counterResistanceValue = 200f;
-        
-        
+        private float reflectFactor = 30f;
 
         public override void ApplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, counterattackValue));
-            
-            //Register CounterResistance Effect here:  BeforeAttacking and Afterattacking
-            hero.HeroLogic.HeroEvents.EBeforeCounterAttack += TemporaryCounterResistanceIncrease;
-            hero.HeroLogic.HeroEvents.EAfterCounterAttack += RemoveTemporaryCounterResistanceIncrease;
+
+            hero.HeroLogic.HeroEvents.EPostAttack += DealReflectDamage;
+
 
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -counterattackValue));
             
-            //Remove Register CounterResistance Effect here:  BeforeAttacking and Afterattacking
-            hero.HeroLogic.HeroEvents.EBeforeCounterAttack -= TemporaryCounterResistanceIncrease;
-            hero.HeroLogic.HeroEvents.EAfterCounterAttack -= RemoveTemporaryCounterResistanceIncrease;
+            hero.HeroLogic.HeroEvents.EPostAttack -= DealReflectDamage;
         }
 
 
-        private void TemporaryCounterResistanceIncrease(IHero hero, IHero dummyHero)
+        private void DealReflectDamage(IHero thisHero, IHero targetHero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(CounterResistance.StartAction(hero, counterResistanceValue));
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+           logicTree.AddCurrent(DealDamage(thisHero,targetHero));
             
         }
-        
-        private void RemoveTemporaryCounterResistanceIncrease(IHero hero, IHero dummyHero)
+
+        private IEnumerator DealDamage(IHero thisHero, IHero targetHero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(CounterResistance.StartAction(hero, -counterResistanceValue));
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var finalDamage = thisHero.HeroLogic.TakeDamage.FinalDamage;
+            var reflectDamage = Mathf.CeilToInt(finalDamage * reflectFactor / 100f);
+
+            logicTree.AddCurrent(SkillActionAsset.StartAction(targetHero,reflectDamage));
+
+            logicTree.EndSequence();
+            yield return null;
+            
         }
-        
-        
+
+
+
+
 
 
 
