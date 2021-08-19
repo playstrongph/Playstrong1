@@ -119,30 +119,14 @@ namespace ScriptableObjects.Actions
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
             
-            visualTree.AddCurrent(ReturnToPositionInterval(thisHero,targetHero));
+            //Inserts delay in seconds before calling visualTree.EndSequence()
+            visualTree.AddCurrentWait(doPunchDuration, visualTree);
             
             logicTree.EndSequence();
             yield return null;
         }
 
 
-        private IEnumerator ReturnToPositionInterval(IHero thisHero, IHero targetHero)
-        {
-            var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
-            
-            Debug.Log("Attack Interval Start: " +thisHero.HeroName);
-            var s1 = DOTween.Sequence();
-            s1.AppendInterval(doPunchDuration)
-                
-                .OnComplete(() =>                  
-                {
-                    Debug.Log("Attack Interval End: " +thisHero.HeroName);
-                    visualTree.EndSequence();
-                });
-            
-            
-            yield return null;
-        }
         
        
 

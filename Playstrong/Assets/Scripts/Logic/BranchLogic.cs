@@ -61,15 +61,23 @@ namespace Logic
             yield return null;
             VisualTree.EndSequence();
         }
-
-
+        
+       
         public IEnumerator Wait(float seconds, ICoroutineTree tree)
         {
             yield return new WaitForSeconds(seconds);
+            yield return StartCoroutine(InsertDelay(tree));
             
-            tree.EndSequence();
             yield return null;
 
         }
+        
+       
+        private IEnumerator InsertDelay(ICoroutineTree tree)
+        {
+            tree.EndSequence();
+            yield return null;
+        }
+
     }
 }
