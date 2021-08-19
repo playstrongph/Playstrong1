@@ -15,22 +15,23 @@ namespace ScriptableObjects.Actions
         
         
 
-        public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
+        public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(DealDirectDamage(thisHero,targetHero));
+            logicTree.AddCurrent(DealDirectDamage(targetHero, value));
 
             logicTree.EndSequence();
             yield return null;
 
         }
 
-        private IEnumerator DealDirectDamage(IHero thisHero, IHero targetHero )
+        private IEnumerator DealDirectDamage(IHero targetHero, float value )
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var intValue = (int) value;
             
-            //logicTree.AddCurrent(thisHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, reflectDamage));
+            logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, intValue));
             
             logicTree.EndSequence();
             yield return null;
