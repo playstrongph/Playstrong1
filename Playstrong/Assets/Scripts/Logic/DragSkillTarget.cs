@@ -121,7 +121,7 @@ namespace Logic
         private void UseHeroSkill()
         {
             
-            _logicTree.AddCurrent(ApplySkillEffect());
+            _logicTree.AddCurrent(UseSkillEffect());
 
             //_logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.UpdateCooldown());
             _logicTree.AddCurrent(ResetSkillCooldown());
@@ -132,7 +132,7 @@ namespace Logic
         
         
         
-        private IEnumerator ApplySkillEffect()
+        private IEnumerator UseSkillEffect()
         {
             _thisHero = _targetSkill.Skill.Hero.TargetHero;
             

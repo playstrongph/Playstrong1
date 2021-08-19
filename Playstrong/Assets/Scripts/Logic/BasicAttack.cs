@@ -113,7 +113,6 @@ namespace Logic
             _attackActions.Remove(heroActionObject);
         }
 
-
         /// <summary>
         /// This is a list of other possible critical attack modifiers apart from default
         /// value of 2.  Examples are skills that set the multiplier to 3, or equipment that increase

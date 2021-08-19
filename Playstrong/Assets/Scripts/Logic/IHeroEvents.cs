@@ -7,12 +7,17 @@ namespace Logic
         
       
         event HeroEvents.HeroesEvent EPreAttack;
+        event HeroEvents.HeroesEvent EPreSkillAttack;
         event HeroEvents.HeroesEvent EPostAttack;
+        event HeroEvents.HeroesEvent EPostSkillAttack;
         
         event HeroEvents.HeroesEvent EPreCriticalStrike;
         event HeroEvents.HeroesEvent EPostCriticalStrike;
         event HeroEvents.HeroesEvent EBeforeAttacking;
+        
+        event HeroEvents.HeroesEvent EBeforeSkillAttacking;
         event HeroEvents.HeroesEvent EAfterAttacking;
+        event HeroEvents.HeroesEvent EAfterSkillAttacking;
         
         event HeroEvents.HeroesEvent EBeforeCounterAttack;
         
@@ -48,7 +53,10 @@ namespace Logic
         event HeroEvents.HeroEvent EHeroEndTurn;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
+
+        void PreSkillAttack(IHero initiatorHero, IHero targetHero);
         void PostAttack(IHero initiatorHero, IHero targetHero);
+        void PostSkillAttack(IHero initiatorHero, IHero targetHero);
         void BeforeCounterAttack(IHero initiatorHero, IHero targetHero);
         void AfterCounterAttack(IHero initiatorHero, IHero targetHero);
         void PreCounterAttack(IHero initiatorHero, IHero targetHero);
@@ -61,8 +69,11 @@ namespace Logic
         
 
         void BeforeAttacking(IHero initiatorHero, IHero targetHero);
+        void BeforeSkillAttacking(IHero initiatorHero, IHero targetHero);
 
         void AfterAttacking(IHero initiatorHero, IHero targetHero);
+
+        void AfterSkillAttacking(IHero initiatorHero, IHero targetHero);
         
         void BeforeCriticalStrike(IHero initiatorHero, IHero targetHero);
 

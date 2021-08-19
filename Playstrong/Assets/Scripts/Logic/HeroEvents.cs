@@ -16,10 +16,17 @@ namespace Logic
         public delegate void HeroesEvent(IHero initiatorHero, IHero targetHero);
         public event HeroesEvent EPreAttack;
         public event HeroesEvent EPostAttack;
+        public event HeroesEvent EPreSkillAttack;
+        public event HeroesEvent EPostSkillAttack;
         public event HeroesEvent EPreCriticalStrike;
         public event HeroesEvent EPostCriticalStrike;
         public event HeroesEvent EBeforeAttacking;
+        public event HeroesEvent EBeforeSkillAttacking;
         public event HeroesEvent EAfterAttacking;
+        public event HeroesEvent EAfterSkillAttacking;
+        
+        
+        
         public event HeroesEvent EBeforeCriticalStrike;
         public event HeroesEvent EAfterCriticalStrike;
         public event HeroesEvent EDragBasicAttack;
@@ -75,6 +82,21 @@ namespace Logic
                 }
         }
         
+        public void PreSkillAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EPreSkillAttack?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribePreSkillAttackClients()
+        {
+            var clients = EPreSkillAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EPreSkillAttack -= client as HeroesEvent;
+                }
+        }
+        
         /// <summary>
         /// After the target hero takes an attack
         /// </summary>
@@ -89,6 +111,20 @@ namespace Logic
                 foreach (var client in clients)
                 {
                     EPostAttack -= client as HeroesEvent;
+                }
+        }
+        
+        public void PostSkillAttack(IHero initiatorHero, IHero targetHero)
+        {
+            EPostSkillAttack?.Invoke(initiatorHero, targetHero);
+        }
+        private void UnsubscribePostSkillAttackClients()
+        {
+            var clients = EPostSkillAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EPostSkillAttack -= client as HeroesEvent;
                 }
         }
         
@@ -141,6 +177,21 @@ namespace Logic
                 }
         }
         
+        public void BeforeSkillAttacking(IHero initiatorHero, IHero targetHero)
+        {
+            EBeforeSkillAttacking?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeBeforeSkillAttackingClients()
+        {
+            var clients = EBeforeSkillAttacking?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeSkillAttacking -= client as HeroesEvent;
+                }
+        }
+        
         
         public void AfterAttacking(IHero initiatorHero, IHero targetHero)
         {
@@ -154,6 +205,21 @@ namespace Logic
                 foreach (var client in clients)
                 {
                     EAfterAttacking -= client as HeroesEvent;
+                }
+        }
+        
+        public void AfterSkillAttacking(IHero initiatorHero, IHero targetHero)
+        {
+            EAfterSkillAttacking?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeAfterSkillAttackingClients()
+        {
+            var clients = EAfterSkillAttacking?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterSkillAttacking -= client as HeroesEvent;
                 }
         }
         
@@ -292,14 +358,7 @@ namespace Logic
                     EPostCounterAttack -= client as HeroesEvent;
                 }
         }
-        
-        
-        
-        
-        
-        
-        
-        
+
         /// <summary>
         /// Single Hero Events
         /// </summary>
@@ -396,11 +455,20 @@ namespace Logic
         private void UnsubscribeAllClients()
         {
             UnsubscribePreAttackClients();
+            UnsubscribePreSkillAttackClients();
+            
             UnsubscribePostAttackClients();
+            UnsubscribePostSkillAttackClients();
+                
             UnsubscribePreCriticalStrikeClients();
             UnsubscribePostCriticalStrikeClients();
+            
             UnsubscribeBeforeAttackingClients();
+            UnsubscribeBeforeSkillAttackingClients();
+            
             UnsubscribeAfterAttackingClients();
+            UnsubscribeAfterSkillAttackingClients();
+                
             UnsubscribeBeforeCriticalStrikeClients();
             UnsubscribeAfterCriticalStrikeClients();
             UnsubscribeDragBasicAttackClients();

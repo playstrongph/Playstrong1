@@ -39,7 +39,7 @@ namespace ScriptableObjects.Actions
             var criticalFactor = 0;
 
             
-            logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
+            logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
             
             logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
             
@@ -50,7 +50,7 @@ namespace ScriptableObjects.Actions
         }
 
 
-        private IEnumerator AttackHeroLogic(IHero thisHero, IHero targetHero)
+        private IEnumerator AttackHeroAnimation(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
