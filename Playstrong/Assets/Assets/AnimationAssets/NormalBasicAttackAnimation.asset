@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 561a572679b444a4e9fd57ff850be199, type: 3}
-  m_Name: BasicAttackAnimation
+  m_Name: NormalBasicAttackAnimation
   m_EditorClassIdentifier: 
   doMoveDuration: 0.7
   doPunchDuration: 1
-  doPunchDivisor: 5
+  doPunchDivisor: 20
   doMoveLoops: 2
   tweenVibrato: 5
   tweenElasticity: 0.5

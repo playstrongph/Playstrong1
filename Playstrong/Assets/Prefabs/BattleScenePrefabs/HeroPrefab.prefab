@@ -3542,7 +3542,7 @@ MonoBehaviour:
   _counterAttackResistance: 0
   attackTargetResistance: 0
   _healChance: 100
-  _criticalStrikeChance: 50
+  _criticalStrikeChance: 0
   _debuffChance: 100
   _buffChance: 100
   _skillChanceBonus: 0
