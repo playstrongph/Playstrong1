@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Interfaces;
 using ScriptableObjects.Actions.BaseClassScripts;
+using ScriptableObjects.AnimationSOscripts;
 using UnityEngine;
 
 namespace ScriptableObjects.Actions
@@ -11,17 +12,16 @@ namespace ScriptableObjects.Actions
     
     public class CriticalAttackActionAsset : SkillActionAsset
     {
+        [Header("Game Animation Asset")]
+        [SerializeField] private ScriptableObject attackAnimation;
+        private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;
+        
         private float _preAttackValue;
         private int _finalAttackValue;
         private float _criticalMultiplier;
-        
-        [SerializeField] private float doMoveDuration = 0.7f;
-        [SerializeField] private float doPunchDuration = 1f;
-        [SerializeField] private float doPunchDivisor = 5f;
-        [SerializeField] private int doMoveLoops = 2;
-        [SerializeField] private int tweebVibrato = 5;
-        [SerializeField] private float tweenElasticity = 0.5f;
-        [SerializeField] private bool tweenSnapping = false;
+
+        private float _intervalDelay = 1f;
+       
        
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
@@ -81,46 +81,22 @@ namespace ScriptableObjects.Actions
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
             
-            visualTree.AddCurrent(AttackHeroVisual(thisHero,targetHero));
+            //visualTree.AddCurrent(AttackHeroVisual(thisHero,targetHero));
+            
+            visualTree.AddCurrent(AttackAnimation.StartAnimation(thisHero,targetHero));
             
             logicTree.EndSequence();
             yield return null;
         }
 
-        /// <summary>
-        /// Critical Attack Animation
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerator AttackHeroVisual(IHero thisHero, IHero targetHero)
-        {
-            Debug.Log("CriticalAttackHeroVisual Start: " +thisHero.HeroName);
-            
-            var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
-            var s = DOTween.Sequence();
-            var targetPosition = targetHero.HeroTransform.position;
-            var attackerPosition = thisHero.HeroTransform.position;
 
-            
-            s.AppendCallback(() => thisHero.HeroTransform.DOMove(targetHero.HeroTransform.position, doMoveDuration).SetLoops(doMoveLoops, LoopType.Yoyo).SetEase(Ease.InBack))
-                .OnStepComplete(() =>
-                    targetHero.HeroTransform.DOPunchPosition((targetPosition - attackerPosition)/doPunchDivisor,doPunchDuration, tweebVibrato, tweenElasticity, tweenSnapping)
-                );
-            s.AppendInterval(doMoveDuration)     
-                .OnComplete(() =>                  
-                {
-                    Debug.Log("CriticalAttackHeroVisual End: " +thisHero.HeroName);
-                    visualTree.EndSequence();
-                });
-            yield return null;
-        }
-        
         private IEnumerator AttackInterval(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
             
             //Inserts delay in seconds before calling visualTree.EndSequence()
-            visualTree.AddCurrentWait(doPunchDuration, visualTree);
+            visualTree.AddCurrentWait(_intervalDelay, visualTree);
             
             logicTree.EndSequence();
             yield return null;

@@ -10,12 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f9bd08e90bcf3544aeccfc479b9494c, type: 3}
-  m_Name: CriticalAttack
+  m_Name: CriticalBasicAttack
   m_EditorClassIdentifier: 
-  doMoveDuration: 0.7
-  doPunchDuration: 1
-  doPunchDivisor: 4
-  doMoveLoops: 2
-  tweebVibrato: 6
-  tweenElasticity: 0.6
-  tweenSnapping: 0
+  attackAnimation: {fileID: 11400000, guid: af930f5d579209340a8e61b9d4ed25d8, type: 2}
