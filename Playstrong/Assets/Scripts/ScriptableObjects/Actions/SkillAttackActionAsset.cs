@@ -25,8 +25,9 @@ namespace ScriptableObjects.Actions
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             //Pre-AttackEvents
-            logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
             logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
+            logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
+           
             
             //StartAttackActions
             logicTree.AddCurrent(SetNormalOrCriticalAttack(thisHero,targetHero));

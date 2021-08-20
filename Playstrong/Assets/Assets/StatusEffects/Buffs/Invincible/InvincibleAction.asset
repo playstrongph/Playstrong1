@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a0823ecd2545b409336ed766f761cd, type: 3}
   m_Name: InvincibleAction
   m_EditorClassIdentifier: 
-  damageReductionValue: 0
+  damageReductionValue: 100
