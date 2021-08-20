@@ -46,9 +46,6 @@ namespace ScriptableObjects.Actions
             
             //SetHeroAliveStatus
             logicTree.AddCurrent(SetHeroAliveStatus(hero));
-            
-            //DestroyAllStatusEffects
-            logicTree.AddCurrent(DestroyAllStatusEffects(hero));
 
             //RegisterSkills
             logicTree.AddCurrent(RegisterSkills(hero));
@@ -60,11 +57,14 @@ namespace ScriptableObjects.Actions
             //Reset Hero Attributes
             logicTree.AddCurrent(ResetHeroAttributes(hero));
 
+            //Hero Resurrect Animation
+            logicTree.AddCurrent(ResurrectHeroAnimation(hero));
+            
             //Show Hero Visuals
             logicTree.AddCurrent(ShowHeroVisuals(hero));
             
-            //Hero Resurrect Animation
-            logicTree.AddCurrent(ResurrectHeroAnimation(hero));
+            //DestroyAllStatusEffects
+            logicTree.AddCurrent(DestroyAllStatusEffects(hero));
             
             Debug.Log("ResurrectAction");
 
@@ -187,15 +187,22 @@ namespace ScriptableObjects.Actions
             hero.TargetHero.TargetVisual.TargetCanvas.enabled = true;
             hero.TargetHero.HeroBoxCollider.enabled = true;
             
+            //TODO - fix in ResurrectHeroAnimation
+            hero.HeroVisual.HeroCanvas.enabled = true;
+            
             visualTree.EndSequence();
             yield return null;
         }
         
+        
+        
         private IEnumerator ResurrectHeroAnimation(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+
+            visualTree.AddCurrentWait(5f,visualTree);
             visualTree.AddCurrent(ResurrectAnimation.StartAnimation(hero));
-            
+
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;

@@ -5,6 +5,7 @@ using Interfaces;
 using References;
 using ScriptableObjects.AnimationSOscripts;
 using ScriptableObjects.HeroLivingStatus;
+using ScriptableObjects.StatusEffects;
 using UnityEngine;
 using Utilities;
 using Visual.Animation;
@@ -27,6 +28,11 @@ namespace Logic
         [RequireInterface(typeof(IGameAnimations))]
         private Object _dieAnimation;
         private IGameAnimations DieAnimation => _dieAnimation as IGameAnimations;
+
+
+        [SerializeField] private ScriptableObject _resurrectStatusEffect;
+        private IStatusEffectAsset ResurrectStatusEffect => _resurrectStatusEffect as IStatusEffectAsset;
+        
 
         private void Awake()
         {
@@ -151,7 +157,8 @@ namespace Logic
 
             foreach (var buff in buffs)
             {
-                buff.RemoveStatusEffect.RemoveEffect(hero);
+                if(buff.StatusEffectAsset != ResurrectStatusEffect)
+                    buff.RemoveStatusEffect.RemoveEffect(hero);
             }
             
             foreach (var debuff in debuffs)

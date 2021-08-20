@@ -39,6 +39,7 @@ namespace Logic
             var thisHero = _thisHeroLogic.Hero;
             
             _logicTree.AddCurrent(HeroTakesDamage(normalDamage,criticalDamage));
+            
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
 
             _logicTree.EndSequence();

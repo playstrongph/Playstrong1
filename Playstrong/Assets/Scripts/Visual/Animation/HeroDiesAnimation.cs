@@ -37,7 +37,7 @@ namespace Visual.Animation
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             
             DieAnimation(hero);
-            
+
             visualTree.EndSequence();
             yield return null;
         }
@@ -48,9 +48,7 @@ namespace Visual.Animation
             float doShakeAnimDuration = _shortAnimationDuration;
 
             var s = DOTween.Sequence();
-       
-            
-            
+
             s.Append( hero.HeroTransform.DOShakeRotation(doShakeAnimDuration, _doShakeStrength, _doShakeVibrato, _doShakeRandomness, _doShakeSnapping) );
 
             s.AppendCallback(() =>
