@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7514b01b7f52146bdad0caf888bf88, type: 3}
-  m_Name: SampleActiveChanceCondition
+  m_Script: {fileID: 11500000, guid: 7b76dbbaf46c9e04bae2bc35b90a4526, type: 3}
+  m_Name: SkillAttack
   m_EditorClassIdentifier: 
-  _skillActionAssets:
-  - {fileID: 11400000, guid: 47534b43873e6b14489e8b59333371c2, type: 2}
-  _skillChance: 100
+  _normalSkillAttack: {fileID: 11400000, guid: 03d2b9e59d32aaf46b0506529c771bb0, type: 2}
+  _critricalSkillAttack: {fileID: 11400000, guid: f521844253c68394c91d108ee031a76a,
+    type: 2}

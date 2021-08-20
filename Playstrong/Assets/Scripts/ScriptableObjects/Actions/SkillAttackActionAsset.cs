@@ -15,6 +15,7 @@ namespace ScriptableObjects.Actions
         [Header("Attack Actions")] [SerializeField]
         private ScriptableObject _normalSkillAttack;
         private IHeroAction NormalSkillAttack => _normalSkillAttack as IHeroAction;
+        [SerializeField]
         private ScriptableObject _critricalSkillAttack;
         private IHeroAction CriticalSkillAttack => _critricalSkillAttack as IHeroAction;
 
