@@ -11,8 +11,6 @@ namespace ScriptableObjects.StatusEffects.Instance
     [CreateAssetMenu(fileName = "FixedInstance", menuName = "SO's/Status Effects/Instance/Fixed Instance")]
     public class FixedInstance : StatusEffectInstance
     {
-        
-
         private int _fixedValue = 1;
         
         /// <summary>
@@ -27,8 +25,16 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             if (ExistingStatusEffect != null)
                 UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, hero);
-            else
-                CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+            else  
+            {
+                NewStatusEffect = CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+                
+                //Logic for "other" status effects - armor, increase energy, etc.
+                if(NewStatusEffect.Counters <= 0)
+                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(hero);
+            }
+
+            
         }
         
         

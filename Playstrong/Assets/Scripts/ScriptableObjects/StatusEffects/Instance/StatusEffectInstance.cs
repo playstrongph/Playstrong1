@@ -9,18 +9,22 @@ namespace ScriptableObjects.StatusEffects.Instance
     {
         
         protected IHeroStatusEffect ExistingStatusEffect;
+        protected IHeroStatusEffect NewStatusEffect;
+        
         public virtual void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
  
         }
     
-        protected void CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        protected IHeroStatusEffect CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
         {
             var statusEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
             
             var statusEffectObject = Instantiate(statusEffectPrefab, statusEffectPanel);
             statusEffectObject.transform.SetParent(statusEffectPanel);
+            
+            //Return this
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
@@ -47,10 +51,9 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             //TEMP. TODO: Transfer this to LoadValues
             heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
-            
-          
 
-          
+            return heroStatusEffect;
+            
         }
 
         

@@ -19,11 +19,14 @@ namespace ScriptableObjects.StatusEffects.Instance
             if (ExistingStatusEffect != null)
                 UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, hero);
             else
-                CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+            {
+                NewStatusEffect = CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+                
+                //Logic for "other" status effects - armor, increase energy, etc.
+                if(NewStatusEffect.Counters <= 0)
+                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(hero);
+            }
         }
-        
-        
-       
-        
+
     }
 }
