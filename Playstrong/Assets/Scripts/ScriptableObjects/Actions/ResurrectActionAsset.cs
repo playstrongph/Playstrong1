@@ -57,12 +57,12 @@ namespace ScriptableObjects.Actions
             //Reset Hero Attributes
             logicTree.AddCurrent(ResetHeroAttributes(hero));
 
-            //Hero Resurrect Animation
-            logicTree.AddCurrent(ResurrectHeroAnimation(hero));
-            
             //Show Hero Visuals
             logicTree.AddCurrent(ShowHeroVisuals(hero));
             
+            //Hero Resurrect Animation
+            logicTree.AddCurrent(ResurrectHeroAnimation(hero));
+
             //DestroyAllStatusEffects
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
             
@@ -186,6 +186,7 @@ namespace ScriptableObjects.Actions
             
             hero.TargetHero.TargetVisual.TargetCanvas.enabled = true;
             hero.TargetHero.HeroBoxCollider.enabled = true;
+            hero.HeroVisual.HeroCanvas.enabled = true;
             
             
             visualTree.EndSequence();
@@ -198,12 +199,14 @@ namespace ScriptableObjects.Actions
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
 
-            visualTree.AddCurrentWait(2.5f,visualTree);
+            //Delay for hero dies animation to resolve
+            //visualTree.AddCurrentWait(2.5f,visualTree);
+            
             visualTree.AddCurrent(ResurrectAnimation.StartAnimation(hero));
             
             //TEMP
-            visualTree.AddCurrentWait(2.5f,visualTree);
-            visualTree.AddCurrent(ShowHeroCanvas(hero));
+            //visualTree.AddCurrentWait(2.5f,visualTree);
+            //visualTree.AddCurrent(ShowHeroCanvas(hero));
 
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();

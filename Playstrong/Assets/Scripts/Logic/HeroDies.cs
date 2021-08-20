@@ -123,7 +123,7 @@ namespace Logic
 
 
 
-        //TODO - Work In Progress.  Change all to enumerators
+        
         private void DeathActions(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -135,9 +135,7 @@ namespace Logic
             
             //Visual
             logicTree.AddCurrent(HeroDiesAnimation(hero));
-            
             logicTree.AddCurrent(HideHeroVisuals(hero));
-            
             logicTree.AddCurrent(ResetHeroAttributes(hero));
         }
 
@@ -191,6 +189,7 @@ namespace Logic
         private IEnumerator HideHeroVisuals(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            
             visualTree.AddCurrent(HideVisuals(hero));
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -279,6 +278,7 @@ namespace Logic
         {
             hero.TargetHero.TargetVisual.TargetCanvas.enabled = false;
             hero.TargetHero.HeroBoxCollider.enabled = false;
+            hero.HeroVisual.HeroCanvas.enabled = false;
             
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             visualTree.EndSequence();

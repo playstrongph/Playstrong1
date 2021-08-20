@@ -15,7 +15,7 @@ namespace Visual.Animation
     {
         //Can be placed in a baseclass
         [SerializeField]
-        private float _longAnimationDuration = 2f;
+        private float _longAnimationDuration = 1f;
         [SerializeField]
         private float _shortAnimationDuration = 0.5f;
 
@@ -37,16 +37,14 @@ namespace Visual.Animation
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             
             DieAnimation(hero);
-
-            visualTree.EndSequence();
+            
             yield return null;
         }
 
         private void DieAnimation(IHero hero)
         {
-            float skullAnimDuration = _longAnimationDuration;
             float doShakeAnimDuration = _shortAnimationDuration;
-
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             var s = DOTween.Sequence();
 
             s.Append( hero.HeroTransform.DOShakeRotation(doShakeAnimDuration, _doShakeStrength, _doShakeVibrato, _doShakeRandomness, _doShakeSnapping) );
@@ -56,14 +54,13 @@ namespace Visual.Animation
                 _dieAnimEffect = Instantiate(AnimationEffects[0], hero.HeroTransform);
             });
             
-            s.AppendInterval(skullAnimDuration);
+            s.AppendInterval(_longAnimationDuration)
 
-            s.AppendCallback(() =>
+            .OnComplete(() =>
             {
                 Destroy(_dieAnimEffect);
-                hero.HeroVisual.HeroCanvas.enabled = false;
+                visualTree.EndSequence();
             });
-
         }
 
     }
