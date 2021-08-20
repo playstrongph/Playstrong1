@@ -104,7 +104,7 @@ namespace Logic
         }
 
         /// <summary>
-        /// This is where Revive is called
+        /// This is where Resurrect is called
         /// </summary>
         private IEnumerator PostHeroDeath(IHero hero)
         {

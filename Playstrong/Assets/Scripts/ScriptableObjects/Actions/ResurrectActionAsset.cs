@@ -27,8 +27,9 @@ namespace ScriptableObjects.Actions
         private IGameAnimations ResurrectAnimation => _resurrectAnimation as IGameAnimations;
         private IHeroLivingStatusAsset HeroAliveStatus => _heroAliveStatus as IHeroLivingStatusAsset;
         
-        public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
+        public override IEnumerator ActionTarget(IHero thisHero, float dummyValue)
         {
+            Debug.Log("Resurrect Action Target");
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(ResurrectActions(thisHero));
@@ -40,6 +41,7 @@ namespace ScriptableObjects.Actions
 
         private IEnumerator ResurrectActions(IHero hero)
         {
+            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //SetHeroAliveStatus
@@ -63,6 +65,8 @@ namespace ScriptableObjects.Actions
             
             //Hero Resurrect Animation
             logicTree.AddCurrent(ResurrectHeroAnimation(hero));
+            
+            Debug.Log("ResurrectAction");
 
             logicTree.EndSequence();
             yield return null;
