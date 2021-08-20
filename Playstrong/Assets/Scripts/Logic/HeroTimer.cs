@@ -59,6 +59,8 @@ namespace Logic
             
             TimerValue += heroSpeed * Time.deltaTime * speedConstant;
             TimerValuePercentage = Mathf.FloorToInt(TimerValue * 100 / timerFull);
+            
+            
             HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
             heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
                 
@@ -66,7 +68,24 @@ namespace Logic
             {
                 turnController.FreezeTimers = true;
                 activeHeroes.Add(this as Object);
+                //TODO - sort heroes here
+                turnController.SortHeroesByEnergy.SortByEnergy();
             }
+        }
+
+        public void IncreaseHeroTimerValue(ITurnController turnController, int energyValue)
+        {
+            var timerFull = turnController.TimerFull;
+            var heroEnergyVisual = HeroLogic.Hero.HeroVisual.EnergyVisual;
+            
+            var plusTimerValue = energyValue * timerFull / 100f;
+
+            TimerValue += plusTimerValue;
+            TimerValuePercentage = Mathf.FloorToInt(TimerValue * 100 / timerFull);
+            
+            HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
+            heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
+
         }
 
 

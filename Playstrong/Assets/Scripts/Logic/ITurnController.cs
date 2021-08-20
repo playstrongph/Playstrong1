@@ -23,5 +23,7 @@ namespace Logic
         IInitializeSkillEffects InitializeSkillEffects { get; }
 
         ISetHeroStatus SetHeroStatus { get; }
+
+        ISortHeroesByEnergy SortHeroesByEnergy { get; }
     }
 }

@@ -54,6 +54,8 @@ namespace Logic
         private float _endTurnDelaySeconds = 0.5f;
 
         private ISortHeroesByEnergy _sortHeroesByEnergy;
+        public ISortHeroesByEnergy SortHeroesByEnergy => _sortHeroesByEnergy;
+        
         private IUpdateHeroTimers _updateHeroTimers;
         private IStartOfGameEvent _startOfGameEvent;
         
