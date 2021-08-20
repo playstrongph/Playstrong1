@@ -187,8 +187,6 @@ namespace ScriptableObjects.Actions
             hero.TargetHero.TargetVisual.TargetCanvas.enabled = true;
             hero.TargetHero.HeroBoxCollider.enabled = true;
             
-            //TODO - fix in ResurrectHeroAnimation
-            hero.HeroVisual.HeroCanvas.enabled = true;
             
             visualTree.EndSequence();
             yield return null;
@@ -200,11 +198,27 @@ namespace ScriptableObjects.Actions
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
 
-            visualTree.AddCurrentWait(5f,visualTree);
+            visualTree.AddCurrentWait(2.5f,visualTree);
             visualTree.AddCurrent(ResurrectAnimation.StartAnimation(hero));
+            
+            //TEMP
+            visualTree.AddCurrentWait(2.5f,visualTree);
+            visualTree.AddCurrent(ShowHeroCanvas(hero));
 
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
+            yield return null;
+        }
+        
+        //TEMP
+        private IEnumerator ShowHeroCanvas(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            
+            //TODO - fix in ResurrectHeroAnimation
+            hero.HeroVisual.HeroCanvas.enabled = true;
+
+            visualTree.EndSequence();
             yield return null;
         }
         
