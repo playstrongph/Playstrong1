@@ -9,11 +9,8 @@ namespace ScriptableObjects.AnimationSOscripts
         public virtual IEnumerator StartAnimation(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            
-            
-            
-          
-            
+
+
             visualTree.EndSequence();
             yield return null;
         }

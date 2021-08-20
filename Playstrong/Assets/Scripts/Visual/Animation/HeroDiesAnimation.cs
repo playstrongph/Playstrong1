@@ -25,9 +25,13 @@ namespace Visual.Animation
         
         
         //Local variables
+        [SerializeField]
         private float _doShakeStrength = 10f;
+        [SerializeField]
         private int _doShakeVibrato = 10;
+        [SerializeField]
         private float _doShakeRandomness = 5f;
+        [SerializeField]
         private bool _doShakeSnapping = false;
 
         private GameObject _dieAnimEffect;

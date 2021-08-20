@@ -20,16 +20,14 @@ namespace ScriptableObjects.AnimationSOscripts
         public override IEnumerator StartAnimation(IHero thisHero, IHero targetHero)
         {
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
-            visualTree.AddCurrent(AttackHeroVisual(thisHero,targetHero));
             
-            visualTree.EndSequence();
+            AttackHeroVisual(thisHero,targetHero);
+            
             yield return null;
         }
 
-        private IEnumerator AttackHeroVisual(IHero thisHero, IHero targetHero)
+        private void AttackHeroVisual(IHero thisHero, IHero targetHero)
         {
-            Debug.Log("AttackHeroVisual Start: " +thisHero.HeroName);
-            
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
             var s = DOTween.Sequence();
             var targetPosition = targetHero.HeroTransform.position;
@@ -43,10 +41,10 @@ namespace ScriptableObjects.AnimationSOscripts
             s.AppendInterval(doMoveDuration)     
                 .OnComplete(() =>                  
                 {
-                    Debug.Log("AttackHeroVisual End: " +thisHero.HeroName);
                     visualTree.EndSequence();
                 });
-            yield return null;
+            
+            
         }
         
         
