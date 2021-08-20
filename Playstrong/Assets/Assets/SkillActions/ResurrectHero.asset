@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054fdb327b266164b89446891401f3e6, type: 3}
-  m_Name: SampleActiveAddBuffAction
+  m_Script: {fileID: 11500000, guid: 202ecd781c1903742a493bfdff7c3f48, type: 3}
+  m_Name: ResurrectHero
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: ffbf5106e6537084eb0347f10750fec1, type: 2}
-  _buffCounters: 1
+  _heroAliveStatus: {fileID: 11400000, guid: 5cf842079a206ea40af49f4b837ec77a, type: 2}
+  _resurrectAnimation: {fileID: 11400000, guid: 9671ac9a0d7a27149be4a5a644837db2,
+    type: 2}

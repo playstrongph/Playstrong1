@@ -24,7 +24,7 @@ namespace Logic
         private IHeroLogic _heroLogic;
         
         [SerializeField]
-        [RequireInterface(typeof(IAnimations))]
+        [RequireInterface(typeof(IGameAnimations))]
         private Object _dieAnimation;
         private IGameAnimations DieAnimation => _dieAnimation as IGameAnimations;
 
@@ -129,7 +129,9 @@ namespace Logic
             
             //Visual
             logicTree.AddCurrent(HeroDiesAnimation(hero));
+            
             logicTree.AddCurrent(HideHeroVisuals(hero));
+            
             logicTree.AddCurrent(ResetHeroAttributes(hero));
         }
 
@@ -203,6 +205,8 @@ namespace Logic
             heroLogic.SetHeroSpeed.SetSpeed(heroAttributes.BaseSpeed);
             heroLogic.HeroTimer.ResetHeroTimer();
             
+            //TODO: Also reset Other Attributes
+            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;
@@ -228,7 +232,6 @@ namespace Logic
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;
-            
         }
 
         private void UpdateLivingAndDeadHeroLists(IHero hero)
