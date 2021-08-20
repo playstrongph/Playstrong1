@@ -185,11 +185,8 @@ namespace Logic
             var randomNumber = Random.Range(0f, 100f);
 
             criticalChance = Mathf.Clamp(criticalChance, 0f, 100f);
-            
-            if (randomNumber <= criticalChance)
-                _logicTree.AddCurrent(criticalAttack);
-            else
-                _logicTree.AddCurrent(normalAttack);
+
+            _logicTree.AddCurrent(randomNumber <= criticalChance ? criticalAttack : normalAttack);
 
             logicTree.EndSequence();
             yield return null;

@@ -8,15 +8,15 @@ using Utilities;
 
 namespace ScriptableObjects.Actions
 {
-    [CreateAssetMenu(fileName = "AddBuffSkillActionAsset", menuName = "SO's/SkillActions/AddBuffSkillActionAsset")]
+    [CreateAssetMenu(fileName = "SkillAttackActionAsset", menuName = "SO's/SkillActions/SkillAttackActionAsset")]
     
     public class SkillAttackActionAsset : SkillActionAsset
     {
         [Header("Attack Actions")] [SerializeField]
         private ScriptableObject _normalSkillAttack;
-        public IHeroAction NormalSkillAttack => _normalSkillAttack as IHeroAction;
+        private IHeroAction NormalSkillAttack => _normalSkillAttack as IHeroAction;
         private ScriptableObject _critricalSkillAttack;
-        public IHeroAction CriticalSkillAttack => _critricalSkillAttack as IHeroAction;
+        private IHeroAction CriticalSkillAttack => _critricalSkillAttack as IHeroAction;
 
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
@@ -28,6 +28,7 @@ namespace ScriptableObjects.Actions
             logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
             
             //StartAttackActions
+            logicTree.AddCurrent(SetNormalOrCriticalAttack(thisHero,targetHero));
             
             
             //Post-AttackEvents
@@ -45,18 +46,13 @@ namespace ScriptableObjects.Actions
             var criticalResistance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
             var netChance = criticalChance - criticalResistance;
             var randomChance = Random.Range(0f, 100f);
-
-            var normalAttack = NormalSkillAttack;
-            var criticalAttack = CriticalSkillAttack;
-
+            
             netChance = Mathf.Clamp(netChance, 0f, 100f);
 
-            /*if (randomChance <= netChance)
-                return criticalAttack;
-            else
-            {
-                return normalAttack;
-            }*/
+            logicTree.AddCurrent(randomChance <= netChance
+                ? CriticalSkillAttack.StartAction(thisHero, targetHero)
+                : NormalSkillAttack.StartAction(thisHero, targetHero));
+
             logicTree.EndSequence();
             yield return null;
         }
