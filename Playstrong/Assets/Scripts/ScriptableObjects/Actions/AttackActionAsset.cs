@@ -17,7 +17,7 @@ namespace ScriptableObjects.Actions
         private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;
 
         private int _finalAttackValue;
-        private float _intervalDelay = 1f;
+        private float _intervalDelay = 0.7f;
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {

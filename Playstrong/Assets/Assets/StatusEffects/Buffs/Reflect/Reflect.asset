@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4bfdc757186e0f46be65df1f8ce5849, type: 3}
   m_Name: Reflect
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Reflect
   _description: Deal 30% of attack damage taken back to the attacker
   _icon: {fileID: 21300000, guid: a49559afa82c25c479b3708bbd398d80, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}

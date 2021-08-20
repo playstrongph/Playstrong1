@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a0f59edd8247f4d965b6164bf65e87, type: 3}
   m_Name: CounterAttack
   m_EditorClassIdentifier: 
-  _name: 
+  _name: CounterAttack
   _description: Counter attacks when attacked.
   _icon: {fileID: 21300000, guid: 6994d71491891f84b878c3c95b551ce8, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}

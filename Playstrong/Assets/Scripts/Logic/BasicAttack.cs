@@ -168,7 +168,7 @@ namespace Logic
         private IEnumerator StartAttackActions(IHero thisHero, IHero targetHero)
         {
             _logicTree.AddCurrent(SetAttack(thisHero,targetHero));
-
+            
             _logicTree.EndSequence();
             yield return null;
         }
@@ -176,6 +176,7 @@ namespace Logic
         //Determines Critical or Normal Attack
         private IEnumerator SetAttack(IHero thisHero, IHero targetHero)
         {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var thisHeroCriticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
             var targetHeroCriticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
             var normalAttack = AttackActions[0].StartAction(thisHero, targetHero);
@@ -183,12 +184,16 @@ namespace Logic
             var criticalChance = thisHeroCriticalChance - targetHeroCriticalResistance;
             var randomNumber = Random.Range(0f, 100f);
 
-            criticalChance = Mathf.Clamp(criticalChance, 0, 100);
-
+            criticalChance = Mathf.Clamp(criticalChance, 0f, 100f);
+            
             if (randomNumber <= criticalChance)
-                return criticalAttack;
+                _logicTree.AddCurrent(criticalAttack);
             else
-                return normalAttack;
+                _logicTree.AddCurrent(normalAttack);
+
+            logicTree.EndSequence();
+            yield return null;
+
         }
 
 
