@@ -68,7 +68,7 @@ namespace Logic
             {
                 turnController.FreezeTimers = true;
                 activeHeroes.Add(this as Object);
-                //TODO - sort heroes here
+              
                 turnController.SortHeroesByEnergy.SortByEnergy();
             }
         }
@@ -77,6 +77,7 @@ namespace Logic
         {
             var timerFull = turnController.TimerFull;
             var heroEnergyVisual = HeroLogic.Hero.HeroVisual.EnergyVisual;
+            var activeHeroes = turnController.ActiveHeroes;
             
             var plusTimerValue = energyValue * timerFull / 100f;
 
@@ -85,7 +86,43 @@ namespace Logic
             
             HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
             heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
+            
+            if (TimerValue >= timerFull)
+            {
+                turnController.FreezeTimers = true;
+                
+                //TEMP till there is a better implem
+                if(!activeHeroes.Contains(this as Object)) 
+                    activeHeroes.Add(this as Object);
 
+                turnController.SortHeroesByEnergy.SortByEnergy();
+            }
+        }
+        
+        public void DecreaseHeroTimerValue(ITurnController turnController, int energyValue)
+        {
+            var timerFull = turnController.TimerFull;
+            var heroEnergyVisual = HeroLogic.Hero.HeroVisual.EnergyVisual;
+            var activeHeroes = turnController.ActiveHeroes;
+            
+            var minusTimerValue = energyValue * timerFull / 100f;
+
+            TimerValue -= minusTimerValue;
+            TimerValue = Mathf.Max(0f, TimerValue);  //clamps minimum of Timervalue to zero. 
+            
+            TimerValuePercentage = Mathf.FloorToInt(TimerValue * 100 / timerFull);
+
+            HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
+            heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
+            
+            if (TimerValue < timerFull)
+            {
+                //TEMP till there is a better implem
+                if(activeHeroes.Contains(this as Object)) 
+                    activeHeroes.Remove(this as Object);
+                
+                turnController.SortHeroesByEnergy.SortByEnergy();
+            }
         }
 
 
