@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.BuffEffects
 {
-    [CreateAssetMenu(fileName = "DecreaseSkillCd", menuName = "SO's/Status Effects/Buffs/DecreaseSkillCd")]
-    public class DecreaseSkillCdAsset : StatusEffectAsset
+    [CreateAssetMenu(fileName = "DecreaseAllSkillCd", menuName = "SO's/Status Effects/Buffs/DecreaseAllSkillCd")]
+    public class DecreaseAllSkillCdAsset : StatusEffectAsset
     {
         [SerializeField]
         private float decreaseValue = 1f;
