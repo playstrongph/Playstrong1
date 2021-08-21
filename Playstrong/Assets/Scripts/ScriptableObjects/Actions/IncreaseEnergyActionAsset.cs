@@ -15,7 +15,7 @@ namespace ScriptableObjects.Actions
     {
         [SerializeField] private int energyIncrease;
         
-        public override IEnumerator StartAction(IHero targetHero, float value)
+        public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
             energyIncrease = (int)value;
             

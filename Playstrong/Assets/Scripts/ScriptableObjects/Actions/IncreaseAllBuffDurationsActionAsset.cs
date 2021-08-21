@@ -17,7 +17,7 @@ namespace ScriptableObjects.Actions
     {
         [SerializeField] private int buffDurationIncrease;
         
-        public override IEnumerator StartAction(IHero targetHero, float value)
+        public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
             buffDurationIncrease = (int)value;
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;

@@ -16,7 +16,7 @@ namespace ScriptableObjects.Actions
         [SerializeField] private int criticalResistanceIncrease;
 
        
-        public override IEnumerator StartAction(IHero targetHero, float value)
+        public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
             criticalResistanceIncrease = (int)value;
             

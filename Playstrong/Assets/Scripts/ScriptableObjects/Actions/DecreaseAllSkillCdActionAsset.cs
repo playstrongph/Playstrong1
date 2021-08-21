@@ -17,7 +17,7 @@ namespace ScriptableObjects.Actions
     {
         [SerializeField] private int skillCdDecrease;
         
-        public override IEnumerator StartAction(IHero targetHero, float value)
+        public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
             skillCdDecrease = (int)value;
             

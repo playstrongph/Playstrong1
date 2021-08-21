@@ -16,7 +16,7 @@ namespace ScriptableObjects.Actions
         [SerializeField] private int attackIncrease;
 
        
-        public override IEnumerator StartAction(IHero targetHero, float value)
+        public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
             attackIncrease = (int)value;
             
