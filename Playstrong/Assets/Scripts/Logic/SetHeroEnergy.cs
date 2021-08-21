@@ -11,7 +11,7 @@ namespace Logic
     /// <summary>
     /// All hero attack value modifications should call this
     /// </summary>
-    public class SetHeroEnergy : MonoBehaviour
+    public class SetHeroEnergy : MonoBehaviour, ISetHeroEnergy
     {
         private IHeroLogic _heroLogic;
         private ICoroutineTree _logicTree;
@@ -29,31 +29,19 @@ namespace Logic
             _logicTree.AddCurrent(SetEnergyLogic(value));
         }
 
-        private IEnumerator SetEnergyLogic(int value)
+        private IEnumerator SetEnergyLogic(int energyValue)
         {
+            var turnController = _heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            var heroTimer = _heroLogic.HeroTimer;
             
-            
-            _heroLogic.HeroAttributes.Energy = value;
-            
-            
-            
-            
-            
-            //_visualTree.AddCurrent(SetEnergyVisual(value));
+            heroTimer.SetHeroTimerValue(turnController,energyValue);
             
             _logicTree.EndSequence();
             yield return null;
            
         }
 
-        private IEnumerator SetEnergyVisual(int value)
-        {
-            _heroLogic.Hero.HeroVisual.EnergyVisual.SetEnergyTextAndBarFill(value);
-            
-            _visualTree.EndSequence();
-            yield return null;
-            
-        }
+        
 
         private void InitializeLocalVariables()
         {

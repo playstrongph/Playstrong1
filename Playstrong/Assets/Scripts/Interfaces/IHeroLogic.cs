@@ -35,6 +35,8 @@ namespace Interfaces
 
         ISetHeroArmor SetHeroArmor { get; }
 
+        ISetHeroEnergy SetHeroEnergy { get; }
+
         IHeroEvents HeroEvents { get; }
 
         ISkillAttributes BasicAttackSkillAttributes { get; }

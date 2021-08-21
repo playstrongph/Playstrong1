@@ -95,6 +95,9 @@ namespace Logic
 
         private ISetHeroArmor _setHeroArmor;
         public ISetHeroArmor SetHeroArmor => _setHeroArmor;
+        
+        private ISetHeroEnergy _setHeroEnergy;
+        public ISetHeroEnergy SetHeroEnergy => _setHeroEnergy;
 
         private IHeroEvents _heroEvents;
 
@@ -116,6 +119,7 @@ namespace Logic
         private ICounterAttack _counterAttack;
         public ICounterAttack CounterAttack => _counterAttack;
         
+       
         
 
         private void Awake()
@@ -127,6 +131,7 @@ namespace Logic
             _setHeroSpeed = GetComponent<ISetHeroSpeed>();
             _setHeroHealth = GetComponent<ISetHeroHealth>();
             _setHeroArmor = GetComponent<ISetHeroArmor>();
+            _setHeroEnergy = GetComponent<ISetHeroEnergy>();
             _heroEvents = GetComponent<IHeroEvents>();
             _basicAttackSkillAttributes = GetComponent<ISkillAttributes>();
             _dealDamage = GetComponent<IDealDamage>();

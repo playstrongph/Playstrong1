@@ -21,10 +21,9 @@ namespace ScriptableObjects.Actions
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            var newEnergyValue = targetHero.HeroLogic.HeroAttributes.Armor + energyIncrease;
+            var newEnergyValue = targetHero.HeroLogic.HeroAttributes.Energy + energyIncrease;
+            targetHero.HeroLogic.SetHeroEnergy.SetEnergy(newEnergyValue);
             
-            //targetHero.HeroLogic.SetHeroArmor.SetArmor(newEnergyValue);
-
             logicTree.EndSequence();
             yield return null;
         }

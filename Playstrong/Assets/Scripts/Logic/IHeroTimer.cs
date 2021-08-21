@@ -16,5 +16,7 @@ namespace Logic
         void IncreaseHeroTimerValue(ITurnController turnController, int energyValue);
 
         void DecreaseHeroTimerValue(ITurnController turnController, int energyValue);
+
+        void SetHeroTimerValue(ITurnController turnController, int energyValue);
     }
 }
