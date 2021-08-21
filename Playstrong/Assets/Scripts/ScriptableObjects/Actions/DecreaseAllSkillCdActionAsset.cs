@@ -11,9 +11,9 @@ using Utilities;
 
 namespace ScriptableObjects.Actions
 {
-    [CreateAssetMenu(fileName = "DecreaseSkillCd", menuName = "SO's/SkillActions/DecreaseSkillCd")]
+    [CreateAssetMenu(fileName = "DecreaseAllSkillCd", menuName = "SO's/SkillActions/DecreaseAllSkillCd")]
     
-    public class DecreaseSkillCdActionAsset : SkillActionAsset
+    public class DecreaseAllSkillCdActionAsset : SkillActionAsset
     {
         [SerializeField] private int skillCdDecrease;
         

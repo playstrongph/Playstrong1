@@ -13,5 +13,9 @@ namespace Logic
         IEnumerator StartAction(IHero targetHero, float value);
 
         IEnumerator ActionTarget(IHero targetHero, float value);
+        
+        //TODO - Action User Reference
+        //SkillReference
+        //StatusEffectReference
     }
 }
