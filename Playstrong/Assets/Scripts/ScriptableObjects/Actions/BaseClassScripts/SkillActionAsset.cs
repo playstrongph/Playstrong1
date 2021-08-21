@@ -16,7 +16,7 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         
-        public virtual IEnumerator StartAction(IHero thisHero, IHero targetHero)
+        public IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
 
@@ -41,7 +41,7 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         /// <summary>
         /// StartAction for StatusEffects
         /// </summary>
-        public virtual IEnumerator StartAction(IHero targetHero, float value)
+        public IEnumerator StartAction(IHero targetHero, float value)
         {
             InitializeValues(targetHero, targetHero);
 
