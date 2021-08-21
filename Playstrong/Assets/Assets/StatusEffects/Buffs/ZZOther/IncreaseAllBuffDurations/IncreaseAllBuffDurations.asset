@@ -20,5 +20,5 @@ MonoBehaviour:
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 11400000, guid: 7a134eaf98511d249be10c2ba2e0c35c, type: 2}
-  _effectValue: 1
-  increaseValue: 1
+  _effectValue: 3
+  increaseValue: 3

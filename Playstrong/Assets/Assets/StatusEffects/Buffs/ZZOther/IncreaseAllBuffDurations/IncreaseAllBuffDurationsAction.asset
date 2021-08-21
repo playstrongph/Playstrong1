@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8eff0afeaaa7fd42aa36549224df949, type: 3}
   m_Name: IncreaseAllBuffDurationsAction
   m_EditorClassIdentifier: 
-  buffDurationIncrease: 0
+  buffDurationIncrease: 3

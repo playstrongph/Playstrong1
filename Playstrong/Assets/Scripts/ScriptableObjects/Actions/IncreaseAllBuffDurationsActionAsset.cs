@@ -25,7 +25,8 @@ namespace ScriptableObjects.Actions
 
             foreach (var buff in allBuffs)
             {
-                buff.Counters += buffDurationIncrease;
+                var newBuffCounters = buff.Counters + buffDurationIncrease;
+                buff.SetStatusEffectCounters.SetCounters(newBuffCounters,targetHero.CoroutineTreesAsset);
             }
 
             logicTree.EndSequence();
