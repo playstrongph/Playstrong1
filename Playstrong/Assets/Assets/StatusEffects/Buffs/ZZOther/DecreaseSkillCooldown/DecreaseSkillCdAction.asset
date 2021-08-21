@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054fdb327b266164b89446891401f3e6, type: 3}
-  m_Name: SampleActiveAddBuffAction
+  m_Script: {fileID: 11500000, guid: e761a79951dbf3348af0c422a07292a1, type: 3}
+  m_Name: DecreaseSkillCdAction
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: 572143413bdf3fa469086a76b5efcb0a, type: 2}
-  _buffCounters: -10
+  skillCdDecrease: 1

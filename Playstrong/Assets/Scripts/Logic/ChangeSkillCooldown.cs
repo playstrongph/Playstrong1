@@ -74,7 +74,9 @@ namespace Logic
         //Used by actions
         public void SetCooldownValue(int counter)
         {
-            _skillLogic.SkillAttributes.SkillType.SetSkillCdValue(_skillLogic, counter);
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillType.SetSkillCdValue(_skillLogic, counter));
         }
 
         //For Exclusive use by SkillType
@@ -91,11 +93,14 @@ namespace Logic
 
         private void SetCdValue(int counter)
         {
+           
             var skillAttributes = _skillLogic.SkillAttributes;
             var maxSkillCd = skillAttributes.BaseCooldown;
             var skillCd = counter;
             
             skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
+            
+           
 
             skillAttributes.Cooldown = skillCd;
             _skillLogic.SkillReadiness.SetStatus(skillCd);

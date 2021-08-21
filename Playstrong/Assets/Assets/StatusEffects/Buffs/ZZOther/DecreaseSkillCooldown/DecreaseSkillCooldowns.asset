@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b19726129e91d49bc4b3451ed0e2c8, type: 3}
-  m_Name: EnergyUp
+  m_Script: {fileID: 11500000, guid: 410b491be56c90746b90f2876a163ea0, type: 3}
+  m_Name: DecreaseSkillCooldowns
   m_EditorClassIdentifier: 
-  _name: EnergyUp
-  _description: Hero gains Energy
-  _icon: {fileID: 21300000, guid: a9e29bc98aa219144b39b0242bbf1146, type: 3}
+  _name: DecreaseSkillCooldown
+  _description: Decrease all skill cooldowns by X
+  _icon: {fileID: 21300000, guid: 5f674c9f2f2e71e439b99ddac31636e2, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
   updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 55ff947d5c4e2ea4fafd25f754306ccc, type: 2}
-  _effectValue: 100
-  energyIncrease: -100
+  _skillactionAsset: {fileID: 11400000, guid: fa30fe6ce3ddab143b2ef4fb15a879c3, type: 2}
+  _effectValue: 1
+  decreaseValue: 1
