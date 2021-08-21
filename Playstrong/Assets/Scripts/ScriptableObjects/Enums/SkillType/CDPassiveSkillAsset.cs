@@ -40,6 +40,16 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public override IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(skillLogic.ChangeSkillCooldown.SetSkillCdValue(counter));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
     }
 }

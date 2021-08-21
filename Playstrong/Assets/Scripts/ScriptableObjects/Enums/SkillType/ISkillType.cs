@@ -17,5 +17,7 @@ namespace ScriptableObjects.Enums.SkillType
         
         IEnumerator SetSkillReady(ISkillLogic skillLogic);
 
+        IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter);
+
     }
 }

@@ -37,6 +37,14 @@ namespace ScriptableObjects.Enums.SkillType
             yield return null;
         }
 
+        public virtual IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+
 
     }
 }

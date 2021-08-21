@@ -32,9 +32,10 @@ namespace Logic
         {
             var skillAttributes = _skillLogic.SkillAttributes;     
             var skillCd = skillAttributes.Cooldown;
+            var maxSkillCd = skillAttributes.BaseCooldown;
 
             skillCd -= counter;
-            if (skillCd < 0) skillCd = 0;
+            skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
 
             skillAttributes.Cooldown = skillCd;
             _skillLogic.SkillReadiness.SetStatus(skillCd);
@@ -58,9 +59,10 @@ namespace Logic
         {
             var skillAttributes = _skillLogic.SkillAttributes;     
             var skillCd = skillAttributes.Cooldown;
+            var maxSkillCd = skillAttributes.BaseCooldown;
 
             skillCd += counter;
-            //if (skillCd < 0) skillCd = 0;
+            skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
 
             skillAttributes.Cooldown = skillCd;
             _skillLogic.SkillReadiness.SetStatus(skillCd);
@@ -68,8 +70,15 @@ namespace Logic
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
         }
-        
-        public IEnumerator SetCooldownValue(int counter)
+
+        //Used by actions
+        public void SetCooldownValue(int counter)
+        {
+            _skillLogic.SkillAttributes.SkillType.SetSkillCdValue(_skillLogic, counter);
+        }
+
+        //For Exclusive use by SkillType
+        public IEnumerator SetSkillCdValue(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             
@@ -83,9 +92,10 @@ namespace Logic
         private void SetCdValue(int counter)
         {
             var skillAttributes = _skillLogic.SkillAttributes;
-            
+            var maxSkillCd = skillAttributes.BaseCooldown;
             var skillCd = counter;
-            if (skillCd < 0) skillCd = 0;
+            
+            skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
 
             skillAttributes.Cooldown = skillCd;
             _skillLogic.SkillReadiness.SetStatus(skillCd);

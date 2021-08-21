@@ -6,7 +6,14 @@ namespace Logic
     {
         IEnumerator ReduceCooldown(int counter);
         IEnumerator IncreaseCooldown(int counter);
-        IEnumerator SetCooldownValue(int counter);
+
+
+        void SetCooldownValue(int counter);
+        
+        //For Exclusive use by SkillType
+        IEnumerator SetSkillCdValue(int counter);
+        
+        
         IEnumerator ResetCooldown();
         IEnumerator RefreshCooldown();
     }

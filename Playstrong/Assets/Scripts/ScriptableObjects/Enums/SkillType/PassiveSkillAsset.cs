@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using Interfaces;
 using Logic;
 using References;
@@ -23,6 +24,14 @@ namespace ScriptableObjects.Enums.SkillType
         public override void ResetSkillCd(ISkill skill)
         {
             //Do nothing for Passive Skills
+        }
+        
+        public override IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
         }
     }
 }
