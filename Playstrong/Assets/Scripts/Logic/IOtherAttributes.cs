@@ -7,8 +7,10 @@
         /// </summary>
         float DamageReduction { get; set; }
         float CriticalDamageMultiplier { get; set; }
-        
-       /// <summary>
+
+        float OtherDamageMultiplier { get; set; }
+
+        /// <summary>
        /// Hero Resistances
        /// </summary>
         float HealResistance { get; set; }

@@ -28,6 +28,15 @@ namespace Logic
             set => _criticalDamageMultiplier = value;
         }
         
+        [SerializeField]
+        private float _otherDamageMultiplier = 0f;
+
+        public float OtherDamageMultiplier
+        {
+            get => _otherDamageMultiplier;
+            set => _otherDamageMultiplier = value;
+        }
+        
         /// <summary>
         /// Hero Resistances
         /// </summary>

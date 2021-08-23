@@ -34,11 +34,11 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
         
-        public IEnumerator TakeAllDamage(int normalDamage, int criticalDamage)
+        public IEnumerator TakeAllDamage(int normalDamage, int totalEnhancedDamage)
         {
             var thisHero = _thisHeroLogic.Hero;
             
-            _logicTree.AddCurrent(HeroTakesDamage(normalDamage,criticalDamage));
+            _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
             
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
 
@@ -49,9 +49,9 @@ namespace Logic
         
         
         
-        private IEnumerator HeroTakesDamage(int normalDamage, int criticalDamage)
+        private IEnumerator HeroTakesDamage(int normalDamage, int totalEnhancedDamage)
         {
-             _finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
+             _finalDamage = ComputeFinalDamage(normalDamage, totalEnhancedDamage);
 
             ComputeNewArmor(_thisHeroLogic, _finalDamage);
             ComputeNewHealth(_thisHeroLogic, _residualDamage);
@@ -66,6 +66,7 @@ namespace Logic
         {
            
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+
             damageReduction = Mathf.Clamp(damageReduction, 0, 1);
 
             var floatFinalDamage = (1 - damageReduction) * (normalDamage + criticalDamage);

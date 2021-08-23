@@ -10,21 +10,21 @@ namespace Logic
     {
         private IHeroLogic _heroLogic;
 
-        [SerializeField] private int _normalDamage;
+        [SerializeField] private int normalAttackDamage;
 
-        private int NormalDamage
+        private int NormalAttackDamage
         {
-            get => _normalDamage;
-            set => _normalDamage = value;
+            get => normalAttackDamage;
+            set => normalAttackDamage = value;
         }
 
         [SerializeField]
-        private int _otherDamage;
+        private int otherAttackDamage;
 
-        public int OtherDamage
+        public int OtherAttackDamage
         {
-            get => _otherDamage;
-            set => _otherDamage = value;
+            get => otherAttackDamage;
+            set => otherAttackDamage = value;
         }
         
         private void Awake()
@@ -35,12 +35,16 @@ namespace Logic
         public IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
+            var totalDamageMultiplier = criticalFactor + otherDamageMultiplier;
             
-            NormalDamage = attackPower + OtherDamage;
+            var totalEnhancedDamage = Mathf.CeilToInt(totalDamageMultiplier * NormalAttackDamage);
+           
             
-            var criticalDamage = Mathf.CeilToInt(criticalFactor * NormalDamage);
+             
+            NormalAttackDamage = attackPower + OtherAttackDamage;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(NormalDamage, criticalDamage));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(NormalAttackDamage, totalEnhancedDamage));
 
             logicTree.EndSequence();
             yield return null;
