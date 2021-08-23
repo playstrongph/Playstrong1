@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2546cca50d65247a168b6d2cfe3a17, type: 3}
-  m_Name: SampleActiveDragSkillTargetEvent
+  m_Script: {fileID: 11500000, guid: 054fdb327b266164b89446891401f3e6, type: 3}
+  m_Name: AddBuffSkillAddBuffAction
   m_EditorClassIdentifier: 
-  skillConditionAssets:
-  - {fileID: 11400000, guid: dbcb3f811f7a01d4392a98621f48b843, type: 2}
+  _buffEffectAsset: {fileID: 11400000, guid: c205456b22603d14e918b7a6823e6c15, type: 2}
+  _buffCounters: 2
