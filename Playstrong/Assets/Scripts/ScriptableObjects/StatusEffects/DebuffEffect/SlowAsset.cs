@@ -1,15 +1,15 @@
 ﻿using Interfaces;
 using UnityEngine;
 
-namespace ScriptableObjects.StatusEffects.BuffEffects
+namespace ScriptableObjects.StatusEffects.DebuffEffect
 {
-    [CreateAssetMenu(fileName = "Haste", menuName = "SO's/Status Effects/Buffs/Haste")]
-    public class HasteAsset : StatusEffectAsset
+    [CreateAssetMenu(fileName = "Slow", menuName = "SO's/Status Effects/Debuffs/Slow")]
+    public class SlowAsset : StatusEffectAsset
     {
         [SerializeField]
         private float multiplier =  0.3f;
         
-        private int _speedIncrease;
+        private int _speedDecrease;
 
         public override void ApplyStatusEffect(IHero hero)
         {
