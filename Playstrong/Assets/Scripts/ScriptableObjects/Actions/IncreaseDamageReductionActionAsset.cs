@@ -9,9 +9,9 @@ using Utilities;
 
 namespace ScriptableObjects.Actions
 {
-    [CreateAssetMenu(fileName = "DamageReductionActionAsset", menuName = "SO's/SkillActions/DamageReductionActionAsset")]
+    [CreateAssetMenu(fileName = "IncreaseDamageReduction", menuName = "SO's/SkillActions/IncreaseDamageReduction")]
     
-    public class DamageReductionActionAsset : SkillActionAsset
+    public class IncreaseDamageReductionActionAsset : SkillActionAsset
     {
         [SerializeField] private int damageReductionValue;
 

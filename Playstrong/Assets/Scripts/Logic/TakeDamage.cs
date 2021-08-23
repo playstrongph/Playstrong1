@@ -67,7 +67,8 @@ namespace Logic
            
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
 
-            damageReduction = Mathf.Clamp(damageReduction, 0, 1);
+            //Don't Clamp - scenario:  Hero takes 15% additional damage - e.g. Target Debuff
+            //damageReduction = Mathf.Clamp(damageReduction, 0, 1);
 
             var floatFinalDamage = (1 - damageReduction) * (normalDamage + criticalDamage);
 

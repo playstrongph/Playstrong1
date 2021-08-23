@@ -39,9 +39,7 @@ namespace Logic
             var totalDamageMultiplier = criticalFactor + otherDamageMultiplier;
             
             var totalEnhancedDamage = Mathf.CeilToInt(totalDamageMultiplier * NormalAttackDamage);
-           
-            
-             
+
             NormalAttackDamage = attackPower + OtherAttackDamage;
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(NormalAttackDamage, totalEnhancedDamage));
