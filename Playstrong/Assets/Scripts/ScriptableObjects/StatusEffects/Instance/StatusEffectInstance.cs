@@ -33,6 +33,8 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             heroStatusEffect.TargetHero = targetHero;
+
+            statusEffectAsset.CasterHero = casterHero;
             heroStatusEffect.CasterHero = casterHero;
             
 
@@ -76,7 +78,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             }
         }
         
-        protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero targetHero, IHero casterHero)
+        protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             var existingStatusEffectCounters = existingStatusEffect.Counters;
@@ -84,6 +86,7 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
             ExistingStatusEffect.CasterHero = casterHero;
+            statusEffectAsset.CasterHero = casterHero;
 
         }
         

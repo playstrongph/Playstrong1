@@ -42,9 +42,11 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] private ScriptableObject _skillactionAsset;
         public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
 
+        public IHero CasterHero { get; set; }
+
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
-        protected IHero Hero;
+        protected IHero TargetHero;
         
         //TEST
         [SerializeField] private float _effectValue;
@@ -61,7 +63,7 @@ namespace ScriptableObjects.StatusEffects
         {
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
             VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            Hero = hero;
+            TargetHero = hero;
 
         }
         

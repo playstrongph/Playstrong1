@@ -14,10 +14,11 @@ namespace ScriptableObjects.StatusEffects.Instance
         
         public override void AddStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
+            
             CheckExistingStatusEffects(targetHero, statusEffectAsset);
             
             if (ExistingStatusEffect != null)
-                UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, targetHero,casterHero);
+                UpdateStatusEffect(ExistingStatusEffect, statusEffectAsset, statusEffectCounters, targetHero,casterHero);
             else
             {
                 NewStatusEffect = CreateStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,casterHero);

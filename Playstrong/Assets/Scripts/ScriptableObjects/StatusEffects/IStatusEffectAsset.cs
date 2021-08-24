@@ -31,6 +31,8 @@ namespace ScriptableObjects.StatusEffects
         float EffectValue { get; set; }
 
         IHeroAction SkillActionAsset { get; }
+        
+        IHero CasterHero { get; set; }
 
 
 
