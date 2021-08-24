@@ -44,9 +44,19 @@ namespace Logic
 
             _logicTree.EndSequence();
             yield return null;
-          
         }
         
+        public IEnumerator TakeAllDamageIgnoreArmor(int normalDamage, int totalEnhancedDamage)
+        {
+            var thisHero = _thisHeroLogic.Hero;
+            
+            _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
+            
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
+
+            _logicTree.EndSequence();
+            yield return null;
+        }
         
         
         private IEnumerator HeroTakesDamage(int normalDamage, int totalEnhancedDamage)
@@ -60,8 +70,23 @@ namespace Logic
             
             _logicTree.EndSequence();
             yield return null;
-           
         }
+        
+        private IEnumerator HeroTakesDamageIgnoreArmor(int normalDamage, int totalEnhancedDamage)
+        {
+            _finalDamage = ComputeFinalDamage(normalDamage, totalEnhancedDamage);
+            
+            ComputeNewHealth(_thisHeroLogic, _finalDamage);
+            
+            _visualTree.AddCurrent(ApplyFinalDamage(_finalDamage));
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        
+        
         private int ComputeFinalDamage(int normalDamage, int criticalDamage)
         {
            

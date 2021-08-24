@@ -58,6 +58,17 @@ namespace Logic
             yield return null;
         }
         
+        public IEnumerator DealDirectDamageIgnoreArmor(IHero targetHero, int normalDamage)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var criticalDamage = 0;
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamageIgnoreArmor(normalDamage,criticalDamage));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
         
 
 

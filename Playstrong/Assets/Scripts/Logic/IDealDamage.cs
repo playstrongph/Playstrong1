@@ -7,7 +7,7 @@ namespace Logic
     {
        IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
        int OtherAttackDamage { get; set; }
-
        IEnumerator DealDirectDamage(IHero targetHero, int normalDamage);
+       IEnumerator DealDirectDamageIgnoreArmor(IHero targetHero, int normalDamage);
     }
 }
