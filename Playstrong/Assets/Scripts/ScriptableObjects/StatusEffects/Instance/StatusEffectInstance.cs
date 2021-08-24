@@ -11,7 +11,7 @@ namespace ScriptableObjects.StatusEffects.Instance
         protected IHeroStatusEffect ExistingStatusEffect;
         protected IHeroStatusEffect NewStatusEffect;
         
-        public virtual void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
+        public virtual void AddStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
  
         }
@@ -33,6 +33,7 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             heroStatusEffect.TargetHero = targetHero;
+            heroStatusEffect.CasterHero = casterHero;
             
 
             //Add to respective StatusEffects List in HeroStatusEffects
@@ -57,20 +58,16 @@ namespace ScriptableObjects.StatusEffects.Instance
             
         }
 
-        
-
-
-
-        protected void CheckExistingStatusEffects(IHero hero, IStatusEffectAsset addStatusEffectAsset)
+        protected void CheckExistingStatusEffects(IHero targetHero, IStatusEffectAsset addStatusEffectAsset)
         {
 
-            foreach (var statusEffect in hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
+            foreach (var statusEffect in targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
                 if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                     ExistingStatusEffect = statusEffect;
             }
             
-            foreach (var statusEffect in hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
+            foreach (var statusEffect in targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
             {
                 if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
                 {
@@ -79,13 +76,14 @@ namespace ScriptableObjects.StatusEffects.Instance
             }
         }
         
-        protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero hero)
+        protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect,int counters, IHero targetHero, IHero casterHero)
         {
-            var coroutineTreesAsset = hero.CoroutineTreesAsset;
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             var existingStatusEffectCounters = existingStatusEffect.Counters;
             var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
 
             ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
+            ExistingStatusEffect.CasterHero = casterHero;
 
         }
         

@@ -16,13 +16,13 @@ namespace ScriptableObjects.StatusEffects.Instance
         /// <summary> 
         /// Always Create a new status effect  
         /// </summary>
-        public override void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        public override void AddStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-            NewStatusEffect = CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+            NewStatusEffect = CreateStatusEffect(targetHero, statusEffectAsset, statusEffectCounters, casterHero);
             
                 //Logic for "other" status effects - armor, increase energy, etc.
                 if(NewStatusEffect.Counters <= 0)
-                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(hero);
+                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
         }
 
        

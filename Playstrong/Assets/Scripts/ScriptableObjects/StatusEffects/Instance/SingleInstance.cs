@@ -12,19 +12,19 @@ namespace ScriptableObjects.StatusEffects.Instance
     public class SingleInstance : StatusEffectInstance
     {
         
-        public override void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        public override void AddStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-            CheckExistingStatusEffects(hero, statusEffectAsset);
+            CheckExistingStatusEffects(targetHero, statusEffectAsset);
             
             if (ExistingStatusEffect != null)
-                UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, hero);
+                UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, targetHero,casterHero);
             else
             {
-                NewStatusEffect = CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+                NewStatusEffect = CreateStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,casterHero);
                 
                 //Logic for "other" status effects - armor, increase energy, etc.
                 if(NewStatusEffect.Counters <= 0)
-                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(hero);
+                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
             }
         }
 

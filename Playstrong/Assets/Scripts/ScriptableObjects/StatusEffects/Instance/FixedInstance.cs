@@ -18,20 +18,20 @@ namespace ScriptableObjects.StatusEffects.Instance
         /// Create a new one if there is none
         /// Update the status effect counter to a fixed value of one if it exists
         /// </summary>
-        public override  void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        public override  void AddStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
             statusEffectCounters = _fixedValue;
-            CheckExistingStatusEffects(hero, statusEffectAsset);
+            CheckExistingStatusEffects(targetHero, statusEffectAsset);
             
             if (ExistingStatusEffect != null)
-                UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, hero);
+                UpdateStatusEffect(ExistingStatusEffect,statusEffectCounters, targetHero,casterHero);
             else  
             {
-                NewStatusEffect = CreateStatusEffect(hero, statusEffectAsset, statusEffectCounters);
+                NewStatusEffect = CreateStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,casterHero);
                 
                 //Logic for "other" status effects - armor, increase energy, etc.
                 if(NewStatusEffect.Counters <= 0)
-                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(hero);
+                    NewStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
             }
 
             

@@ -49,7 +49,7 @@ namespace ScriptableObjects.SkillActions
             debuffSuccess = Mathf.Clamp(debuffSuccess, 0f, 100f);
             
             if(randomChance<= debuffSuccess)
-                DebuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters);
+                DebuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters,ThisHero);
        
             
             LogicTree.EndSequence();

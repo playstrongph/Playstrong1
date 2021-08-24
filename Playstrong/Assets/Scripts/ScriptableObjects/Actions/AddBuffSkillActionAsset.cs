@@ -49,7 +49,7 @@ namespace ScriptableObjects.SkillActions
             buffSuccess = Mathf.Clamp(buffSuccess, 0f, 100f);
             
             if(randomChance<= buffSuccess)
-                BuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters);
+                BuffAsset.StatusEffectInstance.AddStatusEffect(TargetHero, statusEffectAsset, statusEffectCounters,ThisHero);
        
             
             LogicTree.EndSequence();
