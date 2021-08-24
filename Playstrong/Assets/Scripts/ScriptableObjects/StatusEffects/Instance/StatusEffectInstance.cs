@@ -11,15 +11,15 @@ namespace ScriptableObjects.StatusEffects.Instance
         protected IHeroStatusEffect ExistingStatusEffect;
         protected IHeroStatusEffect NewStatusEffect;
         
-        public virtual void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        public virtual void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
  
         }
     
-        protected IHeroStatusEffect CreateStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters)
+        protected IHeroStatusEffect CreateStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-            var statusEffectPrefab = hero.HeroStatusEffects.HeroStatusEffectPrefab;
-            var statusEffectPanel = hero.HeroStatusEffects.StatusEffectsPanel.Transform;
+            var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
+            var statusEffectPanel = targetHero.HeroStatusEffects.StatusEffectsPanel.Transform;
             
             var statusEffectObject = Instantiate(statusEffectPrefab, statusEffectPanel);
             statusEffectObject.transform.SetParent(statusEffectPanel);
@@ -29,17 +29,18 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
 
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(hero);
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
 
-            heroStatusEffect.CoroutineTreesAsset = hero.CoroutineTreesAsset;
-            heroStatusEffect.Hero = hero;
+            heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            heroStatusEffect.TargetHero = targetHero;
+            
 
             //Add to respective StatusEffects List in HeroStatusEffects
-            heroStatusEffect.StatusEffectType.AddToStatusEffectsList(hero.HeroStatusEffects, heroStatusEffect);
+            heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
             
             //Status Effect Preview
-            var statusEffectPreviewPrefab = hero.HeroStatusEffects.StatusEffectPreviewPrefab;
-            var statusEffectPreviewPanel = hero.HeroPreviewVisual.StatusCanvasPanel.transform;
+            var statusEffectPreviewPrefab = targetHero.HeroStatusEffects.StatusEffectPreviewPrefab;
+            var statusEffectPreviewPanel = targetHero.HeroPreviewVisual.StatusCanvasPanel.transform;
 
             var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab);
             var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();

@@ -41,8 +41,7 @@ namespace ScriptableObjects.StatusEffects
 
         [SerializeField] private ScriptableObject _skillactionAsset;
         public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
-        
-        
+
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         protected IHero Hero;

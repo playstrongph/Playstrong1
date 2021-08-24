@@ -11,6 +11,6 @@ namespace ScriptableObjects.StatusEffects.Instance
     /// </summary>
     public interface IStatusEffectInstance
     {
-        void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters);
+        void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero);
     }
 }

@@ -25,7 +25,9 @@ namespace Logic
         
         ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
         
-        IHero Hero { get; set; }
+        IHero TargetHero { get; set; }
+        
+        IHero CasterHero { get; set; }
 
         IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
 

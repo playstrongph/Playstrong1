@@ -91,7 +91,9 @@ namespace Logic
         public ILoadStatusEffectValues LoadStatusEffectValues => _loadStatusEffectValues;
         public ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
 
-        public IHero Hero { get; set; }
+        public IHero TargetHero { get; set; }
+        
+        public IHero CasterHero { get; set; }
 
         private IReduceStatusEffectCounters _reduceStatusEffectCounters;
         public IReduceStatusEffectCounters ReduceStatusEffectCounters => _reduceStatusEffectCounters;
