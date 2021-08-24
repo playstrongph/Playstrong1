@@ -185,6 +185,8 @@ namespace Logic
             var randomNumber = Random.Range(0f, 100f);
 
             criticalChance = Mathf.Clamp(criticalChance, 0f, 100f);
+            Debug.Log("Critical Chance: " +criticalChance);
+            Debug.Log("Random Number: " +randomNumber);
 
             _logicTree.AddCurrent(randomNumber <= criticalChance ? criticalAttack : normalAttack);
 

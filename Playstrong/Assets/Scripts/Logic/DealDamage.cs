@@ -38,10 +38,9 @@ namespace Logic
             var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
             var totalDamageMultiplier = criticalFactor + otherDamageMultiplier;
             
-            var totalEnhancedDamage = Mathf.CeilToInt(totalDamageMultiplier * NormalAttackDamage);
-
             NormalAttackDamage = attackPower + OtherAttackDamage;
             
+            var totalEnhancedDamage = Mathf.CeilToInt(totalDamageMultiplier * NormalAttackDamage);
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(NormalAttackDamage, totalEnhancedDamage));
 
             logicTree.EndSequence();

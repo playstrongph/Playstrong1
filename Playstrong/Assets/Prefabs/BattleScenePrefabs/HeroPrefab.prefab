@@ -3534,8 +3534,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageReduction: 0
   _criticalDamageMultiplier: 100
+  _otherDamageMultiplier: 0
   _healResistance: 0
-  _criticalStrikeResistance: 0
+  _criticalStrikeResistance: -100
   _debuffResistance: 15
   _buffResistance: 0
   _skillChanceResistance: 0
@@ -3543,7 +3544,7 @@ MonoBehaviour:
   _counterAttackResistance: 0
   attackTargetResistance: 0
   _healChance: 100
-  _criticalStrikeChance: 50
+  _criticalStrikeChance: 0
   _debuffChance: 100
   _buffChance: 100
   _skillChanceBonus: 0
@@ -3744,8 +3745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0ab9669dbd6744979ae0185f2d4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalDamage: 0
-  _otherDamage: 0
+  normalAttackDamage: 0
+  otherAttackDamage: 0
 --- !u!114 &1550127320965468234
 MonoBehaviour:
   m_ObjectHideFlags: 0

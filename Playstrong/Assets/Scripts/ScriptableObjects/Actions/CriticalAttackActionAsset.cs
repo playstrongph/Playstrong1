@@ -67,7 +67,7 @@ namespace ScriptableObjects.Actions
             var dealDamage = targetHero.HeroLogic.DealDamage;
             var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
             var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
-            
+
             logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
             logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
