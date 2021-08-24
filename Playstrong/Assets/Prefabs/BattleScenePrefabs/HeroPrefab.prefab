@@ -3536,7 +3536,7 @@ MonoBehaviour:
   _criticalDamageMultiplier: 100
   _otherDamageMultiplier: 0
   _healResistance: 0
-  _criticalStrikeResistance: -100
+  _criticalStrikeResistance: 0
   _debuffResistance: 15
   _buffResistance: 0
   _skillChanceResistance: 0
