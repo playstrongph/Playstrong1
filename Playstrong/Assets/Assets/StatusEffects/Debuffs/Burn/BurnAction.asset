@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23cebaecd5e8e0a4a94f141a56ab907f, type: 3}
-  m_Name: AddDebuffActionAsset
+  m_Script: {fileID: 11500000, guid: ea455c8a25771104dacedb43ec3716c9, type: 3}
+  m_Name: BurnAction
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: f40c27ef0f369ee4383a54636e77c7bb, type: 2}
-  _debuffCounters: 2

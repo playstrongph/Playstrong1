@@ -20,7 +20,6 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         public override void UnapplyStatusEffect(IHero hero)
         {
             hero.HeroLogic.HeroEvents.EHeroStartTurn -= PoisonHeroEffect;
-            
         }
 
         private void PoisonHeroEffect(IHero hero)
