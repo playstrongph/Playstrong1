@@ -117,6 +117,14 @@ namespace Logic
             get => attackTargetResistance;
             set => attackTargetResistance = value;
         }
+        
+        [SerializeField] private float penetrateArmorResistance = 0f;
+
+        public float PenetrateArmorResistance
+        {
+            get => penetrateArmorResistance;
+            set => penetrateArmorResistance = value;
+        }
 
 
 
@@ -202,6 +210,14 @@ namespace Logic
             set => attackTargetChance = value;
         }
         
+        [SerializeField] private float penetrateArmorChance = 0f;
+
+        public float PenetrateArmorChance
+        {
+            get => penetrateArmorChance;
+            set => penetrateArmorChance = value;
+        }
+        
         
         
         /// <summary>
@@ -231,7 +247,7 @@ namespace Logic
         /// Base Hero Resistances
         /// </summary>
         
-        [Header("Hero Resistances")]
+        [Header("Base Hero Resistances")]
         
         [SerializeField]
         private float _baseHealResistance = 0f;
@@ -306,6 +322,14 @@ namespace Logic
             set => baseAttackTargetResistance = value;
         }
         
+        [SerializeField] private float basePenetrateArmorResistance = 0f;
+
+        public float BasePenetrateArmorResistance
+        {
+            get => basePenetrateArmorResistance;
+            set => basePenetrateArmorResistance = value;
+        }
+        
         
         
         
@@ -313,7 +337,7 @@ namespace Logic
         /// Base Hero Chances
         /// </summary>
         
-        [Header("Hero Chances")]
+        [Header("Base Hero Chances")]
         
         [SerializeField]
         private float _baseHealChance = 0f;
@@ -389,6 +413,14 @@ namespace Logic
         {
             get => baseAttackTargetChance;
             set => baseAttackTargetChance = value;
+        }
+        
+        [SerializeField] private float basePenetrateArmorChance = 0f;
+
+        public float BasePenetrateArmorChance
+        {
+            get => basePenetrateArmorChance;
+            set => basePenetrateArmorChance = value;
         }
         
         

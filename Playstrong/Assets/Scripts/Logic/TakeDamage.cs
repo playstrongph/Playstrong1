@@ -50,7 +50,7 @@ namespace Logic
         {
             var thisHero = _thisHeroLogic.Hero;
             
-            _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
+            _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,totalEnhancedDamage));
             
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
 
