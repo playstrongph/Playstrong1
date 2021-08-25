@@ -12,5 +12,7 @@ namespace ScriptableObjects.Others
 
         void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer);
 
+        void EndHeroTurn(IHeroLogic heroLogic);
+
     }
 }

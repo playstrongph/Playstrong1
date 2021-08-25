@@ -206,7 +206,7 @@ namespace Logic
            
         }
 
-
+        //In the future, implement this as an IEnumerator and not a void
         public void EndTurn()
         {
             _logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);

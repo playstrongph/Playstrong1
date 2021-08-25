@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea455c8a25771104dacedb43ec3716c9, type: 3}
   m_Name: PoisonAction
   m_EditorClassIdentifier: 
-  penetrateChance: 1000
+  penetrateChance: 0

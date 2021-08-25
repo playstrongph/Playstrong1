@@ -7,17 +7,22 @@ namespace ScriptableObjects.Others
     [CreateAssetMenu(fileName = "Hero Status", menuName = "SO's/Hero Status")]
     public class HeroStatusAsset : ScriptableObject, IHeroStatusAsset
     {
-        public void InitializeTurnController(ITurnController turnController)
+        public virtual void InitializeTurnController(ITurnController turnController)
         {
             
         }
 
-        public void StatusAction(IHeroLogic heroLogic)
+        public virtual void StatusAction(IHeroLogic heroLogic)
         {
             
         }
 
-        public void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
+        public virtual void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
+        {
+            
+        }
+        
+        public virtual void EndHeroTurn(IHeroLogic heroLogic)
         {
             
         }

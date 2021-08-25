@@ -137,6 +137,9 @@ namespace Logic
             logicTree.AddCurrent(HeroDiesAnimation(hero));
             logicTree.AddCurrent(HideHeroVisuals(hero));
             logicTree.AddCurrent(ResetHeroAttributes(hero));
+            
+            //if hero is active, end turn
+            
         }
 
         private IEnumerator SetHeroDeadStatus(IHero hero)
@@ -224,6 +227,9 @@ namespace Logic
             UpdateLivingAndDeadHeroLists(hero);
             UpdateActiveHeroesList(hero);
             
+            //TEST
+            UpdateHeroStatus(hero);
+            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;
@@ -269,9 +275,19 @@ namespace Logic
            
             hero.HeroLogic.HeroStatus.RemoveFromActiveHeroesList(turnController, heroTimerObject);
             
+            //Transfer to UpdateHeroStatus
+            //hero.HeroLogic.HeroStatus = heroInactiveStatus;
+        }
+        
+        private void UpdateHeroStatus(IHero hero)
+        {
+            var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            var heroInactiveStatus = turnController.SetHeroStatus.HeroInactive;
+            var heroCurrentStatus = hero.HeroLogic.HeroStatus;
+            
+            heroCurrentStatus.EndHeroTurn(hero.HeroLogic);
+
             hero.HeroLogic.HeroStatus = heroInactiveStatus;
-           
-           
         }
         
         private IEnumerator HideVisuals(IHero hero)
@@ -285,9 +301,11 @@ namespace Logic
             yield return null;
         }
 
-      
+        
 
-      
+
+
+
 
 
     }

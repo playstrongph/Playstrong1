@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ScriptableObjects.HeroStatus
 {
     [CreateAssetMenu(fileName = "HeroInactive", menuName = "SO's/HeroStatus/HeroInactive")]
-    public class HeroInactiveAsset : ScriptableObject, IHeroStatusAsset, IHeroInactiveAsset
+    public class HeroInactiveAsset : HeroStatusAsset
     {
     
         private ITurnController _turnController;
@@ -16,12 +16,12 @@ namespace ScriptableObjects.HeroStatus
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;    
         
-        public void InitializeTurnController(ITurnController turnController)
+        public override void InitializeTurnController(ITurnController turnController)
         {
             _turnController = turnController;
         }
 
-        public void StatusAction(IHeroLogic heroLogic)
+        public override void StatusAction(IHeroLogic heroLogic)
         {
             _heroLogic = heroLogic;
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
@@ -97,7 +97,7 @@ namespace ScriptableObjects.HeroStatus
             
         }
 
-        public void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
+        public override void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
         {
             
         }

@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 namespace ScriptableObjects.HeroStatus
 {
     [CreateAssetMenu(fileName = "HeroActive", menuName = "SO's/HeroStatus/HeroActive")]
-    public class HeroActiveAsset : ScriptableObject, IHeroActiveAsset, IHeroStatusAsset
+    public class HeroActiveAsset : HeroStatusAsset
     {
 
         private ITurnController _turnController;
@@ -19,18 +19,35 @@ namespace ScriptableObjects.HeroStatus
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
 
-        public void InitializeTurnController(ITurnController turnController)
+        public override void InitializeTurnController(ITurnController turnController)
         {
             _turnController = turnController;
         }
         
-        public void StatusAction(IHeroLogic heroLogic)
+        public override void StatusAction(IHeroLogic heroLogic)
         {
             _heroLogic = heroLogic;
             _logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _heroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
 
             _logicTree.AddCurrent(SetActive());
+        }
+
+        public override void EndHeroTurn(IHeroLogic heroLogic)
+        {
+            var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(EndTurn(heroLogic));
+        }
+
+        private IEnumerator EndTurn(IHeroLogic heroLogic)
+        {
+            var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            var turnController = heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            
+            turnController.EndTurn();
+
+            logicTree.EndSequence();
+            yield return null;
         }
 
         private IEnumerator SetActive()
@@ -94,7 +111,7 @@ namespace ScriptableObjects.HeroStatus
             yield return null;
         }
 
-        public void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
+        public override void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
         {
             _turnController.ActiveHeroes.Remove(heroTimer);
         }
