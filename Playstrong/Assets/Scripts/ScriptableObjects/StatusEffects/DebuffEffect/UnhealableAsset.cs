@@ -18,7 +18,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, unhealableResistance));
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -unhealableResistance));
         }
 
         
