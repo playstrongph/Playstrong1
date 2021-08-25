@@ -11,9 +11,8 @@ namespace ScriptableObjects.Actions
     
     public class DealDamageActionAsset : SkillActionAsset
     {
-        private int _finalAttackValue;
-        
-        
+        [SerializeField]
+        private int penetrateChance;
 
         public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
@@ -26,12 +25,12 @@ namespace ScriptableObjects.Actions
 
         }
 
-        private IEnumerator DealDirectDamage(IHero targetHero, float value )
+        private IEnumerator DealDirectDamage(IHero targetHero, float value)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var intValue = (int) value;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, intValue));
+            logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, intValue,penetrateChance));
             
             logicTree.EndSequence();
             yield return null;

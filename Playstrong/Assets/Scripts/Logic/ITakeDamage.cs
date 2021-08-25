@@ -7,8 +7,8 @@ namespace Logic
 {
     public interface ITakeDamage
     {
-        IEnumerator TakeAllDamage(int normalDamage, int criticalDamage);
-        IEnumerator TakeAllDamageIgnoreArmor(int normalDamage, int totalEnhancedDamage);
+        IEnumerator TakeAttackDamage(int normalDamage, int criticalDamage, IHero attacker);
+        IEnumerator TakeDirectDamage(int normalDamage, int totalEnhancedDamage, int penetrateChance);
         int FinalDamage { get; }
 
 

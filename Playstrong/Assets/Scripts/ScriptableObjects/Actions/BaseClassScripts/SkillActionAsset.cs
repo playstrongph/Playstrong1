@@ -16,6 +16,8 @@ namespace ScriptableObjects.Actions.BaseClassScripts
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         
+        //TODO:  In refactoring, use generic method StartAction(IHero thisHero, IHero targetHero, float value)
+
         public IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
             InitializeValues(thisHero, targetHero);
@@ -58,9 +60,7 @@ namespace ScriptableObjects.Actions.BaseClassScripts
             LogicTree.EndSequence();
             yield return null;
         }
-     
         
-
         protected void InitializeValues(IHero thisHero, IHero targetHero)
         {
             ThisHero = thisHero;

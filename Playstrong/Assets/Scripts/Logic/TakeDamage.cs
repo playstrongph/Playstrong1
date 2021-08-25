@@ -34,31 +34,43 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
         
-        public IEnumerator TakeAllDamage(int normalDamage, int totalEnhancedDamage)
+        public IEnumerator TakeAttackDamage(int normalDamage, int totalEnhancedDamage, IHero attackerHero)
         {
-            var thisHero = _thisHeroLogic.Hero;
+            var targetHero = _thisHeroLogic.Hero;
+            var penetrateChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance; 
+            var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
+            var netChance = penetrateChance - penetrateResistance;
+            var randomChance = Random.Range(1, 101);
             
-            _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
-            
-            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
+            if(randomChance <=netChance)
+                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,totalEnhancedDamage));
+            else
+                _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
+
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
             _logicTree.EndSequence();
             yield return null;
         }
         
-        public IEnumerator TakeAllDamageIgnoreArmor(int normalDamage, int totalEnhancedDamage)
+        public IEnumerator TakeDirectDamage(int normalDamage, int totalEnhancedDamage, int penetrateChance)
         {
-            var thisHero = _thisHeroLogic.Hero;
+            var targetHero = _thisHeroLogic.Hero;
+            var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
+            var netChance = penetrateChance - penetrateResistance;
+            var randomChance = Random.Range(1, 101);  
             
-            _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,totalEnhancedDamage));
-            
-            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(thisHero));
+            if(randomChance <=netChance)
+                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,totalEnhancedDamage));
+            else
+                _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
+
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
             _logicTree.EndSequence();
             yield return null;
         }
-        
-        
+
         private IEnumerator HeroTakesDamage(int normalDamage, int totalEnhancedDamage)
         {
              _finalDamage = ComputeFinalDamage(normalDamage, totalEnhancedDamage);
@@ -104,8 +116,6 @@ namespace Logic
 
         private IEnumerator ApplyFinalDamage(int damageValue)
         {
-            Debug.Log("ApplyFinalDamage Start: " +_thisHeroLogic.Hero.HeroName);
-            
             var armor = _thisHeroLogic.HeroAttributes.Armor;
             var health = _thisHeroLogic.HeroAttributes.Health;
             

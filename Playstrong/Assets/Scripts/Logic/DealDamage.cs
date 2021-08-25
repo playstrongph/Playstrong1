@@ -41,33 +41,24 @@ namespace Logic
             NormalAttackDamage = attackPower + OtherAttackDamage;
             
             var totalEnhancedDamage = Mathf.CeilToInt(totalDamageMultiplier * NormalAttackDamage);
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(NormalAttackDamage, totalEnhancedDamage));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAttackDamage(NormalAttackDamage, totalEnhancedDamage,attackerHero));
 
             logicTree.EndSequence();
             yield return null;
         }
         
-        public IEnumerator DealDirectDamage(IHero targetHero, int normalDamage)
+        public IEnumerator DealDirectDamage(IHero targetHero, int normalDamage, int penetrateChance)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var criticalDamage = 0;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamage(normalDamage,criticalDamage));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(normalDamage,criticalDamage,penetrateChance));
             
             logicTree.EndSequence();
             yield return null;
         }
         
-        public IEnumerator DealDirectDamageIgnoreArmor(IHero targetHero, int normalDamage)
-        {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            var criticalDamage = 0;
-            
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAllDamageIgnoreArmor(normalDamage,criticalDamage));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
+       
         
         
 
