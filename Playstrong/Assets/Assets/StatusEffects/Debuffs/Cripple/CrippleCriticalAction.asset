@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23cebaecd5e8e0a4a94f141a56ab907f, type: 3}
-  m_Name: AddDebuffActionAsset
+  m_Script: {fileID: 11500000, guid: 02a6b184848b1424092b2bcceeb33982, type: 3}
+  m_Name: CrippleCriticalAction
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: 62ef0c6dde6bd944eaee88acab633da6, type: 2}
-  _debuffCounters: 3
+  decreaseCriticalChance: 1000

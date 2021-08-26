@@ -10,13 +10,13 @@ namespace Logic
     {
         private IHeroLogic _heroLogic;
 
-        [SerializeField] private int normalAttackDamage;
+        /*[SerializeField] private int normalAttackDamage;
 
         private int NormalAttackDamage
         {
             get => normalAttackDamage;
             set => normalAttackDamage = value;
-        }
+        }*/
 
         [SerializeField]
         private int otherAttackDamage;
@@ -36,23 +36,27 @@ namespace Logic
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
-            var totalDamageMultiplier = criticalFactor + otherDamageMultiplier;
+            //var totalDamageMultiplier = criticalFactor + otherDamageMultiplier;
             
-            NormalAttackDamage = attackPower + OtherAttackDamage;
+            //NormalAttackDamage = attackPower + OtherAttackDamage;
+            var attackDamage = attackPower + OtherAttackDamage;
+            var nonCriticalDamage = Mathf.CeilToInt(otherDamageMultiplier*attackDamage/100);
             
-            var totalEnhancedDamage = Mathf.CeilToInt(totalDamageMultiplier * NormalAttackDamage);
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAttackDamage(NormalAttackDamage, totalEnhancedDamage,attackerHero));
+            var normalDamage = attackDamage + nonCriticalDamage;
+            var criticalDamage = Mathf.CeilToInt(criticalFactor * normalDamage);
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAttackDamage(normalDamage, criticalDamage,attackerHero));
 
             logicTree.EndSequence();
             yield return null;
         }
         
-        public IEnumerator DealDirectDamage(IHero targetHero, int normalDamage, int penetrateChance)
+        public IEnumerator DealDirectDamage(IHero targetHero, int directDamage, int penetrateChance)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var criticalDamage = 0;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(normalDamage,criticalDamage,penetrateChance));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(directDamage,criticalDamage,penetrateChance));
             
             logicTree.EndSequence();
             yield return null;

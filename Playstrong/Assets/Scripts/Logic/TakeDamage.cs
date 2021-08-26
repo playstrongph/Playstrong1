@@ -34,7 +34,7 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
         
-        public IEnumerator TakeAttackDamage(int normalDamage, int totalEnhancedDamage, IHero attackerHero)
+        public IEnumerator TakeAttackDamage(int normalDamage, int criticalDamage, IHero attackerHero)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance; 
@@ -43,9 +43,9 @@ namespace Logic
             var randomChance = Random.Range(1, 101);
             
             if(randomChance <=netChance)
-                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,totalEnhancedDamage));
+                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,criticalDamage));
             else
-                _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
+                _logicTree.AddCurrent(HeroTakesDamage(normalDamage,criticalDamage));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -53,7 +53,7 @@ namespace Logic
             yield return null;
         }
         
-        public IEnumerator TakeDirectDamage(int normalDamage, int totalEnhancedDamage, int penetrateChance)
+        public IEnumerator TakeDirectDamage(int directDamage, int criticalDamage, int penetrateChance)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
@@ -61,9 +61,9 @@ namespace Logic
             var randomChance = Random.Range(1, 101);  
             
             if(randomChance <=netChance)
-                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(normalDamage,totalEnhancedDamage));
+                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(directDamage,criticalDamage));
             else
-                _logicTree.AddCurrent(HeroTakesDamage(normalDamage,totalEnhancedDamage));
+                _logicTree.AddCurrent(HeroTakesDamage(directDamage,criticalDamage));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
