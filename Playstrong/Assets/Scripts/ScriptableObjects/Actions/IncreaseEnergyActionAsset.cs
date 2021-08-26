@@ -20,15 +20,25 @@ namespace ScriptableObjects.Actions
             energyIncrease = (int)value;
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var boostEnergyChance = targetHero.HeroLogic.OtherAttributes.BoostEnergyChance;
+            var boostEnergyResistance = targetHero.HeroLogic.OtherAttributes.BoostEnergyResistance;
+            var netBoostChance = boostEnergyChance - boostEnergyResistance;
+            var randomChance = Random.Range(0, 101);
 
-            var newEnergyValue = targetHero.HeroLogic.HeroAttributes.Energy + energyIncrease;
-            targetHero.HeroLogic.SetHeroEnergy.SetEnergy(newEnergyValue);
+            if(randomChance<=netBoostChance)
+                IncreaseEnergy(targetHero, value);
             
             logicTree.EndSequence();
             yield return null;
         }
 
-      
+        private void IncreaseEnergy(IHero targetHero, float value)
+        {
+            var newEnergyValue = targetHero.HeroLogic.HeroAttributes.Energy + energyIncrease;
+            targetHero.HeroLogic.SetHeroEnergy.SetEnergy(newEnergyValue);
+        }
+
+
 
 
 

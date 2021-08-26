@@ -3543,6 +3543,8 @@ MonoBehaviour:
   _resurrectResistance: 0
   _counterAttackResistance: 0
   attackTargetResistance: 0
+  penetrateArmorResistance: 0
+  boostEnergyResistance: 0
   _healChance: 100
   _criticalStrikeChance: 0
   _debuffChance: 100
@@ -3551,6 +3553,8 @@ MonoBehaviour:
   _resurrectChance: 0
   _counterAttackChance: 0
   attackTargetChance: 100
+  penetrateArmorChance: 0
+  boostEnergyChance: 100
   _baseDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
@@ -3561,6 +3565,8 @@ MonoBehaviour:
   _baseResurrectResistance: 0
   _baseCounterAttackResistance: 0
   baseAttackTargetResistance: 0
+  basePenetrateArmorResistance: 0
+  baseBoostEnergyResistance: 0
   _baseHealChance: 100
   _baseCriticalStrikeChance: 50
   _baseDebuffChance: 100
@@ -3569,6 +3575,8 @@ MonoBehaviour:
   _baseResurrectChance: 0
   _baseCounterAttackChance: 0
   baseAttackTargetChance: 100
+  basePenetrateArmorChance: 0
+  baseBoostEnergyChance: 0
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3745,7 +3753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0ab9669dbd6744979ae0185f2d4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalAttackDamage: 0
   otherAttackDamage: 0
 --- !u!114 &1550127320965468234
 MonoBehaviour:

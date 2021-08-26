@@ -51,6 +51,19 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public override IEnumerator DisableActiveSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;        
+
+            //UnregisterSkill
+            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            
+            //Disable Target
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
 
     }
 }

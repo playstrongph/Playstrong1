@@ -44,6 +44,18 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //TEST SILENCE and SEAL
+        public virtual IEnumerator DisableActiveSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
 
 
     }

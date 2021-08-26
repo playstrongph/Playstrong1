@@ -46,7 +46,8 @@ namespace Visual
         private void OnMouseDown()
         {
             transform.localPosition = Vector3.zero;
-            EnableTargetVisuals();
+            
+            EnableTargetVisuals();  
             _draggable.EnableDraggable();
             ShowLineAndTarget();
             

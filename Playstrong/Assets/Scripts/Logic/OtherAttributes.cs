@@ -125,10 +125,14 @@ namespace Logic
             get => penetrateArmorResistance;
             set => penetrateArmorResistance = value;
         }
+        
+        [SerializeField] private float boostEnergyResistance = 0f;
 
-
-
-
+        public float BoostEnergyResistance
+        {
+            get => boostEnergyResistance;
+            set => boostEnergyResistance = value;
+        }
 
         /// <summary>
         /// Hero Chances
@@ -216,6 +220,14 @@ namespace Logic
         {
             get => penetrateArmorChance;
             set => penetrateArmorChance = value;
+        }
+        
+        [SerializeField] private float boostEnergyChance = 0f;
+
+        public float BoostEnergyChance
+        {
+            get => boostEnergyChance;
+            set => boostEnergyChance = value;
         }
         
         
@@ -330,6 +342,14 @@ namespace Logic
             set => basePenetrateArmorResistance = value;
         }
         
+        [SerializeField] private float baseBoostEnergyResistance = 0f;
+
+        public float BaseBoostEnergyResistance
+        {
+            get => baseBoostEnergyResistance;
+            set => baseBoostEnergyResistance = value;
+        }
+        
         
         
         
@@ -421,6 +441,14 @@ namespace Logic
         {
             get => basePenetrateArmorChance;
             set => basePenetrateArmorChance = value;
+        }
+        
+        [SerializeField] private float baseBoostEnergyChance = 0f;
+
+        public float BaseBoostEnergyChance
+        {
+            get => baseBoostEnergyChance;
+            set => baseBoostEnergyChance = value;
         }
         
         

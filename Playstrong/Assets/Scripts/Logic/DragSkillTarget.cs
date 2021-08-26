@@ -42,6 +42,7 @@ namespace Logic
         {
             _logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             
+            //Default Setting
             _useHeroSkill = NoAction;
             
             _logicTree.AddCurrent(GetValidTargets());

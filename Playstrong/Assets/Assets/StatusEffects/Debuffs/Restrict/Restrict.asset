@@ -9,16 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b19726129e91d49bc4b3451ed0e2c8, type: 3}
-  m_Name: EnergyUp
+  m_Script: {fileID: 11500000, guid: c86e6b0bb17ed184b92b82e7a7a1c8b7, type: 3}
+  m_Name: Restrict
   m_EditorClassIdentifier: 
-  _name: EnergyUp
-  _description: Hero gains Energy
-  _icon: {fileID: 21300000, guid: a9e29bc98aa219144b39b0242bbf1146, type: 3}
-  _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
+  _name: Restrict
+  _description: 'Hero can''t receive energy bonuses
+
+'
+  _icon: {fileID: 21300000, guid: 642631171def12647999ab8438cece5a, type: 3}
+  _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
   updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 55ff947d5c4e2ea4fafd25f754306ccc, type: 2}
-  _effectValue: 100
-  energyIncrease: 25
+  _skillactionAsset: {fileID: 11400000, guid: 57ead2bfd53c71d43a235454680c9fa3, type: 2}
+  _effectValue: 0
+  boostEnergyResistance: 1000

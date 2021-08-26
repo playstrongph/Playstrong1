@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f2cefcc2bd27742afdfc95a8b5b4f4, type: 3}
-  m_Name: EnergyUpAction
+  m_Script: {fileID: 11500000, guid: 9a0ad925b3f7acb4d85725d09b758799, type: 3}
+  m_Name: RestrictAction
   m_EditorClassIdentifier: 
-  energyIncrease: 25
+  boostResistanceIncrease: 1
