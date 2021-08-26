@@ -148,11 +148,12 @@ namespace Logic
             //HeroActive and HeroInactive Status Action
             _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
             
-            //Start of Turn Event
-            _logicTree.AddCurrent(HeroStartTurnEvent());
-            
             //Update Skill Cooldown and Status Effect Counters
             _logicTree.AddCurrent(updateSkills);
+            
+            //Start of Turn Event
+            _logicTree.AddCurrent(HeroStartTurnEvent());
+
             _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
 
             _logicTree.EndSequence(); 

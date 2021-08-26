@@ -38,6 +38,7 @@ namespace Logic
             skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
 
             skillAttributes.Cooldown = skillCd;
+            
             _skillLogic.SkillReadiness.SetStatus(skillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;

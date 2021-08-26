@@ -54,12 +54,15 @@ namespace ScriptableObjects.Enums.SkillType
         
         public override IEnumerator DisableActiveSkill(ISkill skill)
         {
-            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;        
-
-            //UnregisterSkill
-            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
             
-            //Disable Target
+            
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            var skillNotReady = skill.SkillLogic.SkillReadiness.SkillNotReady;
+
+            skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
+            skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+            
+            Debug.Log("Skill Status: " +skill.SkillLogic.SkillAttributes.SkillStatus.ToString());
             
             logicTree.EndSequence();
             yield return null;
