@@ -2,9 +2,7 @@
 using System.Runtime.CompilerServices;
 using Interfaces;
 using Logic;
-using ScriptableObjects.Actions;
-using ScriptableObjects.Actions.BaseClassScripts;
-using UnityEngine;
+ using UnityEngine;
 using Utilities;
 
 namespace ScriptableObjects.StatusEffects.BuffEffects

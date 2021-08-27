@@ -60,8 +60,6 @@ namespace ScriptableObjects.Enums.SkillType
             skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
             skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             
-            Debug.Log("Skill Status: " +skill.SkillLogic.SkillAttributes.SkillStatus.ToString());
-            
             logicTree.EndSequence();
             yield return null;
         }
@@ -74,7 +72,7 @@ namespace ScriptableObjects.Enums.SkillType
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
             {
                 skill.SkillLogic.SkillAttributes.SkillStatus = skillReady;
-                skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);    
+                skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             }
 
             logicTree.EndSequence();

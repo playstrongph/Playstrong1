@@ -1,6 +1,5 @@
 ﻿using Interfaces;
 using ScriptableObjects.Others;
-using ScriptableObjects.SkillActions;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using UnityEngine;
 

@@ -49,9 +49,7 @@ namespace ScriptableObjects.Enums.SkillType
         public virtual IEnumerator DisableActiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            
-            //
-            
+
             logicTree.EndSequence();
             yield return null;
         }

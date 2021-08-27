@@ -1,10 +1,7 @@
 ﻿using Interfaces;
-using Logic;
-using ScriptableObjects.Modifiers;
 using UnityEngine;
-using Utilities;
 
-namespace ScriptableObjects.StatusEffects.BuffEffects
+namespace ScriptableObjects.StatusEffects.DebuffEffect
 {
     [CreateAssetMenu(fileName = "Poison", menuName = "SO's/Status Effects/Debuffs/Poison")]
     public class PoisonAsset : StatusEffectAsset

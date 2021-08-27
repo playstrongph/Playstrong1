@@ -1,55 +1,42 @@
-﻿using System.Collections.Generic;
-using Interfaces;
+﻿using Interfaces;
 using Logic;
 using References;
-using ScriptableObjects.Modifiers;
 using UnityEngine;
-using Utilities;
 
-namespace ScriptableObjects.StatusEffects.BuffEffects
+namespace ScriptableObjects.StatusEffects.DebuffEffect
 {
     [CreateAssetMenu(fileName = "Silence", menuName = "SO's/Status Effects/Debuffs/Silence")]
     public class SilenceAsset : StatusEffectAsset
     {
-        public override void ApplyStatusEffect(IHero hero)
+
+        [SerializeField] private ScriptableObject _enableActiveSkillsAction;
+        private IHeroAction EnableActiveSkillsAction => _enableActiveSkillsAction as IHeroAction;
+        
+        
+        public override void ApplyStatusEffect(IHero targetHero)
         {
-            hero.HeroLogic.HeroEvents.EHeroStartTurn += ApplySilenceEffect;
+            targetHero.HeroLogic.HeroEvents.EHeroStartTurn += ApplySilenceEffect;
         }
         
-        public override void UnapplyStatusEffect(IHero hero)
+        public override void UnapplyStatusEffect(IHero targetHero)
         {
-            hero.HeroLogic.HeroEvents.EHeroStartTurn -= ApplySilenceEffect;
-            RemoveSilenceEffect(hero);
-        }
-
-        //Hard coding test first
-        //TODO:  transfer to action - DisableAllActiveSkills
-        private void ApplySilenceEffect(IHero hero)
-        {   
-            //var skills = new List<ISkill>();
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var dummyValue = 0f;
             
-            var skillObjects = hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
-            foreach (var skillObject in skillObjects)
-            {
-                var skill = skillObject.GetComponent<ISkill>();
-                logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.DisableActiveSkill(skill));
-
-            }
-        }
-        private void RemoveSilenceEffect(IHero hero)
-        {   
-            //var skills = new List<ISkill>();
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            targetHero.HeroLogic.HeroEvents.EHeroStartTurn -= ApplySilenceEffect;
             
-            var skillObjects = hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
-            foreach (var skillObject in skillObjects)
-            {
-                var skill = skillObject.GetComponent<ISkill>();
-                logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.EnableActiveSkill(skill));
-
-            }
+            logicTree.AddCurrent(EnableActiveSkillsAction.StartAction(targetHero,dummyValue));
+            
         }
+
+        private void ApplySilenceEffect(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var dummyValue = 0f;
+            
+            logicTree.AddCurrent(SkillActionAsset.StartAction(targetHero,dummyValue));
+        }
+       
 
 
 

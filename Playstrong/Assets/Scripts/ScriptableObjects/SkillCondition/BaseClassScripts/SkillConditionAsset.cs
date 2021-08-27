@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Interfaces;
 using Logic;
-using ScriptableObjects.Actions.BaseClassScripts;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Others;
 using UnityEngine;
