@@ -19,7 +19,7 @@ namespace ScriptableObjects.SkillActionsScripts
            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
            EnablePassiveSkills(targetHero);
-            
+           
            logicTree.EndSequence();
            yield return null;
 

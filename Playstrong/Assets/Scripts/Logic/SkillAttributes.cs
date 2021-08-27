@@ -29,9 +29,6 @@ namespace Logic
             set => _cooldown = value;
         }
 
-       
-
-
         [Header("Set in Script")]
         [SerializeField] [RequireInterface(typeof(ISkillType))]
         private ScriptableObject _skillType;

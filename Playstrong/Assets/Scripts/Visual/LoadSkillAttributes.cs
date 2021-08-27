@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using Logic;
+using ScriptableObjects.SkillEffects;
 using TMPro.EditorUtilities;
 using UnityEngine;
 using Utilities;
@@ -28,11 +29,15 @@ namespace Visual
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillStatus = skillAsset.SkillStatus;
-            skillAttributes.SkillEffect = skillAsset.SkillEffect;
+            
+            //Unique instances of skills to solve the problem of duplicate heroes
+            var uniqueSkillEffect = Instantiate(skillAsset.SkillEffect as ScriptableObject);
+            var skillEffect = uniqueSkillEffect as ISkillEffectAsset;
+            
+            //skillAttributes.SkillEffect = skillAsset.SkillEffect;
+            skillAttributes.SkillEffect = skillEffect;
 
-            //TEST
             skillAttributes.SkillReference = _skillLogic.Skill;
-
 
         }
         
