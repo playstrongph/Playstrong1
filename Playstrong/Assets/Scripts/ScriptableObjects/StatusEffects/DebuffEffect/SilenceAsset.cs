@@ -13,17 +13,18 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     {
         public override void ApplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroEvents.EHeroStartTurn += SilenceEffect;
+            hero.HeroLogic.HeroEvents.EHeroStartTurn += ApplySilenceEffect;
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroEvents.EHeroStartTurn -= SilenceEffect;
+            hero.HeroLogic.HeroEvents.EHeroStartTurn -= ApplySilenceEffect;
+            RemoveSilenceEffect(hero);
         }
 
         //Hard coding test first
         //TODO:  transfer to action - DisableAllActiveSkills
-        private void SilenceEffect(IHero hero)
+        private void ApplySilenceEffect(IHero hero)
         {   
             //var skills = new List<ISkill>();
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -35,13 +36,19 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
                 logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.DisableActiveSkill(skill));
 
             }
-
+        }
+        private void RemoveSilenceEffect(IHero hero)
+        {   
+            //var skills = new List<ISkill>();
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            
-           
-           
+            var skillObjects = hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
+            foreach (var skillObject in skillObjects)
+            {
+                var skill = skillObject.GetComponent<ISkill>();
+                logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.EnableActiveSkill(skill));
 
-
+            }
         }
 
 
