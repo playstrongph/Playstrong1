@@ -27,6 +27,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private void EnablePassiveSkills(IHero targetHero)
         {
+            Debug.Log("EnablePassive Skill Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             var skillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;

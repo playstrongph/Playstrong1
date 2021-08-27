@@ -51,6 +51,7 @@ namespace ScriptableObjects.Enums.SkillType
         
         public override IEnumerator EnablePassiveSkill(ISkill skill)
         {
+            Debug.Log("EnablePassive Skill , SkillType");
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var skillReady = skill.SkillLogic.SkillReadiness.SkillReady;
 
