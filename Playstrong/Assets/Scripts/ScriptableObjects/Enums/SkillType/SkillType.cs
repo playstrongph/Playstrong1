@@ -63,6 +63,26 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public virtual IEnumerator DisablePassiveSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public virtual IEnumerator EnablePassiveSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
 
 
 

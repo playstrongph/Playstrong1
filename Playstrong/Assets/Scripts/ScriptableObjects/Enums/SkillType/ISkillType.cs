@@ -23,5 +23,9 @@ namespace ScriptableObjects.Enums.SkillType
 
         IEnumerator EnableActiveSkill(ISkill skill);
 
+        IEnumerator DisablePassiveSkill(ISkill skill);
+
+        IEnumerator EnablePassiveSkill(ISkill skill);
+
     }
 }
