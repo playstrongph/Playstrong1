@@ -34,6 +34,9 @@ namespace ScriptableObjects.Enums.SkillStatus
             _logicTree.AddCurrent(DisableTargetVisual());
             _visualTree.AddCurrent(VisualDisableSkillGlow());
             
+            //TODO:
+            
+            
             //TEST
             _visualTree.AddCurrent(ShowCooldownText());
 
@@ -72,8 +75,10 @@ namespace ScriptableObjects.Enums.SkillStatus
         {
             var cooldownText = _skillLogic.Skill.SkillVisual.CooldownText;
 
-            cooldownText.enabled = true;
-            
+            //TEST
+            if(_skillLogic.SkillAttributes.Cooldown > 0)
+                cooldownText.enabled = true;
+
             _visualTree.EndSequence();
             yield return null;
         }
