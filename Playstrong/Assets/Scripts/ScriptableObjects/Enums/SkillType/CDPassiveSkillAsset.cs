@@ -59,6 +59,8 @@ namespace ScriptableObjects.Enums.SkillType
             skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
             skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             
+            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            
             logicTree.EndSequence();
             yield return null;
         }
@@ -73,6 +75,8 @@ namespace ScriptableObjects.Enums.SkillType
                 skill.SkillLogic.SkillAttributes.SkillStatus = skillReady;
                 skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             }
+            
+            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
 
             logicTree.EndSequence();
             yield return null;

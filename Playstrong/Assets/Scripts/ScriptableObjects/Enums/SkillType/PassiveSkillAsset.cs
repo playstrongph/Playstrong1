@@ -36,17 +36,15 @@ namespace ScriptableObjects.Enums.SkillType
         
         public override IEnumerator DisablePassiveSkill(ISkill skill)
         {
-            Debug.Log("disable passive skill");
+          
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var skillNotReady = skill.SkillLogic.SkillReadiness.SkillNotReady;
 
-           
-            
             skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
             skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             
-           
-            
+            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -61,6 +59,8 @@ namespace ScriptableObjects.Enums.SkillType
                 skill.SkillLogic.SkillAttributes.SkillStatus = skillReady;
                 skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             }
+            
+            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
 
             logicTree.EndSequence();
             yield return null;

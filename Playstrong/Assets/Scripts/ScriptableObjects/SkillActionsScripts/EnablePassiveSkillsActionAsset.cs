@@ -35,6 +35,8 @@ namespace ScriptableObjects.SkillActionsScripts
                 _targetSkill = skillObject.GetComponent<ISkill>();
                 logicTree.AddCurrent(_targetSkill.SkillLogic.SkillAttributes.SkillType.EnablePassiveSkill(_targetSkill));
                 
+                //_targetSkill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(_targetSkill);
+                
             }
         }
         

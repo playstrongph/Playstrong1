@@ -42,6 +42,7 @@ namespace ScriptableObjects.SkillEffects
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
+            Debug.Log("Unregister Skill Effect");
             logicTree.AddCurrent(UnregisterSkillEffectCoroutine(skill));
            
         }

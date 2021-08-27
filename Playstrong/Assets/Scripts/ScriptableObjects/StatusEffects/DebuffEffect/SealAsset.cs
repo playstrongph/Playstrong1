@@ -24,6 +24,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             var dummyValue = 0f;
             
             targetHero.HeroLogic.HeroEvents.EHeroStartTurn -= ApplySealEffect;
+            
+            EnablePassiveSkillsAction.StartAction(targetHero, dummyValue);
         }
 
         private void ApplySealEffect(IHero targetHero)
