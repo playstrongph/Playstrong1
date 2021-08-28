@@ -53,6 +53,8 @@ namespace Logic
 
         public event HeroEvent EHeroStartTurn;
         
+        public event HeroEvent EPreHeroStartTurn;
+        
         public event HeroEvent EHeroEndTurn;
         
         
@@ -427,6 +429,21 @@ namespace Logic
                 }
         }
         
+        public void PreHeroStartTurn(IHero hero)
+        {
+            EPreHeroStartTurn?.Invoke(hero);
+        }
+        
+        private void UnsubscribePreHeroStartTurnClients()
+        {
+            var clients = EHeroStartTurn?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EPreHeroStartTurn -= client as HeroEvent;
+                }
+        }
+        
         public void HeroEndTurn(IHero hero)
         {
             EHeroEndTurn?.Invoke(hero);
@@ -484,6 +501,8 @@ namespace Logic
             UnsubscribePreCounterAttackClients();
             UnsubscribeBeforeCounterAttackClients();
             UnsubscribeAfterCounterAttackClients();
+
+            UnsubscribePreHeroStartTurnClients();
 
 
         }

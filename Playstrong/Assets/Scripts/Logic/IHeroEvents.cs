@@ -49,6 +49,8 @@ namespace Logic
         event HeroEvents.HeroEvent EPostHeroDeath;
             
         event HeroEvents.HeroEvent EHeroStartTurn;
+        
+        event HeroEvents.HeroEvent EPreHeroStartTurn;
 
         event HeroEvents.HeroEvent EHeroEndTurn;
 
@@ -92,6 +94,7 @@ namespace Logic
         void PostHeroDeath(IHero hero);
 
         void HeroStartTurn(IHero hero);
+        void PreHeroStartTurn(IHero hero);
 
         void HeroEndTurn(IHero hero);
     }
