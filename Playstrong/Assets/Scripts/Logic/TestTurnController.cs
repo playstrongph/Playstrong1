@@ -13,7 +13,7 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class TurnController : MonoBehaviour, ITurnController
+    public class TestTurnController : MonoBehaviour, ITurnController
     {
         
         [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
@@ -95,19 +95,19 @@ namespace Logic
             
             _logicTree.AddCurrent(_startOfGameEvent.GameStartEvent());
 
-            _logicTree.AddCurrent(RunHeroTimers());
+            _logicTree.AddCurrent(StartHeroTurns());
         }
 
-        private IEnumerator RunHeroTimers()
+        private IEnumerator StartHeroTurns()
         {
-            _visualTree.AddCurrent(RunHeroTimersVisual());
+            _visualTree.AddCurrent(RunHeroTimers());
             
             _logicTree.EndSequence();
             yield return null;
         }
 
 
-        private IEnumerator RunHeroTimersVisual()
+        private IEnumerator RunHeroTimers()
         {
             _freezeTimers = false;
 
@@ -119,14 +119,14 @@ namespace Logic
                 _updateHeroTimers.UpdateTimers();
             }
             
-            _logicTree.AddCurrent(AllowHeroActions());
+            _logicTree.AddCurrent(ActiveHeroesFound());
             
             _visualTree.EndSequence();
             yield return null;
             
         }
         
-        private IEnumerator AllowHeroActions()
+        private IEnumerator ActiveHeroesFound()
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
@@ -142,18 +142,20 @@ namespace Logic
             _activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
             _activeHeroLogic = activeHeroTimer.HeroLogic;
-            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
             var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
-            
-            //HeroActive and HeroInactive Status Action
-            _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
+
 
             //Start of Turn Event
             _logicTree.AddCurrent(HeroStartTurnEvent());
+            
+            //HeroActive and HeroInactive Status Action
+            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
+            _logicTree.AddCurrent(HeroStatusAction());
 
+            //Update Status Effect Counters
             _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
             
-            //Update Skill Cooldown and Status Effect Counters
+            //Update Skill Cooldown
             _logicTree.AddCurrent(updateSkills);
 
             _logicTree.EndSequence(); 
@@ -170,10 +172,10 @@ namespace Logic
             _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
             
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
-            
-            _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
-            
+
             _logicTree.AddCurrent(HeroEndTurnEvent());
+            
+            _logicTree.AddCurrent(HeroStatusAction());
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 
@@ -200,7 +202,7 @@ namespace Logic
                 _logicTree.AddCurrent(SetHeroActive()); 
            
             else
-                _logicTree.AddCurrent(RunHeroTimers());
+                _logicTree.AddCurrent(StartHeroTurns());
 
             _logicTree.EndSequence();
             yield return null;
@@ -217,7 +219,7 @@ namespace Logic
         }
         
         //SetHeroActive Sub-methods
-        private IEnumerator HeroActiveInactiveStatusAction()
+        private IEnumerator HeroStatusAction()
         {
             var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             

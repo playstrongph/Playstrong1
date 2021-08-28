@@ -11,7 +11,7 @@ namespace Logic
         List<Object> HeroTimers { get; }
         List<Object> ActiveHeroes { get; }
         ICoroutineTreesAsset GlobalTrees { get; }
-        void StartHeroTurns();
+        void StartGame();
         void EndTurn();
         int SpeedConstant { get; }
         int TimerFull { get; }
