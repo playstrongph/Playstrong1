@@ -138,14 +138,33 @@ namespace Logic
 
         private IEnumerator StartHeroTurn()
         {
+            _activeHeroIndex = ActiveHeroes.Count - 1;
+            var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
+            _activeHeroLogic = activeHeroTimer.HeroLogic;
+            
             _logicTree.AddCurrent(SetHeroActive());
+            
+            //Pre Start turn for StatusEffects effects
+            _logicTree.AddCurrent(PreHeroStartTurnEvent());
+            
+            //Update Status Effect Counters
+            _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
+            
+            //TODO: Break method and Insert InabilityChecks Here
+
+            //Start of Turn Event
+            _logicTree.AddCurrent(HeroStartTurnEvent());
+
+            //Update Skill Cooldown
+            _logicTree.AddCurrent(UpdateHeroSkillsCooldown(_activeHeroLogic));
+            
+            //Enable Action Phase UI
+            _logicTree.AddCurrent(UpdateHeroActionPhase());
             
             _logicTree.EndSequence();
             yield return null;
         }
 
-        
-        
         private IEnumerator StartNextHeroTurn()
         {
             _logicTree.AddCurrent(SetHeroInactive());
@@ -171,28 +190,8 @@ namespace Logic
         
         private IEnumerator SetHeroActive()
         {
-            _activeHeroIndex = ActiveHeroes.Count - 1;
-            var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
-            _activeHeroLogic = activeHeroTimer.HeroLogic;
-            
             //Set HeroStatus to active
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
-
-            //Pre Start turn for StatusEffects effects
-            _logicTree.AddCurrent(PreHeroStartTurnEvent());
-            
-            //Update Status Effect Counters
-            _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
-
-            //Start of Turn Event
-            _logicTree.AddCurrent(HeroStartTurnEvent());
-
-            //Update Skill Cooldown
-            var updateSkills = _activeHeroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
-            _logicTree.AddCurrent(updateSkills);
-            
-            //HeroStatus Actions
-            _logicTree.AddCurrent(HeroStatusAction());
 
             _logicTree.EndSequence(); 
             yield return null;
@@ -212,7 +211,7 @@ namespace Logic
 
             _logicTree.AddCurrent(HeroEndTurnEvent());
             
-            _logicTree.AddCurrent(HeroStatusAction());
+            _logicTree.AddCurrent(UpdateHeroActionPhase());
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 
@@ -232,7 +231,7 @@ namespace Logic
         }
         
         //SetHeroActive Sub-methods
-        private IEnumerator HeroStatusAction()
+        private IEnumerator UpdateHeroActionPhase()
         {
             var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
@@ -292,10 +291,19 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
-        
-        
-        
-        
+
+        private IEnumerator UpdateHeroSkillsCooldown(IHeroLogic heroLogic)
+        {
+            var updateSkills = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
+            _logicTree.AddCurrent(updateSkills);
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+
+
+
 
 
 
