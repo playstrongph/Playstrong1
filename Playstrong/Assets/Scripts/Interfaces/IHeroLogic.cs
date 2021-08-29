@@ -14,6 +14,8 @@ namespace Interfaces
 
         IHeroLivingStatusAsset HeroLivingStatus { get; set; }
 
+        IHeroInabilityAsset HeroInabilityStatus { get; set; }
+
         IHero Hero { get; }
         IHeroAttributes HeroAttributes { get;}
 
@@ -48,6 +50,8 @@ namespace Interfaces
         IOtherAttributes OtherAttributes { get; }
 
         ICounterAttack CounterAttack { get; }
+
+        IHeroInabilityStatus HeroInabilityStatusAssets { get; }
 
 
 

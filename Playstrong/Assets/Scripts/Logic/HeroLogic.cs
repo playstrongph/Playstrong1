@@ -43,6 +43,15 @@ namespace Logic
             get => _heroLivingStatus as IHeroLivingStatusAsset;
             set => _heroLivingStatus = value as Object;
         }
+        
+        [SerializeField] 
+        private ScriptableObject _heroInabilityStatus;
+
+        public IHeroInabilityAsset HeroInabilityStatus
+        {
+            get => _heroInabilityStatus as IHeroInabilityAsset;
+            set => _heroInabilityStatus = value as ScriptableObject;
+        }
 
 
         [SerializeField] [RequireInterface(typeof(IHero))]
@@ -118,6 +127,9 @@ namespace Logic
 
         private ICounterAttack _counterAttack;
         public ICounterAttack CounterAttack => _counterAttack;
+
+        private IHeroInabilityStatus _heroInabilityStatusAssets;
+        public IHeroInabilityStatus HeroInabilityStatusAssets => _heroInabilityStatusAssets;
         
        
         
@@ -138,6 +150,7 @@ namespace Logic
             _heroDies = GetComponent<IHeroDies>();
             _otherAttributes = GetComponent<IOtherAttributes>();
             _counterAttack = GetComponent<ICounterAttack>();
+            _heroInabilityStatusAssets = GetComponent<IHeroInabilityStatus>();
         }
     }
 }

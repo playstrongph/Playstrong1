@@ -130,11 +130,9 @@ namespace Logic
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
-            //TODO: Initialize _activeHeroLogic
-            _logicTree.AddCurrent(InitializeActiveHeroLogic());
+            //TODO: PreHeroStartTurn
             
-            //TODO: PreHeroStartTurn 
-            
+            //TODO: Delete this after implementation of PreHeroStartTurn
             _logicTree.AddCurrent(StartHeroTurn());
             
             _logicTree.EndSequence();
@@ -144,14 +142,21 @@ namespace Logic
 
         private IEnumerator PreHeroStartTurn()
         {
+            //TODO: Initialize _activeHeroLogic
+            _logicTree.AddCurrent(InitializeActiveHeroLogic());
+            
             //Pre Start turn for StatusEffects effects
             _logicTree.AddCurrent(PreHeroStartTurnEvent());
             
             //Update Status Effect Counters
             _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
             
-            //TODO: Logic to check for Inability Effects (stun/sleep/freeze)
+            //TODO: SetHeroInabilityStatus
             //if No InabilityEffects - StartHeroTurn, else - StartNextHeroTurn
+            
+            //TODO: HeroInabilityStatus
+            _logicTree.AddCurrent(_activeHeroLogic.HeroInabilityStatus.StatusAction(this));
+            
             
             _logicTree.EndSequence();
             yield return null;
@@ -159,9 +164,11 @@ namespace Logic
 
         public IEnumerator StartHeroTurn()
         {
+            //TODO: Check if this can be removed due to initialization
             _activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
             _activeHeroLogic = activeHeroTimer.HeroLogic;
+            //TODO: Check if this can be removed due to initialization
 
             //TODO: Delete this after implementation of Inability Logic
             _logicTree.AddCurrent(PreHeroStartTurnEvent());
@@ -204,6 +211,7 @@ namespace Logic
         private IEnumerator StartNextActiveHero()
         {
             if (_activeHeroes.Count > 0)
+                //TODO: Change this to PreHeroStartTurn
                 _logicTree.AddCurrent(StartHeroTurn());
             else
                 _logicTree.AddCurrent(StartHeroTimers());

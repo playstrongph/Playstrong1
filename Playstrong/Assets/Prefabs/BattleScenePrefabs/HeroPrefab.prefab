@@ -3447,6 +3447,7 @@ GameObject:
   - component: {fileID: 190191286671394562}
   - component: {fileID: 1550127320965468234}
   - component: {fileID: 1900826689}
+  - component: {fileID: 1312855942}
   m_Layer: 0
   m_Name: HeroLogic
   m_TagString: Untagged
@@ -3483,6 +3484,8 @@ MonoBehaviour:
   _heroStatus: {fileID: 11400000, guid: 32e55a20d153eda49b643aa09e043c27, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
   _heroLivingStatus: {fileID: 11400000, guid: 5cf842079a206ea40af49f4b837ec77a, type: 2}
+  _heroInabilityStatus: {fileID: 11400000, guid: c9dd1da1b804a2c44a0fcc8a7eb3dc03,
+    type: 2}
   _hero: {fileID: 1729355933}
   _heroAttributes: {fileID: 3820792406562021603}
   _heroTimer: {fileID: 7231591812556641881}
@@ -3545,6 +3548,7 @@ MonoBehaviour:
   attackTargetResistance: 0
   penetrateArmorResistance: 0
   boostEnergyResistance: 0
+  heroInabilityResistance: 0
   _healChance: 100
   _criticalStrikeChance: 0
   _debuffChance: 100
@@ -3555,6 +3559,7 @@ MonoBehaviour:
   attackTargetChance: 100
   penetrateArmorChance: 0
   boostEnergyChance: 100
+  heroInabilityChance: 0
   _baseDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
@@ -3567,6 +3572,7 @@ MonoBehaviour:
   baseAttackTargetResistance: 0
   basePenetrateArmorResistance: 0
   baseBoostEnergyResistance: 0
+  baseHeroInabilityResistance: 0
   _baseHealChance: 100
   _baseCriticalStrikeChance: 50
   _baseDebuffChance: 100
@@ -3577,6 +3583,7 @@ MonoBehaviour:
   baseAttackTargetChance: 100
   basePenetrateArmorChance: 0
   baseBoostEnergyChance: 0
+  baseHeroInabilityChance: 0
 --- !u!114 &7231591812556641881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3789,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486336449ee5bec4e80483be8958aa23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1312855942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28468b8d0b54a2448ba43b90c329c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withHeroInabilityStatus: {fileID: 11400000, guid: 59c689a4ffa5bc240a15131a36097c5c,
+    type: 2}
+  noHeroInabilityStatus: {fileID: 11400000, guid: c9dd1da1b804a2c44a0fcc8a7eb3dc03,
+    type: 2}
 --- !u!1 &3820792406563672979
 GameObject:
   m_ObjectHideFlags: 0
