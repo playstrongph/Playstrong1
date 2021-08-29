@@ -24,6 +24,8 @@
         float PenetrateArmorResistance { get; set; }
         float BoostEnergyResistance { get; set; }
 
+        float HeroInabilityResistance { get; set; }
+
         /// <summary>
         /// Hero Chances
         /// </summary>
@@ -37,6 +39,7 @@
         float AttackTargetChance { get; set; }
         float PenetrateArmorChance { get; set; }
         float BoostEnergyChance { get; set; }
+        float HeroInabilityChance { get; set; }
 
         /// <summary>
         /// Base Damage Multipliers
@@ -58,6 +61,7 @@
         float BaseAttackTargetResistance { get; set; }
         float BasePenetrateArmorResistance { get; set; }
         float BaseBoostEnergyResistance { get; set; }
+        float BaseHeroInabilityResistance { get; set; }
 
         /// <summary>
         /// Base Hero Chances
@@ -71,6 +75,7 @@
         float BaseCounterAttackChance { get; set; }
         float BasePenetrateArmorChance { get; set; }
         float BaseBoostEnergyChance { get; set; }
+        float BaseHeroInabilityChance { get; set; }
 
 
 

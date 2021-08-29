@@ -130,7 +130,25 @@ namespace Logic
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
+            //TODO: PreHeroStartTurn 
+            
             _logicTree.AddCurrent(StartHeroTurn());
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+
+        private IEnumerator PreHeroStartTurn()
+        {
+            //Pre Start turn for StatusEffects effects
+            _logicTree.AddCurrent(PreHeroStartTurnEvent());
+            
+            //Update Status Effect Counters
+            _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
+            
+            //TODO: Logic to check for Inability Effects (stun/sleep/freeze)
+            //if No InabilityEffects - StartHeroTurn, else - StartNextHeroTurn
             
             _logicTree.EndSequence();
             yield return null;
@@ -141,18 +159,18 @@ namespace Logic
             _activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
             _activeHeroLogic = activeHeroTimer.HeroLogic;
-            
-            _logicTree.AddCurrent(SetHeroActive());
-            
-            //Pre Start turn for StatusEffects effects
+
+            //TODO: Delete this after implementation of Inability Logic
             _logicTree.AddCurrent(PreHeroStartTurnEvent());
             
-            //Update Status Effect Counters
+            //TODO: Delete this after implementation of Inability Logic
             _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
             
             //TODO: Break method and Insert InabilityChecks Here
+            
+            _logicTree.AddCurrent(SetHeroActive());
 
-            //Start of Turn Event
+            //Start of StartHeroTurn method
             _logicTree.AddCurrent(HeroStartTurnEvent());
 
             //Update Skill Cooldown
@@ -167,18 +185,6 @@ namespace Logic
 
         private IEnumerator StartNextHeroTurn()
         {
-            
-            //TODO: EndCurrentHeroTurn starts here
-            //_logicTree.AddCurrent(SetCurrentHeroInactive());
-            
-            //_logicTree.AddCurrent(HeroEndTurnEvent());
-            
-            //_logicTree.AddCurrent(UpdateHeroActionPhase());
-            
-            //Break Method Here
-            
-            
-            //TODO: StartNextHeroTurn starts here
             //Post End turn for StatusEffects effects
             _logicTree.AddCurrent(PostHeroEndTurnEvent());
             
