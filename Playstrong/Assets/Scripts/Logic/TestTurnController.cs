@@ -169,18 +169,18 @@ namespace Logic
         {
             
             //TODO: EndCurrentHeroTurn starts here
-            _logicTree.AddCurrent(SetCurrentHeroInactive());
+            //_logicTree.AddCurrent(SetCurrentHeroInactive());
             
-            _logicTree.AddCurrent(HeroEndTurnEvent());
+            //_logicTree.AddCurrent(HeroEndTurnEvent());
             
-            _logicTree.AddCurrent(UpdateHeroActionPhase());
+            //_logicTree.AddCurrent(UpdateHeroActionPhase());
             
             //Break Method Here
             
             
             //TODO: StartNextHeroTurn starts here
-            
-            //TODO: PostHeroEndTurnEvent
+            //Post End turn for StatusEffects effects
+            _logicTree.AddCurrent(PostHeroEndTurnEvent());
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 
@@ -229,15 +229,29 @@ namespace Logic
             yield return null;
         }
 
-       
+        private IEnumerator EndCurrentHeroTurn()
+        {
+            _logicTree.AddCurrent(SetCurrentHeroInactive());
+            
+            _logicTree.AddCurrent(HeroEndTurnEvent());
+            
+            _logicTree.AddCurrent(UpdateHeroActionPhase());
+            
+            _logicTree.EndSequence();
+            
+            yield return null;
+        }
+
+
 
         //In the future, implement this as an IEnumerator and not a void
         public void EndCombatTurn()
         {
             _logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);
+            
             _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);
             
-            //TODO: End Current Hero Turn
+            _logicTree.AddCurrent(EndCurrentHeroTurn());
             
             _logicTree.AddCurrent(StartNextHeroTurn());
         }
@@ -268,6 +282,16 @@ namespace Logic
             var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
             _activeHeroLogic.HeroEvents.PreHeroStartTurn(_activeHeroLogic.Hero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator PostHeroEndTurnEvent()
+        {
+            var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _activeHeroLogic.HeroEvents.PostHeroEndTurn(_activeHeroLogic.Hero);
             
             logicTree.EndSequence();
             yield return null;
