@@ -10,6 +10,7 @@ using ScriptableObjects.Others;
 using UnityEngine;
 using Utilities;
 using Object = UnityEngine.Object;
+using Random = System.Random;
 
 namespace Logic
 {
@@ -131,9 +132,10 @@ namespace Logic
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
             //TODO: PreHeroStartTurn
+            _logicTree.AddCurrent(PreHeroStartTurn());
             
             //TODO: Delete this after implementation of PreHeroStartTurn
-            _logicTree.AddCurrent(StartHeroTurn());
+           //_logicTree.AddCurrent(StartHeroTurn());
             
             _logicTree.EndSequence();
             yield return null;
@@ -143,7 +145,8 @@ namespace Logic
         private IEnumerator PreHeroStartTurn()
         {
             //TODO: Initialize _activeHeroLogic
-            _logicTree.AddCurrent(InitializeActiveHeroLogic());
+            //_logicTree.AddCurrent(InitializeActiveHeroLogic());
+            InitializeActiveHeroLogic();
             
             //Pre Start turn for StatusEffects effects
             _logicTree.AddCurrent(PreHeroStartTurnEvent());
@@ -153,9 +156,10 @@ namespace Logic
             
             //TODO: SetHeroInabilityStatus
             //if No InabilityEffects - StartHeroTurn, else - StartNextHeroTurn
+            _logicTree.AddCurrent(SetHeroInabilityStatus());
             
             //TODO: HeroInabilityStatus
-            _logicTree.AddCurrent(_activeHeroLogic.HeroInabilityStatus.StatusAction(this));
+            //_logicTree.AddCurrent(_activeHeroLogic.HeroInabilityStatus.StatusAction(this));
             
             
             _logicTree.EndSequence();
@@ -165,18 +169,16 @@ namespace Logic
         public IEnumerator StartHeroTurn()
         {
             //TODO: Check if this can be removed due to initialization
-            _activeHeroIndex = ActiveHeroes.Count - 1;
-            var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
-            _activeHeroLogic = activeHeroTimer.HeroLogic;
+            //_activeHeroIndex = ActiveHeroes.Count - 1;
+            //var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
+            //_activeHeroLogic = activeHeroTimer.HeroLogic;
             //TODO: Check if this can be removed due to initialization
 
             //TODO: Delete this after implementation of Inability Logic
-            _logicTree.AddCurrent(PreHeroStartTurnEvent());
+            //_logicTree.AddCurrent(PreHeroStartTurnEvent());
             
             //TODO: Delete this after implementation of Inability Logic
-            _logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
-            
-            //TODO: Break method and Insert InabilityChecks Here
+            //_logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
             
             _logicTree.AddCurrent(SetHeroActive());
 
@@ -195,6 +197,8 @@ namespace Logic
 
         public IEnumerator StartNextHeroTurn()
         {
+            Debug.Log("StartNextHeroTurn");
+            
             //Post End turn for StatusEffects effects
             _logicTree.AddCurrent(PostHeroEndTurnEvent());
             
@@ -211,8 +215,9 @@ namespace Logic
         private IEnumerator StartNextActiveHero()
         {
             if (_activeHeroes.Count > 0)
+                _logicTree.AddCurrent(PreHeroStartTurn());
                 //TODO: Change this to PreHeroStartTurn
-                _logicTree.AddCurrent(StartHeroTurn());
+                //_logicTree.AddCurrent(StartHeroTurn());
             else
                 _logicTree.AddCurrent(StartHeroTimers());
 
@@ -273,11 +278,28 @@ namespace Logic
             _logicTree.AddCurrent(StartNextHeroTurn());
         }
 
-        private IEnumerator InitializeActiveHeroLogic()
+        private void InitializeActiveHeroLogic()
         {
             _activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
             _activeHeroLogic = activeHeroTimer.HeroLogic;
+
+            //_logicTree.EndSequence();
+            //yield return null;
+        }
+
+        private IEnumerator SetHeroInabilityStatus()
+        {
+            var heroDisabled = _activeHeroLogic.HeroInabilityStatusAssets.WithHeroInabilityStatus;
+            var heroEnabled = _activeHeroLogic.HeroInabilityStatusAssets.NoHeroInabilityStatus;
+            var heroInabilityChance = _activeHeroLogic.OtherAttributes.HeroInabilityChance;
+            var heroInabilityResistance = _activeHeroLogic.OtherAttributes.HeroInabilityResistance;
+            var netChance = heroInabilityChance - heroInabilityResistance;
+            var randomChance = UnityEngine.Random.Range(0f, 100f);
+
+            _activeHeroLogic.HeroInabilityStatus = randomChance <= netChance ? heroDisabled : heroEnabled;
+
+            _logicTree.AddCurrent(_activeHeroLogic.HeroInabilityStatus.StatusAction(this));
 
             _logicTree.EndSequence();
             yield return null;
