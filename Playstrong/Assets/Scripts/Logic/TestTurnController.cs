@@ -180,7 +180,7 @@ namespace Logic
             
             //TODO: StartNextHeroTurn starts here
             
-            //TODO: PostHeroEndTurn
+            //TODO: PostHeroEndTurnEvent
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 

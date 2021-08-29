@@ -53,6 +53,7 @@ namespace Logic
         event HeroEvents.HeroEvent EPreHeroStartTurn;
 
         event HeroEvents.HeroEvent EHeroEndTurn;
+        event HeroEvents.HeroEvent EPostHeroEndTurn;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
 
@@ -97,5 +98,7 @@ namespace Logic
         void PreHeroStartTurn(IHero hero);
 
         void HeroEndTurn(IHero hero);
+
+        void PostHeroEndTurn(IHero hero);
     }
 }
