@@ -35,12 +35,7 @@ namespace Logic
         event HeroEvents.HeroesEvent EDragSkillTarget;
         
         event HeroEvents.HeroesEvent EStartOfGame;
-        
-       
-    
-        
-        
-        
+
         //Single Hero Events
         event HeroEvents.HeroEvent EHeroTakesFatalDamage;
         
@@ -56,7 +51,6 @@ namespace Logic
         event HeroEvents.HeroEvent EPostHeroEndTurn;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
-
         void PreSkillAttack(IHero initiatorHero, IHero targetHero);
         void PostAttack(IHero initiatorHero, IHero targetHero);
         void PostSkillAttack(IHero initiatorHero, IHero targetHero);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using ScriptableObjects;
 using ScriptableObjects.Others;
@@ -25,5 +26,9 @@ namespace Logic
         ISetHeroStatus SetHeroStatus { get; }
 
         ISortHeroesByEnergy SortHeroesByEnergy { get; }
+
+        IEnumerator StartHeroTurn();
+
+        IEnumerator StartNextHeroTurn();
     }
 }

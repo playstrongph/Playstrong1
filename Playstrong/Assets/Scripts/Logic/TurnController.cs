@@ -271,8 +271,17 @@ namespace Logic
         }
         
         
+        //TEMP
+        public IEnumerator StartHeroTurn()
+        {
+            yield return null;
+        }
         
-        
+        public IEnumerator StartNextHeroTurn()
+        {
+            yield return null;
+        }
+
 
 
 

@@ -130,6 +130,9 @@ namespace Logic
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
+            //TODO: Initialize _activeHeroLogic
+            _logicTree.AddCurrent(InitializeActiveHeroLogic());
+            
             //TODO: PreHeroStartTurn 
             
             _logicTree.AddCurrent(StartHeroTurn());
@@ -154,7 +157,7 @@ namespace Logic
             yield return null;
         }
 
-        private IEnumerator StartHeroTurn()
+        public IEnumerator StartHeroTurn()
         {
             _activeHeroIndex = ActiveHeroes.Count - 1;
             var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
@@ -183,7 +186,7 @@ namespace Logic
             yield return null;
         }
 
-        private IEnumerator StartNextHeroTurn()
+        public IEnumerator StartNextHeroTurn()
         {
             //Post End turn for StatusEffects effects
             _logicTree.AddCurrent(PostHeroEndTurnEvent());
@@ -261,7 +264,17 @@ namespace Logic
             
             _logicTree.AddCurrent(StartNextHeroTurn());
         }
-        
+
+        private IEnumerator InitializeActiveHeroLogic()
+        {
+            _activeHeroIndex = ActiveHeroes.Count - 1;
+            var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
+            _activeHeroLogic = activeHeroTimer.HeroLogic;
+
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
         //SetHeroActive Sub-methods
         private IEnumerator UpdateHeroActionPhase()
         {
