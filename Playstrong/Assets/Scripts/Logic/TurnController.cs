@@ -160,27 +160,7 @@ namespace Logic
             yield return null;
            
         }
-
-        private IEnumerator SetHeroInactive()
-        {
-            var heroTimer = _activeHeroLogic.HeroTimer;
-            var heroTimerObject = heroTimer as Object;
-
-            //This needs to come first before change of herostatus
-            _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
-            
-            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
-            
-            _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
-            
-            _logicTree.AddCurrent(HeroEndTurnEvent());
-            
-            _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
-
-            _logicTree.EndSequence(); 
-            yield return null;
-        }
-
+        
         private IEnumerator StartNextTurn()
         {
             
@@ -206,6 +186,28 @@ namespace Logic
             yield return null;
            
         }
+
+        private IEnumerator SetHeroInactive()
+        {
+            var heroTimer = _activeHeroLogic.HeroTimer;
+            var heroTimerObject = heroTimer as Object;
+
+            //This needs to come first before change of herostatus
+            _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
+            
+            _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
+            
+            _logicTree.AddCurrent(HeroActiveInactiveStatusAction());
+            
+            _logicTree.AddCurrent(HeroEndTurnEvent());
+            
+            _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
+
+            _logicTree.EndSequence(); 
+            yield return null;
+        }
+
+        
 
         //In the future, implement this as an IEnumerator and not a void
         public void EndTurn()

@@ -170,6 +170,7 @@ namespace Logic
             _logicTree.AddCurrent(SetHeroInactive());
             
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
+            
             _logicTree.AddCurrent(NextActiveHero());
             
             _logicTree.EndSequence();
@@ -179,7 +180,7 @@ namespace Logic
         private IEnumerator NextActiveHero()
         {
             if (_activeHeroes.Count > 0)
-                _logicTree.AddCurrent(SetHeroActive());
+                _logicTree.AddCurrent(StartHeroTurn());
             else
                 _logicTree.AddCurrent(StartHeroTimers());
 
