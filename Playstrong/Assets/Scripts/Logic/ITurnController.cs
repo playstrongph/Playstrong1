@@ -30,5 +30,7 @@ namespace Logic
         IEnumerator StartHeroTurn();
 
         IEnumerator StartNextHeroTurn();
+
+        IEnumerator SetCurrentHeroInactive();
     }
 }

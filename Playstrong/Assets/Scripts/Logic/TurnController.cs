@@ -282,6 +282,11 @@ namespace Logic
             yield return null;
         }
 
+        public IEnumerator SetCurrentHeroInactive()
+        {
+            yield return null;
+        }
+
 
 
 

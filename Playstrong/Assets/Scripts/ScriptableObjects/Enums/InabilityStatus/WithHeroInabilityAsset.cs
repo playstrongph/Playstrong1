@@ -18,8 +18,11 @@ namespace ScriptableObjects.Enums.SkillStatus
             
             var logicTree = turnController.GlobalTrees.MainLogicTree;
             
+            //TEST
+            //logicTree.AddCurrent(turnController.SetCurrentHeroInactive());
             
-            logicTree.AddCurrent(turnController.StartNextHeroTurn());
+            //logicTree.AddCurrent(turnController.StartNextHeroTurn());
+            turnController.EndCombatTurn();
             
             logicTree.EndSequence();
             yield return null;

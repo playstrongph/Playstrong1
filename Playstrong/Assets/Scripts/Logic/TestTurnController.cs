@@ -236,7 +236,7 @@ namespace Logic
            
         }
 
-        private IEnumerator SetCurrentHeroInactive()
+        public IEnumerator SetCurrentHeroInactive()
         {
             var heroTimer = _activeHeroLogic.HeroTimer;
             var heroTimerObject = heroTimer as Object;
