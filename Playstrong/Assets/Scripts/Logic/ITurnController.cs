@@ -12,7 +12,7 @@ namespace Logic
         List<Object> ActiveHeroes { get; }
         ICoroutineTreesAsset GlobalTrees { get; }
         void StartGame();
-        void EndTurn();
+        void EndCombatTurn();
         int SpeedConstant { get; }
         int TimerFull { get; }
 

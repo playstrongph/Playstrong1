@@ -210,7 +210,7 @@ namespace Logic
         
 
         //In the future, implement this as an IEnumerator and not a void
-        public void EndTurn()
+        public void EndCombatTurn()
         {
             _logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);
             _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);

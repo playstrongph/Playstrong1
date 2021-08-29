@@ -44,7 +44,7 @@ namespace ScriptableObjects.HeroStatus
             var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             var turnController = heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             
-            turnController.EndTurn();
+            turnController.EndCombatTurn();
 
             logicTree.EndSequence();
             yield return null;

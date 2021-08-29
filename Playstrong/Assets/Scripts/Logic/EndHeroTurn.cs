@@ -28,7 +28,7 @@ namespace Logic
 
         public IEnumerator EndTurn()
         {
-            _turnController.EndTurn();
+            _turnController.EndCombatTurn();
 
             yield return null;
             _logicTree.EndSequence();

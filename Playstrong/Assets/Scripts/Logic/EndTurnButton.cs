@@ -21,7 +21,7 @@ namespace Logic
 
         public void EndTurn()
         {
-            _battleSceneManager.TurnController.EndTurn();
+            _battleSceneManager.TurnController.EndCombatTurn();
         }
 
 

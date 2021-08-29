@@ -160,7 +160,7 @@ namespace Logic
         private IEnumerator HeroEndTurn()
         {
             var turnController = _targetSkill.Skill.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            turnController.EndTurn();
+            turnController.EndCombatTurn();
             _logicTree.EndSequence();
             yield return null;
         }

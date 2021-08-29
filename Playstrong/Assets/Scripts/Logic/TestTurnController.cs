@@ -167,17 +167,32 @@ namespace Logic
 
         private IEnumerator StartNextHeroTurn()
         {
-            _logicTree.AddCurrent(SetHeroInactive());
             
+            //TODO: EndCurrentHeroTurn starts here
+            _logicTree.AddCurrent(SetCurrentHeroInactive());
+            
+            _logicTree.AddCurrent(HeroEndTurnEvent());
+            
+            _logicTree.AddCurrent(UpdateHeroActionPhase());
+            
+            //Break Method Here
+            
+            
+            //TODO: StartNextHeroTurn starts here
+            
+            //TODO: PostHeroEndTurn
+            
+            _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
+
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
-            _logicTree.AddCurrent(NextActiveHero());
+            _logicTree.AddCurrent(StartNextActiveHero());
             
             _logicTree.EndSequence();
             yield return null;
         }
 
-        private IEnumerator NextActiveHero()
+        private IEnumerator StartNextActiveHero()
         {
             if (_activeHeroes.Count > 0)
                 _logicTree.AddCurrent(StartHeroTurn());
@@ -199,7 +214,7 @@ namespace Logic
            
         }
 
-        private IEnumerator SetHeroInactive()
+        private IEnumerator SetCurrentHeroInactive()
         {
             var heroTimer = _activeHeroLogic.HeroTimer;
             var heroTimerObject = heroTimer as Object;
@@ -210,12 +225,6 @@ namespace Logic
             //Set Hero Status to Inactive
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
 
-            _logicTree.AddCurrent(HeroEndTurnEvent());
-            
-            _logicTree.AddCurrent(UpdateHeroActionPhase());
-            
-            _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
-
             _logicTree.EndSequence(); 
             yield return null;
         }
@@ -223,10 +232,12 @@ namespace Logic
        
 
         //In the future, implement this as an IEnumerator and not a void
-        public void EndTurn()
+        public void EndCombatTurn()
         {
             _logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);
             _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);
+            
+            //TODO: End Current Hero Turn
             
             _logicTree.AddCurrent(StartNextHeroTurn());
         }
