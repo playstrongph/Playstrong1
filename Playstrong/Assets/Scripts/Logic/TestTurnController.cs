@@ -148,6 +148,9 @@ namespace Logic
             //_logicTree.AddCurrent(InitializeActiveHeroLogic());
             InitializeActiveHeroLogic();
             
+            //Reset Energy
+            _logicTree.AddCurrent(ResetEnergyToZero());
+            
             //Pre Start turn for StatusEffects effects
             _logicTree.AddCurrent(PreHeroStartTurnEvent());
             
@@ -238,12 +241,14 @@ namespace Logic
 
         public IEnumerator SetCurrentHeroInactive()
         {
+            
             var heroTimer = _activeHeroLogic.HeroTimer;
             var heroTimerObject = heroTimer as Object;
 
             //This needs to come first before change of herostatus
             _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
             
+            Debug.Log("Set Current Hero Inactive: " +_activeHeroLogic.Hero.HeroName);
             //Set Hero Status to Inactive
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
 
@@ -287,6 +292,15 @@ namespace Logic
             //_logicTree.EndSequence();
             //yield return null;
         }
+
+        private IEnumerator ResetEnergyToZero()
+        {
+            _activeHeroLogic.HeroTimer.ResetHeroTimer();
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
 
         private IEnumerator SetHeroInabilityStatus()
         {

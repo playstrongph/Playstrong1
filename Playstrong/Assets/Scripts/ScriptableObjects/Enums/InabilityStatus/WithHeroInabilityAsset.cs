@@ -13,17 +13,12 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         public override IEnumerator StatusAction(ITurnController turnController)
         {
-            
-            Debug.Log("With Hero Inability");
-            
             var logicTree = turnController.GlobalTrees.MainLogicTree;
+
+            logicTree.AddCurrent(turnController.SetCurrentHeroInactive());
             
-            //TEST
-            //logicTree.AddCurrent(turnController.SetCurrentHeroInactive());
-            
-            //logicTree.AddCurrent(turnController.StartNextHeroTurn());
-            turnController.EndCombatTurn();
-            
+            logicTree.AddCurrent(turnController.StartNextHeroTurn());
+
             logicTree.EndSequence();
             yield return null;
         }

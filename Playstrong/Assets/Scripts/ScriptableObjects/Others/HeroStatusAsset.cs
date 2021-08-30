@@ -19,7 +19,7 @@ namespace ScriptableObjects.Others
 
         public virtual void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
         {
-            
+            turnController.ActiveHeroes.Remove(heroTimer);
         }
         
         public virtual void EndHeroTurn(IHeroLogic heroLogic)

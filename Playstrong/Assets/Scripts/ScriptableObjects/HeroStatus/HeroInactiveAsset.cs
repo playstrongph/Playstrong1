@@ -97,10 +97,7 @@ namespace ScriptableObjects.HeroStatus
             
         }
 
-        public override void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
-        {
-            
-        }
+       
 
 
 

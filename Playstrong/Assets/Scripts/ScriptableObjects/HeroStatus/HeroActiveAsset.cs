@@ -52,7 +52,8 @@ namespace ScriptableObjects.HeroStatus
 
         private IEnumerator SetActive()
         {
-            _heroLogic.HeroTimer.ResetHeroTimer();
+            //_heroLogic.HeroTimer.ResetHeroTimer();
+            
             _logicTree.AddCurrent(EnableTargetHeroPreview());
             _logicTree.AddCurrent(EnableDragHeroAttack());
 
@@ -111,10 +112,7 @@ namespace ScriptableObjects.HeroStatus
             yield return null;
         }
 
-        public override void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer)
-        {
-            _turnController.ActiveHeroes.Remove(heroTimer);
-        }
+        
 
 
 
