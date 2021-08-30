@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 456131804}
   - component: {fileID: 456131805}
   - component: {fileID: 456131806}
-  - component: {fileID: 456131807}
+  - component: {fileID: 456131801}
   m_Layer: 0
   m_Name: TurnController
   m_TagString: Untagged
@@ -519,6 +519,24 @@ Transform:
   m_Father: {fileID: 877077466}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &456131801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456131799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea20e2f5ba108a4d8d935a9583fe38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
+  _timerFull: 500
+  _speedConstant: 10
+  _freezeTimers: 0
+  _heroTimers: []
+  _activeHeroes: []
 --- !u!114 &456131802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,24 +599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9dae108b4bc1e347b4eae68b628e832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &456131807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456131799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff5410897b85062408fdc337fbfef500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
-  _timerFull: 500
-  _speedConstant: 10
-  _freezeTimers: 0
-  _heroTimers: []
-  _activeHeroes: []
 --- !u!1 &548051216
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battleSceneSettings: {fileID: 609915809}
-  _turnController: {fileID: 456131807}
+  _turnController: {fileID: 456131801}
   _globalTrees: {fileID: 11400000, guid: b5dca7455f8fb4b4c85df315b664b8e3, type: 2}
 --- !u!114 &877077469
 MonoBehaviour:

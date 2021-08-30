@@ -16,6 +16,7 @@ namespace Logic
 {
     public class TestTurnController : MonoBehaviour, ITurnController
     {
+        //COPY START
         
         [SerializeField] [RequireInterface(typeof(ICoroutineTreesAsset))]
         private Object _globalTrees;
@@ -82,8 +83,6 @@ namespace Logic
         {
             _logicTree = GlobalTrees.MainLogicTree;
             _visualTree = GlobalTrees.MainVisualTree;
-
-           
         }
         
         /// <summary>
@@ -407,7 +406,7 @@ namespace Logic
             yield return null;
         }
 
-
+        //COPY END
 
 
 
