@@ -33,6 +33,8 @@ namespace ScriptableObjects.StatusEffects
         IHeroAction SkillActionAsset { get; }
         
         IHero CasterHero { get; set; }
+        
+        IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
 
 

@@ -26,8 +26,6 @@ namespace Logic
             set => _counters = value;
         }
 
-       
-
         [SerializeField] private Image _icon;
         public Image Icon => _icon;
         

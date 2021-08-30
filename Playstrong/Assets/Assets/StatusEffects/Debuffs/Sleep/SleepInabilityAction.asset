@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23cebaecd5e8e0a4a94f141a56ab907f, type: 3}
-  m_Name: AddDebuffActionAsset
+  m_Script: {fileID: 11500000, guid: c5ab2e137b008b64ba9e434f3268d4cc, type: 3}
+  m_Name: SleepInabilityAction
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: 589f41d41b0623c48bccbf41a606cbc8, type: 2}
-  _debuffCounters: 3
+  inabilityChanceIncrease: 150

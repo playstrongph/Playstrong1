@@ -24,6 +24,7 @@ namespace Visual
 
             //_heroStatusEffect.StatusEffectAsset = statusEffect;
             _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffect);
+            _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             
             _heroStatusEffect.StatusEffectType = statusEffect.StatusEffectType;
             _heroStatusEffect.StatusEffectCounterUpdate = statusEffect.UpdateTiming;
@@ -32,6 +33,8 @@ namespace Visual
             _heroStatusEffect.Counters = counters;
             _heroStatusEffect.Icon.sprite = statusEffect.Icon;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
+            
+         
         }
 
         private IStatusEffectAsset CloneStatusEffectAsset(IStatusEffectAsset statusEffect)
@@ -42,6 +45,8 @@ namespace Visual
 
             return statusEffectClone;
         }
+        
+      
 
 
     }

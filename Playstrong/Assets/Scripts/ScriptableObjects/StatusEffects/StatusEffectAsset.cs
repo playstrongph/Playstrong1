@@ -48,7 +48,7 @@ namespace ScriptableObjects.StatusEffects
         protected ICoroutineTree VisualTree;
         protected IHero TargetHero;
         
-        //TEST
+        //For cleanup
         [SerializeField] private float _effectValue;
 
         public float EffectValue
@@ -57,8 +57,11 @@ namespace ScriptableObjects.StatusEffects
             set => _effectValue = value;
         }
 
-        //TEST END
         
+        public IHeroStatusEffect HeroStatusEffectReference { get; set; }
+
+
+
         protected void InitializeValues(IHero hero)
         {
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
