@@ -274,7 +274,7 @@ namespace Logic
         //In the future, implement this as an IEnumerator and not a void
         public void EndCombatTurn()
         {
-            _logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);
+            //_logicTree.AddCurrentWait(_endTurnDelaySeconds, _logicTree);
             
             _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);
             
@@ -295,13 +295,20 @@ namespace Logic
 
         private IEnumerator ResetEnergyToZero()
         {
-            _activeHeroLogic.HeroTimer.ResetHeroTimer();
+            _visualTree.AddCurrent(ResetEnergyAnimation());
             
             _logicTree.EndSequence();
             yield return null;
         }
-
-
+        
+        private IEnumerator ResetEnergyAnimation()
+        {
+            _activeHeroLogic.HeroTimer.ResetHeroTimer();
+            
+            _visualTree.EndSequence();
+            yield return null;
+        }
+        
         private IEnumerator SetHeroInabilityStatus()
         {
             var heroDisabled = _activeHeroLogic.HeroInabilityStatusAssets.WithHeroInabilityStatus;

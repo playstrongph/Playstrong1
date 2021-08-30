@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +20,6 @@ namespace Visual
             text.text = energyValue.ToString() +"%";
             barFill.fillAmount = energyValue/100f;
         }
-
         public void SetEnergyTextColor(Color textColor)
         {
             text.color = textColor;
@@ -30,6 +30,7 @@ namespace Visual
             barFill.color = energyBarColor;
         }
 
+        
 
     }
 }
