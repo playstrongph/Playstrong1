@@ -24,6 +24,7 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
         }
         
+        //TODO: To be Obsoleted
         public IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -49,6 +50,42 @@ namespace Logic
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(directDamage,criticalDamage,penetrateChance));
             
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public IEnumerator DealSingleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
+
+            var attackDamage = attackPower + OtherAttackDamage;
+            var nonCriticalDamage = Mathf.CeilToInt(otherDamageMultiplier*attackDamage/100);
+            
+            var normalDamage = attackDamage + nonCriticalDamage;
+            
+            var criticalDamage = Mathf.CeilToInt(criticalFactor * normalDamage);
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeSingleAttackDamage(normalDamage, criticalDamage,attackerHero));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public IEnumerator DealMultipleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
+
+            var attackDamage = attackPower + OtherAttackDamage;
+            var nonCriticalDamage = Mathf.CeilToInt(otherDamageMultiplier*attackDamage/100);
+            
+            var normalDamage = attackDamage + nonCriticalDamage;
+            
+            var criticalDamage = Mathf.CeilToInt(criticalFactor * normalDamage);
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeMultipleAttackDamage(normalDamage, criticalDamage,attackerHero));
+
             logicTree.EndSequence();
             yield return null;
         }
