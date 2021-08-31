@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Sleep
   _description: Hero misses its next turn.  Any attack received will deal critical
     strike and dispel sleep.
-  _icon: {fileID: 21300000, guid: 7eef55bc2b38c3847adfab84b87d79cb, type: 3}
+  _icon: {fileID: 0}
   _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,

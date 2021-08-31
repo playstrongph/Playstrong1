@@ -57,8 +57,10 @@ namespace Logic
         public ISortHeroesByEnergy SortHeroesByEnergy => _sortHeroesByEnergy;
         
         private IUpdateHeroTimers _updateHeroTimers;
-        private IStartOfGameEvent _startOfGameEvent;
         
+        private ITurnControllerEvents _turnControllerEvents;
+        private ITurnControllerEvents TurnControllerEvents => _turnControllerEvents;
+
 
         private IBattleSceneManager _battleSceneManager;
         public IBattleSceneManager BattleSceneManager => _battleSceneManager;
@@ -74,7 +76,7 @@ namespace Logic
             _updateHeroTimers = GetComponent<IUpdateHeroTimers>();
             _battleSceneManager = GetComponentInParent<IBattleSceneManager>();
             _initializeSkillEffects = GetComponent<IInitializeSkillEffects>();
-            _startOfGameEvent = GetComponent<IStartOfGameEvent>();
+            _turnControllerEvents = GetComponent<ITurnControllerEvents>();
         }
 
         private void Start()
@@ -91,7 +93,7 @@ namespace Logic
          
             _logicTree.AddCurrent(InitializeSkillEffects.InitAllSkills());
             
-            _logicTree.AddCurrent(_startOfGameEvent.GameStartEvent());
+            _logicTree.AddCurrent(TurnControllerEvents.GameStartEvent());
 
             _logicTree.AddCurrent(StartHeroTimers());
         }
@@ -127,12 +129,8 @@ namespace Logic
         private IEnumerator ActiveHeroesFound()
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
-            
-            //TODO: PreHeroStartTurn
+
             _logicTree.AddCurrent(PreHeroStartTurn());
-            
-            //TODO: Delete this after implementation of PreHeroStartTurn
-           //_logicTree.AddCurrent(StartHeroTurn());
             
             _logicTree.EndSequence();
             yield return null;
@@ -144,6 +142,10 @@ namespace Logic
             //TODO: Initialize _activeHeroLogic
             //_logicTree.AddCurrent(InitializeActiveHeroLogic());
             InitializeActiveHeroLogic();
+            
+            //TEST
+            //TODO: StartOfCombatEvent
+            _logicTree.AddCurrent(StartCombatTurnEvent());
             
             //Reset Energy
             _logicTree.AddCurrent(ResetEnergyToZero());
@@ -165,6 +167,26 @@ namespace Logic
             _logicTree.EndSequence();
             yield return null;
         }
+        
+        //TEST
+        private IEnumerator StartCombatTurnEvent()
+        {
+            TurnControllerEvents.StartCombatTurn();
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator EndCombatTurnEvent()
+        {
+            TurnControllerEvents.EndCombatTurn();
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+        //TEST END
+        
 
         public IEnumerator StartHeroTurn()
         {
@@ -201,6 +223,10 @@ namespace Logic
             
             //Post End turn for StatusEffects effects
             _logicTree.AddCurrent(PostHeroEndTurnEvent());
+            
+            //TEST            
+            //TODO: EndCombatTurnEvent
+            _logicTree.AddCurrent(EndCombatTurnEvent());
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 
@@ -359,6 +385,8 @@ namespace Logic
             var logicTree = _activeHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             
             _activeHeroLogic.HeroEvents.PostHeroEndTurn(_activeHeroLogic.Hero);
+            
+            //TODO: this.TurnControllerEvents.EndCombatTurn()
             
             logicTree.EndSequence();
             yield return null;
