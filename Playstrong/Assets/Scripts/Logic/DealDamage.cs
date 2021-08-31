@@ -9,15 +9,7 @@ namespace Logic
     public class DealDamage : MonoBehaviour, IDealDamage
     {
         private IHeroLogic _heroLogic;
-
-        /*[SerializeField] private int normalAttackDamage;
-
-        private int NormalAttackDamage
-        {
-            get => normalAttackDamage;
-            set => normalAttackDamage = value;
-        }*/
-
+        
         [SerializeField]
         private int otherAttackDamage;
 
@@ -36,15 +28,16 @@ namespace Logic
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
-            //var totalDamageMultiplier = criticalFactor + otherDamageMultiplier;
-            
-            //NormalAttackDamage = attackPower + OtherAttackDamage;
+
             var attackDamage = attackPower + OtherAttackDamage;
             var nonCriticalDamage = Mathf.CeilToInt(otherDamageMultiplier*attackDamage/100);
             
             var normalDamage = attackDamage + nonCriticalDamage;
-            var criticalDamage = Mathf.CeilToInt(criticalFactor * normalDamage);
             
+            
+            var criticalDamage = Mathf.CeilToInt(criticalFactor * normalDamage);
+           
+
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeAttackDamage(normalDamage, criticalDamage,attackerHero));
 
             logicTree.EndSequence();

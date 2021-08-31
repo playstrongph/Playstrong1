@@ -71,9 +71,9 @@ namespace Logic
             yield return null;
         }
 
-        private IEnumerator HeroTakesDamage(int normalDamage, int totalEnhancedDamage)
+        private IEnumerator HeroTakesDamage(int normalDamage, int criticalDamage)
         {
-             _finalDamage = ComputeFinalDamage(normalDamage, totalEnhancedDamage);
+             _finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
 
             ComputeNewArmor(_thisHeroLogic, _finalDamage);
             ComputeNewHealth(_thisHeroLogic, _residualDamage);
@@ -84,9 +84,9 @@ namespace Logic
             yield return null;
         }
         
-        private IEnumerator HeroTakesDamageIgnoreArmor(int normalDamage, int totalEnhancedDamage)
+        private IEnumerator HeroTakesDamageIgnoreArmor(int normalDamage, int criticalDamage)
         {
-            _finalDamage = ComputeFinalDamage(normalDamage, totalEnhancedDamage);
+            _finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
             
             ComputeNewHealth(_thisHeroLogic, _finalDamage);
             
