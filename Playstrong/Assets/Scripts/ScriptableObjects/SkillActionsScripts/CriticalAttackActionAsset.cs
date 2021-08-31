@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using ScriptableObjects.AnimationSOscripts;
+using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using UnityEngine;
 
@@ -20,7 +21,9 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private float _intervalDelay = 1f;
        
-       
+        [Header("Attack Target Type")] [SerializeField]
+        private ScriptableObject attackTargetType;
+        private IAttackTargetTypeAsset AttackTargetType => attackTargetType as IAttackTargetTypeAsset;
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
@@ -67,7 +70,14 @@ namespace ScriptableObjects.SkillActionsScripts
             var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
 
             logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
-            logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
+            
+            //TODO: AttackTargetType.DealAttackDamage
+            //TEST
+            logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+            
+            //TEST - comment out
+            //logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
+            
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
             
             logicTree.EndSequence();

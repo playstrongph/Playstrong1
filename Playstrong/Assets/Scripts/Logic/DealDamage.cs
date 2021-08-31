@@ -24,7 +24,7 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
         }
         
-        //TODO: To be Obsoleted
+        //TODO: To be Deleted - Obsolete
         public IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -56,6 +56,8 @@ namespace Logic
         
         public IEnumerator DealSingleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
+           Debug.Log("Deal Single Attack Damage");
+            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
 

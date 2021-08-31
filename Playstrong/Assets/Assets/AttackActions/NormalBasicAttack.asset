@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: NormalBasicAttack
   m_EditorClassIdentifier: 
   attackAnimation: {fileID: 11400000, guid: 1dcca8b6272dcd34b946fe423af9d111, type: 2}
+  attackTargetType: {fileID: 11400000, guid: c749d03dc05b12b44900c0b53d970723, type: 2}

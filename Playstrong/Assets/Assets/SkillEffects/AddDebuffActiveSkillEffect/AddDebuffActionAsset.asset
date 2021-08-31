@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AddDebuffActionAsset
   m_EditorClassIdentifier: 
   _debuffEffectAsset: {fileID: 11400000, guid: a0ec43f39bacaa84994b461262541061, type: 2}
-  _debuffCounters: 3
+  _debuffCounters: 1

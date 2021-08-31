@@ -94,6 +94,7 @@ namespace Logic
             var randomChance = Random.Range(1, 101);
 
             _singleAttackDamage = ComputeSingleAttackDamage(normalDamage, criticalDamage);
+            Debug.Log("TakeSingleAttackDamage: " +_singleAttackDamage);
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_singleAttackDamage));

@@ -43,8 +43,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
 
         private void ComputeCurseDamage(IHero allyHero, IHero dummyHero)
         {
-            var finalDamage = allyHero.HeroLogic.TakeDamage.FinalDamage;
-            var floatCurseDamage = percentFactor * finalDamage / 100;
+            var singleAttackDamage = allyHero.HeroLogic.TakeDamage.SingleAttackDamage;
+            var floatCurseDamage = percentFactor * singleAttackDamage / 100;
 
             _heroAttackedThisTurn = allyHero;
             

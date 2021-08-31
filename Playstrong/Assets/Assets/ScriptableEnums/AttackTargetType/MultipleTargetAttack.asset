@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 951ddfdd8c6f55045bc14ce34309d1c0, type: 3}
-  m_Name: NormalSkillAttack
+  m_Script: {fileID: 11500000, guid: 7e2fccd43db08eb42b3726fbf949c03a, type: 3}
+  m_Name: MultipleTargetAttack
   m_EditorClassIdentifier: 
-  attackAnimation: {fileID: 11400000, guid: 1dcca8b6272dcd34b946fe423af9d111, type: 2}
