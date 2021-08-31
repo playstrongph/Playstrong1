@@ -8,8 +8,8 @@ namespace Logic
         IEnumerator GameStartEvent();
         event TurnControllerEvents.TurnControlEvent EStartCombatTurn;
         event TurnControllerEvents.TurnControlEvent EEndCombatTurn;
-        void EndCombatTurn(IHero hero);
-        void StartCombatTurn(IHero hero);
+        void EndCombatTurn();
+        void StartCombatTurn();
 
 
     }

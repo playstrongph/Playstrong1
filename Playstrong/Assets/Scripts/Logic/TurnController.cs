@@ -171,7 +171,7 @@ namespace Logic
         //TEST
         private IEnumerator StartCombatTurnEvent()
         {
-            TurnControllerEvents.StartCombatTurn(_activeHeroLogic.Hero);
+            TurnControllerEvents.StartCombatTurn();
             
             _logicTree.EndSequence();
             yield return null;
@@ -179,7 +179,7 @@ namespace Logic
         
         private IEnumerator EndCombatTurnEvent()
         {
-            TurnControllerEvents.EndCombatTurn(_activeHeroLogic.Hero);
+            TurnControllerEvents.EndCombatTurn();
             
             _logicTree.EndSequence();
             yield return null;

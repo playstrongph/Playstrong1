@@ -14,6 +14,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         private IHero _hero;
         private ITurnController _turnController;
 
+        private IHero _heroAttackedThisTurn;
+
         public override void ApplyStatusEffect(IHero thisHero)
         {
             _hero = thisHero;
@@ -43,6 +45,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         {
             var finalDamage = allyHero.HeroLogic.TakeDamage.FinalDamage;
             var floatCurseDamage = percentFactor * finalDamage / 100;
+
+            _heroAttackedThisTurn = allyHero;
             
             //In case the hero receives more than 1 singleAttack in a turn
             curseDamage += Mathf.CeilToInt(floatCurseDamage);
@@ -51,13 +55,13 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
 
         }
 
-        private void DealCurseDamage(IHero targetHero)
+        private void DealCurseDamage()
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
             
             Debug.Log("Deal CurseDamage: " +curseDamage);
             if (curseDamage > 0)
-                logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(curseDamage, 0, 0));
+                logicTree.AddCurrent(_heroAttackedThisTurn.HeroLogic.TakeDamage.TakeDirectDamage(curseDamage, 0, 0));
 
             curseDamage = 0;
         }
