@@ -19,8 +19,8 @@ namespace Logic
         
         //To be Obsoleted
         [SerializeField]
-        private int _finalDamage;
-        public int FinalDamage => _finalDamage;
+        private int finalDamage;
+        public int FinalDamage => finalDamage;
 
 
         //TEST - Single, Direct, Multiple Damage
@@ -48,43 +48,6 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
         
-        //TODO: Delete After Implem of damageTypes
-        //START DELETE
-        public IEnumerator TakeAttackDamage(int normalDamage, int criticalDamage, IHero attackerHero)
-        {
-            var targetHero = _thisHeroLogic.Hero;
-            var penetrateChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance; 
-            var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
-            var netChance = penetrateChance - penetrateResistance;
-            var randomChance = Random.Range(1, 101);
-            
-            _finalDamage = ComputeFinalDamage(normalDamage, criticalDamage);
-            
-            if(randomChance <=netChance)
-                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_finalDamage));
-            else
-                _logicTree.AddCurrent(HeroTakesDamage(_finalDamage));
-
-            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
-
-            _logicTree.EndSequence();
-            yield return null;
-        }
-        private int ComputeFinalDamage(int normalDamage, int criticalDamage)
-        {
-           
-            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-
-            var floatFinalDamage = (1 - damageReduction) * (normalDamage + criticalDamage);
-
-            var finalDamage = Mathf.CeilToInt(floatFinalDamage);
-
-            return finalDamage;
-        }
-        
-        //DELET END
-        
-        
         public IEnumerator TakeSingleAttackDamage(int normalDamage, int criticalDamage, IHero attackerHero)
         {
             var targetHero = _thisHeroLogic.Hero;
@@ -94,7 +57,10 @@ namespace Logic
             var randomChance = Random.Range(1, 101);
 
             _singleAttackDamage = ComputeSingleAttackDamage(normalDamage, criticalDamage);
-            Debug.Log("TakeSingleAttackDamage: " +_singleAttackDamage);
+            
+            //For use of methods that doesn't care about damage types - e.g. Reflect
+            finalDamage = _singleAttackDamage;
+          
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_singleAttackDamage));
@@ -117,6 +83,9 @@ namespace Logic
             
             _multipleAttackDamage = ComputeMultipleAttackDamage(normalDamage, criticalDamage);
             
+            //For use of methods that doesn't care about damage types - e.g. Reflect
+            finalDamage = _multipleAttackDamage;
+            
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_multipleAttackDamage));
             else
@@ -136,6 +105,9 @@ namespace Logic
             var randomChance = Random.Range(1, 101);
 
             _directDamage = ComputeDirectDamage(directDamage, criticalDamage);
+            
+            //For use of methods that doesn't care about damage types - e.g. Reflect
+            finalDamage = _directDamage;
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
@@ -188,10 +160,6 @@ namespace Logic
 
         private IEnumerator HeroTakesDamage(int finalDamage)
         {
-            //TEMP 
-            //TODO: Delete After implem of damageTypes
-            _finalDamage = finalDamage;
-
             //This is where Armor and health gets updated
              ComputeNewArmor(_thisHeroLogic, finalDamage);
              ComputeNewHealth(_thisHeroLogic, _residualDamage);
@@ -204,11 +172,6 @@ namespace Logic
         
         private IEnumerator HeroTakesDamageIgnoreArmor(int finalDamage)
         {
-            
-            //TEMP 
-            //TODO: Delete After implem of damageTypes
-            _finalDamage = finalDamage;
-            
             //This is where Armor and health gets updated
             ComputeNewHealth(_thisHeroLogic, finalDamage);
             

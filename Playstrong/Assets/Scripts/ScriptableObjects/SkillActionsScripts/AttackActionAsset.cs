@@ -44,13 +44,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
             
             logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
-            
-            //TODO: AttackTargetType.DealAttackDamage
-            //TEST
+
             logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
-            
-            //TEST - comment out
-            //logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
 
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
 

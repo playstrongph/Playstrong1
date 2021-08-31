@@ -70,13 +70,8 @@ namespace ScriptableObjects.SkillActionsScripts
             var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
 
             logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
-            
-            //TODO: AttackTargetType.DealAttackDamage
-            //TEST
+
             logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
-            
-            //TEST - comment out
-            //logicTree.AddCurrent(dealDamage.DealAttackDamage(thisHero, targetHero,attackPower, criticalFactor));
             
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
             
@@ -88,9 +83,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
-            
-            //visualTree.AddCurrent(AttackHeroVisual(thisHero,targetHero));
-            
+
             visualTree.AddCurrent(AttackAnimation.StartAnimation(thisHero,targetHero));
             
             logicTree.EndSequence();

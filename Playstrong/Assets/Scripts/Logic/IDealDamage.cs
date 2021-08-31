@@ -6,9 +6,6 @@ namespace Logic
     public interface IDealDamage
     {
         int OtherAttackDamage { get; set; }
-        
-        //TODO: To be Deleted - Obsolete
-        IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
         IEnumerator DealDirectDamage(IHero targetHero, int normalDamage, int penetrateChance);
         IEnumerator DealSingleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
         IEnumerator DealMultipleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower,

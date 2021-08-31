@@ -14,11 +14,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
-           //SingleTargetAttack
-           //dealDamage.DealSingleAttackDamage(thisHero, targetHero, attackPower, criticalFactor);
-            
-           //MultipleTargetAttack
-           logicTree.AddCurrent(dealDamage.DealMultipleAttackDamage(thisHero, targetHero, attackPower, criticalFactor));
+            logicTree.AddCurrent(dealDamage.DealMultipleAttackDamage(thisHero, targetHero, attackPower, criticalFactor));
 
             logicTree.EndSequence();
             yield return null;

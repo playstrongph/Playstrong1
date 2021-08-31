@@ -7,12 +7,10 @@ namespace Logic
 {
     public interface ITakeDamage
     {
-        //TODO: Delete After Implem of damageTypes
-        IEnumerator TakeAttackDamage(int normalDamage, int criticalDamage, IHero attacker);
-        //TODO: Delete After IMplem of damageTypes
-        int FinalDamage { get; }
-        
+
         int DirectDamage { get; }
+
+        int FinalDamage { get; }
 
         int SingleAttackDamage { get; }
 
