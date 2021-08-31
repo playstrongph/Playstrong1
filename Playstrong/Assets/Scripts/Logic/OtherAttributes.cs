@@ -10,7 +10,7 @@ namespace Logic
         /// Damage Multipliers
         /// </summary>
 
-        [Header("Damage Multipliers")] [SerializeField]
+        [Header("Damage Reduction")] [SerializeField]
         private float _damageReduction = 0f;
 
         public float DamageReduction
@@ -20,6 +20,31 @@ namespace Logic
         }
         
         [SerializeField]
+        private float _directDamageReduction = 0f;
+        public float DirectDamageReduction
+        {
+            get => _directDamageReduction;
+            set => _directDamageReduction = value;
+        }
+        
+        
+        [SerializeField]
+        private float _singleAttackDamageReduction = 0f;
+        public float SingleAttackDamageReduction
+        {
+            get => _singleAttackDamageReduction;
+            set => _singleAttackDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _multipleAttackDamageReduction = 0f;
+        public float MultipleAttackDamageReduction
+        {
+            get => _multipleAttackDamageReduction;
+            set => _multipleAttackDamageReduction = value;
+        }
+
+        [Header("Damage Multipliers")][SerializeField]
         private float _criticalDamageMultiplier = 100f;
 
         public float CriticalDamageMultiplier
@@ -254,7 +279,7 @@ namespace Logic
         /// Base Damage Multipliers
         /// </summary>
 
-        [Header("Damage Multipliers")]
+        [Header("Base Damage Reduction")]
         [Header("Base Values")] [SerializeField]
         private float _baseDamageReduction = 0f;
 
@@ -263,6 +288,32 @@ namespace Logic
             get => _baseDamageReduction;
             set => _baseDamageReduction = value;
         }
+        
+        [SerializeField]
+        private float _baseDirectDamageReduction = 0f;
+        public float BaseDirectDamageReduction
+        {
+            get => _baseDirectDamageReduction;
+            set => _baseDirectDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseSingleAttackDamageReduction = 0f;
+        public float BaseSingleAttackDamageReduction
+        {
+            get => _baseSingleAttackDamageReduction;
+            set => _baseSingleAttackDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseMultipleAttackDamageReduction = 0f;
+        public float BaseMultipleAttackDamageReduction
+        {
+            get => _baseMultipleAttackDamageReduction;
+            set => _baseMultipleAttackDamageReduction = value;
+        }
+        
+        [Header("Base Damage Multipliers")]
         
         [SerializeField]
         private float _baseCriticalDamageMultiplier = 100f;

@@ -150,6 +150,7 @@ namespace Logic
         private int ComputeDirectDamage(int normalDamage, int criticalDamage)
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+            var directDamage
 
             //TODO: Update with directDamageReduction Factor
             var floatFinalDamage = (1 - damageReduction) * (normalDamage + criticalDamage);

@@ -3,9 +3,18 @@
     public interface IOtherAttributes
     {   
         /// <summary>
-        /// Damage Multipliers
+        /// Damage Reduction
         /// </summary>
         float DamageReduction { get; set; }
+
+        float DirectDamageReduction { get; set; }
+
+        float SingleAttackDamageReduction { get; set; }
+        float MultipleAttackDamageReduction { get; set; }
+        
+        /// <summary>
+        /// Damage Multipliers
+        /// </summary>
         float CriticalDamageMultiplier { get; set; }
 
         float OtherDamageMultiplier { get; set; }
@@ -42,9 +51,16 @@
         float HeroInabilityChance { get; set; }
 
         /// <summary>
-        /// Base Damage Multipliers
+        /// Base Damage Reduction
         /// </summary>
         float BaseDamageReduction { get; set; }
+        float BaseDirectDamageReduction { get; set; }
+        float BaseSingleAttackDamageReduction { get; set; }
+        float BaseMultipleAttackDamageReduction { get; set; }
+        
+        /// <summary>
+        /// Base Damage Multipliers
+        /// </summary>
         float BaseCriticalDamageMultiplier { get; set;}
         float BaseAttackTargetChance { get; set; }
 
