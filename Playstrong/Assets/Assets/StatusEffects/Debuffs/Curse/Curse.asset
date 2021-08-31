@@ -9,20 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faad9440c0c5de742a431a665490cf1a, type: 3}
-  m_Name: Sleep
+  m_Script: {fileID: 11500000, guid: 825c5babb9c2c78499d9ff086a7d13fe, type: 3}
+  m_Name: Curse
   m_EditorClassIdentifier: 
-  _name: Sleep
-  _description: Hero misses its next turn.  Any attack received will deal critical
-    strike and dispel sleep.
-  _icon: {fileID: 21300000, guid: 7eef55bc2b38c3847adfab84b87d79cb, type: 3}
+  _name: Curse
+  _description: Deal 10% of single attack damage received by an ally hero to itself
+    at the end of the turn
+  _icon: {fileID: 21300000, guid: 85e439781b927c14da2316e5ee667437, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 1114678a1f6535349abd26f8b5b2f548, type: 2}
+  _skillactionAsset: {fileID: 0}
   _effectValue: 0
-  _chanceIncrease: 150
-  _resistanceDecrease: 2000
-  decreaseCriticalResistance: {fileID: 11400000, guid: 12be378e38a48a3408d3e3409c24ffcf,
-    type: 2}
+  curseDamage: 0
+  percentFactor: 10

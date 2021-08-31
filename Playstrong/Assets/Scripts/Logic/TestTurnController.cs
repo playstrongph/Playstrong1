@@ -59,7 +59,9 @@ namespace Logic
         public ISortHeroesByEnergy SortHeroesByEnergy => _sortHeroesByEnergy;
         
         private IUpdateHeroTimers _updateHeroTimers;
+        
         private ITurnControllerEvents _turnControllerEvents;
+        public ITurnControllerEvents TurnControllerEvents => _turnControllerEvents;
         
 
         private IBattleSceneManager _battleSceneManager;

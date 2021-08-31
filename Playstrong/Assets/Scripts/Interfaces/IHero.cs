@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using System.Collections.Generic;
+using Logic;
 using ScriptableObjects;
 using ScriptableObjects.Others;
 using UnityEngine;
@@ -36,6 +37,9 @@ namespace Interfaces
         Transform HeroTransform { get; }
 
         IDamageEffect DamageEffect { get; }
+
+        List<IHero> AllAllyHeroes { get; }
+
 
 
     }

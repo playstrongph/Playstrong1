@@ -59,7 +59,7 @@ namespace Logic
         private IUpdateHeroTimers _updateHeroTimers;
         
         private ITurnControllerEvents _turnControllerEvents;
-        private ITurnControllerEvents TurnControllerEvents => _turnControllerEvents;
+        public ITurnControllerEvents TurnControllerEvents => _turnControllerEvents;
 
 
         private IBattleSceneManager _battleSceneManager;
@@ -171,7 +171,7 @@ namespace Logic
         //TEST
         private IEnumerator StartCombatTurnEvent()
         {
-            TurnControllerEvents.StartCombatTurn();
+            TurnControllerEvents.StartCombatTurn(_activeHeroLogic.Hero);
             
             _logicTree.EndSequence();
             yield return null;
@@ -179,7 +179,7 @@ namespace Logic
         
         private IEnumerator EndCombatTurnEvent()
         {
-            TurnControllerEvents.EndCombatTurn();
+            TurnControllerEvents.EndCombatTurn(_activeHeroLogic.Hero);
             
             _logicTree.EndSequence();
             yield return null;

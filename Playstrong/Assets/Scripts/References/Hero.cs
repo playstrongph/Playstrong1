@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Interfaces;
 using Logic;
@@ -87,6 +88,8 @@ namespace References
         private IDeadHeroes _deadHeroes;
         public IDeadHeroes DeadHeroes => _deadHeroes;
 
+        public List<IHero> AllAllyHeroes { get; set; } = new List<IHero>();
+
 
         private void Awake()
         {
@@ -100,6 +103,24 @@ namespace References
         private void Start()
         {
             _deadHeroes = LivingHeroes.Player.DeadHeroes;
+            GetAllyHeroes();
+        }
+
+        private void GetAllyHeroes()
+        {
+            foreach (var heroObject in LivingHeroes.HeroesList)
+            {
+                var hero = heroObject.GetComponent<IHero>();
+                AllAllyHeroes.Add(hero);
+            }
+            
+            //Note: There is no deadHero at the start, below not really required
+            foreach (var heroObject in DeadHeroes.HeroesList)
+            {
+                var hero = heroObject.GetComponent<IHero>();
+                AllAllyHeroes.Add(hero);
+            }
+            
         }
     }
 }

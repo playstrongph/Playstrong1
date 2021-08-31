@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Interfaces;
 
 namespace Logic
 {
@@ -7,8 +8,8 @@ namespace Logic
         IEnumerator GameStartEvent();
         event TurnControllerEvents.TurnControlEvent EStartCombatTurn;
         event TurnControllerEvents.TurnControlEvent EEndCombatTurn;
-        void EndCombatTurn();
-        void StartCombatTurn();
+        void EndCombatTurn(IHero hero);
+        void StartCombatTurn(IHero hero);
 
 
     }

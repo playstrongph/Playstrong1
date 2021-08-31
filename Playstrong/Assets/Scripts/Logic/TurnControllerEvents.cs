@@ -15,14 +15,13 @@ namespace Logic
         private ICoroutineTree _logicTree;
         
         //TEST
-        public delegate void TurnControlEvent();
-
+        public delegate void TurnControlEvent(IHero hero);
         public event TurnControlEvent EStartCombatTurn;
         public event TurnControlEvent EEndCombatTurn;
         
-        public void StartCombatTurn()
+        public void StartCombatTurn(IHero hero)
         {
-            EStartCombatTurn?.Invoke();
+            EStartCombatTurn?.Invoke(hero);
         }
         
         private void UnsubscribeStartCombatTurnClients()
@@ -35,9 +34,9 @@ namespace Logic
                 }
         }
         
-        public void EndCombatTurn()
+        public void EndCombatTurn(IHero hero)
         {
-            EEndCombatTurn?.Invoke();
+            EEndCombatTurn?.Invoke(hero);
         }
         
         private void UnsubscribeEndCombatTurnClients()

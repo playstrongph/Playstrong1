@@ -32,5 +32,7 @@ namespace Logic
         IEnumerator StartNextHeroTurn();
 
         IEnumerator SetCurrentHeroInactive();
+
+        ITurnControllerEvents TurnControllerEvents { get; }
     }
 }
