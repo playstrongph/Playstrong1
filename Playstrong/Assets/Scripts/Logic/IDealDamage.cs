@@ -5,9 +5,9 @@ namespace Logic
 {
     public interface IDealDamage
     {
-       IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
-       int OtherAttackDamage { get; set; }
-       IEnumerator DealDirectDamage(IHero targetHero, int normalDamage, int penetrateChance); 
+        int OtherAttackDamage { get; set; }
+        IEnumerator DealAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor);
+        IEnumerator DealDirectDamage(IHero targetHero, int normalDamage, int penetrateChance); 
      
     }
 }

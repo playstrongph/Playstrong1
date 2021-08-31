@@ -10,6 +10,13 @@ namespace Logic
         IEnumerator TakeAttackDamage(int normalDamage, int criticalDamage, IHero attacker);
         IEnumerator TakeDirectDamage(int normalDamage, int totalEnhancedDamage, int penetrateChance);
         int FinalDamage { get; }
+        
+        int DirectDamage { get; }
+
+        int SingleAttackDamage { get; }
+
+        int MultipleAttackDamage { get; }
+
 
 
     }
