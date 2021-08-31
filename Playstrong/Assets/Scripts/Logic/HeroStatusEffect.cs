@@ -101,6 +101,9 @@ namespace Logic
 
         private IRemoveStatusEffect _removeStatusEffect;
         public IRemoveStatusEffect RemoveStatusEffect => _removeStatusEffect;
+
+        private IIncreaseStatusEffectCounters _increaseStatusEffectCounters;
+        public IIncreaseStatusEffectCounters IncreaseStatusEffectCounters => _increaseStatusEffectCounters;
         
 
         private void Awake()
@@ -109,6 +112,7 @@ namespace Logic
             _reduceStatusEffectCounters = GetComponent<IReduceStatusEffectCounters>();
             _setStatusEffectCounters = GetComponent<ISetStatusEffectCounters>();
             _removeStatusEffect = GetComponent<IRemoveStatusEffect>();
+            _increaseStatusEffectCounters = GetComponent<IIncreaseStatusEffectCounters>();
         }
     }
 }

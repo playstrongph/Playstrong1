@@ -41,6 +41,8 @@ namespace Logic
 
         GameObject StatusEffectPreview { get; set; }
 
+        IIncreaseStatusEffectCounters IncreaseStatusEffectCounters { get; }
+
 
     }
 }

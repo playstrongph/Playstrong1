@@ -22,6 +22,7 @@ namespace ScriptableObjects.StatusEffects.Instance
         {
            
             statusEffectCounters = _fixedValue;
+            
             CheckExistingStatusEffects(targetHero, statusEffectAsset);
             
             if (ExistingStatusEffect != null)

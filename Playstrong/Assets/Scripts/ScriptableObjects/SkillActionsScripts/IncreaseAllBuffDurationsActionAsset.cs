@@ -18,15 +18,11 @@ namespace ScriptableObjects.SkillActionsScripts
             var allBuffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
 
             foreach (var buff in allBuffs)
-            {   
-                //Option 1
-                /*var newBuffCounters = buff.Counters + buffDurationIncrease;
-                buff.SetStatusEffectCounters.SetCounters(newBuffCounters,targetHero.CoroutineTreesAsset);*/
+            {
+                //TODO: Use IHeroAsset IncreaseStatusEffect Counters
                 
-                //Independent Actions
                 buff.Counters += buffDurationIncrease;
                 buff.CounterVisual.text = buff.Counters.ToString();
-
             }
 
             logicTree.EndSequence();
