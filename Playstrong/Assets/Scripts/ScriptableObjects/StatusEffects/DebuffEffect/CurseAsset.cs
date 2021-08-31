@@ -54,15 +54,13 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             Debug.Log("Compute CurseDamage: " +curseDamage);
 
         }
-        
-        //TODO: Change this to generic DealDirectDamage Action
+
         private void DealCurseDamage()
         {
             var logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
             
-            Debug.Log("Deal CurseDamage: " +curseDamage);
             if (curseDamage > 0)
-                logicTree.AddCurrent(_heroAttackedThisTurn.HeroLogic.TakeDamage.TakeDirectDamage(curseDamage, 0, 0));
+                logicTree.AddCurrent(SkillActionAsset.StartAction( _heroAttackedThisTurn,curseDamage));
 
             //Reset curse damage at the end of the combat turn
             curseDamage = 0;

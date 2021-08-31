@@ -20,7 +20,7 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 0}
+  _skillactionAsset: {fileID: 11400000, guid: bef9c118bef60d040bcf16abb376d469, type: 2}
   _effectValue: 0
   curseDamage: 0
   percentFactor: 10
