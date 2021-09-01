@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interfaces;
+using References;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using UnityEngine;
 
@@ -16,13 +17,11 @@ namespace ScriptableObjects.SkillActionsScripts
             buffDurationIncrease = (int)value;
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var allBuffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
+            var coroutineTrees = targetHero.CoroutineTreesAsset;
 
             foreach (var buff in allBuffs)
             {
-                //TODO: Use IHeroAsset IncreaseStatusEffect Counters
-                
-                buff.Counters += buffDurationIncrease;
-                buff.CounterVisual.text = buff.Counters.ToString();
+                buff.StatusEffectInstance.IncreaseCounters(buff, targetHero,buffDurationIncrease);
             }
 
             logicTree.EndSequence();
