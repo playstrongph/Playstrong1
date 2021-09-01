@@ -23,7 +23,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             CasterHero = CasterHero;
             
             hero.HeroLogic.HeroEvents.EPostHeroEndTurn += DamageEffect;
-            //hero.HeroLogic.HeroEvents.EPostHeroEndTurn += ShockEffect;
+            hero.HeroLogic.HeroEvents.EPostHeroEndTurn += ShockEffect;
 
         }
         
@@ -32,7 +32,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= DamageEffect;
-            //hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= ShockEffect;
+            hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= ShockEffect;
         }
         
         //Subscribe to PostHeroEndTurnEvent?
