@@ -19,9 +19,11 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void ApplyStatusEffect(IHero hero) 
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            Debug.Log("Caster Hero: " +CasterHero.HeroName);
+            CasterHero = CasterHero;
             
             hero.HeroLogic.HeroEvents.EPostHeroEndTurn += DamageEffect;
-            hero.HeroLogic.HeroEvents.EPostHeroEndTurn += ShockEffect;
+            //hero.HeroLogic.HeroEvents.EPostHeroEndTurn += ShockEffect;
 
         }
         
@@ -30,7 +32,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= DamageEffect;
-            hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= ShockEffect;
+            //hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= ShockEffect;
         }
         
         //Subscribe to PostHeroEndTurnEvent?
@@ -38,10 +40,10 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         {
             var counters = HeroStatusEffectReference.Counters;
             
-            //var bombDamage = CasterHero.HeroLogic.HeroAttributes.Attack;
+            var bombDamage = CasterHero.HeroLogic.HeroAttributes.Attack;
             
             //TEMP
-            var bombDamage = targetHero.HeroLogic.HeroAttributes.Attack;
+            //var bombDamage = targetHero.HeroLogic.HeroAttributes.Attack;
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
