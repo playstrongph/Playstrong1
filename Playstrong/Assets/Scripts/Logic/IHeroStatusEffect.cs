@@ -43,6 +43,8 @@ namespace Logic
 
         IIncreaseStatusEffectCounters IncreaseStatusEffectCounters { get; }
 
+        IDecreaseStatusEffectCounters DecreaseStatusEffectCounters { get; }
+
 
     }
 }

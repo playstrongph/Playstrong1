@@ -35,11 +35,9 @@ namespace ScriptableObjects.StatusEffects.Instance
                 if(NewStatusEffect.Counters <= 0)
                     NewStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
             }
-
-          
-
-
         }
+        
+        
         
         
         

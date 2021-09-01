@@ -11,8 +11,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
     public class UpdateCounterStartTurnAsset : ScriptableObject, IStatusEffectCounterUpdate
     {
         private ICoroutineTree _logicTree;
-        private int _value = 1;
-        
+
         public void UpdateCountersStartTurn(IHeroStatusEffect heroStatusEffect)
         {
             _logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
@@ -27,7 +26,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
 
         private IEnumerator UpdateCounters(IHeroStatusEffect heroStatusEffect)
         {
-            heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(_value, heroStatusEffect.CoroutineTreesAsset);
+            heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(heroStatusEffect.CoroutineTreesAsset);
             
             _logicTree.EndSequence();
             yield return null;

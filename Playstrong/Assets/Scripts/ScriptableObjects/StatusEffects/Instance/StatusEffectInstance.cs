@@ -89,8 +89,40 @@ namespace ScriptableObjects.StatusEffects.Instance
             statusEffectAsset.CasterHero = casterHero;
 
         }
+
+        public virtual void IncreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters,coroutineTreesAsset);
+        }
+        
+        public virtual void DecreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters,coroutineTreesAsset);
+        }
+        
+        public virtual void SetCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.SetStatusEffectCounters.SetCounters(counters,coroutineTreesAsset);
+        }
+        
+        /// <summary>
+        /// Methods to be used by dispel actions - Remove Buff or Remove Debuff
+        /// </summary>
+        public virtual void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
+        }
         
         
-    
+        
+        
+        
+
+
+
     }
 }

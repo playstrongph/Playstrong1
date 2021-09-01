@@ -8,20 +8,15 @@ using UnityEngine.Rendering;
 namespace Logic
 {
     
-    
     /// <summary>
-    /// Normal Reduction method used during start turn/end turn
-    /// Fixed Reduction value of 1.
+    /// For use by Actions and Effects, NOT by normal reduction during hero turns
     /// </summary>
-    
-    public class ReduceStatusEffectCounters : MonoBehaviour, IReduceStatusEffectCounters
+    public class DecreaseStatusEffectCounters : MonoBehaviour, IDecreaseStatusEffectCounters
     {
         private IHeroStatusEffect _heroStatusEffect;
         
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
-
-        private int fixedReduction = 1;
         
         private void Awake()
         {
@@ -29,29 +24,31 @@ namespace Logic
             
         }
 
-        public void ReduceCounters(ICoroutineTreesAsset coroutineTreesAsset)
+        public void DecreaseCounters(int value, ICoroutineTreesAsset coroutineTreesAsset)
         {
            _logicTree = coroutineTreesAsset.MainLogicTree;
            _visualTree = coroutineTreesAsset.MainVisualTree;
            
-           _logicTree.AddCurrent(LogicReduceCountersEnumerator());
-           //TODO: potentially include statuseffectinstance UpdateCounters for fixedInstance purposes
+           _logicTree.AddCurrent(DecreaseCounters(value));
         }
 
-        private IEnumerator LogicReduceCountersEnumerator()
+        private IEnumerator DecreaseCounters(int value)
         {
-            _heroStatusEffect.Counters -= fixedReduction;
-            
-            _visualTree.AddCurrent(VisualReduceCountersEnumerator());
-            
-            if(_heroStatusEffect.Counters <=0)
+            _heroStatusEffect.Counters -= value;
+
+            if (_heroStatusEffect.Counters <= 0)
+            {
+                _heroStatusEffect.Counters = 0;
                 _heroStatusEffect.RemoveStatusEffect.RemoveEffect(_heroStatusEffect.TargetHero);
+            }
+
+            _visualTree.AddCurrent(SetCountersVisual(value));
 
             _logicTree.EndSequence();
             yield return null;
         }
         
-        private IEnumerator VisualReduceCountersEnumerator()
+        private IEnumerator SetCountersVisual(int value)
         {
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 

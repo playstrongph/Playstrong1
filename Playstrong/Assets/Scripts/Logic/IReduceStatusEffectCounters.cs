@@ -4,6 +4,6 @@ namespace Logic
 {
     public interface IReduceStatusEffectCounters
     {
-        void ReduceCounters(int value, ICoroutineTreesAsset coroutineTreesAsset);
+        void ReduceCounters(ICoroutineTreesAsset coroutineTreesAsset);
     }
 }
