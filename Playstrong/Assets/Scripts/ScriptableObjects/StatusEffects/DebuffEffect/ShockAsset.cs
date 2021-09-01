@@ -8,18 +8,18 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     {   
         //Stun can't be prevented, even by skill can't be stunned
         [SerializeField]
-        private int _chanceIncrease = 10000;
+        private int _inabilityChanceIncrease = 10000;
 
         public override void ApplyStatusEffect(IHero hero) 
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, _chanceIncrease));
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, _inabilityChanceIncrease));
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -_chanceIncrease));
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -_inabilityChanceIncrease));
         }
 
        

@@ -84,7 +84,12 @@ namespace ScriptableObjects.StatusEffects.Instance
             var existingStatusEffectCounters = existingStatusEffect.Counters;
             var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
 
-            ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
+            //Original
+            //ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
+            
+            //TEST
+            ExistingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            
             ExistingStatusEffect.CasterHero = casterHero;
             statusEffectAsset.CasterHero = casterHero;
 
