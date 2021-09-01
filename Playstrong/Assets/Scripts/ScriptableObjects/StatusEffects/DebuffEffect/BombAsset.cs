@@ -1,4 +1,6 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
+using Logic;
 using ScriptableObjects.SkillActionsScripts;
 using UnityEngine;
 using Visual;
@@ -11,35 +13,78 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         
         private int _chanceIncrease = 150;
 
+        [SerializeField] private ScriptableObject addShockStatusEffect;
+        private IHeroAction AddShockStatusEffect => addShockStatusEffect as IHeroAction;
+
         public override void ApplyStatusEffect(IHero hero) 
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, _chanceIncrease));
+            hero.HeroLogic.HeroEvents.EPostHeroEndTurn += DamageEffect;
+            hero.HeroLogic.HeroEvents.EPostHeroEndTurn += ShockEffect;
+
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -_chanceIncrease));
+            
+            hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= DamageEffect;
+            hero.HeroLogic.HeroEvents.EPostHeroEndTurn -= ShockEffect;
         }
         
-        //TODO: Subscribe to targetHero EndTurn
+        //Subscribe to PostHeroEndTurnEvent?
         private void DamageEffect(IHero targetHero)
         {
             var counters = HeroStatusEffectReference.Counters;
-            var bombDamage = CasterHero.HeroLogic.HeroAttributes.Attack;
             
-            if (counters <= 0)
+            //var bombDamage = CasterHero.HeroLogic.HeroAttributes.Attack;
+            
+            //TEMP
+            var bombDamage = targetHero.HeroLogic.HeroAttributes.Attack;
+            
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            if (counters <= 1)
             {
                 //TODO: Replace with DealDamage SkillActionAsset.StartAction 
-                targetHero.HeroLogic.TakeDamage.TakeDirectDamage(bombDamage, 0, 0);    
+                logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(bombDamage, 0, 0));    
             }
         }
-
+        
+        //Subscribe to PostHeroEndTurnEvent?
         private void ShockEffect(IHero targetHero)
         {
+            var counters = HeroStatusEffectReference.Counters;
+            
+            if (counters <= 1)
+                ShockLogic(targetHero);
+        }
+        
+        private void ShockLogic(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var tempDebuffChance = 1000f;
+            //temporarily increase  - higher priority than immunity (200 debuffResistance)
+            targetHero.HeroLogic.OtherAttributes.DebuffChance += tempDebuffChance;
+            //TEST - this might be too slow
+            //logicTree.AddCurrent(ChangeDebuffChance(targetHero,tempDebuffChance));
             //TODO: AddDebuff ACtion - shock
+            logicTree.AddCurrent(AddShockStatusEffect.StartAction(CasterHero,targetHero));
+            //Return to original value after adding shockstatuseffect
+            logicTree.AddCurrent(ChangeDebuffChance(targetHero,-tempDebuffChance));
+        }
+        
+        
+
+        private IEnumerator ChangeDebuffChance(IHero targetHero, float tempDebuffChance)
+        {
+            var logicTree = CasterHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.OtherAttributes.DebuffChance += tempDebuffChance;
+            
+            logicTree.EndSequence();
+            yield return null;
         }
 
 

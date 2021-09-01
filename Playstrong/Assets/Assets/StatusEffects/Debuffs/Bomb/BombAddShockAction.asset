@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23cebaecd5e8e0a4a94f141a56ab907f, type: 3}
-  m_Name: AddDebuffActionAsset
+  m_Name: BombAddShockAction
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: 7e7029c86d844d242b9179c302288880, type: 2}
+  _debuffEffectAsset: {fileID: 11400000, guid: 73399612216e15947aab48788cf3102f, type: 2}
   _debuffCounters: 2
