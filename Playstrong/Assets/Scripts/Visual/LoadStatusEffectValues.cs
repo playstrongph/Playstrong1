@@ -24,6 +24,8 @@ namespace Visual
 
             //_heroStatusEffect.StatusEffectAsset = statusEffect;
             _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffect);
+            
+            
             _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             
             _heroStatusEffect.StatusEffectType = statusEffect.StatusEffectType;
@@ -34,7 +36,9 @@ namespace Visual
             _heroStatusEffect.Icon.sprite = statusEffect.Icon;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
             
-         
+            //Re-assign reference
+            _heroStatusEffect.CasterHero = statusEffect.CasterHero;
+
         }
 
         private IStatusEffectAsset CloneStatusEffectAsset(IStatusEffectAsset statusEffect)
@@ -42,6 +46,9 @@ namespace Visual
             var statusEffectObject = statusEffect as ScriptableObject;
             var statusEffectCloneObject = Instantiate(statusEffectObject);
             var statusEffectClone = statusEffectCloneObject as IStatusEffectAsset;
+            
+            //Re-assing reference to Scriptable Object Clone
+            statusEffectClone.CasterHero = statusEffect.CasterHero;
 
             return statusEffectClone;
         }

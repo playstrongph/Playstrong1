@@ -26,6 +26,10 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             //Return this
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
+            
+            //This should come before LoadStatusEffectValues due to cloning of SO
+            statusEffectAsset.CasterHero = casterHero;
+            heroStatusEffect.CasterHero = casterHero;
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
 
