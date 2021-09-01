@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ScriptableObjects.StatusEffects.Instance
 {
     
-    [CreateAssetMenu(fileName = "NoDispel", menuName = "SO's/Status Effects/Instance/No Dispel")]
+    [CreateAssetMenu(fileName = "NoDispelInstance", menuName = "SO's/Status Effects/Instance/NoDispelInstance")]
     public class NoDispelInstance : StatusEffectInstance
     {
         

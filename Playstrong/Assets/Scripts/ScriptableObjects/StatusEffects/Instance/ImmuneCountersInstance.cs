@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ScriptableObjects.StatusEffects.Instance
 {
     
-    [CreateAssetMenu(fileName = "Immune Counters", menuName = "SO's/Status Effects/Instance/Immune Counters")]
+    [CreateAssetMenu(fileName = "ImmuneCountersInstance", menuName = "SO's/Status Effects/Instance/ImmuneCountersInstance")]
     public class ImmuneCountersInstance : StatusEffectInstance
     {
         
