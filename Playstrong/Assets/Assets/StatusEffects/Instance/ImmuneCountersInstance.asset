@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45ea793ac9c945a4586d89e5314683aa, type: 3}
-  m_Name: Immune Counters
+  m_Name: ImmuneCountersInstance
   m_EditorClassIdentifier: 

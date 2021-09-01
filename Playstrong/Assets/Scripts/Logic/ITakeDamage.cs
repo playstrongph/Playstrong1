@@ -20,7 +20,7 @@ namespace Logic
 
         IEnumerator TakeMultipleAttackDamage(int normalDamage, int criticalDamage, IHero attackerHero);
         
-        IEnumerator TakeDirectDamage(int normalDamage, int totalEnhancedDamage, int penetrateChance);
+        IEnumerator TakeDirectDamage(int normalDamage, int criticalDamage, int penetrateChance);
         
         
 
