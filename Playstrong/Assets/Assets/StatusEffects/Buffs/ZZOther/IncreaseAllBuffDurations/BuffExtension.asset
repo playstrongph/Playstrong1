@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c909d5ba34bd4143bf94971c9114256, type: 3}
-  m_Name: IncreaseAllBuffDurations
+  m_Name: BuffExtension
   m_EditorClassIdentifier: 
   _name: Increase All Buff Durations
   _description: All buff durations +X

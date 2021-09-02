@@ -20,7 +20,7 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: 6bb7f42b63cc4ca4c9c257252c1e63dd,
     type: 2}
-  _skillactionAsset: {fileID: 0}
+  _skillactionAsset: {fileID: 11400000, guid: 9380a0448ab427a428a99bd0068184ec, type: 2}
   _effectValue: 0
   addShockStatusEffect: {fileID: 11400000, guid: 29a76d254c5096944b93eac33a357329,
     type: 2}
