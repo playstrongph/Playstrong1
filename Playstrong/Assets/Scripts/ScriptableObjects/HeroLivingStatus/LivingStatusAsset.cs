@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using ScriptableObjects.StandardActions;
 using UnityEngine;
 
 namespace ScriptableObjects.HeroLivingStatus
@@ -41,6 +42,29 @@ namespace ScriptableObjects.HeroLivingStatus
 
         }
         
+        //TEST: Standard Actions
+        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient)
+        {
+           
+           
+        }
         
+        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero target, float value)
+        {
+           
+           
+        }
+        
+        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient)
+        {
+           
+
+        }
+        
+        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero target, float value)
+        {
+           
+
+        }
     }
 }
