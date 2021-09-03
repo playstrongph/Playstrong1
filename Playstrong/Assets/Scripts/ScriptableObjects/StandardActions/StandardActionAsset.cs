@@ -9,16 +9,7 @@ namespace ScriptableObjects.StandardActions
     public class StandardActionAsset : ScriptableObject, IStandardActionAsset
     {
 
-       
-        
-        
-
-        //TODO: Set StandardEvent Reference to this asset
-        
         //TODO: Standard Action Method
-
-        
-         
         public IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {   
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;

@@ -17,16 +17,12 @@ namespace ScriptableObjects.GameEvents
     /// </summary>
     public class StandardEventAsset : ScriptableObject
     {
-        
-        public IStandardActionAsset StandardActionAsset { get; set; }
 
         public void SubscribeToHeroEvents(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
-
-        
         }
         
         public void SubscribeToSkillEvents(ISkill skill)
@@ -34,8 +30,6 @@ namespace ScriptableObjects.GameEvents
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(SubscribeToSkillEventsCoroutine(skill));
-            
-        
         }
         
         public void UnsubscribeToHeroEvents(IHero hero)
@@ -43,8 +37,6 @@ namespace ScriptableObjects.GameEvents
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(UnsubscribeToHeroEventsCoroutine(hero));
-
-        
         }
         
         public void UnsubscribeToSkillEvents(ISkill skill)
@@ -52,18 +44,18 @@ namespace ScriptableObjects.GameEvents
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(UnsubscribeToSkillEventsCoroutine(skill));
-            
-        
         }
 
 
         /// <summary>
         /// Basic Attack and Passive Skills subscribe here since they'll be using hero events
         /// </summary>
-        protected virtual IEnumerator SubscribeToHeroEventsCoroutine(IHero hero)
+        protected virtual IEnumerator SubscribeToHeroEventsCoroutine(IHero hero, IStandardActionAsset standardActionAsset)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
+            
+
             logicTree.EndSequence();  
             yield return null;
             
