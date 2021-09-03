@@ -3536,11 +3536,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageReduction: 0
+  _directDamageReduction: 0
+  _singleAttackDamageReduction: 0
+  _multipleAttackDamageReduction: 0
   _criticalDamageMultiplier: 100
   _otherDamageMultiplier: 0
   _healResistance: 0
   _criticalStrikeResistance: 0
-  _debuffResistance: 15
+  _debuffResistance: 0
   _buffResistance: 0
   _skillChanceResistance: 0
   _resurrectResistance: 0
@@ -3561,6 +3564,9 @@ MonoBehaviour:
   boostEnergyChance: 100
   heroInabilityChance: 0
   _baseDamageReduction: 0
+  _baseDirectDamageReduction: 0
+  _baseSingleAttackDamageReduction: 0
+  _baseMultipleAttackDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
   _baseCriticalStrikeResistance: 0
@@ -3661,7 +3667,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6a0bf8e7528c4698866652f5f5de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _finalDamage: 0
+  finalDamage: 0
+  _directDamage: 0
+  _singleAttackDamage: 0
+  _multipleAttackDamage: 0
 --- !u!114 &5111372421542366580
 MonoBehaviour:
   m_ObjectHideFlags: 0

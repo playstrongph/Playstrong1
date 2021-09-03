@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23cebaecd5e8e0a4a94f141a56ab907f, type: 3}
-  m_Name: AddDebuffActionAsset
+  m_Script: {fileID: 11500000, guid: ef2546cca50d65247a168b6d2cfe3a17, type: 3}
+  m_Name: AddDebuffEvent 1
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: 589f41d41b0623c48bccbf41a606cbc8, type: 2}
-  _debuffCounters: 1
+  skillConditionAssets:
+  - {fileID: 11400000, guid: 277e3e422c6a8d640a7887739a4075f7, type: 2}
