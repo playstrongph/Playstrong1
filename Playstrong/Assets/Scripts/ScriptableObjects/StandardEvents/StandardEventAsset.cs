@@ -22,7 +22,7 @@ namespace ScriptableObjects.GameEvents
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
+            //logicTree.AddCurrent(SubscribeToHeroEventsCoroutine(hero));
         }
         
         public void SubscribeToSkillEvents(ISkill skill)
