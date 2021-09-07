@@ -17,7 +17,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.BuffResistance += boostResistanceIncrease;
+            targetHero.HeroLogic.OtherAttributes.BoostEnergyResistance += boostResistanceIncrease;
             
             logicTree.EndSequence();
             yield return null;

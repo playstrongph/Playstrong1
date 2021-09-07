@@ -30,8 +30,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private void IncreaseEnergy(IHero targetHero, float value)
         {
-            var newEnergyValue = targetHero.HeroLogic.HeroAttributes.Energy + energyIncrease;
-            targetHero.HeroLogic.SetHeroEnergy.SetEnergy(newEnergyValue);
+            var plusEnergy = (int)value;
+            targetHero.HeroLogic.SetHeroEnergy.IncreaseEnergy(plusEnergy);
         }
 
 
