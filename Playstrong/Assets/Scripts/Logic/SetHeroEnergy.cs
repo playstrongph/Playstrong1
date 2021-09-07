@@ -69,32 +69,13 @@ namespace Logic
            
         }
         
+        //TODO: Create OtherAttribute - "DecreaseEnergyChance/Resistance"
         public void DecreaseEnergy(int value)
         {
             var logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(DecreaseEnergyLogic(value));
-        }
-        private IEnumerator DecreaseEnergyLogic(int energyValue)
-        {
-            var logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-            var turnController = _heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            var heroTimer = _heroLogic.HeroTimer;
-            var currentEnergy = _heroLogic.HeroAttributes.Energy;
-            var boostEnergyChance = _heroLogic.OtherAttributes.BoostEnergyChance;
-            var boostEnergyResistance = _heroLogic.OtherAttributes.BoostEnergyResistance;
-            var netChance = boostEnergyChance - boostEnergyResistance;
-            var randomChance = Random.Range(0f, 100f);
-
-            if (randomChance < netChance)
-            {
-                var newEnergyValue = currentEnergy - energyValue;
-                heroTimer.SetHeroTimerValue(turnController,newEnergyValue);    
-            }
-
-            logicTree.EndSequence();
-            yield return null;
            
         }
+       
         
         
         
