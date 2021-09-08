@@ -33,6 +33,8 @@
         float PenetrateArmorResistance { get; set; }
         float BoostEnergyResistance { get; set; }
 
+        float ReduceEnergyResistance { get; set; }
+
         float HeroInabilityResistance { get; set; }
 
         /// <summary>
@@ -48,6 +50,7 @@
         float AttackTargetChance { get; set; }
         float PenetrateArmorChance { get; set; }
         float BoostEnergyChance { get; set; }
+        float ReduceEnergyChance { get; set; }
         float HeroInabilityChance { get; set; }
 
         /// <summary>
@@ -77,6 +80,7 @@
         float BaseAttackTargetResistance { get; set; }
         float BasePenetrateArmorResistance { get; set; }
         float BaseBoostEnergyResistance { get; set; }
+        float BaseReduceEnergyResistance { get; set; }
         float BaseHeroInabilityResistance { get; set; }
 
         /// <summary>
@@ -91,6 +95,7 @@
         float BaseCounterAttackChance { get; set; }
         float BasePenetrateArmorChance { get; set; }
         float BaseBoostEnergyChance { get; set; }
+        float BaseReduceEnergyChance { get; set; }
         float BaseHeroInabilityChance { get; set; }
 
 

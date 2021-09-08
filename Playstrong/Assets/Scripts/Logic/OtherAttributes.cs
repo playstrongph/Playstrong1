@@ -159,6 +159,14 @@ namespace Logic
             set => boostEnergyResistance = value;
         }
         
+        [SerializeField] private float reduceEnergyResistance = 0f;
+
+        public float ReduceEnergyResistance
+        {
+            get => reduceEnergyResistance;
+            set => reduceEnergyResistance = value;
+        }
+        
         [SerializeField] private float heroInabilityResistance = 0f;
 
         public float HeroInabilityResistance
@@ -263,6 +271,14 @@ namespace Logic
         {
             get => boostEnergyChance;
             set => boostEnergyChance = value;
+        }
+        
+        [SerializeField] private float reduceEnergyChance = 0f;
+
+        public float ReduceEnergyChance
+        {
+            get => reduceEnergyChance;
+            set => reduceEnergyChance = value;
         }
         
         [SerializeField] private float heroInabilityChance = 0f;
@@ -419,6 +435,13 @@ namespace Logic
             set => baseBoostEnergyResistance = value;
         }
         
+        [SerializeField] private float baseReduceEnergyResistance = 0f;
+        public float BaseReduceEnergyResistance
+        {
+            get => baseReduceEnergyResistance;
+            set => baseReduceEnergyResistance = value;
+        }
+        
         [SerializeField] private float baseHeroInabilityResistance = 0f;
 
         public float BaseHeroInabilityResistance
@@ -526,6 +549,13 @@ namespace Logic
         {
             get => baseBoostEnergyChance;
             set => baseBoostEnergyChance = value;
+        }
+        
+        [SerializeField] private float baseReduceEnergyChance = 0f;
+        public float BaseReduceEnergyChance
+        {
+            get => baseReduceEnergyChance;
+            set => baseReduceEnergyChance = value;
         }
         
         [SerializeField] private float baseHeroInabilityChance = 0f;

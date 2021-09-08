@@ -3551,6 +3551,7 @@ MonoBehaviour:
   attackTargetResistance: 0
   penetrateArmorResistance: 0
   boostEnergyResistance: 0
+  reduceEnergyResistance: 0
   heroInabilityResistance: 0
   _healChance: 100
   _criticalStrikeChance: 0
@@ -3562,6 +3563,7 @@ MonoBehaviour:
   attackTargetChance: 100
   penetrateArmorChance: 0
   boostEnergyChance: 100
+  reduceEnergyChance: 100
   heroInabilityChance: 0
   _baseDamageReduction: 0
   _baseDirectDamageReduction: 0
@@ -3570,7 +3572,7 @@ MonoBehaviour:
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
   _baseCriticalStrikeResistance: 0
-  _baseDebuffResistance: 15
+  _baseDebuffResistance: 0
   _baseBuffResistance: 0
   _baseSkillChanceResistance: 0
   _baseResurrectResistance: 0
@@ -3578,9 +3580,10 @@ MonoBehaviour:
   baseAttackTargetResistance: 0
   basePenetrateArmorResistance: 0
   baseBoostEnergyResistance: 0
+  baseReduceEnergyResistance: 0
   baseHeroInabilityResistance: 0
   _baseHealChance: 100
-  _baseCriticalStrikeChance: 50
+  _baseCriticalStrikeChance: 0
   _baseDebuffChance: 100
   _baseBuffChance: 100
   _baseSkillChanceBonus: 0
@@ -3588,7 +3591,8 @@ MonoBehaviour:
   _baseCounterAttackChance: 0
   baseAttackTargetChance: 100
   basePenetrateArmorChance: 0
-  baseBoostEnergyChance: 0
+  baseBoostEnergyChance: 100
+  baseReduceEnergyChance: 100
   baseHeroInabilityChance: 0
 --- !u!114 &7231591812556641881
 MonoBehaviour:
