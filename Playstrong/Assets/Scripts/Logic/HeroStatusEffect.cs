@@ -16,8 +16,8 @@ namespace Logic
 {
     public class HeroStatusEffect : MonoBehaviour, IHeroStatusEffect
     {
+        public string Name { get; set; }
         
-
         [SerializeField]
         private int _counters;
         public int Counters

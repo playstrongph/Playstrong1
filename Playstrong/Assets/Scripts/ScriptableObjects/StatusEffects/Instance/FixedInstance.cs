@@ -22,11 +22,12 @@ namespace ScriptableObjects.StatusEffects.Instance
         {
            
             statusEffectCounters = _fixedValue;
+            var existingStatusEffect =  CheckExistingStatusEffects(targetHero, statusEffectAsset);
             
-            CheckExistingStatusEffects(targetHero, statusEffectAsset);
+           
             
-            if (ExistingStatusEffect != null)
-                UpdateStatusEffect(ExistingStatusEffect, statusEffectAsset, statusEffectCounters, targetHero,casterHero);
+            if (existingStatusEffect != null)
+                UpdateStatusEffect(existingStatusEffect, statusEffectAsset, statusEffectCounters, targetHero,casterHero);
             else  
             {
                 NewStatusEffect = CreateStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,casterHero);

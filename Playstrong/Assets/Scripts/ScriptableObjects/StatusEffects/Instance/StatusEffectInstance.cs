@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.ComponentModel;
+using Interfaces;
 using Logic;
 using UnityEngine;
 using Visual;
@@ -7,8 +8,6 @@ namespace ScriptableObjects.StatusEffects.Instance
 {
     public class StatusEffectInstance : ScriptableObject, IStatusEffectInstance
     {
-        
-        protected IHeroStatusEffect ExistingStatusEffect;
         protected IHeroStatusEffect NewStatusEffect;
         
         public virtual void AddStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
@@ -18,6 +17,8 @@ namespace ScriptableObjects.StatusEffects.Instance
     
         protected IHeroStatusEffect CreateStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
+            Debug.Log("Create Status Effect");
+            
             var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = targetHero.HeroStatusEffects.StatusEffectsPanel.Transform;
             
@@ -64,26 +65,27 @@ namespace ScriptableObjects.StatusEffects.Instance
             
         }
 
-        protected void CheckExistingStatusEffects(IHero targetHero, IStatusEffectAsset addStatusEffectAsset)
+        protected IHeroStatusEffect CheckExistingStatusEffects(IHero targetHero, IStatusEffectAsset addStatusEffectAsset)
         {
-
             foreach (var statusEffect in targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
             {
-                if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
-                    ExistingStatusEffect = statusEffect;
+                if (addStatusEffectAsset.Name == statusEffect.StatusEffectAsset.Name)
+                    return statusEffect;
             }
             
             foreach (var statusEffect in targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
             {
-                if (addStatusEffectAsset == statusEffect.StatusEffectAsset)
-                {
-                    ExistingStatusEffect = statusEffect;
-                }
+                if (addStatusEffectAsset.Name == statusEffect.StatusEffectAsset.Name)
+                    return statusEffect;
             }
+
+            return null;
         }
         
         protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
         {
+            Debug.Log("Update Status Effect");
+            
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             var existingStatusEffectCounters = existingStatusEffect.Counters;
             var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
@@ -92,9 +94,9 @@ namespace ScriptableObjects.StatusEffects.Instance
             //ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
             
             //TEST
-            ExistingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
             
-            ExistingStatusEffect.CasterHero = casterHero;
+            existingStatusEffect.CasterHero = casterHero;
             statusEffectAsset.CasterHero = casterHero;
 
         }

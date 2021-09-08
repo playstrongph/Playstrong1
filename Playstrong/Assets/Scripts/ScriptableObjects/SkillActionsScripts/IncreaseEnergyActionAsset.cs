@@ -23,7 +23,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
             if(randomChance<=netBoostChance)
                 IncreaseEnergy(targetHero, value);
-            
+
             logicTree.EndSequence();
             yield return null;
         }

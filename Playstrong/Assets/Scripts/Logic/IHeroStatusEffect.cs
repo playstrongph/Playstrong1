@@ -11,9 +11,10 @@ using Visual;
 
 namespace Logic
 {
-    public interface 
-        IHeroStatusEffect
+    public interface IHeroStatusEffect
     {
+
+        string Name { get; set; }
         IStatusEffectAsset StatusEffectAsset { get; set; }
         int Counters { get; set; }
         Image Icon { get; }
