@@ -27,10 +27,16 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator ActionTarget(IHero thisHero, float dummyValue)
         {
-            Debug.Log("Resurrect Action Target");
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+
+            var resurrectChance = thisHero.HeroLogic.OtherAttributes.ResurrectChance;
+            var resurrectResistance = thisHero.HeroLogic.OtherAttributes.ResurrectResistance;
+            var netChance = resurrectChance - resurrectResistance;
+            var randomChance = Random.Range(0f, 100f);
             
-            logicTree.AddCurrent(ResurrectActions(thisHero));
+          
+            if(randomChance <= netChance)
+                logicTree.AddCurrent(ResurrectActions(thisHero));
             
             logicTree.EndSequence();
             yield return null;
@@ -84,6 +90,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
             var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
 
             foreach (var buff in buffs)
             {

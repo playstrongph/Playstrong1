@@ -10,17 +10,19 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Resurrect", menuName = "SO's/Status Effects/Buffs/Resurrect")]
     public class ResurrectAsset : StatusEffectAsset
     {
-        
         private float dummyValue = 0f;
+        private float resurrectChance = 100f;
 
         public override void ApplyStatusEffect(IHero hero)
         {
+            hero.HeroLogic.OtherAttributes.ResurrectChance += resurrectChance;
             hero.HeroLogic.HeroEvents.EPostHeroDeath += ResurrectAction;
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroEvents.EPostHeroDeath -= ResurrectAction;
+            //hero.HeroLogic.OtherAttributes.ResurrectChance -= resurrectChance;
+            //hero.HeroLogic.HeroEvents.EPostHeroDeath -= ResurrectAction;
         }
 
 
@@ -30,8 +32,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(ResurrectHero(hero));
-            
         }
+
 
         private IEnumerator ResurrectHero(IHero hero)
         {
@@ -53,6 +55,12 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
             logicTree.EndSequence();
             yield return null;
+        }
+        
+        //TEST
+        public override void RemoveStatusEffect(IHero hero)
+        {
+           
         }
         
         

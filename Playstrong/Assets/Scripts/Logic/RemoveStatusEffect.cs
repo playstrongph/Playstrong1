@@ -20,6 +20,8 @@ namespace Logic
         public void RemoveEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
+            
             logicTree.AddCurrent(RemoveEffectCoroutine(hero));
         }
 

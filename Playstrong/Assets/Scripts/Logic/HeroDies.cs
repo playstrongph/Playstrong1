@@ -158,8 +158,12 @@ namespace Logic
 
             foreach (var buff in buffs)
             {
-                if(buff.StatusEffectAsset != ResurrectStatusEffect)
-                    buff.RemoveStatusEffect.RemoveEffect(hero);
+              
+                //if(buff.StatusEffectAsset.Name != ResurrectStatusEffect.Name)
+                //    buff.RemoveStatusEffect.RemoveEffect(hero);
+                
+                //TEST - in consideration of Resurrection and extinction
+                buff.StatusEffectAsset.RemoveStatusEffect(hero);
             }
             
             foreach (var debuff in debuffs)

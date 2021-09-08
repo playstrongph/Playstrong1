@@ -93,6 +93,14 @@ namespace ScriptableObjects.StatusEffects
             
         }
 
+        public virtual void RemoveStatusEffect(IHero hero)
+        {
+            HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
+        }
+
+
+
+
 
     }
 }
