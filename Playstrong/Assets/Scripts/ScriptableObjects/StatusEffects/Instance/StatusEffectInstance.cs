@@ -17,8 +17,7 @@ namespace ScriptableObjects.StatusEffects.Instance
     
         protected IHeroStatusEffect CreateStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-            Debug.Log("Create Status Effect");
-            
+
             var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = targetHero.HeroStatusEffects.StatusEffectsPanel.Transform;
             
@@ -84,8 +83,6 @@ namespace ScriptableObjects.StatusEffects.Instance
         
         protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
         {
-            Debug.Log("Update Status Effect");
-            
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             var existingStatusEffectCounters = existingStatusEffect.Counters;
             var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
