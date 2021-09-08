@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23cebaecd5e8e0a4a94f141a56ab907f, type: 3}
-  m_Name: AddDebuffActionAsset
+  m_Name: AddDebuffActionAsset2
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: aa1b8ff86b2d82c4fa149cfb3fe2ceb5, type: 2}
+  _debuffEffectAsset: {fileID: 11400000, guid: 34d55628f45978b469c68f78c9d3084b, type: 2}
   _debuffCounters: 2

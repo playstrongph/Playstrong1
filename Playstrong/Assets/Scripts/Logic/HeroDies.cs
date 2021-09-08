@@ -168,7 +168,9 @@ namespace Logic
             
             foreach (var debuff in debuffs)
             {
-                debuff.RemoveStatusEffect.RemoveEffect(hero);
+                //debuff.RemoveStatusEffect.RemoveEffect(hero);
+                //TEST
+                debuff.StatusEffectAsset.RemoveStatusEffect(hero);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
