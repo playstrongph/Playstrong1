@@ -69,7 +69,7 @@ namespace Logic
            
         }
         
-        //TODO: Create OtherAttribute - "DecreaseEnergyChance/Resistance"
+        //TODO: Create OtherAttribute - "ReduceEnergyChance/Resistance"
         public void DecreaseEnergy(int value)
         {
             var logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
