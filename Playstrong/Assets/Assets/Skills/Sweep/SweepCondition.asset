@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: SweepCondition
   m_EditorClassIdentifier: 
   _skillActionAssets:
-  - {fileID: 11400000, guid: 65fa27b859424424b8b40ba1e0fc6385, type: 2}
-  - {fileID: 11400000, guid: 65fa27b859424424b8b40ba1e0fc6385, type: 2}
+  - {fileID: 11400000, guid: 69f41ef5d0d2b04468bd7f10209ba8c5, type: 2}

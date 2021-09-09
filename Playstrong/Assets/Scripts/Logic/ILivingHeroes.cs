@@ -14,6 +14,8 @@ namespace Logic
 
         IPlayer Player { get; }
 
-      
+        List<IHero> LivingHeroesList { get; }
+
+
     }
 }

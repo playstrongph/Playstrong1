@@ -20,6 +20,21 @@ namespace Logic
         [RequireInterface(typeof(IPanelPortaitAndSkillDisplay))]
         private Object _panelPortaitAndSkillDisplay;
 
+        public List<IHero> LivingHeroesList
+        {
+            get
+            {
+                var herolist = new List<IHero>();
+                herolist.Clear();
+                foreach (var heroObject in HeroesList)
+                {
+                    var hero = heroObject.GetComponent<IHero>();
+                    herolist.Add(hero);
+                }
+                return herolist;
+            }
+        }
+
         public IPanelPortaitAndSkillDisplay PanelPortaitAndSkillDisplay
         {
             get { return _panelPortaitAndSkillDisplay as IPanelPortaitAndSkillDisplay; }

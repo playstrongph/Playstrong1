@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using ScriptableObjects.AnimationSOscripts;
 using ScriptableObjects.Enums.SkillStatus;
@@ -28,25 +29,71 @@ namespace ScriptableObjects.SkillActionsScripts
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)
         {
-           Debug.Log("Attack Action");
+           Debug.Log("Attack Target and Random Enemy Heroes");
             
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(AttackHero(thisHero,targetHero));
+            //logicTree.AddCurrent(AttackHero(thisHero,targetHero));
+            
+            logicTree.AddCurrent(AttackEnemyHeroTargets(thisHero,targetHero));
 
             logicTree.EndSequence();
             yield return null;
 
         }
 
-        private IEnumerator AttackAdditionalTargets(IHero thisHero, IHero targetHero)
+        private IEnumerator AttackEnemyHeroTargets(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            
-            
+
+            var enemyTargets = GetAttackTargets(targetHero);
+
+            foreach (var enemyHero in enemyTargets)
+            {
+                logicTree.AddCurrent(AttackHero(thisHero,enemyHero));
+            }
+
+
             logicTree.EndSequence();
             yield return null;
+        }
+
+        private List<IHero> GetAttackTargets(IHero targetHero)
+        {
+            var enemyLivingHeroes = targetHero.LivingHeroes.LivingHeroesList;
+            
+            var otherEnemyTargets = new List<IHero>();
+            var enemyTargetsFinal = new List<IHero>();
+            otherEnemyTargets.Clear();
+            enemyTargetsFinal.Clear();
+
+            foreach (var hero in enemyLivingHeroes)
+            {
+                otherEnemyTargets.Add(hero);
+            }
+            otherEnemyTargets.Remove(targetHero);
+
+            //Get the smaller number between additional targets and other living heroes, to determine how many times we'll iterate
+            var targetCount = Mathf.Min(additionalTargetsCount, otherEnemyTargets.Count);
+            
+            //Start iteration for other targets
+            for (var i=0; i < targetCount; i++)
+            {
+                //get random target from otherEnemies
+                var index = Random.Range(0, otherEnemyTargets.Count);
+                var otherEnemy = otherEnemyTargets[index];
+                
+                //add the random target to the final list
+                enemyTargetsFinal.Add(otherEnemy);
+                
+                //Remove selected enemy from the selection pool
+                otherEnemyTargets.Remove(otherEnemy);
+            }
+            
+            //add the target hero to the final enemies list
+            enemyTargetsFinal.Add(targetHero);
+            
+            return enemyTargetsFinal;
         }
 
 
