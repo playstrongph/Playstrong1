@@ -88,7 +88,9 @@ namespace References
         private IDeadHeroes _deadHeroes;
         public IDeadHeroes DeadHeroes => _deadHeroes;
 
-        public List<IHero> AllAllyHeroes { get; set; } = new List<IHero>();
+        public List<IHero> AllAllyHeroes { get;} = new List<IHero>();
+        
+        public List<IHero> AllOtherAllyHeroes { get;} = new List<IHero>();
 
 
         private void Awake()
@@ -103,11 +105,14 @@ namespace References
         private void Start()
         {
             _deadHeroes = LivingHeroes.Player.DeadHeroes;
-            GetAllyHeroes();
+            GetAllAllyHeroes();
+            GetAllOtherAllyHeroes();
         }
 
-        private void GetAllyHeroes()
+        private void GetAllAllyHeroes()
         {
+            AllAllyHeroes.Clear();
+            
             foreach (var heroObject in LivingHeroes.HeroesList)
             {
                 var hero = heroObject.GetComponent<IHero>();
@@ -120,7 +125,28 @@ namespace References
                 var hero = heroObject.GetComponent<IHero>();
                 AllAllyHeroes.Add(hero);
             }
+        }
+        
+        private void GetAllOtherAllyHeroes()
+        {
+            AllOtherAllyHeroes.Clear();
             
+            foreach (var heroObject in LivingHeroes.HeroesList)
+            {
+                var hero = heroObject.GetComponent<IHero>();
+                
+                if(hero != (IHero)this)
+                    AllOtherAllyHeroes.Add(hero);
+            }
+            
+            //Note: There is no deadHero at the start, below not really required
+            foreach (var heroObject in DeadHeroes.HeroesList)
+            {
+                var hero = heroObject.GetComponent<IHero>();
+                
+                if(hero != (IHero)this)
+                    AllOtherAllyHeroes.Add(hero);
+            }
         }
     }
 }

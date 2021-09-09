@@ -39,6 +39,8 @@ namespace Interfaces
         IDamageEffect DamageEffect { get; }
 
         List<IHero> AllAllyHeroes { get; }
+        
+        List<IHero> AllOtherAllyHeroes { get;  }
 
 
 

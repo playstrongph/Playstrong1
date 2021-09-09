@@ -7,10 +7,13 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "AttackActionAsset", menuName = "SO's/SkillActions/AttackActionAsset")]
+    [CreateAssetMenu(fileName = "AttackAdditionalRandomTargets", menuName = "SO's/SkillActions/AttackAdditionalRandomTargets")]
     
-    public class AttackActionAsset : SkillActionAsset
+    public class AttackAdditionalRandomTargetsActionAsset : SkillActionAsset
     {
+        [SerializeField] private int additionalTargetsCount = 0;
+        
+        
         [Header("Game Animation Asset")]
         [SerializeField] private ScriptableObject attackAnimation;
         private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;
@@ -35,7 +38,18 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
 
         }
-        
+
+        private IEnumerator AttackAdditionalTargets(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
 
         private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {
