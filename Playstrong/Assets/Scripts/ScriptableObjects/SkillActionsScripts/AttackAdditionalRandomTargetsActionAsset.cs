@@ -44,6 +44,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private IEnumerator AttackEnemyHeroTargets(IHero thisHero, IHero targetHero)
         {
+        
+            
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             var enemyTargets = GetAttackTargets(targetHero);
@@ -52,7 +54,8 @@ namespace ScriptableObjects.SkillActionsScripts
             {
                 logicTree.AddCurrent(AttackHero(thisHero,enemyHero));
             }
-
+            
+            Debug.Log("Attack Multiple Enemies: " +enemyTargets.Count);
 
             logicTree.EndSequence();
             yield return null;
@@ -76,6 +79,9 @@ namespace ScriptableObjects.SkillActionsScripts
             //Get the smaller number between additional targets and other living heroes, to determine how many times we'll iterate
             var targetCount = Mathf.Min(additionalTargetsCount, otherEnemyTargets.Count);
             
+            //add the target hero to the final enemies list
+            enemyTargetsFinal.Add(targetHero);
+            
             //Start iteration for other targets
             for (var i=0; i < targetCount; i++)
             {
@@ -90,8 +96,7 @@ namespace ScriptableObjects.SkillActionsScripts
                 otherEnemyTargets.Remove(otherEnemy);
             }
             
-            //add the target hero to the final enemies list
-            enemyTargetsFinal.Add(targetHero);
+            
             
             return enemyTargetsFinal;
         }

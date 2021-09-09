@@ -3560,7 +3560,7 @@ MonoBehaviour:
   _skillChanceBonus: 0
   _resurrectChance: 0
   _counterAttackChance: 0
-  attackTargetChance: 100
+  attackTargetChance: 200
   penetrateArmorChance: 0
   boostEnergyChance: 100
   reduceEnergyChance: 100
