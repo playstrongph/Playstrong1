@@ -65,9 +65,6 @@ namespace Logic
          }
       }
 
-      private int finalCondition = 0;
-      
-      
       public IEnumerator StartAction(IHero hero)
       {
          var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -85,7 +82,7 @@ namespace Logic
          yield return null;
 
       }
-
+      
       private int ComputeFinalCondition(IHero hero)
       {
          //If no And conditions, value is equal to 1
@@ -108,13 +105,99 @@ namespace Logic
          }
 
          //if no OR or And Conditions, finalCondition = 1
-         finalCondition = orConditionTotal*andConditionTotal;
+         var finalCondition = orConditionTotal*andConditionTotal;
 
          return finalCondition;
       }
+      
+      public IEnumerator StartAction(IHero thisHero, IHero targetHero)
+      {
+         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+         var finalCondition = ComputeFinalCondition(thisHero,targetHero);
 
+         if (finalCondition >= 1)
+         {
+            foreach (var basicAction in BasicActions)
+            {
+               logicTree.AddCurrent(basicAction.StartAction(thisHero,targetHero));
+            }
+         }
+         
+         logicTree.EndSequence();
+         yield return null;
 
+      }
+      
+      private int ComputeFinalCondition(IHero thisHero, IHero targetHero)
+      {
+         //If no And conditions, value is equal to 1
+         var andConditionTotal = 1;
+         
+         foreach (var basicCondition in AndBasicConditions)
+         {
+            andConditionTotal *= basicCondition.GetValue(thisHero,targetHero);
+         }
 
+        
+         var orConditionTotal = 0;
+         //if no Or conditions, set value equal to 1
+         if (OrBasicConditions.Count <= 0)
+            orConditionTotal = 1;
+         
+         foreach (var basicCondition in OrBasicConditions)
+         {
+            orConditionTotal += basicCondition.GetValue(thisHero,targetHero);
+         }
+
+         //if no OR or And Conditions, finalCondition = 1
+         var finalCondition = orConditionTotal*andConditionTotal;
+
+         return finalCondition;
+      }
+      public IEnumerator StartAction(IHero hero, float value)
+      {
+         var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+         var finalCondition = ComputeFinalCondition(hero,value);
+
+         if (finalCondition >= 1)
+         {
+            foreach (var basicAction in BasicActions)
+            {
+               logicTree.AddCurrent(basicAction.StartAction(hero,value));
+            }
+         }
+         
+         logicTree.EndSequence();
+         yield return null;
+
+      }
+      
+      private int ComputeFinalCondition(IHero hero, float value)
+      {
+         //If no And conditions, value is equal to 1
+         var andConditionTotal = 1;
+         
+         foreach (var basicCondition in AndBasicConditions)
+         {
+            andConditionTotal *= basicCondition.GetValue(hero,value);
+         }
+
+        
+         var orConditionTotal = 0;
+         //if no Or conditions, set value equal to 1
+         if (OrBasicConditions.Count <= 0)
+            orConditionTotal = 1;
+         
+         foreach (var basicCondition in OrBasicConditions)
+         {
+            orConditionTotal += basicCondition.GetValue(hero,value);
+         }
+
+         //if no OR or And Conditions, finalCondition = 1
+         var finalCondition = orConditionTotal*andConditionTotal;
+
+         return finalCondition;
+      }
 
    }
 }
