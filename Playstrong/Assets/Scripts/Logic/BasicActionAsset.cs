@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class BasicActionAsset : ScriptableObject
+    public class BasicActionAsset : ScriptableObject, IBasicActionAsset
     {
         public IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
