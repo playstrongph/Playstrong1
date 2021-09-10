@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Logic
 {
-   public class StandardConditionAsset : ScriptableObject
+   public class StandardConditionAsset : ScriptableObject, IStandardConditionAsset
    {
       [SerializeField] private List<ScriptableObject> andBasicConditions = new List<ScriptableObject>();
 
@@ -63,6 +63,24 @@ namespace Logic
 
             return newBasicActions;
          }
+      }
+
+      public void RegisterStartAction(IHero hero)
+      {
+         var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+         logicTree.AddCurrent(StartAction(hero));
+      }
+      
+      public void RegisterStartAction(IHero thisHero, IHero targetHero)
+      {
+         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+         logicTree.AddCurrent(StartAction(thisHero,targetHero));
+      }
+      
+      public void RegisterStartAction(IHero hero, float value)
+      {
+         var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+         logicTree.AddCurrent(StartAction(hero,value));
       }
 
       public IEnumerator StartAction(IHero hero)

@@ -15,8 +15,8 @@ namespace ScriptableObjects.StandardActions
         /// <summary>
         /// Should only be accessed by AliveLivingHero.DoHeroAction
         /// </summary>
-        IEnumerator ActionTarget(IHero thisHero, IHero targetHero);
+        IEnumerator TargetAction(IHero thisHero, IHero targetHero);
 
-        IEnumerator ActionTarget(IHero targetHero, float value);
+        IEnumerator TargetAction(IHero targetHero, float value);
     }
 }
