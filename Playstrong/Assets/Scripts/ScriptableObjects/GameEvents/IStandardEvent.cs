@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using References;
 using ScriptableObjects.StandardActions;
 
 namespace ScriptableObjects.GameEvents
@@ -7,5 +8,8 @@ namespace ScriptableObjects.GameEvents
     {
         void SubscribeStandardAction(IHero hero, IStandardActionAsset standardAction);
         void UnsubscribeStandardAction(IHero hero, IStandardActionAsset standardAction);
+        
+        void SubscribeStandardAction(ISkill skill, IStandardActionAsset standardAction);
+        void UnsubscribeStandardAction(ISkill skill, IStandardActionAsset standardAction);
     }
 }

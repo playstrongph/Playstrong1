@@ -79,12 +79,12 @@ namespace ScriptableObjects.StandardActions
         /// </summary>
         public IEnumerator RegisterStandardAction(IHero hero)
         {
-            //TODO: Standard Event Subscribe Action
+            StandardEvent.SubscribeStandardAction(hero,this);
             yield return null;
         }
         public IEnumerator UnregisterStandardAction(IHero hero)
         {
-            //TODO: Standard Event Unsubscribe Action
+            StandardEvent.UnsubscribeStandardAction(hero,this);
             yield return null;
         }
         
@@ -93,12 +93,12 @@ namespace ScriptableObjects.StandardActions
         /// </summary>
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
-            //TODO: Standard Event Subscribe Action
+            StandardEvent.SubscribeStandardAction(skill,this);
             yield return null;
         }
         public IEnumerator UnregisterStandardAction(ISkill skill)
         {
-            //TODO: Standard Event Unsubscribe Action
+            StandardEvent.UnsubscribeStandardAction(skill,this);
             yield return null;
         }
         
