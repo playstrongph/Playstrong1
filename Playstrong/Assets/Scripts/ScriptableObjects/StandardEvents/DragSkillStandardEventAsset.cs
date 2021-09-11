@@ -4,9 +4,9 @@ using ScriptableObjects.GameEvents;
 using ScriptableObjects.StandardActions;
 using UnityEngine;
 
-namespace Assets.StandardEvents
+namespace ScriptableObjects.StandardEvents
 {
-    [CreateAssetMenu(fileName = "DragSkillTarget", menuName = "SO's/StandardActions/DragSkillTarget")]
+    [CreateAssetMenu(fileName = "DragSkillTarget", menuName = "SO's/StandardEvents/DragSkillTarget")]
     public class DragSkillStandardEventAsset : StandardEventsAsset
     {
         protected override IEnumerator SubscribeStandardActionCoroutine(ISkill skill,IStandardActionAsset standardAction)
