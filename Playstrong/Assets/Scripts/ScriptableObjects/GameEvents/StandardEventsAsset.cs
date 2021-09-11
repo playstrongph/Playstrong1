@@ -11,7 +11,7 @@ using Utilities;
 
 namespace ScriptableObjects.GameEvents
 {
-    public class StandardEvent : ScriptableObject, IStandardEvent
+    public class StandardEventsAsset : ScriptableObject, IStandardEvent
     {
         
         public void SubscribeStandardAction(IHero hero, IStandardActionAsset standardAction)
