@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Interfaces;
 using Logic;
+using References;
 using ScriptableObjects.GameEvents;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace ScriptableObjects.StandardActions
 
         [Header("OR Conditions")]
         [SerializeField] private List<ScriptableObject> orBasicConditions;
-        public List<IBasicConditionAsset> OrBasicConditions
+        private List<IBasicConditionAsset> OrBasicConditions
         {
             get
             {
@@ -37,7 +38,7 @@ namespace ScriptableObjects.StandardActions
         
         [Header("AND Conditions")]
         [SerializeField] private List<ScriptableObject> andBasicConditions;
-        public List<IBasicConditionAsset> AndBasicConditions
+        private List<IBasicConditionAsset> AndBasicConditions
         {
             get
             {
@@ -54,7 +55,7 @@ namespace ScriptableObjects.StandardActions
 
         [Header("Basic Actions")]
         [SerializeField] private List<ScriptableObject> basicActions;
-        public List<IBasicActionAsset> BasicActions
+        private List<IBasicActionAsset> BasicActions
         {
             get
             {
@@ -69,6 +70,9 @@ namespace ScriptableObjects.StandardActions
             }
         }
 
+    
+        private int _finalAndConditions = 1;
+        private int _finalOrConditions = 0;
         
         /// <summary>
         /// Passive Skills and "passive" component in Active Skills
@@ -77,11 +81,19 @@ namespace ScriptableObjects.StandardActions
         {
             yield return null;
         }
+        public IEnumerator UnregisterStandardAction(IHero hero)
+        {
+            yield return null;
+        }
         
         /// <summary>
         /// EDragSkillTarget - Basic Skills, Active Skills, and some Passive Skills
         /// </summary>
-        public IEnumerator RegisterStandardAction(ISKill skill)
+        public IEnumerator RegisterStandardAction(ISkill skill)
+        {
+            yield return null;
+        }
+        public IEnumerator UnregisterStandardAction(ISkill skill)
         {
             yield return null;
         }
@@ -93,31 +105,112 @@ namespace ScriptableObjects.StandardActions
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var target in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
             {
-                //if final Condition
-                foreach (var basicAction in BasicActions)
+                if (FinalConditionValue(targetHero) > 0)
                 {
-                    basicAction.StartAction(target);
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
                 }
             }
-            
         }
-        
+        private int FinalConditionValue(IHero targetHero)
+        {
+            var finalCondition = FinalAndBasicCondition(targetHero) * FinalOrBasicCondition(targetHero);
+            return finalCondition;
+        }
+        private int FinalAndBasicCondition(IHero targetHero)
+        {
+            //No Conditions, return 1
+            if (AndBasicConditions.Count <= 0)
+                return _finalAndConditions = 1;
+            
+            if(AndBasicConditions.Count>1)
+            {
+                foreach (var basicCondition in AndBasicConditions)
+                {
+                    _finalAndConditions *= basicCondition.GetValue(targetHero);
+                }
+               
+            }
+            return _finalAndConditions;
+        }
+        private int FinalOrBasicCondition(IHero targetHero)
+        {
+            //No Conditions, return 1
+            if (OrBasicConditions.Count <= 0)
+                return _finalOrConditions = 1;
+            
+            
+            if(OrBasicConditions.Count>1)
+            {
+                foreach (var basicCondition in AndBasicConditions)
+                {
+                    _finalOrConditions += basicCondition.GetValue(targetHero);
+                }
+               
+            }
+            return _finalOrConditions;
+        }
+
+
         /// <summary>
         /// Method subscribed to 2 arg events (thisHero, targetHero)
         /// </summary>
         public void StartAction(IHero thisHero, IHero targetHero)
         {   
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            {
+                
+                if (FinalConditionValue(thisHero, targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
+                }
+            }
+        }
+        private int FinalConditionValue(IHero thisHero, IHero targetHero)
+        {
+            var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);
+            return finalCondition;
+        }
+        private int FinalAndBasicCondition(IHero thisHero, IHero targetHero)
+        {
+            //No Conditions, return 1
+            if (AndBasicConditions.Count <= 0)
+                return _finalAndConditions = 1;
+            
+            if(AndBasicConditions.Count>1)
+            {
+                foreach (var basicCondition in AndBasicConditions)
+                {
+                    _finalAndConditions *= basicCondition.GetValue(thisHero,targetHero);
+                }
+               
+            }
+            return _finalAndConditions;
+        }
+        private int FinalOrBasicCondition(IHero thisHero, IHero targetHero)
+        {
+            //No Conditions, return 1
+            if (OrBasicConditions.Count <= 0)
+                return _finalOrConditions = 1;
             
             
+            if(OrBasicConditions.Count>1)
+            {
+                foreach (var basicCondition in AndBasicConditions)
+                {
+                    _finalOrConditions += basicCondition.GetValue(thisHero,targetHero);
+                }
+               
+            }
+            return _finalOrConditions;
         }
 
 
-
     }
 
-    public interface ISKill
-    {
-    }
+    
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace Logic
 {
+    
+    /// <summary>
+    /// All Conditions need to be implemented in 3 different types of arguments:
+    /// 1) targetHero 2) thisHero,targetHero 3) targetHero, value
+    /// </summary>
     public class BasicConditionAsset : ScriptableObject, IBasicConditionAsset
     {
        
