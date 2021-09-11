@@ -69,22 +69,55 @@ namespace ScriptableObjects.StandardActions
             }
         }
 
-
-
+        
+        /// <summary>
+        /// Passive Skills and "passive" component in Active Skills
+        /// </summary>
         public IEnumerator RegisterStandardAction(IHero hero)
         {
             yield return null;
         }
-
-        public void StartAction(IHero hero)
+        
+        /// <summary>
+        /// EDragSkillTarget - Basic Skills, Active Skills, and some Passive Skills
+        /// </summary>
+        public IEnumerator RegisterStandardAction(ISKill skill)
+        {
+            yield return null;
+        }
+        
+        /// <summary>
+        /// Method subscribed to 1 arg events (hero)
+        /// </summary>
+        public void StartAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var target in ActionTargets.GetHeroTargets(targetHero))
+            {
+                //if final Condition
+                foreach (var basicAction in BasicActions)
+                {
+                    basicAction.StartAction(target);
+                }
+            }
+            
+        }
+        
+        /// <summary>
+        /// Method subscribed to 2 arg events (thisHero, targetHero)
+        /// </summary>
+        public void StartAction(IHero thisHero, IHero targetHero)
         {   
             
             
         }
 
-       
 
 
+    }
 
+    public interface ISKill
+    {
     }
 }
