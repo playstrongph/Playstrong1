@@ -7,61 +7,82 @@ using UnityEngine;
 
 namespace ScriptableObjects.StandardActions
 {
+    [CreateAssetMenu(fileName = "NewStandardAction", menuName = "SO's/StandardActions/NewStandardAction")]
     public class StandardActionAsset : ScriptableObject, IStandardActionAsset
     {
+        [Header("Game Event")]
         [SerializeField] private ScriptableObject standardEvent;
         private IStandardEvent StandardEvent => standardEvent as IStandardEvent;
 
-        [SerializeField] private List<ScriptableObject> standardConditions = new List<ScriptableObject>();
-        private List<IStandardConditionAsset> StandardConditions
+        [Header("Action Targets")]
+        [SerializeField] private ScriptableObject actionTargets;
+        private IActionTargets ActionTargets => actionTargets as IActionTargets;
+
+        [Header("OR Conditions")]
+        [SerializeField] private List<ScriptableObject> orBasicConditions;
+        public List<IBasicConditionAsset> OrBasicConditions
         {
             get
             {
-                var newStandardConditions = new List<IStandardConditionAsset>();
-                foreach (var standardConditionObject in standardConditions)
+                var basicConditions = new List<IBasicConditionAsset>();
+                basicConditions.Clear();
+                foreach (var basicConditionObject in orBasicConditions)
                 {
-                    var standardCondition = standardConditionObject as IStandardConditionAsset;
-                    
-                    newStandardConditions.Add(standardCondition);
+                    var basicCondition = basicConditionObject as IBasicConditionAsset;
+                    basicConditions.Add(basicCondition);
+                }
+                return basicConditions;
+            }
+        }
+        
+        [Header("AND Conditions")]
+        [SerializeField] private List<ScriptableObject> andBasicConditions;
+        public List<IBasicConditionAsset> AndBasicConditions
+        {
+            get
+            {
+                var basicConditions = new List<IBasicConditionAsset>();
+                basicConditions.Clear();
+                foreach (var basicConditionObject in andBasicConditions)
+                {
+                    var basicCondition = basicConditionObject as IBasicConditionAsset;
+                    basicConditions.Add(basicCondition);
+                }
+                return basicConditions;
+            }
+        }
+
+        [Header("Basic Actions")]
+        [SerializeField] private List<ScriptableObject> basicActions;
+        public List<IBasicActionAsset> BasicActions
+        {
+            get
+            {
+                var newBasicActions = new List<IBasicActionAsset>();
+                foreach (var basicActionObject in basicActions)
+                {
+                    var basicAction = basicActionObject as IBasicActionAsset;
+                    newBasicActions.Add(basicAction);
                 }
 
-                return newStandardConditions;
+                return newBasicActions;
             }
         }
 
 
+
         public IEnumerator RegisterStandardAction(IHero hero)
         {
-            //TODO: StandardEvent.SubscribeStandardAction( IStandardAction stdAction)
-            StandardEvent.SubscribeStandardAction(hero, this);
-            
             yield return null;
         }
 
         public void StartAction(IHero hero)
         {   
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(StartActionCoroutine(hero));
-
-            logicTree.EndSequence();
             
         }
 
-        private IEnumerator StartActionCoroutine(IHero hero)
-        {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TODO: Foreach target in ActionTargets 
-
-            foreach (var standardCondition in StandardConditions)
-            {
-                logicTree.AddCurrent(standardCondition.StartAction(hero));
-            }
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
+       
 
 
 
