@@ -18,6 +18,12 @@ namespace ScriptableObjects.HeroLivingStatus
            
         }
         
+        public override void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
+        {
+            initiator.HeroLogic.HeroLivingStatus.DoHeroAction(basicAction, initiator, recipient);
+           
+        }
+        
         /// <summary>
         /// If the initiator hero is alive, this will call the initiator's TargetHero method
         /// </summary>
@@ -29,9 +35,23 @@ namespace ScriptableObjects.HeroLivingStatus
 
         }
         
+        public override void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
+        {
+            var logicTree = recipient.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(basicAction.TargetAction(initiator, recipient));
+
+        }
+        
         public override void ReceiveHeroAction(IHeroAction heroAction, IHero target,  float value)
         {
             target.HeroLogic.HeroLivingStatus.DoHeroAction(heroAction, target, value);
+           
+        }
+        
+        public override void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target,  float value)
+        {
+            target.HeroLogic.HeroLivingStatus.DoHeroAction(basicAction, target, value);
            
         }
         
@@ -39,6 +59,13 @@ namespace ScriptableObjects.HeroLivingStatus
         {
             var logicTree = target.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(heroAction.ActionTarget(target,value));
+
+        }
+        
+        public override void DoHeroAction(IBasicActionAsset basicAction, IHero target,  float value)
+        {
+            var logicTree = target.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(basicAction.TargetAction(target,value));
 
         }
         

@@ -16,10 +16,22 @@ namespace ScriptableObjects.HeroLivingStatus
            
         }
         
+        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
+        {
+           
+           
+        }
+        
         /// <summary>
         /// If the initiator hero is alive, this will call the initiator's TargetHero method
         /// </summary>
         public virtual void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient)
+        {
+           
+
+        }
+        
+        public virtual void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
         {
            
 
@@ -36,7 +48,19 @@ namespace ScriptableObjects.HeroLivingStatus
            
         }
         
+        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target, float value)
+        {
+           
+           
+        }
+        
         public virtual void DoHeroAction(IHeroAction heroAction, IHero target, float value)
+        {
+           
+
+        }
+        
+        public virtual void DoHeroAction(IBasicActionAsset basicAction, IHero target, float value)
         {
            
 

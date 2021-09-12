@@ -12,12 +12,15 @@ namespace ScriptableObjects.HeroLivingStatus
         /// Example: DragHeroAttack, AddBuff, DealDamage, etc. 
         /// </summary>
         void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
-        
-        void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
 
+        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient);
+        void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
+        void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient);
         void ReceiveHeroAction(IHeroAction heroAction, IHero target,  float value);
+        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target, float value);
 
         void DoHeroAction(IHeroAction heroAction, IHero target,  float value);
+        void DoHeroAction(IBasicActionAsset basicAction, IHero target, float value);
         
         //TEST - Standard Actions implementation
         void ReceiveHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient);

@@ -10,9 +10,9 @@ namespace Logic
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: Implement in HeroLivingStatus - IBasicActionAsset
-            //targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
-            
+           
+            targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
+
             logicTree.EndSequence();
             yield return null;
 

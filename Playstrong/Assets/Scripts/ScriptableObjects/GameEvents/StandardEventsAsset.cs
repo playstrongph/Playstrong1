@@ -26,7 +26,7 @@ namespace ScriptableObjects.GameEvents
         }
         protected virtual IEnumerator SubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
-
+            Debug.Log("Subscribe Hero");
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             //sample
            //Note that the event Dictates the args of the StartAction subscribed
@@ -50,6 +50,7 @@ namespace ScriptableObjects.GameEvents
         
         public void SubscribeStandardAction(ISkill skill, IStandardActionAsset standardAction)
         {
+            Debug.Log("Subscribe Skill");
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(SubscribeStandardActionCoroutine(skill, standardAction));
         }

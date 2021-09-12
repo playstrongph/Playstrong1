@@ -11,6 +11,7 @@ namespace ScriptableObjects.StandardEvents
     {
         protected override IEnumerator SubscribeStandardActionCoroutine(ISkill skill,IStandardActionAsset standardAction)
         {
+            Debug.Log("Subscribe to Event EDragSkillTarget");
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             //Note that the event Dictates the args of the StartAction subscribed
