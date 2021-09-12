@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Savannah
   _description: Beast Rider
   _heroSprite: {fileID: 21300000, guid: 39933640ca887d447b6e2509163736df, type: 3}
-  _health: 109
+  _health: 12
   _attack: 8
   _speed: 100
   _chance: 50
