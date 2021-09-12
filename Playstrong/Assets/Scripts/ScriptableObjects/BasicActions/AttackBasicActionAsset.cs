@@ -39,6 +39,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {
+           Debug.Log("Basic Action Attack Hero");
+            
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var dealDamage = targetHero.HeroLogic.DealDamage;
             var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;

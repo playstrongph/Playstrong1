@@ -219,7 +219,7 @@ namespace Logic
 
         public IEnumerator StartNextHeroTurn()
         {
-            Debug.Log("StartNextHeroTurn");
+            //Debug.Log("StartNextHeroTurn");
             
             //Post End turn for StatusEffects effects
             _logicTree.AddCurrent(PostHeroEndTurnEvent());
@@ -271,7 +271,7 @@ namespace Logic
             //This needs to come first before change of herostatus
             _activeHeroLogic.HeroStatus.RemoveFromActiveHeroesList(this, heroTimerObject);
             
-            Debug.Log("Set Current Hero Inactive: " +_activeHeroLogic.Hero.HeroName);
+            //Debug.Log("Set Current Hero Inactive: " +_activeHeroLogic.Hero.HeroName);
             //Set Hero Status to Inactive
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
 

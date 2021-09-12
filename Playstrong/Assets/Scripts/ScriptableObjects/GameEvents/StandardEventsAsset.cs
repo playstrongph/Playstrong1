@@ -26,19 +26,23 @@ namespace ScriptableObjects.GameEvents
         }
         protected virtual IEnumerator SubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
-           
-           //sample
+
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            //sample
            //Note that the event Dictates the args of the StartAction subscribed
            //hero.HeroLogic.HeroEvents.EAfterHeroDies += standardAction.StartAction;
             
-            yield return null;
+           logicTree.EndSequence(); 
+           yield return null;
             
         }
         protected virtual IEnumerator UnsubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             //sample
             //Note that the event Dictates the args of the StartAction subscribed
             //hero.HeroLogic.HeroEvents.EAfterHeroDies -= standardAction.StartAction;
+            logicTree.EndSequence(); 
             yield return null;
             
         }
@@ -57,18 +61,22 @@ namespace ScriptableObjects.GameEvents
         
         protected virtual IEnumerator SubscribeStandardActionCoroutine(ISkill skill,IStandardActionAsset standardAction)
         {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             //sample
             //Note that the event Dictates the args of the StartAction subscribed
             //skill.SkillLogic.SkillEvents.EDragSkillTarget += standardAction.StartAction;
+            logicTree.EndSequence();
             yield return null;
             
         }
         
         protected virtual IEnumerator UnsubscribeStandardActionCoroutine(ISkill skill,IStandardActionAsset standardAction)
         {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             //sample
             //Note that the event Dictates the args of the StartAction subscribed
             //skill.SkillLogic.SkillEvents.EDragSkillTarget -= standardAction.StartAction;
+            logicTree.EndSequence();
             yield return null;
             
         }

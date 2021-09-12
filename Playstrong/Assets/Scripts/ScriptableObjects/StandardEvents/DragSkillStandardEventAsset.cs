@@ -11,15 +11,23 @@ namespace ScriptableObjects.StandardEvents
     {
         protected override IEnumerator SubscribeStandardActionCoroutine(ISkill skill,IStandardActionAsset standardAction)
         {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
             //Note that the event Dictates the args of the StartAction subscribed
             skill.SkillLogic.SkillEvents.EDragSkillTarget += standardAction.StartAction;
+            
+            logicTree.EndSequence();
             yield return null;
         }
         
         protected override IEnumerator UnsubscribeStandardActionCoroutine(ISkill skill,IStandardActionAsset standardAction)
         {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
             //Note that the event Dictates the args of the StartAction subscribed
             skill.SkillLogic.SkillEvents.EDragSkillTarget -= standardAction.StartAction;
+            
+            logicTree.EndSequence();
             yield return null;
         }
     }

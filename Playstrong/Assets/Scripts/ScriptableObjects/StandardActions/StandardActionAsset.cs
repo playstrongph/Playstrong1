@@ -79,12 +79,20 @@ namespace ScriptableObjects.StandardActions
         /// </summary>
         public IEnumerator RegisterStandardAction(IHero hero)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
             StandardEvent.SubscribeStandardAction(hero,this);
+            
+            logicTree.EndSequence();
             yield return null;
         }
         public IEnumerator UnregisterStandardAction(IHero hero)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
             StandardEvent.UnsubscribeStandardAction(hero,this);
+            
+            logicTree.EndSequence();
             yield return null;
         }
         
@@ -93,12 +101,20 @@ namespace ScriptableObjects.StandardActions
         /// </summary>
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
             StandardEvent.SubscribeStandardAction(skill,this);
+            
+            logicTree.EndSequence();
             yield return null;
         }
         public IEnumerator UnregisterStandardAction(ISkill skill)
         {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
             StandardEvent.UnsubscribeStandardAction(skill,this);
+            
+            logicTree.EndSequence();
             yield return null;
         }
         

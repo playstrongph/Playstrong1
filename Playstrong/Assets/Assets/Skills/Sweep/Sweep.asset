@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Sweep
   _description: Attacks two enemies, decreasing Energy by 15%.
-  _skillEffect: {fileID: 11400000, guid: 54dba97078cd5d44383be0af978d2297, type: 2}
+  _skillEffect: {fileID: 11400000, guid: a2ec81e39a797e747b7ec9bd1fdc6f4d, type: 2}
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: 7939e985e3eabe343b062a801c7fd639, type: 3}
