@@ -38,19 +38,23 @@ namespace ScriptableObjects.StatusEffects
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;*/
 
         [SerializeField] private ScriptableObject _standardAction;
-        public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
+        private IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
 
         public IHero CasterHero { get; set; }
+        
         public IHeroStatusEffect LocalSkillStatusEffectReference { get; set; }
 
         
         public virtual void ApplyStatusEffect(IHero hero)
         {
+            //This is where standard action is used
+            //Standard action can be used as - RegisterStandardAction for event based actions
+            //Standard action can be used as - TargetAction for immediate use standard actions
         }
 
         public virtual void UnapplyStatusEffect(IHero hero)
         {
-            
+            //This is where standard action is unregistered - for event based standard actions
         }
         public virtual IEnumerator StartStandardAction(IHero hero)
         {
