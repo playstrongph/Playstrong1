@@ -11,40 +11,28 @@ using Visual;
 
 namespace Logic
 {
-    public interface IHeroStatusEffect
+    public interface ISkillStatusEffect
     {
-
         string Name { get; set; }
-        IStatusEffectAsset StatusEffectAsset { get; set; }
         int Counters { get; set; }
         Image Icon { get; }
         TextMeshProUGUI CounterVisual { get; }
-
+        
+       
+        ISkillStatusEffect SkillStatusEffectAsset { get; set; }
+        
         IStatusEffectType StatusEffectType { get; set; }
-
         ILoadStatusEffectValues LoadStatusEffectValues { get; }
-        
         ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
-        
         IHero TargetHero { get; set; }
-        
         IHero CasterHero { get; set; }
-
         IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
-
         ISetStatusEffectCounters SetStatusEffectCounters { get; }
-
         IStatusEffectCounterUpdate StatusEffectCounterUpdate { get; set; }
-
         IStatusEffectInstance StatusEffectInstance { get; set; }
-
         IRemoveStatusEffect RemoveStatusEffect { get; }
-
         GameObject StatusEffectPreview { get; set; }
-
         IIncreaseStatusEffectCounters IncreaseStatusEffectCounters { get; }
         IDecreaseStatusEffectCounters DecreaseStatusEffectCounters { get; }
-
-
     }
 }

@@ -2,7 +2,6 @@
 using Interfaces;
 using Logic;
 using References;
-using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
@@ -12,7 +11,7 @@ using Utilities;
 
 namespace ScriptableObjects.StatusEffects
 {
-    public class SkillStatusEffectAsset : ScriptableObject
+    public class SkillStatusEffectAsset : ScriptableObject, ISkillStatusEffectAsset
     {
         [SerializeField] private string _name;
         public string Name => _name;
@@ -20,61 +19,86 @@ namespace ScriptableObjects.StatusEffects
         [TextArea(1,2)]
         [SerializeField] private string _description;
         public string Description => _description;
+            
         
-        //TODO: Create SkillStatusEffectType - types are SkillBuffs and SkillDebuffs
-        /*[SerializeField] 
+        [SerializeField] private Sprite _icon;
+        public Sprite Icon => _icon;
+        
+        
+        [SerializeField] 
         [RequireInterface(typeof(IStatusEffectType))]
-        private ScriptableObject _statusEffectType;        
-        public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;*/
+        private ScriptableObject _statusEffectType;
         
-        //TODO: Create SkillStatusEffectCounterUpdate - event based
-        /*[SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
+        public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;
+
+        [SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
         private ScriptableObject updateTiming;
-        public IStatusEffectCounterUpdate UpdateTiming => updateTiming as IStatusEffectCounterUpdate;*/
+        public IStatusEffectCounterUpdate UpdateTiming => updateTiming as IStatusEffectCounterUpdate;
 
-        //TODO: Create SKillStatus Effect Instance - Single, Multiple 
-        /*[SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
+        [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
         private ScriptableObject _statusEffectInstance;
-        public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;*/
+        public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
 
-        [SerializeField] private ScriptableObject _standardAction;
-        private IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
+       
+        [SerializeField] private ScriptableObject _skillactionAsset;
+        public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
 
         public IHero CasterHero { get; set; }
-        
-        public IHeroStatusEffect LocalSkillStatusEffectReference { get; set; }
 
+        protected ICoroutineTree LogicTree;
+        protected ICoroutineTree VisualTree;
+        protected IHero TargetHero;
+        
+        //For cleanup
+        [SerializeField] private float _effectValue;
+
+        public float EffectValue
+        {
+            get => _effectValue;
+            set => _effectValue = value;
+        }
+
+        
+        //public IHeroStatusEffect HeroStatusEffectReference { get; set; }
+
+        public ISkillStatusEffect SkillStatusEffectReference { get; set; }
+
+
+
+        protected void InitializeValues(IHero hero)
+        {
+            LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            TargetHero = hero;
+
+        }
         
         public virtual void ApplyStatusEffect(IHero hero)
         {
-            //This is where standard action is used
-            //Standard action can be used as - RegisterStandardAction for event based actions
-            //Standard action can be used as - TargetAction for immediate use standard actions
         }
 
         public virtual void UnapplyStatusEffect(IHero hero)
         {
-            //This is where standard action is unregistered - for event based standard actions
-        }
-        public virtual IEnumerator StartStandardAction(IHero hero)
-        {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.EndSequence();
+        }
+        public virtual IEnumerator StartSkillAction()
+        {
+            LogicTree.EndSequence();
             yield return null;
         }
         
-        
-        //TODO: Check if this is still required
+        /// <summary>
+        /// For status effects called by events
+        /// </summary>
+        /// <param name="hero"></param>
         public virtual void StartEventStatusEffect(IHero hero)
         {
             
         }
-        
-        //TODO: Check if this is still required
+
         public virtual void RemoveStatusEffect(IHero hero)
         {
-          
+            SkillStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
         }
 
 
