@@ -40,9 +40,9 @@ namespace Logic
         [SerializeField]
         private ScriptableObject skillStatusEffectAsset;
 
-        public ISkillStatusEffect SkillStatusEffectAsset
+        public ISkillStatusEffectAsset SkillStatusEffectAsset
         {
-            get => skillStatusEffectAsset as ISkillStatusEffect;
+            get => skillStatusEffectAsset as ISkillStatusEffectAsset;
             set => skillStatusEffectAsset = value as ScriptableObject;
         }
         
@@ -112,6 +112,7 @@ namespace Logic
 
         private void Awake()
         {
+            
             _loadStatusEffectValues = GetComponent<ILoadStatusEffectValues>();
             _reduceStatusEffectCounters = GetComponent<IReduceStatusEffectCounters>();
             _setStatusEffectCounters = GetComponent<ISetStatusEffectCounters>();

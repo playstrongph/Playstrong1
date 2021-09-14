@@ -19,7 +19,7 @@ namespace Logic
         TextMeshProUGUI CounterVisual { get; }
         
        
-        ISkillStatusEffect SkillStatusEffectAsset { get; set; }
+        ISkillStatusEffectAsset SkillStatusEffectAsset { get; set; }
         
         IStatusEffectType StatusEffectType { get; set; }
         ILoadStatusEffectValues LoadStatusEffectValues { get; }
