@@ -10,6 +10,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
     /// </summary>
     public interface IStatusEffectCounterUpdate
     {
+        
         void UpdateCountersStartTurn(IHeroStatusEffect heroStatusEffect);
 
         void UpdateCountersEndTurn(IHeroStatusEffect heroStatusEffect);
