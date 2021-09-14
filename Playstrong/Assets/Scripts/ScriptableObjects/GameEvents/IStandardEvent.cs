@@ -1,6 +1,8 @@
 ﻿using Interfaces;
+using Logic;
 using References;
 using ScriptableObjects.StandardActions;
+using ScriptableObjects.StatusEffects;
 
 namespace ScriptableObjects.GameEvents
 {
@@ -11,5 +13,9 @@ namespace ScriptableObjects.GameEvents
         
         void SubscribeStandardAction(ISkill skill, IStandardActionAsset standardAction);
         void UnsubscribeStandardAction(ISkill skill, IStandardActionAsset standardAction);
+
+        void SubscribeStatusEffectCountersUpdate(IHeroStatusEffect statusEffect);
+
+        void UnsubscribeStatusEffectCountersUpdate(IHeroStatusEffect statusEffect);
     }
 }

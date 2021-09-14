@@ -1,4 +1,6 @@
-﻿using Logic;
+﻿using System.Collections;
+using Interfaces;
+using Logic;
 
 namespace ScriptableObjects.StatusEffects.StatusEffectCounter
 {
@@ -14,5 +16,15 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
         void UpdateCountersStartTurn(IHeroStatusEffect heroStatusEffect);
 
         void UpdateCountersEndTurn(IHeroStatusEffect heroStatusEffect);
+
+        void UpdateCountersAtEvent(IHeroStatusEffect heroStatusEffect);
+
+        IEnumerator UpdateCountersCoroutine(IHeroStatusEffect heroStatusEffect);
+
+        void UpdateCounterAction(IHero thisHero);
+
+        void UpdateCounterAction(IHero thisHero, IHero targetHero);
+
+
     }
 }

@@ -6,6 +6,7 @@ using References;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
 using ScriptableObjects.StandardActions;
+using ScriptableObjects.StatusEffects;
 using UnityEngine;
 using Utilities;
 
@@ -81,6 +82,42 @@ namespace ScriptableObjects.GameEvents
             yield return null;
             
         }
+        
+        public void SubscribeStatusEffectCountersUpdate(IHeroStatusEffect statusEffect)
+        {
+
+            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(SubscribeStatusEffectCountersUpdateCoroutine(statusEffect));
+        }
+        public void UnsubscribeStatusEffectCountersUpdate(IHeroStatusEffect statusEffect)
+        {
+            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(UnsubscribeStatusEffectCountersUpdateCoroutine(statusEffect));
+        }
+        
+        protected virtual IEnumerator SubscribeStatusEffectCountersUpdateCoroutine(IHeroStatusEffect statusEffect)
+        {
+            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            //sample
+            //Note that the event Dictates the args of the StartAction subscribed
+            //skill.SkillLogic.SkillEvents.EDragSkillTarget += standardAction.StartAction;
+            logicTree.EndSequence();
+            yield return null;
+            
+        }
+        
+        protected virtual IEnumerator UnsubscribeStatusEffectCountersUpdateCoroutine(IHeroStatusEffect statusEffect)
+        {
+            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            //sample
+            //Note that the event Dictates the args of the StartAction subscribed
+            //skill.SkillLogic.SkillEvents.EDragSkillTarget -= standardAction.StartAction;
+            logicTree.EndSequence();
+            yield return null;
+            
+        }
+
 
     }
 }

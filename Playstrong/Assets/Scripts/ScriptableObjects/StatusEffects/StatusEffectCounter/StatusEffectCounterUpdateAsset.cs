@@ -21,8 +21,13 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
         {
            
         }
+        
+        public virtual void UpdateCountersAtEvent(IHeroStatusEffect heroStatusEffect)
+        {
+           
+        }
 
-        protected IEnumerator UpdateCountersCoroutine(IHeroStatusEffect heroStatusEffect)
+        public IEnumerator UpdateCountersCoroutine(IHeroStatusEffect heroStatusEffect)
         {
             var logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
             
@@ -32,6 +37,15 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
             yield return null;
         }
 
+        public virtual void UpdateCounterAction(IHero thisHero)
+        {
+            
+        }
+        public virtual void UpdateCounterAction(IHero thisHero,IHero targetHero)
+        {
+            
+        }
+        
 
 
 
