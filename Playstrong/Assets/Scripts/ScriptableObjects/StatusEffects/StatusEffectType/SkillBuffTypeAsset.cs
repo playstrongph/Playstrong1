@@ -9,14 +9,13 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
 
         public override void AddToStatusEffectsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
-            //AddToHeroBuffsList(heroStatusEffects, heroStatusEffect);
-            //TODO: AddToHeroSkillBuffsList
+            heroStatusEffects.HeroSkillBuffEffects.AddToList(heroStatusEffect);
+            
         }
 
         public override void RemoveFromStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
-            //RemoveFromHeroBuffsList(heroStatusEffects, heroStatusEffect);
-            //TODO: RemoveFromHeroSkillBuffsList
+            heroStatusEffects.HeroSkillBuffEffects.RemoveFromList(heroStatusEffect);
         }
 
     }

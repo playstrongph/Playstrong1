@@ -14,6 +14,7 @@ namespace Logic
         IStatusEffectsVisual StatusEffectsVisual { get; }
         IHeroBuffEffects HeroBuffEffects { get; }
         IHeroDebuffEffects HeroDebuffEffects { get; }
+        IHeroSkillBuffEffects HeroSkillBuffEffects { get; }
 
         IUpdateStatusEffectCounters UpdateStatusEffectCounters { get; }
 
