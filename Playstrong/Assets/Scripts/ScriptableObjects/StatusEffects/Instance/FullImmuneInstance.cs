@@ -7,7 +7,11 @@ using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.Instance
 {
-    
+    /// <summary>
+    /// Status Effect Counters can't be changed
+    /// Status Effect Can't be dispelled
+    /// Can be used by Permanent SkillBuffs 
+    /// </summary>
     [CreateAssetMenu(fileName = "FullImmuneInstance", menuName = "SO's/Status Effects/Instance/FullImmuneInstance")]
     public class FullImmuneInstance : StatusEffectInstance
     {

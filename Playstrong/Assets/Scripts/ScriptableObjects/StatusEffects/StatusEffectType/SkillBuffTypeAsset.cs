@@ -3,20 +3,21 @@ using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.StatusEffectType
 {
-    [CreateAssetMenu(fileName = "BuffType", menuName = "SO's/Status Effects/Type/BuffType")]
-    public class BuffTypeAsset : StatusEffectTypeAsset
+    [CreateAssetMenu(fileName = "SkillBuffType", menuName = "SO's/Status Effects/Type/SkillBuffType")]
+    public class SkillBuffTypeAsset : StatusEffectTypeAsset
     {
 
         public override void AddToStatusEffectsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
-            heroStatusEffects.HeroBuffEffects.AddToList(heroStatusEffect);
+            //AddToHeroBuffsList(heroStatusEffects, heroStatusEffect);
+            //TODO: AddToHeroSkillBuffsList
         }
 
         public override void RemoveFromStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
-            heroStatusEffects.HeroBuffEffects.RemoveFromList(heroStatusEffect);
+            //RemoveFromHeroBuffsList(heroStatusEffects, heroStatusEffect);
+            //TODO: RemoveFromHeroSkillBuffsList
         }
 
-       
     }
 }

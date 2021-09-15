@@ -4,28 +4,17 @@ using UnityEngine;
 namespace ScriptableObjects.StatusEffects.StatusEffectType
 {
     [CreateAssetMenu(fileName = "DebuffType", menuName = "SO's/Status Effects/Type/DebuffType")]
-    public class DebuffTypeAsset : ScriptableObject, IStatusEffectType
+    public class DebuffTypeAsset : StatusEffectTypeAsset
     {
-        public void  AddToStatusEffectsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
+        public override void AddToStatusEffectsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
-            AddToHeroDebuffsList(heroStatusEffects, heroStatusEffect);
+            heroStatusEffects.HeroDebuffEffects.AddToList(heroStatusEffect);
         }
 
-        public void RemoveFromStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
+        public override void RemoveFromStatusEffectList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
-            RemoveFromHeroDebuffsList(heroStatusEffects, heroStatusEffect);
+            heroStatusEffects.HeroDebuffEffects.RemoveFromList(heroStatusEffect);
         }
-
-        private void AddToHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
-        {
-            heroStatusEffects.HeroDebuffEffects.AddToList(debuffEffect);
-        }
-        
-        private void RemoveFromHeroDebuffsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect debuffEffect)
-        {
-            heroStatusEffects.HeroDebuffEffects.RemoveFromList(debuffEffect);
-        }
-        
 
     }
 }
