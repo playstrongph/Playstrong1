@@ -1005,6 +1005,7 @@ GameObject:
   - component: {fileID: 6281211539542690288}
   - component: {fileID: 1145517578527464591}
   - component: {fileID: 7427409395014051374}
+  - component: {fileID: 7634340891240531257}
   - component: {fileID: 757506710205901491}
   m_Layer: 0
   m_Name: HeroStatusEffects
@@ -1096,7 +1097,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b67cf92ac117834da99b330ca2c4aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroBuffs: []
+  _heroSkillBuffs: []
+--- !u!114 &7634340891240531257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792405558328800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c59d52fcd93aa0409b0f3e57e81e0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroSkillDebuffs: []
 --- !u!114 &757506710205901491
 MonoBehaviour:
   m_ObjectHideFlags: 0
