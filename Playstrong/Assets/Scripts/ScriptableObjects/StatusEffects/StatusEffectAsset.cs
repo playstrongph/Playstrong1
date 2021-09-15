@@ -44,7 +44,7 @@ namespace ScriptableObjects.StatusEffects
 
         //maximum skill status effect counters
         //Used by stacking skill effects
-        [SerializeField] private int maxSkillCounters = 0;
+        [SerializeField] private int maxSkillCounters = 1 ;
         public int MaxSkillCounters => maxSkillCounters;
 
         public IHero CasterHero { get; set; }

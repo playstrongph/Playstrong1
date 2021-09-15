@@ -114,16 +114,26 @@ namespace ScriptableObjects.StatusEffects.Instance
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             var existingStatusEffectCounters = existingStatusEffect.Counters;
-
-            var newCounters = existingStatusEffectCounters + counters;
+            var maxSkillCounters = statusEffectAsset.MaxSkillCounters;
             
-            //TODO: Cap this to the skillstatuseffect's max counters, if any
-            //Increase the counters
+            //allowed, additional counters for stacking status effects
+            //floor limit of zero (just to be safe, but check not required)
+            var newCountersLimit = maxSkillCounters - existingStatusEffectCounters;
+            newCountersLimit = Mathf.Max(newCountersLimit, 0);
+            
+            //Check if new additional counters are within the limit
+            //get the smaller value in case counters exceed the limit.
+            var additionalCounters = Mathf.Min(newCountersLimit, counters);
+            
+            //New counters shouldn't exceed the maxCounters limit due to additional counters calculation
+            var newCounters = existingStatusEffectCounters + additionalCounters;
+            //newCounters = Mathf.Min(newCounters, maxSkillCounters);  //not required
+
+            //Set the new skill status effect counters
             existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
             
-            //TODO: Logic to apply the effect again
-            //TEST
-            for(int i =0; i < counters; i++)
+            //Apply stacking effect times the number of additionalCounters
+            for(int i =0; i < additionalCounters; i++)
             {
                 statusEffectAsset.ApplyStackingEffect(targetHero);
             }

@@ -10,18 +10,35 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private float multiplier =0.1f;
 
         //Cumulative effect value of the stacking status effect 
+        //Effect: At the start of the hero's turn, increase attack
         private float _cumulativeValue = 0f;
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            ComputeAttackIncrease(hero);
-            
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
-            
+            hero.HeroLogic.HeroEvents.EHeroStartTurn += SkillAttackUpEffect;
+
         }
         
         public override void UnapplyStatusEffect(IHero hero)
+        {
+            hero.HeroLogic.HeroEvents.EHeroStartTurn -= SkillAttackUpEffect;
+            UnapplyStackingEffect(hero );
+        }
+
+        private void SkillAttackUpEffect(IHero hero)
+        {
+            ApplyStackingEffect(hero);
+        }
+
+
+        public override void ApplyStackingEffect(IHero hero)
+        {
+            ComputeAttackIncrease(hero);
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
+        }
+
+        public override void UnapplyStackingEffect(IHero hero)
         {
             var effectValue = _cumulativeValue;
             _cumulativeValue = 0;
