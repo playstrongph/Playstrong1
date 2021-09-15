@@ -42,6 +42,11 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] private ScriptableObject _skillactionAsset;
         public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
 
+        //maximum skill status effect counters
+        //Used by stacking skill effects
+        [SerializeField] private int maxSkillCounters = 0;
+        public int MaxSkillCounters => maxSkillCounters;
+
         public IHero CasterHero { get; set; }
 
         protected ICoroutineTree LogicTree;
@@ -76,8 +81,19 @@ namespace ScriptableObjects.StatusEffects
 
         public virtual void UnapplyStatusEffect(IHero hero)
         {
-            
         }
+        
+        public virtual void ApplyStackingEffect(IHero hero)
+        {
+        }
+        
+        public virtual void UnapplyStackingEffect(IHero hero)
+        {
+        }
+        
+        
+        
+        
         public virtual IEnumerator StartSkillAction()
         {
             LogicTree.EndSequence();

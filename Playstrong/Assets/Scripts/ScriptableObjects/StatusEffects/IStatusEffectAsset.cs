@@ -13,6 +13,10 @@ namespace ScriptableObjects.StatusEffects
         void ApplyStatusEffect(IHero hero);
         void UnapplyStatusEffect(IHero hero);
 
+        void ApplyStackingEffect(IHero hero);
+
+        void UnapplyStackingEffect(IHero hero);
+
         string Name { get; }
 
         string Description { get; }
@@ -30,7 +34,9 @@ namespace ScriptableObjects.StatusEffects
         float EffectValue { get; set; }
 
         IHeroAction SkillActionAsset { get; }
-        
+
+        int MaxSkillCounters { get; }
+
         IHero CasterHero { get; set; }
         
         IHeroStatusEffect HeroStatusEffectReference { get; set; }

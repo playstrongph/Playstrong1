@@ -72,7 +72,19 @@ namespace ScriptableObjects.StatusEffects.Instance
                     return statusEffect;
             }
             
+            foreach (var statusEffect in targetHero.HeroStatusEffects.HeroSkillBuffEffects.HeroSkillBuffs )
+            {
+                if (addStatusEffectAsset.Name == statusEffect.StatusEffectAsset.Name)
+                    return statusEffect;
+            }
+            
             foreach (var statusEffect in targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs )
+            {
+                if (addStatusEffectAsset.Name == statusEffect.StatusEffectAsset.Name)
+                    return statusEffect;
+            }
+            
+            foreach (var statusEffect in targetHero.HeroStatusEffects.HeroSkillDebuffEffects.HeroSkillDebuffs )
             {
                 if (addStatusEffectAsset.Name == statusEffect.StatusEffectAsset.Name)
                     return statusEffect;
@@ -92,6 +104,29 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             //TEST
             existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            
+            existingStatusEffect.CasterHero = casterHero;
+            statusEffectAsset.CasterHero = casterHero;
+
+        }
+        
+        protected void UpdateStackingStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            var existingStatusEffectCounters = existingStatusEffect.Counters;
+
+            var newCounters = existingStatusEffectCounters + counters;
+            
+            //TODO: Cap this to the skillstatuseffect's max counters, if any
+            //Increase the counters
+            existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            
+            //TODO: Logic to apply the effect again
+            //TEST
+            for(int i =0; i < counters; i++)
+            {
+                statusEffectAsset.ApplyStackingEffect(targetHero);
+            }
             
             existingStatusEffect.CasterHero = casterHero;
             statusEffectAsset.CasterHero = casterHero;
