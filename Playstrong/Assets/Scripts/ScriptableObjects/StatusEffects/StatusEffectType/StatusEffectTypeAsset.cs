@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using Interfaces;
+using Logic;
 using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.StatusEffectType
@@ -16,7 +17,30 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
             
         }
 
+        public virtual void IncreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters,coroutineTreesAsset);
+        }
         
+        public virtual void DecreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters,coroutineTreesAsset);
+        }
+        
+        public virtual void SetCountersValue(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.SetStatusEffectCounters.SetCounters(counters,coroutineTreesAsset);
+        }
+        
+        public virtual void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
+        {
+            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
+        }
+
 
     }
 }

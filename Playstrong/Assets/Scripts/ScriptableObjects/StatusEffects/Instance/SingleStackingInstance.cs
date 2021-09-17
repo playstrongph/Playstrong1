@@ -21,7 +21,7 @@ namespace ScriptableObjects.StatusEffects.Instance
                 UpdateStackingStatusEffect(existingStatusEffect, statusEffectAsset, statusEffectCounters, targetHero,casterHero);
             else
             {
-                NewStatusEffect = CreateStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,casterHero);
+                NewStatusEffect = CreateStackingStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,casterHero);
                 
                 //Logic for 1 time "other" status effects - armor, increase energy, etc.
                 if(NewStatusEffect.Counters <= 0)

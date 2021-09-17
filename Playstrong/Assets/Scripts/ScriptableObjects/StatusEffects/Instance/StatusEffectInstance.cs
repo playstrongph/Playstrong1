@@ -33,7 +33,67 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
 
+            
+            //This is where statusEffect Gets applied
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
+
+            heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            heroStatusEffect.TargetHero = targetHero;
+
+            statusEffectAsset.CasterHero = casterHero;
+            heroStatusEffect.CasterHero = casterHero;
+            
+
+            //Add to respective StatusEffects List in HeroStatusEffects
+            heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
+            
+            //Status Effect Preview
+            var statusEffectPreviewPrefab = targetHero.HeroStatusEffects.StatusEffectPreviewPrefab;
+            var statusEffectPreviewPanel = targetHero.HeroPreviewVisual.StatusCanvasPanel.transform;
+
+            var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab);
+            var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();
+            heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
+            
+            //Delayed change parent due to inactive Parent gameObject
+            heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
+           
+            
+            //TEMP. TODO: Transfer this to LoadValues
+            heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
+
+            return heroStatusEffect;
+            
+        }
+        
+         protected IHeroStatusEffect CreateStackingStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
+        {
+
+            var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
+            var statusEffectPanel = targetHero.HeroStatusEffects.StatusEffectsPanel.Transform;
+            
+            var statusEffectObject = Instantiate(statusEffectPrefab, statusEffectPanel);
+            statusEffectObject.transform.SetParent(statusEffectPanel);
+            
+            //Return this
+            var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
+            
+            //This should come before LoadStatusEffectValues due to cloning of SO
+            statusEffectAsset.CasterHero = casterHero;
+            heroStatusEffect.CasterHero = casterHero;
+
+            heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
+
+            
+            //This is where statusEffect Gets applied
+            //heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
+            
+            //stacking effect if counters > 1
+            for (int i = 0; i < statusEffectCounters; i++)
+            {
+                heroStatusEffect.StatusEffectAsset.ApplyStackingEffect(targetHero);
+            }
+
 
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             heroStatusEffect.TargetHero = targetHero;
