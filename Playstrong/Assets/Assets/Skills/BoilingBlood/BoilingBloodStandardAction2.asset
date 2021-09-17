@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
-  m_Name: NewStandardAction 1
+  m_Name: BoilingBloodStandardAction2
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 272dfcb5cde92d84ebfc254c520d6e5c, type: 2}
-  actionTargets: {fileID: 11400000, guid: 617651cda7192d2409b12463c18af5e4, type: 2}
+  actionTargets: {fileID: 11400000, guid: 8bef77dbfba5642489b525e3cab5dbe9, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:
-  - {fileID: 11400000, guid: f91b06af1c328c443b5c649b2c7c02a3, type: 2}
-  - {fileID: 11400000, guid: 33ac1fe5cc241cc45b652c3884eb4d21, type: 2}
+  - {fileID: 11400000, guid: 340c102a545aaca46a6d9cbd3dc8e7b5, type: 2}

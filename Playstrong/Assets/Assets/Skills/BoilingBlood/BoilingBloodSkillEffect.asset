@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
+  m_Name: BoilingBloodSkillEffect
+  m_EditorClassIdentifier: 
+  standardActions:
+  - {fileID: 11400000, guid: 1c05af0fa241ca84cb55f7700b002912, type: 2}
+  - {fileID: 11400000, guid: ec471518305f271458301c443223e58f, type: 2}
