@@ -140,6 +140,7 @@ namespace ScriptableObjects.StandardActions
         //Used by status effects
         public void StartAction(IHero targetHero,float value)
         {
+            Debug.Log("Standard Action Start Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))

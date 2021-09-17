@@ -16,12 +16,8 @@ namespace ScriptableObjects.HeroLivingStatus
            
         }
         
-        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
-        {
-           
-           
-        }
-        
+      
+
         /// <summary>
         /// If the initiator hero is alive, this will call the initiator's TargetHero method
         /// </summary>
@@ -31,11 +27,7 @@ namespace ScriptableObjects.HeroLivingStatus
 
         }
         
-        public virtual void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
-        {
-           
-
-        }
+       
         
         
         /// <summary>
@@ -48,11 +40,7 @@ namespace ScriptableObjects.HeroLivingStatus
            
         }
         
-        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target, float value)
-        {
-           
-           
-        }
+      
         
         public virtual void DoHeroAction(IHeroAction heroAction, IHero target, float value)
         {
@@ -60,35 +48,61 @@ namespace ScriptableObjects.HeroLivingStatus
 
         }
         
+      
+        
+        
+        //Basic Actions
+        
+        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
+        {
+           
+           
+        }
+        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target, float value)
+        {
+           
+           
+        }
+        
+        public virtual void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target)
+        {
+           
+           
+        }
+        
+        public virtual void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient)
+        {
+           
+
+        }
+
         public virtual void DoHeroAction(IBasicActionAsset basicAction, IHero target, float value)
         {
-           
-
+            
         }
         
+        public virtual void DoHeroAction(IBasicActionAsset basicAction, IHero target)
+        {
+            
+        }
+
         //TEST: Standard Actions
-        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient)
-        {
-           
-           
-        }
+        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero thisHero, IHero targetHero)
+        { }
         
-        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero target, float value)
-        {
-           
-           
-        }
+        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero targetHero, float value)
+        { }
         
-        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient)
-        {
-           
-
-        }
+        public virtual void ReceiveHeroAction(IStandardActionAsset standardAction, IHero targetHero)
+        { }
         
-        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero target, float value)
-        {
-           
-
-        }
+        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero thisHero, IHero targetHero)
+        { }
+        
+        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero targetHero, float value)
+        { }
+        
+        public virtual void DoHeroAction(IStandardActionAsset standardAction, IHero targetHero)
+        { }
     }
 }

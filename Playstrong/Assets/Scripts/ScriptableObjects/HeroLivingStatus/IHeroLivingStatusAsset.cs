@@ -7,28 +7,30 @@ namespace ScriptableObjects.HeroLivingStatus
 {
     public interface IHeroLivingStatusAsset
     {
-        /// <summary>
-        /// This should be the method called by all 'action' classes that implement IHeroAction
-        /// Example: DragHeroAttack, AddBuff, DealDamage, etc. 
-        /// </summary>
+        //HERO ACTIONS
+        //TODO: Obsolete - to be replaced by basic actions in Refactoring
         void ReceiveHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
-
-        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient);
-        void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
-        void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient);
         void ReceiveHeroAction(IHeroAction heroAction, IHero target,  float value);
-        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target, float value);
-
+        void DoHeroAction(IHeroAction heroAction, IHero initiator, IHero recipient);
         void DoHeroAction(IHeroAction heroAction, IHero target,  float value);
-        void DoHeroAction(IBasicActionAsset basicAction, IHero target, float value);
+
+        //BASIC ACTIONS
+        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient);
+        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target, float value);
+        void ReceiveHeroAction(IBasicActionAsset basicAction, IHero target);
         
-        //TEST - Standard Actions implementation
+        void DoHeroAction(IBasicActionAsset basicAction, IHero target, float value);
+        void DoHeroAction(IBasicActionAsset basicAction, IHero initiator, IHero recipient);
+        void DoHeroAction(IBasicActionAsset basicAction, IHero target);
+
+        //STANDARD ACTIONS 
+        //TODO: May not be required - checking done at basic actions
         void ReceiveHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient);
-
         void ReceiveHeroAction(IStandardActionAsset standardAction, IHero target, float value);
-
+        void ReceiveHeroAction(IStandardActionAsset standardAction, IHero targetHero);
         void DoHeroAction(IStandardActionAsset standardAction, IHero initiator, IHero recipient);
-
         void DoHeroAction(IStandardActionAsset standardAction, IHero target, float value);
+        void DoHeroAction(IStandardActionAsset standardAction, IHero target);
+        
     }
 }

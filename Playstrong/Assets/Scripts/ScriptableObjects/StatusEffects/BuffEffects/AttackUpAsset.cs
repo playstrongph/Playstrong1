@@ -16,23 +16,26 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             ComputeAttackIncrease(hero);
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
+            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
             
             //TEST
-            StandardAction.StartAction(hero,factor);
+            StandardAction.StartAction(hero,EffectValue);
             
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -EffectValue));
+            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -EffectValue));
+            
+            //TEST
+            StandardAction.StartAction(hero,-EffectValue);
         }
 
         private void ComputeAttackIncrease(IHero hero)
         {
             var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
-            EffectValue = Mathf.FloorToInt(multiplier * baseAttack);
+            EffectValue = Mathf.FloorToInt(factor * baseAttack/100);
             
         }
 

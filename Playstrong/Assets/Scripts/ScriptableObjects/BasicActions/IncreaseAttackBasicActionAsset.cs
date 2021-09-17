@@ -14,10 +14,8 @@ namespace ScriptableObjects.SkillActionsScripts
         public override IEnumerator TargetAction(IHero targetHero,float value)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            var attackIncrease = Mathf.CeilToInt(value * targetHero.HeroLogic.HeroAttributes.Attack / 100);
-                                 
-
-            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + attackIncrease;
+            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + (int)value;
+            
             targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
 
             logicTree.EndSequence();

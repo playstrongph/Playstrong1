@@ -30,7 +30,7 @@ namespace Logic
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //TODO: Implement in HeroLivingStatus - IBasicActionAsset
-            //targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
+            hero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, hero);
             
             logicTree.EndSequence();
             yield return null;
@@ -49,7 +49,7 @@ namespace Logic
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //TODO: Implement in HeroLivingStatus - IBasicActionAsset
-            //targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
+            hero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, hero, value);
             
             logicTree.EndSequence();
             yield return null;
