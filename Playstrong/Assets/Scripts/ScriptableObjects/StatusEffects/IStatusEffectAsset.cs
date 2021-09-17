@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Logic;
+using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
@@ -34,6 +35,8 @@ namespace ScriptableObjects.StatusEffects
         float EffectValue { get; set; }
 
         IHeroAction SkillActionAsset { get; }
+
+        IStandardActionAsset StandardAction { get; }
 
         int MaxSkillCounters { get; }
 

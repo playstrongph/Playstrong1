@@ -12,5 +12,7 @@ namespace ScriptableObjects.StandardActions
         IEnumerator UnregisterStandardAction(ISkill skill);
         void StartAction(IHero targetHero);
         void StartAction(IHero thisHero, IHero targetHero);
+
+        void StartAction(IHero targetHero, float value);
     }
 }

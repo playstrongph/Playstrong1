@@ -136,6 +136,25 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
+        
+        //Used by status effects
+        public void StartAction(IHero targetHero,float value)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            {
+                if (FinalConditionValue(targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero,value));
+                }
+            }
+        }
+        
+        
+        
+        
         private int FinalConditionValue(IHero targetHero)
         {
             var finalCondition = FinalAndBasicCondition(targetHero) * FinalOrBasicCondition(targetHero);
@@ -192,6 +211,7 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
+        
         private int FinalConditionValue(IHero thisHero, IHero targetHero)
         {
             var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);

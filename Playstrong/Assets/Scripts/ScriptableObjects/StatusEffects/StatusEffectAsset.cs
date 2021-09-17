@@ -2,6 +2,7 @@
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
 using ScriptableObjects.StatusEffects.StatusEffectType;
@@ -39,8 +40,13 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
 
+        [Header("Obsolete")]
         [SerializeField] private ScriptableObject _skillactionAsset;
         public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
+
+        [SerializeField] private ScriptableObject _standardAction;
+        public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
+        
 
         //maximum skill status effect counters
         //Used by stacking skill effects
