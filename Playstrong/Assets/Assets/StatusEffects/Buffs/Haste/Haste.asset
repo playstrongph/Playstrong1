@@ -15,10 +15,13 @@ MonoBehaviour:
   _name: Haste
   _description: Speed +30%
   _icon: {fileID: 21300000, guid: c5964f71ced336047b028cd21d35bfbc, type: 3}
-  _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
+  _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 11400000, guid: 7c900e4cd0df2594c9356fa154bf50b9, type: 2}
+  _standardAction: {fileID: 11400000, guid: d2bc74a976839624787e67ef681b7825, type: 2}
+  maxSkillCounters: 1
   _effectValue: 0
   multiplier: 0.3
+  factor: 30
