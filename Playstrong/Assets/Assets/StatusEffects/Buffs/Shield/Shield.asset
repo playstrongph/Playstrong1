@@ -17,8 +17,10 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: a46dc24b4e7407142ae6b9ea8d9a2032, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
-  _statusEffectInstance: {fileID: 11400000, guid: b8efb27b2ad00fe4e82edb681246f119,
+  _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 11400000, guid: a1d91ab744bde074c926426bdfb67637, type: 2}
+  _standardAction: {fileID: 11400000, guid: c9b5cf0c9d61fe54f9ffa7b1b04f6fd7, type: 2}
+  maxSkillCounters: 1
   _effectValue: 50
   reductionValue: 50

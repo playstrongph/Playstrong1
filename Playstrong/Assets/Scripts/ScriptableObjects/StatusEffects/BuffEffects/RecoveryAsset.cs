@@ -11,28 +11,33 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class RecoveryAsset : StatusEffectAsset
     {
         public override void ApplyStatusEffect(IHero hero)
-        {
-            hero.HeroLogic.HeroEvents.EHeroStartTurn += RecoveryEffect;
+        { 
+            //hero.HeroLogic.HeroEvents.EPreHeroStartTurn += RecoveryEffect;
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(StandardAction.RegisterStandardAction(hero));
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroEvents.EHeroStartTurn -= RecoveryEffect;
+            //hero.HeroLogic.HeroEvents.EPreHeroStartTurn -= RecoveryEffect;
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(StandardAction.UnregisterStandardAction(hero));
         }
 
         private void RecoveryEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-
-            logicTree.AddCurrent(RecoveryEffectCoroutine(hero));
+            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            //logicTree.AddCurrent(RecoveryEffectCoroutine(hero));
+            //StandardAction.StartAction(hero);
         }
 
 
         private IEnumerator RecoveryEffectCoroutine(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,hero));     
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,hero));
 
             logicTree.EndSequence();
             yield return null;

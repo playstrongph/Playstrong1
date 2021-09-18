@@ -22,8 +22,10 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         private void ImmortalityEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(ImmortalityEffectCoroutine(hero));
+            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            //logicTree.AddCurrent(ImmortalityEffectCoroutine(hero));
+            
+            StandardAction.StartAction(hero);
         }
 
         private IEnumerator ImmortalityEffectCoroutine(IHero hero)

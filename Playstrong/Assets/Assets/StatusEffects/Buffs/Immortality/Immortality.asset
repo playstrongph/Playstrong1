@@ -16,9 +16,11 @@ MonoBehaviour:
   _description: Hero can't die.
   _icon: {fileID: 21300000, guid: 134b3032e125c3e4989a85de3030e1a4, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 11400000, guid: fb3138953f5477349b117e32128ea379, type: 2}
+  _standardAction: {fileID: 11400000, guid: 25da8052b4c8cd54baf8cb2cd048e495, type: 2}
+  maxSkillCounters: 1
   _effectValue: 1
   setLife: 1
