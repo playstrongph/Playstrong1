@@ -12,20 +12,25 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroEvents.EHeroTakesFatalDamage += ImmortalityEffect;
+            //hero.HeroLogic.HeroEvents.EHeroTakesFatalDamage += ImmortalityEffect;
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(StandardAction.RegisterStandardAction(hero));
         }
 
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.HeroEvents.EHeroTakesFatalDamage -= ImmortalityEffect;
+            //hero.HeroLogic.HeroEvents.EHeroTakesFatalDamage -= ImmortalityEffect;
+            
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.AddCurrent(StandardAction.UnregisterStandardAction(hero));
         }
 
         private void ImmortalityEffect(IHero hero)
         {
             //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             //logicTree.AddCurrent(ImmortalityEffectCoroutine(hero));
-            
-            StandardAction.StartAction(hero);
+            //StandardAction.StartAction(hero);
         }
 
         private IEnumerator ImmortalityEffectCoroutine(IHero hero)

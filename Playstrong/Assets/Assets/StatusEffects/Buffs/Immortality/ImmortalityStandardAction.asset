@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
   m_Name: ImmortalityStandardAction
   m_EditorClassIdentifier: 
-  standardEvent: {fileID: 0}
+  standardEvent: {fileID: 11400000, guid: e66a0025da768fb4dac306aea3eab9fc, type: 2}
   actionTargets: {fileID: 11400000, guid: e9e3be98b3bc04a44904e7d8624bb451, type: 2}
   orBasicConditions: []
   andBasicConditions: []
