@@ -35,6 +35,8 @@ namespace Logic
         event HeroEvents.HeroesEvent EDragSkillTarget;
         
         event HeroEvents.HeroesEvent EStartOfGame;
+        
+        event HeroEvents.HeroesEvent ENoEvent;
 
         //Single Hero Events
         event HeroEvents.HeroEvent EHeroTakesFatalDamage;

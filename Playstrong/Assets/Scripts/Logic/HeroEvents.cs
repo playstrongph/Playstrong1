@@ -24,9 +24,6 @@ namespace Logic
         public event HeroesEvent EBeforeSkillAttacking;
         public event HeroesEvent EAfterAttacking;
         public event HeroesEvent EAfterSkillAttacking;
-        
-        
-        
         public event HeroesEvent EBeforeCriticalStrike;
         public event HeroesEvent EAfterCriticalStrike;
         public event HeroesEvent EDragBasicAttack;
@@ -37,6 +34,10 @@ namespace Logic
         public event HeroesEvent EAfterCounterAttack;
         public event HeroesEvent EPreCounterAttack;
         public event HeroesEvent EPostCounterAttack;
+        
+        //NoEvent
+        public event HeroesEvent ENoEvent;
+
         
         
         /// <summary>
@@ -58,6 +59,10 @@ namespace Logic
         public event HeroEvent EHeroEndTurn;
         
         public event HeroEvent EPostHeroEndTurn;
+        
+      
+      
+
         
         
         private IHeroLogic _heroLogic;
@@ -83,6 +88,21 @@ namespace Logic
                 foreach (var client in clients)
                 {
                     EPreAttack -= client as HeroesEvent;
+                }
+        }
+        
+        public void NoEvent(IHero initiatorHero, IHero targetHero)
+        {
+            ENoEvent?.Invoke(initiatorHero, targetHero);
+        }
+        
+        private void UnsubscribeNoEventClients()
+        {
+            var clients = ENoEvent?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    ENoEvent -= client as HeroesEvent;
                 }
         }
         
@@ -523,6 +543,8 @@ namespace Logic
 
             UnsubscribePreHeroStartTurnClients();
             UnsubscribePostHeroEndTurnClients();
+
+            UnsubscribeNoEventClients();
 
 
         }

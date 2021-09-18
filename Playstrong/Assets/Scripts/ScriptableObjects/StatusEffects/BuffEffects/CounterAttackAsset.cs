@@ -28,6 +28,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             //Register CounterResistance Effect here:  BeforeAttacking and Afterattacking
             hero.HeroLogic.HeroEvents.EBeforeCounterAttack += TemporaryCounterResistanceIncrease;
             hero.HeroLogic.HeroEvents.EAfterCounterAttack += RemoveTemporaryCounterResistanceIncrease;
+            
+            StandardAction.StartAction(hero);
 
         }
         
@@ -39,6 +41,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             //Remove Register CounterResistance Effect here:  BeforeAttacking and Afterattacking
             hero.HeroLogic.HeroEvents.EBeforeCounterAttack -= TemporaryCounterResistanceIncrease;
             hero.HeroLogic.HeroEvents.EAfterCounterAttack -= RemoveTemporaryCounterResistanceIncrease;
+            
+            
         }
 
 

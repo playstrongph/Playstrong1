@@ -70,13 +70,11 @@ namespace ScriptableObjects.StandardActions
             }
         }
 
-    
         private int _finalAndConditions = 1;
         private int _finalOrConditions = 0;
         
-        /// <summary>
-        /// Passive Skills and "passive" component in Active Skills
-        /// </summary>
+        
+        
         public IEnumerator RegisterStandardAction(IHero hero)
         {
             Debug.Log("Standard Action Register Hero");
@@ -97,9 +95,7 @@ namespace ScriptableObjects.StandardActions
             yield return null;
         }
         
-        /// <summary>
-        /// EDragSkillTarget - Basic Skills, Active Skills, and some Passive Skills
-        /// </summary>
+        
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
             Debug.Log("Standard Action Register Skill");
@@ -120,9 +116,7 @@ namespace ScriptableObjects.StandardActions
             yield return null;
         }
         
-        /// <summary>
-        /// Method subscribed to 1 arg events (hero)
-        /// </summary>
+        
         public void StartAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -137,7 +131,7 @@ namespace ScriptableObjects.StandardActions
             }
         }
         
-        //Used by status effects
+        
         public void StartAction(IHero targetHero,float value)
         {
             Debug.Log("Standard Action Start Action");
@@ -152,10 +146,6 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
-        
-        
-        
-        
         private int FinalConditionValue(IHero targetHero)
         {
             var finalCondition = FinalAndBasicCondition(targetHero) * FinalOrBasicCondition(targetHero);
@@ -196,9 +186,7 @@ namespace ScriptableObjects.StandardActions
         }
 
 
-        /// <summary>
-        /// Method subscribed to 2 arg events (thisHero, targetHero)
-        /// </summary>
+        
         public void StartAction(IHero thisHero, IHero targetHero)
         {   
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using Logic;
@@ -14,41 +15,40 @@ namespace ScriptableObjects.SkillActionsScripts
     {
         private int chanceValue = 100;
         private int resistanceValue = 1000;
-        
-        [SerializeField]
-        private List<ScriptableObject> standardEvents = new List<ScriptableObject>();
-
-        private List<IStandardEvent> StandardEvents
-        {
-            get
-            {
-                var newStandardEvents = new List<IStandardEvent>();
-                foreach (var standardEventObject in standardEvents)
-                {
-                    var standardEvent = standardEventObject as IStandardEvent;
-                    newStandardEvents.Add(standardEvent);
-                }
-
-                return newStandardEvents;
-            }
-        }
 
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             targetHero.HeroLogic.OtherAttributes.CounterAttackChance += chanceValue;
-            
+            targetHero.HeroLogic.HeroEvents.EBeforeCounterAttack += TemporaryCounterResistanceIncrease;
+            targetHero.HeroLogic.HeroEvents.EAfterCounterAttack += RemoveTemporaryCounterResistanceIncrease;
+
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //TEST
+        public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-        private void TemporaryCounterResistanceIncrease(IHero targetHero)
+            targetHero.HeroLogic.OtherAttributes.CounterAttackChance -= chanceValue;
+            targetHero.HeroLogic.HeroEvents.EBeforeCounterAttack -= TemporaryCounterResistanceIncrease;
+            targetHero.HeroLogic.HeroEvents.EAfterCounterAttack -= RemoveTemporaryCounterResistanceIncrease;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+
+        private void TemporaryCounterResistanceIncrease(IHero targetHero,IHero dummyHero)
         {
             targetHero.HeroLogic.OtherAttributes.CounterAttackResistance += resistanceValue;
         }
         
-        private void RemoveTemporaryCounterResistanceIncrease(IHero targetHero)
+        private void RemoveTemporaryCounterResistanceIncrease(IHero targetHero, IHero dummyHero)
         {
             targetHero.HeroLogic.OtherAttributes.CounterAttackResistance -= resistanceValue;
         }
