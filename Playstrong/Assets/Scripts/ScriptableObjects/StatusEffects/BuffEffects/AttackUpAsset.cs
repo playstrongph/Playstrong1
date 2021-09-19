@@ -11,32 +11,26 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         [SerializeField] private float factor = 50f;
 
+        private float attackValue;
+        
         public override void ApplyStatusEffect(IHero hero)
         {
-            ComputeAttackIncrease(hero);
-            
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
-            
-            //TEST
-            StandardAction.StartAction(hero,EffectValue);
+            EffectValue = ComputeAttackIncrease(hero);
+            base.ApplyStatusEffect(hero);
             
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -EffectValue));
-            
-            //TEST
-            StandardAction.StartAction(hero,-EffectValue);
+            base.UnapplyStatusEffect(hero);
         }
 
-        private void ComputeAttackIncrease(IHero hero)
+        private float ComputeAttackIncrease(IHero hero)
         {
             var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
-            EffectValue = Mathf.FloorToInt(factor * baseAttack/100);
-            
+            attackValue = Mathf.FloorToInt(factor * baseAttack/100);
+            return attackValue;
+
         }
 
 

@@ -12,18 +12,13 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         [SerializeField] private float reductionValue = 100f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, reductionValue));
-            
-            StandardAction.StartAction(hero,EffectValue);
+            EffectValue = reductionValue;
+            base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -reductionValue));
-            
-            StandardAction.StartAction(hero,-EffectValue);
+            base.UnapplyStatusEffect(hero);
         }
 
        

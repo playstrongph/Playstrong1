@@ -20,7 +20,9 @@ MonoBehaviour:
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 0}
-  _standardAction: {fileID: 11400000, guid: 71989674ea7fbcf4bb3bb9fa6e67a888, type: 2}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: 71989674ea7fbcf4bb3bb9fa6e67a888, type: 2}
   maxSkillCounters: 1
   _effectValue: 0.5
   multiplier: 0.5

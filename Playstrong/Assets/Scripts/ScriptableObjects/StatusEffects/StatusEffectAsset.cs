@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
@@ -44,9 +45,28 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] private ScriptableObject _skillactionAsset;
         public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
 
+        [Header("Obsolete")]
         [SerializeField] private ScriptableObject _standardAction;
         public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
-        
+
+        [SerializeField] private List<ScriptableObject> _standardActions;
+
+        private List<IStandardActionAsset> StandardActions
+        {
+            get
+            {
+                var newStandardActions = new List<IStandardActionAsset>();
+                foreach (var standarActionObject in _standardActions)
+                {
+                    var standardAction = standarActionObject as IStandardActionAsset;
+                    newStandardActions.Add(standardAction);
+                }
+
+                return newStandardActions;
+            }
+        }
+
+
 
         //maximum skill status effect counters
         //Used by stacking skill effects
@@ -83,10 +103,22 @@ namespace ScriptableObjects.StatusEffects
         
         public virtual void ApplyStatusEffect(IHero hero)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var standardAction in StandardActions)
+            {
+                standardAction.StartAction(hero,EffectValue);
+                logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
+            }
         }
 
         public virtual void UnapplyStatusEffect(IHero hero)
         {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var standardAction in StandardActions)
+            {
+                standardAction.StartAction(hero,-EffectValue);
+                logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
+            }
         }
         
         public virtual void ApplyStackingEffect(IHero hero)

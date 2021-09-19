@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
   m_Name: AttackUpStandardAction
   m_EditorClassIdentifier: 
-  standardEvent: {fileID: 0}
+  standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
   actionTargets: {fileID: 11400000, guid: 0baf5672508374a42bc3712d5b243677, type: 2}
   orBasicConditions: []
   andBasicConditions: []

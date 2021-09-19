@@ -44,8 +44,8 @@ namespace ScriptableObjects.SkillEffects
             foreach (var standardAction in StandardActions)
             {
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(skill));
+               
             }
-           
         }
         
         public void RegisterSkillEffect(IHero thisHero)
@@ -55,6 +55,7 @@ namespace ScriptableObjects.SkillEffects
             foreach (var standardAction in StandardActions)
             {
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(thisHero));
+               
             }
         }
         
