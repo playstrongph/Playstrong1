@@ -14,10 +14,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         public override void ApplyStatusEffect(IHero hero)
         {
-            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, reductionValue));
-            
-            StandardAction.StartAction(hero,reductionValue);
+            EffectValue = reductionValue;
+            base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
@@ -25,7 +23,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -reductionValue));
             
-            StandardAction.StartAction(hero,-reductionValue);
+            base.UnapplyStatusEffect(hero);
         }
 
 

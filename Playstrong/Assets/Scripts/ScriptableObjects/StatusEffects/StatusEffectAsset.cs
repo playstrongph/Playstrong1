@@ -117,7 +117,7 @@ namespace ScriptableObjects.StatusEffects
             foreach (var standardAction in StandardActions)
             {
                 standardAction.StartAction(hero,-EffectValue);
-                logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
+                logicTree.AddCurrent(standardAction.UnregisterStandardAction(hero));
             }
         }
         
