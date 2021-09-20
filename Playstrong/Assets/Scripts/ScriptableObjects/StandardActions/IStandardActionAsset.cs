@@ -11,11 +11,22 @@ namespace ScriptableObjects.StandardActions
         IEnumerator RegisterStandardAction(ISkill skill);
         IEnumerator UnregisterStandardAction(ISkill skill);
         
-        
+        //Start Action 
         void StartAction(IHero targetHero);
         void StartAction(IHero thisHero, IHero targetHero);
         void StartAction(IHero targetHero, float value);
         
-        //UndoBasicAction
+        //Undo Start Action
+        void UndoStartAction(IHero targetHero);
+        void UndoStartAction(IHero thisHero, IHero targetHero);
+        void UndoStartAction(IHero targetHero, float value);
+        
+        
+        //TODO: Delete
+        //Start Action On Event
+        void StartActionOnEvent(IHero targetHero);
+        void StartActionOnEvent(IHero targetHero, float value);
+        void StartActionOnEvent(IHero thisHero, IHero targetHero);
+
     }
 }

@@ -74,7 +74,7 @@ namespace ScriptableObjects.StandardActions
         private int _finalOrConditions = 0;
         
         
-        
+        //Event Based StandardAction
         public IEnumerator RegisterStandardAction(IHero hero)
         {
             //Debug.Log("Standard Action Register Hero");
@@ -85,23 +85,21 @@ namespace ScriptableObjects.StandardActions
             logicTree.EndSequence();
             yield return null;
         }
-        public IEnumerator UnregisterStandardAction(IHero hero)
-        {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            StandardEvent.UnsubscribeStandardAction(hero,this);
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        
-        
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
             //Debug.Log("Standard Action Register Skill");
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             StandardEvent.SubscribeStandardAction(skill,this);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        public IEnumerator UnregisterStandardAction(IHero hero)
+        {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
+            StandardEvent.UnsubscribeStandardAction(hero,this);
             
             logicTree.EndSequence();
             yield return null;
@@ -117,19 +115,8 @@ namespace ScriptableObjects.StandardActions
         }
         
         
-        public void StartAction(IHero targetHero)
-        {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
-            {
-                if (FinalConditionValue(targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
-                }
-            }
-        }
+        //Start Action Now
+        //NOTE: The args IHero and float are exclusive to NO EVENTS(?)
         public void StartAction(IHero targetHero,float value)
         {
             //Debug.Log("Standard Action Start Action");
@@ -141,6 +128,19 @@ namespace ScriptableObjects.StandardActions
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero,value));
+                }
+            }
+        }
+        public void StartAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            {
+                if (FinalConditionValue(targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
                 }
             }
         }
@@ -157,13 +157,95 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
+
+        
+        //UndoStartAction - akin to UnregisterStandardAction
+        public void UndoStartAction(IHero targetHero,float value)
+        {
+            //Debug.Log("Standard Action Start Action");
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            {
+                if (FinalConditionValue(targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero,value));
+                }
+            }
+        }
+        public void UndoStartAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            {
+                if (FinalConditionValue(targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero));
+                }
+            }
+        }
+        public void UndoStartAction(IHero thisHero, IHero targetHero)
+        {   
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            {
+                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
+                if (FinalConditionValue(thisHero, targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.UndoTargetAction(thisHero,newTargetHero));
+                }
+            }
+        }
         
         
         
         
-        
-        
-        
+        //Start Action At Event
+        //TODO: Delete, NO Need
+        public void StartActionOnEvent(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            {
+                if (FinalConditionValue(targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
+                }
+            }
+        }
+        public void StartActionOnEvent(IHero targetHero,float value)
+        {
+            //Debug.Log("Standard Action Start Action");
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            {
+                if (FinalConditionValue(targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero,value));
+                }
+            }
+        }
+        public void StartActionOnEvent(IHero thisHero, IHero targetHero)
+        {   
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            {
+                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
+                if (FinalConditionValue(thisHero, targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
+                }
+            }
+        }
         
         //FINAL CONDITION CALCULATIONS
         private int FinalConditionValue(IHero targetHero)

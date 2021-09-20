@@ -10,8 +10,7 @@ namespace Logic
         public IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-           
+
             targetHero.HeroLogic.HeroLivingStatus.ReceiveHeroAction(this, thisHero, targetHero);
 
             logicTree.EndSequence();
@@ -42,6 +41,9 @@ namespace Logic
             yield return null;
 
         } 
+        
+        
+        
 
         //TargetActions
         public virtual IEnumerator TargetAction(IHero thisHero, IHero targetHero)

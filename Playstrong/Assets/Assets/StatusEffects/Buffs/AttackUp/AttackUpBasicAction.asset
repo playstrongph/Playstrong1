@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e82aa56d8c111045acccc5de3908b39, type: 3}
   m_Name: AttackUpBasicAction
   m_EditorClassIdentifier: 
+  flatAttack: 0
+  percentAttack: 50

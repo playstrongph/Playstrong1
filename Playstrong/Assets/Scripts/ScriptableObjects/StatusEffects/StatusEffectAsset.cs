@@ -106,7 +106,11 @@ namespace ScriptableObjects.StatusEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             foreach (var standardAction in StandardActions)
             {
-                standardAction.StartAction(hero,EffectValue);
+                
+                //TEST
+                //standardAction.StartAction(hero,EffectValue);
+                
+                //TEST
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
         }
@@ -116,7 +120,9 @@ namespace ScriptableObjects.StatusEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             foreach (var standardAction in StandardActions)
             {
-                standardAction.StartAction(hero,-EffectValue);
+                //TEST
+                //standardAction.StartAction(hero,-EffectValue);
+                
                 logicTree.AddCurrent(standardAction.UnregisterStandardAction(hero));
             }
         }
