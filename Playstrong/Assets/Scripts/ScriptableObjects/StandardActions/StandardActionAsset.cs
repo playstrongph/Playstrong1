@@ -130,8 +130,6 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
-        
-        
         public void StartAction(IHero targetHero,float value)
         {
             //Debug.Log("Standard Action Start Action");
@@ -146,6 +144,28 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
+        public void StartAction(IHero thisHero, IHero targetHero)
+        {   
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            {
+                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
+                if (FinalConditionValue(thisHero, targetHero) > 0)
+                {
+                    foreach (var basicAction in BasicActions)
+                        logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        //FINAL CONDITION CALCULATIONS
         private int FinalConditionValue(IHero targetHero)
         {
             var finalCondition = FinalAndBasicCondition(targetHero) * FinalOrBasicCondition(targetHero);
@@ -184,23 +204,6 @@ namespace ScriptableObjects.StandardActions
             }
             return _finalOrConditions;
         }
-
-
-        
-        public void StartAction(IHero thisHero, IHero targetHero)
-        {   
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
-            {
-                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
-                if (FinalConditionValue(thisHero, targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
-                }
-            }
-        }
-        
         private int FinalConditionValue(IHero thisHero, IHero targetHero)
         {
             var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);
