@@ -18,7 +18,7 @@ namespace ScriptableObjects.StandardEvents
             //TEST
             standardAction.StartAction(hero);
             
-            //TODO: Check if there is such a scenerio for status effects
+            //TODO: Check if there is such a scenario for status effects
             //standardAction.StartAction(hero,hero);
             
             logicTree.EndSequence();

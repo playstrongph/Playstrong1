@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AddBuffAction
   m_EditorClassIdentifier: 
   _buffEffectAsset: {fileID: 11400000, guid: b26b9888507dec94980542c3d20a4cd0, type: 2}
-  _buffCounters: 2
+  _buffCounters: 1

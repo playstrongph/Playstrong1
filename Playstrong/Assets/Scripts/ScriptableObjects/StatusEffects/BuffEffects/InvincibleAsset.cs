@@ -8,11 +8,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Invincible", menuName = "SO's/Status Effects/Buffs/Invincible")]
     public class InvincibleAsset : StatusEffectAsset
     {
-
-        [SerializeField] private float reductionValue = 100f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            EffectValue = reductionValue;
             base.ApplyStatusEffect(hero);
         }
         
@@ -20,12 +17,5 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             base.UnapplyStatusEffect(hero);
         }
-
-       
-
-
-
-
-
     }
 }

@@ -11,15 +11,23 @@ namespace ScriptableObjects.BasicActions
     {
         [SerializeField] private int damageReductionValue;
 
-       
-        public override IEnumerator TargetAction(IHero targetHero, float value)
+        public override IEnumerator TargetAction(IHero targetHero)
         {
-            damageReductionValue = (int)value;
-            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherAttributes = targetHero.HeroLogic.OtherAttributes;
 
             otherAttributes.DamageReduction += damageReductionValue;
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var otherAttributes = targetHero.HeroLogic.OtherAttributes;
+
+            otherAttributes.DamageReduction -= damageReductionValue;
             
             logicTree.EndSequence();
             yield return null;

@@ -10,23 +10,48 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class IncreaseSpeedBasicActionAsset : BasicActionAsset
     {
-        [SerializeField] private int speedIncrease;
+        [SerializeField] private int flatSpeed;
+        [SerializeField] private int percentSpeed;
 
+        private int _speedChange;
+        
        
-        public override IEnumerator TargetAction(IHero targetHero, float value)
+        public override IEnumerator TargetAction(IHero targetHero)
         {
-            speedIncrease = (int)value;
-            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            var newSpeedValue = targetHero.HeroLogic.HeroAttributes.Speed + speedIncrease;
+            SetChangeSpeedValue(targetHero);
+            
+            var newSpeedValue = targetHero.HeroLogic.HeroAttributes.Speed + _speedChange;
+            
             targetHero.HeroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
 
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-      
+            var newSpeedValue = targetHero.HeroLogic.HeroAttributes.Speed - _speedChange;
+            
+            targetHero.HeroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        
+
+        private void SetChangeSpeedValue(IHero hero)
+        {
+            var baseSpeed = hero.HeroLogic.HeroAttributes.BaseSpeed;
+            var percentChange = Mathf.FloorToInt(percentSpeed * baseSpeed/100);
+            _speedChange = flatSpeed + percentChange;
+        }
+
 
 
 
