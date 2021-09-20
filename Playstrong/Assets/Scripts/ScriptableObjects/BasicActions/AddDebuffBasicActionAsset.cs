@@ -45,7 +45,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             debuffSuccess = Mathf.Clamp(debuffSuccess, 0f, 100f);
             
-            Debug.Log("Caster Hero: " +thisHero.HeroName);
+            //Debug.Log("Caster Hero: " +thisHero.HeroName);
             
             if(randomChance<= debuffSuccess)
                 DebuffAsset.StatusEffectInstance.AddStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,thisHero);

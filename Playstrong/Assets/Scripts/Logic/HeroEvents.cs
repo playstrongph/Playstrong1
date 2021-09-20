@@ -325,6 +325,7 @@ namespace Logic
         
         public void BeforeCounterAttack(IHero initiatorHero, IHero targetHero)
         {
+            Debug.Log("BeforeCounterAttack: " +initiatorHero.HeroName);
             EBeforeCounterAttack?.Invoke(initiatorHero, targetHero);
         }
         
@@ -340,6 +341,7 @@ namespace Logic
         
         public void AfterCounterAttack(IHero initiatorHero, IHero targetHero)
         {
+            Debug.Log("AfterCounterAttack: " +initiatorHero.HeroName);
             EAfterCounterAttack?.Invoke(initiatorHero, targetHero);
         }
         

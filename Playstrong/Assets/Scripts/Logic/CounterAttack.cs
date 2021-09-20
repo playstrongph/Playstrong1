@@ -52,6 +52,7 @@ namespace Logic
         
         private IEnumerator BeforeCounterAttackEvents(IHero thisHero, IHero targetHero)
         {
+            
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.BeforeCounterAttack(thisHero,targetHero);

@@ -77,7 +77,7 @@ namespace ScriptableObjects.StandardActions
         
         public IEnumerator RegisterStandardAction(IHero hero)
         {
-            Debug.Log("Standard Action Register Hero");
+            //Debug.Log("Standard Action Register Hero");
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             StandardEvent.SubscribeStandardAction(hero,this);
@@ -98,7 +98,7 @@ namespace ScriptableObjects.StandardActions
         
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
-            Debug.Log("Standard Action Register Skill");
+            //Debug.Log("Standard Action Register Skill");
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             StandardEvent.SubscribeStandardAction(skill,this);
@@ -134,7 +134,7 @@ namespace ScriptableObjects.StandardActions
         
         public void StartAction(IHero targetHero,float value)
         {
-            Debug.Log("Standard Action Start Action");
+            //Debug.Log("Standard Action Start Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
@@ -192,7 +192,7 @@ namespace ScriptableObjects.StandardActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
             {
-                Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
+                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
                 if (FinalConditionValue(thisHero, targetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)

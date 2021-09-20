@@ -12,10 +12,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            //hero.HeroLogic.HeroEvents.EHeroTakesFatalDamage += ImmortalityEffect;
             EffectValue = setLife;
-            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(StandardAction.RegisterStandardAction(hero));
             base.ApplyStatusEffect(hero);
         }
 

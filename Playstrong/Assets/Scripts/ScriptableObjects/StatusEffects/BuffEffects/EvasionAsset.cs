@@ -11,12 +11,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         [SerializeField] private float resistanceValue = 200f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, resistanceValue));
             
-            //StandardAction.StartAction(hero,resistanceValue);
-            
-            //TEST
             EffectValue = resistanceValue;
             base.ApplyStatusEffect(hero);
 
@@ -24,13 +19,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -resistanceValue));
             
-            //StandardAction.StartAction(hero,-resistanceValue);
-            
-            //TEST
-            EffectValue = resistanceValue;
             base.UnapplyStatusEffect(hero);
             
         }

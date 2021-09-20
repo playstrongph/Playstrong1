@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Script: {fileID: 11500000, guid: fce04c36fabdf0e41b0be2bd8f10e1dc, type: 3}
+  m_Name: IncreaseCounterAttackChance
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: 1e00842da0ee87841a5473f348f1990e, type: 2}
-  _buffCounters: 2
+  counterAttackChanceIncrease: 0

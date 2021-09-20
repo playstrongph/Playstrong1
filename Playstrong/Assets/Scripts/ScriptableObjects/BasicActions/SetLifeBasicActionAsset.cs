@@ -12,10 +12,8 @@ namespace ScriptableObjects.BasicActions
         [SerializeField] private int setLife = 1;
         public override IEnumerator TargetAction(IHero targetHero)
         {
-            //setLife = (int)value;
-            
+            Debug.Log("Set Life Basic Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-           
             targetHero.HeroLogic.SetHeroHealth.SetHealth(setLife);
             
             logicTree.EndSequence();
