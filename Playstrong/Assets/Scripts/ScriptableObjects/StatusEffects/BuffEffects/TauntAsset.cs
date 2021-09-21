@@ -10,81 +10,17 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Taunt", menuName = "SO's/Status Effects/Buffs/Taunt")]
     public class TauntAsset : StatusEffectAsset
     {
-        [SerializeField]
-        private float tauntChance = 1000f;
-        
-        /*[Header("Additional Attributes")]
-        [SerializeField] private ScriptableObject tauntTargetResistance;
-        private IHeroAction TauntTargetResistance => tauntTargetResistance as IHeroAction;
 
-       
-        [SerializeField] private float tauntResistance = 101f;*/
-        
-        
-        //local variables
-       // private List<IHero> allAllyHeroes = new List<IHero>();
-        
-        
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,tauntChance));
-            //ApplyTargetResistanceAllyHeroes(hero,tauntResistance);
+           base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,-tauntChance));
-            //ApplyTargetResistanceAllyHeroes(hero,-tauntResistance);
+            base.UnapplyStatusEffect(hero);
           
         }
-
-        /*
-        private void ApplyTargetResistanceAllyHeroes(IHero hero, float value)
-        {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            var allAllyHeroes = GetAllAllyHeroes(hero);
-            
-            foreach (var allyHero in allAllyHeroes)
-            {
-                logicTree.AddCurrent(TauntTargetResistance.StartAction(allyHero,value));
-            }
-        }
-        
-        //all allies - dead or living, in consideration for resurrect.
-        private List<IHero> GetAllAllyHeroes(IHero hero)
-        {
-            var livingAlliesObjects = hero.LivingHeroes.HeroesList;
-            var deadAlliesObjects = hero.DeadHeroes.HeroesList;
-            var allAllyHeroes = new List<IHero>();
-
-            foreach (var livingAllyObject in livingAlliesObjects)
-            {
-                var ally = livingAllyObject.GetComponent<IHero>();
-                allAllyHeroes.Add(ally);
-            }
-            
-            foreach (var deadAllyObject in deadAlliesObjects)
-            {
-                var ally = deadAllyObject.GetComponent<IHero>();
-                allAllyHeroes.Add(ally);
-            }
-
-            return allAllyHeroes;
-        }
-        */
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3929097575565e43a465133a84f57cb, type: 3}
-  m_Name: StealthBasicAction
+  m_Script: {fileID: 11500000, guid: c60ff96aab25a68439c3d810207aa51e, type: 3}
+  m_Name: TauntBasicAction
   m_EditorClassIdentifier: 
-  attackTargetResistance: 2000
+  attackTargetChance: 1000
