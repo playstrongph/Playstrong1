@@ -9,12 +9,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "CounterAttack", menuName = "SO's/Status Effects/Buffs/CounterAttack")]
     public class CounterAttackAsset : StatusEffectAsset
     {
-        [SerializeField]
-        private float counterattackValue = 100f;
-
         public override void ApplyStatusEffect(IHero hero)
         {
-            EffectValue = counterattackValue;
             base.ApplyStatusEffect(hero);
         }
         
@@ -22,17 +18,6 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             base.UnapplyStatusEffect(hero);
         }
-
-
-        
-        
-        
-
-
-
-
-
-
 
     }
 }

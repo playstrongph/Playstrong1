@@ -8,18 +8,14 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "IncreaseCriticalDamage", menuName = "SO's/Status Effects/Buffs/IncreaseCriticalDamage")]
     public class IncreaseCriticalDamageAsset : StatusEffectAsset
     {
-
-        [SerializeField] private float ciritcalDamageValue = 50f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, ciritcalDamageValue));
+            base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -ciritcalDamageValue));
+            base.UnapplyStatusEffect(hero);
         }
 
        

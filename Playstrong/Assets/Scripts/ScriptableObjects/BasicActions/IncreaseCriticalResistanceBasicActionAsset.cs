@@ -10,16 +10,24 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class IncreaseCriticalResistanceBasicActionAsset : BasicActionAsset
     {
-        [SerializeField] private int criticalResistanceIncrease;
+        [SerializeField] private int criticalResistance;
 
-       
-        public override IEnumerator TargetAction(IHero targetHero, float value)
+        public override IEnumerator TargetAction(IHero targetHero)
         {
-            criticalResistanceIncrease = (int)value;
-            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance += criticalResistanceIncrease;
+            targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance += criticalResistance;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
+        public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance -= criticalResistance;
             
             logicTree.EndSequence();
             yield return null;

@@ -6,17 +6,16 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "IncreaseCounterAttackChance", menuName = "SO's/BasicActions/IncreaseCounterAttackChance")]
+    [CreateAssetMenu(fileName = "IncreaseCriticalDamage", menuName = "SO's/BasicActions/IncreaseCriticalDamage")]
     
-    public class IncreaseCounterAttackChanceBasicActionAsset : BasicActionAsset
+    public class IncreaseCriticalDamageBasicActionAsset : BasicActionAsset
     {
-        [SerializeField] private int counterChance;
-        
+        [SerializeField] private int critDamage;
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.CounterAttackChance += counterChance;
+            targetHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier += critDamage;
             
             logicTree.EndSequence();
             yield return null;
@@ -26,7 +25,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.CounterAttackChance -= counterChance;
+            targetHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier -= critDamage;
             
             logicTree.EndSequence();
             yield return null;

@@ -8,21 +8,13 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Shield", menuName = "SO's/Status Effects/Buffs/Shield")]
     public class ShieldAsset : StatusEffectAsset
     {
-        
-        [SerializeField] private int reductionValue = 50;
-
-
         public override void ApplyStatusEffect(IHero hero)
         {
-            EffectValue = reductionValue;
             base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            //var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -reductionValue));
-            
             base.UnapplyStatusEffect(hero);
         }
 

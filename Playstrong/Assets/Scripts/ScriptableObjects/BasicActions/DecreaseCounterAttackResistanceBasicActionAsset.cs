@@ -10,18 +10,26 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class DecreaseCounterAttackResistanceBasicActionAsset : BasicActionAsset
     {
-        [SerializeField] private int counterAttackResistanceIncrease;
+        [SerializeField] private int counterResistance;
 
        
         public override IEnumerator TargetAction(IHero targetHero, IHero dummyHero)
         {
-            //counterAttackResistanceIncrease = (int)value;
-            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.CounterAttackResistance -= counterAttackResistanceIncrease;
-            Debug.Log("Counter Attack Resistance" +targetHero.HeroLogic.OtherAttributes.CounterAttackResistance);
+            targetHero.HeroLogic.OtherAttributes.CounterAttackResistance -= counterResistance;
             
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator UndoTargetAction(IHero targetHero, IHero dummyHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            targetHero.HeroLogic.OtherAttributes.CounterAttackResistance += counterResistance;
+
             logicTree.EndSequence();
             yield return null;
         }

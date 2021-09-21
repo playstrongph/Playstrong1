@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c310fd8ce783f94f91a3a468b2d190c, type: 3}
   m_Name: DecreaseCounterAttackResistance
   m_EditorClassIdentifier: 
-  counterAttackResistanceIncrease: 200
+  counterResistance: 200
