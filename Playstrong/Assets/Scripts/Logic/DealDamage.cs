@@ -24,12 +24,17 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
         }
 
-        public IEnumerator DealDirectDamage(IHero targetHero, int directDamage, int penetrateChance)
+        public IEnumerator DealDirectDamage(IHero targetHero, int directDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var criticalDamage = 0;
+            var penetrateArmorChance = (int)_heroLogic.OtherAttributes.PenetrateArmorChance;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(directDamage,criticalDamage,penetrateChance));
+            //Original
+            //logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(directDamage,criticalDamage,penetrateChance));
+            
+            //TEST
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeDirectDamage(directDamage,criticalDamage,penetrateArmorChance));
             
             logicTree.EndSequence();
             yield return null;

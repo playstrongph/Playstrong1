@@ -35,7 +35,9 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         private IEnumerator DealDamage(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
             var finalDamage = thisHero.HeroLogic.TakeDamage.FinalDamage;
+            
             var reflectDamage = Mathf.CeilToInt(finalDamage * reflectFactor / 100f);
 
             logicTree.AddCurrent(SkillActionAsset.StartAction(targetHero,reflectDamage));

@@ -28,7 +28,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var intValue = (int) value;
             
-            logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, intValue,penetrateChance));
+            logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, intValue));
             
             logicTree.EndSequence();
             yield return null;
