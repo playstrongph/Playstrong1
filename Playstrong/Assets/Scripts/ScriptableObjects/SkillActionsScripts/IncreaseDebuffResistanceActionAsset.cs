@@ -10,8 +10,6 @@ namespace ScriptableObjects.SkillActionsScripts
     public class IncreaseDebuffResistanceActionAsset : SkillActionAsset
     {
         [SerializeField] private int debuffResistanceIncrease;
-
-       
         public override IEnumerator ActionTarget(IHero targetHero, float value)
         {
             debuffResistanceIncrease = (int)value;

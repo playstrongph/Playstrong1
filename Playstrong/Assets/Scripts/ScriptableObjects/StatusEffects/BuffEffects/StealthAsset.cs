@@ -10,19 +10,14 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Stealth", menuName = "SO's/Status Effects/Buffs/Stealth")]
     public class StealthAsset : StatusEffectAsset
     {
-        [SerializeField]
-        private float stealthResistance = 2000f;
-
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,stealthResistance));
+           base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero,-stealthResistance));
+            base.UnapplyStatusEffect(hero);
         }
     }
 }

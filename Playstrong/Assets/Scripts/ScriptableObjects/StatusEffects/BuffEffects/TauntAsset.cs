@@ -13,12 +13,12 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         [SerializeField]
         private float tauntChance = 1000f;
         
-        [Header("Additional Attributes")]
+        /*[Header("Additional Attributes")]
         [SerializeField] private ScriptableObject tauntTargetResistance;
         private IHeroAction TauntTargetResistance => tauntTargetResistance as IHeroAction;
 
        
-        [SerializeField] private float tauntResistance = 101f;
+        [SerializeField] private float tauntResistance = 101f;*/
         
         
         //local variables
@@ -40,6 +40,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
           
         }
 
+        /*
         private void ApplyTargetResistanceAllyHeroes(IHero hero, float value)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -72,6 +73,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
             return allAllyHeroes;
         }
+        */
 
 
 

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6c789fd4cb99f428b05fe438ffba34, type: 3}
-  m_Name: LuckyAction
+  m_Script: {fileID: 11500000, guid: f3929097575565e43a465133a84f57cb, type: 3}
+  m_Name: StealthBasicAction
   m_EditorClassIdentifier: 
-  skillChanceBonusIncrease: 0
+  attackTargetResistance: 0

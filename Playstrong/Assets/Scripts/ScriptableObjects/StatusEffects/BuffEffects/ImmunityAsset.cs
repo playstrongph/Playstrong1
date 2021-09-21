@@ -8,18 +8,14 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Immunity", menuName = "SO's/Status Effects/Buffs/Immunity")]
     public class ImmunityAsset : StatusEffectAsset
     {
-
-        [SerializeField] private float debuffResistanceValue = 200f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, debuffResistanceValue));
+            base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -debuffResistanceValue));
+            base.UnapplyStatusEffect(hero);
         }
 
        

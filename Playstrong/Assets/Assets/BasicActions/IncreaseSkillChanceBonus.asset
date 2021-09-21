@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e51a73f9b797dc0458d4c7e2d89dca48, type: 3}
-  m_Name: CriticalStrikeAction
+  m_Script: {fileID: 11500000, guid: 983c7e52160787e46b7e454f3f84936a, type: 3}
+  m_Name: IncreaseSkillChanceBonus
   m_EditorClassIdentifier: 
-  criticalChanceIncrease: 100
+  skillChanceBonus: 0

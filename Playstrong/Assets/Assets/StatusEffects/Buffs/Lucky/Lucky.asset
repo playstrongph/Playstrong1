@@ -19,6 +19,10 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 9a9e9b6bce759814aa2a1d05b8abd031, type: 2}
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: 0948c03a9323b424a8cb7b6d6c4113b4, type: 2}
+  maxSkillCounters: 1
   _effectValue: 100
   luckyValue: 100

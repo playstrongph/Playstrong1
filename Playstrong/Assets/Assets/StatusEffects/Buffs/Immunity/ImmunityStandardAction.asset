@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
+  m_Name: ImmunityStandardAction
+  m_EditorClassIdentifier: 
+  standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
+  actionTargets: {fileID: 11400000, guid: ad1f80fa113380848a279a80acf37b9d, type: 2}
+  orBasicConditions: []
+  andBasicConditions: []
+  basicActions:
+  - {fileID: 11400000, guid: 158ce48eb284a9c44ad512961e838137, type: 2}

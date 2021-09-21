@@ -16,9 +16,12 @@ MonoBehaviour:
   _description: "Immune to harmful effects\r"
   _icon: {fileID: 21300000, guid: e27db3903c7e09841860a1583b1c99d7, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: d9503e7e3e4325645bee66b2634dcae7, type: 2}
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: 5812d23d5a69b354abf3e3f6504d5440, type: 2}
+  maxSkillCounters: 1
   _effectValue: 200
-  debuffResistanceValue: 200

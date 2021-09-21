@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075b74418e84a4c4aa4b76d95a9041ab, type: 3}
-  m_Name: ImmunityAction
+  m_Script: {fileID: 11500000, guid: 9e84f118dfde6554f97728fe8e929299, type: 3}
+  m_Name: TargetHero
   m_EditorClassIdentifier: 
-  debuffResistanceIncrease: 200
