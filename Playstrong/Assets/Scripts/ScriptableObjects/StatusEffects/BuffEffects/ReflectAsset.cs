@@ -36,6 +36,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
+            //uses thisHero, not targetHero
             var finalDamage = thisHero.HeroLogic.TakeDamage.FinalDamage;
             
             var reflectDamage = Mathf.CeilToInt(finalDamage * reflectFactor / 100f);
