@@ -66,8 +66,6 @@ namespace ScriptableObjects.StatusEffects
             }
         }
 
-
-
         //maximum skill status effect counters
         //Used by stacking skill effects
         [SerializeField] private int maxSkillCounters = 1 ;
@@ -91,8 +89,6 @@ namespace ScriptableObjects.StatusEffects
         
         public IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
-
-
         protected void InitializeValues(IHero hero)
         {
             LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -106,11 +102,6 @@ namespace ScriptableObjects.StatusEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             foreach (var standardAction in StandardActions)
             {
-                
-                //TEST
-                //standardAction.StartAction(hero,EffectValue);
-                
-                //TEST
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
         }
@@ -120,24 +111,22 @@ namespace ScriptableObjects.StatusEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             foreach (var standardAction in StandardActions)
             {
-                //TEST
-                //standardAction.StartAction(hero,-EffectValue);
-                
                 logicTree.AddCurrent(standardAction.UnregisterStandardAction(hero));
             }
         }
         
+        
+        
+        
         public virtual void ApplyStackingEffect(IHero hero)
         {
         }
-        
+
         public virtual void UnapplyStackingEffect(IHero hero)
         {
+            
         }
-        
-        
-        
-        
+
         public virtual IEnumerator StartSkillAction()
         {
             LogicTree.EndSequence();

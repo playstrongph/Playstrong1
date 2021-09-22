@@ -8,11 +8,14 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class FinalDamageTakenMultipleAsset : DamageAttributeMultipleAsset, ICalculatedValueAsset
     {
         private int _damageMultiple;
-        public override int GetDamageMultiple(IHero targetHero)
+        public override int GetDamageMultiple(IHero hero)
         {
-            var damageMultiple = targetHero.HeroLogic.TakeDamage.FinalDamage;
+            var target = TargetMultiple.GetHeroTargets(hero);
+            var damageMultiple = hero.HeroLogic.TakeDamage.FinalDamage;
             return damageMultiple;
         }
+        
+        
         
         //Accessed by something - either basic action or status effect asset 
         public void SetCalculatedValue(IHero targetHero)

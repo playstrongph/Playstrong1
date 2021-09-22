@@ -6,15 +6,15 @@ using UnityEngine;
 namespace ScriptableObjects.ActionTargets
 {
     
-    [CreateAssetMenu(fileName = "TargetHero", menuName = "SO's/ActionTargets/TargetHero")]
-    public class TargetHeroActionTargetAsset : ActionTargetsAsset
+    [CreateAssetMenu(fileName = "ThisHero", menuName = "SO's/ActionTargets/ThisHero")]
+    public class ThisHeroActionTargetAsset : ActionTargetsAsset
     {
         public override List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
             var heroTargets = new List<IHero>();
             
             heroTargets.Clear();
-            heroTargets.Add(targetHero);
+            heroTargets.Add(thisHero);
             
             return heroTargets;
         }
@@ -28,16 +28,16 @@ namespace ScriptableObjects.ActionTargets
             
             return heroTargets;
         }
-        
+
         public override IHero GetHeroTarget(IHero thisHero, IHero targetHero)
         {
-            return targetHero;
+            return thisHero;
         }
         
         public override IHero GetHeroTarget(IHero hero)
         {
             return hero;
         }
-            
+
     }
 }

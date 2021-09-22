@@ -5,6 +5,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
 {
     public interface IDamageAttributeMultipleAsset
     {
-        int GetDamageMultiple(IHero targetHero);
+        int GetDamageMultiple(IHero hero);
+
+        int GetDamageMultiple(IHero thisHero, IHero targetHero);
     }
 }

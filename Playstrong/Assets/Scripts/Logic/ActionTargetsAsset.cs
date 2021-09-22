@@ -6,7 +6,7 @@ namespace Logic
 {
     public class ActionTargetsAsset : ScriptableObject, IActionTargets
     {
-
+        //From SINGLE to Multiple target requirements - used in StandardActions
         public virtual List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
             var heroTargets = new List<IHero>();
@@ -30,7 +30,20 @@ namespace Logic
             var heroTargets = new List<IHero>();
             return heroTargets;
         }
-
+        
+        //For SINGLE target requirements - used in damage calculations
+        public virtual IHero GetHeroTarget(IHero thisHero, IHero targetHero)
+        {
+            //Example only - can return either this or target hero
+            return targetHero;
+            //return thisHero;
+        }
+        
+        public virtual IHero GetHeroTarget(IHero hero)
+        {
+            //Example only
+            return hero;
+        }
 
     }
 }
