@@ -7,8 +7,11 @@ namespace ScriptableObjects.DamageAttributeMultiple
 {
     public class DamageAttributeMultipleAsset : ScriptableObject, IDamageAttributeMultipleAsset
     {
+        
         [SerializeField] private ScriptableObject targetMultiple;
         public IActionTargets TargetMultiple => targetMultiple as IActionTargets;
+
+        [SerializeField] protected int percentFactor = 100;
         
         public virtual int GetDamageMultiple(IHero hero)
         {

@@ -35,7 +35,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(DealDirectDamage(targetHero));
+            logicTree.AddCurrent(DealDirectDamage(thisHero,targetHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -46,7 +46,12 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            var damageValue = ComputeTotalDamage(targetHero);
+            //This determines the basis for damage calculation in terms of damage multiples
+            //which can be - heath, attack, damage taken, etc.
+            //it also determines the basis hero - targetHero or thisHero 
+            CalculatedDamageValue.SetCalculatedValue(targetHero);
+            
+            var damageValue = ComputeTotalDamage();
 
             logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, damageValue));
             
@@ -54,13 +59,27 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
         
-        
-        
-        
+        private IEnumerator DealDirectDamage(IHero thisHero,IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //This determines the basis for damage calculation in terms of damage multiples
+            //which can be - heath, attack, damage taken, etc.
+            //it also determines the basis hero - targetHero or thisHero 
+            CalculatedDamageValue.SetCalculatedValue(thisHero,targetHero);
+            
+            var damageValue = ComputeTotalDamage();
+
+            logicTree.AddCurrent(targetHero.HeroLogic.DealDamage.DealDirectDamage(targetHero, damageValue));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
         
 
-        private int ComputeTotalDamage(IHero hero)
+        private int ComputeTotalDamage()
         {
+            
             var calculatedValue = Mathf.CeilToInt(CalculatedDamageValue.GetCalculatedValue());
             var totalDamage = flatDamageValue + calculatedValue;
             

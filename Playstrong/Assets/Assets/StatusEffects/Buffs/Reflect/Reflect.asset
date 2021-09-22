@@ -16,13 +16,12 @@ MonoBehaviour:
   _description: Deal 30% of attack damage taken back to the attacker
   _icon: {fileID: 21300000, guid: a49559afa82c25c479b3708bbd398d80, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 0}
   _standardAction: {fileID: 0}
   _standardActions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8e3572359f4cfd94a9ea0b3b9cbb8692, type: 2}
   maxSkillCounters: 1
   _effectValue: 30
-  reflectFactor: 30

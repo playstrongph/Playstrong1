@@ -9,7 +9,12 @@ namespace ScriptableObjects.DamageAttributeMultiple
     {
         private float _calculatedValue;
         
-        public void SetCalculatedValue(IHero targetHero)
+        public void SetCalculatedValue(IHero hero)
+        {
+            _calculatedValue = 0;
+        }
+        
+        public void SetCalculatedValue(IHero thisHero, IHero targetHero)
         {
             _calculatedValue = 0;
         }
