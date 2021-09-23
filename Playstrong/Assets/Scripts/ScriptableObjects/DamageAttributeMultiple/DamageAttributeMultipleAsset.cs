@@ -5,6 +5,13 @@ using UnityEngine;
 
 namespace ScriptableObjects.DamageAttributeMultiple
 {
+    
+    /// <summary>
+    /// Base class Asset used by DealDamageBasicAction for calculated damage
+    /// Use cases - Proportional Damage - e.g. damage according to your speed, enemy speed, your max HP, enemy max HP, etc.
+    /// Use cases - max HP of weakest Hero, Speed of fastest hero, etc.
+    /// Inheritors also implement ICalculatedValueAsset as used by DealDamage 
+    /// </summary>
     public class DamageAttributeMultipleAsset : ScriptableObject, IDamageAttributeMultipleAsset
     {
         

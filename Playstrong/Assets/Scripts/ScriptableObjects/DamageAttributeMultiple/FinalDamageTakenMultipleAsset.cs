@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace ScriptableObjects.DamageAttributeMultiple
 {
+    /// <summary>
+    /// Asset used by DealDamage basic action to deal percent damage according to damage taken by the hero
+    /// </summary>
     [CreateAssetMenu(fileName = "FinalDamageTaken", menuName = "SO's/Scriptable Enums/DamageAttributeMultiple/FinalDamageTaken")]
     public class FinalDamageTakenMultipleAsset : DamageAttributeMultipleAsset, ICalculatedValueAsset
     {
@@ -25,11 +28,10 @@ namespace ScriptableObjects.DamageAttributeMultiple
             
             damageMultiple = Mathf.CeilToInt(damageMultiple * percentFactor / 100);
             return damageMultiple;
-        }
+        }      
         
         
-        
-        //Accessed by something - either basic action or status effect asset 
+        //Accessed by DealDamage Basic Action 
         public void SetCalculatedValue(IHero hero)
         {
             _damageMultiple = GetDamageMultiple(hero);

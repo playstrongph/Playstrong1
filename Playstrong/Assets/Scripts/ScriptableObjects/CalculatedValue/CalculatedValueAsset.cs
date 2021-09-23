@@ -4,7 +4,9 @@ using UnityEngine;
 
 namespace ScriptableObjects.DamageAttributeMultiple
 {
-    
+    /// <summary>
+    /// Base class used in DealDamage Basic action to determine calculated damage
+    /// </summary>
     public class CalculatedValueAsset : ScriptableObject, ICalculatedValueAsset
     {
         private float _calculatedValue;

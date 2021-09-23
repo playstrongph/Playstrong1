@@ -115,9 +115,7 @@ namespace ScriptableObjects.StatusEffects
             }
         }
         
-        
-        
-        
+
         public virtual void ApplyStackingEffect(IHero hero)
         {
         }

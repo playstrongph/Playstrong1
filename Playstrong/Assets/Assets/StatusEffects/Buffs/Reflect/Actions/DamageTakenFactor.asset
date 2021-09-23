@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f706f7204e0b9146afaf97888ba2939, type: 3}
-  m_Name: ReflectDealDamageBasicAction
+  m_Script: {fileID: 11500000, guid: e93f0953c268af7438eba7f2e9b4a034, type: 3}
+  m_Name: DamageTakenFactor
   m_EditorClassIdentifier: 
-  flatDamageValue: 0
-  calculatedDamageValue: {fileID: 11400000, guid: 48f7be7d1b601604ab8b96235e1f4a1e,
-    type: 2}
+  targetMultiple: {fileID: 11400000, guid: ddfc952fad133ab40819075328dec600, type: 2}
+  percentFactor: 30
