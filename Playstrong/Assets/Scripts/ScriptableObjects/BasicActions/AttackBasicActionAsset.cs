@@ -8,8 +8,12 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "AttackBasicAction", menuName = "SO's/BasicActions/AttackBasicAction")]
     
+    /// <summary>
+    /// Basic action used by Skill 1 BasicAttackBasicAction
+    /// Basic action used by Skill 2 and Skill 3 when doing skill Attacks
+    /// </summary>
+    [CreateAssetMenu(fileName = "AttackBasicAction", menuName = "SO's/BasicActions/AttackBasicAction")]
     public class AttackBasicActionAsset : BasicActionAsset
     {
         //To be used after revision of DealDamage/TakeDamage
