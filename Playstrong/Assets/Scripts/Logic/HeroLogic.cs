@@ -131,6 +131,10 @@ namespace Logic
         private IHeroInabilityStatus _heroInabilityStatusAssets;
         public IHeroInabilityStatus HeroInabilityStatusAssets => _heroInabilityStatusAssets;
         
+        //TEST
+        private IDealDamageTest _dealDamageTest;
+        public IDealDamageTest DealDamageTest => _dealDamageTest;
+        
        
         
 
@@ -151,6 +155,7 @@ namespace Logic
             _otherAttributes = GetComponent<IOtherAttributes>();
             _counterAttack = GetComponent<ICounterAttack>();
             _heroInabilityStatusAssets = GetComponent<IHeroInabilityStatus>();
+            _dealDamageTest = GetComponent<IDealDamageTest>();
         }
     }
 }

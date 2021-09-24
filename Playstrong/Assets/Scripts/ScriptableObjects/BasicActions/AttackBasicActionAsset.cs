@@ -82,6 +82,11 @@ namespace ScriptableObjects.BasicActions
         var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = 0;
         
+        //TEST
+        var nonCriticalAttackDamage =
+            Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue());
+        var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
+        
         //TODO: To be used after DealDamage change
         //var nonCriticalDamage = attackPower + AdditionalAttackDamage;
         //var criticalDamage = 0;
@@ -115,6 +120,11 @@ namespace ScriptableObjects.BasicActions
         var dealDamage = targetHero.HeroLogic.DealDamage;
         var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
+        
+        //TEST
+        var nonCriticalAttackDamage =
+            Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue());
+        var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
 
         //TODO: To be used after DealDamage change
         //var nonCriticalDamage = attackPower + AdditionalAttackDamage;
