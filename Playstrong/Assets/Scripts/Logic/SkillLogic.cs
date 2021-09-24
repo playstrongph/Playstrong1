@@ -34,12 +34,18 @@ namespace Logic
         private IChangeSkillCooldown _changeSkillCooldown;
         public IChangeSkillCooldown ChangeSkillCooldown => _changeSkillCooldown;
 
+        private ISkillAttack _skillAttack;
+        public ISkillAttack SkillAttack => _skillAttack;
+        
+        
+
         private void Awake()
         {
             _skill = GetComponentInParent<ISkill>();
             _skillReadiness = GetComponent<IUpdateSkillStatus>();
             _skillEvents = GetComponent<ISkillEvents>();
             _changeSkillCooldown = GetComponent<IChangeSkillCooldown>();
+            _skillAttack = GetComponent<ISkillAttack>();
 
         }
     }

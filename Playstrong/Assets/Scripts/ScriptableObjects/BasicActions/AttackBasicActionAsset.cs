@@ -12,31 +12,33 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class AttackBasicActionAsset : BasicActionAsset
     {
+        //Unique per skill
         [Header("Game Animation Asset")]
         [SerializeField] private ScriptableObject attackAnimation;
         private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;
-
-        private int _finalAttackValue;
-        private float _intervalDelay = 0.7f;
-
+        
+        //Unique per skill
         [Header("Attack Target Type")] [SerializeField]
         private ScriptableObject attackTargetType;
         private IAttackTargetTypeAsset AttackTargetType => attackTargetType as IAttackTargetTypeAsset;
-        
 
+        [SerializeField]
+        private float visualIntervalDelay = 0.7f;
+        
+        private int _finalAttackValue;
+        
         public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
-           
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-
+            
             logicTree.AddCurrent(AttackHero(thisHero,targetHero));
-
+            
             logicTree.EndSequence();
             yield return null;
 
         }
-        
 
+        //This can be transferred to local SkillAttack
         private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {
            Debug.Log("Basic Action Attack Hero");
@@ -56,8 +58,9 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.EndSequence();
             yield return null;
         }
-
-
+        
+        
+        
         private IEnumerator AttackHeroAnimation(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
@@ -68,16 +71,13 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.EndSequence();
             yield return null;
         }
-
-
-
         private IEnumerator AttackInterval(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = thisHero.CoroutineTreesAsset.MainVisualTree;
             
            //Inserts delay in seconds before calling visualTree.EndSequence()
-            visualTree.AddCurrentWait(_intervalDelay, visualTree);
+            visualTree.AddCurrentWait(visualIntervalDelay, visualTree);
             
             logicTree.EndSequence();
             yield return null;

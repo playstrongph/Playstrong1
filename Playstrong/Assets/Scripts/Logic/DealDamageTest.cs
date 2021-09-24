@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class DealDamageTest : MonoBehaviour
+    public class DealDamageTest : MonoBehaviour, IDealDamageTest
     {
         private IHeroLogic _heroLogic;
 
@@ -34,14 +34,16 @@ namespace Logic
         {
             _heroLogic = GetComponent<IHeroLogic>();
         }
-
-        public IEnumerator DealSingleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
+        
+        /// <summary>
+        /// Called by Attack Method
+        /// </summary>
+        public IEnumerator AttackDealDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
-
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //Note: this should NOT be required as all attack damage enhancement should be factored in AdditionalAttackDamage
-            //var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;
+            
+            //TODO: attackerHero.TargetsCount.TakeDamage(args)
             
             
             
