@@ -79,6 +79,10 @@ namespace ScriptableObjects.BasicActions
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         var dealDamage = targetHero.HeroLogic.DealDamage;
+        
+        //Test
+        var dealDamageTest = targetHero.HeroLogic.DealDamageTest;
+        
         var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = 0;
         
@@ -102,10 +106,10 @@ namespace ScriptableObjects.BasicActions
         
         //Single/Multiple Target.  Rename to SingleOrMultiAttackType 
         //TODO:Disable this during test
-        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        //logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
         
         //TEST
-        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, nonCriticalAttackDamage, criticalAttackDamage));
+        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamageTest(dealDamageTest,thisHero, targetHero, nonCriticalAttackDamage, criticalAttackDamage));
         
         //visuals
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
@@ -122,6 +126,10 @@ namespace ScriptableObjects.BasicActions
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         var dealDamage = targetHero.HeroLogic.DealDamage;
+        
+        //Test
+        var dealDamageTest = targetHero.HeroLogic.DealDamageTest;
+        
         var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
         
@@ -146,7 +154,9 @@ namespace ScriptableObjects.BasicActions
         
         //DEAL DAMAGE CALL - FOR IMPROVEMENT
         //Single/Multiple Target TODO:Needs Improvement in Implementation
-        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        //logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        
+        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamageTest(dealDamageTest,thisHero, targetHero, nonCriticalAttackDamage, criticalAttackDamage));
         
         //VISUALS
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero));

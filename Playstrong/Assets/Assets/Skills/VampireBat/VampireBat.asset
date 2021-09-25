@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
   m_Name: VampireBat
   m_EditorClassIdentifier: 
-  _name: Debuff Extension
-  _description: Extend Debuffs by 1
+  _name: Vampire Bat
+  _description: Attack Target Enemy
   _skillEffect: {fileID: 11400000, guid: fa70014bcc2344d419907c319ec924e8, type: 2}
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}

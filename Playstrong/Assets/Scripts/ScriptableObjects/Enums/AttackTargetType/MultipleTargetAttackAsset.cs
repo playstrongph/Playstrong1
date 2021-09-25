@@ -10,7 +10,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
     public class MultipleTargetAttackAsset : SingleOrMultiAttackTypeAsset
     {
         //TODO: Disable during testing
-        public override IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
+        public override IEnumerator DealAttackDamageTest(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
@@ -25,7 +25,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
         }
         
         //DEAL DAMAGE TEST
-        public override IEnumerator DealAttackDamage(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        public override IEnumerator DealAttackDamageTest(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             

@@ -63,7 +63,7 @@ public class SkillAttack : MonoBehaviour, ISkillAttack
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero,attackAnimation));
         
         //Single/Multiple Target TODO:Needs Improvement in Implementation
-        logicTree.AddCurrent(attackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        logicTree.AddCurrent(attackTargetType.DealAttackDamageTest(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
         
         //visuals
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero,visualDelay));
@@ -98,7 +98,7 @@ public class SkillAttack : MonoBehaviour, ISkillAttack
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero,attackAnimation));
         
         //Single/Multiple Target TODO:Needs Improvement in Implementation
-        logicTree.AddCurrent(attackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        logicTree.AddCurrent(attackTargetType.DealAttackDamageTest(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
         
         //visuals
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero,visualDelay));

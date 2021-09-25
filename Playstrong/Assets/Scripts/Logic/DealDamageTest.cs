@@ -41,10 +41,8 @@ namespace Logic
         public IEnumerator DealMultiAttackDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            
-            
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeSingleAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
+
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeMultiAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -53,12 +51,9 @@ namespace Logic
         public IEnumerator DealSingleAttackDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            //TODO: attackerHero.TargetsCount.TakeDamage(args)
             
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeSingleAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
             
-
-            //logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeSingleAttackDamage(normalDamage, criticalDamage,attackerHero));
-
             logicTree.EndSequence();
             yield return null;
         }

@@ -74,7 +74,7 @@ namespace Logic
             yield return null;
         }
         
-        public IEnumerator TakeMultipleAttackDamage(int nonCriticalDamage, int criticalDamage, IHero attackerHero)
+        public IEnumerator TakeMultiAttackDamage(int nonCriticalDamage, int criticalDamage, IHero attackerHero)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance; 

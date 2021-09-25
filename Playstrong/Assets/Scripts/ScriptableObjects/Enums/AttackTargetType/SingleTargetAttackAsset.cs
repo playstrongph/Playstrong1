@@ -11,7 +11,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
     {
 
         //TODO: Disable During testing
-        public override IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
+        public override IEnumerator DealAttackDamageTest(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
@@ -27,7 +27,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
         
         
         //DEAL DAMAGE TEST
-        public override IEnumerator DealAttackDamage(IDealDamageTest dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        public override IEnumerator DealAttackDamageTest(IDealDamageTest dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             

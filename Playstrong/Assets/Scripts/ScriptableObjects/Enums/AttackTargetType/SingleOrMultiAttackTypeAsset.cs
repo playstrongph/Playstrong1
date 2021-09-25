@@ -9,7 +9,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
     public class SingleOrMultiAttackTypeAsset : ScriptableObject, ISingleOrMultiAttackTypeAsset
     {
 
-        public virtual IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
+        public virtual IEnumerator DealAttackDamageTest(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
@@ -23,7 +23,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
             yield return null;
         }
         
-        public virtual IEnumerator DealAttackDamage(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        public virtual IEnumerator DealAttackDamageTest(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 

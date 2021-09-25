@@ -6,9 +6,9 @@ namespace ScriptableObjects.Enums.SkillStatus
 {
     public interface ISingleOrMultiAttackTypeAsset
     {
-        IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor);
+        IEnumerator DealAttackDamageTest(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor);
 
-        IEnumerator DealAttackDamage(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero,
+        IEnumerator DealAttackDamageTest(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero,
             int nonCriticalDamage, int criticalDamage);
     }
 }

@@ -71,7 +71,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
             logicTree.AddCurrent(AttackHeroLogic(thisHero,targetHero));
 
-            logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+            logicTree.AddCurrent(AttackTargetType.DealAttackDamageTest(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
             
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
             
