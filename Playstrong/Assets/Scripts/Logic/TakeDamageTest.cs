@@ -164,7 +164,7 @@ namespace Logic
         /// <summary>
         /// For non-skill damage sources such as status effects and weapons
         /// </summary>
-        public IEnumerator TakeNonAttackOtherDamage(int nonAttackDamage,float ignoreArmorChance)
+        public IEnumerator TakeNonSkillDamage(int nonAttackDamage,float ignoreArmorChance)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;

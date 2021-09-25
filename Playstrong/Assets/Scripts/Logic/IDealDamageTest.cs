@@ -15,7 +15,7 @@ namespace Logic
             int criticalDamage);
 
         //For non-attack (skills) sources of damage such as status effects and weapons
-        IEnumerator DealNonAttackOtherDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage,
+        IEnumerator DealNonSkillDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage,
             int criticalDamage);
     }
 }

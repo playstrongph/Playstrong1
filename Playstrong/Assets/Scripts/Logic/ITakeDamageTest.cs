@@ -15,6 +15,6 @@ namespace Logic
 
         IEnumerator TakeNonAttackSkillDamage(int nonAttackDamage, float ignoreArmorChance);
 
-        IEnumerator TakeNonAttackOtherDamage(int nonAttackDamage, float ignoreArmorChance);
+        IEnumerator TakeNonSkillDamage(int nonAttackDamage, float ignoreArmorChance);
     }
 }

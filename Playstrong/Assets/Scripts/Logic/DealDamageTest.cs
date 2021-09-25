@@ -86,14 +86,14 @@ namespace Logic
         /// <summary>
         /// For damage sources other than skills - status effects, weapons, etc.
         /// </summary>
-        public IEnumerator DealNonAttackOtherDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        public IEnumerator DealNonSkillDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var ignoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
             
             //TODO: SkillDamage PreEvent
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonAttackOtherDamage(nonCriticalDamage, ignoreArmorChance));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonSkillDamage(nonCriticalDamage, ignoreArmorChance));
             
             //TODO: SkillDamage PreEvent
             
