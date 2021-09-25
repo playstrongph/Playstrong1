@@ -61,12 +61,15 @@ namespace Logic
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _singleAttackDamage;
-          
+            
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes Single Skill Damage
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_singleAttackDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_singleAttackDamage));
+            
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes Single Skill Damage
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -87,10 +90,15 @@ namespace Logic
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _multipleAttackDamage;
             
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes Multi Skill Damage
+            
+            
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_multipleAttackDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_multipleAttackDamage));
+            
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes Multi Skill Damage
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -138,10 +146,14 @@ namespace Logic
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
             
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes Skill Damage
+            
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_directDamage));
+            
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes Skill Damage
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -179,6 +191,10 @@ namespace Logic
             yield return null;
         }
 
+        
+        
+        
+        //AUXILLIARY METHODS
         private int ComputeDirectDamage(int nonCriticalDamage, int criticalDamage)
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;

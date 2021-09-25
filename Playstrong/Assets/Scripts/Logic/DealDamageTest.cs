@@ -39,8 +39,12 @@ namespace Logic
         public IEnumerator DealMultiAttackDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //TODO: DealDamage Multi Event here
 
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeMultiAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
+            
+            //TODO: DealDamage Multi Event here
 
             logicTree.EndSequence();
             yield return null;
@@ -50,7 +54,11 @@ namespace Logic
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            //TODO: DealDamage Single Event here
+            
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeSingleAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
+            
+            //TODO: DealDamage Single Event here
             
             logicTree.EndSequence();
             yield return null;
