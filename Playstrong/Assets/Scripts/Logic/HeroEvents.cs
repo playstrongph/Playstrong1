@@ -53,9 +53,16 @@ namespace Logic
         public event HeroEvent EHeroEndTurn;
         public event HeroEvent EPostHeroEndTurn;
         public event HeroEvent EBeforeHeroDealsSingleAttack;
+        public event HeroEvent EAfterHeroDealsSingleAttack;
+        public event HeroEvent EBeforeHeroTakesSingleAttack;
         public event HeroEvent EAfterHeroTakesSingleAttack;
+        
+        
+        
         public event HeroEvent EBeforeHeroDealsMultiAttack;
+        public event HeroEvent EAfterHeroDealsMultiAttack;
         public event HeroEvent EBeforeHeroTakesMultiAttack;
+        public event HeroEvent EAfterHeroTakesMultiAttack;
 
         private IHeroLogic _heroLogic;
         private List<HeroesEvent> _heroEventsList = new List<HeroesEvent>();
@@ -551,6 +558,66 @@ namespace Logic
                 }
         }
         
+        public void AfterHeroDealsSingleAttack(IHero hero)
+        {
+            EAfterHeroDealsSingleAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroDealsSingleAttackClients()
+        {
+            var clients = EAfterHeroDealsSingleAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroDealsSingleAttack -= client as HeroEvent;
+                }
+        }
+        
+        public void BeforeHeroTakesSingleAttack(IHero hero)
+        {
+            EBeforeHeroTakesSingleAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroTakesSingleAttackClients()
+        {
+            var clients = EBeforeHeroTakesSingleAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroTakesSingleAttack -= client as HeroEvent;
+                }
+        }
+        
+        public void AfterHeroDealsMultiAttack(IHero hero)
+        {
+            EAfterHeroDealsMultiAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroDealsMultiAttackClients()
+        {
+            var clients = EAfterHeroDealsMultiAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroDealsMultiAttack -= client as HeroEvent;
+                }
+        }
+        
+        public void AfterHeroTakesMultiAttack(IHero hero)
+        {
+            EAfterHeroTakesMultiAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroTakesMultiAttackClients()
+        {
+            var clients = EAfterHeroTakesMultiAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroTakesMultiAttack -= client as HeroEvent;
+                }
+        }
+        
         
         
         
@@ -598,6 +665,10 @@ namespace Logic
             UnsubscribeAfterHeroTakesSingleAttackClients();
             UnsubscribeBeforeHeroDealsMultiAttackClients();
             UnsubscribeBeforeHeroTakesMultiAttackClients();
+            UnsubscribeAfterHeroDealsSingleAttackClients();
+            UnsubscribeBeforeHeroTakesSingleAttackClients();
+            UnsubscribeAfterHeroDealsMultiAttackClients();
+            UnsubscribeAfterHeroTakesMultiAttackClients();
 
 
         }

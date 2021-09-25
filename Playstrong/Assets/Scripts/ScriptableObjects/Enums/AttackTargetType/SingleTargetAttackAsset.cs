@@ -19,6 +19,18 @@ namespace ScriptableObjects.Enums.AttackTargetType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        private IEnumerator BeforeHeroDealsSingleAttack(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.BeforeHeroDealsSingleAttack(thisHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+       
 
 
 
