@@ -20,7 +20,7 @@ namespace ScriptableObjects.SkillActionsScripts
         //Unique per skill
         [Header("Attack Target Type")] [SerializeField]
         private ScriptableObject attackTargetType;
-        private IAttackTargetTypeAsset AttackTargetType => attackTargetType as IAttackTargetTypeAsset;
+        private ISingleOrMultiAttackTypeAsset AttackTargetType => attackTargetType as ISingleOrMultiAttackTypeAsset;
 
         [SerializeField]
         private float visualIntervalDelay = 0.7f;

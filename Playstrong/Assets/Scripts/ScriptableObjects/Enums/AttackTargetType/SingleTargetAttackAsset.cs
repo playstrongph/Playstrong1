@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ScriptableObjects.Enums.AttackTargetType
 {
     [CreateAssetMenu(fileName = "SingleTargetAttack", menuName = "SO's/Scriptable Enums/Attack Target Type/SingleTargetAttack")]
-    public class SingleTargetAttackAsset : AttackTargetTypeAsset
+    public class SingleTargetAttackAsset : SingleOrMultiAttackTypeAsset
     {
 
         public override IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)

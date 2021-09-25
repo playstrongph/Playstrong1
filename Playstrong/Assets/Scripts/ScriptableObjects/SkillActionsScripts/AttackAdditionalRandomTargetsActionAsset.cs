@@ -24,7 +24,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         [Header("Attack Target Type")] [SerializeField]
         private ScriptableObject attackTargetType;
-        private IAttackTargetTypeAsset AttackTargetType => attackTargetType as IAttackTargetTypeAsset;
+        private ISingleOrMultiAttackTypeAsset AttackTargetType => attackTargetType as ISingleOrMultiAttackTypeAsset;
         
 
         public override IEnumerator ActionTarget(IHero thisHero, IHero targetHero)

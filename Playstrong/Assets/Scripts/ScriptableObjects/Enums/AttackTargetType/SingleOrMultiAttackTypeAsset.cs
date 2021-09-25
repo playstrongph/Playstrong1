@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.Enums.AttackTargetType
 {
-    public class AttackTargetTypeAsset : ScriptableObject, IAttackTargetTypeAsset
+    public class SingleOrMultiAttackTypeAsset : ScriptableObject, ISingleOrMultiAttackTypeAsset
     {
 
         public virtual IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)

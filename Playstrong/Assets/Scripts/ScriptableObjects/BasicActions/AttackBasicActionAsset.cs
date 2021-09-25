@@ -28,8 +28,8 @@ namespace ScriptableObjects.BasicActions
         private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;
 
         [Header("Attack Target Type")] [SerializeField]
-        private ScriptableObject attackTargetType;
-        private IAttackTargetTypeAsset AttackTargetType => attackTargetType as IAttackTargetTypeAsset;
+        private ScriptableObject singleOrMultiAttack;
+        private ISingleOrMultiAttackTypeAsset SingleOrMultiAttack => singleOrMultiAttack as ISingleOrMultiAttackTypeAsset;
         
         [SerializeField]
         private float _visualDelay = 0.7f;
@@ -101,7 +101,7 @@ namespace ScriptableObjects.BasicActions
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
         
         //Single/Multiple Target.  Rename to SingleOrMultiAttackType 
-        logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
         
         //visuals
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
@@ -142,7 +142,7 @@ namespace ScriptableObjects.BasicActions
         
         //DEAL DAMAGE CALL - FOR IMPROVEMENT
         //Single/Multiple Target TODO:Needs Improvement in Implementation
-        logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
         
         //VISUALS
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero));

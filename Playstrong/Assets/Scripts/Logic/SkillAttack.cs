@@ -12,7 +12,7 @@ public class SkillAttack : MonoBehaviour, ISkillAttack
     
     
     //TODO: private IEnumerator StartAttackAction(IHero thisHero, IHero targetHero){}
-    public IEnumerator StartSkillAttack(IHero thisHero, IHero targetHero, IAttackTargetTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
+    public IEnumerator StartSkillAttack(IHero thisHero, IHero targetHero, ISingleOrMultiAttackTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
@@ -24,7 +24,7 @@ public class SkillAttack : MonoBehaviour, ISkillAttack
     
     //TODO: CounterAttack
     
-    private IEnumerator SetNormalOrCriticalAttack(IHero thisHero, IHero targetHero, IAttackTargetTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
+    private IEnumerator SetNormalOrCriticalAttack(IHero thisHero, IHero targetHero, ISingleOrMultiAttackTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
@@ -42,7 +42,7 @@ public class SkillAttack : MonoBehaviour, ISkillAttack
         yield return null;
     }
     
-    private IEnumerator NormalAttack(IHero thisHero, IHero targetHero, IAttackTargetTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
+    private IEnumerator NormalAttack(IHero thisHero, IHero targetHero, ISingleOrMultiAttackTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         var dealDamage = targetHero.HeroLogic.DealDamage;
@@ -76,7 +76,7 @@ public class SkillAttack : MonoBehaviour, ISkillAttack
         yield return null;
     }
     
-    private IEnumerator CriticalAttack(IHero thisHero, IHero targetHero, IAttackTargetTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
+    private IEnumerator CriticalAttack(IHero thisHero, IHero targetHero, ISingleOrMultiAttackTypeAsset attackTargetType, IGameAnimations attackAnimation, float visualDelay)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         var dealDamage = targetHero.HeroLogic.DealDamage;
