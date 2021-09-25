@@ -101,7 +101,11 @@ namespace ScriptableObjects.BasicActions
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
         
         //Single/Multiple Target.  Rename to SingleOrMultiAttackType 
+        //TODO:Disable this during test
         logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
+        
+        //TEST
+        logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, nonCriticalAttackDamage, criticalAttackDamage));
         
         //visuals
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero));

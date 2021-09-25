@@ -10,6 +10,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
     public class SingleTargetAttackAsset : SingleOrMultiAttackTypeAsset
     {
 
+        //TODO: Disable During testing
         public override IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
@@ -24,6 +25,24 @@ namespace ScriptableObjects.Enums.AttackTargetType
             yield return null;
         }
         
+        
+        //DEAL DAMAGE TEST
+        public override IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(PreSingleAttackEvents(thisHero,targetHero));
+
+            logicTree.AddCurrent(dealDamage.DealMultipleAttackDamage(thisHero, targetHero, nonCriticalDamage, criticalDamage));
+            
+            logicTree.AddCurrent(PostSingleAttackEvents(thisHero,targetHero));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        //EVENTS
         private IEnumerator PreSingleAttackEvents(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
@@ -34,7 +53,6 @@ namespace ScriptableObjects.Enums.AttackTargetType
             logicTree.EndSequence();
             yield return null;
         }
-        
         private IEnumerator PostSingleAttackEvents(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;

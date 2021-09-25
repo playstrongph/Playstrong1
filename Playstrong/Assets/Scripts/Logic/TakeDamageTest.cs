@@ -8,7 +8,7 @@ using Utilities;
 
 namespace Logic
 {
-    public class TakeDamageTest : MonoBehaviour
+    public class TakeDamageTest : MonoBehaviour, ITakeDamageTest
     {
         private ICoroutineTree _logicTree;
         private ICoroutineTree _visualTree;
@@ -24,6 +24,7 @@ namespace Logic
 
 
         //TEST - Single, Direct, Multiple Damage
+        //To be Obsoleted
         [SerializeField]
         private int _directDamage;
         public int DirectDamage => _directDamage;
@@ -48,7 +49,7 @@ namespace Logic
             _visualTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainVisualTree;
         }
         
-        public IEnumerator TakeSingleAttackDamage(int normalDamage, int criticalDamage, IHero attackerHero)
+        public IEnumerator TakeSingleAttackDamage(int nonCriticalDamage, int criticalDamage, IHero attackerHero)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance; 
@@ -56,7 +57,7 @@ namespace Logic
             var netChance = penetrateChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
 
-            _singleAttackDamage = ComputeSingleAttackDamage(normalDamage, criticalDamage);
+            _singleAttackDamage = ComputeSingleAttackDamage(nonCriticalDamage, criticalDamage);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _singleAttackDamage;
@@ -73,7 +74,7 @@ namespace Logic
             yield return null;
         }
         
-        public IEnumerator TakeMultipleAttackDamage(int normalDamage, int criticalDamage, IHero attackerHero)
+        public IEnumerator TakeMultipleAttackDamage(int nonCriticalDamage, int criticalDamage, IHero attackerHero)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance; 
@@ -81,7 +82,7 @@ namespace Logic
             var netChance = penetrateChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
             
-            _multipleAttackDamage = ComputeMultipleAttackDamage(normalDamage, criticalDamage);
+            _multipleAttackDamage = ComputeMultipleAttackDamage(nonCriticalDamage, criticalDamage);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _multipleAttackDamage;
@@ -97,14 +98,14 @@ namespace Logic
             yield return null;
         }
         
-        public IEnumerator TakeDirectDamage(int directDamage, int criticalDamage, int penetrateChance)
+        public IEnumerator TakeDirectDamage(int nonCriticalDamage, int criticalDamage, int ignoreArmorChance)
         {
             var targetHero = _thisHeroLogic.Hero;
             var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
-            var netChance = penetrateChance - penetrateResistance;
+            var netChance = ignoreArmorChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
 
-            _directDamage = ComputeDirectDamage(directDamage, criticalDamage);
+            _directDamage = ComputeDirectDamage(nonCriticalDamage, criticalDamage);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
@@ -120,38 +121,38 @@ namespace Logic
             yield return null;
         }
 
-        private int ComputeDirectDamage(int normalDamage, int criticalDamage)
+        private int ComputeDirectDamage(int nonCriticalDamage, int criticalDamage)
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
             var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100;
 
-            var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) * (normalDamage + criticalDamage);
+            var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) * (nonCriticalDamage + criticalDamage);
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
             return finalDamage;
         }
         
-        private int ComputeSingleAttackDamage(int normalDamage, int criticalDamage)
+        private int ComputeSingleAttackDamage(int nonCriticalDamage, int criticalDamage)
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
             var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.SingleAttackDamageReduction / 100;
 
             //TODO: Update with singleAttackDamage Reduction Factor
-            var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - damageReduction) * (normalDamage + criticalDamage);
+            var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - damageReduction) * (nonCriticalDamage + criticalDamage);
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
             return finalDamage;
         }
         
-        private int ComputeMultipleAttackDamage(int normalDamage, int criticalDamage)
+        private int ComputeMultipleAttackDamage(int nonCriticalDamage, int criticalDamage)
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
             var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
             
             //TODO: Update with multipleAttackDamage Reduction Factor
-            var floatFinalDamage = (1-multipleAttackDamageReduction)*(1 - damageReduction) * (normalDamage + criticalDamage);
+            var floatFinalDamage = (1-multipleAttackDamageReduction)*(1 - damageReduction) * (nonCriticalDamage + criticalDamage);
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 

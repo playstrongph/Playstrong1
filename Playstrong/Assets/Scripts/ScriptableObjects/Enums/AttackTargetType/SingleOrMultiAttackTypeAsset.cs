@@ -22,6 +22,15 @@ namespace ScriptableObjects.Enums.AttackTargetType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public virtual IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
 
 
