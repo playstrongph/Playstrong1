@@ -45,26 +45,18 @@ namespace Logic
         /// </summary>
         
         public delegate void HeroEvent(IHero hero);
-
         public event HeroEvent EHeroTakesFatalDamage;
-        
         public event HeroEvent EAfterHeroDies;
-        
         public event HeroEvent EPostHeroDeath;
-
         public event HeroEvent EHeroStartTurn;
-        
         public event HeroEvent EPreHeroStartTurn;
-        
         public event HeroEvent EHeroEndTurn;
-        
         public event HeroEvent EPostHeroEndTurn;
-        
-      
-      
+        public event HeroEvent EBeforeHeroDealsSingleAttack;
+        public event HeroEvent EAfterHeroTakesSingleAttack;
+        public event HeroEvent EBeforeHeroDealsMultiAttack;
+        public event HeroEvent EBeforeHeroTakesMultiAttack;
 
-        
-        
         private IHeroLogic _heroLogic;
         private List<HeroesEvent> _heroEventsList = new List<HeroesEvent>();
         
@@ -499,6 +491,69 @@ namespace Logic
                     EPostHeroEndTurn -= client as HeroEvent;
                 }
         }
+        
+        public void BeforeHeroDealsSingleAttack(IHero hero)
+        {
+            EBeforeHeroDealsSingleAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroDealsSingleAttackClients()
+        {
+            var clients = EBeforeHeroDealsSingleAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroDealsSingleAttack -= client as HeroEvent;
+                }
+        }
+        
+        public void AfterHeroTakesSingleAttack(IHero hero)
+        {
+            EAfterHeroTakesSingleAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroTakesSingleAttackClients()
+        {
+            var clients = EAfterHeroTakesSingleAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroTakesSingleAttack -= client as HeroEvent;
+                }
+        }
+        
+        public void BeforeHeroDealsMultiAttack(IHero hero)
+        {
+            EBeforeHeroDealsMultiAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroDealsMultiAttackClients()
+        {
+            var clients = EBeforeHeroDealsMultiAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroDealsMultiAttack -= client as HeroEvent;
+                }
+        }
+        public void BeforeHeroTakesMultiAttack(IHero hero)
+        {
+            EBeforeHeroTakesMultiAttack?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroTakesMultiAttackClients()
+        {
+            var clients = EBeforeHeroTakesMultiAttack?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroTakesMultiAttack -= client as HeroEvent;
+                }
+        }
+        
+        
+        
+        
 
         private void OnDestroy()
         {
@@ -514,19 +569,14 @@ namespace Logic
         {
             UnsubscribePreAttackClients();
             UnsubscribePreSkillAttackClients();
-            
             UnsubscribePostAttackClients();
             UnsubscribePostSkillAttackClients();
-                
             UnsubscribePreCriticalStrikeClients();
             UnsubscribePostCriticalStrikeClients();
-            
             UnsubscribeBeforeAttackingClients();
             UnsubscribeBeforeSkillAttackingClients();
-            
             UnsubscribeAfterAttackingClients();
             UnsubscribeAfterSkillAttackingClients();
-                
             UnsubscribeBeforeCriticalStrikeClients();
             UnsubscribeAfterCriticalStrikeClients();
             UnsubscribeDragBasicAttackClients();
@@ -537,16 +587,17 @@ namespace Logic
             UnsubscribePostHeroDeathClients();
             UnsubscribeHeroStartTurnClients();
             UnsubscribeHeroEndTurnClients();
-
             UnsubscribePostCounterAttackClients();
             UnsubscribePreCounterAttackClients();
             UnsubscribeBeforeCounterAttackClients();
             UnsubscribeAfterCounterAttackClients();
-
             UnsubscribePreHeroStartTurnClients();
             UnsubscribePostHeroEndTurnClients();
-
             UnsubscribeNoEventClients();
+            UnsubscribeBeforeHeroDealsSingleAttackClients();
+            UnsubscribeAfterHeroTakesSingleAttackClients();
+            UnsubscribeBeforeHeroDealsMultiAttackClients();
+            UnsubscribeBeforeHeroTakesMultiAttackClients();
 
 
         }

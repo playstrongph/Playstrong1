@@ -8,6 +8,7 @@ namespace Logic
         /// <summary>
         /// Called by Attack Method
         /// </summary>
-        IEnumerator AttackDealDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage);
+        IEnumerator MultiAttackDealDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage);
+        IEnumerator SingleAttackDealDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage);
     }
 }

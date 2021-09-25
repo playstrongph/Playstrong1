@@ -100,7 +100,7 @@ namespace ScriptableObjects.BasicActions
         //visuals
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
         
-        //Single/Multiple Target TODO:Needs Improvement in Implementation
+        //Single/Multiple Target.  Rename to SingleOrMultiAttackType 
         logicTree.AddCurrent(AttackTargetType.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
         
         //visuals

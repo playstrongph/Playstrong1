@@ -51,6 +51,10 @@ namespace Logic
 
         event HeroEvents.HeroEvent EHeroEndTurn;
         event HeroEvents.HeroEvent EPostHeroEndTurn;
+        event HeroEvents.HeroEvent EBeforeHeroDealsSingleAttack;
+        event HeroEvents.HeroEvent EAfterHeroTakesSingleAttack;
+        event HeroEvents.HeroEvent EBeforeHeroDealsMultiAttack;
+        event HeroEvents.HeroEvent EBeforeHeroTakesMultiAttack;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PreSkillAttack(IHero initiatorHero, IHero targetHero);
@@ -96,5 +100,9 @@ namespace Logic
         void HeroEndTurn(IHero hero);
 
         void PostHeroEndTurn(IHero hero);
+        void BeforeHeroDealsSingleAttack(IHero hero);
+        void AfterHeroTakesSingleAttack(IHero hero);
+        void BeforeHeroDealsMultiAttack(IHero hero);
+        void BeforeHeroTakesMultiAttack(IHero hero);
     }
 }
