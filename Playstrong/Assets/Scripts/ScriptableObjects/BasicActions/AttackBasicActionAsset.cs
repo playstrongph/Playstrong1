@@ -78,6 +78,8 @@ namespace ScriptableObjects.BasicActions
     private IEnumerator NormalAttack(IHero thisHero, IHero targetHero)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+        
+        //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
         var dealDamage = targetHero.HeroLogic.DealDamage;
         
         //Test
@@ -125,6 +127,8 @@ namespace ScriptableObjects.BasicActions
     private IEnumerator CriticalAttack(IHero thisHero, IHero targetHero)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+        
+        //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
         var dealDamage = targetHero.HeroLogic.DealDamage;
         
         //Test

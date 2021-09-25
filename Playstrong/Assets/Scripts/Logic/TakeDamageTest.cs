@@ -98,6 +98,8 @@ namespace Logic
             yield return null;
         }
         
+        
+        //TODO: Review Need for this
         public IEnumerator TakeDirectDamage(int nonCriticalDamage, int criticalDamage, int ignoreArmorChance)
         {
             var targetHero = _thisHeroLogic.Hero;
@@ -114,6 +116,62 @@ namespace Logic
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_directDamage));
+
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
+
+            _logicTree.EndSequence();
+            yield return null;
+        }
+        
+        /// <summary>
+        /// For non-attack damage abilities in skills.  Example - whenever you are attacked, deal 5 damage to your attacker.
+        /// </summary>
+        public IEnumerator TakeNonAttackSkillDamage(int nonAttackDamage,float ignoreArmorChance)
+        {
+            var targetHero = _thisHeroLogic.Hero;
+            var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
+            var netChance = ignoreArmorChance - penetrateResistance;
+            var randomChance = Random.Range(1, 101);
+
+            _directDamage = ComputeDirectDamage(nonAttackDamage, 0);
+            
+            //For use of methods that doesn't care about damage types - e.g. Reflect
+            finalDamage = _directDamage;
+            
+            if(randomChance <=netChance)
+                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
+            else
+                _logicTree.AddCurrent(HeroTakesDamage(_directDamage));
+
+            _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
+
+            _logicTree.EndSequence();
+            yield return null;
+        }
+        
+        /// <summary>
+        /// For non-skill damage sources such as status effects and weapons
+        /// </summary>
+        public IEnumerator TakeNonAttackOtherDamage(int nonAttackDamage,float ignoreArmorChance)
+        {
+            var targetHero = _thisHeroLogic.Hero;
+            var penetrateResistance = targetHero.HeroLogic.OtherAttributes.PenetrateArmorResistance;
+            var netChance = ignoreArmorChance - penetrateResistance;
+            var randomChance = Random.Range(1, 101);
+
+            _directDamage = ComputeDirectDamage(nonAttackDamage, 0);
+            
+            //For use of methods that doesn't care about damage types - e.g. Reflect
+            finalDamage = _directDamage;
+            
+            //TODO: DamageEvent Here BeforeHeroDeals/Takes OtherDamage
+            
+            if(randomChance <=netChance)
+                _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
+            else
+                _logicTree.AddCurrent(HeroTakesDamage(_directDamage));
+            
+            //TODO: DamageEvent Here AfterHeroDeals/Takes OtherDamage
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 

@@ -35,9 +35,7 @@ namespace Logic
             _heroLogic = GetComponent<IHeroLogic>();
         }
         
-        /// <summary>
-        /// Called by Attack Method
-        /// </summary>
+        
         public IEnumerator DealMultiAttackDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -59,7 +57,44 @@ namespace Logic
         }
         
         
+        /// <summary>
+        /// For non-attack damage abilities in skills.  Example - whenever you are attacked, deal 5 damage to your attacker.
+        /// </summary>
+        public IEnumerator DealNonAttackSkillDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var ignoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
+            
+            //TODO: SkillDamage PreEvent
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonAttackSkillDamage(nonCriticalDamage, ignoreArmorChance));
+            
+            //TODO: SkillDamage PostEvent
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
         
+        /// <summary>
+        /// For damage sources other than skills - status effects, weapons, etc.
+        /// </summary>
+        public IEnumerator DealNonAttackOtherDamage(IHero attackerHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var ignoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
+            
+            //TODO: SkillDamage PreEvent
+            
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonAttackOtherDamage(nonCriticalDamage, ignoreArmorChance));
+            
+            //TODO: SkillDamage PreEvent
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+         
        
         
         

@@ -12,5 +12,9 @@ namespace Logic
         IEnumerator TakeSingleAttackDamage(int nonCriticalDamage, int criticalDamage, IHero attackerHero);
         IEnumerator TakeMultiAttackDamage(int nonCriticalDamage, int criticalDamage, IHero attackerHero);
         IEnumerator TakeDirectDamage(int nonCriticalDamage, int criticalDamage, int ignoreArmorChance);
+
+        IEnumerator TakeNonAttackSkillDamage(int nonAttackDamage, float ignoreArmorChance);
+
+        IEnumerator TakeNonAttackOtherDamage(int nonAttackDamage, float ignoreArmorChance);
     }
 }
