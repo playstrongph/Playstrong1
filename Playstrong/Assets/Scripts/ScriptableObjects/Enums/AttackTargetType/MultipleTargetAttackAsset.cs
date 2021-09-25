@@ -25,13 +25,13 @@ namespace ScriptableObjects.Enums.AttackTargetType
         }
         
         //DEAL DAMAGE TEST
-        public override IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        public override IEnumerator DealAttackDamage(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(PreMultiAttackEvents(thisHero,targetHero));
 
-            logicTree.AddCurrent(dealDamage.DealMultipleAttackDamage(thisHero, targetHero, nonCriticalDamage, criticalDamage));
+            logicTree.AddCurrent(dealDamageTest.DealMultiAttackDamage(thisHero, targetHero, nonCriticalDamage, criticalDamage));
             
             logicTree.AddCurrent(PostMultiAttackEvents(thisHero,targetHero));
 

@@ -23,7 +23,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
             yield return null;
         }
         
-        public virtual IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
+        public virtual IEnumerator DealAttackDamage(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero, int nonCriticalDamage, int criticalDamage)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 

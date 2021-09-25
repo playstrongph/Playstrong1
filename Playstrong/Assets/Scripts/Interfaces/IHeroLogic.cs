@@ -53,6 +53,10 @@ namespace Interfaces
 
         IHeroInabilityStatus HeroInabilityStatusAssets { get; }
 
+        IDealDamageTest DealDamageTest { get; }
+
+        ITakeDamageTest TakeDamageTest { get; }
+
 
 
 

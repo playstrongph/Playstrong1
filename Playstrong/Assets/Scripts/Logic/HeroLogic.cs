@@ -134,7 +134,9 @@ namespace Logic
         //TEST
         private IDealDamageTest _dealDamageTest;
         public IDealDamageTest DealDamageTest => _dealDamageTest;
-        
+
+        private ITakeDamageTest _takeDamageTest;
+        public ITakeDamageTest TakeDamageTest => _takeDamageTest;
        
         
 
@@ -156,6 +158,7 @@ namespace Logic
             _counterAttack = GetComponent<ICounterAttack>();
             _heroInabilityStatusAssets = GetComponent<IHeroInabilityStatus>();
             _dealDamageTest = GetComponent<IDealDamageTest>();
+            _takeDamageTest = GetComponent<ITakeDamageTest>();
         }
     }
 }

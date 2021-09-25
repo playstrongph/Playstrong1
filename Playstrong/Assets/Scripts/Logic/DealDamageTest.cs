@@ -43,9 +43,8 @@ namespace Logic
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             
-            //TODO: attackerHero.TargetsCount.TakeDamage(args)
             
-            //logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeSingleAttackDamage(normalDamage, criticalDamage,attackerHero));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeSingleAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
 
             logicTree.EndSequence();
             yield return null;

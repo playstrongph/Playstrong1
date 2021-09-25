@@ -8,7 +8,7 @@ namespace ScriptableObjects.Enums.SkillStatus
     {
         IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int attackPower, float criticalFactor);
 
-        IEnumerator DealAttackDamage(IDealDamage dealDamage, IHero thisHero, IHero targetHero, int nonCriticalDamage,
-            int criticalDamage);
+        IEnumerator DealAttackDamage(IDealDamageTest dealDamageTest, IHero thisHero, IHero targetHero,
+            int nonCriticalDamage, int criticalDamage);
     }
 }
