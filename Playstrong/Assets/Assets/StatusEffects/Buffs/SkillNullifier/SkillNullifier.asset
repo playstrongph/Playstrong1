@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: SkillNullifier
   m_EditorClassIdentifier: 
   _name: Skill Nullifier
-  _description: Negates damage from skills
+  _description: Negates the next damage from skills
   _icon: {fileID: 21300000, guid: e8c76476e409068458709977004ea44c, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 143c7410602b6204b8b611f984300bf0, type: 2}
-  _effectValue: 100
-  reductionValue: 100
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: ce15e7654fd4c7c4c96ab18a35375da0, type: 2}
+  maxSkillCounters: 1
+  _effectValue: 0

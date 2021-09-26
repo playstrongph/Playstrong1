@@ -9,44 +9,17 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "SkillNullifier", menuName = "SO's/Status Effects/Buffs/SkillNullifier")]
     public class SkillNullifierAsset : StatusEffectAsset
     {
-
-        [SerializeField] private float reductionValue = 100f;
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            hero.HeroLogic.HeroEvents.EPreSkillAttack += IncreaseDamageReduction;
-            hero.HeroLogic.HeroEvents.EPostSkillAttack += DecreaseDamageReduction;
+            Debug.Log("Apply Skill Nullifier");
+            base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            hero.HeroLogic.HeroEvents.EPreSkillAttack -= IncreaseDamageReduction;
-            hero.HeroLogic.HeroEvents.EPostSkillAttack -= DecreaseDamageReduction;
-            
+            Debug.Log("UnApply Skill Nullifier");
+            base.UnapplyStatusEffect(hero);
         }
-
-        private void IncreaseDamageReduction(IHero thisHero,IHero targetHero)
-        {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            logicTree.AddCurrent(SkillActionAsset.StartAction(thisHero,reductionValue));
-            
-        }
-        
-        private void DecreaseDamageReduction(IHero thisHero,IHero targetHero)
-        {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            logicTree.AddCurrent(SkillActionAsset.StartAction(thisHero,-reductionValue));
-        }
-
-
-
-
-
-
-
 
     }
 }
