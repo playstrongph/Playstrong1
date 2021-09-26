@@ -61,15 +61,15 @@ namespace Logic
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _singleAttackDamage;
-            
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes Single Skill Damage
+
+            _logicTree.AddCurrent(BeforeHeroTakesSkillDamage(targetHero));
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_singleAttackDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_singleAttackDamage));
-            
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes Single Skill Damage
+
+            _logicTree.AddCurrent(AfterHeroTakesSkillDamage(targetHero));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -90,7 +90,7 @@ namespace Logic
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _multipleAttackDamage;
             
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes Multi Skill Damage
+            _logicTree.AddCurrent(BeforeHeroTakesSkillDamage(targetHero));
             
             
             if(randomChance <=netChance)
@@ -98,7 +98,7 @@ namespace Logic
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_multipleAttackDamage));
             
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes Multi Skill Damage
+            _logicTree.AddCurrent(AfterHeroTakesSkillDamage(targetHero));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -146,14 +146,14 @@ namespace Logic
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
             
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes Skill Damage
+            _logicTree.AddCurrent(BeforeHeroTakesSkillDamage(targetHero));
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_directDamage));
             
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes Skill Damage
+            _logicTree.AddCurrent(AfterHeroTakesSkillDamage(targetHero));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -176,14 +176,14 @@ namespace Logic
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
             
-            //TODO: DamageEvent Here BeforeHeroDeals/Takes OtherDamage
+            _logicTree.AddCurrent(BeforeHeroTakesNonSkillDamage(targetHero));
             
             if(randomChance <=netChance)
                 _logicTree.AddCurrent(HeroTakesDamageIgnoreArmor(_directDamage));
             else
                 _logicTree.AddCurrent(HeroTakesDamage(_directDamage));
             
-            //TODO: DamageEvent Here AfterHeroDeals/Takes OtherDamage
+            _logicTree.AddCurrent(AfterHeroTakesNonSkillDamage(targetHero));
 
             _logicTree.AddCurrent(_thisHeroLogic.HeroDies.CheckHeroDeath(targetHero));
 
@@ -191,9 +191,7 @@ namespace Logic
             yield return null;
         }
 
-        
-        
-        
+
         //AUXILLIARY METHODS
         private int ComputeDirectDamage(int nonCriticalDamage, int criticalDamage)
         {
@@ -293,8 +291,45 @@ namespace Logic
         }
 
        
+        //EVENTS
+        private IEnumerator BeforeHeroTakesSkillDamage(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.BeforeHeroTakesSkillDamage(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator AfterHeroTakesSkillDamage(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.AfterHeroTakesSkillDamage(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
         
+        private IEnumerator BeforeHeroTakesNonSkillDamage(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.BeforeHeroTakesNonSkillDamage(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
         
+        private IEnumerator AfterHeroTakesNonSkillDamage(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.AfterHeroTakesNonSkillDamage(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
 
     }
