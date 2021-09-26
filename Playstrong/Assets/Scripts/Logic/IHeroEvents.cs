@@ -4,8 +4,6 @@ namespace Logic
 {
     public interface IHeroEvents
     {
-        
-      
         event HeroEvents.HeroesEvent EPreAttack;
         event HeroEvents.HeroesEvent EPreSkillAttack;
         event HeroEvents.HeroesEvent EPostAttack;
@@ -44,7 +42,6 @@ namespace Logic
         event HeroEvents.HeroEvent EPostHeroDeath;
         event HeroEvents.HeroEvent EHeroStartTurn;
         event HeroEvents.HeroEvent EPreHeroStartTurn;
-
         event HeroEvents.HeroEvent EHeroEndTurn;
         event HeroEvents.HeroEvent EPostHeroEndTurn;
         event HeroEvents.HeroEvent EBeforeHeroDealsSingleAttack;
@@ -55,6 +52,12 @@ namespace Logic
         event HeroEvents.HeroEvent EBeforeHeroTakesMultiAttack;
         event HeroEvents.HeroEvent EAfterHeroDealsMultiAttack;
         event HeroEvents.HeroEvent EAfterHeroTakesMultiAttack;
+        
+        //Deal and Take Damage events
+        event HeroEvents.HeroEvent EBeforeHeroTakesSkillDamage;
+        event HeroEvents.HeroEvent EAfterHeroTakesSkillDamage;
+        event HeroEvents.HeroEvent EBeforeHeroDealsSkillDamage;
+        event HeroEvents.HeroEvent EAfterHeroDealsSkillDamage;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PreSkillAttack(IHero initiatorHero, IHero targetHero);
@@ -64,41 +67,25 @@ namespace Logic
         void AfterCounterAttack(IHero initiatorHero, IHero targetHero);
         void PreCounterAttack(IHero initiatorHero, IHero targetHero);
         void PostCounterAttack(IHero initiatorHero, IHero targetHero);
-        
-        
         void PreCriticalStrike(IHero initiatorHero, IHero targetHero);
         void PostCriticalStrike(IHero initiatorHero, IHero targetHero);
-        
-        
-
         void BeforeAttacking(IHero initiatorHero, IHero targetHero);
         void BeforeSkillAttacking(IHero initiatorHero, IHero targetHero);
-
         void AfterAttacking(IHero initiatorHero, IHero targetHero);
-
         void AfterSkillAttacking(IHero initiatorHero, IHero targetHero);
-        
         void BeforeCriticalStrike(IHero initiatorHero, IHero targetHero);
-
         void AfterCriticalStrike(IHero initiatorHero, IHero targetHero);
-
         void DragBasicAttack(IHero initiatorHero, IHero targetHero);
-        
         void DragSkillTarget(IHero initiatorHero, IHero targetHero);
-        
         void StartOfGame(IHero initiatorHero, IHero targetHero);
 
         //Single Hero Events
         void HeroTakesFatalDamage(IHero hero);
         void AfterHeroDies(IHero hero);
-
         void PostHeroDeath(IHero hero);
-
         void HeroStartTurn(IHero hero);
         void PreHeroStartTurn(IHero hero);
-
         void HeroEndTurn(IHero hero);
-
         void PostHeroEndTurn(IHero hero);
         void BeforeHeroDealsSingleAttack(IHero hero);
         void AfterHeroTakesSingleAttack(IHero hero);
@@ -108,6 +95,10 @@ namespace Logic
         void BeforeHeroTakesSingleAttack(IHero hero);
         void AfterHeroDealsMultiAttack(IHero hero);
         void AfterHeroTakesMultiAttack(IHero hero);
+        void BeforeHeroTakesSkillDamage(IHero hero);
+        void AfterHeroTakesSkillDamage(IHero hero);
+        void BeforeHeroDealsSkillDamage(IHero hero);
+        void AfterHeroDealsSkillDamage(IHero hero);
 
     }
 }
