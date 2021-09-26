@@ -42,27 +42,7 @@ namespace ScriptableObjects.Enums.AttackTargetType
         }
         
         
-        //EVENTS
-        private IEnumerator PreSingleAttackEvents(IHero thisHero, IHero targetHero)
-        {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            thisHero.HeroLogic.HeroEvents.BeforeHeroDealsSingleAttack(thisHero);
-            targetHero.HeroLogic.HeroEvents.BeforeHeroTakesSingleAttack(thisHero);
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        private IEnumerator PostSingleAttackEvents(IHero thisHero, IHero targetHero)
-        {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            thisHero.HeroLogic.HeroEvents.AfterHeroDealsSingleAttack(thisHero);
-            targetHero.HeroLogic.HeroEvents.AfterHeroTakesSingleAttack(thisHero);
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
+        
         
        
 

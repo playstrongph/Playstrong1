@@ -310,7 +310,6 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
-        
         private IEnumerator BeforeHeroTakesNonSkillDamage(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -320,7 +319,6 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
-        
         private IEnumerator AfterHeroTakesNonSkillDamage(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
