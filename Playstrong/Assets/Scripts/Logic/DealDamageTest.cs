@@ -40,11 +40,11 @@ namespace Logic
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: DealDamage Multi Event here
+            logicTree.AddCurrent(BeforeHeroDealsSkillDamage(attackerHero));
 
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeMultiAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
             
-            //TODO: DealDamage Multi Event here
+            logicTree.AddCurrent(AfterHeroDealsSkillDamage(attackerHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -54,11 +54,11 @@ namespace Logic
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: DealDamage Single Event here
+            logicTree.AddCurrent(BeforeHeroDealsSkillDamage(attackerHero));
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeSingleAttackDamage(nonCriticalDamage, criticalDamage,attackerHero));
             
-            //TODO: DealDamage Single Event here
+            logicTree.AddCurrent(AfterHeroDealsSkillDamage(attackerHero));
             
             logicTree.EndSequence();
             yield return null;
@@ -73,11 +73,12 @@ namespace Logic
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var ignoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
             
-            //TODO: SkillDamage PreEvent
+            
+            logicTree.AddCurrent(BeforeHeroDealsSkillDamage(attackerHero));
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonAttackSkillDamage(nonCriticalDamage, ignoreArmorChance));
-            
-            //TODO: SkillDamage PostEvent
+
+            logicTree.AddCurrent(AfterHeroDealsSkillDamage(attackerHero));
             
             logicTree.EndSequence();
             yield return null;
@@ -91,19 +92,56 @@ namespace Logic
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var ignoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
             
-            //TODO: SkillDamage PreEvent
+            logicTree.AddCurrent(BeforeHeroDealsNonSkillDamage(attackerHero));
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonSkillDamage(nonCriticalDamage, ignoreArmorChance));
             
-            //TODO: SkillDamage PreEvent
+            logicTree.AddCurrent(AfterHeroDealsNonSkillDamage(attackerHero));
             
             logicTree.EndSequence();
             yield return null;
         }
         
         
-         
-       
+        //Events 
+        private IEnumerator BeforeHeroDealsSkillDamage(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.BeforeHeroDealsSkillDamage(thisHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator AfterHeroDealsSkillDamage(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.AfterHeroDealsSkillDamage(thisHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator BeforeHeroDealsNonSkillDamage(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.BeforeHeroDealsNonSkillDamage(thisHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator AfterHeroDealsNonSkillDamage(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            thisHero.HeroLogic.HeroEvents.AfterHeroDealsNonSkillDamage(thisHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
         
         
 
