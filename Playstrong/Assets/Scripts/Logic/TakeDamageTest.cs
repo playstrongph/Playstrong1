@@ -144,7 +144,7 @@ namespace Logic
             var randomChance = Random.Range(1, 101);
 
             //This is where damage reduction calculation happens
-            _directDamage = ComputeDirectDamage(nonAttackDamage, 0);
+            _directDamage = ComputeNonAttackSkillDamage(nonAttackDamage, 0);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
@@ -175,7 +175,7 @@ namespace Logic
             var randomChance = Random.Range(1, 101);
 
             //This is where damage reduction calculation happens
-            _directDamage = ComputeDirectDamage(nonAttackDamage, 0);
+            _directDamage = ComputeNonSkillDamage(nonAttackDamage, 0);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
@@ -232,15 +232,40 @@ namespace Logic
             return finalDamage;
         }
         
+        private int ComputeNonAttackSkillDamage(int nonCriticalDamage, int criticalDamage)
+        {
+            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+            var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100;
+            var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
+
+            var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);
+
+            var finalDamage = Mathf.CeilToInt(floatFinalDamage);
+
+            return finalDamage;
+        }
+        
+        private int ComputeNonSkillDamage(int nonCriticalDamage, int criticalDamage)
+        {
+            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+            var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100;
+            var nonSkillDamageReduction = _thisHeroLogic.OtherAttributes.NonSkillDamageReduction / 100;
+
+            var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) *(1-nonSkillDamageReduction)* (nonCriticalDamage + criticalDamage);
+
+            var finalDamage = Mathf.CeilToInt(floatFinalDamage);
+
+            return finalDamage;
+        }
+        
         private int ComputeSingleAttackDamage(int nonCriticalDamage, int criticalDamage)
         {
             var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
             var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.SingleAttackDamageReduction / 100;
-            //var skillDamageReduction = __thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
+            var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
 
-            //TODO: Update with singleAttackDamage Reduction Factor
-            var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - allDamageReduction) * (nonCriticalDamage + criticalDamage);
-
+            var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - allDamageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);
+            
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
             return finalDamage;
@@ -250,16 +275,17 @@ namespace Logic
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
             var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
+            var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
             
             //TODO: Update with multipleAttackDamage Reduction Factor
-            var floatFinalDamage = (1-multipleAttackDamageReduction)*(1 - damageReduction) * (nonCriticalDamage + criticalDamage);
+            var floatFinalDamage = (1-multipleAttackDamageReduction)*(1 - damageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
             return finalDamage;
         }
 
-        
+
 
         private void ComputeNewArmor(IHeroLogic heroLogic, int damage)
         {
