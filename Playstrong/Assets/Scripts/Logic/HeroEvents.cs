@@ -61,12 +61,18 @@ namespace Logic
         public event HeroEvent EBeforeHeroTakesMultiAttack;
         public event HeroEvent EAfterHeroTakesMultiAttack;
         
-        //Deal and Take Damage Events
+        //Deal and Take Skill Damage Events
         public event HeroEvent EBeforeHeroTakesSkillDamage;
         public event HeroEvent EAfterHeroTakesSkillDamage;
         public event HeroEvent EBeforeHeroDealsSkillDamage;
         public event HeroEvent EAfterHeroDealsSkillDamage;
         
+        //Deal and Take Non-Skill Damage Events
+        
+        public event HeroEvent EBeforeHeroTakesNonSkillDamage;
+        public event HeroEvent EAfterHeroTakesNonSkillDamage;
+        public event HeroEvent EBeforeHeroDealsNonSkillDamage;
+        public event HeroEvent EAfterHeroDealsNonSkillDamage;
         
         
 
@@ -683,6 +689,70 @@ namespace Logic
                 }
         }
         
+        public void BeforeHeroTakesNonSkillDamage(IHero hero)
+        {
+            EBeforeHeroTakesNonSkillDamage?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroTakesNonSkillDamageClients()
+        {
+            var clients = EBeforeHeroTakesNonSkillDamage?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroTakesNonSkillDamage -= client as HeroEvent;
+                }
+        }
+        
+        public void AfterHeroTakesNonSkillDamage(IHero hero)
+        {
+            EAfterHeroTakesNonSkillDamage?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroTakesNonSkillDamageClients()
+        {
+            var clients = EAfterHeroTakesNonSkillDamage?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroTakesNonSkillDamage -= client as HeroEvent;
+                }
+        }
+        
+        public void BeforeHeroDealsNonSkillDamage(IHero hero)
+        {
+            EBeforeHeroDealsNonSkillDamage?.Invoke(hero);
+        }
+        
+        private void UnsubscribeBeforeHeroDealsNonSkillDamageClients()
+        {
+            var clients = EBeforeHeroDealsNonSkillDamage?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EBeforeHeroDealsNonSkillDamage -= client as HeroEvent;
+                }
+        }
+        
+        public void AfterHeroDealsNonSkillDamage(IHero hero)
+        {
+            EAfterHeroDealsNonSkillDamage?.Invoke(hero);
+        }
+        
+        private void UnsubscribeAfterHeroDealsNonSkillDamageClients()
+        {
+            var clients = EAfterHeroDealsNonSkillDamage?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroDealsNonSkillDamage -= client as HeroEvent;
+                }
+        }
+        
+        
+        
+        
+        
         private void OnDestroy()
         {
             UnsubscribeAllClients();           
@@ -735,6 +805,11 @@ namespace Logic
             UnsubscribeAfterHeroTakesSkillDamageClients();
             UnsubscribeBeforeHeroDealsSkillDamageClients();
             UnsubscribeAfterHeroDealsSkillDamageClients();
+
+            UnsubscribeBeforeHeroTakesNonSkillDamageClients();
+            UnsubscribeAfterHeroTakesNonSkillDamageClients();
+            UnsubscribeBeforeHeroDealsNonSkillDamageClients();
+            UnsubscribeAfterHeroDealsNonSkillDamageClients();
         }
     }
 }
