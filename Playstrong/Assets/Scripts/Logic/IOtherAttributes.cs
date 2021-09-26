@@ -6,12 +6,13 @@
         /// Damage Reduction
         /// </summary>
         float DamageReduction { get; set; }
-
         float DirectDamageReduction { get; set; }
-
         float SingleAttackDamageReduction { get; set; }
         float MultipleAttackDamageReduction { get; set; }
-        
+        float SkillDamageReduction { get; set; }
+
+        float NonSkillDamageReduction { get; set; }
+
         /// <summary>
         /// Damage Multipliers
         /// </summary>

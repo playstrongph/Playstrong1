@@ -44,6 +44,22 @@ namespace Logic
             set => _multipleAttackDamageReduction = value;
         }
 
+        [SerializeField] private float _skillDamageReduction = 0f;
+
+        public float SkillDamageReduction
+        {
+            get => _skillDamageReduction;
+            set => _skillDamageReduction = value;
+        }
+        
+        [SerializeField] private float _nonSkillDamageReduction = 0f;
+
+        public float NonSkillDamageReduction
+        {
+            get => _nonSkillDamageReduction;
+            set => _nonSkillDamageReduction = value;
+        }
+
         [Header("Damage Multipliers")][SerializeField]
         private float _criticalDamageMultiplier = 100f;
 

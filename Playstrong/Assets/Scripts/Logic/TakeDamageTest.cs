@@ -42,7 +42,6 @@ namespace Logic
         {
             _thisHeroLogic = GetComponent<IHeroLogic>();
         }
-
         private void Start()
         {
             _logicTree = _thisHeroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
@@ -57,6 +56,7 @@ namespace Logic
             var netChance = penetrateChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
 
+            //This is where damage reduction calculation happens
             _singleAttackDamage = ComputeSingleAttackDamage(nonCriticalDamage, criticalDamage);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
@@ -85,6 +85,7 @@ namespace Logic
             var netChance = penetrateChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
             
+            //This is where damage reduction calculation happens
             _multipleAttackDamage = ComputeMultipleAttackDamage(nonCriticalDamage, criticalDamage);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
@@ -115,6 +116,7 @@ namespace Logic
             var netChance = ignoreArmorChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
 
+            //This is where damage reduction calculation happens
             _directDamage = ComputeDirectDamage(nonCriticalDamage, criticalDamage);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
@@ -141,6 +143,7 @@ namespace Logic
             var netChance = ignoreArmorChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
 
+            //This is where damage reduction calculation happens
             _directDamage = ComputeDirectDamage(nonAttackDamage, 0);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
@@ -171,6 +174,7 @@ namespace Logic
             var netChance = ignoreArmorChance - penetrateResistance;
             var randomChance = Random.Range(1, 101);
 
+            //This is where damage reduction calculation happens
             _directDamage = ComputeDirectDamage(nonAttackDamage, 0);
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
@@ -190,7 +194,30 @@ namespace Logic
             _logicTree.EndSequence();
             yield return null;
         }
-
+        
+        
+        private IEnumerator HeroTakesDamage(int finalDamage)
+        {
+            //This is where Armor and health gets updated
+            ComputeNewArmor(_thisHeroLogic, finalDamage);
+            ComputeNewHealth(_thisHeroLogic, _residualDamage);
+            
+            _visualTree.AddCurrent(ApplyFinalDamageVisual(finalDamage));
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator HeroTakesDamageIgnoreArmor(int finalDamage)
+        {
+            //This is where Armor and health gets updated
+            ComputeNewHealth(_thisHeroLogic, finalDamage);
+            
+            _visualTree.AddCurrent(ApplyFinalDamageVisual(finalDamage));
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
 
         //AUXILLIARY METHODS
         private int ComputeDirectDamage(int nonCriticalDamage, int criticalDamage)
@@ -207,11 +234,12 @@ namespace Logic
         
         private int ComputeSingleAttackDamage(int nonCriticalDamage, int criticalDamage)
         {
-            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+            var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
             var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.SingleAttackDamageReduction / 100;
+            //var skillDamageReduction = __thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
 
             //TODO: Update with singleAttackDamage Reduction Factor
-            var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - damageReduction) * (nonCriticalDamage + criticalDamage);
+            var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - allDamageReduction) * (nonCriticalDamage + criticalDamage);
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
@@ -231,28 +259,7 @@ namespace Logic
             return finalDamage;
         }
 
-        private IEnumerator HeroTakesDamage(int finalDamage)
-        {
-            //This is where Armor and health gets updated
-             ComputeNewArmor(_thisHeroLogic, finalDamage);
-             ComputeNewHealth(_thisHeroLogic, _residualDamage);
-            
-            _visualTree.AddCurrent(ApplyFinalDamageVisual(finalDamage));
-            
-            _logicTree.EndSequence();
-            yield return null;
-        }
         
-        private IEnumerator HeroTakesDamageIgnoreArmor(int finalDamage)
-        {
-            //This is where Armor and health gets updated
-            ComputeNewHealth(_thisHeroLogic, finalDamage);
-            
-            _visualTree.AddCurrent(ApplyFinalDamageVisual(finalDamage));
-            
-            _logicTree.EndSequence();
-            yield return null;
-        }
 
         private void ComputeNewArmor(IHeroLogic heroLogic, int damage)
         {
