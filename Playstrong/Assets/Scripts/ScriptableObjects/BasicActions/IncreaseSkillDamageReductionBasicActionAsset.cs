@@ -34,7 +34,7 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
         
-        /*public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
+        public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
@@ -52,7 +52,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
             logicTree.EndSequence();
             yield return null;
-        }*/
+        }
 
 
       

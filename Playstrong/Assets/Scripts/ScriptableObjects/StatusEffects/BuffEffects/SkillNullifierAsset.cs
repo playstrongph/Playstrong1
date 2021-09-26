@@ -11,13 +11,13 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     {
         public override void ApplyStatusEffect(IHero hero)
         {
-            Debug.Log("Apply Skill Nullifier");
+            
             base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            Debug.Log("UnApply Skill Nullifier");
+            
             base.UnapplyStatusEffect(hero);
         }
 
