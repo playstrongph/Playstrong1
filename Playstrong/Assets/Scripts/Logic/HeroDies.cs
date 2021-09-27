@@ -163,14 +163,14 @@ namespace Logic
                 //    buff.RemoveStatusEffect.RemoveEffect(hero);
                 
                 //TEST - in consideration of Resurrection and extinction
-                buff.StatusEffectAsset.RemoveStatusEffect(hero);
+                buff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero);
             }
             
             foreach (var debuff in debuffs)
             {
                 //debuff.RemoveStatusEffect.RemoveEffect(hero);
                 //TEST
-                debuff.StatusEffectAsset.RemoveStatusEffect(hero);
+                debuff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;

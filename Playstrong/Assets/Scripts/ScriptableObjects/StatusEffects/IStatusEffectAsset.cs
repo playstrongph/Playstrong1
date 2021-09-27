@@ -44,7 +44,7 @@ namespace ScriptableObjects.StatusEffects
         
         IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
-        void RemoveStatusEffect(IHero hero);
+        void RemoveStatusEffectOnDeath(IHero hero);
 
 
 

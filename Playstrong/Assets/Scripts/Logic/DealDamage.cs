@@ -42,16 +42,12 @@ namespace Logic
         
         public IEnumerator DealSingleAttackDamage(IHero attackerHero, IHero targetHero, int attackPower, float criticalFactor)
         {
-           Debug.Log("Deal Single Attack Damage");
-            
+
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherDamageMultiplier = attackerHero.HeroLogic.OtherAttributes.OtherDamageMultiplier;   //Example - Hero takes additional X% damage - e.g. Target debuff
-
             var attackDamage = attackPower + OtherAttackDamage;
             var nonCriticalDamage = Mathf.CeilToInt(otherDamageMultiplier*attackDamage/100);
-            
             var normalDamage = attackDamage + nonCriticalDamage;
-            
             var criticalDamage = Mathf.CeilToInt(criticalFactor * normalDamage);
             
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamage.TakeSingleAttackDamage(normalDamage, criticalDamage,attackerHero));

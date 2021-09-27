@@ -10,9 +10,9 @@ using Utilities;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "ResurrectHero", menuName = "SO's/SkillActions/ResurrectHero")]
+    [CreateAssetMenu(fileName = "ResurrectHeroBasicAction", menuName = "SO's/BasicActions/ResurrectHeroBasicAction")]
     
-    public class ResurrectActionAsset : SkillActionAsset
+    public class ResurrectBasicActionAsset : BasicActionAsset
     {
         
         [SerializeField]
@@ -25,22 +25,53 @@ namespace ScriptableObjects.SkillActionsScripts
         private IGameAnimations ResurrectAnimation => _resurrectAnimation as IGameAnimations;
         private IHeroLivingStatusAsset HeroAliveStatus => _heroAliveStatus as IHeroLivingStatusAsset;
         
-        public override IEnumerator ActionTarget(IHero thisHero, float dummyValue)
+        public override IEnumerator StartAction(IHero hero)
         {
+            Debug.Log("Resurrect Start Action Override");
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
+            //Bypass Hero Alive Checking
+            logicTree.AddCurrent(TargetAction(hero));
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+
+        public override IEnumerator TargetAction(IHero thisHero)
+        {
+            Debug.Log("Resurrect Target Action");
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
+            ResurrectHero(thisHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+
+        private void ResurrectHero(IHero thisHero)
+        {
+            Debug.Log("Resurrect Hero");
+            
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var resurrectChance = thisHero.HeroLogic.OtherAttributes.ResurrectChance;
             var resurrectResistance = thisHero.HeroLogic.OtherAttributes.ResurrectResistance;
             var netChance = resurrectChance - resurrectResistance;
             var randomChance = Random.Range(1, 101);
             
-          
-            if(randomChance <= netChance)
-                logicTree.AddCurrent(ResurrectActions(thisHero));
-            
-            logicTree.EndSequence();
-            yield return null;
+            Debug.Log("Net Chance: " +netChance);
+            Debug.Log("Random Chance: " +randomChance);
 
+            if (randomChance <= netChance)
+            {
+                Debug.Log("ResurrectChanceSuccess");
+                logicTree.AddCurrent(ResurrectActions(thisHero));    
+            }
+            
+            //logicTree.AddCurrent(ResurrectActions(thisHero));    
+
+            
         }
 
         private IEnumerator ResurrectActions(IHero hero)
@@ -63,7 +94,7 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.AddCurrent(ResurrectHeroAnimation(hero));
             //DestroyAllStatusEffects
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
-            Debug.Log("ResurrectAction");
+           
 
             logicTree.EndSequence();
             yield return null;

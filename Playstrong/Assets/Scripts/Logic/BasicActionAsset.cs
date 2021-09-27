@@ -18,7 +18,7 @@ namespace Logic
 
         }
         
-        public IEnumerator StartAction(IHero hero)
+        public virtual IEnumerator StartAction(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             

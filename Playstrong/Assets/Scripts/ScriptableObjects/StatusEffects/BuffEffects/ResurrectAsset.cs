@@ -11,19 +11,23 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     public class ResurrectAsset : StatusEffectAsset
     {
         private float dummyValue = 0f;
+        
+        [SerializeField]
         private float resurrectChance = 100f;
 
         public override void ApplyStatusEffect(IHero hero)
         {
             //TODO: IncreaseResurrect Chance Action
             hero.HeroLogic.OtherAttributes.ResurrectChance += resurrectChance;
-            hero.HeroLogic.HeroEvents.EPostHeroDeath += ResurrectAction;
+            //hero.HeroLogic.HeroEvents.EPostHeroDeath += ResurrectAction;
+            base.ApplyStatusEffect(hero);
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             hero.HeroLogic.OtherAttributes.ResurrectChance -= resurrectChance;
-            hero.HeroLogic.HeroEvents.EPostHeroDeath -= ResurrectAction;
+            //hero.HeroLogic.HeroEvents.EPostHeroDeath -= ResurrectAction;
+            base.UnapplyStatusEffect(hero);
         }
 
 
@@ -48,22 +52,14 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             yield return null;
             
         }
-
-        private IEnumerator DestroyBuff(IHero hero)
-        {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            
-
-            logicTree.EndSequence();
-            yield return null;
-        }
         
         //TEST
-        public override void RemoveStatusEffect(IHero hero)
+        public override void RemoveStatusEffectOnDeath(IHero hero)
         {
-           
+           //Don't Destroy At Death
         }
+
+       
         
         
 

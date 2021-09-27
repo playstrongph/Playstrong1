@@ -140,7 +140,7 @@ namespace ScriptableObjects.StatusEffects
             
         }
 
-        public virtual void RemoveStatusEffect(IHero hero)
+        public virtual void RemoveStatusEffectOnDeath(IHero hero)
         {
             HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
         }

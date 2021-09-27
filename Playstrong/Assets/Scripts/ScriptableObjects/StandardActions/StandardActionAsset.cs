@@ -77,7 +77,7 @@ namespace ScriptableObjects.StandardActions
         //Event Based StandardAction
         public IEnumerator RegisterStandardAction(IHero hero)
         {
-            //Debug.Log("Standard Action Register Hero");
+            Debug.Log("Standard Action Register 1 Hero arg");
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             StandardEvent.SubscribeStandardAction(hero,this);
@@ -88,6 +88,7 @@ namespace ScriptableObjects.StandardActions
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
             //Debug.Log("Standard Action Register Skill");
+            Debug.Log("Standard Action Register 1 Skill arg");
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             StandardEvent.SubscribeStandardAction(skill,this);
@@ -119,7 +120,7 @@ namespace ScriptableObjects.StandardActions
         //NOTE: The args IHero and float are exclusive to NO EVENTS(?)
         public void StartAction(IHero targetHero,float value)
         {
-            //Debug.Log("Standard Action Start Action");
+            Debug.Log("Standard Action StartAction 1 Hero and 1 float arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
@@ -133,6 +134,7 @@ namespace ScriptableObjects.StandardActions
         }
         public void StartAction(IHero targetHero)
         {
+            Debug.Log("Standard Action StartAction 1 Hero arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
@@ -146,6 +148,7 @@ namespace ScriptableObjects.StandardActions
         }
         public void StartAction(IHero thisHero, IHero targetHero)
         {   
+            Debug.Log("Standard Action StartAction 2 Heroes arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
             {

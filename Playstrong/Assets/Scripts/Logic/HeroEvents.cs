@@ -437,7 +437,6 @@ namespace Logic
         public void PostHeroDeath(IHero hero)
         {
             Debug.Log("Post Hero Death");
-            
             EPostHeroDeath?.Invoke(hero);
         }
         

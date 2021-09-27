@@ -54,7 +54,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
        
         
         //TEST
-        public override void RemoveStatusEffect(IHero hero)
+        public override void RemoveStatusEffectOnDeath(IHero hero)
         {
            
         }
