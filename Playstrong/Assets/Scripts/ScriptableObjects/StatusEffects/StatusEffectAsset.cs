@@ -115,6 +115,12 @@ namespace ScriptableObjects.StatusEffects
             }
         }
         
+        //Used by Resurrect and Extinction - as they need to persist post death
+        public virtual void RemoveStatusEffectOnDeath(IHero hero)
+        {
+            HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
+        }
+        
 
         public virtual void ApplyStackingEffect(IHero hero)
         {
@@ -140,10 +146,7 @@ namespace ScriptableObjects.StatusEffects
             
         }
 
-        public virtual void RemoveStatusEffectOnDeath(IHero hero)
-        {
-            HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
-        }
+
 
 
 

@@ -158,17 +158,14 @@ namespace Logic
 
             foreach (var buff in buffs)
             {
-              
-                //if(buff.StatusEffectAsset.Name != ResurrectStatusEffect.Name)
-                //    buff.RemoveStatusEffect.RemoveEffect(hero);
-                
-                //TEST - in consideration of Resurrection and extinction
+                //It is correct to call the asset and not the buff due to buffs/debuffs that should not be destroyed on death
+                //Extinction and Resurrect
                 buff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero);
             }
             
             foreach (var debuff in debuffs)
             {
-                //debuff.RemoveStatusEffect.RemoveEffect(hero);
+             
                 //TEST
                 debuff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero);
             }
