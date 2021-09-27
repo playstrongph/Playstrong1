@@ -13,30 +13,28 @@ namespace ScriptableObjects.SkillActionsScripts
     {
         [SerializeField]
         private ScriptableObject calculatedValue;
-        public ICalculatedValueAsset CalculatedValue => calculatedValue as ICalculatedValueAsset;
+        private ICalculatedValueAsset CalculatedValue => calculatedValue as ICalculatedValueAsset;
 
-        public override IEnumerator TargetAction(IHero dummyHero,IHero targetHero)
+        [SerializeField]
+        private float ignoreArmorChance = 0;
+
+        public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(DealNonSkillDamage(targetHero,targetHero));
+            logicTree.AddCurrent(DealNonSkillDamage(targetHero));
 
             logicTree.EndSequence();
             yield return null;
 
         }
 
-        private IEnumerator DealNonSkillDamage(IHero dummyHero,IHero targetHero)
+        private IEnumerator DealNonSkillDamage(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            var nonCriticalDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue());
-            
-            //Status-Effects Do not Deal Critical Strike
-            var criticalDamage = 0;
-            
-            //TEST
-            //TODO: NonSkillDamage no attackerHero arg
-            //targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero,targetHero,nonCriticalDamage,criticalDamage);
+            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue());
+
+            targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance);
 
             logicTree.EndSequence();
             yield return null;
