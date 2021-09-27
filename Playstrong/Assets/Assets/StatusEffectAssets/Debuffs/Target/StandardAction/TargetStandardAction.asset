@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
+  m_Name: TargetStandardAction
+  m_EditorClassIdentifier: 
+  standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
+  actionTargets: {fileID: 11400000, guid: ef17d241d7b8096479eb9f88c686e75c, type: 2}
+  orBasicConditions: []
+  andBasicConditions: []
+  basicActions:
+  - {fileID: 11400000, guid: c61c537ef3144644a83b345589bbf21f, type: 2}
+  - {fileID: 11400000, guid: 18045f4e9908f314aaf3b49c1addede6, type: 2}

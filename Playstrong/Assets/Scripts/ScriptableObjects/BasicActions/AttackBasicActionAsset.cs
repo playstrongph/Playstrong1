@@ -60,13 +60,14 @@ namespace ScriptableObjects.BasicActions
     private IEnumerator SetNormalOrCriticalAttack(IHero thisHero, IHero targetHero)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+        
         var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
-        var criticalResistance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
+        var criticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
+        
         var netChance = criticalChance - criticalResistance;
         var randomChance = Random.Range(0f, 100f);
         netChance = Mathf.Clamp(netChance, 0f, 100f);
 
-        
         logicTree.AddCurrent(randomChance <= netChance
             ? CriticalAttack(thisHero, targetHero)
             : NormalAttack(thisHero, targetHero));
@@ -77,6 +78,7 @@ namespace ScriptableObjects.BasicActions
     
     private IEnumerator NormalAttack(IHero thisHero, IHero targetHero)
     {
+        Debug.Log("Normal Attack: ");
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
@@ -126,6 +128,7 @@ namespace ScriptableObjects.BasicActions
     
     private IEnumerator CriticalAttack(IHero thisHero, IHero targetHero)
     {
+        Debug.Log("Critical Attack: ");
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)

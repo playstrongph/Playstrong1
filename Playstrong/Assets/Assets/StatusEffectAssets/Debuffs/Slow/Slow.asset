@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88691025070f8404cad9ad6fba8e24b7, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  _name: Slow
+  _description: Decreases target's Speed by 30%.
+  _icon: {fileID: 21300000, guid: 95e73c42138991149a836efb2c4ff635, type: 3}
+  _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
+  _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
+    type: 2}
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: b401548a417ec714b8633a4bb005668b, type: 2}
+  maxSkillCounters: 1
+  _effectValue: 0
+  multiplier: 0.3
