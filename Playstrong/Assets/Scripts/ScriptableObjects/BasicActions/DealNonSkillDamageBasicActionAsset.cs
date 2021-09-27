@@ -20,6 +20,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         public override IEnumerator TargetAction(IHero targetHero)
         {
+           
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.AddCurrent(DealNonSkillDamage(targetHero));
@@ -32,9 +33,12 @@ namespace ScriptableObjects.SkillActionsScripts
         private IEnumerator DealNonSkillDamage(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //TODO: Need to Improve this during refactor
+            CalculatedValue.SetCalculatedValue(targetHero);
             var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue());
 
-            targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance);
+            logicTree.AddCurrent(targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance));
 
             logicTree.EndSequence();
             yield return null;

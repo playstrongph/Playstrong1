@@ -15,8 +15,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class DamageAttributeMultipleAsset : ScriptableObject, IDamageAttributeMultipleAsset
     {
         
-        [SerializeField] private ScriptableObject targetMultiple;
-        public IActionTargets TargetMultiple => targetMultiple as IActionTargets;
+        [SerializeField] private ScriptableObject actionTargets;
+        protected IActionTargets ActionTargets => actionTargets as IActionTargets;
 
         [SerializeField] protected int percentFactor = 100;
         

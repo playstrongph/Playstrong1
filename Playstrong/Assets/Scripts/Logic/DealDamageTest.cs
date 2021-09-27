@@ -90,7 +90,9 @@ namespace Logic
         public IEnumerator DealNonSkillDamage(IHero targetHero, int nonSkillDamage, float ignoreArmorChance)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-
+            
+            Debug.Log("Non Skill Damage: " +nonSkillDamage);
+            
             logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonSkillDamage(nonSkillDamage, ignoreArmorChance));
             
             logicTree.EndSequence();

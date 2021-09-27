@@ -13,7 +13,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
         private int _damageMultiple;
         public override int GetDamageMultiple(IHero hero)
         {
-            var target = TargetMultiple.GetHeroTarget(hero);
+            var target = ActionTargets.GetHeroTarget(hero);
             
             var damageMultiple = target.HeroLogic.TakeDamage.FinalDamage;
             damageMultiple = Mathf.CeilToInt(damageMultiple * percentFactor / 100);
@@ -23,7 +23,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
         
         public override int GetDamageMultiple(IHero thisHero, IHero targetHero)
         {
-            var target = TargetMultiple.GetHeroTarget(thisHero,targetHero);
+            var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             var damageMultiple = target.HeroLogic.TakeDamage.FinalDamage;
             
             damageMultiple = Mathf.CeilToInt(damageMultiple * percentFactor / 100);
