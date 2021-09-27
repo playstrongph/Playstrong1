@@ -16,11 +16,8 @@ namespace ScriptableObjects.StandardEvents
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //Note that the event Dictates the args of the StartAction subscribed
-            //skill.SkillLogic.SkillEvents.EDragSkillTarget += standardAction.StartAction;
-            
             hero.HeroLogic.HeroEvents.EPostHeroDeath += standardAction.StartAction;
-            Debug.Log("Subscribe to Event EPostHeroDeath");
-            
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -29,11 +26,9 @@ namespace ScriptableObjects.StandardEvents
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            
             //Note that the event Dictates the args of the StartAction subscribed
             hero.HeroLogic.HeroEvents.EPostHeroDeath -= standardAction.StartAction;
-            Debug.Log("Unsubscribe to Event EPostHeroDeath");
-            
+
             logicTree.EndSequence();
             yield return null;
         }

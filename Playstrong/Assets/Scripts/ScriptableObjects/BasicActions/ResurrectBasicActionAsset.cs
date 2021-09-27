@@ -27,7 +27,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator StartAction(IHero hero)
         {
-            Debug.Log("Resurrect Start Action Override");
+            //Debug.Log("Resurrect Start Action Override");
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //Bypass Hero Alive Checking
@@ -40,7 +40,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         public override IEnumerator TargetAction(IHero thisHero)
         {
-            Debug.Log("Resurrect Target Action");
+            //Debug.Log("Resurrect Target Action");
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             ResurrectHero(thisHero);
@@ -52,7 +52,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private void ResurrectHero(IHero thisHero)
         {
-            Debug.Log("Resurrect Hero");
+            //Debug.Log("Resurrect Hero");
             
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var resurrectChance = thisHero.HeroLogic.OtherAttributes.ResurrectChance;
@@ -60,42 +60,36 @@ namespace ScriptableObjects.SkillActionsScripts
             var netChance = resurrectChance - resurrectResistance;
             var randomChance = Random.Range(1, 101);
             
-            Debug.Log("Net Chance: " +netChance);
-            Debug.Log("Random Chance: " +randomChance);
-
             if (randomChance <= netChance)
             {
-                Debug.Log("ResurrectChanceSuccess");
                 logicTree.AddCurrent(ResurrectActions(thisHero));    
             }
-            
-            //logicTree.AddCurrent(ResurrectActions(thisHero));    
-
-            
         }
 
         private IEnumerator ResurrectActions(IHero hero)
         {
-            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            //SetHeroAliveStatus
-            logicTree.AddCurrent(SetHeroAliveStatus(hero));
-            //RegisterSkills
-            logicTree.AddCurrent(RegisterSkills(hero));
-            //EnableHeroTurns
-            logicTree.AddCurrent(EnableHeroTurns(hero));
-            //Visual
-            //Reset Hero Attributes
-            logicTree.AddCurrent(ResetHeroAttributes(hero));
-            //Show Hero Visuals
-            logicTree.AddCurrent(ShowHeroVisuals(hero));
-            //Hero Resurrect Animation
-            logicTree.AddCurrent(ResurrectHeroAnimation(hero));
-            //DestroyAllStatusEffects
-            logicTree.AddCurrent(DestroyAllStatusEffects(hero));
-           
 
+            logicTree.AddCurrent(SetHeroAliveStatus(hero));
+            
+            logicTree.AddCurrent(RegisterSkills(hero));
+            
+            logicTree.AddCurrent(EnableHeroTurns(hero));
+
+            logicTree.AddCurrent(ResetHeroAttributes(hero));
+            //TODO: ResetOtherAttributes?
+            
+            //Original Sequence
+            /*logicTree.AddCurrent(ShowHeroVisuals(hero));            
+            logicTree.AddCurrent(ResurrectHeroAnimation(hero));            
+            logicTree.AddCurrent(DestroyAllStatusEffects(hero));*/
+            
+            logicTree.AddCurrent(DestroyAllStatusEffects(hero));
+            
+            logicTree.AddCurrent(ResurrectHeroAnimation(hero));
+            
+            logicTree.AddCurrent(ShowHeroVisuals(hero));
+            
             logicTree.EndSequence();
             yield return null;
         }
@@ -108,29 +102,6 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.EndSequence();
             yield return null;
         }
-        
-        private IEnumerator DestroyAllStatusEffects(IHero hero)
-        {
-            var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
-            var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-
-            foreach (var buff in buffs)
-            {
-                buff.RemoveStatusEffect.RemoveEffect(hero);
-            }
-            
-            foreach (var debuff in debuffs)
-            {
-                debuff.RemoveStatusEffect.RemoveEffect(hero);
-            }
-            
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        
         private IEnumerator RegisterSkills(IHero hero)
         {
             var heroSkillsReference = hero.HeroSkills.Skills;
@@ -147,21 +118,9 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
 
         }
-        
         private IEnumerator EnableHeroTurns(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            UpdateLivingAndDeadHeroLists(hero);
-            //UpdateActiveHeroesList(IHero hero);
-
-            logicTree.EndSequence();
-            yield return null;
-
-        }
-        
-        private void UpdateLivingAndDeadHeroLists(IHero hero)
-        {
             var deadHeroes = hero.LivingHeroes.Player.DeadHeroes.HeroesList;
             var livingHeroes = hero.LivingHeroes.HeroesList;
             
@@ -174,8 +133,11 @@ namespace ScriptableObjects.SkillActionsScripts
 
             deadHeroes.Remove(deadHeroGameObject);
             livingHeroes.Add(deadHeroGameObject);
+
+            logicTree.EndSequence();
+            yield return null;
+
         }
-        
         private IEnumerator ResetHeroAttributes(IHero hero)
         {
             var heroAttributes = hero.HeroLogic.HeroAttributes;
@@ -197,7 +159,6 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
 
         }
-        
         private IEnumerator ShowHeroVisuals(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
@@ -208,7 +169,6 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.EndSequence();
             yield return null;
         }
-        
         private IEnumerator ShowVisuals(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
@@ -221,38 +181,52 @@ namespace ScriptableObjects.SkillActionsScripts
             visualTree.EndSequence();
             yield return null;
         }
-        
-        
-        
         private IEnumerator ResurrectHeroAnimation(IHero hero)
         {
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
 
             //Delay for hero dies animation to resolve
-            //visualTree.AddCurrentWait(2.5f,visualTree);
+            visualTree.AddCurrentWait(0.5f,visualTree);
             
             visualTree.AddCurrent(ResurrectAnimation.StartAnimation(hero));
-            
-            //TEMP
-            //visualTree.AddCurrentWait(2.5f,visualTree);
-            //visualTree.AddCurrent(ShowHeroCanvas(hero));
 
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;
         }
-        
-        //TEMP
-        private IEnumerator ShowHeroCanvas(IHero hero)
+        private IEnumerator DestroyAllStatusEffects(IHero hero)
         {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            
-            //TODO - fix in ResurrectHeroAnimation
-            hero.HeroVisual.HeroCanvas.enabled = true;
+            var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
+            var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
-            visualTree.EndSequence();
+            foreach (var buff in buffs)
+            {
+                buff.RemoveStatusEffect.RemoveEffect(hero);
+            }
+            
+            foreach (var debuff in debuffs)
+            {
+                debuff.RemoveStatusEffect.RemoveEffect(hero);
+            }
+            
+            logicTree.EndSequence();
             yield return null;
         }
+        
+       
+        
+      
+        
+        
+        
+        
+        
+      
+        
+        
+       
+       
         
         
         
