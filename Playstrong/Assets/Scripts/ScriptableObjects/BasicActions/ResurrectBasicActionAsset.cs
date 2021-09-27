@@ -78,12 +78,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
             logicTree.AddCurrent(ResetHeroAttributes(hero));
             //TODO: ResetOtherAttributes?
-            
-            //Original Sequence
-            /*logicTree.AddCurrent(ShowHeroVisuals(hero));            
-            logicTree.AddCurrent(ResurrectHeroAnimation(hero));            
-            logicTree.AddCurrent(DestroyAllStatusEffects(hero));*/
-            
+
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
             
             logicTree.AddCurrent(ResurrectHeroAnimation(hero));
@@ -159,41 +154,6 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
 
         }
-        private IEnumerator ShowHeroVisuals(IHero hero)
-        {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
-            visualTree.AddCurrent(ShowVisuals(hero));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        private IEnumerator ShowVisuals(IHero hero)
-        {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            
-            hero.TargetHero.TargetVisual.TargetCanvas.enabled = true;
-            hero.TargetHero.HeroBoxCollider.enabled = true;
-            hero.HeroVisual.HeroCanvas.enabled = true;
-            
-            
-            visualTree.EndSequence();
-            yield return null;
-        }
-        private IEnumerator ResurrectHeroAnimation(IHero hero)
-        {
-            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
-
-            //Delay for hero dies animation to resolve
-            visualTree.AddCurrentWait(0.5f,visualTree);
-            
-            visualTree.AddCurrent(ResurrectAnimation.StartAnimation(hero));
-
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.EndSequence();
-            yield return null;
-        }
         private IEnumerator DestroyAllStatusEffects(IHero hero)
         {
             var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
@@ -211,6 +171,43 @@ namespace ScriptableObjects.SkillActionsScripts
             }
             
             logicTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator ResurrectHeroAnimation(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+
+            //Delay for hero dies animation to resolve
+            visualTree.AddCurrentWait(0.5f,visualTree);
+            
+            visualTree.AddCurrent(ResurrectAnimation.StartAnimation(hero));
+
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            logicTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator ShowHeroVisuals(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            
+            visualTree.AddCurrent(ShowVisuals(hero));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        //AUXILIARY METHODS
+        private IEnumerator ShowVisuals(IHero hero)
+        {
+            var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            
+            hero.TargetHero.TargetVisual.TargetCanvas.enabled = true;
+            hero.TargetHero.HeroBoxCollider.enabled = true;
+            hero.HeroVisual.HeroCanvas.enabled = true;
+            
+            
+            visualTree.EndSequence();
             yield return null;
         }
         
