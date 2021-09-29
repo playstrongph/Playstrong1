@@ -48,9 +48,9 @@ namespace ScriptableObjects.HeroStatus
         {
             //_heroLogic.HeroTimer.ResetHeroTimer();
             
+            //TODO: Check if the below needs to be transferred to a new Enumerator - EnableHeroTurn?
             _logicTree.AddCurrent(EnableTargetHeroPreview());
             _logicTree.AddCurrent(EnableDragHeroAttack());
-
             _visualTree.AddCurrent(VisualEnableActionHeroGlow());
             _visualTree.AddCurrent(VisualEnableHeroPortrait());
             _visualTree.AddCurrent(VisualEnableHeroSkills());
