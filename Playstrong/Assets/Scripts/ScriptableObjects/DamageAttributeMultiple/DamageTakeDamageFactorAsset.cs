@@ -8,7 +8,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
     /// Asset used by DealDamage basic action to deal percent damage according to damage taken by the hero
     /// </summary>
     [CreateAssetMenu(fileName = "FinalDamageTaken", menuName = "SO's/Scriptable Enums/DamageAttributeMultiple/FinalDamageTaken")]
-    public class DamageTakeDamageFactorAsset : CalculatedFactorValue, ICalculatedValueAsset
+    public class DamageTakeDamageFactorAsset : CalculatedFactorValueAsset, ICalculatedValueAsset
     {
         private int _damageMultiple;
         public override int GetDamageMultiple(IHero hero)

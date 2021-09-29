@@ -3,7 +3,7 @@ using References;
 
 namespace ScriptableObjects.DamageAttributeMultiple
 {
-    public interface ICalculatedFactorValue
+    public interface ICalculatedFactorValueAsset
     {
         int GetDamageMultiple(IHero hero);
 

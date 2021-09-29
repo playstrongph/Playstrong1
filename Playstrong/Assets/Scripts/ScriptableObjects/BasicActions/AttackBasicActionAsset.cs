@@ -23,6 +23,8 @@ namespace ScriptableObjects.BasicActions
         [SerializeField] private ScriptableObject calculatedAdditionalDamage;
         public ICalculatedValueAsset CalculatedAdditionalDamage => calculatedAdditionalDamage as ICalculatedValueAsset;
         
+        
+        
         [Header("Game Animation Asset")]
         [SerializeField] private ScriptableObject attackAnimation;
         private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;

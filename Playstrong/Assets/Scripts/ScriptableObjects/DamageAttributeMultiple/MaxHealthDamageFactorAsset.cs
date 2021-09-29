@@ -6,7 +6,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
 {
     
     [CreateAssetMenu(fileName = "MaxHealth", menuName = "SO's/Scriptable Enums/DamageAttributeMultiple/MaxHealth")]
-    public class MaxHealthDamageFactorAsset : CalculatedFactorValue, ICalculatedValueAsset
+    public class MaxHealthDamageFactorAsset : CalculatedFactorValueAsset, ICalculatedValueAsset
     {
         private int _multiple;
         public override int GetDamageMultiple(IHero hero)
