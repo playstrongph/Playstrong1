@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace ScriptableObjects.Others
 
         void RemoveFromActiveHeroesList(ITurnController turnController, Object heroTimer);
 
-        void EndHeroTurn(IHeroLogic heroLogic);
+        IEnumerator EndHeroTurn(IHeroLogic heroLogic);
 
     }
 }

@@ -33,13 +33,7 @@ namespace ScriptableObjects.HeroStatus
             _logicTree.AddCurrent(SetActive());
         }
 
-        public override void EndHeroTurn(IHeroLogic heroLogic)
-        {
-            var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(EndTurn(heroLogic));
-        }
-
-        private IEnumerator EndTurn(IHeroLogic heroLogic)
+        /*public override IEnumerator EndHeroTurn(IHeroLogic heroLogic)
         {
             var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
             var turnController = heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
@@ -48,7 +42,7 @@ namespace ScriptableObjects.HeroStatus
 
             logicTree.EndSequence();
             yield return null;
-        }
+        }*/
 
         private IEnumerator SetActive()
         {

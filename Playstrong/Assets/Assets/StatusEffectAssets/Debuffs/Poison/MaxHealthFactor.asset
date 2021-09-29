@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MaxHealthFactor
   m_EditorClassIdentifier: 
   actionTargets: {fileID: 11400000, guid: 25d389ed37a5a7d4dbaad686e5262561, type: 2}
-  percentFactor: 5
+  percentFactor: 100

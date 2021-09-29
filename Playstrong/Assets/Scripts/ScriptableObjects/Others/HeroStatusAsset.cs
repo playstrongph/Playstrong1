@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections;
+using Interfaces;
 using Logic;
 using UnityEngine;
 
@@ -22,11 +23,19 @@ namespace ScriptableObjects.Others
             turnController.ActiveHeroes.Remove(heroTimer);
         }
         
-        public virtual void EndHeroTurn(IHeroLogic heroLogic)
+        public virtual IEnumerator EndHeroTurn(IHeroLogic heroLogic)
         {
+            var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            var turnController = heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             
-        }
+            turnController.EndCombatTurn();
+            
+            Debug.Log("Hero Active End Hero Turn");
 
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
 
     }
 }

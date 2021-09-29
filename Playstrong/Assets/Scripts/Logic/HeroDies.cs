@@ -128,17 +128,31 @@ namespace Logic
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
+            //if hero is active, end turn
+            //TEST
+            //logicTree.AddCurrent(hero.HeroLogic.HeroStatus.EndHeroTurn(hero.HeroLogic));
+            
+            
             logicTree.AddCurrent(SetHeroDeadStatus(hero));
+            
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
             logicTree.AddCurrent(UnRegisterSkills(hero));
             logicTree.AddCurrent(DisableHeroTurns(hero)); 
+            
             
             //Visual
             logicTree.AddCurrent(HeroDiesAnimation(hero));
             logicTree.AddCurrent(HideHeroVisuals(hero));
             logicTree.AddCurrent(ResetHeroAttributes(hero));
             
-            //if hero is active, end turn
+            //TODO: EndHeroTurn Enumerator
+            logicTree.AddCurrent(EndActiveHeroTurn(hero));
+            
+
+            //TODO: UpdateHeroStatus Enumerator
+            logicTree.AddCurrent(SetHeroInactiveStatus(hero));
+            
+           
             
         }
 
@@ -228,10 +242,12 @@ namespace Logic
         private IEnumerator DisableHeroTurns(IHero hero)
         {
             UpdateLivingAndDeadHeroLists(hero);
+            
+            //This should be an enumerator
             UpdateActiveHeroesList(hero);
             
-            //TEST
-            UpdateHeroStatus(hero);
+            //TEST - this should be an enumerator
+            //UpdateHeroStatus(hero);
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
@@ -282,16 +298,39 @@ namespace Logic
             //hero.HeroLogic.HeroStatus = heroInactiveStatus;
         }
         
-        private void UpdateHeroStatus(IHero hero)
+        private IEnumerator SetHeroInactiveStatus(IHero hero)
         {
+            Debug.Log("Set Hero Inactive Status");
             var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
             var heroInactiveStatus = turnController.SetHeroStatus.HeroInactive;
-            var heroCurrentStatus = hero.HeroLogic.HeroStatus;
-            
-            heroCurrentStatus.EndHeroTurn(hero.HeroLogic);
+            //var heroCurrentStatus = hero.HeroLogic.HeroStatus;
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
+            //TEST
+            //logicTree.AddCurrent(heroCurrentStatus.EndHeroTurn(hero.HeroLogic));
+            
             hero.HeroLogic.HeroStatus = heroInactiveStatus;
+            
+            logicTree.EndSequence();
+            yield return null;
         }
+        
+        private IEnumerator EndActiveHeroTurn(IHero hero)
+        {
+            Debug.Log("End Active Hero Turn:" ); 
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            //var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            //var heroInactiveStatus = turnController.SetHeroStatus.HeroInactive;
+            var heroCurrentStatus = hero.HeroLogic.HeroStatus;
+
+            logicTree.AddCurrent(heroCurrentStatus.EndHeroTurn(hero.HeroLogic));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+          
+        
         
         private IEnumerator HideVisuals(IHero hero)
         {
@@ -303,6 +342,8 @@ namespace Logic
             visualTree.EndSequence();
             yield return null;
         }
+        
+        
 
         
 

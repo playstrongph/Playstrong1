@@ -143,6 +143,9 @@ namespace Logic
             //_logicTree.AddCurrent(InitializeActiveHeroLogic());
             InitializeActiveHeroLogic();
             
+            //TEST - Hero Should be active HERE
+            _logicTree.AddCurrent(SetHeroActive());
+            
             //TEST
             //TODO: StartOfCombatEvent
             _logicTree.AddCurrent(StartCombatTurnEvent());
@@ -190,6 +193,8 @@ namespace Logic
 
         public IEnumerator StartHeroTurn()
         {
+
+            Debug.Log("Start Hero Turn");
             //TODO: Check if this can be removed due to initialization
             //_activeHeroIndex = ActiveHeroes.Count - 1;
             //var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
@@ -202,7 +207,8 @@ namespace Logic
             //TODO: Delete this after implementation of Inability Logic
             //_logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
             
-            _logicTree.AddCurrent(SetHeroActive());
+            //TODO: Transfer this to PreHeroStartTurn
+            //_logicTree.AddCurrent(SetHeroActive());
 
             //Start of StartHeroTurn method
             _logicTree.AddCurrent(HeroStartTurnEvent());
@@ -254,6 +260,7 @@ namespace Logic
         
         private IEnumerator SetHeroActive()
         {
+            Debug.Log("Set HeroStatus Active");
             //Set HeroStatus to active
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
 

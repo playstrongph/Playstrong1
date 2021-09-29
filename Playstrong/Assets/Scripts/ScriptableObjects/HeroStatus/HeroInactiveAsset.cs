@@ -96,6 +96,19 @@ namespace ScriptableObjects.HeroStatus
             yield return null;
             
         }
+        
+        public override IEnumerator EndHeroTurn(IHeroLogic heroLogic)
+       {
+           var logicTree = heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+           
+           Debug.Log("Hero Inactive End Hero Turn");
+           
+           //var turnController = heroLogic.Hero.LivingHeroes.Player.BattleSceneManager.TurnController;
+           //turnController.EndCombatTurn();
+
+           logicTree.EndSequence();
+           yield return null;
+       }
 
        
 
