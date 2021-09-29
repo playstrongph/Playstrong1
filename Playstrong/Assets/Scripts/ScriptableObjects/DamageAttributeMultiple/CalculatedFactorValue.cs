@@ -12,7 +12,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
     /// Use cases - max HP of weakest Hero, Speed of fastest hero, etc.
     /// Inheritors also implement ICalculatedValueAsset as used by DealDamage 
     /// </summary>
-    public class DamageAttributeMultipleAsset : ScriptableObject, IDamageAttributeMultipleAsset
+    public class CalculatedFactorValue : ScriptableObject, ICalculatedFactorValue
     {
         
         [SerializeField] private ScriptableObject actionTargets;
@@ -30,6 +30,22 @@ namespace ScriptableObjects.DamageAttributeMultiple
         {
             var damageMultiple = 0;
             return damageMultiple;
+        }
+        
+        public void SetCalculatedValue(IHero thisHero, IHero targetHero)
+        {
+
+        }
+        
+        public void SetCalculatedValue(IHero hero)
+        {
+           
+        }
+        
+        public float GetCalculatedValue()
+        {
+            var calculatedValue = 0;
+            return calculatedValue;
         }
 
 
