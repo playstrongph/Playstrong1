@@ -194,7 +194,7 @@ namespace Logic
         public IEnumerator StartHeroTurn()
         {
 
-            Debug.Log("Start Hero Turn");
+            //Debug.Log("Start Hero Turn");
             //TODO: Check if this can be removed due to initialization
             //_activeHeroIndex = ActiveHeroes.Count - 1;
             //var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
@@ -260,7 +260,7 @@ namespace Logic
         
         private IEnumerator SetHeroActive()
         {
-            Debug.Log("Set HeroStatus Active");
+            //Debug.Log("Set HeroStatus Active");
             //Set HeroStatus to active
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroActive;
 

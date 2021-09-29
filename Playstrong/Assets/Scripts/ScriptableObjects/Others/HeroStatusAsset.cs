@@ -30,7 +30,7 @@ namespace ScriptableObjects.Others
             
             turnController.EndCombatTurn();
             
-            Debug.Log("Hero Active End Hero Turn");
+            //Debug.Log("Hero Active End Hero Turn");
 
             logicTree.EndSequence();
             yield return null;
