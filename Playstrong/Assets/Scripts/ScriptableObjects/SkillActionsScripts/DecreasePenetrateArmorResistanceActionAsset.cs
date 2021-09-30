@@ -7,7 +7,7 @@ namespace ScriptableObjects.SkillActionsScripts
 {
     [CreateAssetMenu(fileName = "DecreasePenetrateResistance", menuName = "SO's/SkillActions/DecreasePenetrateResistance")]
     
-    public class DecreasePenetrateResistanceActionAsset : SkillActionAsset
+    public class DecreasePenetrateArmorResistanceActionAsset : SkillActionAsset
     {
         [SerializeField] private int penetrateResistance ;
 

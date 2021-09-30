@@ -7,18 +7,14 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     public class DefenseBreakAsset : StatusEffectAsset
     {
 
-        [SerializeField] private int penetrateResistance = 1000;
-        
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, penetrateResistance));
+            base.ApplyStatusEffect(hero);
         }
 
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -penetrateResistance));
+            base.UnapplyStatusEffect(hero);
         }
 
         

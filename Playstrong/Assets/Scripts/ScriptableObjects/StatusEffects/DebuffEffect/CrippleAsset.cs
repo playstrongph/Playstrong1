@@ -8,24 +8,20 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     public class CrippleAsset : StatusEffectAsset
     {
 
+        /*
         [SerializeField] private int decreaseCriticalChance = 1000;
         [SerializeField] private int decreaseOtherDamageMultiplier = 25;
-
         [SerializeField] private ScriptableObject decreaseOtherDamageAction;
-        private IHeroAction DecreaseOtherDamageAction => decreaseOtherDamageAction as IHeroAction;
+        private IHeroAction DecreaseOtherDamageAction => decreaseOtherDamageAction as IHeroAction;*/
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, decreaseCriticalChance));
-            logicTree.AddCurrent(DecreaseOtherDamageAction.StartAction(hero, decreaseOtherDamageMultiplier));
+          base.ApplyStatusEffect(hero);
         }
 
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -decreaseCriticalChance));
-            logicTree.AddCurrent(DecreaseOtherDamageAction.StartAction(hero, -decreaseOtherDamageMultiplier));
+          base.UnapplyStatusEffect(hero);
         }
 
         
