@@ -5,27 +5,30 @@ using UnityEngine;
 namespace ScriptableObjects.DamageAttributeMultiple
 {
     
-    [CreateAssetMenu(fileName = "MaxHealthFactor", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/MaxHealthFactor")]
-    public class MaxHealthDamageFactorAsset : CalculatedFactorValueAsset
+    [CreateAssetMenu(fileName = "AttackFactor", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/AttackFactor")]
+    public class AttackDamageFactorAsset : CalculatedFactorValueAsset
     {
         private int _factor;
         public override int GetDamageFactor(IHero hero)
         {
             //var target = ActionTargets.GetHeroTarget(hero);
             
-            var baseHealth = hero.HeroLogic.HeroAttributes.BaseHealth;
-            var maxHealthFactor = Mathf.CeilToInt(baseHealth * percentFactor / 100f);
+            var currentAttack = hero.HeroLogic.HeroAttributes.Attack;
             
-            return maxHealthFactor;
+            var attackFactor = Mathf.CeilToInt(currentAttack * percentFactor / 100f);
+            
+            return attackFactor;
         }
         
         public override int GetDamageFactor(IHero thisHero, IHero targetHero)
         {
             //var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             
-            var baseHealth = targetHero.HeroLogic.HeroAttributes.BaseHealth;
-            var maxHealthFactor = Mathf.CeilToInt(baseHealth * percentFactor / 100f);
-            return maxHealthFactor;
+            var currentAttack = targetHero.HeroLogic.HeroAttributes.Attack;
+            
+            var attackFactor = Mathf.CeilToInt(currentAttack * percentFactor / 100f);
+            
+            return attackFactor;
         }      
         
         

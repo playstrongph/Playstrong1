@@ -34,8 +34,9 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: Need to Improve this during refactor
-            CalculatedValue.SetCalculatedValue(targetHero);
+            //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
+            //CalculatedValue.SetCalculatedValue(targetHero);
+
             var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue());
 
             logicTree.AddCurrent(targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance));

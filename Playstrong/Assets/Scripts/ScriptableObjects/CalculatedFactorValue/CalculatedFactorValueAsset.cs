@@ -15,8 +15,9 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class CalculatedFactorValueAsset : ScriptableObject, ICalculatedFactorValueAsset
     {
         
-        [SerializeField] private ScriptableObject actionTargets;
+        /*[SerializeField] private ScriptableObject actionTargets;
         protected IActionTargets ActionTargets => actionTargets as IActionTargets;
+        */
 
         [SerializeField] protected int percentFactor = 100;
         

@@ -25,5 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2b4dd2729de99448a820430de715b0d, type: 2}
   maxSkillCounters: 1
   _effectValue: 0
-  poisonDamage: 0
-  percentFactor: 5
+  maxHealthFactor: {fileID: 11400000, guid: 87cc242a4e0e95143ac26061fbd62575, type: 2}
