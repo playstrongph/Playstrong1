@@ -20,13 +20,13 @@ namespace ScriptableObjects.DamageAttributeMultiple
 
         [SerializeField] protected int percentFactor = 100;
         
-        public virtual int GetDamageMultiple(IHero hero)
+        public virtual int GetDamageFactor(IHero hero)
         {
             var damageMultiple = 0;
             return damageMultiple;
         }
         
-        public virtual int GetDamageMultiple(IHero thisHero, IHero targetHero)
+        public virtual int GetDamageFactor(IHero thisHero, IHero targetHero)
         {
             var damageMultiple = 0;
             return damageMultiple;

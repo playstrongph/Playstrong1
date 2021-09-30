@@ -7,11 +7,11 @@ namespace ScriptableObjects.DamageAttributeMultiple
     /// <summary>
     /// Asset used by DealDamage basic action to deal percent damage according to damage taken by the hero
     /// </summary>
-    [CreateAssetMenu(fileName = "FinalDamageTaken", menuName = "SO's/Scriptable Enums/DamageAttributeMultiple/FinalDamageTaken")]
+    [CreateAssetMenu(fileName = "FinalDamageTaken", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/FinalDamageTaken")]
     public class DamageTakeDamageFactorAsset : CalculatedFactorValueAsset
     {
         private int _damageMultiple;
-        public override int GetDamageMultiple(IHero hero)
+        public override int GetDamageFactor(IHero hero)
         {
             var target = ActionTargets.GetHeroTarget(hero);
             
@@ -21,7 +21,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
             return damageFactor;
         }
         
-        public override int GetDamageMultiple(IHero thisHero, IHero targetHero)
+        public override int GetDamageFactor(IHero thisHero, IHero targetHero)
         {
             var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             var damageFactor = target.HeroLogic.TakeDamage.FinalDamage;
@@ -34,12 +34,12 @@ namespace ScriptableObjects.DamageAttributeMultiple
         //Accessed by DealDamage Basic Action 
         public override void SetCalculatedValue(IHero hero)
         {
-            _damageMultiple = GetDamageMultiple(hero);
+            _damageMultiple = GetDamageFactor(hero);
         }
         
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
-            _damageMultiple = GetDamageMultiple(thisHero,targetHero);
+            _damageMultiple = GetDamageFactor(thisHero,targetHero);
         }
         
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface

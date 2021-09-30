@@ -5,11 +5,11 @@ using UnityEngine;
 namespace ScriptableObjects.DamageAttributeMultiple
 {
     
-    [CreateAssetMenu(fileName = "MaxHealth", menuName = "SO's/Scriptable Enums/DamageAttributeMultiple/MaxHealth")]
-    public class MaxHealthDamageFactorAsset : CalculatedFactorValueAsset
+    [CreateAssetMenu(fileName = "MaxHealth", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/MaxHealth")]
+    public class CastersAttackDamageFactorAsset : CalculatedFactorValueAsset
     {
         private int _multiple;
-        public override int GetDamageMultiple(IHero hero)
+        public override int GetDamageFactor(IHero hero)
         {
             var target = ActionTargets.GetHeroTarget(hero);
             
@@ -19,7 +19,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
             return maxHealthMultiple;
         }
         
-        public override int GetDamageMultiple(IHero thisHero, IHero targetHero)
+        public override int GetDamageFactor(IHero thisHero, IHero targetHero)
         {
             var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             var maxHealthMultiple = target.HeroLogic.HeroAttributes.BaseHealth;
@@ -31,12 +31,12 @@ namespace ScriptableObjects.DamageAttributeMultiple
         //Accessed by DealDamage Basic Action 
         public override void SetCalculatedValue(IHero hero)
         {
-            _multiple = GetDamageMultiple(hero);
+            _multiple = GetDamageFactor(hero);
         }
         
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
-            _multiple = GetDamageMultiple(thisHero,targetHero);
+            _multiple = GetDamageFactor(thisHero,targetHero);
         }
         
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface

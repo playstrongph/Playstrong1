@@ -5,9 +5,9 @@ namespace ScriptableObjects.DamageAttributeMultiple
 {
     public interface ICalculatedFactorValueAsset
     {
-        int GetDamageMultiple(IHero hero);
+        int GetDamageFactor(IHero hero);
 
-        int GetDamageMultiple(IHero thisHero, IHero targetHero);
+        int GetDamageFactor(IHero thisHero, IHero targetHero);
 
         void SetCalculatedValue(IHero hero);
 
