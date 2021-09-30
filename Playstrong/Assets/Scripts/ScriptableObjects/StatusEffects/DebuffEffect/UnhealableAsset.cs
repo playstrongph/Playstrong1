@@ -6,21 +6,15 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     [CreateAssetMenu(fileName = "Unhealable", menuName = "SO's/Status Effects/Debuffs/Unhealable")]
     public class UnhealableAsset : StatusEffectAsset
     {
-
-        [SerializeField] private int unhealableResistance = 1000;
-        
         public override void ApplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, unhealableResistance));
+             base.ApplyStatusEffect(hero);
+      
         }
 
         public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -unhealableResistance));
+            base.UnapplyStatusEffect(hero);
         }
-
-        
     }
 }

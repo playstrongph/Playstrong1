@@ -16,9 +16,12 @@ MonoBehaviour:
   _description: Hero can't be healed
   _icon: {fileID: 21300000, guid: aadd434f53c920f43a860c60157c2707, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: d43a0b58ed25a05469c368178edae732, type: 2}
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: 621e59a483c5dfb43baae8e5ffa4bd53, type: 2}
+  maxSkillCounters: 1
   _effectValue: 0
-  unhealableResistance: 1000

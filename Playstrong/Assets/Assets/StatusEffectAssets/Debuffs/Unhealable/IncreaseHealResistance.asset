@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aaef2e9afad8384d90e05e7b51c2595, type: 3}
-  m_Name: AntiBuffAction
+  m_Script: {fileID: 11500000, guid: 9f2a0c15b91b8e14e94c16e6fcc22e57, type: 3}
+  m_Name: IncreaseHealResistance
   m_EditorClassIdentifier: 
-  buffResistanceIncrease: 0
+  healResistance: 1000
