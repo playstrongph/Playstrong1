@@ -18,7 +18,7 @@ namespace ScriptableObjects.SkillActionsScripts
         [SerializeField] private int flatDamageValue;
 
         [SerializeField] private ScriptableObject calculatedDamageValue;
-        private ICalculatedValueAsset CalculatedDamageValue => calculatedDamageValue as ICalculatedValueAsset;
+        private ICalculatedFactorValueAsset CalculatedDamageValue => calculatedDamageValue as ICalculatedFactorValueAsset;
 
         public override IEnumerator TargetAction(IHero targetHero)
         {

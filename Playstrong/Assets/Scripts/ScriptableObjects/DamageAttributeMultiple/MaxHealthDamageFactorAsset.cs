@@ -6,7 +6,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
 {
     
     [CreateAssetMenu(fileName = "MaxHealth", menuName = "SO's/Scriptable Enums/DamageAttributeMultiple/MaxHealth")]
-    public class MaxHealthDamageFactorAsset : CalculatedFactorValueAsset, ICalculatedValueAsset
+    public class MaxHealthDamageFactorAsset : CalculatedFactorValueAsset
     {
         private int _multiple;
         public override int GetDamageMultiple(IHero hero)
@@ -29,18 +29,18 @@ namespace ScriptableObjects.DamageAttributeMultiple
         
         
         //Accessed by DealDamage Basic Action 
-        public void SetCalculatedValue(IHero hero)
+        public override void SetCalculatedValue(IHero hero)
         {
             _multiple = GetDamageMultiple(hero);
         }
         
-        public void SetCalculatedValue(IHero thisHero,IHero targetHero)
+        public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
             _multiple = GetDamageMultiple(thisHero,targetHero);
         }
         
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
-        public float GetCalculatedValue()
+        public override float GetCalculatedValue()
         {
             return _multiple;
         }

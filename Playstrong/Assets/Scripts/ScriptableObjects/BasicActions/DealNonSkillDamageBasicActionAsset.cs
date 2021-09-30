@@ -13,7 +13,7 @@ namespace ScriptableObjects.SkillActionsScripts
     {
         [SerializeField]
         private ScriptableObject calculatedValue;
-        private ICalculatedValueAsset CalculatedValue => calculatedValue as ICalculatedValueAsset;
+        private ICalculatedFactorValueAsset CalculatedValue => calculatedValue as ICalculatedFactorValueAsset;
 
         [SerializeField]
         private float ignoreArmorChance = 0;

@@ -32,17 +32,17 @@ namespace ScriptableObjects.DamageAttributeMultiple
             return damageMultiple;
         }
         
-        public void SetCalculatedValue(IHero thisHero, IHero targetHero)
+        public virtual void SetCalculatedValue(IHero thisHero, IHero targetHero)
         {
 
         }
         
-        public void SetCalculatedValue(IHero hero)
+        public virtual void SetCalculatedValue(IHero hero)
         {
            
         }
         
-        public float GetCalculatedValue()
+        public virtual float GetCalculatedValue()
         {
             var calculatedValue = 0;
             return calculatedValue;
