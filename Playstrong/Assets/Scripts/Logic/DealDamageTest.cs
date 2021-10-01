@@ -98,16 +98,10 @@ namespace Logic
         //SINGLE ATTACKS
         private int ComputeMultipleAttackNonCriticalDamage(int nonCriticalDamage)
         {
-            //var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            //var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
-            //var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
-            
-            //TODO: Create in OtherAttributes and replace the zeroes
-            var dealAllDamageReduction = 0 / 100f;
-            var dealMultipleAttackDamageReduction = 0 / 100f;
-            var dealSkillDamageReduction =  0/ 100f;
-            
-            
+            var dealAllDamageReduction = _thisHeroLogic.OtherAttributes.DealAllDamageReduction / 100f;
+            var dealMultipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.DealMultiAttackDamageReduction / 100f;
+            var dealSkillDamageReduction =  _thisHeroLogic.OtherAttributes.DealSkillDamageReduction/ 100f;
+
             var floatFinalDamage = (1-dealMultipleAttackDamageReduction)*(1 - dealAllDamageReduction) *(1-dealSkillDamageReduction)* (nonCriticalDamage);
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
@@ -136,15 +130,9 @@ namespace Logic
         //MULTI ATTACKS
         private int ComputeSingleAttackNonCriticalDamage(int nonCriticalDamage)
         {
-            //var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            //var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
-            //var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
-            
-            //TODO: Create in OtherAttributes and replace the zeroes
-            var dealAllDamageReduction = 0 / 100f;
-            var dealSingleAttackDamageReduction = 0 / 100f;
-            var dealSkillDamageReduction =  0/ 100f;
-            
+            var dealAllDamageReduction = _thisHeroLogic.OtherAttributes.DealAllDamageReduction / 100f;
+            var dealSingleAttackDamageReduction = _thisHeroLogic.OtherAttributes.DealSingleAttackDamageReduction / 100f;
+            var dealSkillDamageReduction =  _thisHeroLogic.OtherAttributes.DealSkillDamageReduction/ 100f;
             
             var floatFinalDamage = (1-dealSingleAttackDamageReduction)*(1 - dealAllDamageReduction) *(1-dealSkillDamageReduction)* (nonCriticalDamage);
 
@@ -154,15 +142,9 @@ namespace Logic
         }
         private int ComputeSingleAttackCriticalDamage(int criticalDamage)
         {
-            //var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            //var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
-            //var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
-            
-            //TODO: Create in OtherAttributes and replace the zeroes
-            var dealAllDamageReduction = 0 / 100f;
-            var dealSingleAttackDamageReduction = 0 / 100f;
-            var dealSkillDamageReduction =  0/ 100f;
-            
+            var dealAllDamageReduction = _thisHeroLogic.OtherAttributes.DealAllDamageReduction / 100f;
+            var dealSingleAttackDamageReduction = _thisHeroLogic.OtherAttributes.DealSingleAttackDamageReduction / 100f;
+            var dealSkillDamageReduction =  _thisHeroLogic.OtherAttributes.DealSkillDamageReduction/ 100f;
             
             var floatFinalDamage = (1-dealSingleAttackDamageReduction)*(1 - dealAllDamageReduction) *(1-dealSkillDamageReduction)* (criticalDamage);
 
@@ -175,14 +157,8 @@ namespace Logic
         //NON SKILL ATTACK and NON SKILL DAMAGE
         private int ComputeNonAttackSkillDamage(int nonAttackSkillDamage)
         {
-            //var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            //var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
-            //var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
-            
-            //TODO: Create in OtherAttributes and replace the zeroes
-            var dealAllDamageReduction = 0 / 100f;
-            var dealSkillDamageReduction =  0/ 100f;
-            
+            var dealAllDamageReduction = _thisHeroLogic.OtherAttributes.DealAllDamageReduction / 100f;
+            var dealSkillDamageReduction =  _thisHeroLogic.OtherAttributes.DealSkillDamageReduction/ 100f;
             
             var floatFinalDamage = (1 - dealAllDamageReduction) *(1-dealSkillDamageReduction)* (nonAttackSkillDamage);
 
@@ -193,14 +169,8 @@ namespace Logic
         
         private int ComputeNonSkillDamage(int nonAttackSkillDamage)
         {
-            //var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            //var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
-            //var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100;
-            
-            //TODO: Create in OtherAttributes and replace the zeroes
-            var dealAllDamageReduction = 0 / 100f;
-            var dealNonSkillDamageReduction =  0/ 100f;
-            
+            var dealAllDamageReduction = _thisHeroLogic.OtherAttributes.DealAllDamageReduction / 100f;
+            var dealNonSkillDamageReduction =  _thisHeroLogic.OtherAttributes.DealNonSkillDamageReduction/ 100f;
             
             var floatFinalDamage = (1 - dealAllDamageReduction) *(1-dealNonSkillDamageReduction)* (nonAttackSkillDamage);
 
@@ -208,9 +178,6 @@ namespace Logic
 
             return finalDamage;
         }
-
-
-
 
         //EVENTS 
         private IEnumerator BeforeHeroDealsSkillDamage(IHero thisHero)

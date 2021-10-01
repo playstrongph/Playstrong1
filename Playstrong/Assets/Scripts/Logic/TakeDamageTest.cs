@@ -224,7 +224,6 @@ namespace Logic
         {
             var damageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
             var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100f;
-
             var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) * (nonCriticalDamage + criticalDamage);
 
             var finalTakeDamage = Mathf.CeilToInt(floatFinalDamage);
@@ -235,7 +234,6 @@ namespace Logic
         private int ComputeNonAttackSkillDamage(int nonCriticalDamage, int criticalDamage)
         {
             var allDamageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
-            //var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100f;
             var skillDamageReduction = _thisHeroLogic.OtherAttributes.TakeSkillDamageReduction / 100f;
 
             var floatFinalDamage =(1 - allDamageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);
@@ -248,7 +246,6 @@ namespace Logic
         private int ComputeNonSkillDamage(int nonCriticalDamage, int criticalDamage)
         {
             var allDamageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
-            //var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100f;
             var nonSkillDamageReduction = _thisHeroLogic.OtherAttributes.TakeNonSkillDamageReduction / 100f;
 
             var floatFinalDamage =(1 - allDamageReduction) *(1-nonSkillDamageReduction)* (nonCriticalDamage + criticalDamage);
