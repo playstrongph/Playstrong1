@@ -312,15 +312,9 @@ namespace Logic
         /// </summary>
 
         [Header("Base Damage Reduction")]
-        [Header("Base Values")] [SerializeField]
-        private float _baseTakeAllDamageReduction = 0f;
-
-        public float BaseTakeAllDamageReduction
-        {
-            get => _baseTakeAllDamageReduction;
-            set => _baseTakeAllDamageReduction = value;
-        }
+        [Header("Base Values")] 
         
+        //TODO: For cleanup
         [SerializeField]
         private float _baseDirectDamageReduction = 0f;
         public float BaseDirectDamageReduction
@@ -329,6 +323,16 @@ namespace Logic
             set => _baseDirectDamageReduction = value;
         }
         
+        //TAKE DAMAGE REDUCTION
+        [SerializeField]
+        private float _baseTakeAllDamageReduction = 0f;
+
+        public float BaseTakeAllDamageReduction
+        {
+            get => _baseTakeAllDamageReduction;
+            set => _baseTakeAllDamageReduction = value;
+        }
+
         [SerializeField]
         private float _baseTakeSingleAttackDamageReduction = 0f;
         public float BaseTakeSingleAttackDamageReduction
@@ -360,6 +364,57 @@ namespace Logic
             get => _baseTakeNonSkillDamageReduction;
             set => _baseTakeNonSkillDamageReduction = value;
         }
+        
+        //DEAL DAMAGE REDUCTION
+        [SerializeField]
+        private float _baseDealAllDamageReduction = 0f;
+
+        public float BaseDealAllDamageReduction
+        {
+            get => _baseDealAllDamageReduction;
+            set => _baseDealAllDamageReduction = value;
+        }
+
+        [SerializeField]
+        private float _baseDealSingleAttackDamageReduction = 0f;
+        public float BaseDealSingleAttackDamageReduction
+        {
+            get => _baseDealSingleAttackDamageReduction;
+            set => _baseDealSingleAttackDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseDealMultiAttackDamageReduction = 0f;
+        public float BaseDealMultiAttackDamageReduction
+        {
+            get => _baseDealMultiAttackDamageReduction;
+            set => _baseDealMultiAttackDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseDealSkillDamageReduction = 0f;
+        public float BaseDealSkillDamageReduction
+        {
+            get => _baseDealSkillDamageReduction;
+            set => _baseDealSkillDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseDealNonSkillDamageReduction = 0f;
+        public float BaseDealNonSkillDamageReduction
+        {
+            get => _baseDealNonSkillDamageReduction;
+            set => _baseDealNonSkillDamageReduction = value;
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
