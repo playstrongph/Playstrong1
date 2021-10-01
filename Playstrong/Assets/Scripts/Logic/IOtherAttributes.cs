@@ -60,11 +60,17 @@
         /// <summary>
         /// Base Damage Reduction
         /// </summary>
-        float BaseDamageReduction { get; set; }
-        float BaseDirectDamageReduction { get; set; }
-        float BaseSingleAttackDamageReduction { get; set; }
-        float BaseMultipleAttackDamageReduction { get; set; }
         
+        //TODO: For Cleanup
+        float BaseDirectDamageReduction { get; set; }
+        
+        //TakeDamage
+        float BaseTakeAllDamageReduction { get; set; }
+        float BaseTakeSingleAttackDamageReduction { get; set; }
+        float BaseTakeMultiAttackDamageReduction { get; set; }
+        float BaseTakeSkillDamageReduction { get; set; }
+        float BaseTakeNonSkillDamageReduction { get; set; }
+
         /// <summary>
         /// Base Damage Multipliers
         /// </summary>

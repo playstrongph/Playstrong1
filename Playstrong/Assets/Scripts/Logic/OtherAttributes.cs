@@ -313,12 +313,12 @@ namespace Logic
 
         [Header("Base Damage Reduction")]
         [Header("Base Values")] [SerializeField]
-        private float _baseDamageReduction = 0f;
+        private float _baseTakeAllDamageReduction = 0f;
 
-        public float BaseDamageReduction
+        public float BaseTakeAllDamageReduction
         {
-            get => _baseDamageReduction;
-            set => _baseDamageReduction = value;
+            get => _baseTakeAllDamageReduction;
+            set => _baseTakeAllDamageReduction = value;
         }
         
         [SerializeField]
@@ -330,20 +330,38 @@ namespace Logic
         }
         
         [SerializeField]
-        private float _baseSingleAttackDamageReduction = 0f;
-        public float BaseSingleAttackDamageReduction
+        private float _baseTakeSingleAttackDamageReduction = 0f;
+        public float BaseTakeSingleAttackDamageReduction
         {
-            get => _baseSingleAttackDamageReduction;
-            set => _baseSingleAttackDamageReduction = value;
+            get => _baseTakeSingleAttackDamageReduction;
+            set => _baseTakeSingleAttackDamageReduction = value;
         }
         
         [SerializeField]
-        private float _baseMultipleAttackDamageReduction = 0f;
-        public float BaseMultipleAttackDamageReduction
+        private float _baseTakeMultiAttackDamageReduction = 0f;
+        public float BaseTakeMultiAttackDamageReduction
         {
-            get => _baseMultipleAttackDamageReduction;
-            set => _baseMultipleAttackDamageReduction = value;
+            get => _baseTakeMultiAttackDamageReduction;
+            set => _baseTakeMultiAttackDamageReduction = value;
         }
+        
+        [SerializeField]
+        private float _baseTakeSkillDamageReduction = 0f;
+        public float BaseTakeSkillDamageReduction
+        {
+            get => _baseTakeSkillDamageReduction;
+            set => _baseTakeSkillDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _baseTakeNonSkillDamageReduction = 0f;
+        public float BaseTakeNonSkillDamageReduction
+        {
+            get => _baseTakeNonSkillDamageReduction;
+            set => _baseTakeNonSkillDamageReduction = value;
+        }
+        
+        
         
         [Header("Base Damage Multipliers")]
         
