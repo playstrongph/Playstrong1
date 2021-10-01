@@ -93,8 +93,7 @@ namespace Logic
         
         
         //AUXILIARY METHODS
-        
-        
+
         //SINGLE ATTACKS
         private int ComputeMultipleAttackNonCriticalDamage(int nonCriticalDamage)
         {
@@ -135,6 +134,14 @@ namespace Logic
             var dealSkillDamageReduction =  _thisHeroLogic.OtherAttributes.DealSkillDamageReduction/ 100f;
             
             var floatFinalDamage = (1-dealSingleAttackDamageReduction)*(1 - dealAllDamageReduction) *(1-dealSkillDamageReduction)* (nonCriticalDamage);
+
+            var test = (1 - dealSingleAttackDamageReduction) * (1 - dealAllDamageReduction) *
+                       (1 - dealSkillDamageReduction);
+            
+            Debug.Log("DealSkillDamageReduction: " +_thisHeroLogic.OtherAttributes.DealSkillDamageReduction);
+            Debug.Log("Hero: " +_thisHeroLogic.Hero.HeroName);
+            
+           
 
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 

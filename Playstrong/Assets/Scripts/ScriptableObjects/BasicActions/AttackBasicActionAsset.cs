@@ -82,10 +82,10 @@ namespace ScriptableObjects.BasicActions
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
-        var dealDamage = targetHero.HeroLogic.DealDamage;
+        var dealDamage = thisHero.HeroLogic.DealDamage;
         
-        //Test
-        var dealDamageTest = targetHero.HeroLogic.DealDamageTest;
+        //Test - dealDamage should be thisHero not targetHero
+        var dealDamageTest = thisHero.HeroLogic.DealDamageTest;
         
         var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = 0;
@@ -132,10 +132,10 @@ namespace ScriptableObjects.BasicActions
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
-        var dealDamage = targetHero.HeroLogic.DealDamage;
+        var dealDamage = thisHero.HeroLogic.DealDamage;
         
-        //Test
-        var dealDamageTest = targetHero.HeroLogic.DealDamageTest;
+        //Test - dealDamage should be thisHero not targetHero
+        var dealDamageTest = thisHero.HeroLogic.DealDamageTest;
         
         var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;

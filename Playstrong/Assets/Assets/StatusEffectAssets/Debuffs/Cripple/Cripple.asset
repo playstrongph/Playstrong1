@@ -16,12 +16,12 @@ MonoBehaviour:
   _description: Hero can't deal critical strike and deals 25% less damage
   _icon: {fileID: 21300000, guid: 39c1a06a2b891504dbf435de59f05f38, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 8ecdd163b45422e459f814fac0044572, type: 2}
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: 9d867a9612488e64aa0df14ad353a6bc, type: 2}
+  maxSkillCounters: 1
   _effectValue: 0
-  decreaseCriticalChance: 1000
-  decreaseOtherDamageMultiplier: 25
-  decreaseOtherDamageAction: {fileID: 11400000, guid: 87b51250713cf134bb3f9a3ddf7460bc,
-    type: 2}

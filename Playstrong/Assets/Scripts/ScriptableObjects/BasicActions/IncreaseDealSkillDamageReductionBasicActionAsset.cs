@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "IncreaseDamageReduction", menuName = "SO's/BasicActions/IncreaseDamageReduction")]
+    [CreateAssetMenu(fileName = "IncreaseDealSkillDamageReduction", menuName = "SO's/BasicActions/IncreaseDealSkillDamageReduction")]
     
-    public class IncreaseDamageReductionBasicActionAsset : BasicActionAsset
+    public class IncreaseDealSkillDamageReductionBasicActionAsset : BasicActionAsset
     {
         [SerializeField] private int damageReductionValue;
 
@@ -16,7 +16,10 @@ namespace ScriptableObjects.BasicActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherAttributes = targetHero.HeroLogic.OtherAttributes;
 
-            otherAttributes.TakeAllDamageReduction += damageReductionValue;
+            otherAttributes.DealSkillDamageReduction += damageReductionValue;
+            
+            Debug.Log("DealSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.DealSkillDamageReduction);
+            Debug.Log("Hero: " +targetHero.HeroName);
             
             logicTree.EndSequence();
             yield return null;
@@ -27,7 +30,7 @@ namespace ScriptableObjects.BasicActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherAttributes = targetHero.HeroLogic.OtherAttributes;
 
-            otherAttributes.TakeAllDamageReduction -= damageReductionValue;
+            otherAttributes.DealSkillDamageReduction -= damageReductionValue;
             
             logicTree.EndSequence();
             yield return null;
