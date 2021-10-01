@@ -10,7 +10,7 @@ namespace Logic
         /// Damage Multipliers
         /// </summary>
 
-        [Header("Damage Reduction")] 
+        [Header("Obsolete Damage Reduction")] 
         [SerializeField]
         private float _directDamageReduction = 0f;
         public float DirectDamageReduction
@@ -18,7 +18,7 @@ namespace Logic
             get => _directDamageReduction;
             set => _directDamageReduction = value;
         }
-        
+        [Header("Take Damage Reduction")] 
         [SerializeField]
         private float _takeAllDamageReduction = 0f;
         public float TakeAllDamageReduction
@@ -59,7 +59,9 @@ namespace Logic
             set => _takeNonSkillDamageReduction = value;
         }
         
+        
         //DEAL DAMAGE REDUCTION
+        [Header("Deal Damage Reduction")] 
         [SerializeField]
         private float _dealAllDamageReduction = 0f;
         public float DealAllDamageReduction
