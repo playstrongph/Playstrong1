@@ -222,7 +222,7 @@ namespace Logic
         //AUXILLIARY METHODS
         private int ComputeDirectDamage(int nonCriticalDamage, int criticalDamage)
         {
-            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100f;
+            var damageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
             var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100f;
 
             var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) * (nonCriticalDamage + criticalDamage);
@@ -234,9 +234,9 @@ namespace Logic
         
         private int ComputeNonAttackSkillDamage(int nonCriticalDamage, int criticalDamage)
         {
-            var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100f;
+            var allDamageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
             //var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100f;
-            var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100f;
+            var skillDamageReduction = _thisHeroLogic.OtherAttributes.TakeSkillDamageReduction / 100f;
 
             var floatFinalDamage =(1 - allDamageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);
 
@@ -247,9 +247,9 @@ namespace Logic
         
         private int ComputeNonSkillDamage(int nonCriticalDamage, int criticalDamage)
         {
-            var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100f;
+            var allDamageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
             //var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100f;
-            var nonSkillDamageReduction = _thisHeroLogic.OtherAttributes.NonSkillDamageReduction / 100f;
+            var nonSkillDamageReduction = _thisHeroLogic.OtherAttributes.TakeNonSkillDamageReduction / 100f;
 
             var floatFinalDamage =(1 - allDamageReduction) *(1-nonSkillDamageReduction)* (nonCriticalDamage + criticalDamage);
 
@@ -260,9 +260,9 @@ namespace Logic
         
         private int ComputeSingleAttackDamage(int nonCriticalDamage, int criticalDamage)
         {
-            var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100f;
-            var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.SingleAttackDamageReduction / 100f;
-            var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100f;
+            var allDamageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
+            var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.TakeSingleAttackDamageReduction / 100f;
+            var skillDamageReduction = _thisHeroLogic.OtherAttributes.TakeSkillDamageReduction / 100f;
 
             var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - allDamageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);
             
@@ -273,9 +273,9 @@ namespace Logic
         
         private int ComputeMultipleAttackDamage(int nonCriticalDamage, int criticalDamage)
         {
-            var allDamageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100f;
-            var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100f;
-            var skillDamageReduction = _thisHeroLogic.OtherAttributes.SkillDamageReduction / 100f;
+            var allDamageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100f;
+            var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.TakeMultiAttackDamageReduction / 100f;
+            var skillDamageReduction = _thisHeroLogic.OtherAttributes.TakeSkillDamageReduction / 100f;
             
             //TODO: Update with multipleAttackDamage Reduction Factor
             var floatFinalDamage = (1-multipleAttackDamageReduction)*(1 - allDamageReduction) *(1-skillDamageReduction)* (nonCriticalDamage + criticalDamage);

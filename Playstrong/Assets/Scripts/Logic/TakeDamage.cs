@@ -122,7 +122,7 @@ namespace Logic
 
         private int ComputeDirectDamage(int normalDamage, int criticalDamage)
         {
-            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
+            var damageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100;
             var directDamageReduction = _thisHeroLogic.OtherAttributes.DirectDamageReduction / 100;
 
             var floatFinalDamage =(1-directDamageReduction)* (1 - damageReduction) * (normalDamage + criticalDamage);
@@ -134,8 +134,8 @@ namespace Logic
         
         private int ComputeSingleAttackDamage(int normalDamage, int criticalDamage)
         {
-            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.SingleAttackDamageReduction / 100;
+            var damageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100;
+            var singleAttackDamageReduction = _thisHeroLogic.OtherAttributes.TakeSingleAttackDamageReduction / 100;
 
             //TODO: Update with singleAttackDamage Reduction Factor
             var floatFinalDamage = (1-singleAttackDamageReduction)*(1 - damageReduction) * (normalDamage + criticalDamage);
@@ -147,8 +147,8 @@ namespace Logic
         
         private int ComputeMultipleAttackDamage(int normalDamage, int criticalDamage)
         {
-            var damageReduction = _thisHeroLogic.OtherAttributes.DamageReduction / 100;
-            var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.MultipleAttackDamageReduction / 100;
+            var damageReduction = _thisHeroLogic.OtherAttributes.TakeAllDamageReduction / 100;
+            var multipleAttackDamageReduction = _thisHeroLogic.OtherAttributes.TakeMultiAttackDamageReduction / 100;
             
             //TODO: Update with multipleAttackDamage Reduction Factor
             var floatFinalDamage = (1-multipleAttackDamageReduction)*(1 - damageReduction) * (normalDamage + criticalDamage);

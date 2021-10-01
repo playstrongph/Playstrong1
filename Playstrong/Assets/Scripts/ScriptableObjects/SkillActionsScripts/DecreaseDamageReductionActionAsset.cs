@@ -19,7 +19,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var otherAttributes = targetHero.HeroLogic.OtherAttributes;
 
-            otherAttributes.DamageReduction -= damageReductionValue;
+            otherAttributes.TakeAllDamageReduction -= damageReductionValue;
             
             logicTree.EndSequence();
             yield return null;

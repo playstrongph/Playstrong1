@@ -16,8 +16,8 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
           
-            targetHero.HeroLogic.OtherAttributes.SkillDamageReduction += damageReduction;
-            Debug.Log("TargetAction IncreaseSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.SkillDamageReduction );
+            targetHero.HeroLogic.OtherAttributes.TakeSkillDamageReduction += damageReduction;
+            Debug.Log("TargetAction IncreaseSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.TakeSkillDamageReduction );
 
             logicTree.EndSequence();
             yield return null;
@@ -27,8 +27,8 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.SkillDamageReduction -= damageReduction;
-            Debug.Log("Undo IncreaseSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.SkillDamageReduction );
+            targetHero.HeroLogic.OtherAttributes.TakeSkillDamageReduction -= damageReduction;
+            Debug.Log("Undo IncreaseSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.TakeSkillDamageReduction );
 
             logicTree.EndSequence();
             yield return null;
@@ -38,7 +38,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.SkillDamageReduction += damageReduction;
+            targetHero.HeroLogic.OtherAttributes.TakeSkillDamageReduction += damageReduction;
 
             logicTree.EndSequence();
             yield return null;
@@ -48,7 +48,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.OtherAttributes.SkillDamageReduction -= damageReduction;
+            targetHero.HeroLogic.OtherAttributes.TakeSkillDamageReduction -= damageReduction;
 
             logicTree.EndSequence();
             yield return null;

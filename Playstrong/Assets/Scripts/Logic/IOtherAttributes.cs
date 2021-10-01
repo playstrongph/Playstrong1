@@ -5,13 +5,16 @@
         /// <summary>
         /// Damage Reduction
         /// </summary>
-        float DamageReduction { get; set; }
+        
+        //TODO: For Cleanup
         float DirectDamageReduction { get; set; }
-        float SingleAttackDamageReduction { get; set; }
-        float MultipleAttackDamageReduction { get; set; }
-        float SkillDamageReduction { get; set; }
-
-        float NonSkillDamageReduction { get; set; }
+        
+        
+        float TakeAllDamageReduction { get; set; }
+        float TakeSingleAttackDamageReduction { get; set; }
+        float TakeMultiAttackDamageReduction { get; set; }
+        float TakeSkillDamageReduction { get; set; }
+        float TakeNonSkillDamageReduction { get; set; }
 
         /// <summary>
         /// Damage Multipliers
