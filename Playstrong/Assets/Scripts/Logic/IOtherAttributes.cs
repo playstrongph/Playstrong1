@@ -9,20 +9,25 @@
         //TODO: For Cleanup
         float DirectDamageReduction { get; set; }
         
-        
+        //TAKE DAMAGE REDUCTION
         float TakeAllDamageReduction { get; set; }
         float TakeSingleAttackDamageReduction { get; set; }
         float TakeMultiAttackDamageReduction { get; set; }
         float TakeSkillDamageReduction { get; set; }
         float TakeNonSkillDamageReduction { get; set; }
+        
+        //DEAL DAMAGE REDUCTION
+        float DealAllDamageReduction { get; set; }
+        float DealSingleAttackDamageReduction { get; set; }
+        float DealMultiAttackDamageReduction { get; set; }
+        float DealSkillDamageReduction { get; set; }
+        float DealNonSkillDamageReduction { get; set; }
 
         /// <summary>
         /// Damage Multipliers
         /// </summary>
         float CriticalDamageMultiplier { get; set; }
-
         float OtherDamageMultiplier { get; set; }
-
         /// <summary>
        /// Hero Resistances
        /// </summary>

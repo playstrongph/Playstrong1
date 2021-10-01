@@ -10,15 +10,7 @@ namespace Logic
         /// Damage Multipliers
         /// </summary>
 
-        [Header("Damage Reduction")] [SerializeField]
-        private float _takeAllDamageReduction = 0f;
-
-        public float TakeAllDamageReduction
-        {
-            get => _takeAllDamageReduction;
-            set => _takeAllDamageReduction = value;
-        }
-        
+        [Header("Damage Reduction")] 
         [SerializeField]
         private float _directDamageReduction = 0f;
         public float DirectDamageReduction
@@ -27,7 +19,14 @@ namespace Logic
             set => _directDamageReduction = value;
         }
         
-        
+        [SerializeField]
+        private float _takeAllDamageReduction = 0f;
+        public float TakeAllDamageReduction
+        {
+            get => _takeAllDamageReduction;
+            set => _takeAllDamageReduction = value;
+        }
+
         [SerializeField]
         private float _takeSingleAttackDamageReduction = 0f;
         public float TakeSingleAttackDamageReduction
@@ -58,6 +57,47 @@ namespace Logic
         {
             get => _takeNonSkillDamageReduction;
             set => _takeNonSkillDamageReduction = value;
+        }
+        
+        //DEAL DAMAGE REDUCTION
+        [SerializeField]
+        private float _dealAllDamageReduction = 0f;
+        public float DealAllDamageReduction
+        {
+            get => _dealAllDamageReduction;
+            set => _dealAllDamageReduction = value;
+        }
+
+        [SerializeField]
+        private float _dealSingleAttackDamageReduction = 0f;
+        public float DealSingleAttackDamageReduction
+        {
+            get => _dealSingleAttackDamageReduction;
+            set => _dealSingleAttackDamageReduction = value;
+        }
+        
+        [SerializeField]
+        private float _dealMultiAttackDamageReduction = 0f;
+        public float DealMultiAttackDamageReduction
+        {
+            get => _dealMultiAttackDamageReduction;
+            set => _dealMultiAttackDamageReduction = value;
+        }
+
+        [SerializeField] private float _dealSkillDamageReduction = 0f;
+
+        public float DealSkillDamageReduction
+        {
+            get => _dealSkillDamageReduction;
+            set => _dealSkillDamageReduction = value;
+        }
+        
+        [SerializeField] private float _dealNonSkillDamageReduction = 0f;
+
+        public float DealNonSkillDamageReduction
+        {
+            get => _dealNonSkillDamageReduction;
+            set => _dealNonSkillDamageReduction = value;
         }
 
         [Header("Damage Multipliers")][SerializeField]
