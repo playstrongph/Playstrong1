@@ -70,7 +70,14 @@
         float BaseTakeMultiAttackDamageReduction { get; set; }
         float BaseTakeSkillDamageReduction { get; set; }
         float BaseTakeNonSkillDamageReduction { get; set; }
-
+        
+        //Deal Damage
+        float BaseDealAllDamageReduction { get; set; }
+        float BaseDealSingleAttackDamageReduction { get; set; }
+        float BaseDealMultiAttackDamageReduction { get; set; }
+        float BaseDealSkillDamageReduction { get; set; }
+        float BaseDealNonSkillDamageReduction { get; set; }
+        
         /// <summary>
         /// Base Damage Multipliers
         /// </summary>
