@@ -40,7 +40,7 @@
         float CounterAttackResistance { get; set; }
         float AttackTargetResistance { get; set; }
         float PenetrateArmorResistance { get; set; }
-        float BoostEnergyResistance { get; set; }
+        float EnergyUpResistance { get; set; }
 
         float ReduceEnergyResistance { get; set; }
 

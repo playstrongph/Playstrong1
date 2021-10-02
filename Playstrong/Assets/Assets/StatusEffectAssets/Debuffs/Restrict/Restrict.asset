@@ -18,9 +18,12 @@ MonoBehaviour:
 '
   _icon: {fileID: 21300000, guid: 642631171def12647999ab8438cece5a, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 57ead2bfd53c71d43a235454680c9fa3, type: 2}
+  _skillactionAsset: {fileID: 0}
+  _standardAction: {fileID: 0}
+  _standardActions:
+  - {fileID: 11400000, guid: 64082d265f55fd54e990e45df6fb7fd4, type: 2}
+  maxSkillCounters: 1
   _effectValue: 0
-  boostEnergyResistance: 1000

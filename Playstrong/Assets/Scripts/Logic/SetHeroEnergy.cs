@@ -54,7 +54,7 @@ namespace Logic
             var heroTimer = _heroLogic.HeroTimer;
             var currentEnergy = _heroLogic.HeroAttributes.Energy;
             var boostEnergyChance = _heroLogic.OtherAttributes.BoostEnergyChance;
-            var boostEnergyResistance = _heroLogic.OtherAttributes.BoostEnergyResistance;
+            var boostEnergyResistance = _heroLogic.OtherAttributes.EnergyUpResistance;
             var netChance = boostEnergyChance - boostEnergyResistance;
             var randomChance = Random.Range(0f, 100f);
 

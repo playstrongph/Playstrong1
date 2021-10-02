@@ -209,12 +209,12 @@ namespace Logic
             set => penetrateArmorResistance = value;
         }
         
-        [SerializeField] private float boostEnergyResistance = 0f;
+        [SerializeField] private float energyUpResistance = 0f;
 
-        public float BoostEnergyResistance
+        public float EnergyUpResistance
         {
-            get => boostEnergyResistance;
-            set => boostEnergyResistance = value;
+            get => energyUpResistance;
+            set => energyUpResistance = value;
         }
         
         [SerializeField] private float reduceEnergyResistance = 0f;

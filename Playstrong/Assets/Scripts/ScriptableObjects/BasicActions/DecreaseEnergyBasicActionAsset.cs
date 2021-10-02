@@ -18,7 +18,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var reduceEnergyChance = targetHero.HeroLogic.OtherAttributes.BoostEnergyChance;
-            var reduceEnergyResistance = targetHero.HeroLogic.OtherAttributes.BoostEnergyResistance;
+            var reduceEnergyResistance = targetHero.HeroLogic.OtherAttributes.EnergyUpResistance;
             var netBoostChance = reduceEnergyChance - reduceEnergyResistance;
             var randomChance = Random.Range(0, 101);
 
@@ -33,7 +33,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var reduceEnergyChance = targetHero.HeroLogic.OtherAttributes.BoostEnergyChance;
-            var reduceEnergyResistance = targetHero.HeroLogic.OtherAttributes.BoostEnergyResistance;
+            var reduceEnergyResistance = targetHero.HeroLogic.OtherAttributes.EnergyUpResistance;
             var netBoostChance = reduceEnergyChance - reduceEnergyResistance;
             var randomChance = Random.Range(0, 101);
 

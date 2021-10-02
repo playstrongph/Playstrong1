@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0ad925b3f7acb4d85725d09b758799, type: 3}
-  m_Name: RestrictAction
+  m_Script: {fileID: 11500000, guid: 9e84f118dfde6554f97728fe8e929299, type: 3}
+  m_Name: TargetHero
   m_EditorClassIdentifier: 
-  boostResistanceIncrease: 1
