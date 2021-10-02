@@ -22,7 +22,7 @@ namespace Logic
 
         //ISkillStatus SkillReadiness { get; }
 
-        ISkillStatus SkillStatus { get; }
+        ISkillReadiness SkillReadiness { get; }
 
 
 

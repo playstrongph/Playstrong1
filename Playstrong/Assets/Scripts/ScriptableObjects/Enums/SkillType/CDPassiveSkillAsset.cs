@@ -26,13 +26,13 @@ namespace ScriptableObjects.Enums.SkillType
         //Reset when skill cooldown = 0, i.e. SkillReadyStatus
         public override void ResetSkillCd(ISkill skill)
         {
-            skill.SkillLogic.SkillAttributes.SkillStatus.ResetSkillCooldown(skill);
+            skill.SkillLogic.SkillAttributes.SkillReadiness.ResetSkillCooldown(skill);
         }
         
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var skillReady = skillLogic.SkillAttributes.SkillStatus;
+            var skillReady = skillLogic.SkillAttributes.SkillReadiness;
             
             logicTree.AddCurrent(skillReady.SetCdPassiveSkillReady(skillLogic));
             
@@ -56,8 +56,8 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var skillNotReady = skill.SkillLogic.SkillReadiness.SkillNotReady;
 
-            skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
-            skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+            skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
+            skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             
             skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
             
@@ -72,8 +72,8 @@ namespace ScriptableObjects.Enums.SkillType
 
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
             {
-                skill.SkillLogic.SkillAttributes.SkillStatus = skillReady;
-                skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+                skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
+                skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             }
             
             skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);

@@ -23,7 +23,7 @@ namespace Interfaces
 
         ISkillTarget SkillTarget { get; }
 
-        ISkillStatus SkillStatus { get; }
+        ISkillReadiness SkillReadiness { get; }
 
     }
 }

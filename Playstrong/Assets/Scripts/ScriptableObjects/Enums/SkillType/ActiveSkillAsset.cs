@@ -33,7 +33,7 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var skillReady = skillLogic.SkillAttributes.SkillStatus;
+            var skillReady = skillLogic.SkillAttributes.SkillReadiness;
             
             logicTree.AddCurrent(skillReady.SetActiveSkillReady(skillLogic));
             
@@ -57,8 +57,8 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var skillNotReady = skill.SkillLogic.SkillReadiness.SkillNotReady;
 
-            skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
-            skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+            skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
+            skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             
             Debug.Log("Disable Active Skill: " +skill.SkillName);
             
@@ -73,8 +73,8 @@ namespace ScriptableObjects.Enums.SkillType
 
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
             {
-                skill.SkillLogic.SkillAttributes.SkillStatus = skillReady;
-                skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+                skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
+                skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             }
 
             logicTree.EndSequence();

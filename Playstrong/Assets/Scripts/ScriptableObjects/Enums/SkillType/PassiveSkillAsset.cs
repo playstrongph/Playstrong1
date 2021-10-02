@@ -40,8 +40,8 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var skillNotReady = skill.SkillLogic.SkillReadiness.SkillNotReady;
 
-            skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
-            skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+            skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
+            skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             
             skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
 
@@ -57,8 +57,8 @@ namespace ScriptableObjects.Enums.SkillType
 
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
             {
-                skill.SkillLogic.SkillAttributes.SkillStatus = skillReady;
-                skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
+                skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
+                skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             }
             
             skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);

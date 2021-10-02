@@ -55,9 +55,9 @@ namespace ScriptableObjects.Others
         public int Cooldown => _cooldown;
 
         [Header("Default Settings")] [SerializeField]
-        [RequireInterface(typeof(ISkillStatus))]
+        [RequireInterface(typeof(ISkillReadiness))]
         private Object _skillStatus;
-        public ISkillStatus SkillStatus => _skillStatus as ISkillStatus;
+        public ISkillReadiness SkillReadiness => _skillStatus as ISkillReadiness;
         
 
 

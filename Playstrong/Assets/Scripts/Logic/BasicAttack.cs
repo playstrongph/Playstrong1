@@ -52,11 +52,11 @@ namespace Logic
             set => skillTarget = value as Object;
         }
         
-        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        [SerializeField] [RequireInterface(typeof(ISkillReadiness))]
         private Object skillStatus;
 
-        public ISkillStatus SkillStatus{
-            get => skillStatus as ISkillStatus;
+        public ISkillReadiness SkillReadiness{
+            get => skillStatus as ISkillReadiness;
             set => skillStatus = value as Object;
         }
         

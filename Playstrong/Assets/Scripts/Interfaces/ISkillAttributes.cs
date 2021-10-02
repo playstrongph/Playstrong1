@@ -16,7 +16,7 @@ namespace Interfaces
 
         ISkillTarget SkillTarget { get; set; }
 
-        ISkillStatus SkillStatus { get; set; }
+        ISkillReadiness SkillReadiness { get; set; }
 
         ISkillEffectAsset SkillEffect { get; set; }
         

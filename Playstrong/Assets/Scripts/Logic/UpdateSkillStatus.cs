@@ -11,13 +11,13 @@ namespace Logic
 {
     public class UpdateSkillStatus : MonoBehaviour, IUpdateSkillStatus
     {
-        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        [SerializeField] [RequireInterface(typeof(ISkillReadiness))]
         private Object _skillReady;
-        public ISkillStatus SkillReady => _skillReady as ISkillStatus;
+        public ISkillReadiness SkillReady => _skillReady as ISkillReadiness;
         
-        [SerializeField] [RequireInterface(typeof(ISkillStatus))]
+        [SerializeField] [RequireInterface(typeof(ISkillReadiness))]
         private Object _skillNotReady;
-        public ISkillStatus SkillNotReady => _skillNotReady as ISkillStatus;
+        public ISkillReadiness SkillNotReady => _skillNotReady as ISkillReadiness;
 
         private ISkillLogic _skillLogic;
 
@@ -47,18 +47,18 @@ namespace Logic
 
         private void SkillStatusAction()
         {
-            _skillLogic.SkillAttributes.SkillStatus.StatusAction(_skillLogic);
+            _skillLogic.SkillAttributes.SkillReadiness.StatusAction(_skillLogic);
         }
 
         private void SetSkillReady()
         {
-            _skillLogic.SkillAttributes.SkillStatus = SkillReady;
+            _skillLogic.SkillAttributes.SkillReadiness = SkillReady;
           
         }
 
         private void SetSkillNotReady()
         {
-            _skillLogic.SkillAttributes.SkillStatus = SkillNotReady;
+            _skillLogic.SkillAttributes.SkillReadiness = SkillNotReady;
         }
 
     }

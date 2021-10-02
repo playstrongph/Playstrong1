@@ -1,14 +1,16 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using Logic;
+using References;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
-    [CreateAssetMenu(fileName = "SkillStatusPassive", menuName = "SO's/Scriptable Enums/Skill Status/Skill Status Passive")]
-    public class SkillStatusPassiveAsset : SkillStatus
+    [CreateAssetMenu(fileName = "SkillStatusNotReady", menuName = "SO's/Scriptable Enums/Skill Status/Skill Status NotReady")]
+    public class SkillReadinessNotReadyAsset : SkillReadiness
     {
-        
+
         private ISkillLogic _skillLogic;
 
         private ICoroutineTree _logicTree;
@@ -28,13 +30,15 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         private IEnumerator SetSkillNotReady()
         {
-            
-            //DisableDragSkillTarget
             _logicTree.AddCurrent(DisableDragSkillTarget());
-            
-            //DisableTargetVisual
             _logicTree.AddCurrent(DisableTargetVisual());
-
+            _visualTree.AddCurrent(VisualDisableSkillGlow());
+            
+            //TODO:
+            
+            
+            //TEST
+            _visualTree.AddCurrent(ShowCooldownText());
 
             _logicTree.EndSequence();
             yield return null;
@@ -42,6 +46,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         
         private IEnumerator DisableDragSkillTarget()
         {   
+            _skillLogic.Skill.TargetSkill.GetSkillTargets.DisableGlows();
             _skillLogic.Skill.TargetSkill.DragSkillTarget.DisableDragSkillTarget();
             
             _logicTree.EndSequence();
@@ -57,12 +62,37 @@ namespace ScriptableObjects.Enums.SkillStatus
             yield return null;
         }
         
-        public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
+        private IEnumerator VisualDisableSkillGlow()
         {
-            // base.StartAction(skillAction, thisHero, targetHero);
-            Debug.Log("Skill Status Passive Asset");
+            var actionGlowFrame = _skillLogic.Skill.SkillVisual.SkillGlow;
+            actionGlowFrame.SetActive(false);
+            
+            _visualTree.EndSequence();
+            yield return null;
         }
         
+        private IEnumerator ShowCooldownText()
+        {
+            var cooldownText = _skillLogic.Skill.SkillVisual.CooldownText;
+
+            //TEST
+            if(_skillLogic.SkillAttributes.Cooldown > 0)
+                cooldownText.enabled = true;
+
+            _visualTree.EndSequence();
+            yield return null;
+        }
+        
+        public override void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero)
+        {
+            //Don't perform default action
+        }
+        
+        
+        
+        
+        
+      
 
     }
 }

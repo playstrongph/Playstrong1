@@ -6,7 +6,7 @@ namespace Logic
     {
         void SetStatus(int cooldown);
 
-        ISkillStatus SkillReady { get; }
-        ISkillStatus SkillNotReady { get; }
+        ISkillReadiness SkillReady { get; }
+        ISkillReadiness SkillNotReady { get; }
     }
 }

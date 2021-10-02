@@ -58,7 +58,7 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
             var skillActions = SkillActionAssets;
             foreach (var skillAction in skillActions)
             {
-                SkillAttributes.SkillStatus.StartAction(skillAction,thisHero,targetHero);  //Checks Skill Readiness before calling start action
+                SkillAttributes.SkillReadiness.StartAction(skillAction,thisHero,targetHero);  //Checks Skill Readiness before calling start action
             }   
             
             SkillAttributes.SkillType.ResetSkillCd(SkillAttributes.SkillReference);

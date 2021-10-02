@@ -28,7 +28,7 @@ namespace Visual
             
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
-            skillAttributes.SkillStatus = skillAsset.SkillStatus;
+            skillAttributes.SkillReadiness = skillAsset.SkillReadiness;
             
             //Unique instances of skills to solve the problem of duplicate heroes
             var uniqueSkillEffect = Instantiate(skillAsset.SkillEffect as ScriptableObject);

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
-    public class SkillStatus : ScriptableObject, ISkillStatus
+    public class SkillReadiness : ScriptableObject, ISkillReadiness
     {
         public virtual void StatusAction(ISkillLogic skillLogic)
         {
