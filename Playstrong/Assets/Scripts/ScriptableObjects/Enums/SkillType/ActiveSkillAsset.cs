@@ -81,6 +81,9 @@ namespace ScriptableObjects.Enums.SkillType
             
             //TEST
             skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
+            
+            
+            Debug.Log("Enable Active Skill: " +skill.SkillName);
 
             logicTree.EndSequence();
             yield return null;

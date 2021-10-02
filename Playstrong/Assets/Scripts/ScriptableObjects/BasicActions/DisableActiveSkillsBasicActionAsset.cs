@@ -25,13 +25,11 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator UndoTargetAction(IHero targetHero)
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+           var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            //EnableActiveSkills(targetHero);
-            //No need to put anything here since silence action is just to make skill not ready
-            //at HeroStartTurn (after skill cooldown checks)
-            
-            logicTree.EndSequence();
+           EnableActiveSkills(targetHero);
+           
+           logicTree.EndSequence();
             yield return null;
 
         }
@@ -50,7 +48,7 @@ namespace ScriptableObjects.SkillActionsScripts
             }
         }
         
-        //For deletion
+       
         private void EnableActiveSkills(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
