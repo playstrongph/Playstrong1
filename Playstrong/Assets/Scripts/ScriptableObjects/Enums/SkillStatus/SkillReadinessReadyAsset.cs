@@ -28,7 +28,7 @@ namespace ScriptableObjects.Enums.SkillStatus
             _logicTree.AddCurrent(skillType.SetSkillReady(skillLogic));
         }
         
-        
+        //Active Skill Set Ready
         public override IEnumerator SetActiveSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
@@ -43,7 +43,7 @@ namespace ScriptableObjects.Enums.SkillStatus
             yield return null;
         }
         
-       
+        //Passive Skill Ready
         public override IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
