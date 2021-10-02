@@ -60,6 +60,8 @@ namespace ScriptableObjects.Enums.SkillType
             skill.SkillLogic.SkillAttributes.SkillStatus = skillNotReady;
             skill.SkillLogic.SkillAttributes.SkillStatus.StatusAction(skill.SkillLogic);
             
+            Debug.Log("Disable Active Skill: " +skill.SkillName);
+            
             logicTree.EndSequence();
             yield return null;
         }

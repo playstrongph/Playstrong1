@@ -193,29 +193,12 @@ namespace Logic
 
         public IEnumerator StartHeroTurn()
         {
-
-            //Debug.Log("Start Hero Turn");
-            //TODO: Check if this can be removed due to initialization
-            //_activeHeroIndex = ActiveHeroes.Count - 1;
-            //var activeHeroTimer = ActiveHeroes[_activeHeroIndex] as IHeroTimer;
-            //_activeHeroLogic = activeHeroTimer.HeroLogic;
-            //TODO: Check if this can be removed due to initialization
-
-            //TODO: Delete this after implementation of Inability Logic
-            //_logicTree.AddCurrent(PreHeroStartTurnEvent());
+            //Update Skill Cooldown - comes first in consideration of effects such as silence
+            _logicTree.AddCurrent(UpdateHeroSkillsCooldown(_activeHeroLogic));
             
-            //TODO: Delete this after implementation of Inability Logic
-            //_logicTree.AddCurrent(UpdateStatusEffectCountersStartTurn());
-            
-            //TODO: Transfer this to PreHeroStartTurn
-            //_logicTree.AddCurrent(SetHeroActive());
-
             //Start of StartHeroTurn method
             _logicTree.AddCurrent(HeroStartTurnEvent());
 
-            //Update Skill Cooldown
-            _logicTree.AddCurrent(UpdateHeroSkillsCooldown(_activeHeroLogic));
-            
             //Enable Action Phase UI
             _logicTree.AddCurrent(UpdateHeroActionPhase());
             
@@ -288,9 +271,13 @@ namespace Logic
 
         private IEnumerator EndCurrentHeroTurn()
         {
-            _logicTree.AddCurrent(SetCurrentHeroInactive());
+            //original    
+            //_logicTree.AddCurrent(SetCurrentHeroInactive());
             
             _logicTree.AddCurrent(HeroEndTurnEvent());
+            
+            //Test
+            _logicTree.AddCurrent(SetCurrentHeroInactive());
             
             _logicTree.AddCurrent(UpdateHeroActionPhase());
             

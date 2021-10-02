@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DisableActiveSkills", menuName = "SO's/SkillActions/DisableActiveSkills")]
+    [CreateAssetMenu(fileName = "DisableActiveSkills", menuName = "SO's/BasicActions/DisableActiveSkills")]
     
     public class DisableActiveSkillsBasicActionAsset : BasicActionAsset
     {
@@ -27,7 +27,9 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            EnableActiveSkills(targetHero);
+            //EnableActiveSkills(targetHero);
+            //No need to put anything here since silence action is just to make skill not ready
+            //at HeroStartTurn (after skill cooldown checks)
             
             logicTree.EndSequence();
             yield return null;
@@ -47,6 +49,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
             }
         }
+        
+        //For deletion
         private void EnableActiveSkills(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
