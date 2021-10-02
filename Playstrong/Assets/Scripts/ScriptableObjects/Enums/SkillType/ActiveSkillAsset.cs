@@ -59,6 +59,8 @@ namespace ScriptableObjects.Enums.SkillType
 
             skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
             skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
+
+            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
             
             Debug.Log("Disable Active Skill: " +skill.SkillName);
             
@@ -76,6 +78,9 @@ namespace ScriptableObjects.Enums.SkillType
                 skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
                 skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             }
+            
+            //TEST
+            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
 
             logicTree.EndSequence();
             yield return null;
