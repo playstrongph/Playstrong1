@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace Logic
 {
-    public class UpdateSkillStatus : MonoBehaviour, IUpdateSkillStatus
+    public class UpdateSkillReadiness : MonoBehaviour, IUpdateSkillReadiness
     {
         [SerializeField] [RequireInterface(typeof(ISkillReadiness))]
         private Object _skillReady;

@@ -2,7 +2,7 @@
 
 namespace Logic
 {
-    public interface IUpdateSkillStatus
+    public interface IUpdateSkillReadiness
     {
         void SetStatus(int cooldown);
 

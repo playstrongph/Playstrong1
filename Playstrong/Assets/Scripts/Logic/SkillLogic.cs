@@ -25,8 +25,8 @@ namespace Logic
         private ISkill _skill;
         public ISkill Skill => _skill;
 
-        private IUpdateSkillStatus _skillReadiness;
-        public IUpdateSkillStatus SkillReadiness => _skillReadiness;
+        private IUpdateSkillReadiness _skillReadiness;
+        public IUpdateSkillReadiness SkillReadiness => _skillReadiness;
 
         private ISkillEvents _skillEvents;
         public ISkillEvents SkillEvents => _skillEvents;
@@ -42,7 +42,7 @@ namespace Logic
         private void Awake()
         {
             _skill = GetComponentInParent<ISkill>();
-            _skillReadiness = GetComponent<IUpdateSkillStatus>();
+            _skillReadiness = GetComponent<IUpdateSkillReadiness>();
             _skillEvents = GetComponent<ISkillEvents>();
             _changeSkillCooldown = GetComponent<IChangeSkillCooldown>();
             _skillAttack = GetComponent<ISkillAttack>();
