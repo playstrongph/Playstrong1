@@ -222,6 +222,8 @@ MonoBehaviour:
   _baseCooldown: 0
   _cooldown: 0
   _skillType: {fileID: 0}
+  _skillEnabledStatus: {fileID: 11400000, guid: cc27f7e85884e7142b85789366491d58,
+    type: 2}
   _skillTarget: {fileID: 0}
   _skillReadiness: {fileID: 0}
   _skillEffect: {fileID: 0}
@@ -287,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14952b6b23d7a042aaeb353addec618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillEnabledAsset: {fileID: 11400000, guid: cc27f7e85884e7142b85789366491d58, type: 2}
+  skillDisabledAsset: {fileID: 11400000, guid: 5f7e46b6bf6b6404293406736b90b299, type: 2}
 --- !u!1 &956212358033504289
 GameObject:
   m_ObjectHideFlags: 0
