@@ -73,7 +73,7 @@ namespace ScriptableObjects.Enums.SkillType
             //skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
             
             //TEST
-            skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisablePassiveSkill(skill);
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisableSkill(skill);
             
             logicTree.EndSequence();
             yield return null;
@@ -92,7 +92,7 @@ namespace ScriptableObjects.Enums.SkillType
             skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);*/
             
             //TEST
-            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnablePassiveSkill(skill);
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
 
             logicTree.EndSequence();
             yield return null;

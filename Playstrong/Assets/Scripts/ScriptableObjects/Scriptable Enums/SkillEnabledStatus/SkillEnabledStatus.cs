@@ -1,33 +1,23 @@
-﻿using System.Collections;
-using Interfaces;
-using Logic;
-using References;
-using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
+﻿using References;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums.SkillStatus
+namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
 {
     public class SkillEnabledStatus : ScriptableObject, ISkillEnabledStatus
     {
-        public virtual void DisableActiveSkill(ISkill skill)
+        public virtual void DisableSkill(ISkill skill)
         {
             
         }
         
-        public virtual void EnableActiveSkill(ISkill skill)
+        public virtual void EnableSkill(ISkill skill)
         {
             
         }
         
-        public virtual void DisablePassiveSkill(ISkill skill)
-        {
-            
-        }
+       
         
-        public virtual void EnablePassiveSkill(ISkill skill)
-        {
-            
-        }
+        
 
       
 

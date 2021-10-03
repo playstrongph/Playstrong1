@@ -1252,16 +1252,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646982094}
     m_Modifications:
-    - target: {fileID: 560435188, guid: 56e131b938c74ed419c39d368a67580d, type: 3}
-      propertyPath: skillEnabledAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc27f7e85884e7142b85789366491d58,
-        type: 2}
-    - target: {fileID: 560435188, guid: 56e131b938c74ed419c39d368a67580d, type: 3}
-      propertyPath: skillDisabledAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 5f7e46b6bf6b6404293406736b90b299,
-        type: 2}
     - target: {fileID: 1352393578515258590, guid: 56e131b938c74ed419c39d368a67580d,
         type: 3}
       propertyPath: m_LocalPosition.x

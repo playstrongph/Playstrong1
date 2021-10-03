@@ -83,7 +83,7 @@ namespace ScriptableObjects.Enums.SkillType
             //skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
             //skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
 
-            skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisableActiveSkill(skill);
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisableSkill(skill);
             
             
             //TODO: End
@@ -105,7 +105,7 @@ namespace ScriptableObjects.Enums.SkillType
             skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
             Debug.Log("Enable Active Skill: " +skill.SkillName);*/
             
-            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableActiveSkill(skill);
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
 
             logicTree.EndSequence();
             yield return null;
