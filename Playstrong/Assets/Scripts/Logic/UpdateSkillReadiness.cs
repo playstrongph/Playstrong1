@@ -25,15 +25,6 @@ namespace Logic
         {
             _skillLogic = GetComponent<ISkillLogic>();
         }
-        
-        //TODO: Transfer to change skill cooldown
-        /*public void SetStatusBasedOnSkillCooldown(int cooldown)
-        {
-            if(cooldown<=0)
-                SetSkillReady();
-            else 
-                SetSkillNotReady();
-        }*/
 
         public void SetSkillReady()
         {

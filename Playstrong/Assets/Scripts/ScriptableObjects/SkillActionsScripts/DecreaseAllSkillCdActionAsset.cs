@@ -26,7 +26,10 @@ namespace ScriptableObjects.SkillActionsScripts
                 var skillCd = skill.SkillLogic.SkillAttributes.Cooldown;
                 var newSkillCd = skillCd - skillCdDecrease;
                 
-                skill.SkillLogic.ChangeSkillCooldown.SetCooldownValue(newSkillCd);
+                //skill.SkillLogic.ChangeSkillCooldown.SetCooldownValue(newSkillCd);
+                
+                //Test
+                logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.SetSkillCdValue(skill.SkillLogic, newSkillCd));
             }
             
             

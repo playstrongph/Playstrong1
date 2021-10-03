@@ -23,7 +23,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         public override void ResetSkillCooldown(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldownToMax());
 
         }
     }

@@ -57,7 +57,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(skillLogic.ChangeSkillCooldown.SetSkillCdValue(counter));
+            logicTree.AddCurrent(skillLogic.ChangeSkillCooldown.SetSkillCdToValue(counter));
 
             logicTree.EndSequence();
             yield return null;

@@ -27,7 +27,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldown());
+            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ResetCooldownToMax());
         }
         
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
@@ -63,7 +63,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(skillLogic.ChangeSkillCooldown.SetSkillCdValue(counter));
+            logicTree.AddCurrent(skillLogic.ChangeSkillCooldown.SetSkillCdToValue(counter));
 
             logicTree.EndSequence();
             yield return null;
