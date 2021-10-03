@@ -6,11 +6,13 @@ using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
-    public class SkillEnabledStatus : ScriptableObject
+    public class SkillEnabledStatus : ScriptableObject, ISkillEnabledStatus
     {
         //SetSkillStatusEnabled
         //SetSkillStatusDisabled
         //Virtual SetSkillReady
+        
+        
 
 
     }

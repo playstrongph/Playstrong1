@@ -44,6 +44,9 @@ namespace Logic
             set => skillType = value as Object;
         }
         
+        //TEST
+        public ISkillEnabledStatus SkillEnabledStatus { get; set; }
+
         [SerializeField] [RequireInterface(typeof(ISkillTarget))]
         private Object skillTarget;
 

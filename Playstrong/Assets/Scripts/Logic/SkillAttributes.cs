@@ -38,7 +38,18 @@ namespace Logic
             get => _skillType as ISkillType;
             set => _skillType = value as ScriptableObject;
         }
-        
+
+        [SerializeField] [RequireInterface(typeof(ISkillEnabledStatus))]
+        private ScriptableObject _skillEnabledStatus;
+
+        public ISkillEnabledStatus SkillEnabledStatus
+        {
+            get => _skillEnabledStatus as ISkillEnabledStatus;
+            set => _skillEnabledStatus = value as ScriptableObject;
+        }
+
+
+
         [SerializeField] [RequireInterface(typeof(ISkillTarget))]
         private ScriptableObject _skillTarget;
 

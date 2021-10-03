@@ -14,6 +14,8 @@ namespace Interfaces
 
         ISkillType SkillType { get; set; }
 
+        ISkillEnabledStatus SkillEnabledStatus { get; set; }
+
         ISkillTarget SkillTarget { get; set; }
 
         ISkillReadiness SkillReadiness { get; set; }
