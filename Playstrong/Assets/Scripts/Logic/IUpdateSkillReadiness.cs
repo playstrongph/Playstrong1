@@ -8,5 +8,9 @@ namespace Logic
 
         ISkillReadiness SkillReady { get; }
         ISkillReadiness SkillNotReady { get; }
+
+        void SetSkillReady();
+
+        void SetSkillNotReady();
     }
 }
