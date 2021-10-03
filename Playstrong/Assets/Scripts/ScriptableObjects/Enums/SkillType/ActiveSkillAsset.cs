@@ -35,12 +35,12 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             
-            var skillReady = skillLogic.SkillAttributes.SkillReadiness;
+            //var skillReady = skillLogic.SkillAttributes.SkillReadiness;
             
-            //TODO: Why do I have to go back to SkillReady?
+            //Transferred here 
             //logicTree.AddCurrent(skillReady.SetActiveSkillReady(skillLogic));
             
-            //TEST
+            //TEST Successful
             logicTree.AddCurrent(EnableDragSkillTarget(skillLogic));
             logicTree.AddCurrent(EnableTargetVisual(skillLogic));
             visualTree.AddCurrent(VisualEnableSkillGlow(skillLogic));
@@ -97,48 +97,9 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
-        
-        
-        //TEST
-        private IEnumerator EnableDragSkillTarget(ISkillLogic skillLogic)
-        {
-            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
-            
-            skillLogic.Skill.TargetSkill.GetSkillTargets.EnableGlows();
-            skillLogic.Skill.TargetSkill.DragSkillTarget.EnableDragSkillTarget();
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        private IEnumerator EnableTargetVisual(ISkillLogic skillLogic)
-        {
-            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
-            skillLogic.Skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        private IEnumerator VisualEnableSkillGlow(ISkillLogic skillLogic)
-        {
-            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
-            
-            var actionGlowFrame = skillLogic.Skill.SkillVisual.SkillGlow;
-            actionGlowFrame.SetActive(true);
-            
-            visualTree.EndSequence();
-            yield return null;
-        }
-        private IEnumerator HideCooldownText(ISkillLogic skillLogic)
-        {
-            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
-            var cooldownText = skillLogic.Skill.SkillVisual.CooldownText;
 
-            cooldownText.enabled = false;
-            
-            visualTree.EndSequence();
-            yield return null;
-        }
-        
+
+
 
     }
 }

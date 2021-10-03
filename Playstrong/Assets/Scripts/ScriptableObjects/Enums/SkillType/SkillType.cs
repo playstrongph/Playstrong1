@@ -94,6 +94,47 @@ namespace ScriptableObjects.Enums.SkillType
         }
         
         
+        //Skill Readiness Actions
+        protected IEnumerator EnableDragSkillTarget(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            skillLogic.Skill.TargetSkill.GetSkillTargets.EnableGlows();
+            skillLogic.Skill.TargetSkill.DragSkillTarget.EnableDragSkillTarget();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        protected IEnumerator EnableTargetVisual(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            skillLogic.Skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        protected IEnumerator VisualEnableSkillGlow(ISkillLogic skillLogic)
+        {
+            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
+            
+            var actionGlowFrame = skillLogic.Skill.SkillVisual.SkillGlow;
+            actionGlowFrame.SetActive(true);
+            
+            visualTree.EndSequence();
+            yield return null;
+        }
+        protected IEnumerator HideCooldownText(ISkillLogic skillLogic)
+        {
+            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
+            var cooldownText = skillLogic.Skill.SkillVisual.CooldownText;
+
+            cooldownText.enabled = false;
+            
+            visualTree.EndSequence();
+            yield return null;
+        }
+
+        
 
 
 

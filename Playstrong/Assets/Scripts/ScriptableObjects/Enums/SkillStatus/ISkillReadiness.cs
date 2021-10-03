@@ -13,7 +13,7 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         void ResetSkillCooldown(ISkill skill);
 
-        IEnumerator SetActiveSkillReady(ISkillLogic skillLogic);
+        //IEnumerator SetActiveSkillReady(ISkillLogic skillLogic);
 
         IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic);
     }

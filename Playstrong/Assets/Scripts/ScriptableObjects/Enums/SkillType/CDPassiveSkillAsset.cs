@@ -32,10 +32,13 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var skillReady = skillLogic.SkillAttributes.SkillReadiness;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             
-            logicTree.AddCurrent(skillReady.SetCdPassiveSkillReady(skillLogic));
+            //TODO: Transfer here from skillReadinessAsset
+            //var skillReady = skillLogic.SkillAttributes.SkillReadiness;
+            //logicTree.AddCurrent(skillReady.SetCdPassiveSkillReady(skillLogic));
             
+            visualTree.AddCurrent(HideCooldownText(skillLogic));
 
             logicTree.EndSequence();
             yield return null;
