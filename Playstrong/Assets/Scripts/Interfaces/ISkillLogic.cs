@@ -14,5 +14,7 @@ namespace Interfaces
         ISkillEvents SkillEvents { get; }
         IChangeSkillCooldown ChangeSkillCooldown { get; }
 
+        IUpdateSkillEnabledStatus UpdateSkillEnabledStatus { get; }
+
     }
 }

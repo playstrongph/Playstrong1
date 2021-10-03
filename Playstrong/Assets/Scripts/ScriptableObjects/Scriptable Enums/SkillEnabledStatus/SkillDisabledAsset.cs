@@ -1,39 +1,41 @@
-﻿using System.Collections;
-using Interfaces;
-using Logic;
-using References;
+﻿using References;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums.SkillStatus
+namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
 {
     [CreateAssetMenu(fileName = "SkillDisabled", menuName = "SO's/Scriptable Enums/SkillEnabledStatus/SkillDisabled")]
-    public class SkillDisabledAsset : SkillEnabledStatus
+    public class SkillDisabledAsset : Enums.SkillStatus.SkillEnabledStatus
     {
-        
         public override void DisableActiveSkill(ISkill skill)
         {
+            var skillDisabled = skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled;
+            skill.SkillLogic.SkillAttributes.SkillEnabledStatus = skillDisabled;
             
-        }
-        
-        public override void EnableActiveSkill(ISkill skill)
-        {
+            //Unregister Skill
+            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
             
-        }
-        
-        public override void DisablePassiveSkill(ISkill skill)
-        {
+            //Set Skill Not Ready
+            skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
             
-        }
-        
-        public override void EnablePassiveSkill(ISkill skill)
-        {
+            Debug.Log("Disable Active Skill: " +skill.SkillName);
             
         }
 
-        public override void SetSkillReadinessToReady(ISkill skill)
+        public override void DisablePassiveSkill(ISkill skill)
         {
+            var skillDisabled = skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled;
+            skill.SkillLogic.SkillAttributes.SkillEnabledStatus = skillDisabled;
             
+            //Unregister Skill
+            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            
+            //Set Skill Not Ready
+            skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
+            
+            Debug.Log("Disable Passive Skill: " +skill.SkillName);
         }
+
+        
 
 
 

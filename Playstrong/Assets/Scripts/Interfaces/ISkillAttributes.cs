@@ -3,6 +3,7 @@ using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using ScriptableObjects.SkillEffects;
 
 namespace Interfaces

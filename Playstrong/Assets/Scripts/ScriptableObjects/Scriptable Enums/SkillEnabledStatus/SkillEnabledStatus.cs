@@ -2,16 +2,13 @@
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
     public class SkillEnabledStatus : ScriptableObject, ISkillEnabledStatus
     {
-        //SetSkillStatusEnabled
-        //SetSkillStatusDisabled
-        //Virtual SetSkillReady
-
         public virtual void DisableActiveSkill(ISkill skill)
         {
             
@@ -32,10 +29,7 @@ namespace ScriptableObjects.Enums.SkillStatus
             
         }
 
-        public virtual void SetSkillReadinessToReady(ISkill skill)
-        {
-            
-        }
+      
 
 
 

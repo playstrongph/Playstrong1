@@ -66,12 +66,14 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator DisablePassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            var skillNotReady = skill.SkillLogic.UpdateSkillReadiness.SkillNotReady;
-
-            skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
-            skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             
-            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            //var skillNotReady = skill.SkillLogic.UpdateSkillReadiness.SkillNotReady;
+            //skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
+            //skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
+            //skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            
+            //TEST
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisablePassiveSkill(skill);
             
             logicTree.EndSequence();
             yield return null;
@@ -80,15 +82,17 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator EnablePassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            var skillReady = skill.SkillLogic.UpdateSkillReadiness.SkillReady;
-
+            
+            /*var skillReady = skill.SkillLogic.UpdateSkillReadiness.SkillReady;
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
             {
                 skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
                 skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             }
+            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);*/
             
-            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
+            //TEST
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnablePassiveSkill(skill);
 
             logicTree.EndSequence();
             yield return null;

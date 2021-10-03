@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using References;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
@@ -36,6 +37,9 @@ namespace Logic
 
         private ISkillAttack _skillAttack;
         public ISkillAttack SkillAttack => _skillAttack;
+
+        private IUpdateSkillEnabledStatus _updateSkillEnabledStatus;
+        public IUpdateSkillEnabledStatus UpdateSkillEnabledStatus => _updateSkillEnabledStatus;
         
         
 
@@ -46,6 +50,7 @@ namespace Logic
             _skillEvents = GetComponent<ISkillEvents>();
             _changeSkillCooldown = GetComponent<IChangeSkillCooldown>();
             _skillAttack = GetComponent<ISkillAttack>();
+            _updateSkillEnabledStatus = GetComponent<IUpdateSkillEnabledStatus>();
 
         }
     }

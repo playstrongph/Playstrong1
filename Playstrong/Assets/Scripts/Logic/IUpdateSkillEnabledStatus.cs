@@ -1,4 +1,5 @@
 ﻿using ScriptableObjects.Enums.SkillStatus;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 
 namespace Logic
 {

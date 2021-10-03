@@ -1,6 +1,7 @@
 ﻿using System;
 using Interfaces;
 using ScriptableObjects.Enums.SkillStatus;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using UnityEngine;
 
 namespace Logic
