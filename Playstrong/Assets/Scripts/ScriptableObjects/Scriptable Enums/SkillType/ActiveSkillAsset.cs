@@ -73,20 +73,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: Start
-            //TODO: Move this to UpdateSkillEnabledStatus.DisableActiveSkill Overriden by SkilLDisabledAsset
-            
-            //var skillNotReady = skill.SkillLogic.UpdateSkillReadiness.SkillNotReady;
-            //skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
-            //skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
-            //TEST
-            //skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
-            //skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
-
             skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisableSkill(skill);
-            
-            
-            //TODO: End
             
             logicTree.EndSequence();
             yield return null;
@@ -95,16 +82,7 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator EnableActiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            
-            /*var skillReady = skill.SkillLogic.UpdateSkillReadiness.SkillReady;
-            if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
-            {
-                skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
-                skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
-            }
-            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
-            Debug.Log("Enable Active Skill: " +skill.SkillName);*/
-            
+
             skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
 
             logicTree.EndSequence();

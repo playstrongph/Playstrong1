@@ -16,5 +16,7 @@ namespace Interfaces
 
         IUpdateSkillEnabledStatus UpdateSkillEnabledStatus { get; }
 
+        ISkillOtherAttributes SkillOtherAttributes { get; }
+
     }
 }

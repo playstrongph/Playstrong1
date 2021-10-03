@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 956212357985600039}
   - component: {fileID: 956212357985600032}
   - component: {fileID: 956212357985600033}
+  - component: {fileID: 3152772088103437141}
   - component: {fileID: 4851451681273819000}
   - component: {fileID: 7086960578826695801}
   - component: {fileID: 8812135533650823766}
@@ -227,6 +228,19 @@ MonoBehaviour:
   _skillTarget: {fileID: 0}
   _skillReadiness: {fileID: 0}
   _skillEffect: {fileID: 0}
+--- !u!114 &3152772088103437141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956212357985600038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c10b1b233359fe46838312d5f9e91ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  silenceFactor: 0
 --- !u!114 &4851451681273819000
 MonoBehaviour:
   m_ObjectHideFlags: 0

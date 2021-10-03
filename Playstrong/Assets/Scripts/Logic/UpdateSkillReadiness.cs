@@ -27,9 +27,7 @@ namespace Logic
         }
 
         public void SetSkillReady()
-        {      
-            //TODO: if Skill is enabled: SkillStatus.SetSkillReady
-            
+        {
             _skillLogic.SkillAttributes.SkillReadiness = SkillReady;
             _skillLogic.SkillAttributes.SkillReadiness.StatusAction(_skillLogic);
         }

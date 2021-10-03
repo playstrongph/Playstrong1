@@ -40,7 +40,9 @@ namespace Logic
 
         private IUpdateSkillEnabledStatus _updateSkillEnabledStatus;
         public IUpdateSkillEnabledStatus UpdateSkillEnabledStatus => _updateSkillEnabledStatus;
-        
+
+        private ISkillOtherAttributes _skillOtherAttributes;
+        public ISkillOtherAttributes SkillOtherAttributes => _skillOtherAttributes;
         
 
         private void Awake()
@@ -51,6 +53,7 @@ namespace Logic
             _changeSkillCooldown = GetComponent<IChangeSkillCooldown>();
             _skillAttack = GetComponent<ISkillAttack>();
             _updateSkillEnabledStatus = GetComponent<IUpdateSkillEnabledStatus>();
+            _skillOtherAttributes = GetComponent<ISkillOtherAttributes>();
 
         }
     }

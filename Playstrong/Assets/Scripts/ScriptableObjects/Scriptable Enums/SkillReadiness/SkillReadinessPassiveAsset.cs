@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using ScriptableObjects.Scriptable_Enums.SkillReadiness;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus

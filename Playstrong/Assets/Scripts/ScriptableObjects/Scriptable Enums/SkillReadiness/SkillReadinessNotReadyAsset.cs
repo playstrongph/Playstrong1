@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.Scriptable_Enums.SkillReadiness;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus

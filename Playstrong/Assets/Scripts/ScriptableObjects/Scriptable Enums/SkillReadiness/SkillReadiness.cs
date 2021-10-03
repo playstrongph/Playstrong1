@@ -2,9 +2,10 @@
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.Enums.SkillStatus;
 using UnityEngine;
 
-namespace ScriptableObjects.Enums.SkillStatus
+namespace ScriptableObjects.Scriptable_Enums.SkillReadiness
 {
     public class SkillReadiness : ScriptableObject, ISkillReadiness
     {
@@ -22,17 +23,9 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         public virtual void ResetSkillCooldown(ISkill skill)
         {
-            
-
         }
 
-        /*public virtual IEnumerator SetActiveSkillReady(ISkillLogic skillLogic)
-        {
-            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-
-            logicTree.EndSequence();
-            yield return null;
-        }*/
+        
         
         public virtual IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic)
         {

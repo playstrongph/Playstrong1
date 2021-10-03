@@ -10,21 +10,17 @@ namespace ScriptableObjects.Enums.SkillType
     {
         public virtual void SkillCooldownDisplay(TextMeshProUGUI cooldown)
         {
-            //set cooldown.enabled status
+            Debug.Log("Do Nothing Base Code for SkillCooldownDisplay");
         }
 
         public virtual void ReduceSkillCd(ISkill skill, int counter)
         {
-            //No action for Passive Skills
-            //ReduceCd for Active Skills
-            //ReduceCD for CdPassiveSkills
+            Debug.Log("Do Nothing Base Code for ReduceSkillCd");
         }
 
         public virtual void ResetSkillCd(ISkill skill)
         {
-            //No action for Passive Skills
-            //Max Cooldown for Active Skills
-            //Max Cooldown for CdPassive Skills
+            Debug.Log("Do Nothing Base Code for ResetSkillCd");
         }
         
         
@@ -33,7 +29,8 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
 
-
+            Debug.Log("Do Nothing Base Code for SetSkillReady");
+            
             logicTree.EndSequence();
             yield return null;
         }
@@ -42,6 +39,8 @@ namespace ScriptableObjects.Enums.SkillType
         public virtual IEnumerator SetSkillNotReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            Debug.Log("Do Nothing Base Code for SetSkillNotReady");
 
             logicTree.EndSequence();
             yield return null;
@@ -51,6 +50,8 @@ namespace ScriptableObjects.Enums.SkillType
         public virtual IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            Debug.Log("Do Nothing Base Code for SetSkillCdValue");
 
             logicTree.EndSequence();
             yield return null;
@@ -60,6 +61,8 @@ namespace ScriptableObjects.Enums.SkillType
         public virtual IEnumerator DisableActiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            Debug.Log("Do Nothing Base Code for DisableActiveSkill");
 
             logicTree.EndSequence();
             yield return null;
@@ -69,8 +72,8 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            //
-            
+            Debug.Log("Do Nothing Base Code for EnableActiveSkill");
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -78,6 +81,8 @@ namespace ScriptableObjects.Enums.SkillType
         public virtual IEnumerator DisablePassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            Debug.Log("Do Nothing Base Code for DisablePassiveSkill");
 
             logicTree.EndSequence();
             yield return null;
@@ -87,8 +92,8 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            //
-            
+            Debug.Log("Do Nothing Base Code for EnablePassiveSkill");
+
             logicTree.EndSequence();
             yield return null;
         }
