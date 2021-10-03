@@ -17,6 +17,8 @@ namespace ScriptableObjects.Enums.SkillType
         
         IEnumerator SetSkillReady(ISkillLogic skillLogic);
 
+        IEnumerator SetSkillNotReady(ISkillLogic skillLogic);
+
         IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter);
 
         IEnumerator DisableActiveSkill(ISkill skill);

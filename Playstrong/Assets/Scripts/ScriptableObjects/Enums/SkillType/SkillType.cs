@@ -33,9 +33,20 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
 
+
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //For CD Passive and Active skills
+        public virtual IEnumerator SetSkillNotReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+
 
         public virtual IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
         {

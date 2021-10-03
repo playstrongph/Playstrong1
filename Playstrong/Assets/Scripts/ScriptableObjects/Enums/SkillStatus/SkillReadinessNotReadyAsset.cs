@@ -27,16 +27,14 @@ namespace ScriptableObjects.Enums.SkillStatus
             
             _logicTree.AddCurrent(SetSkillNotReady());
         }
-
+        
+        //TODO: Transfer this to skillType.SkillReadinessNotReady
         private IEnumerator SetSkillNotReady()
         {
             _logicTree.AddCurrent(DisableDragSkillTarget());
             _logicTree.AddCurrent(DisableTargetVisual());
             _visualTree.AddCurrent(VisualDisableSkillGlow());
-            
-            //TODO:
-            
-            
+
             //TEST
             _visualTree.AddCurrent(ShowCooldownText());
 

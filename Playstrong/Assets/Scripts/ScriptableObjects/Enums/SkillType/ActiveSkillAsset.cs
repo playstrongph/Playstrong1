@@ -33,10 +33,18 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
             var skillReady = skillLogic.SkillAttributes.SkillReadiness;
             
-            logicTree.AddCurrent(skillReady.SetActiveSkillReady(skillLogic));
+            //TODO: Why do I have to go back to SkillReady?
+            //logicTree.AddCurrent(skillReady.SetActiveSkillReady(skillLogic));
             
+            //TEST
+            logicTree.AddCurrent(EnableDragSkillTarget(skillLogic));
+            logicTree.AddCurrent(EnableTargetVisual(skillLogic));
+            visualTree.AddCurrent(VisualEnableSkillGlow(skillLogic));
+            visualTree.AddCurrent(HideCooldownText(skillLogic));
 
             logicTree.EndSequence();
             yield return null;
@@ -60,6 +68,7 @@ namespace ScriptableObjects.Enums.SkillType
             skill.SkillLogic.SkillAttributes.SkillReadiness = skillNotReady;
             skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
 
+            //TEST
             skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
             
             Debug.Log("Disable Active Skill: " +skill.SkillName);
@@ -86,6 +95,47 @@ namespace ScriptableObjects.Enums.SkillType
             Debug.Log("Enable Active Skill: " +skill.SkillName);
 
             logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        //TEST
+        private IEnumerator EnableDragSkillTarget(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            skillLogic.Skill.TargetSkill.GetSkillTargets.EnableGlows();
+            skillLogic.Skill.TargetSkill.DragSkillTarget.EnableDragSkillTarget();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator EnableTargetVisual(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            skillLogic.Skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator VisualEnableSkillGlow(ISkillLogic skillLogic)
+        {
+            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
+            
+            var actionGlowFrame = skillLogic.Skill.SkillVisual.SkillGlow;
+            actionGlowFrame.SetActive(true);
+            
+            visualTree.EndSequence();
+            yield return null;
+        }
+        private IEnumerator HideCooldownText(ISkillLogic skillLogic)
+        {
+            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
+            var cooldownText = skillLogic.Skill.SkillVisual.CooldownText;
+
+            cooldownText.enabled = false;
+            
+            visualTree.EndSequence();
             yield return null;
         }
         
