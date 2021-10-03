@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
-    [CreateAssetMenu(fileName = "SkillStatusReady", menuName = "SO's/Scriptable Enums/Skill Status/Skill Status Ready")]
+    [CreateAssetMenu(fileName = "SkillReady", menuName = "SO's/Scriptable Enums/SkillReadiness/SkillReady")]
     public class SkillReadinessReadyAsset : SkillReadiness
     {
 

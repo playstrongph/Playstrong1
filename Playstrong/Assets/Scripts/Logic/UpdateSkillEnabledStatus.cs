@@ -23,7 +23,7 @@ namespace Logic
 
         public void SetSkillDisabledStatus()
         {
-            _s
+            
         }
         
         public void SetSkillEnabledStatus()

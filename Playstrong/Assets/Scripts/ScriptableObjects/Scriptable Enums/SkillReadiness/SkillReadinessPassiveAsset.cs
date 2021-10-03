@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
-    [CreateAssetMenu(fileName = "SkillStatusPassive", menuName = "SO's/Scriptable Enums/Skill Status/Skill Status Passive")]
+    [CreateAssetMenu(fileName = "SkillReadyPassive", menuName = "SO's/Scriptable Enums/SkillReadiness/SkillReadyPassive")]
     public class SkillReadinessPassiveAsset : SkillReadiness
     {
         

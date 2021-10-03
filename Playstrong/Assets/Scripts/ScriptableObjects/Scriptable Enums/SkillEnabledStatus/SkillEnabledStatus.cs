@@ -11,8 +11,32 @@ namespace ScriptableObjects.Enums.SkillStatus
         //SetSkillStatusEnabled
         //SetSkillStatusDisabled
         //Virtual SetSkillReady
+
+        public virtual void DisableActiveSkill(ISkill skill)
+        {
+            
+        }
         
+        public virtual void EnableActiveSkill(ISkill skill)
+        {
+            
+        }
         
+        public virtual void DisablePassiveSkill(ISkill skill)
+        {
+            
+        }
+        
+        public virtual void EnablePassiveSkill(ISkill skill)
+        {
+            
+        }
+
+        public virtual void SetSkillReadinessToReady(ISkill skill)
+        {
+            
+        }
+
 
 
     }
