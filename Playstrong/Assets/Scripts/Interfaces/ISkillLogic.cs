@@ -10,7 +10,7 @@ namespace Interfaces
         ISkillAttributes SkillAttributes { get; }
         ILoadSkillAttributes LoadSkillAttributes { get; }
         ISkill Skill { get; }
-        IUpdateSkillReadiness SkillReadiness { get; }
+        IUpdateSkillReadiness UpdateSkillReadiness { get; }
         ISkillEvents SkillEvents { get; }
         IChangeSkillCooldown ChangeSkillCooldown { get; }
 

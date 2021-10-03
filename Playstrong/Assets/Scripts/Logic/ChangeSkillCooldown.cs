@@ -39,7 +39,11 @@ namespace Logic
 
             skillAttributes.Cooldown = skillCd;
             
-            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
+            //TODO: Localize this
+            //_skillLogic.UpdateSkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
+            
+            //TEST
+            UpdateSkillReadinessStatus(_skillLogic);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
@@ -64,9 +68,13 @@ namespace Logic
 
             skillCd += counter;
             skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
-
             skillAttributes.Cooldown = skillCd;
-            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
+            
+            //TODO: Localize
+            //_skillLogic.UpdateSkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
+            
+            //TEST
+            UpdateSkillReadinessStatus(_skillLogic);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
@@ -100,11 +108,12 @@ namespace Logic
             var skillCd = counter;
             
             skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
-            
-           
-
             skillAttributes.Cooldown = skillCd;
-            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
+            
+            //TODO: Localize
+            //_skillLogic.UpdateSkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
+            //TEST
+            UpdateSkillReadinessStatus(_skillLogic);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
@@ -124,9 +133,13 @@ namespace Logic
         {
             var skillAttributes = _skillLogic.SkillAttributes;
             var maxSkillCd = skillAttributes.BaseCooldown;
-
             skillAttributes.Cooldown = maxSkillCd;  
-            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(maxSkillCd);
+            
+            //TODO: Localize
+            //_skillLogic.UpdateSkillReadiness.SetStatusBasedOnSkillCooldown(maxSkillCd);
+            
+            //TEST
+            UpdateSkillReadinessStatus(_skillLogic);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(maxSkillCd));
@@ -146,9 +159,13 @@ namespace Logic
         {
             var skillAttributes = _skillLogic.SkillAttributes;
             var maxSkillCd = skillAttributes.BaseCooldown;
-
             skillAttributes.Cooldown = 0;  
-            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(0);
+            
+            //TODO: Localize
+            //_skillLogic.UpdateSkillReadiness.SetStatusBasedOnSkillCooldown(0);
+            
+            //TEST
+            UpdateSkillReadinessStatus(_skillLogic);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(0));
@@ -165,6 +182,16 @@ namespace Logic
              visualTree.EndSequence();
              yield return null;
             
+        }
+
+        private void UpdateSkillReadinessStatus(ISkillLogic skillLogic)
+        {
+            var skillCooldown = skillLogic.SkillAttributes.Cooldown;
+            
+            if(skillCooldown<=0)
+                skillLogic.UpdateSkillReadiness.SetSkillReady();
+            else
+                skillLogic.UpdateSkillReadiness.SetSkillNotReady();
         }
 
        
