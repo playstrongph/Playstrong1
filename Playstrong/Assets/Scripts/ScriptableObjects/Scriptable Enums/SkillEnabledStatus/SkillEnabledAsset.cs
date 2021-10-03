@@ -22,12 +22,12 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             
             //Check for other similar silence effects
             //if (skill.SkillLogic.SkillOtherAttributes.SilenceFactor <= 0)
-                logicTree.AddCurrent(EnableAction(skill));
+               EnableAction(skill);
         }
 
-        private IEnumerator EnableAction(ISkill skill)
+        private void EnableAction(ISkill skill)
         {
-            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            //var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             //Debug.Log(""+skill.SkillName +" Silence Factor: " +skill.SkillLogic.SkillOtherAttributes.SilenceFactor);
             
@@ -51,8 +51,8 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
                 Debug.Log("Skill Enabled");
             }
             
-            logicTree.EndSequence();
-            yield return null;
+            //logicTree.EndSequence();
+            //yield return null;
         }
     }
 }
