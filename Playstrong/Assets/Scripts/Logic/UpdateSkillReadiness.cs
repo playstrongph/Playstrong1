@@ -25,28 +25,24 @@ namespace Logic
         {
             _skillLogic = GetComponent<ISkillLogic>();
         }
+        
+        //TODO: Remove this here since it's not only cooldown determines skill readiness and its
+        //corresponding status actions
         public void SetStatusBasedOnSkillCooldown(int cooldown)
         {
             if(cooldown<=0)
                 SetSkillReady();
             else 
                 SetSkillNotReady();
-            
-            //SkillStatusAction();
         }
 
-        /*private void SkillStatusAction()
-        {
-            _skillLogic.SkillAttributes.SkillReadiness.StatusAction(_skillLogic);
-        }*/
-
-        private void SetSkillReady()
+        public void SetSkillReady()
         {
             _skillLogic.SkillAttributes.SkillReadiness = SkillReady;
             _skillLogic.SkillAttributes.SkillReadiness.StatusAction(_skillLogic);
         }
 
-        private void SetSkillNotReady()
+        public void SetSkillNotReady()
         {
             _skillLogic.SkillAttributes.SkillReadiness = SkillNotReady;
             _skillLogic.SkillAttributes.SkillReadiness.StatusAction(_skillLogic);
