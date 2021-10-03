@@ -4,7 +4,7 @@ namespace Logic
 {
     public interface IUpdateSkillReadiness
     {
-        void SetStatus(int cooldown);
+        void SetStatusBasedOnSkillCooldown(int cooldown);
 
         ISkillReadiness SkillReady { get; }
         ISkillReadiness SkillNotReady { get; }

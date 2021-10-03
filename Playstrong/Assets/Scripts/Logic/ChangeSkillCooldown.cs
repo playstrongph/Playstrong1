@@ -39,7 +39,7 @@ namespace Logic
 
             skillAttributes.Cooldown = skillCd;
             
-            _skillLogic.SkillReadiness.SetStatus(skillCd);
+            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
@@ -66,7 +66,7 @@ namespace Logic
             skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
 
             skillAttributes.Cooldown = skillCd;
-            _skillLogic.SkillReadiness.SetStatus(skillCd);
+            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
@@ -104,7 +104,7 @@ namespace Logic
            
 
             skillAttributes.Cooldown = skillCd;
-            _skillLogic.SkillReadiness.SetStatus(skillCd);
+            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(skillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(skillCd));
@@ -126,7 +126,7 @@ namespace Logic
             var maxSkillCd = skillAttributes.BaseCooldown;
 
             skillAttributes.Cooldown = maxSkillCd;  
-            _skillLogic.SkillReadiness.SetStatus(maxSkillCd);
+            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(maxSkillCd);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(maxSkillCd));
@@ -148,7 +148,7 @@ namespace Logic
             var maxSkillCd = skillAttributes.BaseCooldown;
 
             skillAttributes.Cooldown = 0;  
-            _skillLogic.SkillReadiness.SetStatus(0);
+            _skillLogic.SkillReadiness.SetStatusBasedOnSkillCooldown(0);
 
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             visualTree.AddCurrent(VisualReduceCdAction(0));

@@ -222,7 +222,7 @@ MonoBehaviour:
   _cooldown: 0
   _skillType: {fileID: 0}
   _skillTarget: {fileID: 0}
-  _skillStatus: {fileID: 0}
+  _skillReadiness: {fileID: 0}
   _skillEffect: {fileID: 0}
 --- !u!114 &4851451681273819000
 MonoBehaviour:
@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f9117ee22fba741be70cdd111fff58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillReady: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
-  _skillNotReady: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
+  skillReady: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
+  skillNotReady: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
 --- !u!114 &482154171846974238
 MonoBehaviour:
   m_ObjectHideFlags: 0
