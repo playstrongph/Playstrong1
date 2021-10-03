@@ -34,15 +34,24 @@ namespace ScriptableObjects.Enums.SkillType
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
             
-            //TODO: Transfer here from skillReadinessAsset
-            //var skillReady = skillLogic.SkillAttributes.SkillReadiness;
-            //logicTree.AddCurrent(skillReady.SetCdPassiveSkillReady(skillLogic));
-            
             visualTree.AddCurrent(HideCooldownText(skillLogic));
 
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public override IEnumerator SetSkillNotReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
+            visualTree.AddCurrent(ShowCooldownText(skillLogic));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
         
         public override IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
         {

@@ -94,7 +94,7 @@ namespace ScriptableObjects.Enums.SkillType
         }
         
         
-        //Skill Readiness Actions
+        //Skill Ready Actions
         protected IEnumerator EnableDragSkillTarget(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
@@ -133,7 +133,49 @@ namespace ScriptableObjects.Enums.SkillType
             visualTree.EndSequence();
             yield return null;
         }
+        
+        //Skill Not Ready Actions
+        protected IEnumerator DisableDragSkillTarget(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            skillLogic.Skill.TargetSkill.GetSkillTargets.DisableGlows();
+            skillLogic.Skill.TargetSkill.DragSkillTarget.DisableDragSkillTarget();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        protected IEnumerator DisableTargetVisual(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            skillLogic.Skill.TargetSkill.SkillPreview.TargetVisual.TargetCanvas.gameObject.SetActive(false);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        protected IEnumerator VisualDisableSkillGlow(ISkillLogic skillLogic)
+        {
+            var actionGlowFrame = skillLogic.Skill.SkillVisual.SkillGlow;
+            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
+            
+            actionGlowFrame.SetActive(false);
+            
+            visualTree.EndSequence();
+            yield return null;
+        }
+        protected IEnumerator ShowCooldownText(ISkillLogic skillLogic)
+        {
+            var cooldownText = skillLogic.Skill.SkillVisual.CooldownText;
+            var visualTree = skillLogic.Skill.Hero.CoroutineTreesAsset.MainVisualTree;
 
+            //Display value when skill is in cooldown
+            if(skillLogic.SkillAttributes.Cooldown > 0)
+                cooldownText.enabled = true;
+
+            visualTree.EndSequence();
+            yield return null;
+        }
         
 
 

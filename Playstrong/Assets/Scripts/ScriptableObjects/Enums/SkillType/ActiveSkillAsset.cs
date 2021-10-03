@@ -34,13 +34,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-            
-            //var skillReady = skillLogic.SkillAttributes.SkillReadiness;
-            
-            //Transferred here 
-            //logicTree.AddCurrent(skillReady.SetActiveSkillReady(skillLogic));
-            
-            //TEST Successful
+
             logicTree.AddCurrent(EnableDragSkillTarget(skillLogic));
             logicTree.AddCurrent(EnableTargetVisual(skillLogic));
             visualTree.AddCurrent(VisualEnableSkillGlow(skillLogic));
@@ -49,7 +43,22 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
-        
+
+        public override IEnumerator SetSkillNotReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
+            logicTree.AddCurrent(DisableDragSkillTarget(skillLogic));
+            logicTree.AddCurrent(DisableTargetVisual(skillLogic));
+            visualTree.AddCurrent(VisualDisableSkillGlow(skillLogic));
+            visualTree.AddCurrent(ShowCooldownText(skillLogic));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
         public override IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;

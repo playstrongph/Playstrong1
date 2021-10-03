@@ -20,7 +20,6 @@ namespace ScriptableObjects.Enums.SkillStatus
             logicTree.AddCurrent(skillType.SetSkillReady(skillLogic));
         }
 
-
         public override void ResetSkillCooldown(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
