@@ -135,14 +135,6 @@ namespace Logic
             
             var floatFinalDamage = (1-dealSingleAttackDamageReduction)*(1 - dealAllDamageReduction) *(1-dealSkillDamageReduction)* (nonCriticalDamage);
 
-            var test = (1 - dealSingleAttackDamageReduction) * (1 - dealAllDamageReduction) *
-                       (1 - dealSkillDamageReduction);
-            
-            Debug.Log("DealSkillDamageReduction: " +_thisHeroLogic.OtherAttributes.DealSkillDamageReduction);
-            Debug.Log("Hero: " +_thisHeroLogic.Hero.HeroName);
-            
-           
-
             var finalDamage = Mathf.CeilToInt(floatFinalDamage);
 
             return finalDamage;

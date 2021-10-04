@@ -2,6 +2,6 @@
 {
     public interface ISkillOtherAttributes
     {
-        int SilenceFactor { get; set; }
+        int DisableSkillEffects { get; set; }
     }
 }
