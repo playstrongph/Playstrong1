@@ -41,7 +41,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             var debuffs = thisHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-            
+
             foreach (var debuff in debuffs)
             {
                 if (debuff.StatusEffectAsset.Name == SpecificDebuff.Name)
