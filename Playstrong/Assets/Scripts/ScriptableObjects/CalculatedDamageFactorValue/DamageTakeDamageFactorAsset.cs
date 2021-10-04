@@ -11,6 +11,19 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class DamageTakeDamageFactorAsset : CalculatedFactorValueAsset
     {
         private int _damageMultiple;
+        
+        //Accessed by DealDamage Basic Action 
+        public override void SetCalculatedValue(IHero hero)
+        {
+            _damageMultiple = GetDamageFactor(hero);
+        }
+        
+        public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
+        {
+            _damageMultiple = GetDamageFactor(thisHero,targetHero);
+        }
+
+
         public override int GetDamageFactor(IHero hero)
         {
             //var target = ActionTargets.GetHeroTarget(hero);
@@ -29,20 +42,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
             
             damageFactor = Mathf.CeilToInt(damageFactor * percentFactor / 100f);
             return damageFactor;
-        }      
-        
-        
-        //Accessed by DealDamage Basic Action 
-        public override void SetCalculatedValue(IHero hero)
-        {
-            _damageMultiple = GetDamageFactor(hero);
         }
-        
-        public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
-        {
-            _damageMultiple = GetDamageFactor(thisHero,targetHero);
-        }
-        
+
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
         public override float GetCalculatedValue()
         {

@@ -10,10 +10,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     {
         [SerializeField] private int curseDamage = 0;
         [SerializeField] private float percentFactor = 10f;
-
         private IHero _hero;
         private ITurnController _turnController;
-
         private IHero _heroAttackedThisTurn;
       
 
@@ -24,8 +22,9 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
 
             foreach (var hero in thisHero.AllAllyHeroes)
             {
-                _turnController.TurnControllerEvents.EEndCombatTurn += DealCurseDamage;
+                //_turnController.TurnControllerEvents.EEndCombatTurn += DealCurseDamage;
                 hero.HeroLogic.HeroEvents.EPostAttack += ComputeCurseDamage;
+                hero.HeroLogic.HeroEvents.EPostAttack += DealCurseDamage;
             }
         }
         
@@ -36,8 +35,9 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             
             foreach (var hero in thisHero.AllAllyHeroes)
             {
-                _turnController.TurnControllerEvents.EEndCombatTurn -= DealCurseDamage;
+                //_turnController.TurnControllerEvents.EEndCombatTurn -= DealCurseDamage;
                 hero.HeroLogic.HeroEvents.EPostAttack -= ComputeCurseDamage;
+                hero.HeroLogic.HeroEvents.EPostAttack -= DealCurseDamage;
             }
 
         }
@@ -55,6 +55,18 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             Debug.Log("Compute CurseDamage: " +curseDamage);
 
         }
+        
+        private void DealCurseDamage(IHero allyHero, IHero dummyHero)
+        {
+            var logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
+            
+            if (curseDamage > 0)
+                logicTree.AddCurrent(SkillActionAsset.StartAction( _hero,curseDamage));
+
+            //Reset curse damage at the end of the combat turn
+            curseDamage = 0;
+        }
+
 
         private void DealCurseDamage()
         {
@@ -66,7 +78,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             //Reset curse damage at the end of the combat turn
             curseDamage = 0;
         }
-
+        
+       
 
 
 

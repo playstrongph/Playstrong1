@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: b193ba1a90e092a42bdf7551f2198180, type: 3}
+  m_Name: DealNonSkillDamage
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: f81725bc6e2aa51489a77b43aae1405e, type: 2}
-  _debuffCounters: 3
+  calculatedValue: {fileID: 11400000, guid: ccd8e7d335f9961408931cda71b1a665, type: 2}
+  ignoreArmorChance: 0

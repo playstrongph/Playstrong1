@@ -29,6 +29,18 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
 
         }
+        
+        public override IEnumerator TargetAction(IHero targetHero,IHero dummyHero)
+        {
+           
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.AddCurrent(DealNonSkillDamage(targetHero));
+
+            logicTree.EndSequence();
+            yield return null;
+
+        }
 
         private IEnumerator DealNonSkillDamage(IHero targetHero)
         {

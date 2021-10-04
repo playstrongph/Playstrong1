@@ -21,6 +21,9 @@ MonoBehaviour:
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _skillactionAsset: {fileID: 11400000, guid: bef9c118bef60d040bcf16abb376d469, type: 2}
+  _standardAction: {fileID: 0}
+  _standardActions: []
+  maxSkillCounters: 1
   _effectValue: 0
   curseDamage: 0
   percentFactor: 10
