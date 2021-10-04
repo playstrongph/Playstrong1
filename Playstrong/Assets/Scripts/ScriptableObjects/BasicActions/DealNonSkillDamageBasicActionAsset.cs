@@ -30,9 +30,10 @@ namespace ScriptableObjects.SkillActionsScripts
 
         }
         
-        public override IEnumerator TargetAction(IHero targetHero,IHero dummyHero)
+        public override IEnumerator TargetAction(IHero thisHero,IHero targetHero)
         {
-           
+            Debug.Log("TargetHero: " +targetHero.HeroName);
+            Debug.Log("Deal NonSkill Damage to: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.AddCurrent(DealNonSkillDamage(targetHero));

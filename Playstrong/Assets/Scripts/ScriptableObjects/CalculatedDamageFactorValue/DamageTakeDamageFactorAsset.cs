@@ -31,6 +31,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
             var damageFactor = hero.HeroLogic.TakeDamage.FinalDamage;
             damageFactor = Mathf.CeilToInt(damageFactor * percentFactor / 100f);
             
+            Debug.Log("Hero Damage Basis: " +hero +" Damage: " +damageFactor);
+            
             return damageFactor;
         }
         
@@ -41,6 +43,9 @@ namespace ScriptableObjects.DamageAttributeMultiple
             var damageFactor = targetHero.HeroLogic.TakeDamage.FinalDamage;
             
             damageFactor = Mathf.CeilToInt(damageFactor * percentFactor / 100f);
+            
+            Debug.Log("TargetHero Damage Basis: " +targetHero +" Damage: " +damageFactor);
+            
             return damageFactor;
         }
 
