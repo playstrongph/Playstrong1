@@ -63,7 +63,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.BeforeSkillAttacking(thisHero, targetHero);
-            targetHero.HeroLogic.HeroEvents.PreSkillAttack(targetHero,thisHero);
+            targetHero.HeroLogic.HeroEvents.PreSkillAttack(thisHero,targetHero);
             
             logicTree.EndSequence();
             yield return null;
@@ -74,7 +74,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.BeforeAttacking(thisHero, targetHero);
-            targetHero.HeroLogic.HeroEvents.PreAttack(targetHero,thisHero);
+            targetHero.HeroLogic.HeroEvents.PreAttack(thisHero,targetHero);
             
             logicTree.EndSequence();
             yield return null;
@@ -85,7 +85,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.AfterSkillAttacking(thisHero, targetHero);
-            targetHero.HeroLogic.HeroEvents.PostSkillAttack(targetHero,thisHero);
+            targetHero.HeroLogic.HeroEvents.PostSkillAttack(thisHero,targetHero);
             
             logicTree.EndSequence();
             yield return null;
@@ -96,7 +96,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.AfterAttacking(thisHero, targetHero);
-            targetHero.HeroLogic.HeroEvents.PostAttack(targetHero,thisHero);
+            targetHero.HeroLogic.HeroEvents.PostAttack(thisHero,targetHero);
             
             logicTree.EndSequence();
             yield return null;
