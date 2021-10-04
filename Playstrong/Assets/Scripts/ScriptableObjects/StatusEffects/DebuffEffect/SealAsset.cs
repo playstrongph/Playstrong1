@@ -9,32 +9,17 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     public class SealAsset : StatusEffectAsset
     {
 
-        [SerializeField] private ScriptableObject _enablePassiveSkillsAction;
-        private IHeroAction EnablePassiveSkillsAction => _enablePassiveSkillsAction as IHeroAction;
-        
-        
-        public override void ApplyStatusEffect(IHero targetHero)
+        public override void ApplyStatusEffect(IHero hero)
         {
-            targetHero.HeroLogic.HeroEvents.EHeroStartTurn += ApplySealEffect;
+            base.ApplyStatusEffect(hero);
         }
         
-        public override void UnapplyStatusEffect(IHero targetHero)
+        public override void UnapplyStatusEffect(IHero hero)
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            var dummyValue = 0f;
-            
-            targetHero.HeroLogic.HeroEvents.EHeroStartTurn -= ApplySealEffect;
-            
-            logicTree.AddCurrent(EnablePassiveSkillsAction.StartAction(targetHero, dummyValue));
+           base.UnapplyStatusEffect(hero);
         }
 
-        private void ApplySealEffect(IHero targetHero)
-        {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            var dummyValue = 0f;
-            
-            logicTree.AddCurrent(SkillActionAsset.StartAction(targetHero,dummyValue));
-        }
+     
        
 
 
