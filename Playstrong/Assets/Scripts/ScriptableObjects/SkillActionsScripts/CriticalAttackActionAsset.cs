@@ -46,7 +46,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.BeforeCriticalStrike(thisHero, targetHero);
-            targetHero.HeroLogic.HeroEvents.PreCriticalStrike(targetHero, thisHero);
+            targetHero.HeroLogic.HeroEvents.PreCriticalStrike(thisHero, targetHero);
             
             logicTree.EndSequence();
             yield return null;
@@ -57,7 +57,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             thisHero.HeroLogic.HeroEvents.AfterCriticalStrike(thisHero, targetHero);
-            targetHero.HeroLogic.HeroEvents.PostCriticalStrike(targetHero, thisHero);
+            targetHero.HeroLogic.HeroEvents.PostCriticalStrike(thisHero, targetHero);
             
             logicTree.EndSequence();
             yield return null;

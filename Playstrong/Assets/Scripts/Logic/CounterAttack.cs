@@ -19,21 +19,24 @@ namespace Logic
 
         private void Start()
         {
+            //thisHero is the attacker, targetHero is the counterattacker
             _heroLogic.HeroEvents.EPostAttack += StartCounterAttack;
         }
         
          private void StartCounterAttack(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(CounterAttackCoroutine(thisHero,targetHero));
+            
+            //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
+            logicTree.AddCurrent(CounterAttackCoroutine(targetHero,thisHero));
            
         }
-        private IEnumerator CounterAttackCoroutine(IHero thisHero, IHero targetHero)
+        private IEnumerator CounterAttackCoroutine(IHero counterAttacker, IHero originalAttacker)
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
             
-            var counterAttackChance = thisHero.HeroLogic.OtherAttributes.CounterAttackChance;
-            var counterAttackResistance = targetHero.HeroLogic.OtherAttributes.CounterAttackResistance;
+            var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance;
+            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance;
             
             var netCounterAttackChance = counterAttackChance - counterAttackResistance;
             netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 0f, 100f);
@@ -41,33 +44,33 @@ namespace Logic
 
             if (randomNumber <= netCounterAttackChance)
             {
-                logicTree.AddCurrent(BeforeCounterAttackEvents(thisHero,targetHero));
-                logicTree.AddCurrent(_basicAttack.StartAttack(thisHero,targetHero));    
-                logicTree.AddCurrent(AfterCounterAttackEvents(thisHero,targetHero));
+                logicTree.AddCurrent(BeforeCounterAttackEvents(counterAttacker,originalAttacker));
+                logicTree.AddCurrent(_basicAttack.StartAttack(counterAttacker,originalAttacker));    
+                logicTree.AddCurrent(AfterCounterAttackEvents(counterAttacker,originalAttacker));
             }
 
             logicTree.EndSequence();
             yield return null;
         }
         
-        private IEnumerator BeforeCounterAttackEvents(IHero thisHero, IHero targetHero)
+        private IEnumerator BeforeCounterAttackEvents(IHero counterAttacker, IHero originalAttacker)
         {
             
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
             
-            thisHero.HeroLogic.HeroEvents.BeforeCounterAttack(thisHero,targetHero);
-            targetHero.HeroLogic.HeroEvents.PreCounterAttack(targetHero,thisHero);
+            counterAttacker.HeroLogic.HeroEvents.BeforeCounterAttack(counterAttacker,originalAttacker);
+            originalAttacker.HeroLogic.HeroEvents.PreCounterAttack(counterAttacker,originalAttacker);
             
             logicTree.EndSequence();
             yield return null;
         }
         
-        private IEnumerator AfterCounterAttackEvents(IHero thisHero, IHero targetHero)
+        private IEnumerator AfterCounterAttackEvents(IHero counterAttacker, IHero originalAttacker)
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
             
-            thisHero.HeroLogic.HeroEvents.AfterCounterAttack(thisHero,targetHero);
-            targetHero.HeroLogic.HeroEvents.PostCounterAttack(targetHero,thisHero);
+            counterAttacker.HeroLogic.HeroEvents.AfterCounterAttack(counterAttacker,originalAttacker);
+            originalAttacker.HeroLogic.HeroEvents.PostCounterAttack(counterAttacker,originalAttacker);
             
             logicTree.EndSequence();
             yield return null;
