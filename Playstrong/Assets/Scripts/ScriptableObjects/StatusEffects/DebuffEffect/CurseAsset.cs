@@ -15,6 +15,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         private ITurnController _turnController;
 
         private IHero _heroAttackedThisTurn;
+      
 
         public override void ApplyStatusEffect(IHero thisHero)
         {
@@ -60,7 +61,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             var logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
             
             if (curseDamage > 0)
-                logicTree.AddCurrent(SkillActionAsset.StartAction( _heroAttackedThisTurn,curseDamage));
+                logicTree.AddCurrent(SkillActionAsset.StartAction( _hero,curseDamage));
 
             //Reset curse damage at the end of the combat turn
             curseDamage = 0;
