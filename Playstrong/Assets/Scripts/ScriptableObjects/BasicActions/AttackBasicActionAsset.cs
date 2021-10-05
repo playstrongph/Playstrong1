@@ -93,7 +93,7 @@ namespace ScriptableObjects.BasicActions
         
         //TEST
         var nonCriticalAttackDamage =
-            Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue());
+            Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue() +flatAdditionalDamage);
         var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
         
         //TODO: To be used after DealDamage change
@@ -143,7 +143,7 @@ namespace ScriptableObjects.BasicActions
         
         //TEST
         var nonCriticalAttackDamage =
-            Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue());
+            Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue() +flatAdditionalDamage);
         var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
 
         //TODO: To be used after DealDamage change
