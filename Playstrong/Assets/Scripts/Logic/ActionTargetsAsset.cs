@@ -6,6 +6,9 @@ namespace Logic
 {
     public class ActionTargetsAsset : ScriptableObject, IActionTargets
     {
+
+        public IHero CustomHeroTarget { get; set; }
+
         //From SINGLE to Multiple target requirements - used in StandardActions
         public virtual List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {

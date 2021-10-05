@@ -10,10 +10,15 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     [CreateAssetMenu(fileName = "CurseTest", menuName = "SO's/Status Effects/Debuffs/CurseTest")]
     public class CurseAssetTest : StatusEffectAsset
     {
-        
+        [Header("Basic Action Target")] [SerializeField]
+        private ScriptableObject basicActionTargetHero;
+        private IActionTargets BasicActionTargetHero=> basicActionTargetHero as IActionTargets;
         
         public override void ApplyStatusEffect(IHero hero)
         {
+            //TEST
+            BasicActionTargetHero.CustomHeroTarget = hero;
+            
             foreach (var allyHero in hero.AllAllyHeroes)
             {
                 //TODO: Test only, transfer this to a basic action

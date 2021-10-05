@@ -15,9 +15,9 @@ namespace ScriptableObjects.StandardActions
         [SerializeField] private ScriptableObject standardEvent;
         private IStandardEvent StandardEvent => standardEvent as IStandardEvent;
 
-        [Header("Action Targets")]
+        [Header("Basic Action Targets")]
         [SerializeField] private ScriptableObject actionTargets;
-        private IActionTargets ActionTargets => actionTargets as IActionTargets;
+        private IActionTargets BasicActionTargets => actionTargets as IActionTargets;
 
         [Header("OR Conditions")]
         [SerializeField] private List<ScriptableObject> orBasicConditions;
@@ -123,7 +123,7 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Standard Action StartAction 1 Hero and 1 float arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
                 {
@@ -137,7 +137,7 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Standard Action StartAction 1 Hero arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
                 {
@@ -150,7 +150,7 @@ namespace ScriptableObjects.StandardActions
         {   
             //Debug.Log("Standard Action StartAction 2 Heroes arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
                 //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
                 if (FinalConditionValue(thisHero, targetHero) > 0)
@@ -168,7 +168,7 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Standard Action Start Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
                 {
@@ -181,7 +181,7 @@ namespace ScriptableObjects.StandardActions
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
                 {
@@ -193,7 +193,7 @@ namespace ScriptableObjects.StandardActions
         public void UndoStartAction(IHero thisHero, IHero targetHero)
         {   
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
                 //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
                 if (FinalConditionValue(thisHero, targetHero) > 0)
@@ -213,7 +213,7 @@ namespace ScriptableObjects.StandardActions
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
                 {
@@ -227,7 +227,7 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Standard Action Start Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
                 {
@@ -239,7 +239,7 @@ namespace ScriptableObjects.StandardActions
         public void StartActionOnEvent(IHero thisHero, IHero targetHero)
         {   
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            foreach (var newTargetHero in ActionTargets.GetHeroTargets(thisHero,targetHero))
+            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
                 //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
                 if (FinalConditionValue(thisHero, targetHero) > 0)

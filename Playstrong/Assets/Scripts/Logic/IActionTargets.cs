@@ -9,5 +9,7 @@ namespace Logic
         List<IHero> GetHeroTargets(IHero targetHero);
         IHero GetHeroTarget(IHero thisHero, IHero targetHero);
         IHero GetHeroTarget(IHero hero);
+        
+        IHero CustomHeroTarget { get; set; }
     }
 }
