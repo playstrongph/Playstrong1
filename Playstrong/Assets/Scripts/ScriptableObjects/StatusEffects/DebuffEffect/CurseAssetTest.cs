@@ -17,6 +17,9 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         {
             foreach (var allyHero in hero.AllAllyHeroes)
             {
+                //TODO: Test only, transfer this to a basic action
+                //DamageFactor.SetHeroBasis(allyHero);
+                
                 base.ApplyStatusEffect(allyHero);   
             }
             //base.ApplyStatusEffect(hero);   

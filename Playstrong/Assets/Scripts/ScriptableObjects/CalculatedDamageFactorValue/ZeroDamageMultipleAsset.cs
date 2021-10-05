@@ -11,7 +11,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class ZeroDamageMultipleAsset : CalculatedFactorValueAsset
     {
         private int _damageMultiple;
-        public override int DamageFactorBasis(IHero hero)
+        /*public override int DamageFactorBasis(IHero hero)
         {
             var damageMultiple = 0;
             
@@ -38,7 +38,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
             _damageMultiple = DamageFactorBasis(thisHero,targetHero);
-        }
+        }*/
         
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
         public override float GetCalculatedValue()

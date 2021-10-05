@@ -14,8 +14,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            //this is wrong - value does not update with attack update!
-            DamageFactor.SetCalculatedValue(CasterHero);
+            //TODO: Test Only.  Transfer this into a BasicAction
+            DamageFactor.SetHeroBasis(CasterHero);
             
             base.ApplyStatusEffect(hero);
         }

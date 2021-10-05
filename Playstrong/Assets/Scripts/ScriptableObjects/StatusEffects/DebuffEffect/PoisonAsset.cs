@@ -13,7 +13,9 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            DamageFactor.SetCalculatedValue(hero);
+            //TODO: Test Only.  Transfer this into a BasicAction
+            DamageFactor.SetHeroBasis(hero);
+            
             base.ApplyStatusEffect(hero);
         }
         

@@ -12,7 +12,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
     {
         private int _damageFactor;
 
-        public override void SetCalculatedValue()
+        /*public override void SetCalculatedValue()
         {
            
             _damageFactor = DamageFactorBasis();
@@ -48,22 +48,9 @@ namespace ScriptableObjects.DamageAttributeMultiple
             Debug.Log("TargetHero Damage Basis: " +targetHero +" Damage: " +damageFactor);
             
             return damageFactor;
-        }
+        }*/
 
-        //TEST
-        public override float GetCalculatedValue()
-        {
-            var damageFactor = 0;
-            
-            //Damage Taken Factor
-            if (OtherHeroBasis != null)
-                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.TakeDamage.FinalDamage * percentFactor / 100f);
-
-            return damageFactor;
-        }
-        
-       
-        public override float GetCalculatedValue(IHero hero)
+        /*public override float GetCalculatedValue(IHero hero)
         {
             //if successful change this to return a float
             SetCalculatedValue(hero);
@@ -75,9 +62,20 @@ namespace ScriptableObjects.DamageAttributeMultiple
             //if successful change this to return a float
             SetCalculatedValue(thisHero,targetHero);
             return _damageFactor;
+        }*/
+        
+        public override float GetCalculatedValue()
+        {
+            var damageFactor = 0;
+            
+            //Damage Taken Factor
+            if (OtherHeroBasis != null)
+                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.TakeDamage.FinalDamage * percentFactor / 100f);
+            
+            Debug.Log("Hero Basis: " +OtherHeroBasis.HeroName +" Damage Factor: " +damageFactor );
+
+            return damageFactor;
         }
-        
-        
        
     }
 }

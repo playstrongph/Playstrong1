@@ -8,7 +8,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
     [CreateAssetMenu(fileName = "AttackFactor", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/AttackFactor")]
     public class AttackDamageFactorAsset : CalculatedFactorValueAsset
     {
-        private int _factor;
+        /*private int _factor;
         public override int DamageFactorBasis(IHero hero)
         {
             //var target = ActionTargets.GetHeroTarget(hero);
@@ -38,10 +38,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
             _factor = DamageFactorBasis(thisHero,targetHero);
-        }
-        
-        
-              
+        }*/
 
         public override float GetCalculatedValue()
         {
