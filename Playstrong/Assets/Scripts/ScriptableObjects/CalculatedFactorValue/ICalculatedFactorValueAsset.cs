@@ -1,19 +1,17 @@
 ﻿using Interfaces;
-using References;
 
-namespace ScriptableObjects.DamageAttributeMultiple
+namespace ScriptableObjects.CalculatedFactorValue
 {
     public interface ICalculatedFactorValueAsset
     {
+        int DamageFactorBasis();
         int DamageFactorBasis(IHero hero);
-
         int DamageFactorBasis(IHero thisHero, IHero targetHero);
 
-        void SetCalculatedValue(IHero hero);
-
-        void SetCalculatedValue(IHero thisHero, IHero targetHero);
-
         void SetCalculatedValue();
+        void SetCalculatedValue(IHero hero);
+        void SetCalculatedValue(IHero thisHero, IHero targetHero);
+        
 
         float GetCalculatedValue();
         float GetCalculatedValue(IHero hero);
@@ -21,6 +19,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
 
 
         IHero OtherHeroBasis { get; set; }
+
+        IHero SetHeroBasis(IHero hero);
 
 
 

@@ -1,7 +1,8 @@
 ﻿ using System.Collections;
 using Interfaces;
 using Logic;
-using ScriptableObjects.DamageAttributeMultiple;
+ using ScriptableObjects.CalculatedFactorValue;
+ using ScriptableObjects.DamageAttributeMultiple;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using UnityEngine;
 
@@ -49,7 +50,10 @@ namespace ScriptableObjects.SkillActionsScripts
             //This determines the basis for damage calculation in terms of damage multiples
             //which can be - heath, attack, damage taken, etc.
             //it also determines the basis hero - targetHero or thisHero 
-            CalculatedDamageValue.SetCalculatedValue(targetHero);
+            //CalculatedDamageValue.SetCalculatedValue(targetHero);
+            
+            //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
+            //CalculatedDamageValue.OtherHeroBasis = targetHero;
             
             var damageValue = ComputeTotalDamage();
 
@@ -66,7 +70,10 @@ namespace ScriptableObjects.SkillActionsScripts
             //This determines the basis for damage calculation in terms of damage multiples
             //which can be - heath, attack, damage taken, etc.
             //it also determines the basis hero - targetHero or thisHero 
-            CalculatedDamageValue.SetCalculatedValue(thisHero,targetHero);
+            //CalculatedDamageValue.SetCalculatedValue(thisHero,targetHero);
+            
+            //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
+            //CalculatedDamageValue.OtherHeroBasis = targetHero;
             
             var damageValue = ComputeTotalDamage();
 
@@ -79,10 +86,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private int ComputeTotalDamage()
         {
-            
             var calculatedValue = Mathf.CeilToInt(CalculatedDamageValue.GetCalculatedValue());
             var totalDamage = flatDamageValue + calculatedValue;
-            
             return totalDamage;
         }
 

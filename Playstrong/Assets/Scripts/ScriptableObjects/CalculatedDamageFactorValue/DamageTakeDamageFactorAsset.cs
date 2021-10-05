@@ -14,8 +14,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
 
         public override void SetCalculatedValue()
         {
-            var hero = SetHeroBasis(OtherHeroBasis);
-            _damageFactor = DamageFactorBasis(hero);
+           
+            _damageFactor = DamageFactorBasis();
         }
         
         public override void SetCalculatedValue(IHero hero)
@@ -26,7 +26,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
         
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
-            targetHero = SetTargetHeroBasis(thisHero, targetHero);
+            //targetHero = SetTargetHeroBasis(thisHero, targetHero);
             _damageFactor = DamageFactorBasis(thisHero,targetHero);
         }
 
@@ -48,7 +48,6 @@ namespace ScriptableObjects.DamageAttributeMultiple
             //var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             
             var damageFactor = targetHero.HeroLogic.TakeDamage.FinalDamage;
-            
             damageFactor = Mathf.CeilToInt(damageFactor * percentFactor / 100f);
             
             Debug.Log("TargetHero Damage Basis: " +targetHero +" Damage: " +damageFactor);
@@ -56,14 +55,17 @@ namespace ScriptableObjects.DamageAttributeMultiple
             return damageFactor;
         }
 
-        //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
-        //This is the method used for other hero bases which is not the targetHero
-        public override float GetCalculatedValue()
-        {
-            return _damageFactor;
-        }
         
         //TEST
+        public override float GetCalculatedValue()
+        {
+            var damageFactor = OtherHeroBasis.HeroLogic.TakeDamage.FinalDamage;
+            damageFactor = Mathf.CeilToInt(damageFactor * percentFactor / 100f);
+
+            return damageFactor;
+        }
+        
+       
         public override float GetCalculatedValue(IHero hero)
         {
             //if successful change this to return a float

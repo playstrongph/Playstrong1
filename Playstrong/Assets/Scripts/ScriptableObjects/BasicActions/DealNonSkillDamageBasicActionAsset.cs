@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using ScriptableObjects.CalculatedFactorValue;
 using ScriptableObjects.DamageAttributeMultiple;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class DealNonSkillDamageBasicActionAsset : BasicActionAsset
     {
+        [SerializeField] private int flatDamageValue;
+        
         [SerializeField]
         private ScriptableObject calculatedValue;
         private ICalculatedFactorValueAsset CalculatedValue => calculatedValue as ICalculatedFactorValueAsset;
@@ -48,9 +51,8 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
-            //CalculatedValue.SetCalculatedValue(targetHero);
-
-            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue(targetHero));
+            //CalculatedValue.OtherHeroBasis = targetHero;
+            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue() +flatDamageValue);
 
             logicTree.AddCurrent(targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance));
 
@@ -63,9 +65,8 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
-            //CalculatedValue.SetCalculatedValue(targetHero);
-
-            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue(thisHero,targetHero));
+            //CalculatedValue.OtherHeroBasis = targetHero;
+            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue()+flatDamageValue);
 
             logicTree.AddCurrent(targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance));
 

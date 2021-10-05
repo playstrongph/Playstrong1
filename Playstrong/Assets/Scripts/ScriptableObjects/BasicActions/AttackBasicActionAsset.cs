@@ -2,6 +2,7 @@
 using Interfaces;
 using Logic;
 using ScriptableObjects.AnimationSOscripts;
+using ScriptableObjects.CalculatedFactorValue;
 using ScriptableObjects.DamageAttributeMultiple;
 using ScriptableObjects.Enums.SkillStatus;
 using UnityEngine;

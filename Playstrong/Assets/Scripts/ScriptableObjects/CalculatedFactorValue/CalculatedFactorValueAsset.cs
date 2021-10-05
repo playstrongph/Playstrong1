@@ -1,6 +1,7 @@
 ﻿using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.CalculatedFactorValue;
 using UnityEngine;
 
 namespace ScriptableObjects.DamageAttributeMultiple
@@ -15,88 +16,68 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class CalculatedFactorValueAsset : ScriptableObject, ICalculatedFactorValueAsset
     {
         
-        /*[SerializeField] private ScriptableObject actionTargets;
-        protected IActionTargets ActionTargets => actionTargets as IActionTargets;
-        */
+       [SerializeField] protected int percentFactor = 100;
 
-        [SerializeField] protected int percentFactor = 100;
+       public IHero OtherHeroBasis { get; set; }
+       
+       private IHero _heroBasis;
 
-
-        public IHero OtherHeroBasis { get; set; }
-
-
-        private IHero _heroBasis;
-        
-        
+        public virtual int DamageFactorBasis()
+        {
+            var damageMultiple = 0;
+            return damageMultiple;
+        }
         public virtual int DamageFactorBasis(IHero hero)
         {
             var damageMultiple = 0;
             return damageMultiple;
         }
-        
         public virtual int DamageFactorBasis(IHero thisHero, IHero targetHero)
         {
             var damageMultiple = 0;
             return damageMultiple;
         }
         
+        public virtual void SetCalculatedValue()
+        {
+           
+        }
+        public virtual void SetCalculatedValue(IHero hero)
+        {
+           
+        }
         public virtual void SetCalculatedValue(IHero thisHero, IHero targetHero)
         {
 
         }
         
-        public virtual void SetCalculatedValue(IHero hero)
-        {
-           
-        }
-        
-        public virtual void SetCalculatedValue()
-        {
-           
-        }
-        
-        
-        //Use this if heroBasis is not the targetHero
+        //Returns the damage factor
         public virtual float GetCalculatedValue()
         {
             var calculatedValue = 0;
             return calculatedValue;
         }
-        
-        //Use this if the heroBasis is the hero
         public virtual float GetCalculatedValue(IHero hero)
         {
             var calculatedValue = 0;
             return calculatedValue;
         }
-        
-        //Use this if the heroBasis is the targetHero
         public virtual float GetCalculatedValue(IHero thisHero, IHero targetHero)
         {
             var calculatedValue = 0;
             return calculatedValue;
         }
 
+      
         
-        //sets hero as the heroBasis
-        protected IHero SetHeroBasis(IHero hero)
+        public IHero SetHeroBasis(IHero hero)
         {
             _heroBasis = hero;
             return _heroBasis;
         }
         
-        //sets targetHero as the heroBasis
-        protected IHero SetTargetHeroBasis(IHero thisHero, IHero targetHero)
-        {
-            _heroBasis = targetHero;
-            return _heroBasis;
-        }
         
-        protected IHero SetThisHeroBasis(IHero thisHero, IHero targetHero)
-        {
-            _heroBasis = thisHero;
-            return _heroBasis;
-        }
+       
 
        
 

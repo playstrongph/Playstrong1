@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
 using Logic;
+using ScriptableObjects.CalculatedFactorValue;
 using ScriptableObjects.DamageAttributeMultiple;
 using UnityEngine;
 
