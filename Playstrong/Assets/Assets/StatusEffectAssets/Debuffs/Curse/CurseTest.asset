@@ -26,3 +26,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a15da0351e041e3429be9d991882dde2, type: 2}
   maxSkillCounters: 1
   _effectValue: 0
+  damageFactor: {fileID: 11400000, guid: ccd8e7d335f9961408931cda71b1a665, type: 2}

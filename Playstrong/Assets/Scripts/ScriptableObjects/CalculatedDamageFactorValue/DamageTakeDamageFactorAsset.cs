@@ -15,16 +15,17 @@ namespace ScriptableObjects.DamageAttributeMultiple
         //Accessed by DealDamage Basic Action 
         public override void SetCalculatedValue(IHero hero)
         {
-            _damageMultiple = GetDamageFactor(hero);
+            _damageMultiple = DamageFactorBasis(hero);
         }
         
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
-            _damageMultiple = GetDamageFactor(thisHero,targetHero);
+            targetHero = SetTargetHeroBasis(thisHero, targetHero);
+            _damageMultiple = DamageFactorBasis(thisHero,targetHero);
         }
 
 
-        public override int GetDamageFactor(IHero hero)
+        public override int DamageFactorBasis(IHero hero)
         {
             //var target = ActionTargets.GetHeroTarget(hero);
             
@@ -36,7 +37,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
             return damageFactor;
         }
         
-        public override int GetDamageFactor(IHero thisHero, IHero targetHero)
+        public override int DamageFactorBasis(IHero thisHero, IHero targetHero)
         {
             //var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             
@@ -54,6 +55,23 @@ namespace ScriptableObjects.DamageAttributeMultiple
         {
             return _damageMultiple;
         }
+        
+        //TEST
+        public override float GetCalculatedValue(IHero hero)
+        {
+            //if successful change this to return a float
+            SetCalculatedValue(hero);
+            return _damageMultiple;
+        }
+        
+        public override float GetCalculatedValue(IHero thisHero,IHero targetHero)
+        {
+            //if successful change this to return a float
+            SetCalculatedValue(thisHero,targetHero);
+            return _damageMultiple;
+        }
+        
+        
        
     }
 }

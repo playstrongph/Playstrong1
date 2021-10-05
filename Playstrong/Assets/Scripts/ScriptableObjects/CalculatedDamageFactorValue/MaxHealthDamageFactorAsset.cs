@@ -9,7 +9,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
     public class MaxHealthDamageFactorAsset : CalculatedFactorValueAsset
     {
         private int _factor;
-        public override int GetDamageFactor(IHero hero)
+        public override int DamageFactorBasis(IHero hero)
         {
             //var target = ActionTargets.GetHeroTarget(hero);
             
@@ -19,7 +19,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
             return maxHealthFactor;
         }
         
-        public override int GetDamageFactor(IHero thisHero, IHero targetHero)
+        public override int DamageFactorBasis(IHero thisHero, IHero targetHero)
         {
             //var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             
@@ -32,12 +32,12 @@ namespace ScriptableObjects.DamageAttributeMultiple
         //Accessed by DealDamage Basic Action 
         public override void SetCalculatedValue(IHero hero)
         {
-            _factor = GetDamageFactor(hero);
+            _factor = DamageFactorBasis(hero);
         }
         
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
-            _factor = GetDamageFactor(thisHero,targetHero);
+            _factor = DamageFactorBasis(thisHero,targetHero);
         }
         
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface

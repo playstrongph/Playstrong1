@@ -20,14 +20,16 @@ namespace ScriptableObjects.DamageAttributeMultiple
         */
 
         [SerializeField] protected int percentFactor = 100;
+
+        private IHero _heroBasis;
         
-        public virtual int GetDamageFactor(IHero hero)
+        public virtual int DamageFactorBasis(IHero hero)
         {
             var damageMultiple = 0;
             return damageMultiple;
         }
         
-        public virtual int GetDamageFactor(IHero thisHero, IHero targetHero)
+        public virtual int DamageFactorBasis(IHero thisHero, IHero targetHero)
         {
             var damageMultiple = 0;
             return damageMultiple;
@@ -48,7 +50,40 @@ namespace ScriptableObjects.DamageAttributeMultiple
             var calculatedValue = 0;
             return calculatedValue;
         }
+        
+        public virtual float GetCalculatedValue(IHero hero)
+        {
+            var calculatedValue = 0;
+            return calculatedValue;
+        }
+        
+        public virtual float GetCalculatedValue(IHero thisHero, IHero targetHero)
+        {
+            var calculatedValue = 0;
+            return calculatedValue;
+        }
 
+        
+        //TEST
+        protected IHero SetHeroBasis(IHero hero)
+        {
+            _heroBasis = hero;
+            return _heroBasis;
+        }
+        
+        protected IHero SetTargetHeroBasis(IHero thisHero, IHero targetHero)
+        {
+            _heroBasis = targetHero;
+            return _heroBasis;
+        }
+        
+        protected IHero SetThisHeroBasis(IHero thisHero, IHero targetHero)
+        {
+            _heroBasis = thisHero;
+            return _heroBasis;
+        }
+
+       
 
     }
 }

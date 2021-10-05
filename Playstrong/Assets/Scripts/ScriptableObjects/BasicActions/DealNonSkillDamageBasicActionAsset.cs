@@ -36,7 +36,7 @@ namespace ScriptableObjects.SkillActionsScripts
             Debug.Log("Deal NonSkill Damage to: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(DealNonSkillDamage(targetHero));
+            logicTree.AddCurrent(DealNonSkillDamage(thisHero,targetHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -50,7 +50,22 @@ namespace ScriptableObjects.SkillActionsScripts
             //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
             //CalculatedValue.SetCalculatedValue(targetHero);
 
-            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue());
+            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue(targetHero));
+
+            logicTree.AddCurrent(targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator DealNonSkillDamage(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //TODO: Remove this here - transfer it to the skill/status effect asset so that the value is customizable
+            //CalculatedValue.SetCalculatedValue(targetHero);
+
+            var nonSkillDamage = Mathf.CeilToInt(CalculatedValue.GetCalculatedValue(thisHero,targetHero));
 
             logicTree.AddCurrent(targetHero.HeroLogic.DealDamageTest.DealNonSkillDamage(targetHero, nonSkillDamage,ignoreArmorChance));
 

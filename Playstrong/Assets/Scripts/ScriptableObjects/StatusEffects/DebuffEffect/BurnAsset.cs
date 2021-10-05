@@ -13,7 +13,9 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         
         public override void ApplyStatusEffect(IHero hero)
         {
+            //this is wrong - value does not update with attack update!
             DamageFactor.SetCalculatedValue(CasterHero);
+            
             base.ApplyStatusEffect(hero);
         }
         
