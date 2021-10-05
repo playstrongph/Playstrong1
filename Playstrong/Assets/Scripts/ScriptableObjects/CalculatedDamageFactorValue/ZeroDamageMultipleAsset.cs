@@ -43,7 +43,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
         public override float GetCalculatedValue()
         {
-            return _damageMultiple;
+            var damageFactor = 0;
+            return damageFactor;
         }
        
     }

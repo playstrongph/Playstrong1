@@ -22,9 +22,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
         public override int DamageFactorBasis(IHero thisHero, IHero targetHero)
         {
             //var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
-            
-            var baseHealth = targetHero.HeroLogic.HeroAttributes.BaseHealth;
-            var maxHealthFactor = Mathf.CeilToInt(baseHealth * percentFactor / 100f);
+
+            var maxHealthFactor = Mathf.CeilToInt(targetHero.HeroLogic.HeroAttributes.BaseHealth * percentFactor / 100f);
             return maxHealthFactor;
         }      
         
@@ -40,10 +39,16 @@ namespace ScriptableObjects.DamageAttributeMultiple
             _factor = DamageFactorBasis(thisHero,targetHero);
         }
         
-        //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
+        
         public override float GetCalculatedValue()
         {
-            return _factor;
+            var damageFactor = 0;
+            
+            //Damage Taken Factor
+            if (OtherHeroBasis != null)
+                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.HeroAttributes.BaseHealth * percentFactor / 100f);
+
+            return damageFactor;
         }
        
     }

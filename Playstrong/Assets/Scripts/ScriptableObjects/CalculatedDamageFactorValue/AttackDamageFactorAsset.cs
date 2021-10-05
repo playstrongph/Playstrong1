@@ -19,17 +19,15 @@ namespace ScriptableObjects.DamageAttributeMultiple
             
             return attackFactor;
         }
-        
         public override int DamageFactorBasis(IHero thisHero, IHero targetHero)
         {
             //var target = ActionTargets.GetHeroTarget(thisHero,targetHero);
             
-            var currentAttack = targetHero.HeroLogic.HeroAttributes.Attack;
-            
-            var attackFactor = Mathf.CeilToInt(currentAttack * percentFactor / 100f);
+           
+            var attackFactor = Mathf.CeilToInt(targetHero.HeroLogic.HeroAttributes.Attack * percentFactor / 100f);
             
             return attackFactor;
-        }      
+        }    
         
         
         //Accessed by DealDamage Basic Action 
@@ -37,16 +35,23 @@ namespace ScriptableObjects.DamageAttributeMultiple
         {
             _factor = DamageFactorBasis(hero);
         }
-        
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
             _factor = DamageFactorBasis(thisHero,targetHero);
         }
         
-        //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
+        
+              
+
         public override float GetCalculatedValue()
         {
-            return _factor;
+            var damageFactor = 0;
+            
+            //Damage Taken Factor
+            if (OtherHeroBasis != null)
+                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.HeroAttributes.Attack * percentFactor / 100f);
+
+            return damageFactor;
         }
        
     }
