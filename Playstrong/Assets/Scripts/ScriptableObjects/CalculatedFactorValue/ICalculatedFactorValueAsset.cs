@@ -13,9 +13,14 @@ namespace ScriptableObjects.DamageAttributeMultiple
 
         void SetCalculatedValue(IHero thisHero, IHero targetHero);
 
+        void SetCalculatedValue();
+
         float GetCalculatedValue();
         float GetCalculatedValue(IHero hero);
         float GetCalculatedValue(IHero thisHero, IHero targetHero);
+
+
+        IHero OtherHeroBasis { get; set; }
 
 
 

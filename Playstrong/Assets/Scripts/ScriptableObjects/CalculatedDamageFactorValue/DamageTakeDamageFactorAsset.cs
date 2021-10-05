@@ -10,18 +10,24 @@ namespace ScriptableObjects.DamageAttributeMultiple
     [CreateAssetMenu(fileName = "FinalDamageTaken", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/FinalDamageTaken")]
     public class DamageTakeDamageFactorAsset : CalculatedFactorValueAsset
     {
-        private int _damageMultiple;
+        private int _damageFactor;
+
+        public override void SetCalculatedValue()
+        {
+            var hero = SetHeroBasis(OtherHeroBasis);
+            _damageFactor = DamageFactorBasis(hero);
+        }
         
-        //Accessed by DealDamage Basic Action 
         public override void SetCalculatedValue(IHero hero)
         {
-            _damageMultiple = DamageFactorBasis(hero);
+            hero = SetHeroBasis(hero);
+            _damageFactor = DamageFactorBasis(hero);
         }
         
         public override void SetCalculatedValue(IHero thisHero,IHero targetHero)
         {
             targetHero = SetTargetHeroBasis(thisHero, targetHero);
-            _damageMultiple = DamageFactorBasis(thisHero,targetHero);
+            _damageFactor = DamageFactorBasis(thisHero,targetHero);
         }
 
 
@@ -51,9 +57,10 @@ namespace ScriptableObjects.DamageAttributeMultiple
         }
 
         //Note: Accessed by DealDamageBasicAction via ICalculatedValueAsset interface
+        //This is the method used for other hero bases which is not the targetHero
         public override float GetCalculatedValue()
         {
-            return _damageMultiple;
+            return _damageFactor;
         }
         
         //TEST
@@ -61,14 +68,14 @@ namespace ScriptableObjects.DamageAttributeMultiple
         {
             //if successful change this to return a float
             SetCalculatedValue(hero);
-            return _damageMultiple;
+            return _damageFactor;
         }
         
         public override float GetCalculatedValue(IHero thisHero,IHero targetHero)
         {
             //if successful change this to return a float
             SetCalculatedValue(thisHero,targetHero);
-            return _damageMultiple;
+            return _damageFactor;
         }
         
         
