@@ -10,8 +10,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     [CreateAssetMenu(fileName = "CurseTest", menuName = "SO's/Status Effects/Debuffs/CurseTest")]
     public class CurseAssetTest : StatusEffectAsset
     {
-        [SerializeField] private ScriptableObject damageFactor;
-        private ICalculatedFactorValueAsset DamageFactor  => damageFactor as ICalculatedFactorValueAsset;
+        
         
         public override void ApplyStatusEffect(IHero hero)
         {

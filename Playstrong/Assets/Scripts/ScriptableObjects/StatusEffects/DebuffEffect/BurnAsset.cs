@@ -9,6 +9,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     public class BurnAsset : StatusEffectAsset
     {
         
+        [Header("Set Damage Factor Hero Basis")]
         [SerializeField] private ScriptableObject damageFactor;
         private ICalculatedFactorValueAsset DamageFactor  => damageFactor as ICalculatedFactorValueAsset;
         
