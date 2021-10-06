@@ -16,6 +16,7 @@ namespace ScriptableObjects.StandardActions
         private IStandardEvent StandardEvent => standardEvent as IStandardEvent;
 
         [Header("Basic Action Targets")]
+        //TODO: This needs to be changed to component level
         [SerializeField] private ScriptableObject actionTargets;
         private IActionTargets BasicActionTargets => actionTargets as IActionTargets;
 
@@ -123,6 +124,7 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Standard Action StartAction 1 Hero and 1 float arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            //TODO: this needs to be an argument
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
