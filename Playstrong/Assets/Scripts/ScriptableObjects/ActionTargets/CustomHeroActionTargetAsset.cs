@@ -9,6 +9,8 @@ namespace ScriptableObjects.ActionTargets
     [CreateAssetMenu(fileName = "CustomTargetHero", menuName = "SO's/ActionTargets/CustomTargetHero")]
     public class CustomHeroActionTargetAsset : ActionTargetsAsset
     {
+        
+        //TODO: At awake, create a unique instance
         public override List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
             var heroTargets = new List<IHero>();
