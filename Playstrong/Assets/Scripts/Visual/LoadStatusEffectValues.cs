@@ -1,5 +1,6 @@
 ﻿using System;
 using Logic;
+using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects;
 using UnityEngine;
 
@@ -30,6 +31,9 @@ namespace Visual
             
             //Re-assign reference
             _heroStatusEffect.CasterHero = statusEffectAsset.CasterHero;
+            
+            //TEST
+            LoadStatusEffectComponentValues();
 
         }
 
@@ -45,7 +49,26 @@ namespace Visual
             return statusEffectClone;
         }
         
-      
+        //TEST
+        private void LoadStatusEffectComponentValues()
+        {
+            var statusEffectComponent = _heroStatusEffect.StatusEffectComponent;
+            
+            //Clone of status effect Asset
+            statusEffectComponent.StatusEffectAsset = _heroStatusEffect.StatusEffectAsset;
+
+            //var statusEffectAsset = statusEffectComponent.StatusEffectAsset;
+
+            foreach (var standardAction in _heroStatusEffect.StatusEffectAsset.StandardActions)
+            {
+                var standardActionCloneObject = Instantiate(standardAction as ScriptableObject);
+                var standardActionClone = standardActionCloneObject as IStandardActionAsset;
+                statusEffectComponent.StandardActionAssets.Add(standardActionClone);
+            }
+
+        }
+
+
 
 
     }

@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections.Generic;
+using Interfaces;
 using Logic;
 using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects.Instance;
@@ -45,6 +46,9 @@ namespace ScriptableObjects.StatusEffects
         IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
         void RemoveStatusEffectOnDeath(IHero hero);
+        
+        //TEST
+        List<IStandardActionAsset> StandardActions { get; }
 
 
 

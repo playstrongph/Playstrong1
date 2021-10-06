@@ -51,7 +51,7 @@ namespace ScriptableObjects.StatusEffects
 
         [SerializeField] private List<ScriptableObject> _standardActions;
 
-        private List<IStandardActionAsset> StandardActions
+        public List<IStandardActionAsset> StandardActions
         {
             get
             {
