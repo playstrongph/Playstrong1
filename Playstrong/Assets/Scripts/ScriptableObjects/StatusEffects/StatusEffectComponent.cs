@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using Logic;
@@ -13,7 +14,7 @@ using Utilities;
 
 namespace ScriptableObjects.StatusEffects
 {
-    public class StatusEffectComponent : MonoBehaviour
+    public class StatusEffectComponent : MonoBehaviour, IStatusEffectComponent
     {
         [SerializeField] private ScriptableObject statusEffectAsset;
 
@@ -57,7 +58,11 @@ namespace ScriptableObjects.StatusEffects
             }
         }
 
+        private IHeroStatusEffect _heroStatusEffect;
 
-
+        private void Awake()
+        {
+            _heroStatusEffect = GetComponent<IHeroStatusEffect>();
+        }
     }
 }
