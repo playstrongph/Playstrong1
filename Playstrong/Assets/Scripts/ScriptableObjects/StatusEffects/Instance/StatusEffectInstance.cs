@@ -41,20 +41,10 @@ namespace ScriptableObjects.StatusEffects.Instance
             //This is where statusEffect effects Gets applied
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
             heroStatusEffect.StatusEffectAsset.CasterHero = casterHero;
-            
-            
-            
-            
-            //STATUS EFFECT PREVIEW
-            var statusEffectPreviewPrefab = targetHero.HeroStatusEffects.StatusEffectPreviewPrefab;
-            var statusEffectPreviewPanel = targetHero.HeroPreviewVisual.StatusCanvasPanel.transform;
-            var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab);
-            var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();
-            heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
-            //Delayed change parent due to inactive Parent gameObject
-            heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
-            heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
 
+            //STATUS EFFECT PREVIEW
+            CreateStatusEffectPreview(targetHero, statusEffectAsset, heroStatusEffect);
+            
             return heroStatusEffect;
         }
         
@@ -216,11 +206,21 @@ namespace ScriptableObjects.StatusEffects.Instance
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             existingStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
         }
-        
-        
-        
-        
-        
+
+        private void CreateStatusEffectPreview(IHero targetHero, IStatusEffectAsset statusEffectAsset, IHeroStatusEffect heroStatusEffect)
+        {
+            var statusEffectPreviewPrefab = targetHero.HeroStatusEffects.StatusEffectPreviewPrefab;
+            var statusEffectPreviewPanel = targetHero.HeroPreviewVisual.StatusCanvasPanel.transform;
+            var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab);
+            var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();
+            heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
+            //Delayed change parent due to inactive Parent gameObject
+            heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
+            heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
+        }
+
+
+
 
 
 
