@@ -19,10 +19,8 @@ namespace Visual
         {
             //_heroStatusEffect.StatusEffectAsset = statusEffect;
             _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffectAsset);
-            _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
             _heroStatusEffect.StatusEffectCounterUpdate = statusEffectAsset.UpdateTiming;
-            
             _heroStatusEffect.StatusEffectInstance = statusEffectAsset.StatusEffectInstance;
             _heroStatusEffect.Name = statusEffectAsset.Name;
             _heroStatusEffect.Counters = counters;
@@ -31,6 +29,8 @@ namespace Visual
             
             //Re-assign reference
             _heroStatusEffect.StatusEffectCasterHero = statusEffectAsset.CasterHero;
+            
+            _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             
             //TEST
             LoadStatusEffectComponentValues();

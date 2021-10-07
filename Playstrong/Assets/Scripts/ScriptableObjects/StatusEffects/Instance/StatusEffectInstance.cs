@@ -20,53 +20,45 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = targetHero.HeroStatusEffects.StatusEffectsPanel.Transform;
-            
             var statusEffectObject = Instantiate(statusEffectPrefab, statusEffectPanel);
-            statusEffectObject.transform.SetParent(statusEffectPanel);
-            
-            //Return this
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
             
+            statusEffectObject.transform.SetParent(statusEffectPanel);
+            
             //This should come before LoadStatusEffectValues due to cloning of SO
-            statusEffectAsset.CasterHero = casterHero;
+            statusEffectAsset.CasterHero = casterHero;             //Using this is wrong!
             heroStatusEffect.StatusEffectCasterHero = casterHero;
 
+            //Loads Values of HeroStatusEffectAsset to HeroStatusEffect Component
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
-
+            heroStatusEffect.StatusEffectCasterHero = casterHero;
+            heroStatusEffect.StatusEffectTargetHero = targetHero;
+            heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             
+
+            //TODO: This may need changing
             //This is where statusEffect Gets applied
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
-
-            heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            heroStatusEffect.StatusEffectTargetHero = targetHero;
-
             statusEffectAsset.CasterHero = casterHero;
-            heroStatusEffect.StatusEffectCasterHero = casterHero;
             
-
+            
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
             
-            //Status Effect Preview
+            //STATUS EFFECT PREVIEW
             var statusEffectPreviewPrefab = targetHero.HeroStatusEffects.StatusEffectPreviewPrefab;
             var statusEffectPreviewPanel = targetHero.HeroPreviewVisual.StatusCanvasPanel.transform;
-
             var heroStatusEffectPreviewObject = Instantiate(statusEffectPreviewPrefab);
             var heroStatusEffectPreview = heroStatusEffectPreviewObject.GetComponent<IStatusEffectPreview>();
             heroStatusEffectPreview.LoadStatusEffectPreview.LoadVisualValues(statusEffectAsset);
-            
             //Delayed change parent due to inactive Parent gameObject
             heroStatusEffectPreviewObject.transform.SetParent(statusEffectPreviewPanel);
-           
-            
-            //TEMP. TODO: Transfer this to LoadValues
             heroStatusEffect.StatusEffectPreview = heroStatusEffectPreviewObject;
 
             return heroStatusEffect;
-            
         }
         
-         protected IHeroStatusEffect CreateStackingStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
+        protected IHeroStatusEffect CreateStackingStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
 
             var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
@@ -123,7 +115,6 @@ namespace ScriptableObjects.StatusEffects.Instance
             return heroStatusEffect;
             
         }
-
         protected IHeroStatusEffect CheckExistingStatusEffects(IHero targetHero, IStatusEffectAsset addStatusEffectAsset)
         {
             foreach (var statusEffect in targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs )
@@ -152,7 +143,6 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             return null;
         }
-        
         protected void UpdateStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
@@ -169,7 +159,6 @@ namespace ScriptableObjects.StatusEffects.Instance
             statusEffectAsset.CasterHero = casterHero;
 
         }
-        
         protected void UpdateStackingStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
@@ -208,13 +197,11 @@ namespace ScriptableObjects.StatusEffects.Instance
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             existingStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters,coroutineTreesAsset);
         }
-        
         public virtual void DecreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             existingStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters,coroutineTreesAsset);
         }
-        
         public virtual void SetCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
