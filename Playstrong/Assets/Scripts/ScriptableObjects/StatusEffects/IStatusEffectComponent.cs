@@ -12,6 +12,8 @@ namespace ScriptableObjects.StatusEffects
         List<ScriptableObject> StandardActionObjectAssets { get;}
         List<IActionTargets> ActionTargetAssets {get;}
 
-       
+        List<ScriptableObject> ActionTargetObjectAssets { get;}
+
+
     }
 }

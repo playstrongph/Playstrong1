@@ -89,9 +89,8 @@ namespace Logic
         public ILoadStatusEffectValues LoadStatusEffectValues => _loadStatusEffectValues;
         public ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
 
-        public IHero TargetHero { get; set; }
-        
-        public IHero CasterHero { get; set; }
+        public IHero StatusEffectTargetHero { get; set; }
+        public IHero StatusEffectCasterHero { get; set; }
 
         private IReduceStatusEffectCounters _reduceStatusEffectCounters;
         public IReduceStatusEffectCounters ReduceStatusEffectCounters => _reduceStatusEffectCounters;
@@ -122,6 +121,8 @@ namespace Logic
             
             //TEST
             _statusEffectComponent = GetComponent<IStatusEffectComponent>();
+
+            
 
         }
     }

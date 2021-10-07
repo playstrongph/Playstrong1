@@ -39,7 +39,7 @@ namespace Logic
             if (_heroStatusEffect.Counters <= 0)
             {
                 _heroStatusEffect.Counters = 0;
-                _heroStatusEffect.RemoveStatusEffect.RemoveEffect(_heroStatusEffect.TargetHero);
+                _heroStatusEffect.RemoveStatusEffect.RemoveEffect(_heroStatusEffect.StatusEffectTargetHero);
             }
 
             _visualTree.AddCurrent(SetCountersVisual(value));

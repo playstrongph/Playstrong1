@@ -26,9 +26,9 @@ namespace Logic
         
         ICoroutineTreesAsset CoroutineTreesAsset { get; set; }
         
-        IHero TargetHero { get; set; }
+        IHero StatusEffectTargetHero { get; set; }
         
-        IHero CasterHero { get; set; }
+        IHero StatusEffectCasterHero { get; set; }
 
         IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
 
@@ -38,14 +38,15 @@ namespace Logic
 
         IStatusEffectInstance StatusEffectInstance { get; set; }
 
-        IRemoveStatusEffect RemoveStatusEffect { get; }
+        IRemoveStatusEffect RemoveStatusEffect {get;}
 
-        GameObject StatusEffectPreview { get; set; }
+        GameObject StatusEffectPreview {get; set;}
 
-        IIncreaseStatusEffectCounters IncreaseStatusEffectCounters { get; }
-        IDecreaseStatusEffectCounters DecreaseStatusEffectCounters { get; }
-
-        IStatusEffectComponent StatusEffectComponent { get; }
+        IIncreaseStatusEffectCounters IncreaseStatusEffectCounters {get;}
+        IDecreaseStatusEffectCounters DecreaseStatusEffectCounters {get;}
+        IStatusEffectComponent StatusEffectComponent {get;}
+        
+      
 
 
     }

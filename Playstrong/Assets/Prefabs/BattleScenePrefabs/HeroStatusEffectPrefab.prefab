@@ -222,7 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusEffectAsset: {fileID: 0}
-  standardActionAssets: []
+  standardActionObjectAssets: []
+  actionTargetAssets: []
 --- !u!1 &1142902837795284684
 GameObject:
   m_ObjectHideFlags: 0

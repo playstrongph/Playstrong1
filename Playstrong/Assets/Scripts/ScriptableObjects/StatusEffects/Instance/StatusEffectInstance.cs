@@ -29,7 +29,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             //This should come before LoadStatusEffectValues due to cloning of SO
             statusEffectAsset.CasterHero = casterHero;
-            heroStatusEffect.CasterHero = casterHero;
+            heroStatusEffect.StatusEffectCasterHero = casterHero;
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
 
@@ -38,10 +38,10 @@ namespace ScriptableObjects.StatusEffects.Instance
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
 
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            heroStatusEffect.TargetHero = targetHero;
+            heroStatusEffect.StatusEffectTargetHero = targetHero;
 
             statusEffectAsset.CasterHero = casterHero;
-            heroStatusEffect.CasterHero = casterHero;
+            heroStatusEffect.StatusEffectCasterHero = casterHero;
             
 
             //Add to respective StatusEffects List in HeroStatusEffects
@@ -80,7 +80,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             
             //This should come before LoadStatusEffectValues due to cloning of SO
             statusEffectAsset.CasterHero = casterHero;
-            heroStatusEffect.CasterHero = casterHero;
+            heroStatusEffect.StatusEffectCasterHero = casterHero;
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
 
@@ -96,10 +96,10 @@ namespace ScriptableObjects.StatusEffects.Instance
 
 
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            heroStatusEffect.TargetHero = targetHero;
+            heroStatusEffect.StatusEffectTargetHero = targetHero;
 
             statusEffectAsset.CasterHero = casterHero;
-            heroStatusEffect.CasterHero = casterHero;
+            heroStatusEffect.StatusEffectCasterHero = casterHero;
             
 
             //Add to respective StatusEffects List in HeroStatusEffects
@@ -165,7 +165,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             //TEST
             existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
             
-            existingStatusEffect.CasterHero = casterHero;
+            existingStatusEffect.StatusEffectCasterHero = casterHero;
             statusEffectAsset.CasterHero = casterHero;
 
         }
@@ -198,7 +198,7 @@ namespace ScriptableObjects.StatusEffects.Instance
                 statusEffectAsset.ApplyStackingEffect(targetHero);
             }
             
-            existingStatusEffect.CasterHero = casterHero;
+            existingStatusEffect.StatusEffectCasterHero = casterHero;
             statusEffectAsset.CasterHero = casterHero;
 
         }

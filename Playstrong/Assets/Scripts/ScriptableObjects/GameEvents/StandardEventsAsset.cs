@@ -86,19 +86,19 @@ namespace ScriptableObjects.GameEvents
         public void SubscribeStatusEffectCountersUpdate(IHeroStatusEffect statusEffect)
         {
 
-            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = statusEffect.StatusEffectCasterHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(SubscribeStatusEffectCountersUpdateCoroutine(statusEffect));
         }
         public void UnsubscribeStatusEffectCountersUpdate(IHeroStatusEffect statusEffect)
         {
-            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = statusEffect.StatusEffectCasterHero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(UnsubscribeStatusEffectCountersUpdateCoroutine(statusEffect));
         }
         
         protected virtual IEnumerator SubscribeStatusEffectCountersUpdateCoroutine(IHeroStatusEffect statusEffect)
         {
-            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = statusEffect.StatusEffectCasterHero.CoroutineTreesAsset.MainLogicTree;
             //sample
             //Note that the event Dictates the args of the StartAction subscribed
             //skill.SkillLogic.SkillEvents.EDragSkillTarget += standardAction.StartAction;
@@ -109,7 +109,7 @@ namespace ScriptableObjects.GameEvents
         
         protected virtual IEnumerator UnsubscribeStatusEffectCountersUpdateCoroutine(IHeroStatusEffect statusEffect)
         {
-            var logicTree = statusEffect.CasterHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = statusEffect.StatusEffectCasterHero.CoroutineTreesAsset.MainLogicTree;
             //sample
             //Note that the event Dictates the args of the StartAction subscribed
             //skill.SkillLogic.SkillEvents.EDragSkillTarget -= standardAction.StartAction;

@@ -30,7 +30,7 @@ namespace Visual
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
             
             //Re-assign reference
-            _heroStatusEffect.CasterHero = statusEffectAsset.CasterHero;
+            _heroStatusEffect.StatusEffectCasterHero = statusEffectAsset.CasterHero;
             
             //TEST
             LoadStatusEffectComponentValues();
@@ -44,6 +44,7 @@ namespace Visual
             var statusEffectClone = statusEffectCloneObject as IStatusEffectAsset;
             
             //Re-assing reference to Scriptable Object Clone
+            //TODO: Re-assign this to HeroStatus Effect
             statusEffectClone.CasterHero = statusEffectAsset.CasterHero;
 
             return statusEffectClone;
@@ -57,20 +58,12 @@ namespace Visual
             //Clone of status effect Asset
             statusEffectComponent.StatusEffectAsset = _heroStatusEffect.StatusEffectAsset;
 
-            //var statusEffectAsset = statusEffectComponent.StatusEffectAsset;
-
-            foreach (var standardAction in _heroStatusEffect.StatusEffectAsset.StandardActions)
+            //Load Standard Actions
+            foreach (var standardActionObject in _heroStatusEffect.StatusEffectAsset.StandardActions)
             {
-                var standardActionCloneObject = Instantiate(standardAction as ScriptableObject);
+                var standardActionCloneObject = Instantiate(standardActionObject as ScriptableObject);
                 statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
-                
-                //var standardActionClone = standardActionCloneObject as IStandardActionAsset;
-                //statusEffectComponent.StandardActionAssets.Add(standardActionClone);
-                
-                Debug.Log("Standard Actions Count: " +statusEffectComponent.StandardActionAssets.Count);
-                
             }
-
         }
 
 

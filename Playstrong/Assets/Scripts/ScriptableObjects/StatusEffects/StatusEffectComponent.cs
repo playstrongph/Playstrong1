@@ -50,7 +50,9 @@ namespace ScriptableObjects.StatusEffects
         
         [SerializeField]
         private List<ScriptableObject> actionTargetAssets = new List<ScriptableObject>();
-
+        
+        public List<ScriptableObject> ActionTargetObjectAssets => actionTargetAssets;
+        
         public List<IActionTargets> ActionTargetAssets
         {
             get
