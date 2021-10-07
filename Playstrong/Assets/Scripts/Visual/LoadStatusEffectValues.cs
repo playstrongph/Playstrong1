@@ -1,4 +1,5 @@
 ﻿using System;
+using Interfaces;
 using Logic;
 using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects;
@@ -15,7 +16,7 @@ namespace Visual
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
         }
 
-        public void LoadValues(IStatusEffectAsset statusEffectAsset, int counters)
+        public void LoadValues(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
             //_heroStatusEffect.StatusEffectAsset = statusEffect;
             _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffectAsset);
@@ -23,14 +24,16 @@ namespace Visual
             _heroStatusEffect.StatusEffectCounterUpdate = statusEffectAsset.UpdateTiming;
             _heroStatusEffect.StatusEffectInstance = statusEffectAsset.StatusEffectInstance;
             _heroStatusEffect.Name = statusEffectAsset.Name;
-            _heroStatusEffect.Counters = counters;
+            _heroStatusEffect.Counters = statusEffectCounters;
             _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
             
             //Re-assign reference
             _heroStatusEffect.StatusEffectCasterHero = statusEffectAsset.CasterHero;
             
+            //StatusEffectAsset References
             _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
+           
             
             //TEST
             LoadStatusEffectComponentValues();

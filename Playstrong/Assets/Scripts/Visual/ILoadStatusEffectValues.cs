@@ -1,9 +1,10 @@
-﻿using ScriptableObjects.StatusEffects;
+﻿using Interfaces;
+using ScriptableObjects.StatusEffects;
 
 namespace Visual
 {
     public interface ILoadStatusEffectValues
     {
-        void LoadValues(IStatusEffectAsset statusEffect, int counters);
+        void LoadValues(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero);
     }
 }

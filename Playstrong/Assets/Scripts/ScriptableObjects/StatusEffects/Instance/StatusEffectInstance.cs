@@ -30,10 +30,11 @@ namespace ScriptableObjects.StatusEffects.Instance
             
 
             //Loads Values of HeroStatusEffectAsset to HeroStatusEffect Component
-            heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
             heroStatusEffect.StatusEffectCasterHero = casterHero;
             heroStatusEffect.StatusEffectTargetHero = targetHero;
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            heroStatusEffect.LoadStatusEffectValues.LoadValues(targetHero,statusEffectAsset, statusEffectCounters,casterHero);
+           
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
 
@@ -64,7 +65,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             statusEffectAsset.CasterHero = casterHero;
             heroStatusEffect.StatusEffectCasterHero = casterHero;
 
-            heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
+            heroStatusEffect.LoadStatusEffectValues.LoadValues(targetHero,statusEffectAsset, statusEffectCounters,casterHero);
 
             
             //This is where statusEffect Gets applied
