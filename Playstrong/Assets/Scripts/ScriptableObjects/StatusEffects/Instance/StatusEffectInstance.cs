@@ -25,14 +25,12 @@ namespace ScriptableObjects.StatusEffects.Instance
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
             statusEffectObject.transform.SetParent(statusEffectPanel);
             
-            //This should come before LoadStatusEffectValues due to cloning of SO
-            statusEffectAsset.CasterHero = casterHero;             //Using this is wrong!
+            //TODO: For cleanup.  Using this is wrong!
+            statusEffectAsset.CasterHero = casterHero;             
             
 
             //Loads Values of HeroStatusEffectAsset to HeroStatusEffect Component
-            heroStatusEffect.StatusEffectCasterHero = casterHero;
-            heroStatusEffect.StatusEffectTargetHero = targetHero;
-            heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            
             heroStatusEffect.LoadStatusEffectValues.LoadValues(targetHero,statusEffectAsset, statusEffectCounters,casterHero);
            
             //Add to respective StatusEffects List in HeroStatusEffects

@@ -20,6 +20,8 @@ namespace Visual
         {
             //_heroStatusEffect.StatusEffectAsset = statusEffect;
             _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffectAsset);
+            
+            //StatusEffectAsset data
             _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
             _heroStatusEffect.StatusEffectCounterUpdate = statusEffectAsset.UpdateTiming;
             _heroStatusEffect.StatusEffectInstance = statusEffectAsset.StatusEffectInstance;
@@ -28,9 +30,11 @@ namespace Visual
             _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
             
-            //Re-assign reference
-            _heroStatusEffect.StatusEffectCasterHero = statusEffectAsset.CasterHero;
-            
+            //Other Data
+            _heroStatusEffect.StatusEffectCasterHero = casterHero;
+            _heroStatusEffect.StatusEffectTargetHero = targetHero;
+            _heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
+           
             //StatusEffectAsset References
             _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
            
