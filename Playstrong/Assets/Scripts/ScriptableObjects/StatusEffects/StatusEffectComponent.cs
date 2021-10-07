@@ -28,7 +28,8 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField]
         private List<ScriptableObject> standardActionObjectAssets = new List<ScriptableObject>();
         
-        //To make it assignable in script
+        //To make it assignable in script 
+        //Remove this if List is exclusively assigned via Inspector
         public List<ScriptableObject> StandardActionObjectAssets => standardActionObjectAssets;
 
         public List<IStandardActionAsset> StandardActionAssets
