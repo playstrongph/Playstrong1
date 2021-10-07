@@ -17,33 +17,33 @@ namespace ScriptableObjects.StatusEffects.Instance
     
         protected IHeroStatusEffect CreateStatusEffect(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-
+            
+            //CREATE STATUS EFFECT GAME OBJECT
             var statusEffectPrefab = targetHero.HeroStatusEffects.HeroStatusEffectPrefab;
             var statusEffectPanel = targetHero.HeroStatusEffects.StatusEffectsPanel.Transform;
             var statusEffectObject = Instantiate(statusEffectPrefab, statusEffectPanel);
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
-            
             statusEffectObject.transform.SetParent(statusEffectPanel);
             
             //This should come before LoadStatusEffectValues due to cloning of SO
             statusEffectAsset.CasterHero = casterHero;             //Using this is wrong!
-            heroStatusEffect.StatusEffectCasterHero = casterHero;
+            
 
             //Loads Values of HeroStatusEffectAsset to HeroStatusEffect Component
             heroStatusEffect.LoadStatusEffectValues.LoadValues(statusEffectAsset, statusEffectCounters);
             heroStatusEffect.StatusEffectCasterHero = casterHero;
             heroStatusEffect.StatusEffectTargetHero = targetHero;
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            
-
-            //TODO: This may need changing
-            //This is where statusEffect Gets applied
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
-            statusEffectAsset.CasterHero = casterHero;
-            
-            
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
+
+            
+            //This is where statusEffect effects Gets applied
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
+            heroStatusEffect.StatusEffectAsset.CasterHero = casterHero;
+            
+            
+            
             
             //STATUS EFFECT PREVIEW
             var statusEffectPreviewPrefab = targetHero.HeroStatusEffects.StatusEffectPreviewPrefab;
