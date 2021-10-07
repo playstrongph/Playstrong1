@@ -24,22 +24,28 @@ namespace ScriptableObjects.StatusEffects
             set => statusEffectAsset = value as ScriptableObject;
         }
         
+        
         [SerializeField]
-        private List<ScriptableObject> standardActionAssets = new List<ScriptableObject>();
+        private List<ScriptableObject> standardActionObjectAssets = new List<ScriptableObject>();
+        
+        //To make it assignable in script
+        public List<ScriptableObject> StandardActionObjectAssets => standardActionObjectAssets;
 
         public List<IStandardActionAsset> StandardActionAssets
         {
             get
             {
                 var standardActions = new List<IStandardActionAsset>();
-                foreach (var standardActionAssetObject in standardActionAssets)
+                foreach (var standardActionObject in standardActionObjectAssets)
                 {
-                    var standardAction = standardActionAssetObject as IStandardActionAsset;
+                    var standardAction = standardActionObject as IStandardActionAsset;
                     standardActions.Add(standardAction);
                 }
+
                 return standardActions;
             }
         }
+        
         
         [SerializeField]
         private List<ScriptableObject> actionTargetAssets = new List<ScriptableObject>();

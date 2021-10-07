@@ -1,13 +1,17 @@
 ﻿using System.Collections.Generic;
 using Logic;
 using ScriptableObjects.StandardActions;
+using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects
 {
     public interface IStatusEffectComponent
     {
-        IStatusEffectAsset StatusEffectAsset { get; set; }
+        IStatusEffectAsset StatusEffectAsset {get; set;}
         List<IStandardActionAsset> StandardActionAssets { get; }
-        List<IActionTargets> ActionTargetAssets { get; }
+        List<ScriptableObject> StandardActionObjectAssets { get;}
+        List<IActionTargets> ActionTargetAssets {get;}
+
+       
     }
 }

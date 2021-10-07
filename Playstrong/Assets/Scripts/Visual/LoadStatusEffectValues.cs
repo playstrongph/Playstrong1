@@ -62,8 +62,13 @@ namespace Visual
             foreach (var standardAction in _heroStatusEffect.StatusEffectAsset.StandardActions)
             {
                 var standardActionCloneObject = Instantiate(standardAction as ScriptableObject);
-                var standardActionClone = standardActionCloneObject as IStandardActionAsset;
-                statusEffectComponent.StandardActionAssets.Add(standardActionClone);
+                statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
+                
+                //var standardActionClone = standardActionCloneObject as IStandardActionAsset;
+                //statusEffectComponent.StandardActionAssets.Add(standardActionClone);
+                
+                Debug.Log("Standard Actions Count: " +statusEffectComponent.StandardActionAssets.Count);
+                
             }
 
         }
