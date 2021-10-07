@@ -25,24 +25,22 @@ namespace ScriptableObjects.StatusEffects.Instance
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
             statusEffectObject.transform.SetParent(statusEffectPanel);
             
-            //TODO: For cleanup.  Using this is wrong!
-            statusEffectAsset.CasterHero = casterHero;             
-            
-
+           
             //Loads Values of HeroStatusEffectAsset to HeroStatusEffect Component
-            
             heroStatusEffect.LoadStatusEffectValues.LoadValues(targetHero,statusEffectAsset, statusEffectCounters,casterHero);
            
             //Add to respective StatusEffects List in HeroStatusEffects
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
 
-            
             //This is where statusEffect effects Gets applied
             heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
-            heroStatusEffect.StatusEffectAsset.CasterHero = casterHero;
+            
 
             //STATUS EFFECT PREVIEW
             CreateStatusEffectPreview(targetHero, statusEffectAsset, heroStatusEffect);
+            
+            //TODO: For cleanup.  Using this is wrong!
+            statusEffectAsset.CasterHero = casterHero;             
             
             return heroStatusEffect;
         }

@@ -18,7 +18,7 @@ namespace Visual
 
         public void LoadValues(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-            //_heroStatusEffect.StatusEffectAsset = statusEffect;
+            //Update the statusEffect asset to a unique instance
             _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffectAsset);
             
             //StatusEffectAsset data
@@ -28,16 +28,17 @@ namespace Visual
             _heroStatusEffect.Name = statusEffectAsset.Name;
             _heroStatusEffect.Counters = statusEffectCounters;
             _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
-            _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
-            
+
             //Other Data
             _heroStatusEffect.StatusEffectCasterHero = casterHero;
             _heroStatusEffect.StatusEffectTargetHero = targetHero;
             _heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
-           
+            _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
+
             //StatusEffectAsset References
+            //TODO: For Cleanup
             _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
-           
+            _heroStatusEffect.StatusEffectAsset.CasterHero = casterHero;
             
             //TEST
             LoadStatusEffectComponentValues();
