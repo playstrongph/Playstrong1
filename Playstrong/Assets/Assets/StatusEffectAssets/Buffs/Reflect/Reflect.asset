@@ -22,6 +22,7 @@ MonoBehaviour:
   _skillactionAsset: {fileID: 0}
   _standardAction: {fileID: 0}
   _standardActions:
+  - {fileID: 11400000, guid: 131a2bacb2b09ac42b6036589eae39a2, type: 2}
   - {fileID: 11400000, guid: 8e3572359f4cfd94a9ea0b3b9cbb8692, type: 2}
   maxSkillCounters: 1
   _effectValue: 30

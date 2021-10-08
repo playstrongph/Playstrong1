@@ -11,15 +11,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
     [CreateAssetMenu(fileName = "Reflect", menuName = "SO's/Status Effects/Buffs/Reflect")]
     public class ReflectAsset : StatusEffectAsset
     {
-        [Header("Set Damage Factor Hero Basis")]
-        [SerializeField] private ScriptableObject damageFactor;
-        private ICalculatedFactorValueAsset DamageFactor  => damageFactor as ICalculatedFactorValueAsset;
-        
         public override void ApplyStatusEffect(IHero hero)
         {
-            //TODO: Test Only.  Transfer this into a BasicAction
-            DamageFactor.SetHeroBasis(hero);
-            
             base.ApplyStatusEffect(hero);
         }
         

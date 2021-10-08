@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Script: {fileID: 11500000, guid: 9e84f118dfde6554f97728fe8e929299, type: 3}
+  m_Name: TargetHero
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: 54e3339d9ef936d4d811b1b01f390a07, type: 2}
-  _buffCounters: 3

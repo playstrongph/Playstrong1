@@ -70,10 +70,11 @@ namespace ScriptableObjects.DamageAttributeMultiple
             
             //Damage Taken Factor
             if (OtherHeroBasis != null)
-                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.TakeDamage.FinalDamage * percentFactor / 100f);
+            {
+                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.TakeDamage.FinalDamage * percentFactor / 100f);    
+                Debug.Log("Hero Basis: " +OtherHeroBasis.HeroName +" Damage Factor: " +damageFactor );
+            }
             
-            Debug.Log("Hero Basis: " +OtherHeroBasis.HeroName +" Damage Factor: " +damageFactor );
-
             return damageFactor;
         }
        

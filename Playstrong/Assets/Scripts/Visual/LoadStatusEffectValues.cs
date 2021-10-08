@@ -35,13 +35,8 @@ namespace Visual
             _heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
-            //StatusEffectAsset References
-            _heroStatusEffect.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
-            _heroStatusEffect.StatusEffectAsset.CasterHero = casterHero;
-            
             //TEST
             LoadStatusEffectComponentValues(statusEffectAsset,casterHero);
-
         }
 
         private IStatusEffectAsset CloneStatusEffectAsset(IStatusEffectAsset statusEffectAsset)
@@ -71,20 +66,16 @@ namespace Visual
 
             var i = 0;
             //Load Standard Actions
-            foreach (var standardActionObject in  _heroStatusEffect.StatusEffectAsset.StandardActions)
+            foreach(var standardActionObject in _heroStatusEffect.StatusEffectAsset.StandardActions)
             {
                 var standardActionCloneObject = Instantiate(standardActionObject as ScriptableObject);
-                statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
-
                 var actionTarget = Instantiate(standardActionObject.BasicActionTargets as ScriptableObject);
-                statusEffectComponent.ActionTargetObjectAssets.Add(actionTarget);
-                
-                //Update Standard Action Action Targets - Test
                 var standardActionClone = standardActionCloneObject as IStandardActionAsset;
+                
+                statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
+                statusEffectComponent.ActionTargetObjectAssets.Add(actionTarget);
                 standardActionClone.BasicActionTargets = actionTarget as IActionTargets;
 
-                //statusEffectComponent.StatusEffectAsset.StandardActions.Add(standardActionClone);
-                
                 //Test
                 statusEffectComponent.StatusEffectAsset.StandardActionsObjects[i] = statusEffectComponent.StandardActionObjectAssets[i];
                 i++;
