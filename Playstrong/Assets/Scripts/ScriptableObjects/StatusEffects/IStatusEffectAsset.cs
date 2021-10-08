@@ -50,6 +50,8 @@ namespace ScriptableObjects.StatusEffects
         //TEST
         List<IStandardActionAsset> StandardActions { get; }
 
+        List<ScriptableObject> StandardActionsObjects { get; }
+
 
 
 

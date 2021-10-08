@@ -41,15 +41,23 @@ namespace ScriptableObjects.StatusEffects
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
 
+        
+        
         [Header("Obsolete")]
         [SerializeField] private ScriptableObject _skillactionAsset;
         public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
 
         [Header("Obsolete")]
-        [SerializeField] private ScriptableObject _standardAction;
+        [SerializeField] private ScriptableObject _standardAction; 
         public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
+        
+        
+        
+        
+        
 
         [SerializeField] private List<ScriptableObject> _standardActions;
+        public List<ScriptableObject> StandardActionsObjects => _standardActions;
 
         public List<IStandardActionAsset> StandardActions
         {

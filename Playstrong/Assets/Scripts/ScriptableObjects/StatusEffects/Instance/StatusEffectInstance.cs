@@ -33,8 +33,10 @@ namespace ScriptableObjects.StatusEffects.Instance
             heroStatusEffect.StatusEffectType.AddToStatusEffectsList(targetHero.HeroStatusEffects, heroStatusEffect);
 
             //This is where statusEffect effects Gets applied
-            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
+            //heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
             
+            //TODO: TEST THIS!!!
+            heroStatusEffect.StatusEffectComponent.ApplyStatusEffect(targetHero);
 
             //STATUS EFFECT PREVIEW
             CreateStatusEffectPreview(targetHero, statusEffectAsset, heroStatusEffect);

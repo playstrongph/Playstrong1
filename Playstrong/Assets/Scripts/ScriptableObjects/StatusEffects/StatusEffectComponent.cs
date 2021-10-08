@@ -17,7 +17,8 @@ namespace ScriptableObjects.StatusEffects
     public class StatusEffectComponent : MonoBehaviour, IStatusEffectComponent
     {
         [SerializeField] private ScriptableObject statusEffectAsset;
-
+        public ScriptableObject statusEffectAssetObject => statusEffectAsset;
+        
         public IStatusEffectAsset StatusEffectAsset
         {
             get => statusEffectAsset as IStatusEffectAsset;
@@ -69,11 +70,23 @@ namespace ScriptableObjects.StatusEffects
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
         }
+
+        public void ApplyStatusEffect(IHero hero)
+        {
+            StatusEffectAsset.ApplyStatusEffect(hero);
+        }
         
-        
-        
-        
-        
-        
+        public void UnapplyStatusEffect(IHero hero)
+        {
+            StatusEffectAsset.UnapplyStatusEffect(hero);
+        }
+
+
+
+
+
+
+
+
     }
 }
