@@ -17,7 +17,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void ApplyStatusEffect(IHero hero)
         {
             //TEST
-            BasicActionTargetHero.CustomHeroTarget = hero;
+            BasicActionTargetHero.CustomHeroTarget = HeroStatusEffectReference.StatusEffectTargetHero;
             
             foreach (var allyHero in hero.AllAllyHeroes)
             {

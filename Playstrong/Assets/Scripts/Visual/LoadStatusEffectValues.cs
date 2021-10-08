@@ -71,6 +71,9 @@ namespace Visual
             {
                 var standardActionCloneObject = Instantiate(standardActionObject as ScriptableObject);
                 statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
+
+                var actionTarget = Instantiate(standardActionObject.BasicActionTargets as ScriptableObject);
+                statusEffectComponent.ActionTargetObjectAssets.Add(actionTarget);
             }
         }
 

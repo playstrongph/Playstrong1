@@ -10,6 +10,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void ApplyStatusEffect(IHero hero) 
         {
             base.ApplyStatusEffect(hero);
+            
         }
         
         public override void UnapplyStatusEffect(IHero hero)

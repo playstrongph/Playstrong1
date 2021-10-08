@@ -27,11 +27,9 @@ namespace ScriptableObjects.StatusEffects
         
         [SerializeField]
         private List<ScriptableObject> standardActionObjectAssets = new List<ScriptableObject>();
-        
         //To make it assignable in script 
         //Remove this if List is exclusively assigned via Inspector
         public List<ScriptableObject> StandardActionObjectAssets => standardActionObjectAssets;
-
         public List<IStandardActionAsset> StandardActionAssets
         {
             get
@@ -47,12 +45,10 @@ namespace ScriptableObjects.StatusEffects
             }
         }
         
-        
         [SerializeField]
         private List<ScriptableObject> actionTargetAssets = new List<ScriptableObject>();
         
         public List<ScriptableObject> ActionTargetObjectAssets => actionTargetAssets;
-        
         public List<IActionTargets> ActionTargetAssets
         {
             get
@@ -73,5 +69,11 @@ namespace ScriptableObjects.StatusEffects
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
         }
+        
+        
+        
+        
+        
+        
     }
 }

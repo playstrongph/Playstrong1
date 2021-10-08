@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interfaces;
+using Logic;
 using References;
 
 namespace ScriptableObjects.StandardActions
@@ -21,12 +22,18 @@ namespace ScriptableObjects.StandardActions
         void UndoStartAction(IHero thisHero, IHero targetHero);
         void UndoStartAction(IHero targetHero, float value);
         
-        
+        //Action Targets
+        IActionTargets BasicActionTargets { get; }
+
+
         //TODO: Delete
         //Start Action On Event
         void StartActionOnEvent(IHero targetHero);
         void StartActionOnEvent(IHero targetHero, float value);
         void StartActionOnEvent(IHero thisHero, IHero targetHero);
+        
+       
+                
 
     }
 }
