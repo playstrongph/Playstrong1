@@ -74,6 +74,13 @@ namespace Visual
 
                 var actionTarget = Instantiate(standardActionObject.BasicActionTargets as ScriptableObject);
                 statusEffectComponent.ActionTargetObjectAssets.Add(actionTarget);
+                
+                //Update Standard Action Action Targets - Test
+                var standardActionClone = standardActionCloneObject as IStandardActionAsset;
+                standardActionClone.BasicActionTargets = actionTarget as IActionTargets;
+                
+                
+
             }
         }
 

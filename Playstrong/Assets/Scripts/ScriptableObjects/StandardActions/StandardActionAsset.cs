@@ -18,7 +18,13 @@ namespace ScriptableObjects.StandardActions
         [Header("Basic Action Targets")]
         //TODO: This needs to be changed to component level
         [SerializeField] private ScriptableObject actionTargets;
-        public IActionTargets BasicActionTargets => actionTargets as IActionTargets;
+
+        public IActionTargets BasicActionTargets
+        {
+            get => actionTargets as IActionTargets;
+            set => actionTargets = value as ScriptableObject;
+        }
+        
 
         [Header("OR Conditions")]
         [SerializeField] private List<ScriptableObject> orBasicConditions;

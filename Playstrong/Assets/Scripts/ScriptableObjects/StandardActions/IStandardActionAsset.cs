@@ -23,7 +23,7 @@ namespace ScriptableObjects.StandardActions
         void UndoStartAction(IHero targetHero, float value);
         
         //Action Targets
-        IActionTargets BasicActionTargets { get; }
+        IActionTargets BasicActionTargets { get; set; }
 
 
         //TODO: Delete
