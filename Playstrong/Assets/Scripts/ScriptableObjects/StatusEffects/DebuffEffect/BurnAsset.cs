@@ -9,14 +9,11 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
     public class BurnAsset : StatusEffectAsset
     {
         
-        [Header("Set Damage Factor Hero Basis")]
-        [SerializeField] private ScriptableObject damageFactor;
-        private ICalculatedFactorValueAsset DamageFactor  => damageFactor as ICalculatedFactorValueAsset;
+      
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            //TODO: Test Only.  Transfer this into a BasicAction
-            DamageFactor.SetHeroBasis(CasterHero);
+            StandardActions[0].BasicActionTargets.CustomHeroTarget = HeroStatusEffectReference.StatusEffectTargetHero;
             
             base.ApplyStatusEffect(hero);
         }
