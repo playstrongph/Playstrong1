@@ -30,10 +30,7 @@ namespace ScriptableObjects.StandardActions
         [Header("OR Conditions")]
         [SerializeField] private List<ScriptableObject> orBasicConditions;
 
-        public List<ScriptableObject> OrBasicConditionsObjects
-        {
-            set => orBasicConditions = value;
-        }
+        public List<ScriptableObject> OrBasicConditionsObjects => orBasicConditions;
 
         public List<IBasicConditionAsset> OrBasicConditions
         {
@@ -52,11 +49,9 @@ namespace ScriptableObjects.StandardActions
         
         [Header("AND Conditions")]
         [SerializeField] private List<ScriptableObject> andBasicConditions;
+
+        public List<ScriptableObject> AndBasicConditionsObjects => andBasicConditions;
         
-        public List<ScriptableObject> AndBasicConditionsObjects
-        {
-            set => andBasicConditions = value;
-        }
         public List<IBasicConditionAsset> AndBasicConditions
         {
             get

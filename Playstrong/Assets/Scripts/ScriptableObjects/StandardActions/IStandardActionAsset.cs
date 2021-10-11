@@ -29,9 +29,9 @@ namespace ScriptableObjects.StandardActions
         
         //Basic Conditions
         List<IBasicConditionAsset> OrBasicConditions { get; }
-        List<ScriptableObject> OrBasicConditionsObjects { set; }
+        List<ScriptableObject> OrBasicConditionsObjects { get; }
         List<IBasicConditionAsset> AndBasicConditions { get; }
-        List<ScriptableObject> AndBasicConditionsObjects { set; }
+        List<ScriptableObject> AndBasicConditionsObjects { get; }
 
 
         //TODO: Delete

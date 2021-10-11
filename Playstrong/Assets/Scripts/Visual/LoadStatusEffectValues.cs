@@ -88,17 +88,20 @@ namespace Visual
             //TODO Separate Method Call
             foreach (var standardAction in _heroStatusEffect.StatusEffectComponent.StandardActionAssets)
             {
-                
+                var j = 0;
                 foreach (var basicCondition in standardAction.OrBasicConditions)
                 {
-                   
-
+                    var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
+                    standardAction.OrBasicConditionsObjects[j] = basicConditionCloneObject;
+                    j++;
                 }
-                
-                
+
+                var k = 0;
                 foreach (var basicCondition in standardAction.OrBasicConditions)
                 {
-                    
+                    var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
+                    standardAction.OrBasicConditionsObjects[k] = basicConditionCloneObject;
+                    k++;
                 }
             }
         }
