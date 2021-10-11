@@ -25,7 +25,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
             base.UnapplyStatusEffect(hero);
         }
 
-        public override void RemoveStatusEffectOnDeath(IHero hero)
+        public override void RemoveStatusEffectOnDeath(IHero hero,IHeroStatusEffect heroStatusEffect)
         {
            //Don't destroy Resurrect upon death
         }

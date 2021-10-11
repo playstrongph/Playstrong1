@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SetDamageStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: bbc5a46974fbbfc43bd77a79d291490b, type: 2}
-  actionTargets: {fileID: 11400000, guid: ae901d783c968994181d4d55ee5c1e3c, type: 2}
+  actionTargets: {fileID: 11400000, guid: 99ccc9e8c6f67be47b86ec125709d380, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:

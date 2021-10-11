@@ -45,7 +45,7 @@ namespace ScriptableObjects.StatusEffects
         
         IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
-        void RemoveStatusEffectOnDeath(IHero hero);
+        void RemoveStatusEffectOnDeath(IHero hero, IHeroStatusEffect statusEffect);
         
         //TEST
         List<IStandardActionAsset> StandardActions { get; }

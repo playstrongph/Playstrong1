@@ -174,14 +174,14 @@ namespace Logic
             {
                 //It is correct to call the asset and not the buff due to buffs/debuffs that should not be destroyed on death
                 //Extinction and Resurrect
-                buff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero);
+                buff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero,buff);
             }
             
             foreach (var debuff in debuffs)
             {
              
                 //TEST
-                debuff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero);
+                debuff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero,debuff);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;

@@ -123,9 +123,9 @@ namespace ScriptableObjects.StatusEffects
         }
         
         //Used by Resurrect and Extinction - as they need to persist post death
-        public virtual void RemoveStatusEffectOnDeath(IHero hero)
+        public virtual void RemoveStatusEffectOnDeath(IHero hero, IHeroStatusEffect statusEffect)
         {
-            HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
+            statusEffect.RemoveStatusEffect.RemoveEffect(hero);
         }
         
 
