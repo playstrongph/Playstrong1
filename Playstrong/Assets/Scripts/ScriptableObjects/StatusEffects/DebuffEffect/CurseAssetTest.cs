@@ -14,6 +14,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void ApplyStatusEffect(IHero hero)
         {
             //Have to manually set the CustomHeroTarget in the StandardAction
+            //TODO: Create Standard Action Targets List - then use customHeroTarget for all standardaction targets
+            //Set targets in a foreach loop?
             StandardActions[1].BasicActionTargets.CustomHeroTarget = HeroStatusEffectReference.StatusEffectTargetHero;
 
             foreach (var allyHero in hero.AllAllyHeroes)

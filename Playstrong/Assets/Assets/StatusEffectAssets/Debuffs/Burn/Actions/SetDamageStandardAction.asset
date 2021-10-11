@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
-  m_Name: BurnStandardAction
+  m_Name: SetDamageStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: bbc5a46974fbbfc43bd77a79d291490b, type: 2}
-  actionTargets: {fileID: 11400000, guid: 2476da76bae34314e82be1f2254bec69, type: 2}
+  actionTargets: {fileID: 11400000, guid: ae901d783c968994181d4d55ee5c1e3c, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:
