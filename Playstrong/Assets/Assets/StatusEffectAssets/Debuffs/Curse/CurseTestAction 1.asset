@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CurseTestAction 1
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 36ddc6c2c8cdd81488670b8d63d62420, type: 2}
-  actionTargets: {fileID: 11400000, guid: 8409ebb1f53b8444da1bcbe6328a3df6, type: 2}
+  actionTargets: {fileID: 11400000, guid: c4e456fb85ead0e4d94c9c47939cd871, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:

@@ -13,7 +13,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            StandardActions[0].BasicActionTargets.CustomHeroTarget = HeroStatusEffectReference.StatusEffectCasterHero;
+            //StandardActions[0].BasicActionTargets.CustomHeroTarget = HeroStatusEffectReference.StatusEffectCasterHero;
             
             base.ApplyStatusEffect(hero);
         }

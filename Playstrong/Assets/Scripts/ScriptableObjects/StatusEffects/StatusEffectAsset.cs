@@ -106,8 +106,8 @@ namespace ScriptableObjects.StatusEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             foreach (var standardAction in StandardActions)
             {
-                //TESt
-                //standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
+                //Test
+                standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
                 
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
