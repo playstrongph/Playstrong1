@@ -50,11 +50,7 @@ namespace ScriptableObjects.StatusEffects
         [Header("Obsolete")]
         [SerializeField] private ScriptableObject _standardAction; 
         public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
-        
-        
-        
-        
-        
+
 
         [SerializeField] private List<ScriptableObject> _standardActions;
         public List<ScriptableObject> StandardActionsObjects => _standardActions;
@@ -110,6 +106,9 @@ namespace ScriptableObjects.StatusEffects
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             foreach (var standardAction in StandardActions)
             {
+                //TESt
+                //standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
+                
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
         }
