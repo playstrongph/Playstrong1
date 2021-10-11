@@ -82,9 +82,24 @@ namespace Visual
 
                 //Load the StandardActions in the StatusEffect Component to the StatusEffectComponent Asset
                 statusEffectComponent.StatusEffectAsset.StandardActionsObjects[i] = statusEffectComponent.StandardActionObjectAssets[i];
-                
-                
                 i++;
+            }
+            
+            //TODO Separate Method Call
+            foreach (var standardAction in _heroStatusEffect.StatusEffectComponent.StandardActionAssets)
+            {
+                
+                foreach (var basicCondition in standardAction.OrBasicConditions)
+                {
+                   
+
+                }
+                
+                
+                foreach (var basicCondition in standardAction.OrBasicConditions)
+                {
+                    
+                }
             }
         }
 
