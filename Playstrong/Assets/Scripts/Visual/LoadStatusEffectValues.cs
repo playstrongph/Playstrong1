@@ -97,10 +97,10 @@ namespace Visual
                 }
 
                 var k = 0;
-                foreach (var basicCondition in standardAction.OrBasicConditions)
+                foreach (var basicCondition in standardAction.AndBasicConditions)
                 {
                     var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
-                    standardAction.OrBasicConditionsObjects[k] = basicConditionCloneObject;
+                    standardAction.AndBasicConditionsObjects[k] = basicConditionCloneObject;
                     k++;
                 }
             }
