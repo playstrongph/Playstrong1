@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8110781d8f7c28644b9d88187dbe3656, type: 3}
-  m_Name: StatusEffectCasterHero
+  m_Script: {fileID: 11500000, guid: b193ba1a90e092a42bdf7551f2198180, type: 3}
+  m_Name: DealNonSkillDamage
   m_EditorClassIdentifier: 
+  flatDamageValue: 0
+  calculatedValue: {fileID: 11400000, guid: 8f1f8c85e48030e4294ca0b96d406626, type: 2}
+  ignoreArmorChance: 0

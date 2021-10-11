@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b193ba1a90e092a42bdf7551f2198180, type: 3}
   m_Name: DealNonSkillDamage
   m_EditorClassIdentifier: 
+  flatDamageValue: 0
   calculatedValue: {fileID: 11400000, guid: ccd8e7d335f9961408931cda71b1a665, type: 2}
   ignoreArmorChance: 0

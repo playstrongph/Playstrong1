@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
-  m_Name: CurseTestAction 1
+  m_Name: SetCalculatedValueAction
   m_EditorClassIdentifier: 
-  standardEvent: {fileID: 11400000, guid: 36ddc6c2c8cdd81488670b8d63d62420, type: 2}
-  actionTargets: {fileID: 11400000, guid: c4e456fb85ead0e4d94c9c47939cd871, type: 2}
+  standardEvent: {fileID: 11400000, guid: 8eea6b37e86db5543bad2b64193026a6, type: 2}
+  actionTargets: {fileID: 11400000, guid: 7bc5bee8df4e0874a8d61521820e772d, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:
-  - {fileID: 11400000, guid: d9f1142f92ec2c54d87550cd1847e7bf, type: 2}
+  - {fileID: 11400000, guid: e9ca0144ad74a2148a8d59f390cdb624, type: 2}

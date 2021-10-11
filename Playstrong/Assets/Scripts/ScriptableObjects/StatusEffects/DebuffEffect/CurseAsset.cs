@@ -1,91 +1,32 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
 using Logic;
+using ScriptableObjects.CalculatedFactorValue;
+using ScriptableObjects.DamageAttributeMultiple;
 using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.DebuffEffect
 {
-    [CreateAssetMenu(fileName = "Curse", menuName = "SO's/Status Effects/Debuffs/Curse")]
+    [CreateAssetMenu(fileName = "CurseTest", menuName = "SO's/Status Effects/Debuffs/CurseTest")]
     public class CurseAsset : StatusEffectAsset
     {
-        [SerializeField] private int curseDamage = 0;
-        [SerializeField] private float percentFactor = 10f;
-        private IHero _hero;
-        private ITurnController _turnController;
-        private IHero _heroAttackedThisTurn;
-      
-
-        public override void ApplyStatusEffect(IHero thisHero)
+        
+        public override void ApplyStatusEffect(IHero hero)
         {
-            _hero = thisHero;
-            _turnController = _hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-
-            foreach (var hero in thisHero.AllAllyHeroes)
+            foreach (var allyHero in hero.AllAllyHeroes)
             {
-                //_turnController.TurnControllerEvents.EEndCombatTurn += DealCurseDamage;
-                hero.HeroLogic.HeroEvents.EPostAttack += ComputeCurseDamage;
-                hero.HeroLogic.HeroEvents.EPostAttack += DealCurseDamage;
+                base.ApplyStatusEffect(allyHero);   
             }
         }
         
-        public override void UnapplyStatusEffect(IHero thisHero)
+        public override void UnapplyStatusEffect(IHero hero)
         {
-            _hero = thisHero;
-            _turnController = _hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            
-            foreach (var hero in thisHero.AllAllyHeroes)
+            foreach (var allyHero in hero.AllAllyHeroes)
             {
-                //_turnController.TurnControllerEvents.EEndCombatTurn -= DealCurseDamage;
-                hero.HeroLogic.HeroEvents.EPostAttack -= ComputeCurseDamage;
-                hero.HeroLogic.HeroEvents.EPostAttack -= DealCurseDamage;
+                base.UnapplyStatusEffect(allyHero);   
             }
-
+               
         }
-
-        private void ComputeCurseDamage(IHero allyHero, IHero dummyHero)
-        {
-            var singleAttackDamage = allyHero.HeroLogic.TakeDamage.SingleAttackDamage;
-            var floatCurseDamage = percentFactor * singleAttackDamage / 100;
-
-            _heroAttackedThisTurn = allyHero;
-            
-            //In case the hero receives more than 1 singleAttack in a turn
-            curseDamage += Mathf.CeilToInt(floatCurseDamage);
-            
-            Debug.Log("Compute CurseDamage: " +curseDamage);
-
-        }
-        
-        private void DealCurseDamage(IHero allyHero, IHero dummyHero)
-        {
-            var logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
-            
-            if (curseDamage > 0)
-                logicTree.AddCurrent(SkillActionAsset.StartAction( _hero,curseDamage));
-
-            //Reset curse damage at the end of the combat turn
-            curseDamage = 0;
-        }
-
-
-        private void DealCurseDamage()
-        {
-            var logicTree = _hero.CoroutineTreesAsset.MainLogicTree;
-            
-            if (curseDamage > 0)
-                logicTree.AddCurrent(SkillActionAsset.StartAction( _hero,curseDamage));
-
-            //Reset curse damage at the end of the combat turn
-            curseDamage = 0;
-        }
-        
-       
-
-
-
-
-
-
 
     }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
-  m_Name: CurseTestAction
+  m_Name: DealDamageAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 36ddc6c2c8cdd81488670b8d63d62420, type: 2}
-  actionTargets: {fileID: 11400000, guid: 2f27656f187ce6c438abfbe7484ec97e, type: 2}
+  actionTargets: {fileID: 11400000, guid: c4e456fb85ead0e4d94c9c47939cd871, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:
-  - {fileID: 11400000, guid: cb82ea58e099ac140ae79139e26eac39, type: 2}
+  - {fileID: 11400000, guid: d9f1142f92ec2c54d87550cd1847e7bf, type: 2}
