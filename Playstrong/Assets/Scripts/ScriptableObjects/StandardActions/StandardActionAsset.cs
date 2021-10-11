@@ -312,6 +312,7 @@ namespace ScriptableObjects.StandardActions
             {
                 foreach (var basicCondition in AndBasicConditions)
                 {
+                    //TODO: Need to make this generic
                     _finalAndConditions *= basicCondition.GetValue(thisHero,targetHero);
                 }
                
@@ -328,6 +329,7 @@ namespace ScriptableObjects.StandardActions
             {
                 foreach (var basicCondition in AndBasicConditions)
                 {
+                    //TODO: Need to make this generic
                     _finalOrConditions += basicCondition.GetValue(thisHero,targetHero);
                 }
             }
