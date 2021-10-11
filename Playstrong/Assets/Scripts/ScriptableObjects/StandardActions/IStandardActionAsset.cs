@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
+using UnityEngine;
 
 namespace ScriptableObjects.StandardActions
 {
@@ -24,6 +26,12 @@ namespace ScriptableObjects.StandardActions
         
         //Action Targets
         IActionTargets BasicActionTargets { get; set; }
+        
+        //Basic Conditions
+        List<IBasicConditionAsset> OrBasicConditions { get; }
+        List<ScriptableObject> OrBasicConditionsObjects { set; }
+        List<IBasicConditionAsset> AndBasicConditions { get; }
+        List<ScriptableObject> AndBasicConditionsObjects { set; }
 
 
         //TODO: Delete

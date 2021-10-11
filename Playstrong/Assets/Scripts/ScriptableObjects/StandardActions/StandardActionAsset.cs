@@ -5,6 +5,7 @@ using Logic;
 using References;
 using ScriptableObjects.GameEvents;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace ScriptableObjects.StandardActions
 {
@@ -28,7 +29,13 @@ namespace ScriptableObjects.StandardActions
 
         [Header("OR Conditions")]
         [SerializeField] private List<ScriptableObject> orBasicConditions;
-        private List<IBasicConditionAsset> OrBasicConditions
+
+        public List<ScriptableObject> OrBasicConditionsObjects
+        {
+            set => orBasicConditions = value;
+        }
+
+        public List<IBasicConditionAsset> OrBasicConditions
         {
             get
             {
@@ -45,7 +52,12 @@ namespace ScriptableObjects.StandardActions
         
         [Header("AND Conditions")]
         [SerializeField] private List<ScriptableObject> andBasicConditions;
-        private List<IBasicConditionAsset> AndBasicConditions
+        
+        public List<ScriptableObject> AndBasicConditionsObjects
+        {
+            set => andBasicConditions = value;
+        }
+        public List<IBasicConditionAsset> AndBasicConditions
         {
             get
             {

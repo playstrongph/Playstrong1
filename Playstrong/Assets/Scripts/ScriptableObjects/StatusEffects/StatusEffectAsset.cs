@@ -104,11 +104,11 @@ namespace ScriptableObjects.StatusEffects
         public virtual void ApplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            //TODO: Set StatusEffect References for BasicConditions
+            
             foreach (var standardAction in StandardActions)
             {
-                //Test
                 standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
-                
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
         }
