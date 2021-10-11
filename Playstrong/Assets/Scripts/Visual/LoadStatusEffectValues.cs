@@ -71,13 +71,19 @@ namespace Visual
                 var standardActionCloneObject = Instantiate(standardActionObject as ScriptableObject);
                 var actionTarget = Instantiate(standardActionObject.BasicActionTargets as ScriptableObject);
                 var standardActionClone = standardActionCloneObject as IStandardActionAsset;
-                
+
+
                 statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
                 statusEffectComponent.ActionTargetObjectAssets.Add(actionTarget);
                 standardActionClone.BasicActionTargets = actionTarget as IActionTargets;
 
-                //Test
+                //Set standardActionClone BasicActionTargets statusEffectReference
+                standardActionClone.BasicActionTargets.SetStatusEffectHero(_heroStatusEffect);
+
+                //Load the StandardActions in the StatusEffect Component to the StatusEffectComponent Asset
                 statusEffectComponent.StatusEffectAsset.StandardActionsObjects[i] = statusEffectComponent.StandardActionObjectAssets[i];
+                
+                
                 i++;
             }
         }

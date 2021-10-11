@@ -108,7 +108,9 @@ namespace ScriptableObjects.StatusEffects
             
             foreach (var standardAction in StandardActions)
             {
-                standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
+                //Transferred this to LoadStatusEffectValues
+                //standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
+                
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
         }
