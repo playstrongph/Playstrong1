@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
-using References;
 using UnityEngine;
 
 namespace Logic
@@ -9,9 +8,6 @@ namespace Logic
     {
 
         public IHero CustomHeroTarget { get; set; }
-        
-        //TEST
-        protected IHero LocalHero;
 
         //From SINGLE to Multiple target requirements - used in StandardActions
         public virtual List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
@@ -51,13 +47,6 @@ namespace Logic
             //Example only
             return hero;
         }
-        
-        //TEST
-        public virtual IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect)
-        {
-            return LocalHero;
-        }
-
 
     }
 }

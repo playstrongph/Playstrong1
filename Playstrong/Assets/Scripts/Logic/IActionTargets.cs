@@ -11,8 +11,5 @@ namespace Logic
         IHero GetHeroTarget(IHero hero);
         
         IHero CustomHeroTarget { get; set; }
-        
-        //TEST
-        IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect);
     }
 }
