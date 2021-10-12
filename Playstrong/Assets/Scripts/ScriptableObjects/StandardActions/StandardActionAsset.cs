@@ -190,29 +190,35 @@ namespace ScriptableObjects.StandardActions
                 }
             }
         }
-        
-        
-        
-        
-        
-        
+
+
+
         //FINAL CONDITION CALCULATIONS
         private int FinalConditionValue(IHero targetHero)
         {
+            Debug.Log("Final AndValue: " +FinalAndBasicCondition(targetHero) + " Final OrValue: "  +FinalOrBasicCondition(targetHero));
             var finalCondition = FinalAndBasicCondition(targetHero) * FinalOrBasicCondition(targetHero);
             return finalCondition;
         }
         private int FinalAndBasicCondition(IHero targetHero)
         {
+            
             //No Conditions, return 1
             if (AndBasicConditions.Count <= 0)
-                return _finalAndConditions = 1;
+            {
+                _finalAndConditions = 1;
+                Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
+                return _finalAndConditions = 1;    
+            }
+
             
-            if(AndBasicConditions.Count>1)
+            
+            if(AndBasicConditions.Count>0)
             {
                 foreach (var basicCondition in AndBasicConditions)
                 {
                     _finalAndConditions *= basicCondition.GetValue(targetHero);
+                    Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
                 }
                
             }
@@ -220,16 +226,22 @@ namespace ScriptableObjects.StandardActions
         }
         private int FinalOrBasicCondition(IHero targetHero)
         {
+           
             //No Conditions, return 1
             if (OrBasicConditions.Count <= 0)
-                return _finalOrConditions = 1;
-            
-            
-            if(OrBasicConditions.Count>1)
+            {
+                _finalOrConditions = 1;
+                Debug.Log("OrBasicConditions Count: " +OrBasicConditions.Count +" return: " +_finalOrConditions);
+                return _finalOrConditions = 1;  
+                
+            }
+
+            if(OrBasicConditions.Count>0)
             {
                 foreach (var basicCondition in AndBasicConditions)
                 {
                     _finalOrConditions += basicCondition.GetValue(targetHero);
+                    Debug.Log("OrBasicConditions Count: " +OrBasicConditions.Count +" return: " +_finalOrConditions);
                 }
                
             }

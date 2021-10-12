@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c79d1d1076918641b4e0d67767c33c6, type: 3}
   m_Name: CheckStatusEffectCounters
   m_EditorClassIdentifier: 
-  counters: 0
+  counters: 1

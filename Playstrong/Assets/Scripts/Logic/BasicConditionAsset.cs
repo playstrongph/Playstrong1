@@ -22,10 +22,11 @@ namespace Logic
         /// </summary>
         public int GetValue(IHero thisHero)
         {
+            Debug.Log("Get Basic Condition Value");
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            var value = CheckBasicCondition(thisHero);
+            //var value = CheckBasicCondition(thisHero);
             
-            return value;
+            return  CheckBasicCondition(thisHero);
         }
         
         protected virtual int CheckBasicCondition(IHero thisHero)
@@ -36,10 +37,11 @@ namespace Logic
 
         public int GetValue(IHero thisHero, IHero targetHero)
         {
+            Debug.Log("Get Basic Condition Value");
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            var value = CheckBasicCondition(thisHero,targetHero);
+            //var value = CheckBasicCondition(thisHero,targetHero);
             
-            return value;
+            return CheckBasicCondition(thisHero,targetHero);
         }
         
         protected virtual int CheckBasicCondition(IHero thisHero, IHero targetHero)
