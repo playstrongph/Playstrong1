@@ -11,18 +11,13 @@ namespace ScriptableObjects.BasicActions
     public class CheckStatusEffectCountersBasicConditionAsset : BasicConditionAsset
     {
         [SerializeField] private int counters;
-        
-        public override int GetValue(IStatusEffectAsset statusEffect)
+
+        protected override int CheckBasicCondition(IHero thisHero)
         {
-            var value = CheckBasicCondition(statusEffect);
-            
-            return value;
-        }
-        
-        protected override int CheckBasicCondition(IStatusEffectAsset statusEffect)
-        {
-            var x = 0;
-            return x;
+            if (StatusEffectReference.Counters <= counters)
+                return 1;
+            else
+                return 0;
         }
    
 

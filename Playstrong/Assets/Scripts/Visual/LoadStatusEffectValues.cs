@@ -40,8 +40,6 @@ namespace Visual
             CreateUniqueStandardActionsAndActionTargets();
             CreateUniqueBasicConditions();
         }
-
-
         private void CreateUniqueStandardActionsAndActionTargets()
         {
             var i = 0;
@@ -58,7 +56,6 @@ namespace Visual
                 standardActionClone.BasicActionTargets.SetStatusEffectHero(_heroStatusEffect);
             }
         }
-        
         private void CreateUniqueBasicConditions()
         {
             foreach (var standardAction in _heroStatusEffect.StatusEffectAsset.StandardActions)
