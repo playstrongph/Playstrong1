@@ -28,14 +28,9 @@ namespace Logic
         private IEnumerator RemoveEffectCoroutine(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-
-            //_thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect(hero);
-            //TEST
-            _thisHeroStatusEffect.StatusEffectComponent.UnapplyStatusEffect(hero);
-            
-
             var heroStatusEffects = hero.HeroStatusEffects;
-            
+
+            _thisHeroStatusEffect.StatusEffectAsset.UnapplyStatusEffect(hero);
             _thisHeroStatusEffect.StatusEffectType.RemoveFromStatusEffectList(heroStatusEffects, _thisHeroStatusEffect);
 
             logicTree.AddCurrent(DestroyStatusEffectObject(hero));

@@ -90,7 +90,7 @@ namespace Visual
         
 
 
-        private void LoadStatusEffectComponentValues(IStatusEffectAsset statusEffectAsset,IHero casterHero)
+        /*private void LoadStatusEffectComponentValues(IStatusEffectAsset statusEffectAsset,IHero casterHero)
         {
             var statusEffectComponent = _heroStatusEffect.StatusEffectComponent;
 
@@ -158,6 +158,7 @@ namespace Visual
                 }
             }
         }
+        */
         
         
        
