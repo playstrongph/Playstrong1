@@ -61,7 +61,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
+            //HeroStatusEffectReference.RemoveStatusEffect.RemoveEffect(hero);
             
             logicTree.EndSequence();
             yield return null;

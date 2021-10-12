@@ -59,7 +59,8 @@ namespace Visual
             var statusEffectAssetClone = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
 
             //Set References
-            statusEffectAssetClone.HeroStatusEffectReference = _heroStatusEffect;
+            //TODO: Assign this in ApplyStatus Effect During CreateStatusEffect
+            //statusEffectAssetClone.HeroStatusEffectReference = _heroStatusEffect;
            
             
             
@@ -76,7 +77,9 @@ namespace Visual
 
             //Create StatusComponent StatusEffectAsset and set references
             statusEffectComponent.StatusEffectAsset = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
-            statusEffectComponent.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
+            
+            //TODO: Assign this in ApplyStatus Effect During CreateStatusEffect
+            //statusEffectComponent.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             
             //statusEffectComponent.StatusEffectAsset.StatusEffectCasterHero = casterHero;
             
@@ -114,6 +117,7 @@ namespace Visual
                 standardActionClone.BasicActionTargets = basicActionTargetCloneObject as IActionTargets;
 
                 //Set standardActionClone BasicActionTargets statusEffectReference
+                //Note: This solved the need for references at asset level!
                 standardActionClone.BasicActionTargets.SetStatusEffectHero(_heroStatusEffect);
 
                 //Load the StandardActions in the StatusEffect Component to the StatusEffectComponent StatusEffectAsset clone

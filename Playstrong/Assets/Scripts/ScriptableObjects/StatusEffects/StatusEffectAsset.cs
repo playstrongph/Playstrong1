@@ -74,11 +74,12 @@ namespace ScriptableObjects.StatusEffects
         public int MaxSkillCounters => maxSkillCounters;
 
         //public IHero StatusEffectCasterHero { get; set; }
-       
 
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;
         protected IHero TargetHero;
+        
+        
         
         //For cleanup
         [SerializeField] private float _effectValue;
@@ -89,8 +90,9 @@ namespace ScriptableObjects.StatusEffects
             set => _effectValue = value;
         }
 
+        //public IHeroStatusEffect HeroStatusEffectReference { get;}
+        //protected IHeroStatusEffect HeroStatusEffectReference;
         
-        public IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
         protected void InitializeValues(IHero hero)
         {

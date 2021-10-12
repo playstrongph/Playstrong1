@@ -36,7 +36,8 @@ namespace ScriptableObjects.StatusEffects.Instance
             //heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
             
             //TODO: TEST THIS!!!
-            heroStatusEffect.StatusEffectComponent.ApplyStatusEffect(targetHero);
+            //heroStatusEffect.StatusEffectComponent.ApplyStatusEffect(targetHero);
+            heroStatusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
 
             //STATUS EFFECT PREVIEW
             CreateStatusEffectPreview(targetHero, statusEffectAsset, heroStatusEffect);

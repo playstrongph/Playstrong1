@@ -28,7 +28,8 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
 
         private void BombEffect(IHero targetHero)
         {
-            var counters = HeroStatusEffectReference.Counters;
+            //TEST DISABLE
+            /*var counters = HeroStatusEffectReference.Counters;
             var bombDamage = HeroStatusEffectReference.StatusEffectCasterHero.HeroLogic.HeroAttributes.Attack;
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
@@ -36,14 +37,15 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             {
                 logicTree.AddCurrent(SkillActionAsset.StartAction(targetHero,bombDamage));    
                 ShockLogic(targetHero);
-            }
+            }*/
         }
         
        
         
         private void ShockLogic(IHero targetHero)
         {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            //TEST DISABLE
+            /*var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var tempDebuffChance = 1000f;
             //temporarily increase  - higher priority than immunity (200 debuffResistance)
             //targetHero.HeroLogic.OtherAttributes.DebuffChance += tempDebuffChance;
@@ -52,7 +54,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             logicTree.AddCurrent(AddShockStatusEffect.StartAction(HeroStatusEffectReference.StatusEffectCasterHero,targetHero));
            
             //Return to original value after adding shockstatuseffect
-            logicTree.AddCurrent(ChangeDebuffChance(targetHero,-tempDebuffChance));
+            logicTree.AddCurrent(ChangeDebuffChance(targetHero,-tempDebuffChance));*/
         }
         
         
