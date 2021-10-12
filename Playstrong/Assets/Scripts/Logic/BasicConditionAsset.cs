@@ -13,7 +13,7 @@ namespace Logic
     public class BasicConditionAsset : ScriptableObject, IBasicConditionAsset
     {
         //Reference
-        public IHeroStatusEffect StatusEffect { get; set; }
+        public IHeroStatusEffect StatusEffectReference { get; set; }
         
 
         /// <summary>

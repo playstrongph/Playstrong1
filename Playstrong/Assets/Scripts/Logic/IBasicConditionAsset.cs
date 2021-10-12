@@ -6,7 +6,7 @@ namespace Logic
     public interface IBasicConditionAsset
     {
         //Reference
-        IHeroStatusEffect StatusEffect { get; set; }
+        IHeroStatusEffect StatusEffectReference { get; set; }
         
         
         /// <summary>

@@ -64,28 +64,22 @@ namespace Visual
                 foreach (var basicCondition in standardAction.OrBasicConditions)
                 {
                     var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
-                    
-                    var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
-                    //SetStatusEffect Reference
-                    basicConditionClone.StatusEffect = heroStatusEffect;
-                        
                     standardAction.OrBasicConditionsObjects[j] = basicConditionCloneObject;
                     j++;
                     
-                    
+                    var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
+                    basicConditionClone.StatusEffectReference = heroStatusEffect;
                 }
 
                 var k = 0;
                 foreach (var basicCondition in standardAction.AndBasicConditions)
                 {
                     var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
-                    
-                    var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
-                    //SetStatusEffect Reference
-                    basicConditionClone.StatusEffect = heroStatusEffect;
-                    
                     standardAction.AndBasicConditionsObjects[k] = basicConditionCloneObject;
                     k++;
+                    
+                    var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
+                    basicConditionClone.StatusEffectReference = heroStatusEffect;
                 }
             }
         }
