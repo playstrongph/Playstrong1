@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.ActionTargets;
 using ScriptableObjects.StandardActions;
 using ScriptableObjects.StatusEffects.Instance;
 using ScriptableObjects.StatusEffects.StatusEffectCounter;
@@ -14,7 +15,7 @@ using Utilities;
 
 namespace ScriptableObjects.StatusEffects
 {
-    public class StatusEffectComponent : MonoBehaviour, IStatusEffectComponent
+    public class StatusEffectComponentTest : MonoBehaviour, IStatusEffectComponent
     {
         [SerializeField] private ScriptableObject statusEffectAsset;
         public ScriptableObject statusEffectAssetObject => statusEffectAsset;
@@ -27,8 +28,6 @@ namespace ScriptableObjects.StatusEffects
         
         [SerializeField]
         private List<ScriptableObject> standardActionObjectAssets = new List<ScriptableObject>();
-        //To make it assignable in script 
-        //Remove this if List is exclusively assigned via Inspector
         public List<ScriptableObject> StandardActionObjectAssets => standardActionObjectAssets;
         public List<IStandardActionAsset> StandardActionAssets
         {
@@ -66,7 +65,6 @@ namespace ScriptableObjects.StatusEffects
         
         //TEST
         public IHero StatusEffectCasterHero { get; set; }
-
         public IHero StatusEffectTargetHero { get; set; }
 
 
@@ -77,13 +75,27 @@ namespace ScriptableObjects.StatusEffects
 
         public void ApplyStatusEffect(IHero hero)
         {
-            StatusEffectAsset.ApplyStatusEffect(hero);
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var standardActionAsset in StandardActionAssets)
+            {
+                logicTree.AddCurrent(standardActionAsset.RegisterStandardAction(hero));
+            }
         }
         
         public void UnapplyStatusEffect(IHero hero)
         {
-            StatusEffectAsset.UnapplyStatusEffect(hero);
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            foreach (var standardActionAsset in StandardActionAssets)
+            {
+                logicTree.AddCurrent(standardActionAsset.UnregisterStandardAction(hero));
+            }
         }
+        
+        public virtual void RemoveStatusEffectOnDeath(IHero hero, IHeroStatusEffect statusEffect)
+        {
+            statusEffect.RemoveStatusEffect.RemoveEffect(hero);
+        }
+        
         
         
 

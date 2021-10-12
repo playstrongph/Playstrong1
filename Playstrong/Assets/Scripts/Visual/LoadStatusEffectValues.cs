@@ -35,7 +35,6 @@ namespace Visual
             _heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
-            //TEST
             LoadStatusEffectComponentValues(statusEffectAsset,casterHero);
         }
 
@@ -52,7 +51,6 @@ namespace Visual
             return statusEffectClone;
         }
         
-        //TEST - Create Own File if required
         private void LoadStatusEffectComponentValues(IStatusEffectAsset statusEffectAsset,IHero casterHero)
         {
             var statusEffectComponent = _heroStatusEffect.StatusEffectComponent;
@@ -61,12 +59,21 @@ namespace Visual
             statusEffectComponent.StatusEffectAsset = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
             statusEffectComponent.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             statusEffectComponent.StatusEffectAsset.CasterHero = casterHero;
+            
+            //Set StatusEffect component references
+            statusEffectComponent.StatusEffectCasterHero = _heroStatusEffect.StatusEffectCasterHero;
+            statusEffectComponent.StatusEffectTargetHero = _heroStatusEffect.StatusEffectTargetHero;
+            
 
             //Create StatusEffectComponent StandardActions and set references
             CreateStatusEffectComponentStandardActions(statusEffectComponent);
 
             //Create StatusEffectComponent BasicConditions and set references
             CreateStatusEffectComponentBasicConditions(statusEffectComponent);
+            
+            //TEST 
+            //Assign Unique Status Effect Asset to HeroStatusEffect
+            _heroStatusEffect.StatusEffectAsset = statusEffectComponent.StatusEffectAsset;
         }
 
         private void CreateStatusEffectComponentStandardActions(IStatusEffectComponent statusEffectComponent)

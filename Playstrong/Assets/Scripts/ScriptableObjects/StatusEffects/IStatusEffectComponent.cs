@@ -19,6 +19,11 @@ namespace ScriptableObjects.StatusEffects
         void ApplyStatusEffect(IHero hero);
 
         void UnapplyStatusEffect(IHero hero);
+        
+        
+        //TEST
+        IHero StatusEffectCasterHero { get; set; }
+        IHero StatusEffectTargetHero { get; set; }
 
 
     }

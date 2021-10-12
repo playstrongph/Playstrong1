@@ -21,12 +21,10 @@ namespace ScriptableObjects.StatusEffects
         [TextArea(1,2)]
         [SerializeField] private string _description;
         public string Description => _description;
-            
-        
+
         [SerializeField] private Sprite _icon;
         public Sprite Icon => _icon;
-        
-        
+
         [SerializeField] 
         [RequireInterface(typeof(IStatusEffectType))]
         private ScriptableObject _statusEffectType;
