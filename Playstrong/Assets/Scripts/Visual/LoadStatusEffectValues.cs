@@ -57,36 +57,47 @@ namespace Visual
         {
             var statusEffectComponent = _heroStatusEffect.StatusEffectComponent;
 
-            //Clone of StatusEffectAsset
+            //Create StatusComponent StatusEffectAsset and set references
             statusEffectComponent.StatusEffectAsset = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
-            
-            //StatusEffectAsset References
             statusEffectComponent.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
             statusEffectComponent.StatusEffectAsset.CasterHero = casterHero;
 
+            //Create StatusEffectComponent StandardActions and set references
+            CreateStatusEffectComponentStandardActions(statusEffectComponent);
+
+            //Create StatusEffectComponent BasicConditions and set references
+            CreateStatusEffectComponentBasicConditions(statusEffectComponent);
+        }
+
+        private void CreateStatusEffectComponentStandardActions(IStatusEffectComponent statusEffectComponent)
+        {
             var i = 0;
-            //Load Standard Actions
-            foreach(var standardActionObject in _heroStatusEffect.StatusEffectAsset.StandardActions)
+            foreach(var standardActionObject in statusEffectComponent.StatusEffectAsset.StandardActions)
             {
                 var standardActionCloneObject = Instantiate(standardActionObject as ScriptableObject);
-                var actionTarget = Instantiate(standardActionObject.BasicActionTargets as ScriptableObject);
+                var basicActionTargetCloneObject = Instantiate(standardActionObject.BasicActionTargets as ScriptableObject);
+                
                 var standardActionClone = standardActionCloneObject as IStandardActionAsset;
 
-
+                //Add Standard Actions And ActionTargets into StatusEffect Component
                 statusEffectComponent.StandardActionObjectAssets.Add(standardActionCloneObject);
-                statusEffectComponent.ActionTargetObjectAssets.Add(actionTarget);
-                standardActionClone.BasicActionTargets = actionTarget as IActionTargets;
+                statusEffectComponent.ActionTargetObjectAssets.Add(basicActionTargetCloneObject);
+                
+                //Set StatusEffect component standardActions' basicActionTarget 
+                standardActionClone.BasicActionTargets = basicActionTargetCloneObject as IActionTargets;
 
                 //Set standardActionClone BasicActionTargets statusEffectReference
                 standardActionClone.BasicActionTargets.SetStatusEffectHero(_heroStatusEffect);
 
-                //Load the StandardActions in the StatusEffect Component to the StatusEffectComponent Asset
+                //Load the StandardActions in the StatusEffect Component to the StatusEffectComponent StatusEffectAsset clone
                 statusEffectComponent.StatusEffectAsset.StandardActionsObjects[i] = statusEffectComponent.StandardActionObjectAssets[i];
                 i++;
             }
-            
-            //TODO Separate Method Call
-            foreach (var standardAction in _heroStatusEffect.StatusEffectComponent.StandardActionAssets)
+        }
+
+        private void CreateStatusEffectComponentBasicConditions(IStatusEffectComponent statusEffectComponent)
+        {
+            foreach (var standardAction in statusEffectComponent.StandardActionAssets)
             {
                 var j = 0;
                 foreach (var basicCondition in standardAction.OrBasicConditions)
