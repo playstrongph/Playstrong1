@@ -15,9 +15,17 @@ namespace ScriptableObjects.BasicActions
         protected override int CheckBasicCondition(IHero thisHero)
         {
             if (StatusEffectReference.Counters <= counters)
-                return 1;
-            else
                 return 0;
+            else
+                return 1;
+        }
+        
+        protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
+        {
+            if (StatusEffectReference.Counters <= counters)
+                return 0;
+            else
+                return 1;
         }
    
 
