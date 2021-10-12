@@ -100,10 +100,10 @@ namespace Visual
             statusEffectComponent.StatusEffectTargetHero = _heroStatusEffect.StatusEffectTargetHero;
             
             //Create StatusEffectComponent StandardActions and set references
-            CreateStatusEffectComponentStandardActions(statusEffectComponent);
+            //CreateStatusEffectComponentStandardActions(statusEffectComponent);
 
             //Create StatusEffectComponent BasicConditions and set references
-            CreateStatusEffectComponentBasicConditions(statusEffectComponent);
+            //CreateStatusEffectComponentBasicConditions(statusEffectComponent);
             
             //TEST 
             //Assign Unique Status Effect Asset to HeroStatusEffect
