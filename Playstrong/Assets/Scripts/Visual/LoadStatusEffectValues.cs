@@ -18,9 +18,6 @@ namespace Visual
 
         public void LoadValues(IHero targetHero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero)
         {
-            //Update the statusEffect asset to a unique instance
-            _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffectAsset);
-            
             //StatusEffectAsset data
             _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
             _heroStatusEffect.StatusEffectCounterUpdate = statusEffectAsset.UpdateTiming;
@@ -34,8 +31,14 @@ namespace Visual
             _heroStatusEffect.StatusEffectTargetHero = targetHero;
             _heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
+            
+            //Update the statusEffect asset to a unique instance
+            _heroStatusEffect.StatusEffectAsset = CloneStatusEffectAsset(statusEffectAsset);
 
             LoadStatusEffectComponentValues(statusEffectAsset,casterHero);
+            
+            //Test
+            //CreateUniqueStatusEffectAsset
         }
 
         private IStatusEffectAsset CloneStatusEffectAsset(IStatusEffectAsset statusEffectAsset)
@@ -46,11 +49,27 @@ namespace Visual
             
             //Re-assing reference to Scriptable Object Clone
             //TODO: Re-assign this to HeroStatus Effect
-            statusEffectClone.CasterHero = statusEffectAsset.CasterHero;
+            //statusEffectClone.StatusEffectCasterHero = statusEffectAsset.StatusEffectCasterHero;
 
             return statusEffectClone;
         }
-        
+
+        private void CloneStatusEffectAsset2(IStatusEffectAsset statusEffectAsset)
+        {
+            var statusEffectAssetClone = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
+
+            //Set References
+            statusEffectAssetClone.HeroStatusEffectReference = _heroStatusEffect;
+           
+            
+            
+
+
+        }
+
+
+
+
         private void LoadStatusEffectComponentValues(IStatusEffectAsset statusEffectAsset,IHero casterHero)
         {
             var statusEffectComponent = _heroStatusEffect.StatusEffectComponent;
@@ -58,7 +77,8 @@ namespace Visual
             //Create StatusComponent StatusEffectAsset and set references
             statusEffectComponent.StatusEffectAsset = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
             statusEffectComponent.StatusEffectAsset.HeroStatusEffectReference = _heroStatusEffect;
-            statusEffectComponent.StatusEffectAsset.CasterHero = casterHero;
+            
+            //statusEffectComponent.StatusEffectAsset.StatusEffectCasterHero = casterHero;
             
             //Set StatusEffect component references
             statusEffectComponent.StatusEffectCasterHero = _heroStatusEffect.StatusEffectCasterHero;

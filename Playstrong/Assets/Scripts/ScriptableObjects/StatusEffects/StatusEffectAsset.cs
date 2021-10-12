@@ -73,7 +73,8 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] private int maxSkillCounters = 1 ;
         public int MaxSkillCounters => maxSkillCounters;
 
-        public IHero CasterHero { get; set; }
+        //public IHero StatusEffectCasterHero { get; set; }
+       
 
         protected ICoroutineTree LogicTree;
         protected ICoroutineTree VisualTree;

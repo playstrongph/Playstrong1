@@ -29,7 +29,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         private void BombEffect(IHero targetHero)
         {
             var counters = HeroStatusEffectReference.Counters;
-            var bombDamage = CasterHero.HeroLogic.HeroAttributes.Attack;
+            var bombDamage = HeroStatusEffectReference.StatusEffectCasterHero.HeroLogic.HeroAttributes.Attack;
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             if (counters <= 1)
@@ -49,7 +49,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
             //targetHero.HeroLogic.OtherAttributes.DebuffChance += tempDebuffChance;
             logicTree.AddCurrent(ChangeDebuffChance(targetHero, tempDebuffChance));
            
-            logicTree.AddCurrent(AddShockStatusEffect.StartAction(CasterHero,targetHero));
+            logicTree.AddCurrent(AddShockStatusEffect.StartAction(HeroStatusEffectReference.StatusEffectCasterHero,targetHero));
            
             //Return to original value after adding shockstatuseffect
             logicTree.AddCurrent(ChangeDebuffChance(targetHero,-tempDebuffChance));
@@ -59,7 +59,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
 
         private IEnumerator ChangeDebuffChance(IHero targetHero, float tempDebuffChance)
         {
-            var logicTree = CasterHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             targetHero.HeroLogic.OtherAttributes.DebuffChance += tempDebuffChance;
             

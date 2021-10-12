@@ -42,7 +42,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             CreateStatusEffectPreview(targetHero, statusEffectAsset, heroStatusEffect);
             
             //TODO: For cleanup.  Using this is wrong!
-            statusEffectAsset.CasterHero = casterHero;             
+            //statusEffectAsset.StatusEffectCasterHero = casterHero;             
             
             return heroStatusEffect;
         }
@@ -60,7 +60,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             var heroStatusEffect = statusEffectObject.GetComponent<IHeroStatusEffect>();
             
             //This should come before LoadStatusEffectValues due to cloning of SO
-            statusEffectAsset.CasterHero = casterHero;
+            //statusEffectAsset.StatusEffectCasterHero = casterHero;
             heroStatusEffect.StatusEffectCasterHero = casterHero;
 
             heroStatusEffect.LoadStatusEffectValues.LoadValues(targetHero,statusEffectAsset, statusEffectCounters,casterHero);
@@ -79,7 +79,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             heroStatusEffect.StatusEffectTargetHero = targetHero;
 
-            statusEffectAsset.CasterHero = casterHero;
+            //statusEffectAsset.StatusEffectCasterHero = casterHero;
             heroStatusEffect.StatusEffectCasterHero = casterHero;
             
 
@@ -145,7 +145,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
             
             existingStatusEffect.StatusEffectCasterHero = casterHero;
-            statusEffectAsset.CasterHero = casterHero;
+            //statusEffectAsset.StatusEffectCasterHero = casterHero;
 
         }
         protected void UpdateStackingStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
@@ -177,7 +177,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             }
             
             existingStatusEffect.StatusEffectCasterHero = casterHero;
-            statusEffectAsset.CasterHero = casterHero;
+            //statusEffectAsset.StatusEffectCasterHero = casterHero;
 
         }
 

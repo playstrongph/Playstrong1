@@ -41,7 +41,9 @@ namespace ScriptableObjects.StatusEffects
 
         int MaxSkillCounters { get; }
 
-        IHero CasterHero { get; set; }
+        //IHero StatusEffectCasterHero { get; set; }
+        
+        //IHero StatusEffectTargetHero { get; set; }
         
         IHeroStatusEffect HeroStatusEffectReference { get; set; }
 
