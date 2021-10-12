@@ -14,6 +14,8 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         //Cumulative effect value of the stacking status effect 
         //Effect: At the start of the hero's turn, +2 attack.  Max of 5 counters
         private float _cumulativeValue = 0f;
+
+        [SerializeField] private float attackUpValue;
         
         public override void ApplyStatusEffect(IHero hero)
         {
@@ -30,31 +32,31 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
 
         public override void ApplyStackingEffect(IHero hero)
         {
-            ComputeAttackIncrease(hero);
+            /*ComputeAttackIncrease(hero);
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, EffectValue));
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, attackUpValue));*/
 
             
         }
 
         public override void UnapplyStackingEffect(IHero hero)
         {
-            var effectValue = _cumulativeValue;
+            /*var effectValue = _cumulativeValue;
             _cumulativeValue = 0;
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -effectValue));
+            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -effectValue));*/
         }
 
         private void ComputeAttackIncrease(IHero hero)
         {
             var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
             
-            EffectValue = Mathf.FloorToInt(multiplier * baseAttack);
+            attackUpValue = Mathf.FloorToInt(multiplier * baseAttack);
             //Test
-            EffectValue = 2;
+            attackUpValue = 2;
             
-            _cumulativeValue += EffectValue;
+            _cumulativeValue += attackUpValue;
         }
 
         private IEnumerator TestDestroy(IHero hero)

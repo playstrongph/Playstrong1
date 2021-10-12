@@ -12,7 +12,7 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void ApplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, energyDecrease));
+            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, energyDecrease));
         }
         
         public override void UnapplyStatusEffect(IHero hero)

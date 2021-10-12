@@ -13,20 +13,13 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         public override void ApplyStatusEffect(IHero hero) 
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, _inabilityChanceIncrease));
+            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, _inabilityChanceIncrease));
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -_inabilityChanceIncrease));
+            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, -_inabilityChanceIncrease));
         }
-
-       
-
-
-
-
-
     }
 }

@@ -38,21 +38,12 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
-
-        
-        
-        [Header("Obsolete")]
-        [SerializeField] private ScriptableObject _skillactionAsset;
-        public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
-
-        [Header("Obsolete")]
-        [SerializeField] private ScriptableObject _standardAction; 
-        public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;
-
+        //Used by stacking skill effects
+        [SerializeField] private int maxSkillCounters = 1 ;
+        public int MaxSkillCounters => maxSkillCounters;
 
         [SerializeField] private List<ScriptableObject> _standardActions;
         public List<ScriptableObject> StandardActionsObjects => _standardActions;
-
         public List<IStandardActionAsset> StandardActions
         {
             get
@@ -68,50 +59,16 @@ namespace ScriptableObjects.StatusEffects
             }
         }
 
-        //maximum skill status effect counters
-        //Used by stacking skill effects
-        [SerializeField] private int maxSkillCounters = 1 ;
-        public int MaxSkillCounters => maxSkillCounters;
-
-        //public IHero StatusEffectCasterHero { get; set; }
-
-        protected ICoroutineTree LogicTree;
-        protected ICoroutineTree VisualTree;
-        protected IHero TargetHero;
         
         
         
-        //For cleanup
-        [SerializeField] private float _effectValue;
-
-        public float EffectValue
-        {
-            get => _effectValue;
-            set => _effectValue = value;
-        }
-
-        //public IHeroStatusEffect HeroStatusEffectReference { get;}
-        //protected IHeroStatusEffect HeroStatusEffectReference;
-        
-
-        protected void InitializeValues(IHero hero)
-        {
-            LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            TargetHero = hero;
-
-        }
         
         public virtual void ApplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            //TODO: Set StatusEffect References for BasicConditions
             
             foreach (var standardAction in StandardActions)
             {
-                //Transferred this to LoadStatusEffectValues
-                //standardAction.BasicActionTargets.SetStatusEffectHero(HeroStatusEffectReference);
-                
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
             }
         }
@@ -124,13 +81,6 @@ namespace ScriptableObjects.StatusEffects
                 logicTree.AddCurrent(standardAction.UnregisterStandardAction(hero));
             }
         }
-        
-        //Used by Resurrect and Extinction - as they need to persist post death
-        public virtual void RemoveStatusEffectOnDeath(IHero hero, IHeroStatusEffect statusEffect)
-        {
-            statusEffect.RemoveStatusEffect.RemoveEffect(hero);
-        }
-        
 
         public virtual void ApplyStackingEffect(IHero hero)
         {
@@ -138,23 +88,60 @@ namespace ScriptableObjects.StatusEffects
 
         public virtual void UnapplyStackingEffect(IHero hero)
         {
-            
+        }
+        
+        //Used by Resurrect and Extinction - as they need to persist post death
+        public virtual void RemoveStatusEffectOnDeath(IHero hero, IHeroStatusEffect statusEffect)
+        {
+            statusEffect.RemoveStatusEffect.RemoveEffect(hero);
         }
 
-        public virtual IEnumerator StartSkillAction()
+        /*public virtual IEnumerator StartSkillAction()
         {
             LogicTree.EndSequence();
             yield return null;
-        }
+        }*/
         
-        /// <summary>
-        /// For status effects called by events
-        /// </summary>
-        /// <param name="hero"></param>
-        public virtual void StartEventStatusEffect(IHero hero)
+       
+        /*public virtual void StartEventStatusEffect(IHero hero)
         {
             
-        }
+        }*/
+        
+        //public IHero StatusEffectCasterHero { get; set; }
+
+        //protected ICoroutineTree LogicTree;
+        //protected ICoroutineTree VisualTree;
+        //protected IHero TargetHero;
+
+        //For cleanup
+        /*[SerializeField] private float _effectValue;
+
+        public float EffectValue
+        {
+            get => _effectValue;
+            set => _effectValue = value;
+        }*/
+
+        //public IHeroStatusEffect HeroStatusEffectReference { get;}
+        //protected IHeroStatusEffect HeroStatusEffectReference;
+        
+
+        /*protected void InitializeValues(IHero hero)
+        {
+            LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
+            TargetHero = hero;
+
+        }*/
+        
+        /*[Header("Obsolete")]
+       [SerializeField] private ScriptableObject _skillactionAsset;
+       public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
+
+       [Header("Obsolete")]
+       [SerializeField] private ScriptableObject _standardAction; 
+       public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;*/
 
 
 

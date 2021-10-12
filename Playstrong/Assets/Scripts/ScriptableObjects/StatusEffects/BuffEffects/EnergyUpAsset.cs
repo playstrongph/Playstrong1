@@ -12,7 +12,7 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         public override void ApplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(SkillActionAsset.StartAction(hero, energyIncrease));
+            //logicTree.AddCurrent(SkillActionAsset.StartAction(hero, energyIncrease));
         }
         
         public override void UnapplyStatusEffect(IHero hero)
