@@ -86,6 +86,9 @@ namespace ScriptableObjects.StandardActions
 
         private int _finalAndConditions = 1;
         private int _finalOrConditions = 0;
+        //Test
+        private IHeroStatusEffect _heroStatusEffect;
+      
         
         
         //Event Based StandardAction
@@ -132,7 +135,7 @@ namespace ScriptableObjects.StandardActions
         
         //Start Action Now
         //NOTE: The args IHero and float are exclusive to NO EVENTS(?)
-        public void StartAction(IHero targetHero,float value)
+        /*public void StartAction(IHero targetHero,float value)
         {
             //Debug.Log("Standard Action StartAction 1 Hero and 1 float arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -146,12 +149,13 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero,value));
                 }
             }
-        }
+        }*/
         public void StartAction(IHero targetHero)
         {
             //Debug.Log("Standard Action StartAction 1 Hero arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            //TODO: GetHeroTargets with _heroStatusEffect signature GetHeroTargets(targetHero,_heroStatusEffect)
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
@@ -178,7 +182,7 @@ namespace ScriptableObjects.StandardActions
 
         
         //UndoStartAction - akin to UnregisterStandardAction
-        public void UndoStartAction(IHero targetHero,float value)
+        /*public void UndoStartAction(IHero targetHero,float value)
         {
             //Debug.Log("Standard Action Start Action");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -191,7 +195,7 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero,value));
                 }
             }
-        }
+        }*/
         public void UndoStartAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -224,7 +228,7 @@ namespace ScriptableObjects.StandardActions
         
         //Start Action At Event
         //TODO: Delete, NO Need
-        public void StartActionOnEvent(IHero targetHero)
+        /*public void StartActionOnEvent(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
@@ -263,7 +267,7 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
                 }
             }
-        }
+        }*/
         
         //FINAL CONDITION CALCULATIONS
         private int FinalConditionValue(IHero targetHero)

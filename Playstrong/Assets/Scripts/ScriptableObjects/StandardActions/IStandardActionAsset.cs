@@ -17,12 +17,12 @@ namespace ScriptableObjects.StandardActions
         //Start Action 
         void StartAction(IHero targetHero);
         void StartAction(IHero thisHero, IHero targetHero);
-        void StartAction(IHero targetHero, float value);
+        
         
         //Undo Start Action
         void UndoStartAction(IHero targetHero);
         void UndoStartAction(IHero thisHero, IHero targetHero);
-        void UndoStartAction(IHero targetHero, float value);
+       
         
         //Action Targets
         IActionTargets BasicActionTargets { get; set; }
@@ -36,12 +36,11 @@ namespace ScriptableObjects.StandardActions
 
         //TODO: Delete
         //Start Action On Event
-        void StartActionOnEvent(IHero targetHero);
-        void StartActionOnEvent(IHero targetHero, float value);
-        void StartActionOnEvent(IHero thisHero, IHero targetHero);
-        
-       
-                
+        //void StartActionOnEvent(IHero targetHero);
+        //void StartActionOnEvent(IHero targetHero, float value);
+        //void StartActionOnEvent(IHero thisHero, IHero targetHero);
+        //void StartAction(IHero targetHero, float value);
+        //void UndoStartAction(IHero targetHero, float value);
 
     }
 }

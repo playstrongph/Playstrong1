@@ -60,13 +60,9 @@ namespace ScriptableObjects.StatusEffects
         }
 
         
-        
-        
-        
         public virtual void ApplyStatusEffect(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
             foreach (var standardAction in StandardActions)
             {
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(hero));
@@ -96,55 +92,7 @@ namespace ScriptableObjects.StatusEffects
             statusEffect.RemoveStatusEffect.RemoveEffect(hero);
         }
 
-        /*public virtual IEnumerator StartSkillAction()
-        {
-            LogicTree.EndSequence();
-            yield return null;
-        }*/
-        
-       
-        /*public virtual void StartEventStatusEffect(IHero hero)
-        {
-            
-        }*/
-        
-        //public IHero StatusEffectCasterHero { get; set; }
-
-        //protected ICoroutineTree LogicTree;
-        //protected ICoroutineTree VisualTree;
-        //protected IHero TargetHero;
-
-        //For cleanup
-        /*[SerializeField] private float _effectValue;
-
-        public float EffectValue
-        {
-            get => _effectValue;
-            set => _effectValue = value;
-        }*/
-
-        //public IHeroStatusEffect HeroStatusEffectReference { get;}
-        //protected IHeroStatusEffect HeroStatusEffectReference;
-        
-
-        /*protected void InitializeValues(IHero hero)
-        {
-            LogicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            VisualTree = hero.CoroutineTreesAsset.MainVisualTree;
-            TargetHero = hero;
-
-        }*/
-        
-        /*[Header("Obsolete")]
-       [SerializeField] private ScriptableObject _skillactionAsset;
-       public IHeroAction SkillActionAsset => _skillactionAsset as IHeroAction;
-
-       [Header("Obsolete")]
-       [SerializeField] private ScriptableObject _standardAction; 
-       public IStandardActionAsset StandardAction => _standardAction as IStandardActionAsset;*/
-
-
-
+      
 
 
 
