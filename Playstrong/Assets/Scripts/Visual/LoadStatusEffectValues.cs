@@ -47,14 +47,13 @@ namespace Visual
             {
                 
                 var standardActionClone = Instantiate(standardAction as ScriptableObject) as IStandardActionAsset;
+                //Replace the standardActions in the statusEffectAsset with unique cloness
+                heroStatusEffect.StatusEffectAsset.StandardActionsObjects[i] = standardActionClone as ScriptableObject;
+                i++;
                 
                 //Create Basic Action Targets clone and set heroStatusEffectReference
                 standardActionClone.BasicActionTargets = Instantiate(standardAction.BasicActionTargets as ScriptableObject) as IActionTargets;
                 standardActionClone.BasicActionTargets.SetStatusEffectHero(_heroStatusEffect);
-
-                //Replace the standardActions in the statusEffectAsset with unique cloness
-                heroStatusEffect.StatusEffectAsset.StandardActionsObjects[i] = standardActionClone as ScriptableObject;
-                i++;
             }
         }
         
@@ -66,6 +65,8 @@ namespace Visual
                 foreach (var basicCondition in standardAction.OrBasicConditions)
                 {
                     var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
+                    //TODO: SetStatusEffectReference
+                    
                     standardAction.OrBasicConditionsObjects[j] = basicConditionCloneObject;
                     j++;
                 }
