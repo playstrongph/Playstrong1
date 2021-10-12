@@ -5,6 +5,10 @@ namespace Logic
 {
     public interface IBasicConditionAsset
     {
+        //Reference
+        IHeroStatusEffect StatusEffect { get; set; }
+        
+        
         /// <summary>
         /// Returns a value of 1 if basic condition is met, 0 otherwise;
         /// Default value is zero

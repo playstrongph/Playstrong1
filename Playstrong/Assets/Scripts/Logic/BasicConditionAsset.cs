@@ -12,12 +12,14 @@ namespace Logic
     /// </summary>
     public class BasicConditionAsset : ScriptableObject, IBasicConditionAsset
     {
-       
+        //Reference
+        public IHeroStatusEffect StatusEffect { get; set; }
+        
+
         /// <summary>
         /// Returns a value of 1 if basic condition is met, 0 otherwise;
         /// Default value is zero
         /// </summary>
-        
         public int GetValue(IHero thisHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
