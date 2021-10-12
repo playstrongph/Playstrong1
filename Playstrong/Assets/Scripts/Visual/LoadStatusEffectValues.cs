@@ -30,24 +30,27 @@ namespace Visual
             _heroStatusEffect.CoroutineTreesAsset = targetHero.CoroutineTreesAsset;
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
             
-            //Create a unique HeroStatusEffect StatusEffectAsset
-            _heroStatusEffect.StatusEffectAsset = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
-            CreateUniqueStandardActionsAndActionTargets(_heroStatusEffect);
-            CreateUniqueBasicConditions(_heroStatusEffect);
-
-            
+            //Unique StatusEffectAsset
+            CreateUniqueStatusEffectAsset(statusEffectAsset);
         }
-        
-        
-        private void CreateUniqueStandardActionsAndActionTargets(IHeroStatusEffect heroStatusEffect)
+
+        private void CreateUniqueStatusEffectAsset(IStatusEffectAsset statusEffectAsset)
+        {
+            _heroStatusEffect.StatusEffectAsset = Instantiate(statusEffectAsset as ScriptableObject) as IStatusEffectAsset;
+            CreateUniqueStandardActionsAndActionTargets();
+            CreateUniqueBasicConditions();
+        }
+
+
+        private void CreateUniqueStandardActionsAndActionTargets()
         {
             var i = 0;
-            foreach(var standardAction in heroStatusEffect.StatusEffectAsset.StandardActions)
+            foreach(var standardAction in _heroStatusEffect.StatusEffectAsset.StandardActions)
             {
                 
                 var standardActionClone = Instantiate(standardAction as ScriptableObject) as IStandardActionAsset;
                 //Replace the standardActions in the statusEffectAsset with unique cloness
-                heroStatusEffect.StatusEffectAsset.StandardActionsObjects[i] = standardActionClone as ScriptableObject;
+                _heroStatusEffect.StatusEffectAsset.StandardActionsObjects[i] = standardActionClone as ScriptableObject;
                 i++;
                 
                 //Create Basic Action Targets clone and set heroStatusEffectReference
@@ -56,9 +59,9 @@ namespace Visual
             }
         }
         
-        private void CreateUniqueBasicConditions(IHeroStatusEffect heroStatusEffect)
+        private void CreateUniqueBasicConditions()
         {
-            foreach (var standardAction in heroStatusEffect.StatusEffectAsset.StandardActions)
+            foreach (var standardAction in _heroStatusEffect.StatusEffectAsset.StandardActions)
             {
                 var j = 0;
                 foreach (var basicCondition in standardAction.OrBasicConditions)
@@ -68,7 +71,7 @@ namespace Visual
                     j++;
                     
                     var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
-                    basicConditionClone.StatusEffectReference = heroStatusEffect;
+                    basicConditionClone.StatusEffectReference = _heroStatusEffect;
                 }
 
                 var k = 0;
@@ -79,7 +82,7 @@ namespace Visual
                     k++;
                     
                     var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
-                    basicConditionClone.StatusEffectReference = heroStatusEffect;
+                    basicConditionClone.StatusEffectReference = _heroStatusEffect;
                 }
             }
         }
