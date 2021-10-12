@@ -131,25 +131,9 @@ namespace ScriptableObjects.StandardActions
             logicTree.EndSequence();
             yield return null;
         }
+       
         
-        
-        //Start Action Now
-        //NOTE: The args IHero and float are exclusive to NO EVENTS(?)
-        /*public void StartAction(IHero targetHero,float value)
-        {
-            //Debug.Log("Standard Action StartAction 1 Hero and 1 float arg");
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TODO: this needs to be an argument
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
-            {
-                if (FinalConditionValue(targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero,value));
-                }
-            }
-        }*/
+       
         public void StartAction(IHero targetHero)
         {
             //Debug.Log("Standard Action StartAction 1 Hero arg");
@@ -180,22 +164,6 @@ namespace ScriptableObjects.StandardActions
             }
         }
 
-        
-        //UndoStartAction - akin to UnregisterStandardAction
-        /*public void UndoStartAction(IHero targetHero,float value)
-        {
-            //Debug.Log("Standard Action Start Action");
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
-            {
-                if (FinalConditionValue(targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero,value));
-                }
-            }
-        }*/
         public void UndoStartAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -226,48 +194,7 @@ namespace ScriptableObjects.StandardActions
         
         
         
-        //Start Action At Event
-        //TODO: Delete, NO Need
-        /*public void StartActionOnEvent(IHero targetHero)
-        {
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
-            {
-                if (FinalConditionValue(targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
-                }
-            }
-        }
-        public void StartActionOnEvent(IHero targetHero,float value)
-        {
-            //Debug.Log("Standard Action Start Action");
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
-            {
-                if (FinalConditionValue(targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(newTargetHero,value));
-                }
-            }
-        }
-        public void StartActionOnEvent(IHero thisHero, IHero targetHero)
-        {   
-            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
-            {
-                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
-                if (FinalConditionValue(thisHero, targetHero) > 0)
-                {
-                    foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
-                }
-            }
-        }*/
+        
         
         //FINAL CONDITION CALCULATIONS
         private int FinalConditionValue(IHero targetHero)

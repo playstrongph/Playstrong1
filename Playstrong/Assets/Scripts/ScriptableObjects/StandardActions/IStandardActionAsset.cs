@@ -26,21 +26,11 @@ namespace ScriptableObjects.StandardActions
         
         //Action Targets
         IActionTargets BasicActionTargets { get; set; }
-        
         //Basic Conditions
         List<IBasicConditionAsset> OrBasicConditions { get; }
         List<ScriptableObject> OrBasicConditionsObjects { get; }
         List<IBasicConditionAsset> AndBasicConditions { get; }
         List<ScriptableObject> AndBasicConditionsObjects { get; }
-
-
-        //TODO: Delete
-        //Start Action On Event
-        //void StartActionOnEvent(IHero targetHero);
-        //void StartActionOnEvent(IHero targetHero, float value);
-        //void StartActionOnEvent(IHero thisHero, IHero targetHero);
-        //void StartAction(IHero targetHero, float value);
-        //void UndoStartAction(IHero targetHero, float value);
 
     }
 }
