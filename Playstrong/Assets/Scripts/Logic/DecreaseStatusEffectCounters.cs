@@ -15,25 +15,23 @@ namespace Logic
     {
         private IHeroStatusEffect _heroStatusEffect;
         
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
-        
         private void Awake()
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
+        }
+
+        public void DecreaseCounters(int value)
+        {
+            var logicTree = _heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
             
+            logicTree.AddCurrent(DecreaseCountersCoroutine(value));
         }
 
-        public void DecreaseCounters(int value, ICoroutineTreesAsset coroutineTreesAsset)
+        private IEnumerator DecreaseCountersCoroutine(int value)
         {
-           _logicTree = coroutineTreesAsset.MainLogicTree;
-           _visualTree = coroutineTreesAsset.MainVisualTree;
-           
-           _logicTree.AddCurrent(DecreaseCounters(value));
-        }
-
-        private IEnumerator DecreaseCounters(int value)
-        {
+            var logicTree = _heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = _heroStatusEffect.CoroutineTreesAsset.MainVisualTree;
+            
             _heroStatusEffect.Counters -= value;
 
             if (_heroStatusEffect.Counters <= 0)
@@ -42,17 +40,19 @@ namespace Logic
                 _heroStatusEffect.RemoveStatusEffect.RemoveEffect(_heroStatusEffect.StatusEffectTargetHero);
             }
 
-            _visualTree.AddCurrent(SetCountersVisual(value));
+            visualTree.AddCurrent(SetCountersVisual(value));
 
-            _logicTree.EndSequence();
+            logicTree.EndSequence();
             yield return null;
         }
         
         private IEnumerator SetCountersVisual(int value)
         {
+            var visualTree = _heroStatusEffect.CoroutineTreesAsset.MainVisualTree;
+            
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
-            _visualTree.EndSequence();
+            visualTree.EndSequence();
             yield return null;
         }
     }

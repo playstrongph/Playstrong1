@@ -10,13 +10,18 @@ namespace ScriptableObjects.StatusEffects.Instance
     public class StatusEffectChangeCountersAsset : ScriptableObject
     {
         [SerializeField] protected int statusEffectCounters;
-        
-        
-        
+
         public virtual void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
         {
             heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(statusEffectCounters);
         }
+        
+        public virtual void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+        {
+            heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(statusEffectCounters);
+        }
+        
+        
         
         
         
