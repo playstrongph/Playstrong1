@@ -4,6 +4,6 @@ namespace Logic
 {
     public interface ISetStatusEffectCounters
     {
-        void SetCounters(int value, ICoroutineTreesAsset coroutineTreesAsset);
+        void SetCounters(int value);
     }
 }

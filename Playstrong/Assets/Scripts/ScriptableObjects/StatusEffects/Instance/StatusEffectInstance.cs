@@ -194,8 +194,8 @@ namespace ScriptableObjects.StatusEffects.Instance
         }
         public virtual void SetCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
         {
-            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            existingStatusEffect.SetStatusEffectCounters.SetCounters(counters,coroutineTreesAsset);
+            //var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.SetStatusEffectCounters.SetCounters(counters);
         }
         
         

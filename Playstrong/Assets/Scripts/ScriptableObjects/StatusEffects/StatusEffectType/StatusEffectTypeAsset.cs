@@ -31,8 +31,8 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
         
         public virtual void SetCountersValue(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
         {
-            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            existingStatusEffect.SetStatusEffectCounters.SetCounters(counters,coroutineTreesAsset);
+            //var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.SetStatusEffectCounters.SetCounters(counters);
         }
         
         public virtual void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)

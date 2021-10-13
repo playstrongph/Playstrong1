@@ -10,42 +10,38 @@ namespace Logic
     public class SetStatusEffectCounters : MonoBehaviour, ISetStatusEffectCounters
     {
         private IHeroStatusEffect _heroStatusEffect;
-        
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
-        
         private void Awake()
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
-            
         }
 
-        public void SetCounters(int value, ICoroutineTreesAsset coroutineTreesAsset)
+        public void SetCounters(int value)
         {
-          
-           _logicTree = coroutineTreesAsset.MainLogicTree;
-           _visualTree = coroutineTreesAsset.MainVisualTree;
-           
-           _logicTree.AddCurrent(LogicSetCountersEnumerator(value));
-           
-           //TODO: potentially include statuseffectinstance UpdateCounters for fixedInstance purposes
+            var logicTree = _heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(LogicSetCountersEnumerator(value));
         }
 
         private IEnumerator LogicSetCountersEnumerator(int value)
         {
+            var logicTree = _heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = _heroStatusEffect.CoroutineTreesAsset.MainVisualTree;
+            
             _heroStatusEffect.Counters = value;
             
-            _visualTree.AddCurrent(VisualSetCountersEnumerator(value));
+            visualTree.AddCurrent(VisualSetCountersEnumerator(value));
 
-            _logicTree.EndSequence();
+            logicTree.EndSequence();
             yield return null;
         }
         
         private IEnumerator VisualSetCountersEnumerator(int value)
         {
+            var visualTree = _heroStatusEffect.CoroutineTreesAsset.MainVisualTree;
+            
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
-            _visualTree.EndSequence();
+            visualTree.EndSequence();
             yield return null;
         }
     }

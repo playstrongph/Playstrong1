@@ -7,24 +7,29 @@ using Visual;
 
 namespace ScriptableObjects.StatusEffects.Instance
 {
-    public class StatusEffectChangeCountersAsset : ScriptableObject
+    public class StatusEffectChangeCountersAsset : ScriptableObject, IStatusEffectChangeCountersAsset
     {
-        [SerializeField] protected int statusEffectCounters;
+        
 
         public virtual void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
         {
-            heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(statusEffectCounters);
+            //heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(statusEffectCounters);
         }
         
         public virtual void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
         {
-            heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(statusEffectCounters);
+            //heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(statusEffectCounters);
         }
-        
-        
-        
-        
-        
+
+        public virtual void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect)
+        {
+            //heroStatusEffect.SetStatusEffectCounters.SetCounters(statusEffectCounters);
+        }
+
+
+
+
+
 
     }
 }
