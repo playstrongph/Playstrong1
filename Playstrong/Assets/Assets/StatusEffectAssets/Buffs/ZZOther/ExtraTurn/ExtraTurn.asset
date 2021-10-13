@@ -19,6 +19,8 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: 7eb24d6676b0de241842f83a284e5ff9,
     type: 2}
-  _skillactionAsset: {fileID: 0}
-  _effectValue: 0
+  _statusEffectDispelStatus: {fileID: 11400000, guid: 76b8830e3aaf46e4c8eef61231f50c00,
+    type: 2}
+  maxSkillCounters: 1
+  _standardActions: []
   energyIncrease: 1000

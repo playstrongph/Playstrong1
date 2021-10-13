@@ -19,6 +19,8 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 453de07d80c39444bb8b84fcbceb3ba5, type: 2}
-  _effectValue: 10
+  _statusEffectDispelStatus: {fileID: 11400000, guid: 76b8830e3aaf46e4c8eef61231f50c00,
+    type: 2}
+  maxSkillCounters: 1
+  _standardActions: []
   armorIncrease: 10

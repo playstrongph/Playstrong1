@@ -19,11 +19,9 @@ MonoBehaviour:
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
-  _skillactionAsset: {fileID: 0}
-  _standardAction: {fileID: 0}
+  _statusEffectDispelStatus: {fileID: 11400000, guid: d4e345ab6bd7f8c40a6e6f2c9394bb97,
+    type: 2}
+  maxSkillCounters: 1
   _standardActions:
   - {fileID: 11400000, guid: 131a2bacb2b09ac42b6036589eae39a2, type: 2}
   - {fileID: 11400000, guid: 8e3572359f4cfd94a9ea0b3b9cbb8692, type: 2}
-  maxSkillCounters: 1
-  _effectValue: 30
-  damageFactor: {fileID: 11400000, guid: 48f7be7d1b601604ab8b96235e1f4a1e, type: 2}

@@ -16,10 +16,12 @@ MonoBehaviour:
   _description: Hero misses its next turn.  Shock can't be dispelled and is immune
     to counter changes.
   _icon: {fileID: 21300000, guid: c7d549f1926e30f4f8373b9b5b3cacc8, type: 3}
-  _statusEffectType: {fileID: 11400000, guid: 1668df7f4cab59a499bf9edd9b1bca87, type: 2}
+  _statusEffectType: {fileID: 11400000, guid: 571e05a7e11f13b40bf0f9b9013bdc94, type: 2}
   updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: 7eb24d6676b0de241842f83a284e5ff9,
     type: 2}
-  _skillactionAsset: {fileID: 11400000, guid: 8c3480acb3b1e464d89314821b92b1c2, type: 2}
-  _effectValue: 10000
+  _statusEffectDispelStatus: {fileID: 11400000, guid: 76b8830e3aaf46e4c8eef61231f50c00,
+    type: 2}
+  maxSkillCounters: 1
+  _standardActions: []
   _inabilityChanceIncrease: 10000
