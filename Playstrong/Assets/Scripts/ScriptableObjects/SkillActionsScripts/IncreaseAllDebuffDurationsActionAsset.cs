@@ -21,7 +21,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
             foreach (var debuff in allDebuffs)
             {
-                debuff.StatusEffectInstance.IncreaseCounters(debuff, targetHero,debuffDurationIncrease);
+                //debuff.StatusEffectInstance.IncreaseCounters(debuff, targetHero,debuffDurationIncrease);
+                debuff.StatusEffectChangeCounters.IncreaseStatusEffectCounters(debuff,debuffDurationIncrease);
             }
 
             logicTree.EndSequence();

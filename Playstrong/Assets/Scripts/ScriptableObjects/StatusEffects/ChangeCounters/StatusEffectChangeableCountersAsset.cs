@@ -10,21 +10,20 @@ namespace ScriptableObjects.StatusEffects.Instance
     [CreateAssetMenu(fileName = "ChangeableCounters", menuName = "SO's/Status Effects/ChangeCounters/ChangeableCounters")]
     public class StatusEffectChangeableCountersAsset : StatusEffectChangeCountersAsset
     {
-        [SerializeField] private int statusEffectCounters;
-        
-        public override void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+
+        public override void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
         {
-            heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(statusEffectCounters);
+            heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters);
         }
         
-        public override void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+        public override void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
         {
-            heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(statusEffectCounters);
+            heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters);
         }
 
-        public override void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect)
+        public override void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect,int counters)
         {
-            heroStatusEffect.SetStatusEffectCounters.SetCounters(statusEffectCounters);
+            heroStatusEffect.SetStatusEffectCounters.SetCounters(counters);
         }
     }
 }

@@ -21,7 +21,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
             foreach (var buff in allBuffs)
             {
-                buff.StatusEffectInstance.IncreaseCounters(buff, targetHero,buffDurationIncrease);
+                //buff.StatusEffectInstance.IncreaseCounters(buff, targetHero,buffDurationIncrease);
+                buff.StatusEffectChangeCounters.IncreaseStatusEffectCounters(buff,buffDurationIncrease);
             }
 
             logicTree.EndSequence();

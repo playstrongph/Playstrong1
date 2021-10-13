@@ -11,19 +11,19 @@ namespace ScriptableObjects.StatusEffects.Instance
     public class StatusEffectNotChangeableCountersAsset : StatusEffectChangeCountersAsset
     {
         
-        public override void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+        public override void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
         {
-          base.IncreaseStatusEffectCounters(heroStatusEffect);
+          base.IncreaseStatusEffectCounters(heroStatusEffect,counters);
         }
         
-        public override void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+        public override void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
         {
-          base.DecreaseStatusEffectCounters(heroStatusEffect);
+          base.DecreaseStatusEffectCounters(heroStatusEffect,counters);
         }
 
-        public override void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect)
+        public override void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect,int counters)
         {
-          base.SetStatusEffectCountersToValue(heroStatusEffect);
+          base.SetStatusEffectCountersToValue(heroStatusEffect,counters);
         }
     }
 }

@@ -11,17 +11,17 @@ namespace ScriptableObjects.StatusEffects.Instance
     {
         
 
-        public virtual void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+        public virtual void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect, int counters)
         {
             //heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(statusEffectCounters);
         }
         
-        public virtual void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
+        public virtual void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
         {
             //heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(statusEffectCounters);
         }
 
-        public virtual void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect)
+        public virtual void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect,int counters)
         {
             //heroStatusEffect.SetStatusEffectCounters.SetCounters(statusEffectCounters);
         }

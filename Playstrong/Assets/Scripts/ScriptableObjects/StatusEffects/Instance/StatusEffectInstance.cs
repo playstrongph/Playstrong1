@@ -143,8 +143,10 @@ namespace ScriptableObjects.StatusEffects.Instance
             //ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
             
             //TEST
-            existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
-            
+            //existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            existingStatusEffect.StatusEffectChangeCounters.SetStatusEffectCountersToValue(existingStatusEffect,newCounters);
+                
+
             existingStatusEffect.StatusEffectCasterHero = casterHero;
             //statusEffectAsset.StatusEffectCasterHero = casterHero;
 
@@ -169,7 +171,8 @@ namespace ScriptableObjects.StatusEffects.Instance
             //newCounters = Mathf.Min(newCounters, maxSkillCounters);  //not required
 
             //Set the new skill status effect counters
-            existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            //existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
+            existingStatusEffect.StatusEffectChangeCounters.SetStatusEffectCountersToValue(existingStatusEffect,newCounters);
             
             //Apply stacking effect times the number of additionalCounters
             for(int i =0; i < additionalCounters; i++)

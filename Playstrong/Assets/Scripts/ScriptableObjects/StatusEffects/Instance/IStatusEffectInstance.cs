@@ -14,11 +14,11 @@ namespace ScriptableObjects.StatusEffects.Instance
     {
         void AddStatusEffect(IHero hero, IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero casterHero);
 
-        void IncreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
+        //void IncreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
 
-        void DecreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
+        //void DecreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
 
-        void SetCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
+        //void SetCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
 
         //void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero);
 
