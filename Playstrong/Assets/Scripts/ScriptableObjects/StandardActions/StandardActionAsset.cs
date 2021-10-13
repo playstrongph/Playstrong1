@@ -82,8 +82,8 @@ namespace ScriptableObjects.StandardActions
             }
         }
 
-        private int _finalAndConditions = 1;
-        private int _finalOrConditions = 0;
+        private int _finalAndConditions;
+        private int _finalOrConditions;
         //Test
         private IHeroStatusEffect _heroStatusEffect;
       
@@ -215,10 +215,15 @@ namespace ScriptableObjects.StandardActions
             
             if(AndBasicConditions.Count>0)
             {
+                //Default 1 for And
+                _finalAndConditions = 1;
                 foreach (var basicCondition in AndBasicConditions)
                 {
+                    //TODO: Check why this is multiplied
                     _finalAndConditions *= basicCondition.GetValue(targetHero);
+                    _finalAndConditions = Mathf.Clamp(_finalAndConditions, 0, 1);
                     Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
+                    //TODO: Clamp to 0,1
                 }
                
             }
@@ -240,10 +245,14 @@ namespace ScriptableObjects.StandardActions
 
             if(OrBasicConditions.Count>0)
             {
+                //Default 0 for OR
+                _finalAndConditions = 0;
                 foreach (var basicCondition in OrBasicConditions)
                 {
                     _finalOrConditions += basicCondition.GetValue(targetHero);
+                    _finalOrConditions = Mathf.Clamp(_finalOrConditions, 0, 1);
                     Debug.Log("OrBasicConditions Count: " +OrBasicConditions.Count +" return: " +_finalOrConditions);
+                    //TODO: Clamp to 0,1
                 }
                
             }
