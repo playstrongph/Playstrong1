@@ -8,20 +8,25 @@ using Visual;
 namespace ScriptableObjects.StatusEffects.Instance
 {
     
-    [CreateAssetMenu(fileName = "Dispellable", menuName = "SO's/Status Effects/DispelStatus/Dispellable")]
+    [CreateAssetMenu(fileName = "NotDispellable", menuName = "SO's/Status Effects/DispelStatus/NotDispellable")]
     public class StatusEffectNotDispellableAsset : StatusEffectDispelAsset
     {
         
         //Option 1
         public override IHeroStatusEffect AddToDispelList(IHeroStatusEffect statusEffect)
         {
-            return base.AddToDispelList(statusEffect);
+            return null;
         }
         
         //Option 2
         public override void UpdateDispelList(List<IHeroStatusEffect> dispelList, IHeroStatusEffect statusEffect)
         {
-            base.UpdateDispelList(dispelList,statusEffect);
+            //Don' update the list
+        }
+        
+        public override void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
+        {
+            
         }
 
     }

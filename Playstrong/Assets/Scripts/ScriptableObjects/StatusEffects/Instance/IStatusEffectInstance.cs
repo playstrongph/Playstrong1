@@ -20,7 +20,7 @@ namespace ScriptableObjects.StatusEffects.Instance
 
         void SetCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters);
 
-        void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero);
+        //void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero);
 
     }
 }

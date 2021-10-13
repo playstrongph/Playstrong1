@@ -198,14 +198,13 @@ namespace ScriptableObjects.StatusEffects.Instance
             existingStatusEffect.SetStatusEffectCounters.SetCounters(counters,coroutineTreesAsset);
         }
         
-        /// <summary>
-        /// Methods to be used by dispel actions - Remove Buff or Remove Debuff
-        /// </summary>
-        public virtual void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
+        
+        //TODO: Transfer this to DispelStatus
+        /*public virtual void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
         {
             var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
             existingStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
-        }
+        }*/
 
         private void CreateStatusEffectPreview(IHero targetHero, IStatusEffectAsset statusEffectAsset, IHeroStatusEffect heroStatusEffect)
         {

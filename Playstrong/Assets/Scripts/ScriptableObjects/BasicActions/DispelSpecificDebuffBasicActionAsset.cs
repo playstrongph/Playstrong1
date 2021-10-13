@@ -31,7 +31,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             //Only dispels 1 debuff in case there are multiple instances (e.g. burn, poison)
             if(_dispelDebuff != null)
-                _dispelDebuff.StatusEffectInstance.DispelStatusEffect(_dispelDebuff,hero);
+                _dispelDebuff.StatusEffectDispelStatus.DispelStatusEffect(_dispelDebuff,hero);
             
             logicTree.EndSequence();
             yield return null;
@@ -51,7 +51,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             //Only dispels 1 debuff in case there are multiple instances (e.g. burn, poison)
             if(_dispelDebuff != null)
-                _dispelDebuff.StatusEffectInstance.DispelStatusEffect(_dispelDebuff,thisHero);
+                _dispelDebuff.StatusEffectDispelStatus.DispelStatusEffect(_dispelDebuff,thisHero);
             
             logicTree.EndSequence();
             yield return null;

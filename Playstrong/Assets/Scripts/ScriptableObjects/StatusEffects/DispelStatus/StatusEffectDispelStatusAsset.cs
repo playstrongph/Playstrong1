@@ -21,6 +21,11 @@ namespace ScriptableObjects.StatusEffects.Instance
         {
             dispelList.Add(statusEffect);
         }
+        
+        public virtual void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
+        {
+            existingStatusEffect.RemoveStatusEffect.RemoveEffect(targetHero);
+        }
 
     }
 }

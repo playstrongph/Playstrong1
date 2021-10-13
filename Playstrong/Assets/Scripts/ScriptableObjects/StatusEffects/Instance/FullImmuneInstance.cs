@@ -48,10 +48,7 @@ namespace ScriptableObjects.StatusEffects.Instance
           
         }
         
-        public override void DispelStatusEffect(IHeroStatusEffect existingStatusEffect, IHero targetHero)
-        {
-          
-        }
+        
 
 
     }
