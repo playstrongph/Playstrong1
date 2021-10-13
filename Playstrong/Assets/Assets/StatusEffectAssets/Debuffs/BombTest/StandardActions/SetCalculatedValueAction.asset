@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
   m_Name: SetCalculatedValueAction
   m_EditorClassIdentifier: 
-  standardEvent: {fileID: 11400000, guid: aae9336be03d2da44b69965fcbc2d57f, type: 2}
+  standardEvent: {fileID: 11400000, guid: 8eea6b37e86db5543bad2b64193026a6, type: 2}
   actionTargets: {fileID: 11400000, guid: 61ffb181aa27f3943acb7e6e84648036, type: 2}
   orBasicConditions: []
   andBasicConditions: []
