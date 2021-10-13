@@ -23,6 +23,8 @@ MonoBehaviour:
     type: 2}
   _statusEffectDispelStatus: {fileID: 11400000, guid: d4e345ab6bd7f8c40a6e6f2c9394bb97,
     type: 2}
+  _statusEffectChangeCounters: {fileID: 11400000, guid: 5532563d81236964dbcf14c2a64bcd86,
+    type: 2}
   maxSkillCounters: 1
   _standardActions:
   - {fileID: 11400000, guid: 64082d265f55fd54e990e45df6fb7fd4, type: 2}

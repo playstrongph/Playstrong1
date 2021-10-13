@@ -39,6 +39,7 @@ namespace Logic
         IStatusEffectInstance StatusEffectInstance { get; set; }
 
         IStatusEffectDispelStatusAsset StatusEffectDispelStatus { get; set; }
+        IStatusEffectChangeCountersAsset StatusEffectChangeCounters { get; set; }
 
         IRemoveStatusEffect RemoveStatusEffect {get;}
 

@@ -28,7 +28,6 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] 
         [RequireInterface(typeof(IStatusEffectType))]
         private ScriptableObject _statusEffectType;
-        
         public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;
 
         [SerializeField] [RequireInterface(typeof(IStatusEffectUpdateTiming))]
@@ -42,6 +41,11 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] [RequireInterface(typeof(IStatusEffectDispelStatusAsset))]
         private ScriptableObject _statusEffectDispelStatus;
         public IStatusEffectDispelStatusAsset StatusEffectDispelStatus => _statusEffectDispelStatus as IStatusEffectDispelStatusAsset;
+
+        [SerializeField] [RequireInterface(typeof(IStatusEffectChangeCountersAsset))]
+        private ScriptableObject _statusEffectChangeCounters;
+        public IStatusEffectChangeCountersAsset StatusEffectChangeCounters => _statusEffectChangeCounters as IStatusEffectChangeCountersAsset;
+        
 
         //Used by stacking skill effects
         //TODO: Transfer this to StackingType SO

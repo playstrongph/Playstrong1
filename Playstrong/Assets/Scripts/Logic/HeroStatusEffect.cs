@@ -82,6 +82,14 @@ namespace Logic
             set => _statusEffectDispelStatus = value as ScriptableObject;
         }
 
+        [SerializeField] private ScriptableObject _statusEffectChangeCounters;
+
+        public IStatusEffectChangeCountersAsset StatusEffectChangeCounters
+        {
+            get => _statusEffectChangeCounters as IStatusEffectChangeCountersAsset;
+            set => _statusEffectChangeCounters = value as ScriptableObject;
+        }
+
 
         [SerializeField] private GameObject _statusEffectPreview;
 

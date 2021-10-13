@@ -21,6 +21,7 @@ namespace ScriptableObjects.StatusEffects
         IStatusEffectInstance StatusEffectInstance { get; }
 
         IStatusEffectDispelStatusAsset StatusEffectDispelStatus { get; }
+        IStatusEffectChangeCountersAsset StatusEffectChangeCounters { get; }
 
         int MaxSkillCounters { get; }
         //TEST

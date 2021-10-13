@@ -23,6 +23,8 @@ namespace Visual
             _heroStatusEffect.StatusEffectUpdateTiming = statusEffectAsset.UpdateTiming;
             _heroStatusEffect.StatusEffectInstance = statusEffectAsset.StatusEffectInstance;
             _heroStatusEffect.StatusEffectDispelStatus = statusEffectAsset.StatusEffectDispelStatus;
+
+            _heroStatusEffect.StatusEffectChangeCounters = statusEffectAsset.StatusEffectChangeCounters;
             
             _heroStatusEffect.Name = statusEffectAsset.Name;
             _heroStatusEffect.Counters = statusEffectCounters;
