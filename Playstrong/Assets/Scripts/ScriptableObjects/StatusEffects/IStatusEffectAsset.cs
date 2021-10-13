@@ -17,7 +17,7 @@ namespace ScriptableObjects.StatusEffects
         string Description { get; }
         Sprite Icon { get; }
         IStatusEffectType StatusEffectType { get; }
-        IStatusEffectCounterUpdate UpdateTiming { get; }
+        IStatusEffectUpdateTiming UpdateTiming { get; }
         IStatusEffectInstance StatusEffectInstance { get; }
         int MaxSkillCounters { get; }
         //TEST

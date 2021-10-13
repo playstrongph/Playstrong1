@@ -24,7 +24,7 @@ namespace Visual
             //TODO: Replace with own SkillStatusEffectType
             _skillStatusEffect.StatusEffectType = skillStatusEffectAsset.StatusEffectType;
             //TODO: Replace with own UdpateTiming
-            _skillStatusEffect.StatusEffectCounterUpdate = skillStatusEffectAsset.UpdateTiming;
+            _skillStatusEffect.StatusEffectUpdateTiming = skillStatusEffectAsset.UpdateTiming;
             
             //TODO: Replace with own Instance
             _skillStatusEffect.StatusEffectInstance = skillStatusEffectAsset.StatusEffectInstance;

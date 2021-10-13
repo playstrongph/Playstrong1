@@ -6,7 +6,6 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
     [CreateAssetMenu(fileName = "BuffType", menuName = "SO's/Status Effects/Type/BuffType")]
     public class BuffTypeAsset : StatusEffectTypeAsset
     {
-
         public override void AddToStatusEffectsList(IHeroStatusEffects heroStatusEffects, IHeroStatusEffect heroStatusEffect)
         {
             heroStatusEffects.HeroBuffEffects.AddToList(heroStatusEffect);
@@ -16,7 +15,5 @@ namespace ScriptableObjects.StatusEffects.StatusEffectType
         {
             heroStatusEffects.HeroBuffEffects.RemoveFromList(heroStatusEffect);
         }
-
-       
     }
 }

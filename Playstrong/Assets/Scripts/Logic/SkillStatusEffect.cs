@@ -56,12 +56,12 @@ namespace Logic
             set => _statusEffectType = value as ScriptableObject;
         }
 
-        [SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
+        [SerializeField] [RequireInterface(typeof(IStatusEffectUpdateTiming))]
         private ScriptableObject _statusEffectCounterUpdate;
 
-        public IStatusEffectCounterUpdate StatusEffectCounterUpdate
+        public IStatusEffectUpdateTiming StatusEffectUpdateTiming
         {
-            get => _statusEffectCounterUpdate as IStatusEffectCounterUpdate;
+            get => _statusEffectCounterUpdate as IStatusEffectUpdateTiming;
             set => _statusEffectCounterUpdate = value as ScriptableObject;
         }
 

@@ -10,7 +10,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
     /// Determines when the status effect (buff or debuff) counters
     /// get updated, similar to skill cooldown
     /// </summary>
-    public interface IStatusEffectCounterUpdate
+    public interface IStatusEffectUpdateTiming
     {
         
         void UpdateCountersStartTurn(IHeroStatusEffect heroStatusEffect);

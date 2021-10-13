@@ -32,9 +32,9 @@ namespace ScriptableObjects.StatusEffects
         public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;*/
 
         //TODO: Create UpdateTiming for UniqueEffects
-        [SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
+        [SerializeField] [RequireInterface(typeof(IStatusEffectUpdateTiming))]
         private ScriptableObject updateTiming;
-        public IStatusEffectCounterUpdate UpdateTiming => updateTiming as IStatusEffectCounterUpdate;
+        public IStatusEffectUpdateTiming UpdateTiming => updateTiming as IStatusEffectUpdateTiming;
         
         //TODO: Create UniqueEffect Instance Count
         [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]

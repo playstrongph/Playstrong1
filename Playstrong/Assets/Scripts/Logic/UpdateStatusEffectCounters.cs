@@ -19,13 +19,13 @@ namespace Logic
             //Hero Buffs
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
             {
-                statusEffect.StatusEffectCounterUpdate.UpdateCountersStartTurn(statusEffect);
+                statusEffect.StatusEffectUpdateTiming.UpdateCountersStartTurn(statusEffect);
             }
             
             //Hero Debuffs
             foreach (var statusEffect in _heroStatusEffects.HeroDebuffEffects.HeroDebuffs)
             {
-                statusEffect.StatusEffectCounterUpdate.UpdateCountersStartTurn(statusEffect);
+                statusEffect.StatusEffectUpdateTiming.UpdateCountersStartTurn(statusEffect);
             }
         }
         
@@ -34,13 +34,13 @@ namespace Logic
             //Hero Buffs
             foreach (var statusEffect in _heroStatusEffects.HeroBuffEffects.HeroBuffs)
             {
-                statusEffect.StatusEffectCounterUpdate.UpdateCountersEndTurn(statusEffect);
+                statusEffect.StatusEffectUpdateTiming.UpdateCountersEndTurn(statusEffect);
             }
             
             //Hero Debuffs
             foreach (var statusEffect in _heroStatusEffects.HeroDebuffEffects.HeroDebuffs)
             {
-                statusEffect.StatusEffectCounterUpdate.UpdateCountersEndTurn(statusEffect);
+                statusEffect.StatusEffectUpdateTiming.UpdateCountersEndTurn(statusEffect);
             }
         }
         

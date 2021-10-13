@@ -34,7 +34,7 @@ namespace Logic
 
         ISetStatusEffectCounters SetStatusEffectCounters { get; }
 
-        IStatusEffectCounterUpdate StatusEffectCounterUpdate { get; set; }
+        IStatusEffectUpdateTiming StatusEffectUpdateTiming { get; set; }
 
         IStatusEffectInstance StatusEffectInstance { get; set; }
 

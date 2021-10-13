@@ -31,9 +31,9 @@ namespace ScriptableObjects.StatusEffects
         
         public IStatusEffectType StatusEffectType => _statusEffectType as IStatusEffectType;
 
-        [SerializeField] [RequireInterface(typeof(IStatusEffectCounterUpdate))]
+        [SerializeField] [RequireInterface(typeof(IStatusEffectUpdateTiming))]
         private ScriptableObject updateTiming;
-        public IStatusEffectCounterUpdate UpdateTiming => updateTiming as IStatusEffectCounterUpdate;
+        public IStatusEffectUpdateTiming UpdateTiming => updateTiming as IStatusEffectUpdateTiming;
 
         [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
         private ScriptableObject _statusEffectInstance;

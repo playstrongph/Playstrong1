@@ -7,18 +7,16 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
 {
    
 
-    [CreateAssetMenu(fileName = "UpdateCounterStartTurn", menuName = "SO's/Status Effects/Counters Update/UpdateCounterStartTurn")]
-    public class UpdateCounterStartTurnAsset :  StatusEffectCounterUpdateAsset
+    [CreateAssetMenu(fileName = "UpdateCounterEndTurnAsset", menuName = "SO's/Status Effects/Counters Update/UpdateCounterEndTurnAsset")]
+    public class UpdateTimingEndTurnAsset : StatusEffectUpdateTimingAsset
     {
         private ICoroutineTree _logicTree;
 
-        public override void UpdateCountersStartTurn(IHeroStatusEffect heroStatusEffect)
+        public override void UpdateCountersEndTurn(IHeroStatusEffect heroStatusEffect)
         {
             var logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(UpdateCountersCoroutine(heroStatusEffect));
         }
-
-        
 
 
 

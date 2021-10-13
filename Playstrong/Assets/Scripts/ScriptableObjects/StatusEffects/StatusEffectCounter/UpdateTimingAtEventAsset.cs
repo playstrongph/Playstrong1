@@ -9,7 +9,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
    
 
     [CreateAssetMenu(fileName = "UpdateCounterAtEvent", menuName = "SO's/Status Effects/Counters Update/UpdateCounterAtEvent")]
-    public class UpdateCounterAtEventAsset :  StatusEffectCounterUpdateAsset
+    public class UpdateTimingAtEventAsset :  StatusEffectUpdateTimingAsset
     {
         private ICoroutineTree _logicTree;
         
@@ -29,14 +29,14 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(_heroStatusEffect.StatusEffectCounterUpdate.UpdateCountersCoroutine(_heroStatusEffect));
+            logicTree.AddCurrent(_heroStatusEffect.StatusEffectUpdateTiming.UpdateCountersCoroutine(_heroStatusEffect));
         }
         
         public override void UpdateCounterAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(_heroStatusEffect.StatusEffectCounterUpdate.UpdateCountersCoroutine(_heroStatusEffect));
+            logicTree.AddCurrent(_heroStatusEffect.StatusEffectUpdateTiming.UpdateCountersCoroutine(_heroStatusEffect));
         }
 
 

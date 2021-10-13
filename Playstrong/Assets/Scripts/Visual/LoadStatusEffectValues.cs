@@ -20,7 +20,7 @@ namespace Visual
         {
             //Set HeroStatusEffect data
             _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
-            _heroStatusEffect.StatusEffectCounterUpdate = statusEffectAsset.UpdateTiming;
+            _heroStatusEffect.StatusEffectUpdateTiming = statusEffectAsset.UpdateTiming;
             _heroStatusEffect.StatusEffectInstance = statusEffectAsset.StatusEffectInstance;
             _heroStatusEffect.Name = statusEffectAsset.Name;
             _heroStatusEffect.Counters = statusEffectCounters;

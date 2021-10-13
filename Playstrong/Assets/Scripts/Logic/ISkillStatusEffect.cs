@@ -28,7 +28,7 @@ namespace Logic
         IHero CasterHero { get; set; }
         IReduceStatusEffectCounters ReduceStatusEffectCounters { get; }
         ISetStatusEffectCounters SetStatusEffectCounters { get; }
-        IStatusEffectCounterUpdate StatusEffectCounterUpdate { get; set; }
+        IStatusEffectUpdateTiming StatusEffectUpdateTiming { get; set; }
         IStatusEffectInstance StatusEffectInstance { get; set; }
         IRemoveStatusEffect RemoveStatusEffect { get; }
         GameObject StatusEffectPreview { get; set; }

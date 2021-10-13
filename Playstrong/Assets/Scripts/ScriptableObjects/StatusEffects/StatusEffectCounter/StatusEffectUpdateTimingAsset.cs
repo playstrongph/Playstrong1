@@ -8,7 +8,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
    
 
    
-    public class StatusEffectCounterUpdateAsset : ScriptableObject, IStatusEffectCounterUpdate
+    public class StatusEffectUpdateTimingAsset : ScriptableObject, IStatusEffectUpdateTiming
     {
         
         
