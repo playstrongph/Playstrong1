@@ -11,38 +11,38 @@ namespace Logic
     {
         private IHeroStatusEffect _heroStatusEffect;
         
-        private ICoroutineTree _logicTree;
-        private ICoroutineTree _visualTree;
-        
         private void Awake()
         {
             _heroStatusEffect = GetComponent<IHeroStatusEffect>();
-            
         }
 
-        public void IncreaseCounters(int value, ICoroutineTreesAsset coroutineTreesAsset)
+        public void IncreaseCounters(int value)
         {
-           _logicTree = coroutineTreesAsset.MainLogicTree;
-           _visualTree = coroutineTreesAsset.MainVisualTree;
+           var logicTree = _heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
            
-           _logicTree.AddCurrent(IncreaseCounters(value));
+           logicTree.AddCurrent(IncreaseCountersCoroutine(value));
         }
 
-        private IEnumerator IncreaseCounters(int value)
+        private IEnumerator IncreaseCountersCoroutine(int value)
         {
+            var logicTree = _heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = _heroStatusEffect.CoroutineTreesAsset.MainVisualTree;
+            
             _heroStatusEffect.Counters += value;
             
-            _visualTree.AddCurrent(SetCountersVisual(value));
+            visualTree.AddCurrent(SetCountersVisual(value));
 
-            _logicTree.EndSequence();
+            logicTree.EndSequence();
             yield return null;
         }
         
         private IEnumerator SetCountersVisual(int value)
         {
+            var visualTree = _heroStatusEffect.CoroutineTreesAsset.MainVisualTree;
+            
             _heroStatusEffect.CounterVisual.text = _heroStatusEffect.Counters.ToString();
 
-            _visualTree.EndSequence();
+            visualTree.EndSequence();
             yield return null;
         }
     }

@@ -19,6 +19,9 @@ namespace ScriptableObjects.StatusEffects
         IStatusEffectType StatusEffectType { get; }
         IStatusEffectUpdateTiming UpdateTiming { get; }
         IStatusEffectInstance StatusEffectInstance { get; }
+
+        IStatusEffectDispelStatusAsset StatusEffectDispelStatus { get; }
+
         int MaxSkillCounters { get; }
         //TEST
         List<IStandardActionAsset> StandardActions { get; }

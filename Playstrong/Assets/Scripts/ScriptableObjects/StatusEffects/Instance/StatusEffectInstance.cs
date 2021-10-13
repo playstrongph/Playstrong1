@@ -184,8 +184,8 @@ namespace ScriptableObjects.StatusEffects.Instance
 
         public virtual void IncreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
         {
-            var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
-            existingStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters,coroutineTreesAsset);
+            //var coroutineTreesAsset = targetHero.CoroutineTreesAsset;
+            existingStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters);
         }
         public virtual void DecreaseCounters(IHeroStatusEffect existingStatusEffect, IHero targetHero, int counters)
         {

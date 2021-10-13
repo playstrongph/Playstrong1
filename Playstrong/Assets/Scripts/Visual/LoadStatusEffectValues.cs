@@ -22,6 +22,8 @@ namespace Visual
             _heroStatusEffect.StatusEffectType = statusEffectAsset.StatusEffectType;
             _heroStatusEffect.StatusEffectUpdateTiming = statusEffectAsset.UpdateTiming;
             _heroStatusEffect.StatusEffectInstance = statusEffectAsset.StatusEffectInstance;
+            _heroStatusEffect.StatusEffectDispelStatus = statusEffectAsset.StatusEffectDispelStatus;
+            
             _heroStatusEffect.Name = statusEffectAsset.Name;
             _heroStatusEffect.Counters = statusEffectCounters;
             _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
