@@ -18,6 +18,8 @@ namespace Logic
 
         IHeroSkillDebuffEffects HeroSkillDebuffEffects { get; }
 
+        IHeroUniqueEffects HeroUniqueEffects { get; }
+
         IUpdateStatusEffectCounters UpdateStatusEffectCounters { get; }
 
        

@@ -43,7 +43,9 @@ namespace Logic
         
         private IHeroSkillDebuffEffects _heroSkillDebuffEffects;
         public IHeroSkillDebuffEffects HeroSkillDebuffEffects => _heroSkillDebuffEffects;
-
+        
+        private IHeroUniqueEffects _heroUniqueEffects;
+        public IHeroUniqueEffects HeroUniqueEffects => _heroUniqueEffects;
 
         private IUpdateStatusEffectCounters _updateStatusEffectCounters;
         public IUpdateStatusEffectCounters UpdateStatusEffectCounters => _updateStatusEffectCounters as IUpdateStatusEffectCounters;
@@ -57,6 +59,7 @@ namespace Logic
             _heroSkillBuffEffects = GetComponent<IHeroSkillBuffEffects>();
             _heroSkillDebuffEffects = GetComponent<IHeroSkillDebuffEffects>();
             _updateStatusEffectCounters = GetComponent<IUpdateStatusEffectCounters>();
+            _heroUniqueEffects = GetComponent<IHeroUniqueEffects>();
 
 
         }
