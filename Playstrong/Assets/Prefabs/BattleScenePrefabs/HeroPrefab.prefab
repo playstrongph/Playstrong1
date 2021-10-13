@@ -1007,6 +1007,7 @@ GameObject:
   - component: {fileID: 7427409395014051374}
   - component: {fileID: 7634340891240531257}
   - component: {fileID: 757506710205901491}
+  - component: {fileID: 3072845303463075841}
   m_Layer: 0
   m_Name: HeroStatusEffects
   m_TagString: Untagged
@@ -1123,6 +1124,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc796bf3b33c9b41a9d889ddaf0df8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3072845303463075841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792405558328800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9161d331a802548904e390b197a213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uniqueEffects: []
 --- !u!1 &3820792405570257719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,10 +3579,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b263c4854133b1479d3011d0d35eb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageReduction: 0
   _directDamageReduction: 0
-  _singleAttackDamageReduction: 0
-  _multipleAttackDamageReduction: 0
+  _takeAllDamageReduction: 0
+  _takeSingleAttackDamageReduction: 0
+  _takeMultiAttackDamageReduction: 0
+  _takeSkillDamageReduction: 0
+  _takeNonSkillDamageReduction: 0
+  _dealAllDamageReduction: 0
+  _dealSingleAttackDamageReduction: 0
+  _dealMultiAttackDamageReduction: 0
+  _dealSkillDamageReduction: 0
+  _dealNonSkillDamageReduction: 0
   _criticalDamageMultiplier: 100
   _otherDamageMultiplier: 0
   _healResistance: 0
@@ -3580,7 +3601,7 @@ MonoBehaviour:
   _counterAttackResistance: 0
   attackTargetResistance: 0
   penetrateArmorResistance: 0
-  boostEnergyResistance: 0
+  energyUpResistance: 0
   reduceEnergyResistance: 0
   heroInabilityResistance: 0
   _healChance: 100
@@ -3595,10 +3616,17 @@ MonoBehaviour:
   boostEnergyChance: 100
   reduceEnergyChance: 100
   heroInabilityChance: 0
-  _baseDamageReduction: 0
   _baseDirectDamageReduction: 0
-  _baseSingleAttackDamageReduction: 0
-  _baseMultipleAttackDamageReduction: 0
+  _baseTakeAllDamageReduction: 0
+  _baseTakeSingleAttackDamageReduction: 0
+  _baseTakeMultiAttackDamageReduction: 0
+  _baseTakeSkillDamageReduction: 0
+  _baseTakeNonSkillDamageReduction: 0
+  _baseDealAllDamageReduction: 0
+  _baseDealSingleAttackDamageReduction: 0
+  _baseDealMultiAttackDamageReduction: 0
+  _baseDealSkillDamageReduction: 0
+  _baseDealNonSkillDamageReduction: 0
   _baseCriticalDamageMultiplier: 100
   _baseHealResistance: 0
   _baseCriticalStrikeResistance: 0
@@ -3818,8 +3846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroLivingStatus: {fileID: 11400000, guid: 1770149bbcc780f40b96b215c9f012c3, type: 2}
   _dieAnimation: {fileID: 11400000, guid: 9671ac9a0d7a27149be4a5a644837db2, type: 2}
-  _resurrectStatusEffect: {fileID: 11400000, guid: aa1b8ff86b2d82c4fa149cfb3fe2ceb5,
-    type: 2}
+  _resurrectStatusEffect: {fileID: 0}
 --- !u!114 &1900826689
 MonoBehaviour:
   m_ObjectHideFlags: 0
