@@ -38,7 +38,13 @@ namespace ScriptableObjects.StatusEffects
         [SerializeField] [RequireInterface(typeof(IStatusEffectInstance))]
         private ScriptableObject _statusEffectInstance;
         public IStatusEffectInstance StatusEffectInstance => _statusEffectInstance as IStatusEffectInstance;
+
+        [SerializeField] [RequireInterface(typeof(IStatusEffectDispelStatusAsset))]
+        private ScriptableObject _statusEffectDispelStatus;
+        public IStatusEffectDispelStatusAsset StatusEffectDispelStatus => _statusEffectDispelStatus as IStatusEffectDispelStatusAsset;
+
         //Used by stacking skill effects
+        //TODO: Transfer this to StackingType SO
         [SerializeField] private int maxSkillCounters = 1 ;
         public int MaxSkillCounters => maxSkillCounters;
 

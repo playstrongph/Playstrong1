@@ -38,6 +38,8 @@ namespace Logic
 
         IStatusEffectInstance StatusEffectInstance { get; set; }
 
+        IStatusEffectDispelStatusAsset StatusEffectDispelStatus { get; set; }
+
         IRemoveStatusEffect RemoveStatusEffect {get;}
 
         GameObject StatusEffectPreview {get; set;}

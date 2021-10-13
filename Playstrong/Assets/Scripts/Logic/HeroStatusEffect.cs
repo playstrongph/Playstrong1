@@ -74,6 +74,15 @@ namespace Logic
 
         }
 
+        [SerializeField] private ScriptableObject _statusEffectDispelStatus;
+
+        public IStatusEffectDispelStatusAsset StatusEffectDispelStatus
+        {
+            get => _statusEffectDispelStatus as IStatusEffectDispelStatusAsset;
+            set => _statusEffectDispelStatus = value as ScriptableObject;
+        }
+
+
         [SerializeField] private GameObject _statusEffectPreview;
 
         public GameObject StatusEffectPreview
@@ -107,8 +116,7 @@ namespace Logic
         private IDecreaseStatusEffectCounters _decreaseStatusEffectCounters;
         public IDecreaseStatusEffectCounters DecreaseStatusEffectCounters => _decreaseStatusEffectCounters;
 
-        /*private IStatusEffectComponent _statusEffectComponent;
-        public IStatusEffectComponent StatusEffectComponent => _statusEffectComponent;*/
+       
 
         private void Awake()
         {
@@ -118,11 +126,6 @@ namespace Logic
             _removeStatusEffect = GetComponent<IRemoveStatusEffect>();
             _increaseStatusEffectCounters = GetComponent<IIncreaseStatusEffectCounters>();
             _decreaseStatusEffectCounters = GetComponent<IDecreaseStatusEffectCounters>();
-            
-            //TEST
-            //_statusEffectComponent = GetComponent<IStatusEffectComponent>();
-
-            
 
         }
     }
