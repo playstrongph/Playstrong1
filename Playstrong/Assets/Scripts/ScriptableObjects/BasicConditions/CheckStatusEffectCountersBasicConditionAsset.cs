@@ -14,15 +14,15 @@ namespace ScriptableObjects.BasicActions
 
         protected override int CheckBasicCondition(IHero thisHero)
         {
-            Debug.Log("Bomb Status Effect Counters: " +StatusEffectReference.Counters +" Limit: " +counters);
+            //Debug.Log("Bomb Status Effect Counters: " +StatusEffectReference.Counters +" Limit: " +counters);
             if (StatusEffectReference.Counters <= counters)
             {
-                Debug.Log("Return 1");
+                //Debug.Log("Return 1");
                 return 1;    
             }
             else
             {
-                Debug.Log("Return 0");
+                //Debug.Log("Return 0");
                 return 0;    
             }
 
@@ -31,15 +31,15 @@ namespace ScriptableObjects.BasicActions
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            Debug.Log("Bomb Status Effect Counters: " +StatusEffectReference.Counters);
+            //Debug.Log("Bomb Status Effect Counters: " +StatusEffectReference.Counters);
             if (StatusEffectReference.Counters <= counters)
             {
-                Debug.Log("Return 1");
+                //Debug.Log("Return 1");
                 return 1;    
             }
             else
             {
-                Debug.Log("Return 0");
+                //Debug.Log("Return 0");
                 return 0;    
             }
         }

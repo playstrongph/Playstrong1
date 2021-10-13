@@ -197,12 +197,12 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Final AndValue: " +FinalAndBasicCondition(targetHero) + " Final OrValue: "  +FinalOrBasicCondition(targetHero));
             
             var finalCondition = FinalAndBasicCondition(targetHero) * FinalOrBasicCondition(targetHero);
-            Debug.Log("Final Condition Value: " +finalCondition);
+            //Debug.Log("Final Condition Value: " +finalCondition);
             return finalCondition;
         }
         private int FinalAndBasicCondition(IHero targetHero)
         {
-            Debug.Log("AndCondition Objects Count: " +AndBasicConditionsObjects.Count);
+            //Debug.Log("AndCondition Objects Count: " +AndBasicConditionsObjects.Count);
             //No Conditions, return 1
             if (AndBasicConditions.Count <= 0)
             {
@@ -222,18 +222,18 @@ namespace ScriptableObjects.StandardActions
                     //TODO: Check why this is multiplied
                     _finalAndConditions *= basicCondition.GetValue(targetHero);
                     _finalAndConditions = Mathf.Clamp(_finalAndConditions, 0, 1);
-                    Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
+                    //Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
                     //TODO: Clamp to 0,1
                 }
                
             }
             
-            Debug.Log("FinalAndCondition Value: " +_finalAndConditions);
+            //Debug.Log("FinalAndCondition Value: " +_finalAndConditions);
             return _finalAndConditions;
         }
         private int FinalOrBasicCondition(IHero targetHero)
         {
-            Debug.Log("OrCondition Objects Count: " +OrBasicConditionsObjects.Count);
+            //Debug.Log("OrCondition Objects Count: " +OrBasicConditionsObjects.Count);
             //No Conditions, return 1
             if (OrBasicConditions.Count <= 0)
             {
@@ -251,13 +251,13 @@ namespace ScriptableObjects.StandardActions
                 {
                     _finalOrConditions += basicCondition.GetValue(targetHero);
                     _finalOrConditions = Mathf.Clamp(_finalOrConditions, 0, 1);
-                    Debug.Log("OrBasicConditions Count: " +OrBasicConditions.Count +" return: " +_finalOrConditions);
+                    //Debug.Log("OrBasicConditions Count: " +OrBasicConditions.Count +" return: " +_finalOrConditions);
                     //TODO: Clamp to 0,1
                 }
                
             }
             
-            Debug.Log("FinalOrCondition Value: " +_finalOrConditions);
+            //Debug.Log("FinalOrCondition Value: " +_finalOrConditions);
             return _finalOrConditions;
         }
         private int FinalConditionValue(IHero thisHero, IHero targetHero)
