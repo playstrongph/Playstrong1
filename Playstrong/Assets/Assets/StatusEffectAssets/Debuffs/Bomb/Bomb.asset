@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bacdcbf992646be499754613294086d4, type: 3}
-  m_Name: Bomb
+  m_Script: {fileID: 11500000, guid: 4df121ead84d64c4a9048f6b8d390b21, type: 3}
+  m_Name: BOMB
   m_EditorClassIdentifier: 
   _name: Bomb
   _description: At detonation, hero takes damage equal to the caster's attack and
@@ -25,6 +25,7 @@ MonoBehaviour:
   _statusEffectChangeCounters: {fileID: 11400000, guid: 9d5a0d01ad541d34da0c8d0ebb887b3a,
     type: 2}
   maxSkillCounters: 1
-  _standardActions: []
-  addShockStatusEffect: {fileID: 11400000, guid: 29a76d254c5096944b93eac33a357329,
-    type: 2}
+  _standardActions:
+  - {fileID: 11400000, guid: 995468c02b9af284ea196e3cb8f3ae18, type: 2}
+  - {fileID: 11400000, guid: 53943e00eb3d20944b9fed687f147830, type: 2}
+  - {fileID: 11400000, guid: 071fa836409e1214584d0888a08d6767, type: 2}

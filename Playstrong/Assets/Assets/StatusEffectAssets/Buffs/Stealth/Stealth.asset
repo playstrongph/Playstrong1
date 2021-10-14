@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1704bc4900b138b4b952bfcff92b6a10, type: 3}
-  m_Name: Stealth
+  m_Name: STEALTH
   m_EditorClassIdentifier: 
   _name: Stealth
   _description: Hero can't be targetted

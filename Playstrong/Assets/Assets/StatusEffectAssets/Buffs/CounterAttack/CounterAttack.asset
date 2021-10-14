@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79a0f59edd8247f4d965b6164bf65e87, type: 3}
-  m_Name: CounterAttack
+  m_Name: COUNTERATTACK
   m_EditorClassIdentifier: 
   _name: CounterAttack
   _description: Counter attacks when attacked.

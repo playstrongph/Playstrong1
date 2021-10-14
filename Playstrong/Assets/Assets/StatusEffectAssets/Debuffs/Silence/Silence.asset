@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967b7df8fe00b6447ad89cc3281486e1, type: 3}
-  m_Name: Silence
+  m_Name: SILENCE
   m_EditorClassIdentifier: 
   _name: Silence
   _description: Active Skills are disabled

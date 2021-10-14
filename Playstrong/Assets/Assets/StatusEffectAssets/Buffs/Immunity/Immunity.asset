@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d4ddd0d657864e4d9a30cf12cc5a612, type: 3}
-  m_Name: Immunity
+  m_Name: IMMUNITY
   m_EditorClassIdentifier: 
   _name: Immunity
   _description: "Immune to harmful effects\r"

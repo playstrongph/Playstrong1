@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a60f1c01fdf0c04b9e61e158835e92d, type: 3}
-  m_Name: Evasion
+  m_Name: EVASION
   m_EditorClassIdentifier: 
   _name: Evasion
   _description: Hero can't be dealt Critical Strike

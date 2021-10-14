@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c86e6b0bb17ed184b92b82e7a7a1c8b7, type: 3}
-  m_Name: Restrict
+  m_Name: RESTRICT
   m_EditorClassIdentifier: 
   _name: Restrict
   _description: 'Hero can''t receive energy bonuses

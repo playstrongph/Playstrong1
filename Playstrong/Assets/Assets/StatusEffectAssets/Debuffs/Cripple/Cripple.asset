@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8c4490cd56e4e47b3b1e503b7ef93d, type: 3}
-  m_Name: Cripple
+  m_Name: CRIPPLE
   m_EditorClassIdentifier: 
   _name: Cripple
   _description: Hero can't deal critical strike and deals 25% less damage

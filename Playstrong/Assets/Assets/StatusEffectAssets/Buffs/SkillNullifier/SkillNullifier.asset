@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8380443f8c8913245a91132809f0a52c, type: 3}
-  m_Name: SkillNullifier
+  m_Name: SKILLNULLIFIER
   m_EditorClassIdentifier: 
   _name: Skill Nullifier
   _description: Negates the next damage from skills

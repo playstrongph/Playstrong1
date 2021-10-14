@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2e5643361d3cd7468f1233a2f116e22, type: 3}
-  m_Name: Shield
+  m_Name: SHIELD
   m_EditorClassIdentifier: 
   _name: Shield
   _description: Reduce Damage by 50%

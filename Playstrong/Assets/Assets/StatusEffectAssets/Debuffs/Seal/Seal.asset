@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50d164769d5b7be4e9009689d88f2719, type: 3}
-  m_Name: Seal
+  m_Name: SEAL
   m_EditorClassIdentifier: 
   _name: Seal
   _description: Disable all passive skills

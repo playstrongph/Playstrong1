@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 234aec5f2ac04424093d24246448ccdf, type: 3}
-  m_Name: Taunt
+  m_Name: TAUNT
   m_EditorClassIdentifier: 
   _name: Taunt
   _description: Enemies can't attack other non-taunt heroes.

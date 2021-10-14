@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41ec8dd83168daa4299bf2b08699e912, type: 3}
-  m_Name: Target
+  m_Name: TARGET
   m_EditorClassIdentifier: 
   _name: Target
   _description: Hero takes additional 15% damage and has an additional 15% chance
