@@ -15,7 +15,7 @@ namespace ScriptableObjects.SkillEffects
 {
    
     [CreateAssetMenu(fileName = "SkillEffectAsset", menuName = "SO's/SkillEffect/SkillEffectAsset")]
-    public class SkillEffectAsset : ScriptableObject, ISkillEffectAsset
+    public class SkillEffectAsset : ScriptableObject
     {
         
         [SerializeField] [RequireInterface(typeof(IGameEvents))]

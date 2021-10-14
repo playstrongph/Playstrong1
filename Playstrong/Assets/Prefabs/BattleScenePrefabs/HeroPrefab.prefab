@@ -3476,7 +3476,6 @@ GameObject:
   - component: {fileID: 462356673534841368}
   - component: {fileID: 7231591812556641881}
   - component: {fileID: 7320035436552554723}
-  - component: {fileID: 1714413992}
   - component: {fileID: 3820792406562021602}
   - component: {fileID: 8667774490648244736}
   - component: {fileID: 5111372421542366580}
@@ -3679,32 +3678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c5b778fb02a8498cda5382f4f265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1714413992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3820792406562021600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d13540e870471488a22bee89237958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 0
-  baseCooldown: 0
-  skillType: {fileID: 11400000, guid: 40472d3b2f02b9e4189a2c147f85facd, type: 2}
-  skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
-  skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
-  skillEffect: {fileID: 11400000, guid: 4f723abfa1ee494438ea82a851221bd2, type: 2}
-  attackIndex: 0
-  _attackActions:
-  - {fileID: 11400000, guid: 5b3e3bc7072222f4da3d4d99e4d536ab, type: 2}
-  - {fileID: 11400000, guid: 73ea519bdd12b534da8dda49d15a8491, type: 2}
-  criticalAttackModifiers:
-  - 2
-  uniqueAttackModifiers:
-  - 1
 --- !u!114 &3820792406562021602
 MonoBehaviour:
   m_ObjectHideFlags: 0
