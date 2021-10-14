@@ -10,22 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c24186e941d1bc4ab2c6e9d5770755d, type: 3}
-  m_Name: Velajuel
+  m_Name: ArbiterVildred
   m_EditorClassIdentifier: 
-  _name: Velajuel
-  _description: Archangel
+  _name: Jultan
+  _description: Thief
   _heroSprite: {fileID: 21300000, guid: d36ae15defa12d742950f39661a7d6ee, type: 3}
-  _health: 95
-  _attack: 7
-  _speed: 95
+  _health: 118
+  _attack: 6
+  _speed: 115
   _chance: 50
-  _armor: 0
+  _armor: 30
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
   _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
   _heroSkills:
-  - {fileID: 11400000, guid: e25848fc30f83674587e78ed2c755513, type: 2}
-  - {fileID: 11400000, guid: 26767623a6d154d4993ca5fbf396e652, type: 2}
-  - {fileID: 11400000, guid: 79c711d2eae54034d84bdce2e53c4d6a, type: 2}
-  - {fileID: 11400000, guid: 0e2b6be4aa59e7b428ddd8f41e0c19ac, type: 2}
+  - {fileID: 11400000, guid: 01c7047b01be2ef4ea69a3e67f820655, type: 2}
+  - {fileID: 11400000, guid: 420dc112b16526f44a1ef336b15f4e97, type: 2}
