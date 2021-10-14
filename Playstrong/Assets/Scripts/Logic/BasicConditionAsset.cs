@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Interfaces;
+using References;
 using ScriptableObjects.StatusEffects;
 using UnityEngine;
 
@@ -14,7 +15,9 @@ namespace Logic
     {
         //Reference
         public IHeroStatusEffect StatusEffectReference { get; set; }
-        
+
+        public ISkill SkillReference { get; set; }
+
 
         /// <summary>
         /// Returns a value of 1 if basic condition is met, 0 otherwise;

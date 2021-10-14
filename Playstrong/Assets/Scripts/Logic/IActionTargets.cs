@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
+using References;
 
 namespace Logic
 {
@@ -14,5 +15,6 @@ namespace Logic
         
         //TEST
         IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect);
+        ISkill SetSkillReference(ISkill skill);
     }
 }

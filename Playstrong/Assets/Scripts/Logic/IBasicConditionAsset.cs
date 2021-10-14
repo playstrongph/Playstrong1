@@ -1,4 +1,5 @@
 ﻿using Interfaces;
+using References;
 using ScriptableObjects.StatusEffects;
 
 namespace Logic
@@ -7,6 +8,8 @@ namespace Logic
     {
         //Reference
         IHeroStatusEffect StatusEffectReference { get; set; }
+        
+        ISkill SkillReference { get; set; }
         
         
         /// <summary>

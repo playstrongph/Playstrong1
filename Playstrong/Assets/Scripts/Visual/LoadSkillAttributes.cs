@@ -2,6 +2,7 @@
 using Interfaces;
 using Logic;
 using ScriptableObjects.SkillEffects;
+using ScriptableObjects.StandardActions;
 using TMPro.EditorUtilities;
 using UnityEngine;
 using Utilities;
@@ -25,21 +26,73 @@ namespace Visual
             
             skillAttributes.Cooldown = skillAsset.Cooldown;
             skillAttributes.BaseCooldown = skillAsset.Cooldown;
-            
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillReadiness = skillAsset.SkillReadiness;
-            
-            //Unique instances of skills to solve the problem of duplicate heroes
-            var uniqueSkillEffect = Instantiate(skillAsset.SkillEffect as ScriptableObject);
-            var skillEffect = uniqueSkillEffect as ISkillEffectAsset;
-            
-            //skillAttributes.SkillEffect = skillAsset.SkillEffect;
-            skillAttributes.SkillEffect = skillEffect;
-
             skillAttributes.SkillReference = _skillLogic.Skill;
+            
+            CreateUniqueSkillEffectAsset(skillAsset);
 
         }
+        
+        //TEST
+        private void CreateUniqueSkillEffectAsset(IHeroSkillAsset skillAsset)
+        {
+            _skillLogic.SkillAttributes.SkillEffectAsset = Instantiate(skillAsset.SkillEffect as ScriptableObject) as ISkillEffectAsset;
+            
+            CreateUniqueStandardActionsAndActionTargets();
+            CreateUniqueBasicConditions();
+        }
+        
+        private void CreateUniqueStandardActionsAndActionTargets()
+        {
+            var i = 0;
+            foreach(var standardAction in  _skillLogic.SkillAttributes.SkillEffectAsset.StandardActions)
+            {
+                
+                var standardActionClone = Instantiate(standardAction as ScriptableObject) as IStandardActionAsset;
+                //Replace the standardActions in the statusEffectAsset with unique cloness
+                _skillLogic.SkillAttributes.SkillEffectAsset.StandardActionsObjects[i] = standardActionClone as ScriptableObject;
+                i++;
+                
+                //Create Basic Action Targets clone and set heroStatusEffectReference
+                standardActionClone.BasicActionTargets = Instantiate(standardAction.BasicActionTargets as ScriptableObject) as IActionTargets;
+                
+                //TODO: Check if there will be a need for the BasicActionTarget to Reference the Skill
+                standardActionClone.BasicActionTargets.SetSkillReference(_skillLogic.Skill);
+            }
+        }
+        
+        private void CreateUniqueBasicConditions()
+        {
+            foreach (var standardAction in _skillLogic.SkillAttributes.SkillEffectAsset.StandardActions)
+            {
+                var j = 0;
+                foreach (var basicCondition in standardAction.OrBasicConditions)
+                {
+                    var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
+                    standardAction.OrBasicConditionsObjects[j] = basicConditionCloneObject;
+                    j++;
+                    
+                    var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
+                    basicConditionClone.SkillReference = _skillLogic.Skill;
+                }
+
+                var k = 0;
+                foreach (var basicCondition in standardAction.AndBasicConditions)
+                {
+                    var basicConditionCloneObject = Instantiate(basicCondition as ScriptableObject);
+                    standardAction.AndBasicConditionsObjects[k] = basicConditionCloneObject;
+                    k++;
+                    
+                    var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
+                    basicConditionClone.SkillReference = _skillLogic.Skill;
+                }
+            }
+        }
+        
+        
+        
         
         
         

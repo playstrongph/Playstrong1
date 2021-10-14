@@ -4,6 +4,8 @@ using References;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Others;
 using ScriptableObjects.SkillCondition.BaseClassScripts;
+using ScriptableObjects.StandardActions;
+using UnityEngine;
 
 namespace ScriptableObjects.SkillEffects
 {
@@ -15,5 +17,9 @@ namespace ScriptableObjects.SkillEffects
         void UnregisterSkillEffect(ISkill skill);
 
         void UnregisterSkillEffect(IHero thisHero);
+        
+        //TEST
+        List<ScriptableObject> StandardActionsObjects { get; }
+        List<IStandardActionAsset> StandardActions { get; }
     }
 }

@@ -202,7 +202,7 @@ namespace Logic
             foreach (var skillObject in heroSkillsObjects)
             {
                 var skill = skillObject.GetComponent<ISkill>();
-                skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+                skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;

@@ -67,7 +67,7 @@ namespace Logic
         [SerializeField] [RequireInterface(typeof(ISkillEffectAsset))]
         private Object skillEffect;
 
-        public ISkillEffectAsset SkillEffect{
+        public ISkillEffectAsset SkillEffectAsset{
             get => skillEffect as ISkillEffectAsset;
             set => skillEffect = value as Object;
         }
@@ -149,7 +149,7 @@ namespace Logic
 
         private void Start()
         {
-            SkillEffect.RegisterSkillEffect(_heroLogic.Hero);
+            SkillEffectAsset.RegisterSkillEffect(_heroLogic.Hero);
         }
 
         public IEnumerator StartAttack(IHero thisHero, IHero targetHero)

@@ -21,7 +21,9 @@ namespace ScriptableObjects.SkillEffects
     {
 
         [SerializeField] private List<ScriptableObject> standardActions;
-        private List<IStandardActionAsset> StandardActions
+        
+        public List<ScriptableObject> StandardActionsObjects => standardActions;
+        public List<IStandardActionAsset> StandardActions
         {
             get
             {

@@ -21,7 +21,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
             
             //Unregister Skill
-            skill.SkillLogic.SkillAttributes.SkillEffect.UnregisterSkillEffect(skill);
+            skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill);
             
           
         }

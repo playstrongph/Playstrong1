@@ -23,7 +23,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
         private void EnableSkillAction(ISkill skill)
         {
             //Register Skill Effect
-            skill.SkillLogic.SkillAttributes.SkillEffect.RegisterSkillEffect(skill);
+            skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill);
             
             
             //Set Skill Ready

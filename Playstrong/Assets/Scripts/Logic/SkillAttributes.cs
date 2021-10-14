@@ -70,12 +70,12 @@ namespace Logic
         }
         
         [SerializeField]
-        private Object _skillEffect;
+        private Object skillEffectAsset;
 
-        public ISkillEffectAsset SkillEffect
+        public ISkillEffectAsset SkillEffectAsset
         {
-            get => _skillEffect as ISkillEffectAsset;
-            set => _skillEffect = value as Object;
+            get => skillEffectAsset as ISkillEffectAsset;
+            set => skillEffectAsset = value as Object;
         }
 
         //Test

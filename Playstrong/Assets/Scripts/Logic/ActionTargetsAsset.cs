@@ -2,6 +2,7 @@
 using Interfaces;
 using References;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 namespace Logic
 {
@@ -10,8 +11,11 @@ namespace Logic
 
         public IHero CustomHeroTarget { get; set; }
         
-        //TEST
+        //STATUS EFFECT HERO
         protected IHero LocalHero;
+        
+        //SKILL REFERENCE
+        protected ISkill LocalSkill;
 
         //From SINGLE to Multiple target requirements - used in StandardActions
         public virtual List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
@@ -56,6 +60,12 @@ namespace Logic
         public virtual IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect)
         {
             return LocalHero;
+        }
+        
+        public virtual ISkill SetSkillReference(ISkill skill)
+        {
+            LocalSkill = skill;
+            return LocalSkill;
         }
 
 

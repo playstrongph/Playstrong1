@@ -21,7 +21,7 @@ namespace Interfaces
 
         ISkillReadiness SkillReadiness { get; set; }
 
-        ISkillEffectAsset SkillEffect { get; set; }
+        ISkillEffectAsset SkillEffectAsset { get; set; }
         
         ISkill SkillReference { get; set; }
     }
