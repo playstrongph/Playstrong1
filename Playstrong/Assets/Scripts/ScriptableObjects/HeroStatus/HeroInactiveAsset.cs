@@ -33,9 +33,9 @@ namespace ScriptableObjects.HeroStatus
 
         private IEnumerator SetInactive()
         {
-            
-            _logicTree.AddCurrent(DisableTargetHeroPreview());
-            _logicTree.AddCurrent(DisableDragHeroAttack());
+            //TODO: This disables dragAttack from Hero
+            //_logicTree.AddCurrent(DisableTargetHeroPreview());
+            //_logicTree.AddCurrent(DisableDragHeroAttack());
             
             _visualTree.AddCurrent(VisualDisableActionHeroGlow());
             
@@ -48,7 +48,7 @@ namespace ScriptableObjects.HeroStatus
             
         }
         
-        private IEnumerator DisableDragHeroAttack()
+        /*private IEnumerator DisableDragHeroAttack()
         {
             _heroLogic.Hero.TargetHero.GetAttackTargets.DisableGlows();
             _heroLogic.Hero.TargetHero.DragHeroAttack.DisableDragHeroAttack();
@@ -65,7 +65,7 @@ namespace ScriptableObjects.HeroStatus
             _logicTree.EndSequence();
             yield return null;
            
-        }
+        }*/
         
         private IEnumerator VisualDisableActionHeroGlow()
         {

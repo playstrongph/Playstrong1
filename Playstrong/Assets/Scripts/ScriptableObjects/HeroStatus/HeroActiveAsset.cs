@@ -48,9 +48,10 @@ namespace ScriptableObjects.HeroStatus
         {
             //_heroLogic.HeroTimer.ResetHeroTimer();
             
-            //TODO: Check if the below needs to be transferred to a new Enumerator - EnableHeroTurn?
-            _logicTree.AddCurrent(EnableTargetHeroPreview());
-            _logicTree.AddCurrent(EnableDragHeroAttack());
+            //TODO: This disables dragAttack from the hero
+            //_logicTree.AddCurrent(EnableTargetHeroPreview());
+            //_logicTree.AddCurrent(EnableDragHeroAttack());
+            
             _visualTree.AddCurrent(VisualEnableActionHeroGlow());
             _visualTree.AddCurrent(VisualEnableHeroPortrait());
             _visualTree.AddCurrent(VisualEnableHeroSkills());
@@ -59,7 +60,7 @@ namespace ScriptableObjects.HeroStatus
             yield return null;
         }
 
-        private IEnumerator EnableDragHeroAttack()
+        /*private IEnumerator EnableDragHeroAttack()
         {
            
            _heroLogic.Hero.TargetHero.GetAttackTargets.EnableGlows();
@@ -67,16 +68,16 @@ namespace ScriptableObjects.HeroStatus
 
            _logicTree.EndSequence();
             yield return null;
-        }
+        }*/
 
-        private IEnumerator EnableTargetHeroPreview()
+        /*private IEnumerator EnableTargetHeroPreview()
         {
             _heroLogic.Hero.TargetHero.HeroPreview.TargetVisual.TargetCanvas.gameObject.SetActive(true);
             
              
             _logicTree.EndSequence();
             yield return null;
-        }
+        }*/
 
         private IEnumerator VisualEnableActionHeroGlow()
         {
