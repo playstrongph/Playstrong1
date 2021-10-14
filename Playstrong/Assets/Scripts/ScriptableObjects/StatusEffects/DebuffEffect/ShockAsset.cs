@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.DebuffEffect
 {
-    [CreateAssetMenu(fileName = "Shock", menuName = "SO's/Status Effects/Debuffs/Shock")]
+    [CreateAssetMenu(fileName = "Shock", menuName = "SO's/Status Effects/UniqueEffects/Shock")]
     public class ShockAsset : StatusEffectAsset
     {   
        
