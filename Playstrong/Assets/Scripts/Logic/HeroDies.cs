@@ -169,19 +169,24 @@ namespace Logic
         {
             var buffs = hero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
             var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+            var uniqueEffects = hero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
 
+            //It is correct to call the asset and not the buff due to buffs/debuffs that should not be destroyed on death
+            //Extinction and Resurrect
+            
             foreach (var buff in buffs)
             {
-                //It is correct to call the asset and not the buff due to buffs/debuffs that should not be destroyed on death
-                //Extinction and Resurrect
                 buff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero,buff);
             }
             
             foreach (var debuff in debuffs)
             {
-             
-                //TEST
                 debuff.StatusEffectAsset.RemoveStatusEffectOnDeath(hero,debuff);
+            }
+            
+            foreach (var uniqueEffect in uniqueEffects)
+            {
+                uniqueEffect.StatusEffectAsset.RemoveStatusEffectOnDeath(hero,uniqueEffect);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
