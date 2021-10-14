@@ -27,6 +27,12 @@ namespace Logic
             {
                 statusEffect.StatusEffectUpdateTiming.UpdateCountersStartTurn(statusEffect);
             }
+            
+            //Unique Effects
+            foreach (var statusEffect in _heroStatusEffects.HeroUniqueEffects.UniqueEffects)
+            {
+                statusEffect.StatusEffectUpdateTiming.UpdateCountersStartTurn(statusEffect);
+            }
         }
         
         public void UpdateCountersEndTurn()
@@ -39,6 +45,12 @@ namespace Logic
             
             //Hero Debuffs
             foreach (var statusEffect in _heroStatusEffects.HeroDebuffEffects.HeroDebuffs)
+            {
+                statusEffect.StatusEffectUpdateTiming.UpdateCountersEndTurn(statusEffect);
+            }
+            
+            //Unique Effects
+            foreach (var statusEffect in _heroStatusEffects.HeroUniqueEffects.UniqueEffects)
             {
                 statusEffect.StatusEffectUpdateTiming.UpdateCountersEndTurn(statusEffect);
             }
