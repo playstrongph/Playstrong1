@@ -17,9 +17,9 @@ namespace ScriptableObjects.Others
 
         [Header("Skill Info")] 
         [SerializeField]
-        private string _name;
+        private string skillName;
 
-        public String Name => _name;
+        public String SkillName => skillName;
 
         [TextArea(2, 3)] 
         [SerializeField] 
@@ -48,11 +48,11 @@ namespace ScriptableObjects.Others
 
         public Sprite SkillIcon => _skillIcon;
 
-        [Header("Skill Cooldown")]
+        [Header("Base Cooldown")]
         [SerializeField]
-        private int _cooldown;
+        private int baseCooldown;
 
-        public int Cooldown => _cooldown;
+        public int BaseCooldown => baseCooldown;
 
         [Header("Default Settings")] [SerializeField]
         [RequireInterface(typeof(ISkillReadiness))]

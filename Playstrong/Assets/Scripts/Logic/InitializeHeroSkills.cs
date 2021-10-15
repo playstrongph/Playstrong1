@@ -71,7 +71,10 @@ namespace Logic
                 skillPanelObject.GetComponent<ISkillsPanel>().SkillList.Add(skillObject);
 
                 var heroSkillComponent = skillObject.GetComponent<ISkill>();
-                heroSkillComponent.SkillName = heroSkill.name;
+
+                var heroSkillAsset = heroSkill as IHeroSkillAsset;
+                heroSkillComponent.SkillName = heroSkillAsset.SkillName;
+                    
 
                 var skillVisualReferences = heroSkillComponent.SkillVisual;
                 var skillLogicReferences = heroSkillComponent.SkillLogic;

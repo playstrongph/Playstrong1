@@ -77,7 +77,7 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.AddCurrent(SetHeroAliveStatus(hero));
             
             logicTree.AddCurrent(RegisterSkills(hero));
-            
+
             logicTree.AddCurrent(EnableHeroTurns(hero));
 
             logicTree.AddCurrent(ResetHeroAttributes(hero));

@@ -9,7 +9,7 @@ namespace Interfaces
 {
     public interface IHeroSkillAsset
     {
-        string Name { get; }
+        string SkillName { get; }
         
         string Description { get; }
         
@@ -17,7 +17,7 @@ namespace Interfaces
         
         Sprite SkillIcon { get; }
         
-        int Cooldown { get; }
+        int BaseCooldown { get; }
 
         ISkillType SkillType { get; }
 

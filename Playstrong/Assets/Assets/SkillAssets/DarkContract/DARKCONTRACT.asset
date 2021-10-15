@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
   m_Name: DARKCONTRACT
   m_EditorClassIdentifier: 
-  _name: Dark Contract
+  skillName: DarkContract
   _description: Revives at Death with DARK BLADE ready and at 100% Energy.
   _skillEffect: {fileID: 11400000, guid: 31f5f4aa629506746b768d0757aa9b2a, type: 2}
   _skillType: {fileID: 11400000, guid: 6d28ee769e2563b478d2976e48050998, type: 2}
   _skillTarget: {fileID: 11400000, guid: 3b71c2c7a2d6f304cb4c054487b2cb90, type: 2}
   _skillIcon: {fileID: 21300000, guid: 8a7783b72aee45049b3979682900156d, type: 3}
-  _cooldown: 0
+  baseCooldown: 3
   _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}

@@ -24,8 +24,8 @@ namespace Visual
         {
             var skillAttributes = _skillLogic.SkillAttributes;
             
-            skillAttributes.Cooldown = skillAsset.Cooldown;
-            skillAttributes.BaseCooldown = skillAsset.Cooldown;
+            skillAttributes.Cooldown = skillAsset.BaseCooldown;
+            skillAttributes.BaseCooldown = skillAsset.BaseCooldown;
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillReadiness = skillAsset.SkillReadiness;

@@ -18,8 +18,8 @@ namespace Visual
         public void LoadSkillPreviewVisualsFromAsset(IHeroSkillAsset skillAsset)
         {
             _skillPreviewVisual.PreviewImage.sprite = skillAsset.SkillIcon;
-            _skillPreviewVisual.Cooldown.text = skillAsset.Cooldown.ToString();
-            _skillPreviewVisual.PreviewName.text = skillAsset.Name;
+            _skillPreviewVisual.Cooldown.text = skillAsset.BaseCooldown.ToString();
+            _skillPreviewVisual.PreviewName.text = skillAsset.SkillName;
             _skillPreviewVisual.Description.text = skillAsset.Description;
         }
         
