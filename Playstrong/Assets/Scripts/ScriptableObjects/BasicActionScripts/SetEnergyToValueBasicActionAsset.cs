@@ -10,17 +10,17 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class SetEnergyToValueBasicActionAsset : BasicActionAsset
     {
-        [SerializeField] private int energyValue;
+        [SerializeField] private int flatEnergyValue;
         
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var currentEnergy = targetHero.HeroLogic.HeroAttributes.Energy;
             
-            if(currentEnergy < energyValue)
+            if(currentEnergy < flatEnergyValue)
                 IncreaseEnergy(targetHero);
             else
-                targetHero.HeroLogic.SetHeroEnergy.SetEnergy(energyValue);
+                targetHero.HeroLogic.SetHeroEnergy.SetEnergy(flatEnergyValue);
 
             logicTree.EndSequence();
             yield return null;
@@ -46,7 +46,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var randomChance = Random.Range(0, 101);
 
             if(randomChance<=netBoostChance)
-                targetHero.HeroLogic.SetHeroEnergy.SetEnergy(energyValue);
+                targetHero.HeroLogic.SetHeroEnergy.SetEnergy(flatEnergyValue);
         }
 
 
