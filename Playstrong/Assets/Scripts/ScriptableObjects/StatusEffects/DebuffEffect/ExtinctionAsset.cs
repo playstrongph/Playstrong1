@@ -22,7 +22,9 @@ namespace ScriptableObjects.StatusEffects.BuffEffects
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            hero.HeroLogic.OtherAttributes.ResurrectResistance -= resurrectResistance;
+            //Don't remove resurrect resistance value after death so hero permanently can't be resurrected
+            //hero.HeroLogic.OtherAttributes.ResurrectResistance -= resurrectResistance;
+            
             hero.HeroLogic.HeroEvents.EPostHeroDeath -= ExtinctionAction;
         }
 

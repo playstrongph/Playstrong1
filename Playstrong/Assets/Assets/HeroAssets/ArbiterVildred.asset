@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Jultan
   _description: Thief
   _heroSprite: {fileID: 21300000, guid: d36ae15defa12d742950f39661a7d6ee, type: 3}
-  _health: 10
+  _health: 4
   _attack: 6
   _speed: 115
   _chance: 50

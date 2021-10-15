@@ -134,7 +134,7 @@ namespace ScriptableObjects.StandardActions
        
         public void StartAction(IHero targetHero)
         {
-            //Debug.Log("Standard Action StartAction 1 Hero arg");
+            Debug.Log("Standard Action StartAction 1 Hero arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             //TODO: GetHeroTargets with _heroStatusEffect signature GetHeroTargets(targetHero,_heroStatusEffect)

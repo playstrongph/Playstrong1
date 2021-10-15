@@ -27,7 +27,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator StartAction(IHero hero)
         {
-            //Debug.Log("Resurrect Start Action Override");
+            Debug.Log("Resurrect Start Action " +hero.HeroName);
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //Bypass Hero Alive Checking
@@ -40,7 +40,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         public override IEnumerator TargetAction(IHero thisHero)
         {
-            //Debug.Log("Resurrect Target Action");
+            Debug.Log("Resurrect Target Action " +thisHero.HeroName);
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
             ResurrectHero(thisHero);
@@ -52,15 +52,17 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private void ResurrectHero(IHero thisHero)
         {
-            //Debug.Log("Resurrect Hero");
+            Debug.Log("Resurrect Hero " +thisHero.HeroName);
             
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             var resurrectChance = thisHero.HeroLogic.OtherAttributes.ResurrectChance;
             var resurrectResistance = thisHero.HeroLogic.OtherAttributes.ResurrectResistance;
             var netChance = resurrectChance - resurrectResistance;
-            var randomChance = Random.Range(1, 101);
             
-            if (randomChance <= netChance)
+            //var randomChance = Random.Range(1, 101);
+            
+            //TODO: This is what's causing the problem for skill Resurrect!
+            if (netChance>=0)
             {
                 logicTree.AddCurrent(ResurrectActions(thisHero));    
             }
@@ -68,6 +70,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private IEnumerator ResurrectActions(IHero hero)
         {
+            Debug.Log("Resurrect HeroActions " +hero.HeroName);
+            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.AddCurrent(SetHeroAliveStatus(hero));
@@ -77,7 +81,7 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.AddCurrent(EnableHeroTurns(hero));
 
             logicTree.AddCurrent(ResetHeroAttributes(hero));
-            //TODO: ResetOtherAttributes?
+         
 
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
             
@@ -200,6 +204,7 @@ namespace ScriptableObjects.SkillActionsScripts
         //AUXILIARY METHODS
         private IEnumerator ShowVisuals(IHero hero)
         {
+            Debug.Log("Resurrect ShowVisuals: " +hero.HeroName);
             var visualTree = hero.CoroutineTreesAsset.MainVisualTree;
             
             hero.TargetHero.TargetVisual.TargetCanvas.enabled = true;

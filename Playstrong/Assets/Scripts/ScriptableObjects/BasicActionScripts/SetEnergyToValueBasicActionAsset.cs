@@ -14,6 +14,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator TargetAction(IHero targetHero)
         {
+            Debug.Log("SetEnergyToValue: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var currentEnergy = targetHero.HeroLogic.HeroAttributes.Energy;
             
