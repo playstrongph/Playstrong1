@@ -21,7 +21,6 @@ namespace ScriptableObjects.SkillEffects
     {
 
         [SerializeField] private List<ScriptableObject> standardActions;
-        
         public List<ScriptableObject> StandardActionsObjects => standardActions;
         public List<IStandardActionAsset> StandardActions
         {
@@ -33,16 +32,15 @@ namespace ScriptableObjects.SkillEffects
                     var standardAction = standardActionObject as IStandardActionAsset;
                     newStandardActions.Add(standardAction);
                 }
-
                 return newStandardActions;
             }
         }
 
+        
 
         public void RegisterSkillEffect(ISkill skill)
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
-
             foreach (var standardAction in StandardActions)
             {
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(skill));
@@ -53,11 +51,9 @@ namespace ScriptableObjects.SkillEffects
         public void RegisterSkillEffect(IHero thisHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
             foreach (var standardAction in StandardActions)
             {
                 logicTree.AddCurrent(standardAction.RegisterStandardAction(thisHero));
-               
             }
         }
         
@@ -68,13 +64,11 @@ namespace ScriptableObjects.SkillEffects
             {
                 logicTree.AddCurrent(standardAction.UnregisterStandardAction(skill));
             }
-           
         }
         
         public void UnregisterSkillEffect(IHero thisHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
             foreach (var standardAction in StandardActions)
             {
                 logicTree.AddCurrent(standardAction.UnregisterStandardAction(thisHero));
