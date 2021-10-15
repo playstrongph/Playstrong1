@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535ea62cca5584a4396fdb716c10e9ec, type: 3}
   m_Name: ResetSkillCooldownToMax
   m_EditorClassIdentifier: 
-  _heroSkillAssetReference: {fileID: 11400000, guid: f2a87cd1daf73bd48bce6dfa249251aa,
+  heroSkillAssetReference: {fileID: 11400000, guid: f2a87cd1daf73bd48bce6dfa249251aa,
     type: 2}

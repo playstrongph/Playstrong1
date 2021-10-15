@@ -19,7 +19,9 @@ namespace ScriptableObjects.BasicActionScripts
         {
            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
            var heroSkillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
+           
            var baseCooldown = HeroSkillAssetReference.BaseCooldown;
+          
 
            //Find Skill To Reset to Max Cooldown
            foreach (var heroSkillObject in heroSkillObjects)
@@ -28,6 +30,8 @@ namespace ScriptableObjects.BasicActionScripts
                if (skill.SkillName == HeroSkillAssetReference.SkillName)
                    _skillToReset = skill;
            }
+           
+           //var baseCooldown = _skillToReset.SkillLogic.SkillAttributes.BaseCooldown;
            
            logicTree.AddCurrent(_skillToReset.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(baseCooldown));
 
