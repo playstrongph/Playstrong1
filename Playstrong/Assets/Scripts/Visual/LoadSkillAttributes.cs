@@ -20,7 +20,7 @@ namespace Visual
             _skillLogic = GetComponent<ISkillLogic>();
         }
 
-        public void LoadSkillAttributesFromAsset(IHeroSkillAsset skillAsset)
+        public void InitializeSkillAttributes(IHeroSkillAsset skillAsset)
         {
             var skillAttributes = _skillLogic.SkillAttributes;
             
@@ -29,7 +29,10 @@ namespace Visual
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillReadiness = skillAsset.SkillReadiness;
+            
+            //Initializations
             skillAttributes.SkillReference = _skillLogic.Skill;
+            skillAttributes.SkillUseStatus = _skillLogic.UpdateSkillUseStatus.NotUsingSkill;
             
             CreateUniqueSkillEffectAsset(skillAsset);
 

@@ -12,6 +12,7 @@ namespace ScriptableObjects.StandardActions
     [CreateAssetMenu(fileName = "NewStandardAction", menuName = "SO's/StandardActions/NewStandardAction")]
     public class StandardActionAsset : ScriptableObject, IStandardActionAsset
     {
+
         [Header("Game Event")]
         [SerializeField] private ScriptableObject standardEvent;
         private IStandardEvent StandardEvent => standardEvent as IStandardEvent;
@@ -137,7 +138,7 @@ namespace ScriptableObjects.StandardActions
             Debug.Log("Standard Action StartAction 1 Hero arg");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: GetHeroTargets with _heroStatusEffect signature GetHeroTargets(targetHero,_heroStatusEffect)
+            
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 if (FinalConditionValue(targetHero) > 0)
@@ -149,11 +150,11 @@ namespace ScriptableObjects.StandardActions
         }
         public void StartAction(IHero thisHero, IHero targetHero)
         {   
-            //Debug.Log("Standard Action StartAction 2 Heroes arg");
+            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
-                //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
+                
                 if (FinalConditionValue(thisHero, targetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)

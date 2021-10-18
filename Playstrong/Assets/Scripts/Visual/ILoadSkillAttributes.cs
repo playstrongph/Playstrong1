@@ -4,6 +4,6 @@ namespace Visual
 {
     public interface ILoadSkillAttributes
     {
-        void LoadSkillAttributesFromAsset(IHeroSkillAsset skillAsset);
+        void InitializeSkillAttributes(IHeroSkillAsset skillAsset);
     }
 }

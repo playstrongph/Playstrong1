@@ -1,5 +1,6 @@
 ﻿using Logic;
 using References;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using ScriptableObjects.SkillEffects;
 using Visual;
 
@@ -17,6 +18,7 @@ namespace Interfaces
         IUpdateSkillEnabledStatus UpdateSkillEnabledStatus { get; }
 
         ISkillOtherAttributes SkillOtherAttributes { get; }
+        IUpdateSkillUseStatus UpdateSkillUseStatus { get; }
 
     }
 }

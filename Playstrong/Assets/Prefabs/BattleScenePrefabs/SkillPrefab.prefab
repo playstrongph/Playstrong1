@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 8812135533650823766}
   - component: {fileID: 482154171846974238}
   - component: {fileID: 560435188}
+  - component: {fileID: 7225442409058846177}
   m_Layer: 0
   m_Name: SkillLogic
   m_TagString: Untagged
@@ -227,7 +228,8 @@ MonoBehaviour:
     type: 2}
   _skillTarget: {fileID: 0}
   _skillReadiness: {fileID: 0}
-  _skillEffect: {fileID: 0}
+  _skillUseStatus: {fileID: 0}
+  skillEffectAsset: {fileID: 0}
 --- !u!114 &3152772088103437141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c10b1b233359fe46838312d5f9e91ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  silenceFactor: 0
+  disableSkillEffects: 0
 --- !u!114 &4851451681273819000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +307,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillEnabledAsset: {fileID: 11400000, guid: cc27f7e85884e7142b85789366491d58, type: 2}
   skillDisabledAsset: {fileID: 11400000, guid: 5f7e46b6bf6b6404293406736b90b299, type: 2}
+--- !u!114 &7225442409058846177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956212357985600038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec3ef4495e7f2e4e9897cc442cbc96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usingSkill: {fileID: 11400000, guid: b55b192927a5f3547bb6549173f8332b, type: 2}
+  notUsingSkill: {fileID: 11400000, guid: 3fbbe2f126203424a96157418ed14da7, type: 2}
 --- !u!1 &956212358033504289
 GameObject:
   m_ObjectHideFlags: 0

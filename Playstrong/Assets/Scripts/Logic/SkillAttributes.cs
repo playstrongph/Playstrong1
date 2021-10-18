@@ -69,6 +69,15 @@ namespace Logic
             set => _skillReadiness = value as ScriptableObject;
         }
         
+        [SerializeField] [RequireInterface(typeof(ISkillUseStatusAsset))]
+        private ScriptableObject _skillUseStatus;
+
+        public ISkillUseStatusAsset SkillUseStatus
+        {
+            get => _skillUseStatus as ISkillUseStatusAsset;
+            set => _skillUseStatus = value as ScriptableObject;
+        }
+
         [SerializeField]
         private Object skillEffectAsset;
 

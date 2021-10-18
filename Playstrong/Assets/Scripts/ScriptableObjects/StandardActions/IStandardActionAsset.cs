@@ -9,6 +9,9 @@ namespace ScriptableObjects.StandardActions
 {
     public interface IStandardActionAsset
     {
+        
+               
+        
         IEnumerator RegisterStandardAction(IHero hero);
         IEnumerator UnregisterStandardAction(IHero hero);
         IEnumerator RegisterStandardAction(ISkill skill);
