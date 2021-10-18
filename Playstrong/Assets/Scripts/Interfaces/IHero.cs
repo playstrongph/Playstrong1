@@ -42,6 +42,12 @@ namespace Interfaces
         
         List<IHero> AllOtherAllyHeroes { get;  }
 
+        List<IHero> GetAllLivingAllyHeroes();
+
+        List<IHero> GetAllOtherLivingAllyHeroes();
+
+
+
 
 
     }
