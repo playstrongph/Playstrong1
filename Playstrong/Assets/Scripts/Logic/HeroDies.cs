@@ -203,6 +203,9 @@ namespace Logic
             {
                 var skill = skillObject.GetComponent<ISkill>();
                 skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill);
+                
+                //TEST - shouldn't skills subscribed to the hero be unregistered too?
+                skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(hero);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;

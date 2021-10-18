@@ -121,14 +121,11 @@ namespace Logic
 
         private void UseHeroSkill()
         {
-            
             _logicTree.AddCurrent(UseSkillEffect());
 
-            //_logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.ResetSkillCooldown.UpdateCooldown());
             _logicTree.AddCurrent(ResetSkillCooldown());
 
             _logicTree.AddCurrent(HeroEndTurn());
-
         }
         
         

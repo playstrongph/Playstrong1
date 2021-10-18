@@ -24,6 +24,8 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
         {
             //Register Skill Effect
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill);
+            //TEST
+            skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill.Hero);
             
             
             //Set Skill Ready

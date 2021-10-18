@@ -37,7 +37,7 @@ namespace ScriptableObjects.SkillEffects
         }
 
         
-
+        //Basic Attack and ResurrectAction are obsolete
         public void RegisterSkillEffect(ISkill skill)
         {
             var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
@@ -48,6 +48,7 @@ namespace ScriptableObjects.SkillEffects
             }
         }
         
+        //Basic Attack and ResurrectAction are obsolete
         public void RegisterSkillEffect(IHero thisHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;

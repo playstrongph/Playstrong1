@@ -110,6 +110,8 @@ namespace ScriptableObjects.SkillActionsScripts
             {
                 var skill = skillObject.GetComponent<ISkill>();
                 skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill);
+                //TEST
+                skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill.Hero);
             }
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
