@@ -14,11 +14,11 @@ namespace Logic
     {
         [SerializeField] [RequireInterface(typeof(ISkillUseStatusAsset))]
         private ScriptableObject usingSkill;
-        public ISkillUseStatusAsset UsingSkill => usingSkill as ISkillUseStatusAsset;
+        private ISkillUseStatusAsset UsingSkill => usingSkill as ISkillUseStatusAsset;
         
         [SerializeField] [RequireInterface(typeof(ISkillUseStatusAsset))]
         private ScriptableObject notUsingSkill;
-        public ISkillUseStatusAsset NotUsingSkill => notUsingSkill as ISkillUseStatusAsset;
+        private ISkillUseStatusAsset NotUsingSkill => notUsingSkill as ISkillUseStatusAsset;
 
         private ISkillLogic _skillLogic;
         

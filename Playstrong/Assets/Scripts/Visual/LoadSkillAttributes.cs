@@ -32,7 +32,7 @@ namespace Visual
             
             //Initializations
             skillAttributes.SkillReference = _skillLogic.Skill;
-            skillAttributes.SkillUseStatus = _skillLogic.UpdateSkillUseStatus.NotUsingSkill;
+           _skillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
             
             CreateUniqueSkillEffectAsset(skillAsset);
 

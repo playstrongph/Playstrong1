@@ -132,11 +132,18 @@ namespace Logic
         
         private IEnumerator UseSkillEffect()
         {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             _thisHero = _targetSkill.Skill.Hero.TargetHero;
+
+            //TEST
+            logicTree.AddCurrent(SetUsingSkillStatus());
             
             _targetSkill.Skill.SkillLogic.SkillEvents.DragSkillTarget(_thisHero.Hero, _targetHero.Hero);
+
+            //TEST
+            logicTree.AddCurrent(SetNotUsingSkillStatus());
             
-            _logicTree.EndSequence();
+            logicTree.EndSequence();
             yield return null;
             
         }
@@ -162,8 +169,28 @@ namespace Logic
             yield return null;
         }
 
-      
+        private IEnumerator SetUsingSkillStatus()
+        {
+            var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkillStatus();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
         
+        private IEnumerator SetNotUsingSkillStatus()
+        {
+            var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
+
 
 
 

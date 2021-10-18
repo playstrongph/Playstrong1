@@ -4,7 +4,11 @@ namespace Logic
 {
     public interface IUpdateSkillUseStatus
     {
-        ISkillUseStatusAsset UsingSkill { get; }
-        ISkillUseStatusAsset NotUsingSkill { get; }
+        //ISkillUseStatusAsset UsingSkill { get; }
+        //ISkillUseStatusAsset NotUsingSkill { get; }
+
+        void SetUsingSkillStatus();
+
+        void SetNotUsingSkillStatus();
     }
 }
