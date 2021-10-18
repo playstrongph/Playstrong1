@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f48ceb362de7db4685c91dd0745a7d9, type: 3}
-  m_Name: SetEnergyToValue
+  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
+  m_Name: AddDebuffAction
   m_EditorClassIdentifier: 
-  flatEnergyValue: 200
+  _debuffEffectAsset: {fileID: 11400000, guid: 62ef0c6dde6bd944eaee88acab633da6, type: 2}
+  _debuffCounters: 2

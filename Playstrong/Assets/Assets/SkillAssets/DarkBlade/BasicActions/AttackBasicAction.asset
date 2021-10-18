@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9f660c019930049b7e3843ce712d3d, type: 3}
-  m_Name: AttackBasicActionVampireBat
+  m_Name: AttackBasicAction
   m_EditorClassIdentifier: 
   flatAdditionalDamage: 0
-  calculatedAdditionalDamage: {fileID: 11400000, guid: 3a5b8861f410f494c9bb331b14e7a03c,
+  calculatedAdditionalDamage: {fileID: 11400000, guid: 77e24123ce87aa548909eb76945301f9,
     type: 2}
   attackAnimation: {fileID: 11400000, guid: 1dcca8b6272dcd34b946fe423af9d111, type: 2}
-  singleOrMultiAttack: {fileID: 11400000, guid: 22b27d5cb1783f448b222afb32e89f7e,
+  singleOrMultiAttack: {fileID: 11400000, guid: 66805a668852db345906ccd82d06f6cc,
     type: 2}
   _visualDelay: 0.7

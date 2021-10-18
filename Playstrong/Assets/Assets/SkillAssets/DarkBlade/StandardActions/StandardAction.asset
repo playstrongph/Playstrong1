@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1a7b6482adb0442a664465658dbbd2, type: 3}
-  m_Name: VampireBatStandardAction
+  m_Name: StandardAction
   m_EditorClassIdentifier: 
-  standardEvent: {fileID: 11400000, guid: a57dc010416369140b77d7f40056b446, type: 2}
-  actionTargets: {fileID: 11400000, guid: e712338c0b2efae4e9311207849129c9, type: 2}
+  standardEvent: {fileID: 11400000, guid: f564f280dde53a145a37ebfaf1ded6b6, type: 2}
+  actionTargets: {fileID: 11400000, guid: bb3eb0f268c1cc14090f29a934c44b4b, type: 2}
   orBasicConditions: []
   andBasicConditions: []
   basicActions:
-  - {fileID: 11400000, guid: 5e75ca384018c9c42acd40fbb1393588, type: 2}
-  - {fileID: 11400000, guid: 11b145992eee7f745a80706f941990a6, type: 2}
+  - {fileID: 11400000, guid: 9909749008aa67449820c1b204aa9425, type: 2}
+  - {fileID: 11400000, guid: 6da95ff2a6096de42b60f624fff99d04, type: 2}
+  - {fileID: 11400000, guid: 91a17ed3bda9b8e4ebe11eb89febbfd4, type: 2}
