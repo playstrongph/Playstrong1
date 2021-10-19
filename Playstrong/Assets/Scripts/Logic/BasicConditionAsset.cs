@@ -41,6 +41,7 @@ namespace Logic
         public int GetValue(IHero thisHero, IHero targetHero)
         {
             Debug.Log("Get Basic Condition Value");
+            
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             //var value = CheckBasicCondition(thisHero,targetHero);
             

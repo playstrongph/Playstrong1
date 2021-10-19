@@ -11,6 +11,8 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
         {
             return 1;
         }
+        
+        
 
     }
 }
