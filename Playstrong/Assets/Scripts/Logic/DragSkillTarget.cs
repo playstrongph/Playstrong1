@@ -121,7 +121,13 @@ namespace Logic
 
         private void UseHeroSkill()
         {
+            //TEST - need to transfer this to Include Passive Effects in the future
+            _logicTree.AddCurrent(SetUsingSkillStatus());
+            
             _logicTree.AddCurrent(UseSkillEffect());
+            
+            //TEST - need to transfer this to Include Passive Effects in the future
+            _logicTree.AddCurrent(SetNotUsingSkillStatus());
 
             _logicTree.AddCurrent(ResetSkillCooldown());
 
@@ -135,14 +141,8 @@ namespace Logic
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
             _thisHero = _targetSkill.Skill.Hero.TargetHero;
 
-            //TEST
-            logicTree.AddCurrent(SetUsingSkillStatus());
-            
             _targetSkill.Skill.SkillLogic.SkillEvents.DragSkillTarget(_thisHero.Hero, _targetHero.Hero);
 
-            //TEST
-            logicTree.AddCurrent(SetNotUsingSkillStatus());
-            
             logicTree.EndSequence();
             yield return null;
             
