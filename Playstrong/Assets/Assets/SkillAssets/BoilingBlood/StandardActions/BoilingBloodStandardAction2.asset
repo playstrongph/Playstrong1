@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BoilingBloodStandardAction2
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 272dfcb5cde92d84ebfc254c520d6e5c, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: 8bef77dbfba5642489b525e3cab5dbe9, type: 2}
   actionTargets: {fileID: 11400000, guid: 8bef77dbfba5642489b525e3cab5dbe9, type: 2}
   orBasicConditions: []
   andBasicConditions: []

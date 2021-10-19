@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93f0953c268af7438eba7f2e9b4a034, type: 3}
-  m_Name: FinalDamageTaken
+  m_Script: {fileID: 11500000, guid: b76dca3abb30885488e926698a5be580, type: 3}
+  m_Name: ThisHero
   m_EditorClassIdentifier: 
-  percentFactor: 50

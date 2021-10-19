@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8893bb9ff249ce4a9b94ee7a27ec737, type: 3}
   m_Name: SetCalculatedFactorHero
   m_EditorClassIdentifier: 
-  damageFactor: {fileID: 11400000, guid: d8c9701bed53b1842aac698b26cb64dd, type: 2}
+  damageFactor: {fileID: 11400000, guid: 48f7be7d1b601604ab8b96235e1f4a1e, type: 2}

@@ -179,6 +179,7 @@ namespace Logic
             
             //For use of methods that doesn't care about damage types - e.g. Reflect
             finalDamage = _directDamage;
+            Debug.Log("Take Non-Skill Damage: " +FinalDamage);
             
             _logicTree.AddCurrent(BeforeHeroTakesNonSkillDamage(targetHero));
             

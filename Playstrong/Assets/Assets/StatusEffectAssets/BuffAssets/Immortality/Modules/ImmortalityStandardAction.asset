@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ImmortalityStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: e66a0025da768fb4dac306aea3eab9fc, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: e9e3be98b3bc04a44904e7d8624bb451, type: 2}
   actionTargets: {fileID: 11400000, guid: e9e3be98b3bc04a44904e7d8624bb451, type: 2}
   orBasicConditions: []
   andBasicConditions: []

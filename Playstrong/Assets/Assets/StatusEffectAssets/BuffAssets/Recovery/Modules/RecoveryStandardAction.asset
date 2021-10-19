@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RecoveryStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 71625b67ed7e96d479e6bedcaee93c4f, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: c6924c235edf4fd4ca21a4e30c62a5ff, type: 2}
   actionTargets: {fileID: 11400000, guid: c6924c235edf4fd4ca21a4e30c62a5ff, type: 2}
   orBasicConditions: []
   andBasicConditions: []

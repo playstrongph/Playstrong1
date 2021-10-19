@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DealNonSkillDamage
   m_EditorClassIdentifier: 
   flatDamageValue: 0
-  calculatedValue: {fileID: 11400000, guid: d8c9701bed53b1842aac698b26cb64dd, type: 2}
+  calculatedValue: {fileID: 11400000, guid: 48f7be7d1b601604ab8b96235e1f4a1e, type: 2}
   ignoreArmorChance: 0

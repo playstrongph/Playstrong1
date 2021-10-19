@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ImmunityStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: ad1f80fa113380848a279a80acf37b9d, type: 2}
   actionTargets: {fileID: 11400000, guid: ad1f80fa113380848a279a80acf37b9d, type: 2}
   orBasicConditions: []
   andBasicConditions: []

@@ -20,6 +20,7 @@ namespace ScriptableObjects.BasicActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             DamageFactor.SetHeroBasis(targetHero);
+            Debug.Log("HeroBasis: " +targetHero.HeroName);
             
             logicTree.EndSequence();
             yield return null;
@@ -30,6 +31,7 @@ namespace ScriptableObjects.BasicActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             DamageFactor.SetHeroBasis(targetHero);
+            Debug.Log("HeroBasis: " +targetHero.HeroName);
             
             logicTree.EndSequence();
             yield return null;
