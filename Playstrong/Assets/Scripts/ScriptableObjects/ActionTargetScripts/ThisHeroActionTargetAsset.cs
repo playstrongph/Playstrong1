@@ -22,6 +22,7 @@ namespace ScriptableObjects.ActionTargets
             return heroTargets;
         }
         
+        //Same as TargetHero for Single Arg
         public override List<IHero> GetHeroTargets(IHero hero)
         {
             var heroTargets = new List<IHero>();
