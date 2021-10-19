@@ -16,18 +16,9 @@ namespace ScriptableObjects.StandardActions
         [Header("Game Event")]
         [SerializeField] private ScriptableObject standardEvent;
         private IStandardEvent StandardEvent => standardEvent as IStandardEvent;
-        
-        
-        [Header("Game Event Subscribers")]
-        [SerializeField] private ScriptableObject eventSubscribers;
-
-        public IActionTargets EventSubscribers
-        {
-            get => eventSubscribers as IActionTargets;
-            set => eventSubscribers = value as ScriptableObject;
-        }
 
         [Header("Basic Action Targets")]
+        //TODO: This needs to be changed to component level
         [SerializeField] private ScriptableObject actionTargets;
 
         public IActionTargets BasicActionTargets

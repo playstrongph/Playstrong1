@@ -28,10 +28,7 @@ namespace ScriptableObjects.StandardActions
        
         
         //Action Targets
-        IActionTargets EventSubscribers { get; set; }
         IActionTargets BasicActionTargets { get; set; }
-        
-        
         //Basic Conditions
         List<IBasicConditionAsset> OrBasicConditions { get; }
         List<ScriptableObject> OrBasicConditionsObjects { get; }
