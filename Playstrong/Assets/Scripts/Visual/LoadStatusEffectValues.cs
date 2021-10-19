@@ -58,6 +58,10 @@ namespace Visual
                 //Create Basic Action Targets clone and set heroStatusEffectReference
                 standardActionClone.BasicActionTargets = Instantiate(standardAction.BasicActionTargets as ScriptableObject) as IActionTargets;
                 standardActionClone.BasicActionTargets.SetStatusEffectHero(_heroStatusEffect);
+                
+                //TEST - Event Subscribers
+                standardActionClone.EventSubscribers = Instantiate(standardAction.EventSubscribers as ScriptableObject) as IActionTargets;
+                standardActionClone.EventSubscribers.SetStatusEffectHero(_heroStatusEffect);
             }
         }
         private void CreateUniqueBasicConditions()
