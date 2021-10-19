@@ -105,11 +105,17 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("Standard Action Register 1 Hero arg");
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            StandardEvent.SubscribeStandardAction(hero,this);
-            
+            //StandardEvent.SubscribeStandardAction(hero,this);
+
+            foreach (var subscriber in EventSubscribers.GetHeroTargets(hero))
+            {
+                StandardEvent.SubscribeStandardAction(subscriber,this);
+            }
+
             logicTree.EndSequence();
             yield return null;
         }
+
         public IEnumerator RegisterStandardAction(ISkill skill)
         {
             
@@ -125,7 +131,12 @@ namespace ScriptableObjects.StandardActions
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
-            StandardEvent.UnsubscribeStandardAction(hero,this);
+            //StandardEvent.UnsubscribeStandardAction(hero,this);
+            
+            foreach (var subscriber in EventSubscribers.GetHeroTargets(hero))
+            {
+                StandardEvent.UnsubscribeStandardAction(subscriber,this);
+            }
             
             logicTree.EndSequence();
             yield return null;
