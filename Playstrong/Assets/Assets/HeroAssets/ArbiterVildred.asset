@@ -17,7 +17,7 @@ MonoBehaviour:
   _heroSprite: {fileID: 21300000, guid: d36ae15defa12d742950f39661a7d6ee, type: 3}
   _health: 4
   _attack: 6
-  _speed: 115
+  _speed: 250
   _chance: 50
   _armor: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
@@ -27,4 +27,3 @@ MonoBehaviour:
   _heroSkills:
   - {fileID: 11400000, guid: 01c7047b01be2ef4ea69a3e67f820655, type: 2}
   - {fileID: 11400000, guid: f2a87cd1daf73bd48bce6dfa249251aa, type: 2}
-  - {fileID: 11400000, guid: e41f6cacc08bb7849a74d65e4bdc103e, type: 2}
