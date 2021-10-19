@@ -11,10 +11,13 @@ namespace ScriptableObjects.ActionTargets
     {
         public override List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
+            
             var heroTargets = new List<IHero>();
             
             heroTargets.Clear();
             heroTargets.Add(thisHero);
+            
+            Debug.Log("Hero: " +heroTargets[0].HeroName);
             
             return heroTargets;
         }

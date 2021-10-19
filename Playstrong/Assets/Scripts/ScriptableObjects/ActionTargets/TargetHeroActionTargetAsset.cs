@@ -26,6 +26,8 @@ namespace ScriptableObjects.ActionTargets
             
             heroTargets.Add(hero);
             
+            Debug.Log("Hero: " +heroTargets[0].HeroName);
+            
             return heroTargets;
         }
         

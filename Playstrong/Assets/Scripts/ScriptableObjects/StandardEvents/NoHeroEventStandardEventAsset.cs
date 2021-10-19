@@ -12,7 +12,8 @@ namespace ScriptableObjects.StandardEvents
     {
         protected override IEnumerator SubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
-            Debug.Log("Subscribe: No Event");
+            //Debug.Log("Subscribe: No Event");
+            
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //TEST
@@ -27,9 +28,8 @@ namespace ScriptableObjects.StandardEvents
         
         protected override IEnumerator UnsubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
-            Debug.Log("Unsubscribe: No Event");
-            
-            
+            //Debug.Log("Unsubscribe: No Event");
+
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             //TEST

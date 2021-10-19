@@ -14,8 +14,10 @@ namespace ScriptableObjects.ActionTargets
             Debug.Log("Get Hero Targets 2 args");
 
             var allEnemies = targetHero.GetAllLivingAllyHeroes();
+            
+            var allEnemies2 = thisHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.LivingHeroesList;
 
-            var heroTargets = new List<IHero>(allEnemies);
+            var heroTargets = new List<IHero>(allEnemies2);
             
             return heroTargets;
         }
@@ -25,6 +27,8 @@ namespace ScriptableObjects.ActionTargets
             Debug.Log("Get Hero Targets 1 arg");
 
             var allEnemies = targetHero.GetAllLivingAllyHeroes();
+
+            var allEnemies2 = targetHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.LivingHeroesList;
 
             var heroTargets = new List<IHero>(allEnemies);
             

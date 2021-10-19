@@ -18,8 +18,8 @@ namespace ScriptableObjects.BasicActions
 
             otherAttributes.DealSkillDamageReduction += damageReductionValue;
             
-            Debug.Log("DealSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.DealSkillDamageReduction);
-            Debug.Log("Hero: " +targetHero.HeroName);
+            //Debug.Log("DealSkillDamageReduction: " +targetHero.HeroLogic.OtherAttributes.DealSkillDamageReduction);
+            //Debug.Log("Hero: " +targetHero.HeroName);
             
             logicTree.EndSequence();
             yield return null;

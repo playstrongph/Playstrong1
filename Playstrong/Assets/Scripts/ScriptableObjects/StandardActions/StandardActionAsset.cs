@@ -135,7 +135,7 @@ namespace ScriptableObjects.StandardActions
        
         public void StartAction(IHero targetHero)
         {
-            Debug.Log("Standard Action StartAction 1 Hero arg");
+            Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             
@@ -150,7 +150,7 @@ namespace ScriptableObjects.StandardActions
         }
         public void StartAction(IHero thisHero, IHero targetHero)
         {   
-            
+            Debug.Log("" +this.name  +" StartAction thisHero,targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
