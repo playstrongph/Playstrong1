@@ -3,7 +3,7 @@ using Interfaces;
 using Logic;
 using UnityEngine;
 
-namespace ScriptableObjects.ActionTargetScripts
+namespace ScriptableObjects.ActionTargets
 {
     
     [CreateAssetMenu(fileName = "TargetHero", menuName = "SO's/ActionTargets/TargetHero")]
@@ -19,7 +19,6 @@ namespace ScriptableObjects.ActionTargetScripts
             return heroTargets;
         }
         
-        //Used by status effects
         public override List<IHero> GetHeroTargets(IHero hero)
         {
             var heroTargets = new List<IHero>();
