@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StunStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: 2efd9315f3a488747b48f25d3117fd77, type: 2}
   actionTargets: {fileID: 11400000, guid: 2efd9315f3a488747b48f25d3117fd77, type: 2}
   orBasicConditions: []
   andBasicConditions: []

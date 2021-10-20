@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34e4da0722c6854790271ae8169dd15, type: 3}
   m_Name: DecreaseDamageReduction
   m_EditorClassIdentifier: 
-  damageReductionValue: 15
+  damageReductionValue: 50
