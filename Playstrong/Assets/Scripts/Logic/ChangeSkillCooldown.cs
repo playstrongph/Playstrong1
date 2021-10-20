@@ -112,9 +112,12 @@ namespace Logic
             var skillCooldown = skillLogic.SkillAttributes.Cooldown;
             
             if(skillCooldown<=0)
-                skillLogic.UpdateSkillReadiness.SetSkillReady();
+                //skillLogic.UpdateSkillReadiness.SetSkillReady();
+                skillLogic.SkillAttributes.SkillEnabledStatus.SetSkillReady(skillLogic.Skill);
+                
             else
-                skillLogic.UpdateSkillReadiness.SetSkillNotReady();
+                //skillLogic.UpdateSkillReadiness.SetSkillNotReady();
+                skillLogic.SkillAttributes.SkillEnabledStatus.SetSkillNotReady(skillLogic.Skill);
         }
         private IEnumerator VisualReduceCdAction(int skillCd)
         {

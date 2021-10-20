@@ -6,5 +6,9 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
     {
         void DisableSkill(ISkill skill);
         void EnableSkill(ISkill skill);
+
+        void SetSkillReady(ISkill skill);
+
+        void SetSkillNotReady(ISkill skill);
     }
 }

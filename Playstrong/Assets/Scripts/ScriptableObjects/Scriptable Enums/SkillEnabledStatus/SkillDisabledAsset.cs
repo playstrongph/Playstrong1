@@ -19,7 +19,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
 
             //Set Skill Not Ready
             skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
-            
+
             //Unregister Skill
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill);
             
@@ -27,6 +27,12 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill.Hero);
             
           
+        }
+        
+        
+        public override void SetSkillNotReady(ISkill skill)
+        {
+            skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
         }
 
         

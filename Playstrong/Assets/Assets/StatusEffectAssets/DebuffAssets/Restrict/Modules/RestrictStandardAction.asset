@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RestrictStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: 49d68d0281d14b241b607e5902d53997, type: 2}
   actionTargets: {fileID: 11400000, guid: 49d68d0281d14b241b607e5902d53997, type: 2}
   orBasicConditions: []
   andBasicConditions: []

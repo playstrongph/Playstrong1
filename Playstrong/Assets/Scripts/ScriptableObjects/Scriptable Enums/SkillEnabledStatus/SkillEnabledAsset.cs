@@ -42,6 +42,16 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
 
         }
         
+        public override void SetSkillReady(ISkill skill)
+        {
+           skill.SkillLogic.UpdateSkillReadiness.SetSkillReady();
+        }
+        
+        public override void SetSkillNotReady(ISkill skill)
+        {
+            skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
+        }
+        
         
 
         
