@@ -15,6 +15,6 @@ namespace Logic
         
         //TEST
         IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect);
-        ISkill SetSkillReference(ISkill skill);
+        IHero SetSkillReferenceHero(ISkill skill);
     }
 }

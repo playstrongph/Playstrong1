@@ -77,8 +77,10 @@ namespace Logic
 
             if (heroHealth <= 0)
             {
-                logicTree.AddCurrent(HeroDeathActions(hero));
+                //TEST
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
+                logicTree.AddCurrent(HeroDeathActions(hero));
+                //logicTree.AddCurrent(AfterHeroDiesEvent(hero));
                 logicTree.AddCurrent(PostHeroDeath(hero));
             }
 

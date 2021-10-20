@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
 using Interfaces;
 using Logic;
+using References;
 using UnityEngine;
 
 namespace ScriptableObjects.ActionTargets
 {
     
-    [CreateAssetMenu(fileName = "StatusEffectCasterHero", menuName = "SO's/ActionTargets/StatusEffectCasterHero")]
-    public class StatusEffectCasterHeroActionTargetAsset : ActionTargetsAsset
+    [CreateAssetMenu(fileName = "SkillCasterHero", menuName = "SO's/ActionTargets/SkillCasterHero")]
+    public class SkillCasterHeroActionTargetAsset : ActionTargetsAsset
     {
         public override List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
             var heroTargets = new List<IHero>();
             
             heroTargets.Clear();
-            heroTargets.Add(StatusEffectLocalHero);
+            heroTargets.Add(SkillLocalHero);
             
             return heroTargets;
         }
@@ -24,27 +25,28 @@ namespace ScriptableObjects.ActionTargets
             var heroTargets = new List<IHero>();
             heroTargets.Clear();
             
-            heroTargets.Add(StatusEffectLocalHero);
+            heroTargets.Add(SkillLocalHero);
             
             return heroTargets;
         }
         
         public override IHero GetHeroTarget(IHero thisHero, IHero targetHero)
         {
-            return StatusEffectLocalHero;
+            return SkillLocalHero;
         }
         
         public override IHero GetHeroTarget(IHero hero)
         {
-            return StatusEffectLocalHero;
+            return SkillLocalHero;
         }
         
         //Called by LoadStatusEffectValues
-        public override IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect)
+        public override IHero SetSkillReferenceHero(ISkill skill)
         {
-            StatusEffectLocalHero = heroStatusEffect.StatusEffectCasterHero;
-            return StatusEffectLocalHero;
+            SkillLocalHero = skill.Hero;
+            return SkillLocalHero;
         }
+       
             
     }
 }

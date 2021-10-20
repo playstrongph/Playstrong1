@@ -14,7 +14,7 @@ namespace ScriptableObjects.ActionTargets
             var heroTargets = new List<IHero>();
             
             heroTargets.Clear();
-            heroTargets.Add(LocalHero);
+            heroTargets.Add(StatusEffectLocalHero);
             
             return heroTargets;
         }
@@ -24,26 +24,26 @@ namespace ScriptableObjects.ActionTargets
             var heroTargets = new List<IHero>();
             heroTargets.Clear();
             
-            heroTargets.Add(LocalHero);
+            heroTargets.Add(StatusEffectLocalHero);
             
             return heroTargets;
         }
         
         public override IHero GetHeroTarget(IHero thisHero, IHero targetHero)
         {
-            return LocalHero;
+            return StatusEffectLocalHero;
         }
         
         public override IHero GetHeroTarget(IHero hero)
         {
-            return LocalHero;
+            return StatusEffectLocalHero;
         }
         
         //Called by ApplyStatusEffect
         public override IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect)
         {
-            LocalHero = heroStatusEffect.StatusEffectTargetHero;
-            return LocalHero;
+            StatusEffectLocalHero = heroStatusEffect.StatusEffectTargetHero;
+            return StatusEffectLocalHero;
         }
             
     }

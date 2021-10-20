@@ -61,11 +61,11 @@ namespace Visual
                 //Create Basic Action Targets clone and set heroStatusEffectReference
                 standardActionClone.BasicActionTargets = Instantiate(standardAction.BasicActionTargets as ScriptableObject) as IActionTargets;
                 //TODO: Check if there will be a need for the BasicActionTarget to Reference the Skill
-                standardActionClone.BasicActionTargets.SetSkillReference(_skillLogic.Skill);
+                standardActionClone.BasicActionTargets.SetSkillReferenceHero(_skillLogic.Skill);
                 
                 //TEST - Create EventSubscribers
                 standardActionClone.EventSubscribers = Instantiate(standardAction.EventSubscribers as ScriptableObject) as IActionTargets;
-                standardActionClone.EventSubscribers.SetSkillReference(_skillLogic.Skill);
+                standardActionClone.EventSubscribers.SetSkillReferenceHero(_skillLogic.Skill);
             }
         }
         

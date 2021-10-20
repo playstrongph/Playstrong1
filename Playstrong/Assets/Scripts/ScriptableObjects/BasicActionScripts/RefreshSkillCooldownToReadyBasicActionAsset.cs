@@ -17,18 +17,22 @@ namespace ScriptableObjects.BasicActionScripts
 
         public override IEnumerator TargetAction(IHero targetHero)
         {
-           
-           Debug.Log("RefreshSkillCooldownToReady"); 
+
+            Debug.Log("Refresh Skill Cooldown targetHero: " +targetHero.HeroName);
            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
            var heroSkillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
            
+           Debug.Log("RefreshSkillCooldownToReady heroSkillObjects Count: " +heroSkillObjects.Count);
+           
            var skillReadyValue = 0;
           
-
+            
            //Find Skill To Reset to Max Cooldown
            foreach (var heroSkillObject in heroSkillObjects)
            {
                var skill = heroSkillObject.GetComponent<ISkill>();
+               
+               Debug.Log("skill name: " +skill.SkillName +" HeroSkillAsset Name: " +HeroSkillAssetReference.SkillName );
                if (skill.SkillName == HeroSkillAssetReference.SkillName)
                    _skillToRefresh = skill;
            }
@@ -39,6 +43,7 @@ namespace ScriptableObjects.BasicActionScripts
            {
                logicTree.AddCurrent(_skillToRefresh.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(skillReadyValue));
                logicTree.AddCurrent(SetSkillReady(targetHero));
+               Debug.Log("SetSkillReady: " +_skillToRefresh.SkillName +" cooldown: " +_skillToRefresh.SkillLogic.SkillAttributes.Cooldown);
            }
 
            logicTree.EndSequence();
