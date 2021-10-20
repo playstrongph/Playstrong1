@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TauntStandardAction
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: 2534acb6537281342849aace15822213, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: ec07d3462511bad468ed7f76440527c8, type: 2}
   actionTargets: {fileID: 11400000, guid: ec07d3462511bad468ed7f76440527c8, type: 2}
   orBasicConditions: []
   andBasicConditions: []
