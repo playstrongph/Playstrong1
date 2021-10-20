@@ -11,6 +11,7 @@ namespace Logic
         private IHeroLogic _heroLogic;
         private IBasicAttack _basicAttack;
 
+
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
@@ -45,7 +46,9 @@ namespace Logic
             if (randomNumber <= netCounterAttackChance)
             {
                 logicTree.AddCurrent(BeforeCounterAttackEvents(counterAttacker,originalAttacker));
-                logicTree.AddCurrent(_basicAttack.StartAttack(counterAttacker,originalAttacker));    
+                
+                //logicTree.AddCurrent(_basicAttack.StartAttack(counterAttacker,originalAttacker));
+
                 logicTree.AddCurrent(AfterCounterAttackEvents(counterAttacker,originalAttacker));
             }
 
