@@ -27,6 +27,7 @@ namespace Visual
             _heroStatusEffect.StatusEffectChangeCounters = statusEffectAsset.StatusEffectChangeCounters;
             
             _heroStatusEffect.Name = statusEffectAsset.Name;
+            
             _heroStatusEffect.Counters = statusEffectCounters;
             _heroStatusEffect.Icon.sprite = statusEffectAsset.Icon;
             _heroStatusEffect.StatusEffectCasterHero = casterHero;

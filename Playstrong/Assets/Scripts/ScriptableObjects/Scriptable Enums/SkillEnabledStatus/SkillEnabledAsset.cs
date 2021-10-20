@@ -32,8 +32,10 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             var skillReady = skill.SkillLogic.UpdateSkillReadiness.SkillReady;
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
             {
-                skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
-                skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
+                //skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
+                //skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
+                
+                skill.SkillLogic.UpdateSkillReadiness.SetSkillReady();
             }
             
             //Set Skill Enabled

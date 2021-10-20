@@ -4,6 +4,7 @@ using Interfaces;
 using Logic;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using ScriptableObjects.StatusEffects;
+using ScriptableObjects.StatusEffects.StatusEffectType;
 using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
@@ -19,6 +20,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         public override IEnumerator TargetAction(IHero hero)
         {
+
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
             var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
@@ -32,17 +34,18 @@ namespace ScriptableObjects.SkillActionsScripts
             //Only dispels 1 debuff in case there are multiple instances (e.g. burn, poison)
             if(_dispelDebuff != null)
                 _dispelDebuff.StatusEffectDispelStatus.DispelStatusEffect(_dispelDebuff,hero);
-            
+
             logicTree.EndSequence();
             yield return null;
         }
         
         public override IEnumerator TargetAction(IHero thisHero,IHero targetHero)
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
-            var debuffs = thisHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-            
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            var debuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+
             foreach (var debuff in debuffs)
             {
                 if (debuff.StatusEffectAsset.Name == SpecificDebuff.Name)
@@ -51,7 +54,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             //Only dispels 1 debuff in case there are multiple instances (e.g. burn, poison)
             if(_dispelDebuff != null)
-                _dispelDebuff.StatusEffectDispelStatus.DispelStatusEffect(_dispelDebuff,thisHero);
+                _dispelDebuff.StatusEffectDispelStatus.DispelStatusEffect(_dispelDebuff,targetHero);
             
             logicTree.EndSequence();
             yield return null;
