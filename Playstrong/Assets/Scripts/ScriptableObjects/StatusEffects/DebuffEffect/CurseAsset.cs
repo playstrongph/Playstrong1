@@ -13,18 +13,12 @@ namespace ScriptableObjects.StatusEffects.DebuffEffect
         
         public override void ApplyStatusEffect(IHero hero)
         {
-            foreach (var allyHero in hero.AllAllyHeroes)
-            {
-                base.ApplyStatusEffect(allyHero);   
-            }
+            base.ApplyStatusEffect(hero);   
         }
         
         public override void UnapplyStatusEffect(IHero hero)
         {
-            foreach (var allyHero in hero.AllAllyHeroes)
-            {
-                base.UnapplyStatusEffect(allyHero);   
-            }
+            base.UnapplyStatusEffect(hero); 
                
         }
 
