@@ -14,7 +14,7 @@ namespace ScriptableObjects.SkillActionsScripts
         {
            InitializeValues(thisHero, targetHero);
 
-           LogicTree.AddCurrent(thisHero.HeroLogic.BasicAttack.StartAttack(thisHero, targetHero));
+           //LogicTree.AddCurrent(thisHero.HeroLogic.BasicAttack.StartAttack(thisHero, targetHero));
 
            LogicTree.EndSequence();
            yield return null;

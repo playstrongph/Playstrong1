@@ -23,7 +23,7 @@ namespace Interfaces
 
         IHeroTimer HeroTimer { get; }
 
-        IBasicAttack BasicAttack { get; }
+        //IBasicAttack BasicAttack { get; }
 
         ITakeDamage TakeDamage { get; }
 
@@ -49,7 +49,7 @@ namespace Interfaces
 
         IOtherAttributes OtherAttributes { get; }
 
-        ICounterAttack CounterAttack { get; }
+        //ICounterAttack CounterAttack { get; }
 
         IHeroInabilityStatus HeroInabilityStatusAssets { get; }
 

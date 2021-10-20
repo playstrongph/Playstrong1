@@ -3487,7 +3487,6 @@ GameObject:
   - component: {fileID: 6667779569997865319}
   - component: {fileID: 190191286671394562}
   - component: {fileID: 1550127320965468234}
-  - component: {fileID: 1900826689}
   - component: {fileID: 1312855942}
   - component: {fileID: 5903208900463664714}
   - component: {fileID: 5639694036447639177}
@@ -3820,18 +3819,6 @@ MonoBehaviour:
   _heroLivingStatus: {fileID: 11400000, guid: 1770149bbcc780f40b96b215c9f012c3, type: 2}
   _dieAnimation: {fileID: 11400000, guid: 9671ac9a0d7a27149be4a5a644837db2, type: 2}
   _resurrectStatusEffect: {fileID: 0}
---- !u!114 &1900826689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3820792406562021600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486336449ee5bec4e80483be8958aa23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1312855942
 MonoBehaviour:
   m_ObjectHideFlags: 0

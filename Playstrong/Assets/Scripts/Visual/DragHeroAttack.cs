@@ -23,7 +23,7 @@ namespace Visual
         private ICoroutineTree _visualTree;
 
         private IGetAttackTargets _getAttackTargets;
-        private IBasicAttack _basicAttack;
+        //private IBasicAttack _basicAttack;
         private IEndHeroTurn _endHeroTurn;
         
         
@@ -36,7 +36,8 @@ namespace Visual
             _logicTree = _thisTargetHero.Hero.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _thisTargetHero.Hero.CoroutineTreesAsset.MainVisualTree;
 
-            _basicAttack = _thisTargetHero.Hero.HeroLogic.BasicAttack;
+            //_basicAttack = _thisTargetHero.Hero.HeroLogic.BasicAttack;
+            
             _endHeroTurn = _thisTargetHero.Hero.HeroLogic.EndHeroTurn;
             
             _basicAttackTarget = NoAction;

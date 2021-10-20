@@ -9,13 +9,13 @@ namespace Logic
     public class CounterAttack : MonoBehaviour, ICounterAttack
     {
         private IHeroLogic _heroLogic;
-        private IBasicAttack _basicAttack;
+        //private IBasicAttack _basicAttack;
 
 
         private void Awake()
         {
             _heroLogic = GetComponent<IHeroLogic>();
-            _basicAttack = _heroLogic.BasicAttack;
+            //_basicAttack = _heroLogic.BasicAttack;
         }
 
         private void Start()

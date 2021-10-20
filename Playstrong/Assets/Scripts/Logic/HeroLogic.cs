@@ -84,8 +84,8 @@ namespace Logic
 
         public ILoadHeroAttributes LoadHeroAttributes => _loadHeroAttributes as ILoadHeroAttributes;
 
-        private IBasicAttack _basicAttack;
-        public IBasicAttack BasicAttack => _basicAttack;
+        /*private IBasicAttack _basicAttack;
+        public IBasicAttack BasicAttack => _basicAttack;*/
 
         private ITakeDamage _takeDamage;
         public ITakeDamage TakeDamage => _takeDamage;
@@ -125,8 +125,8 @@ namespace Logic
 
         public IOtherAttributes OtherAttributes => _otherAttributes;
 
-        private ICounterAttack _counterAttack;
-        public ICounterAttack CounterAttack => _counterAttack;
+        /*private ICounterAttack _counterAttack;
+        public ICounterAttack CounterAttack => _counterAttack;*/
 
         private IHeroInabilityStatus _heroInabilityStatusAssets;
         public IHeroInabilityStatus HeroInabilityStatusAssets => _heroInabilityStatusAssets;
@@ -142,7 +142,7 @@ namespace Logic
 
         private void Awake()
         {
-            _basicAttack = GetComponent<IBasicAttack>();
+            
             _takeDamage = GetComponent<ITakeDamage>();
             _endHeroTurn = GetComponent<IEndHeroTurn>();
             _setHeroAttack = GetComponent<ISetHeroAttack>();
@@ -155,10 +155,12 @@ namespace Logic
             _dealDamage = GetComponent<IDealDamage>();
             _heroDies = GetComponent<IHeroDies>();
             _otherAttributes = GetComponent<IOtherAttributes>();
-            _counterAttack = GetComponent<ICounterAttack>();
             _heroInabilityStatusAssets = GetComponent<IHeroInabilityStatus>();
             _dealDamageTest = GetComponent<IDealDamageTest>();
             _takeDamageTest = GetComponent<ITakeDamageTest>();
+            
+            //_counterAttack = GetComponent<ICounterAttack>();
+            //_basicAttack = GetComponent<IBasicAttack>();
         }
     }
 }
