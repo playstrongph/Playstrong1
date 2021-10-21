@@ -66,7 +66,7 @@ namespace Logic
         {
             var randomList = heroList;
             
-            //Randomize the loist
+            //Randomize the List
             for (int i = 0; i < randomList.Count; i++) 
             {
                 var temp = randomList[i];

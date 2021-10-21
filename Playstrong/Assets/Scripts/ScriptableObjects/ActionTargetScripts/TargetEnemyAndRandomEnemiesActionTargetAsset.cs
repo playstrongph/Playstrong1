@@ -17,13 +17,17 @@ namespace ScriptableObjects.ActionTargetScripts
             var otherRandomEnemies = ShuffleList(targetHero.GetAllOtherLivingAllyHeroes());
             var otherEnemiesCount = Mathf.Min(otherRandomEnemiesCount, otherRandomEnemies.Count);
             var heroTargets = new List<IHero>();
-
+            
+            //Original Target
+            heroTargets.Add(targetHero);
+            
+            //Additional Target Heroes
             for (int i = 0; i<otherEnemiesCount;i++)
             {
                 heroTargets.Add(otherRandomEnemies[i]);    
             }
 
-            heroTargets.Add(targetHero);
+           
 
             return heroTargets;
         }
