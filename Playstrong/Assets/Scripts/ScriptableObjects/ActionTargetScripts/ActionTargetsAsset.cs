@@ -62,6 +62,22 @@ namespace Logic
             return LocalSkill;
         }
 
+        protected List<IHero> ShuffleList(List<IHero> heroList)
+        {
+            var randomList = heroList;
+            
+            //Randomize the loist
+            for (int i = 0; i < randomList.Count; i++) 
+            {
+                var temp = randomList[i];
+                int randomIndex = Random.Range(i, randomList.Count);
+                randomList[i] = randomList[randomIndex];
+                randomList[randomIndex] = temp;
+            }
+
+            return randomList;
+        }
+
 
     }
 }
