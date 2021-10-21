@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c24186e941d1bc4ab2c6e9d5770755d, type: 3}
-  m_Name: ArbiterVildred
+  m_Name: RueleOfLight
   m_EditorClassIdentifier: 
-  _name: ArbiterVildred
-  _description: Thief
-  _heroSprite: {fileID: 21300000, guid: d36ae15defa12d742950f39661a7d6ee, type: 3}
-  _health: 4
-  _attack: 1
-  _speed: 250
+  _name: RueleOfLight
+  _description: SoulWeaver
+  _heroSprite: {fileID: 21300000, guid: 9e32b6f7396676940962ad966a131950, type: 3}
+  _health: 100
+  _attack: 5
+  _speed: 150
   _chance: 50
   _armor: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
@@ -25,6 +25,4 @@ MonoBehaviour:
   _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
   _heroSkills:
-  - {fileID: 11400000, guid: 478f7d61f15528b488bd10dfc1658c7e, type: 2}
-  - {fileID: 11400000, guid: f2a87cd1daf73bd48bce6dfa249251aa, type: 2}
-  - {fileID: 11400000, guid: e41f6cacc08bb7849a74d65e4bdc103e, type: 2}
+  - {fileID: 11400000, guid: 01c7047b01be2ef4ea69a3e67f820655, type: 2}
