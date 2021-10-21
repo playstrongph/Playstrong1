@@ -15,7 +15,7 @@ namespace Logic
         protected IHero StatusEffectLocalHero;
         
         //SKILL REFERENCE
-        protected IHero SkillLocalHero;
+        protected ISkill LocalSkill;
 
         //From SINGLE to Multiple target requirements - used in StandardActions
         public virtual List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
@@ -56,10 +56,10 @@ namespace Logic
             return StatusEffectLocalHero;
         }
         
-        public virtual IHero SetSkillReferenceHero(ISkill skill)
+        public virtual ISkill SetSkillReference(ISkill skill)
         {
-            SkillLocalHero = skill.Hero;
-            return SkillLocalHero;
+            LocalSkill = skill;
+            return LocalSkill;
         }
 
 

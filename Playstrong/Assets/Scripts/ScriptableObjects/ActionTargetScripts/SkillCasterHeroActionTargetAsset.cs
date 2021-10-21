@@ -15,7 +15,9 @@ namespace ScriptableObjects.ActionTargets
             var heroTargets = new List<IHero>();
             
             heroTargets.Clear();
-            heroTargets.Add(SkillLocalHero);
+            heroTargets.Add(LocalSkill.Hero);
+            
+            Debug.Log("Skill Caster Hero2: " +LocalSkill.Hero.HeroName );
             
             return heroTargets;
         }
@@ -24,27 +26,31 @@ namespace ScriptableObjects.ActionTargets
         {
             var heroTargets = new List<IHero>();
             heroTargets.Clear();
+
+            Debug.Log("Skill Caster Hero1: " +LocalSkill.Hero.HeroName );
             
-            heroTargets.Add(SkillLocalHero);
+            heroTargets.Add(LocalSkill.Hero);
             
             return heroTargets;
         }
         
         public override IHero GetHeroTarget(IHero thisHero, IHero targetHero)
         {
-            return SkillLocalHero;
+            return LocalSkill.Hero;
         }
         
         public override IHero GetHeroTarget(IHero hero)
         {
-            return SkillLocalHero;
+            return LocalSkill.Hero;
         }
         
         //Called by LoadStatusEffectValues
-        public override IHero SetSkillReferenceHero(ISkill skill)
+        public override ISkill SetSkillReference(ISkill skill)
         {
-            SkillLocalHero = skill.Hero;
-            return SkillLocalHero;
+            LocalSkill = skill;
+            Debug.Log("Set Skill Caster Reference: " +LocalSkill.SkillName);
+
+            return LocalSkill;
         }
        
             

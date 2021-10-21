@@ -124,12 +124,15 @@ namespace Logic
             //TEST - need to transfer this to Include Passive Effects in the future
             _logicTree.AddCurrent(SetUsingSkillStatus());
             
+            //TESt - for skill effects that refresh cooldowns
+            _logicTree.AddCurrent(ResetSkillCooldown());
+            
             _logicTree.AddCurrent(UseSkillEffect());
             
             //TEST - need to transfer this to Include Passive Effects in the future
             _logicTree.AddCurrent(SetNotUsingSkillStatus());
 
-            _logicTree.AddCurrent(ResetSkillCooldown());
+            //_logicTree.AddCurrent(ResetSkillCooldown());
 
             _logicTree.AddCurrent(HeroEndTurn());
         }
