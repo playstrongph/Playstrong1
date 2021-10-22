@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.Instance
 {
-    
+    //TODO: Obsolete for cleanup
     [CreateAssetMenu(fileName = "ImmuneCountersInstance", menuName = "SO's/Status Effects/Instance/ImmuneCountersInstance")]
     public class ImmuneCountersInstance : StatusEffectInstance
     {

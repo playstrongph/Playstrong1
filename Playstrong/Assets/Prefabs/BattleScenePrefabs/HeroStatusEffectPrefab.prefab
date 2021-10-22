@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: -2149605526105055153}
   - component: {fileID: 233555058103840760}
   - component: {fileID: 6695251507852246545}
+  - component: {fileID: 414935620}
   m_Layer: 8
   m_Name: HeroStatusEffectPrefab
   m_TagString: Untagged
@@ -128,13 +129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c171be55472b1c94384634d2b845b5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroStatusEffectName: 
   _counters: 0
   _icon: {fileID: 717269897853247283}
   _counterVisual: {fileID: 3903055375784495747}
   _statusEffectAsset: {fileID: 0}
   _statusEffectType: {fileID: 0}
-  _statusEffectCounterUpdate: {fileID: 0}
+  _statusEffectUpdateTiming: {fileID: 0}
   _statusEffectInstance: {fileID: 0}
+  _statusEffectDispelStatus: {fileID: 0}
+  _statusEffectChangeCounters: {fileID: 0}
   _statusEffectPreview: {fileID: 0}
 --- !u!114 &8298217454583496310
 MonoBehaviour:
@@ -208,6 +212,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a68fe0fe2fd01408ba3d32e4dd71d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &414935620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142902836881772226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1917b9d88b547f45b612ed57c7e233d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempNoDecreaseAsset: {fileID: 11400000, guid: 8fc208ef5e040504d95a77040dd657ba,
+    type: 2}
+  changeableCountersAsset: {fileID: 11400000, guid: 5532563d81236964dbcf14c2a64bcd86,
+    type: 2}
+  notChangeableCountersAsset: {fileID: 11400000, guid: 9d5a0d01ad541d34da0c8d0ebb887b3a,
+    type: 2}
 --- !u!1 &1142902837795284684
 GameObject:
   m_ObjectHideFlags: 0

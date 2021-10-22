@@ -9,7 +9,6 @@ namespace ScriptableObjects.StatusEffects.Instance
 {
     public class StatusEffectChangeCountersAsset : ScriptableObject, IStatusEffectChangeCountersAsset
     {
-        
 
         public virtual void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect, int counters)
         {
@@ -24,6 +23,12 @@ namespace ScriptableObjects.StatusEffects.Instance
         public virtual void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect,int counters)
         {
             //heroStatusEffect.SetStatusEffectCounters.SetCounters(statusEffectCounters);
+        }
+        
+        //TEMP
+        public virtual void SetChangeableToTempNoDecrease(IHeroStatusEffect heroStatusEffect)
+        {
+          
         }
 
 

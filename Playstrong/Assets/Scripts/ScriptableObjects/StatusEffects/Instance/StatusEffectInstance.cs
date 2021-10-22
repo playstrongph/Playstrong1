@@ -41,9 +41,11 @@ namespace ScriptableObjects.StatusEffects.Instance
 
             //STATUS EFFECT PREVIEW
             CreateStatusEffectPreview(targetHero, statusEffectAsset, heroStatusEffect);
-            
-            //TODO: For cleanup.  Using this is wrong!
-            //statusEffectAsset.StatusEffectCasterHero = casterHero;             
+
+           
+            //TEST - Set to TempNoDecrease
+            if(targetHero == heroStatusEffect.StatusEffectCasterHero )
+                heroStatusEffect.StatusEffectChangeCounters.SetChangeableToTempNoDecrease(heroStatusEffect);
             
             return heroStatusEffect;
         }
@@ -139,17 +141,14 @@ namespace ScriptableObjects.StatusEffects.Instance
             var existingStatusEffectCounters = existingStatusEffect.Counters;
             var newCounters = Mathf.Max(counters, existingStatusEffectCounters);
 
-            //Original
-            //ExistingStatusEffect.SetStatusEffectCounters.SetCounters(newCounters, coroutineTreesAsset);
-            
-            //TEST
-            //existingStatusEffect.StatusEffectInstance.SetCounters(existingStatusEffect,targetHero,newCounters);
             existingStatusEffect.StatusEffectChangeCounters.SetStatusEffectCountersToValue(existingStatusEffect,newCounters);
-                
-
+            
             existingStatusEffect.StatusEffectCasterHero = casterHero;
-            //statusEffectAsset.StatusEffectCasterHero = casterHero;
-
+            
+            //TEST - Set to TempNoDecrease
+            if(targetHero == existingStatusEffect.StatusEffectCasterHero )
+                existingStatusEffect.StatusEffectChangeCounters.SetChangeableToTempNoDecrease(existingStatusEffect);
+           
         }
         protected void UpdateStackingStatusEffect(IHeroStatusEffect existingStatusEffect, IStatusEffectAsset statusEffectAsset, int counters, IHero targetHero, IHero casterHero)
         {

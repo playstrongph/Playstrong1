@@ -49,8 +49,9 @@ namespace Logic
         IDecreaseStatusEffectCounters DecreaseStatusEffectCounters {get;}
         
         //IStatusEffectComponent StatusEffectComponent {get;}
-        
-      
+        IUpdateStatusEffectChangeableCounters UpdateStatusEffectChangeableCounters { get; }
+
+
 
 
     }

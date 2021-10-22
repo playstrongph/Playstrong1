@@ -25,5 +25,10 @@ namespace ScriptableObjects.StatusEffects.Instance
         {
             heroStatusEffect.SetStatusEffectCounters.SetCounters(counters);
         }
+        
+        public override void SetChangeableToTempNoDecrease(IHeroStatusEffect heroStatusEffect)
+        {
+            heroStatusEffect.UpdateStatusEffectChangeableCounters.SetToTempNoDecreaseCounters();
+        }
     }
 }

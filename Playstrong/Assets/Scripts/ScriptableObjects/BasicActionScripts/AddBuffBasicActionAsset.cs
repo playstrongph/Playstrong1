@@ -46,9 +46,13 @@ namespace ScriptableObjects.SkillActionsScripts
             var randomChance = Random.Range(0f, 100f);
             
             buffSuccess = Mathf.Clamp(buffSuccess, 0f, 100f);
-            
-            if(randomChance<= buffSuccess)
+
+            if (randomChance <= buffSuccess)
+            {
                 BuffAsset.StatusEffectInstance.AddStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,thisHero);
+            }
+
+            
        
             
             logicTree.EndSequence();

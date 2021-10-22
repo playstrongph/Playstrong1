@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.StatusEffects.Instance
 {
-    
+    //TODO: Obsolete for cleanup
     [CreateAssetMenu(fileName = "SingleStackingInstance", menuName = "SO's/Status Effects/Instance/SingleStackingInstance")]
     public class SingleStackingInstance : StatusEffectInstance
     {
