@@ -34,6 +34,9 @@ namespace ScriptableObjects.ActionTargetScripts
             var allAllies = thisHero.LivingHeroes.LivingHeroesList;
             var sortAllAllies = new List<IHero>(allAllies);
             
+            //Shuffle List First - to randomize weakest all returned in case of same life values;
+            ShuffleList(sortAllAllies);
+            
             //Sort allies by weakest to strongest
             sortAllAllies.Sort(SortByHealth);
             
