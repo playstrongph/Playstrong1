@@ -12,6 +12,21 @@ namespace Logic
         
         [SerializeField] private Transform _transform;
         public Transform Transform => _transform;
+        
+        public List<IHero> DeadHeroesList
+        {
+            get
+            {
+                var herolist = new List<IHero>();
+                herolist.Clear();
+                foreach (var heroObject in HeroesList)
+                {
+                    var hero = heroObject.GetComponent<IHero>();
+                    herolist.Add(hero);
+                }
+                return herolist;
+            }
+        }
 
 
     }

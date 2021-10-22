@@ -14,7 +14,8 @@ namespace ScriptableObjects.ActionTargetScripts
         public override List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
 
-            var otherRandomEnemies = ShuffleList(targetHero.GetAllOtherLivingAllyHeroes());
+            var otherRandomEnemies = new List<IHero>(ShuffleList(targetHero.GetAllOtherLivingAllyHeroes()));
+            
             var otherEnemiesCount = Mathf.Min(otherRandomEnemiesCount, otherRandomEnemies.Count);
             var heroTargets = new List<IHero>();
             

@@ -11,7 +11,7 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class HealBasicActionAsset : BasicActionAsset
     {
-       
+        [SerializeField] private int flatHeal;      
 
         [SerializeField] private ScriptableObject healFactor;
         private ICalculatedFactorValueAsset HealFactor => healFactor as ICalculatedFactorValueAsset;
@@ -66,7 +66,7 @@ namespace ScriptableObjects.SkillActionsScripts
             
             visualTree.AddCurrent(HealVisual(targetHero));
 
-            var newHealth = targetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healAMount);
+            var newHealth = targetHero.HeroLogic.HeroAttributes.Health + Mathf.FloorToInt(healAMount) + flatHeal;
             targetHero.HeroLogic.SetHeroHealth.SetHealth(newHealth);
 
             logicTree.EndSequence();
@@ -76,7 +76,7 @@ namespace ScriptableObjects.SkillActionsScripts
         private IEnumerator HealVisual(IHero targetHero)
         {
             var visualTre = targetHero.CoroutineTreesAsset.MainVisualTree;
-            var healAmount = HealFactor.GetCalculatedValue();
+            var healAmount = HealFactor.GetCalculatedValue() + flatHeal;
             
             targetHero.DamageEffect.ShowDamage(Mathf.FloorToInt(healAmount));
 

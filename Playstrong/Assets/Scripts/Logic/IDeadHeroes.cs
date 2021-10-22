@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 namespace Logic
@@ -7,5 +8,7 @@ namespace Logic
     {
         List<GameObject> HeroesList { get; }
         Transform Transform { get; }
+
+        List<IHero> DeadHeroesList { get; }
     }
 }
