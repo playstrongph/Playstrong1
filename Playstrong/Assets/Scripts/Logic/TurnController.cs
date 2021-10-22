@@ -194,8 +194,9 @@ namespace Logic
         public IEnumerator StartHeroTurn()
         {
             //Update Skill Cooldown - comes first in consideration of effects such as silence
-            _logicTree.AddCurrent(UpdateHeroSkillsCooldown(_activeHeroLogic));
-            
+            //_logicTree.AddCurrent(UpdateHeroSkillsCooldown(_activeHeroLogic));
+            _logicTree.AddCurrent(UpdateHeroSkillsReadinessStatus(_activeHeroLogic));
+
             //Start of StartHeroTurn method
             _logicTree.AddCurrent(HeroStartTurnEvent());
 
@@ -208,7 +209,8 @@ namespace Logic
 
         public IEnumerator StartNextHeroTurn()
         {
-            //Debug.Log("StartNextHeroTurn");
+            //TEST
+            _logicTree.AddCurrent(UpdateHeroSkillsCooldown(_activeHeroLogic));
             
             //Post End turn for StatusEffects effects
             _logicTree.AddCurrent(PostHeroEndTurnEvent());
@@ -420,6 +422,15 @@ namespace Logic
         private IEnumerator UpdateHeroSkillsCooldown(IHeroLogic heroLogic)
         {
             var updateSkills = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
+            _logicTree.AddCurrent(updateSkills);
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator UpdateHeroSkillsReadinessStatus(IHeroLogic heroLogic)
+        {
+            var updateSkills = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkillReadinessStatus();
             _logicTree.AddCurrent(updateSkills);
             
             _logicTree.EndSequence();

@@ -41,11 +41,11 @@ namespace Logic
             {
                  var skill = skillObject.GetComponent<ISkill>();
                  var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
-                 
-                
+
                  logicTree.AddCurrent(ReduceSkillCooldown(skill, skillCdCounter));
             }
         }
+
 
         private IEnumerator ReduceSkillCooldown(ISkill skill, int value)
         {
@@ -57,6 +57,40 @@ namespace Logic
             //TEST
             logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillUseStatus.StatusAction(skill, value));
             
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        public IEnumerator UpdateSkillReadinessStatus()
+        {
+           
+            var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
+            
+            UpdateSkillReadinessStatusAction();
+
+            logicTree.EndSequence();
+            yield return null;
+           
+        }
+        
+        private void UpdateSkillReadinessStatusAction()
+        {
+            foreach (var skillObject in _skillsPanel.SkillList)
+            {
+                var skill = skillObject.GetComponent<ISkill>();
+                var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+
+                logicTree.AddCurrent(SkillReadinessStatusAction(skill));
+            }
+        }
+        
+        private IEnumerator SkillReadinessStatusAction(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
             
             logicTree.EndSequence();
             yield return null;
