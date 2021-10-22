@@ -16,7 +16,7 @@ namespace ScriptableObjects.ActionTargetScripts
             
             var allEnemies = thisHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.LivingHeroesList;
 
-            var heroTargets = new List<IHero>(allEnemies);
+            var heroTargets = new List<IHero>(ShuffleList(allEnemies));
             
             return heroTargets;
         }
@@ -28,7 +28,7 @@ namespace ScriptableObjects.ActionTargetScripts
 
             var allEnemies = thisHero.LivingHeroes.Player.OtherPlayer.LivingHeroes.LivingHeroesList;
 
-            var heroTargets = new List<IHero>(allEnemies);
+            var heroTargets = new List<IHero>(ShuffleList(allEnemies));
             
             return heroTargets;
         }

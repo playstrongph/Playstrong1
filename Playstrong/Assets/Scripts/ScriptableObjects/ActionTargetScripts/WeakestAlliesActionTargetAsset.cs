@@ -16,9 +16,9 @@ namespace ScriptableObjects.ActionTargetScripts
             var allAllies = thisHero.LivingHeroes.LivingHeroesList;
             var sortAllAllies = new List<IHero>(allAllies);
             
-            //Sort allies by weakest to strongest
-            sortAllAllies.Sort(SortByHealth);
-            
+            //Randomize first then Sort to return random heroes in case of a tie (same health Value)
+            ShuffleList(sortAllAllies).Sort(SortByHealth);
+
             var heroTargets = new List<IHero>();
 
             for (int i = 0; i < weakestAlliesCount; i++)

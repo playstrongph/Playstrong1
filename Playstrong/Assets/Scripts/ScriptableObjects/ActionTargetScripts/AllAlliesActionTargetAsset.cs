@@ -15,8 +15,10 @@ namespace ScriptableObjects.ActionTargetScripts
             //var allEnemies = targetHero.GetAllLivingAllyHeroes();
 
             var allAllies = thisHero.LivingHeroes.LivingHeroesList;
+            
+            //Randomize allAllies Order
 
-            var heroTargets = new List<IHero>(allAllies);
+            var heroTargets = new List<IHero>(ShuffleList(allAllies));
             
             return heroTargets;
         }
@@ -28,7 +30,7 @@ namespace ScriptableObjects.ActionTargetScripts
 
             var allAllies = thisHero.LivingHeroes.LivingHeroesList;
 
-            var heroTargets = new List<IHero>(allAllies);
+            var heroTargets = new List<IHero>(ShuffleList(allAllies));
             
             return heroTargets;
         }
