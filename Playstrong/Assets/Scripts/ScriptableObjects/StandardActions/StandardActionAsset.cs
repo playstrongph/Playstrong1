@@ -158,6 +158,14 @@ namespace ScriptableObjects.StandardActions
             Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            logicTree.AddCurrent(StartActionCoroutine(targetHero));
+        }
+        
+        private IEnumerator StartActionCoroutine(IHero targetHero)
+        {
+            Debug.Log("" +this.name  +" StartAction targetHero");
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
             
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
@@ -167,8 +175,21 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
                 }
             }
+            
+            logicTree.EndSequence();
+            yield return null;
         }
+
         public void StartAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
+            logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
+        }
+        
+        //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
+        private IEnumerator StartActionCoroutine(IHero thisHero, IHero targetHero)
         {   
             Debug.Log("" +this.name  +" StartAction thisHero,targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -181,9 +202,19 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
                 }
             }
+            
+            logicTree.EndSequence();
+            yield return null;
         }
-
+        
         public void UndoStartAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+           logicTree.AddCurrent(UndoStartActionCoroutine(targetHero));
+        }
+        
+        private IEnumerator UndoStartActionCoroutine(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
@@ -195,8 +226,20 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero));
                 }
             }
+            
+            logicTree.EndSequence();
+            yield return null;
         }
+        
+        
         public void UndoStartAction(IHero thisHero, IHero targetHero)
+        {   
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+           logicTree.AddCurrent(UndoStartActionCoroutine(thisHero,targetHero));
+        }
+        
+        
+        private IEnumerator UndoStartActionCoroutine(IHero thisHero, IHero targetHero)
         {   
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
@@ -208,6 +251,9 @@ namespace ScriptableObjects.StandardActions
                         logicTree.AddCurrent(basicAction.UndoTargetAction(thisHero,newTargetHero));
                 }
             }
+            
+            logicTree.EndSequence();
+            yield return null;
         }
 
 

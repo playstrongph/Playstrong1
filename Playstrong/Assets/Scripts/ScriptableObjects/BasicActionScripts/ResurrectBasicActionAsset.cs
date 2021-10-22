@@ -24,26 +24,53 @@ namespace ScriptableObjects.SkillActionsScripts
         private Object _resurrectAnimation;
         private IGameAnimations ResurrectAnimation => _resurrectAnimation as IGameAnimations;
         private IHeroLivingStatusAsset HeroAliveStatus => _heroAliveStatus as IHeroLivingStatusAsset;
-        
+
         public override IEnumerator StartAction(IHero hero)
         {
-            Debug.Log("Resurrect Start Action " +hero.HeroName);
+            Debug.Log("1 Resurrect Start Action " + hero.HeroName);
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
-            
+
             //Bypass Hero Alive Checking
             logicTree.AddCurrent(TargetAction(hero));
-            
+
             logicTree.EndSequence();
             yield return null;
 
         }
 
-        public override IEnumerator TargetAction(IHero thisHero)
+        public override IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
-            Debug.Log("Resurrect Target Action " +thisHero.HeroName);
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            Debug.Log("2 Resurrect Start Action " +targetHero.HeroName);
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //Bypass Hero Alive Checking
+            logicTree.AddCurrent(TargetAction(targetHero));
+            
+            logicTree.EndSequence();
+            yield return null;
 
-            ResurrectHero(thisHero);
+        }
+        
+        
+
+        public override IEnumerator TargetAction(IHero hero)
+        {
+            Debug.Log("1 Resurrect Target Action " +hero.HeroName);
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+
+            ResurrectHero(hero);
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        public override IEnumerator TargetAction(IHero thisHero,IHero targetHero)
+        {
+            Debug.Log("2 Resurrect Target Action " +targetHero.HeroName);
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            ResurrectHero(targetHero);
             
             logicTree.EndSequence();
             yield return null;

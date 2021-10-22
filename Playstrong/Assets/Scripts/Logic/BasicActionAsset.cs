@@ -7,7 +7,7 @@ namespace Logic
     public class BasicActionAsset : ScriptableObject, IBasicActionAsset
     {
         //StartActions
-        public IEnumerator StartAction(IHero thisHero, IHero targetHero)
+        public virtual IEnumerator StartAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
 
