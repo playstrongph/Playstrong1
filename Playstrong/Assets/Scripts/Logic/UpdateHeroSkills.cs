@@ -41,16 +41,23 @@ namespace Logic
             {
                  var skill = skillObject.GetComponent<ISkill>();
                  var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
-
+                 
+                
                  logicTree.AddCurrent(ReduceSkillCooldown(skill, skillCdCounter));
             }
         }
 
         private IEnumerator ReduceSkillCooldown(ISkill skill, int value)
         {
-            skill.SkillLogic.SkillAttributes.SkillType.ReduceSkillCd(skill, skillCdCounter);
-            
             var logicTree = _skillsPanel.CoroutineTreesAsset.MainLogicTree;
+            
+            //TODO: Pass by SkillUseStatus - reducecd if status is NOT UsedLastTurn, otherwise set to NotUsingSkill
+            //skill.SkillLogic.SkillAttributes.SkillType.ReduceSkillCd(skill, skillCdCounter);
+            
+            //TEST
+            logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillUseStatus.StatusAction(skill, value));
+            
+            
             logicTree.EndSequence();
             yield return null;
 

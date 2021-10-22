@@ -121,18 +121,19 @@ namespace Logic
 
         private void UseHeroSkill()
         {
-            //TEST - need to transfer this to Include Passive Effects in the future
+            //TODO - need to transfer this to Include CD Passive Effects in the future
             _logicTree.AddCurrent(SetUsingSkillStatus());
             
-            //TESt - for skill effects that refresh cooldowns
+            //Reset first in consideration for skill refresh effects
             _logicTree.AddCurrent(ResetSkillCooldown());
             
             _logicTree.AddCurrent(UseSkillEffect());
             
-            //TEST - need to transfer this to Include Passive Effects in the future
+            //TODO - need to transfer this to Include CD Passive Effects in the future
             _logicTree.AddCurrent(SetNotUsingSkillStatus());
 
-            //_logicTree.AddCurrent(ResetSkillCooldown());
+            //TEST
+            _logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
 
             _logicTree.AddCurrent(HeroEndTurn());
         }
@@ -187,6 +188,16 @@ namespace Logic
             var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
             _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator SetUsedLastTurnSkillStatus()
+        {
+            var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetUsedLastTurnSkillStatus();
             
             logicTree.EndSequence();
             yield return null;

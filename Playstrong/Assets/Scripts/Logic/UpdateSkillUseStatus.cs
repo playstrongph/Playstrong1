@@ -20,6 +20,10 @@ namespace Logic
         private ScriptableObject notUsingSkill;
         private ISkillUseStatusAsset NotUsingSkill => notUsingSkill as ISkillUseStatusAsset;
 
+        [SerializeField] [RequireInterface(typeof(ISkillUseStatusAsset))]
+        private ScriptableObject usedLastTurnSkill;
+        private ISkillUseStatusAsset UsedLastTurnSkill => usedLastTurnSkill as ISkillUseStatusAsset;
+
         private ISkillLogic _skillLogic;
         
         private void Awake()
@@ -36,6 +40,13 @@ namespace Logic
         public void SetNotUsingSkillStatus()
         {
             _skillLogic.SkillAttributes.SkillUseStatus = NotUsingSkill;
+           
+        }
+        
+        //TEST
+        public void SetUsedLastTurnSkillStatus()
+        {
+            _skillLogic.SkillAttributes.SkillUseStatus = UsedLastTurnSkill;
            
         }
 

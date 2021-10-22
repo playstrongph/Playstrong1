@@ -10,5 +10,7 @@ namespace Logic
         void SetUsingSkillStatus();
 
         void SetNotUsingSkillStatus();
+        void SetUsedLastTurnSkillStatus();
+
     }
 }

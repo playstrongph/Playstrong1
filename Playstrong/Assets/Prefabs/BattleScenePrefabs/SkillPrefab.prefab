@@ -321,6 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usingSkill: {fileID: 11400000, guid: b55b192927a5f3547bb6549173f8332b, type: 2}
   notUsingSkill: {fileID: 11400000, guid: 3fbbe2f126203424a96157418ed14da7, type: 2}
+  usedLastTurnSkill: {fileID: 11400000, guid: 212890a54cde23a4dba676092c310729, type: 2}
 --- !u!1 &956212358033504289
 GameObject:
   m_ObjectHideFlags: 0
