@@ -25,7 +25,7 @@ namespace ScriptableObjects.StatusEffects.Instance
             //heroStatusEffect.SetStatusEffectCounters.SetCounters(statusEffectCounters);
         }
         
-        public virtual void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
+        public virtual void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
         {
             //heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(statusEffectCounters);
         }

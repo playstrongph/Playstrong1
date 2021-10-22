@@ -34,7 +34,7 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
             //heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(heroStatusEffect.CoroutineTreesAsset);
             
             //TEST - counters for cleanup
-            heroStatusEffect.StatusEffectChangeCounters.ReduceStatusEffectCounters(heroStatusEffect,1);
+            heroStatusEffect.StatusEffectChangeCounters.ReduceStatusEffectCounters(heroStatusEffect);
             
             logicTree.EndSequence();
             yield return null;

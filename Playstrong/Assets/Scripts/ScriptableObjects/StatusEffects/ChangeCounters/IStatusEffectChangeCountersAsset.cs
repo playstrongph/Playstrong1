@@ -9,6 +9,6 @@ namespace ScriptableObjects.StatusEffects.Instance
         //TEST
         void SetChangeableToTempNoDecrease(IHeroStatusEffect heroStatusEffect);
         void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters);
-        void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect, int counters);
+        void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect);
     }
 }

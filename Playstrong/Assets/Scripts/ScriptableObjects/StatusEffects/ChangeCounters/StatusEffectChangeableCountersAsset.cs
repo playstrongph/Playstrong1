@@ -22,7 +22,7 @@ namespace ScriptableObjects.StatusEffects.Instance
         }
         
         //TEST
-        public override void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
+        public override void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect)
         {
             heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(heroStatusEffect.CoroutineTreesAsset);
         }
