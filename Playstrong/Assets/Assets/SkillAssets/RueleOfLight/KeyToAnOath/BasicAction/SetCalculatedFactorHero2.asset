@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b361387e1717e448c79e6d78d6a2a8, type: 3}
-  m_Name: HealBasicAction
+  m_Script: {fileID: 11500000, guid: f8893bb9ff249ce4a9b94ee7a27ec737, type: 3}
+  m_Name: SetCalculatedFactorHero2
   m_EditorClassIdentifier: 
-  healthMultiplier: 15
+  damageFactor: {fileID: 11400000, guid: 61d22fdb29d4f2347b79a4e33109746f, type: 2}

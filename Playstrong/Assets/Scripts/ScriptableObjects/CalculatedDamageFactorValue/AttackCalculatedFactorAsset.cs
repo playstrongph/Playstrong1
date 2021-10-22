@@ -6,18 +6,18 @@ namespace ScriptableObjects.DamageAttributeMultiple
 {
     
     [CreateAssetMenu(fileName = "AttackFactor", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/AttackFactor")]
-    public class AttackDamageFactorAsset : CalculatedFactorValueAsset
+    public class AttackCalculatedFactorAsset : CalculatedFactorValueAsset
     {
 
         public override float GetCalculatedValue()
         {
-            var damageFactor = 0;
+            var attackFactor = 0;
             
             //Damage Taken Factor
             if (OtherHeroBasis != null)
-                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.HeroAttributes.Attack * percentFactor / 100f);
+                attackFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.HeroAttributes.Attack * percentFactor / 100f);
 
-            return damageFactor;
+            return attackFactor;
         }
        
     }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
-  m_Name: KeyToAnOath
+  m_Name: KEYTOANOATH
   m_EditorClassIdentifier: 
   skillName: KeyToAnOath
   _description: Attack target enemy, deal 7% of your max health as additional damage. 
@@ -19,5 +19,5 @@ MonoBehaviour:
   _skillType: {fileID: 11400000, guid: a64361a623eab4246ab59ebb5c7f0eaa, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
   _skillIcon: {fileID: 21300000, guid: 004552f38b3d3d04295639681e0a8794, type: 3}
-  baseCooldown: 0
+  baseCooldown: 1
   _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
