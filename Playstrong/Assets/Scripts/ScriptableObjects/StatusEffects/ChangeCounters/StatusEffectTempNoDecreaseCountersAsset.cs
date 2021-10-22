@@ -17,7 +17,13 @@ namespace ScriptableObjects.StatusEffects.Instance
             heroStatusEffect.IncreaseStatusEffectCounters.IncreaseCounters(counters);
         }
         
+        //TEST - may not be needed
         public override void DecreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
+        {
+            //heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters);
+            heroStatusEffect.UpdateStatusEffectChangeableCounters.SetToChangeableCounters();
+        }
+        public override void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
         {
             //heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters);
             heroStatusEffect.UpdateStatusEffectChangeableCounters.SetToChangeableCounters();

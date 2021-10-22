@@ -20,6 +20,14 @@ namespace ScriptableObjects.StatusEffects.Instance
         {
             heroStatusEffect.DecreaseStatusEffectCounters.DecreaseCounters(counters);
         }
+        
+        //TEST
+        public override void ReduceStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)
+        {
+            heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(heroStatusEffect.CoroutineTreesAsset);
+        }
+        
+        
 
         public override void SetStatusEffectCountersToValue(IHeroStatusEffect heroStatusEffect,int counters)
         {
