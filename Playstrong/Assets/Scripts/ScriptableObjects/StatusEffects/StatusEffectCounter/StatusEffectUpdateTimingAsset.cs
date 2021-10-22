@@ -27,13 +27,11 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
            
         }
 
-        public IEnumerator UpdateCountersCoroutine(IHeroStatusEffect heroStatusEffect)
+        public virtual IEnumerator UpdateCountersCoroutine(IHeroStatusEffect heroStatusEffect)
         {
             var logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
-            
-            //heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(heroStatusEffect.CoroutineTreesAsset);
-            
-            //TEST - counters for cleanup
+
+            //Don't update counters cast on the CasterHero at the end of turn
             heroStatusEffect.StatusEffectChangeCounters.ReduceStatusEffectCounters(heroStatusEffect);
             
             logicTree.EndSequence();

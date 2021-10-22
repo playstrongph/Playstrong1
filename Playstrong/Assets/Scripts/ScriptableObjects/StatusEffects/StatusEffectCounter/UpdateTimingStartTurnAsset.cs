@@ -17,6 +17,17 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
             var logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(UpdateCountersCoroutine(heroStatusEffect));
         }
+        
+        public override IEnumerator UpdateCountersCoroutine(IHeroStatusEffect heroStatusEffect)
+        {
+            var logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
+            
+            //Update Counters Normally 
+            heroStatusEffect.ReduceStatusEffectCounters.ReduceCounters(heroStatusEffect.CoroutineTreesAsset);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
         
 
