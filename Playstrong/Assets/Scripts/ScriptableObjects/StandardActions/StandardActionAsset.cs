@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 namespace ScriptableObjects.StandardActions
 {
-    [CreateAssetMenu(fileName = "NewStandardAction", menuName = "SO's/StandardActions/NewStandardAction")]
+    [CreateAssetMenu(fileName = "StandardAction", menuName = "SO's/StandardActions/StandardAction")]
     public class StandardActionAsset : ScriptableObject, IStandardActionAsset
     {
 
