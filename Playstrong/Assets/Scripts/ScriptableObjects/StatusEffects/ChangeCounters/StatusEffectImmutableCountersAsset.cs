@@ -8,7 +8,7 @@ using Visual;
 namespace ScriptableObjects.StatusEffects.Instance
 {
     [CreateAssetMenu(fileName = "NotChangeableCounters", menuName = "SO's/Status Effects/ChangeCounters/NotChangeableCounters")]
-    public class StatusEffectNotChangeableCountersAsset : StatusEffectChangeCountersAsset
+    public class StatusEffectImmutableCountersAsset : StatusEffectChangeCountersAsset
     {
         
         public override void IncreaseStatusEffectCounters(IHeroStatusEffect heroStatusEffect,int counters)

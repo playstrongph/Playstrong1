@@ -31,7 +31,8 @@ namespace ScriptableObjects.StatusEffects.StatusEffectCounter
         {
             var logicTree = heroStatusEffect.CoroutineTreesAsset.MainLogicTree;
 
-            //Don't update counters cast on the CasterHero at the end of turn
+            //Don't update counters cast on the CasterHero at EndTurn, this turn
+            //Used by TempNoDecrease StatusChangeableCounters
             heroStatusEffect.StatusEffectChangeCounters.ReduceStatusEffectCounters(heroStatusEffect);
             
             logicTree.EndSequence();
