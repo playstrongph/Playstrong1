@@ -36,7 +36,7 @@ namespace Logic
             return heroTargets;
         }
         
-        //For SINGLE target requirements - used in damage calculations
+        //For SINGLE target requirements - used by TargetHero and ThisHero
         public virtual IHero GetHeroTarget(IHero thisHero, IHero targetHero)
         {
             Debug.Log("Wrong Assignment - Null Hero List");
@@ -44,6 +44,7 @@ namespace Logic
             //return thisHero;
         }
         
+        //For SINGLE target requirements - used by TargetHero and ThisHero
         public virtual IHero GetHeroTarget(IHero hero)
         {
             Debug.Log("Wrong Assignment - Null Hero List");
