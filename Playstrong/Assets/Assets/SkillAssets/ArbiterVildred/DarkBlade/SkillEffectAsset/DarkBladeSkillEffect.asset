@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DarkBladeSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: bfc5408dc4b28534eaec62b115c8152e, type: 2}
-  - {fileID: 11400000, guid: 30e0af1ddc7d01b4da312243ba145b55, type: 2}
+  - {fileID: 11400000, guid: 490e77132abffd94f8c38639febca1ee, type: 2}
+  - {fileID: 11400000, guid: e3d2b8de5b376be4983c40c753b2a46c, type: 2}

@@ -94,8 +94,9 @@ namespace ScriptableObjects.StandardActions
 
         private int _finalAndConditions;
         private int _finalOrConditions;
+        
         //Test
-        private IHeroStatusEffect _heroStatusEffect;
+        //private IHeroStatusEffect _heroStatusEffect;
       
         
         

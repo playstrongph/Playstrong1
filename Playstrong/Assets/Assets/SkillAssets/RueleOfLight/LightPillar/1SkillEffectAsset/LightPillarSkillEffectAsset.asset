@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightPillarSkillEffectAsset
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: bd75a016182093f4c8296b9049f27cc1, type: 2}
-  - {fileID: 11400000, guid: b3d2b656805e49d4b9e53cefc52288be, type: 2}
-  - {fileID: 11400000, guid: b1b7743183edb354c8a7b4d57b8a9ccf, type: 2}
-  - {fileID: 11400000, guid: 94c1a318a08a68745a0cf86a6c6e7c8c, type: 2}
+  - {fileID: 11400000, guid: 33b9f685fd97c0d45986da1965e48451, type: 2}
+  - {fileID: 11400000, guid: 536cce0e99594b848870573b71fd8ac9, type: 2}
+  - {fileID: 11400000, guid: 0126a6d6cc1930f47991b2260bf5be8b, type: 2}
+  - {fileID: 11400000, guid: f7c97bc26757ac4409ab1cd591195907, type: 2}

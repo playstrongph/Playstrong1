@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KeyToOathSkillEffectAsset
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: b45df6383790f3c4b912d4c5b025d63c, type: 2}
-  - {fileID: 11400000, guid: bf7f5c1f268bc3b4cab8d2345e689408, type: 2}
-  - {fileID: 11400000, guid: 1413fe5290f92f04faa8176cdfbe71ca, type: 2}
-  - {fileID: 11400000, guid: 5b37f1b0c88a9a94d8c53a9775e97300, type: 2}
+  - {fileID: 11400000, guid: bade5237d57547e49b61292f3174fdb3, type: 2}
+  - {fileID: 11400000, guid: ddc8e2b592121034b9a3b5b505a2a481, type: 2}
+  - {fileID: 11400000, guid: f806973655e02b644a98b8bc695a5caa, type: 2}
+  - {fileID: 11400000, guid: 9268e4ace5d4eda4194e78b6682dce5f, type: 2}

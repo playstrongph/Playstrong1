@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DarkContractSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: 90349e6c36c2cd74eacf38ac2fbfc3b4, type: 2}
+  - {fileID: 11400000, guid: e58e02cf0bfc2b64488b4613055e088c, type: 2}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LightAscendingSkillEffectAsset
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: bb0424577f5664949885f7d99ae4111f, type: 2}
-  - {fileID: 11400000, guid: b197c60f0df1ab646ae111b453c2db41, type: 2}
-  - {fileID: 11400000, guid: e3a0fd6e042e1fb4884bfe66ad03ed1e, type: 2}
+  - {fileID: 11400000, guid: 40dd74470f44eca4e8ce9bf5ea772233, type: 2}
+  - {fileID: 11400000, guid: 7141a3d0d9ed0564ba4d172101a9069a, type: 2}
+  - {fileID: 11400000, guid: 72d57f2fe9c0bd44889be3c778b1e26a, type: 2}

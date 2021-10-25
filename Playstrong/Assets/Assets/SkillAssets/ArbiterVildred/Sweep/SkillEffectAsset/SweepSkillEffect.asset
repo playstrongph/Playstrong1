@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SweepSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: 23439f7c6aa26ff44988998f28cfa563, type: 2}
+  - {fileID: 11400000, guid: 4111c14eb0b58db49bc883be5096c763, type: 2}
