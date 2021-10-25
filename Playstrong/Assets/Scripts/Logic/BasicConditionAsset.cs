@@ -42,7 +42,7 @@ namespace Logic
         {
             Debug.Log("Get Basic Condition Value");
             
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            //var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             //var value = CheckBasicCondition(thisHero,targetHero);
             
             return CheckBasicCondition(thisHero,targetHero);

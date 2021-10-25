@@ -192,7 +192,7 @@ namespace ScriptableObjects.StandardActions
         //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
         protected IEnumerator StartActionCoroutine(IHero thisHero, IHero targetHero)
         {   
-            Debug.Log("" +this.name  +" StartAction thisHero,targetHero");
+            Debug.Log("StartActionCoroutine thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
@@ -325,6 +325,7 @@ namespace ScriptableObjects.StandardActions
         }
         private int FinalConditionValue(IHero thisHero, IHero targetHero)
         {
+            Debug.Log("FinalConditionValue thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);
             return finalCondition;
         }
@@ -345,7 +346,7 @@ namespace ScriptableObjects.StandardActions
                 foreach (var basicCondition in AndBasicConditions)
                 {
                     
-                    _finalAndConditions *= basicCondition.GetValue(targetHero);
+                    _finalAndConditions *= basicCondition.GetValue(thisHero,targetHero);
                     _finalAndConditions = Mathf.Clamp(_finalAndConditions, 0, 1);
                     //Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
                     //TODO: Clamp to 0,1
@@ -374,7 +375,7 @@ namespace ScriptableObjects.StandardActions
                 _finalAndConditions = 0;
                 foreach (var basicCondition in OrBasicConditions)
                 {
-                    _finalOrConditions += basicCondition.GetValue(targetHero);
+                    _finalOrConditions += basicCondition.GetValue(thisHero,targetHero);
                     _finalOrConditions = Mathf.Clamp(_finalOrConditions, 0, 1);
                     //Debug.Log("OrBasicConditions Count: " +OrBasicConditions.Count +" return: " +_finalOrConditions);
                     //TODO: Clamp to 0,1
