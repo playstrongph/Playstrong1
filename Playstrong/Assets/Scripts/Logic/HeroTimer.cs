@@ -68,8 +68,6 @@ namespace Logic
             {
                 turnController.FreezeTimers = true;
                 activeHeroes.Add(this as Object);
-              
-                turnController.SortHeroesByEnergy.SortByEnergy();
             }
         }
 

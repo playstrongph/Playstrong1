@@ -221,6 +221,7 @@ namespace Logic
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 
+            //Need to sort again because of increase energy effects
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
             _logicTree.AddCurrent(StartNextActiveHero());

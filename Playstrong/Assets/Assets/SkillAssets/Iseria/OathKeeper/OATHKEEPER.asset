@@ -18,5 +18,5 @@ MonoBehaviour:
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
   _skillTarget: {fileID: 11400000, guid: 743a82d53ee0da14395861dcc567d32f, type: 2}
   _skillIcon: {fileID: 21300000, guid: 8b786b7a9f0e1bb4daf007f2f8a1dad0, type: 3}
-  baseCooldown: 0
+  baseCooldown: 1
   _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
