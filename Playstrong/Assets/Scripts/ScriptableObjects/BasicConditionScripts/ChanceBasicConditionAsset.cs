@@ -7,16 +7,17 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
+    /// <summary>
+    /// Looks at total chance of the hero
+    /// Note that the hero used is always thisHero
+    /// </summary>
     [CreateAssetMenu(fileName = "ChanceBasicCondition", menuName = "SO's/BasicConditions/ChanceBasicCondition")]
-    
     public class ChanceBasicConditionAsset : BasicConditionAsset
     {
         [SerializeField] private int chanceValue;
-
-
+        
         protected override int CheckBasicCondition(IHero thisHero)
         {
-            
             var heroChance = thisHero.HeroLogic.HeroAttributes.Chance;
             var totalChance = chanceValue + heroChance;
             var randomNumber = Random.Range(1, 101);
@@ -28,7 +29,6 @@ namespace ScriptableObjects.BasicActions
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            
             var heroChance = thisHero.HeroLogic.HeroAttributes.Chance;
             var totalChance = chanceValue + heroChance;
             var randomNumber = Random.Range(1, 101);

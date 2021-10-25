@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
-  m_Name: RefinedFlowerSkillEffect
+  m_Script: {fileID: 11500000, guid: 17dc0ae1233529a4db08ad1c009d9371, type: 3}
+  m_Name: ZeroDamage
   m_EditorClassIdentifier: 
-  standardActions:
-  - {fileID: 11400000, guid: f74f0333c0c065649ac0254fc55edb49, type: 2}
-  - {fileID: 11400000, guid: 5876991600d8d104bb80cf1fa785892e, type: 2}
+  percentFactor: 0

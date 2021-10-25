@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce72b6891979a62439ca683a9cfca0e0, type: 3}
   m_Name: ChanceBasicCondition
   m_EditorClassIdentifier: 
-  chanceValue: 0
+  chanceValue: 100
