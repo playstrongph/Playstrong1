@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
-  m_Name: OATHKEEPER
+  m_Name: FULLBLOOM
   m_EditorClassIdentifier: 
-  skillName: OathKeeper
-  _description: "Reset all skill cooldowns of another ally and take an extra turn.\r"
-  _skillEffect: {fileID: 11400000, guid: 09922a8124049ba43b6cd51e2f983b7b, type: 2}
+  skillName: FullBloom
+  _description: Dispel all buffs, inflict DEFENSE BREAK(2) and ANTIBUFF(2), then
+    attack the target enemy.
+  _skillEffect: {fileID: 11400000, guid: a85f65f20b1cffd4da1672cbae60afe5, type: 2}
   _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
-  _skillTarget: {fileID: 11400000, guid: 743a82d53ee0da14395861dcc567d32f, type: 2}
-  _skillIcon: {fileID: 21300000, guid: 8b786b7a9f0e1bb4daf007f2f8a1dad0, type: 3}
+  _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
+  _skillIcon: {fileID: 21300000, guid: 6b809522c8f1bba40995494f7374ab2c, type: 3}
   baseCooldown: 1
   _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
