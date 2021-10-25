@@ -43,6 +43,7 @@ namespace Logic
             _getValidTargets.Add(GetEnemyTargets);
             _getValidTargets.Add(GetAllyTargets);
             _getValidTargets.Add(NoAction);
+            _getValidTargets.Add(GetOtherAllyTargets);
 
             _showTargetsGlow = NoAction;
         }
@@ -68,15 +69,35 @@ namespace Logic
 
         private void GetAllyTargets()
         {
+
+            var thisHero =  _targetSkill.Skill.Hero;
             _validTargets.Clear();
             
-            var thisHero =  _targetSkill.Skill.Hero;
-            var allies = thisHero.LivingHeroes.HeroesList;
+            /*var allies = thisHero.LivingHeroes.HeroesList;
             foreach (var ally in allies)
             {
                 var allyHero = ally.GetComponent<IHero>();
                 _validTargets.Add(allyHero);
-            }
+            }*/
+            
+            _validTargets = new List<IHero>(thisHero.GetAllLivingAllyHeroes());
+        }
+        
+        private void GetOtherAllyTargets()
+        {
+            var thisHero =  _targetSkill.Skill.Hero;
+            _validTargets.Clear();
+
+            /*var allies = thisHero.LivingHeroes.HeroesList;
+            foreach (var ally in allies)
+            {
+                var allyHero = ally.GetComponent<IHero>();
+                _validTargets.Add(allyHero);
+            }*/
+
+            _validTargets = new List<IHero>(thisHero.GetAllOtherLivingAllyHeroes());
+
+
         }
         
         //TODO: Copy from GetAttackTarget
