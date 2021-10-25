@@ -153,15 +153,15 @@ namespace ScriptableObjects.StandardActions
        
         
        
-        public void StartAction(IHero targetHero)
+        public virtual void StartAction(IHero targetHero)
         {
-            Debug.Log("" +this.name  +" StartAction targetHero");
+            //Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(StartActionCoroutine(targetHero));
         }
         
-        private IEnumerator StartActionCoroutine(IHero targetHero)
+        protected IEnumerator StartActionCoroutine(IHero targetHero)
         {
             Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -180,7 +180,7 @@ namespace ScriptableObjects.StandardActions
             yield return null;
         }
 
-        public void StartAction(IHero thisHero, IHero targetHero)
+        public virtual void StartAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
@@ -189,7 +189,7 @@ namespace ScriptableObjects.StandardActions
         }
         
         //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
-        private IEnumerator StartActionCoroutine(IHero thisHero, IHero targetHero)
+        protected IEnumerator StartActionCoroutine(IHero thisHero, IHero targetHero)
         {   
             Debug.Log("" +this.name  +" StartAction thisHero,targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;

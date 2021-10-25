@@ -44,9 +44,11 @@ namespace Visual
             _skillLogic.SkillAttributes.SkillEffectAsset = Instantiate(skillAsset.SkillEffect as ScriptableObject) as ISkillEffectAsset;
             
             CreateUniqueStandardActionsAndActionTargets();
+
             CreateUniqueBasicConditions();
         }
-        
+
+
         private void CreateUniqueStandardActionsAndActionTargets()
         {
             var i = 0;
@@ -63,9 +65,14 @@ namespace Visual
                 //TODO: Check if there will be a need for the BasicActionTarget to Reference the Skill
                 standardActionClone.BasicActionTargets.SetSkillReference(_skillLogic.Skill);
                 
-                //TEST - Create EventSubscribers
+                //Create EventSubscribers
                 standardActionClone.EventSubscribers = Instantiate(standardAction.EventSubscribers as ScriptableObject) as IActionTargets;
                 standardActionClone.EventSubscribers.SetSkillReference(_skillLogic.Skill);
+                
+                //TEST - Set Skill Reference
+                var skillStandardActionClone = standardActionClone as ISkillStandardActionAsset;
+                skillStandardActionClone.SetSkillReference(_skillLogic.Skill);
+
             }
         }
         

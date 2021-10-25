@@ -122,7 +122,7 @@ namespace Logic
         private void UseHeroSkill()
         {
             //TODO - need to transfer this to Include CD Passive Effects in the future
-            _logicTree.AddCurrent(SetUsingSkillStatus());
+            //_logicTree.AddCurrent(SetUsingSkillStatus());
             
             //Reset first in consideration for skill refresh effects
             _logicTree.AddCurrent(ResetSkillCooldown());
@@ -130,10 +130,10 @@ namespace Logic
             _logicTree.AddCurrent(UseSkillEffect());
             
             //TODO - need to transfer this to Include CD Passive Effects in the future
-            _logicTree.AddCurrent(SetNotUsingSkillStatus());
+            //_logicTree.AddCurrent(SetNotUsingSkillStatus());
 
             //TEST
-            _logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
+            //_logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
 
             _logicTree.AddCurrent(HeroEndTurn());
         }

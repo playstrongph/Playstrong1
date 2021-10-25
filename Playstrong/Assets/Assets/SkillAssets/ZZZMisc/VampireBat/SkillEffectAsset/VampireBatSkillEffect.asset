@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: VampireBatSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
-  - {fileID: 11400000, guid: bdbdd3708ca33074cb549a66fa4377d1, type: 2}
+  - {fileID: 11400000, guid: ad02721c3f3a353419294395e474df51, type: 2}
