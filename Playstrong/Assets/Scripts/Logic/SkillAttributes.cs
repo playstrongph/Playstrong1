@@ -96,7 +96,12 @@ namespace Logic
         public ISkill SkillReference => _skillLogic.Skill;
 
         [SerializeField] private ScriptableObject skillCooldownType;
-        public ISkillCooldownTypeAsset SkillCooldownType => skillCooldownType as ISkillCooldownTypeAsset;
+
+        public ISkillCooldownTypeAsset SkillCooldownType
+        {
+            get => skillCooldownType as ISkillCooldownTypeAsset;
+            set => skillCooldownType = value as ScriptableObject;
+        }
 
         private void Awake()
         {

@@ -29,6 +29,7 @@ namespace Visual
             skillAttributes.SkillType = skillAsset.SkillType;
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillReadiness = skillAsset.SkillReadiness;
+            skillAttributes.SkillCooldownType = skillAsset.SkillCooldownType;
             
             //Initializations
             //skillAttributes.SkillReference = _skillLogic.Skill;
