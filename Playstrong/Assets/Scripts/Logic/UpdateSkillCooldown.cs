@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using References;
 using ScriptableObjects.Enums;
 using UnityEngine;
 
@@ -10,13 +11,68 @@ namespace Logic
     public class UpdateSkillCooldown : MonoBehaviour, IUpdateSkillCooldown
     {
         private ISkillLogic _skillLogic;
+        private ISkill _skill;
         
         private void Awake()
         {
             _skillLogic = GetComponent<ISkillLogic>();
+            _skill = _skillLogic.Skill;
         }
 
         public IEnumerator ReduceCooldown(int counter)
+        {
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.ReduceCooldown(_skill, counter));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+        public IEnumerator IncreaseCooldown(int counter)
+        {
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.IncreaseCooldown(_skill, counter));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public IEnumerator SetSkillCdToValue(int counter)
+        {
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.SetSkillCdToValue(_skill, counter));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+        public IEnumerator ResetCooldownToMax()
+        {
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.ResetCooldownToMax(_skill));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+        public IEnumerator RefreshCooldownToZero()
+        {
+            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.RefreshCooldownToZero(_skill));
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        //BackUp
+        
+         /*
+         public IEnumerator ReduceCooldown(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             
@@ -131,14 +187,8 @@ namespace Logic
              yield return null;
             
         }
-        //Transferred to BasicAction
-        /*public void SetCooldownValue(int counter)
-        {
-            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            //Should pass to skillType first before eventually calling SetSkillCdToValue
-            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillType.SetSkillCdValue(_skillLogic, counter));
-        }*/
+        */
+       
       
 
        

@@ -41,7 +41,7 @@ namespace ScriptableObjects.StandardActions
         public void SetSkillReference(ISkill skill)
         {
             _skillReference = skill;
-            Debug.Log("Set Skill Reference: " +_skillReference.SkillName);
+           //Debug.Log("Set Skill Reference: " +_skillReference.SkillName);
         }
         
         
