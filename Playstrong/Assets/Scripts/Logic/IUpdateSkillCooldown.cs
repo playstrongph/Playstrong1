@@ -4,10 +4,10 @@ namespace Logic
 {
     public interface IUpdateSkillCooldown
     {
-        IEnumerator ReduceCooldown(int counter);
+        IEnumerator TurnReduceCooldown(int counter);
         IEnumerator IncreaseCooldown(int counter);
         IEnumerator SetSkillCdToValue(int counter);
-        IEnumerator ResetCooldownToMax();
+        IEnumerator TurnResetCooldownToMax();
         IEnumerator RefreshCooldownToZero();
         
         //void SetCooldownValue(int counter);

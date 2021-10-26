@@ -18,12 +18,15 @@ namespace Logic
             _skillLogic = GetComponent<ISkillLogic>();
             _skill = _skillLogic.Skill;
         }
-
-        public IEnumerator ReduceCooldown(int counter)
+        
+        /// <summary>
+        /// Should only be used by TurnController in Hero Active/Inactive phases
+        /// </summary>
+        public IEnumerator TurnReduceCooldown(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.ReduceCooldown(_skill, counter));
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.TurnReduceCooldown(_skill, counter));
             
             logicTree.EndSequence();
             yield return null;
@@ -39,6 +42,9 @@ namespace Logic
             yield return null;
         }
         
+        /// <summary>
+        /// Used by Refresh and Reset Basic Actions
+        /// </summary>
         public IEnumerator SetSkillCdToValue(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
@@ -49,11 +55,14 @@ namespace Logic
             yield return null;
         }
 
-        public IEnumerator ResetCooldownToMax()
+        /// <summary>
+        /// Should only be used by TurnController in Hero Active/Inactive phases
+        /// </summary>
+        public IEnumerator TurnResetCooldownToMax()
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.ResetCooldownToMax(_skill));
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillCooldownType.TurnResetCooldownToMax(_skill));
             
             logicTree.EndSequence();
             yield return null;
@@ -68,131 +77,6 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
-        
-        //BackUp
-        
-         /*
-         public IEnumerator ReduceCooldown(int counter)
-        {
-            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-            
-            var skillAttributes = _skillLogic.SkillAttributes;     
-            var skillCd = skillAttributes.Cooldown;
-            var maxSkillCd = skillAttributes.BaseCooldown;
-
-            skillCd -= counter;
-            skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
-            skillAttributes.Cooldown = skillCd;
-
-            UpdateSkillReadinessStatus(_skillLogic);
-            visualTree.AddCurrent(VisualReduceCdAction(skillCd));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-
-        public IEnumerator IncreaseCooldown(int counter)
-        {
-            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-            var skillAttributes = _skillLogic.SkillAttributes;     
-            var skillCd = skillAttributes.Cooldown;
-            var maxSkillCd = skillAttributes.BaseCooldown;
-
-            skillCd += counter;
-            skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
-            skillAttributes.Cooldown = skillCd;
-
-            UpdateSkillReadinessStatus(_skillLogic);
-            
-            visualTree.AddCurrent(VisualReduceCdAction(skillCd));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        
-        public IEnumerator SetSkillCdToValue(int counter)
-        {
-            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-            var skillAttributes = _skillLogic.SkillAttributes;
-            var maxSkillCd = skillAttributes.BaseCooldown;
-            var skillCd = counter;
-            
-            skillCd = Mathf.Clamp(skillCd,0, maxSkillCd);
-            skillAttributes.Cooldown = skillCd;
-
-            UpdateSkillReadinessStatus(_skillLogic);
-            visualTree.AddCurrent(VisualReduceCdAction(skillCd));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-
-        public IEnumerator ResetCooldownToMax()
-        {
-            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-            var skillAttributes = _skillLogic.SkillAttributes;
-            var maxSkillCd = skillAttributes.BaseCooldown;
-            
-            skillAttributes.Cooldown = maxSkillCd;  
-            
-            UpdateSkillReadinessStatus(_skillLogic);
-            visualTree.AddCurrent(VisualReduceCdAction(maxSkillCd));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-
-        public IEnumerator RefreshCooldownToZero()
-        {
-            var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-            var skillAttributes = _skillLogic.SkillAttributes;
-            
-            skillAttributes.Cooldown = 0;
-            
-            UpdateSkillReadinessStatus(_skillLogic);
-            visualTree.AddCurrent(VisualReduceCdAction(0));
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        
-        
-        //AUXILIARY METHODS
-        private void UpdateSkillReadinessStatus(ISkillLogic skillLogic)
-        {
-            var skillCooldown = skillLogic.SkillAttributes.Cooldown;
-            
-            if(skillCooldown<=0)
-                //skillLogic.UpdateSkillReadiness.SetSkillReady();
-                skillLogic.SkillAttributes.SkillEnabledStatus.SetSkillReady(skillLogic.Skill);
-                
-            else
-                //skillLogic.UpdateSkillReadiness.SetSkillNotReady();
-                skillLogic.SkillAttributes.SkillEnabledStatus.SetSkillNotReady(skillLogic.Skill);
-        }
-        private IEnumerator VisualReduceCdAction(int skillCd)
-        {
-             var skillVisual = _skillLogic.Skill.SkillVisual;
-             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
-             
-             skillVisual.SkillCooldownVisual.UpdateCooldown(skillCd);
-             
-             visualTree.EndSequence();
-             yield return null;
-            
-        }
-        */
-       
-      
-
-       
-
 
     }
 }

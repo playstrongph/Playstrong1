@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
 {
-    [CreateAssetMenu(fileName = "NormalSkillCooldown", menuName = "SO's/Scriptable Enums/SkillCooldownType/NormalSkillCooldown")]
-    public class NormalSkillCooldownTypeAsset : SkillCooldownTypeAsset
+    [CreateAssetMenu(fileName = "NoSkillCooldown", menuName = "SO's/Scriptable Enums/SkillCooldownType/NoSkillCooldown")]
+    public class NoSkillCooldownTypeAsset : SkillCooldownTypeAsset
     {
         public override IEnumerator TurnReduceCooldown(ISkill skill, int counter)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(base.TurnReduceCooldown(skill,counter));
+            //logicTree.AddCurrent(base.ReduceCooldown(skill,counter));
             
             logicTree.EndSequence();
             yield return null;
@@ -22,7 +22,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(base.IncreaseCooldown(skill,counter));
+            //logicTree.AddCurrent(base.IncreaseCooldown(skill,counter));
             
             logicTree.EndSequence();
             yield return null;
@@ -32,7 +32,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(base.SetSkillCdToValue(skill,counter));
+            //logicTree.AddCurrent(base.SetSkillCdToValue(skill,counter));
             
             logicTree.EndSequence();
             yield return null;
@@ -42,7 +42,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(base.TurnResetCooldownToMax(skill));
+            //logicTree.AddCurrent(base.ResetCooldownToMax(skill));
             
             logicTree.EndSequence();
             yield return null;
@@ -52,7 +52,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(base.RefreshCooldownToZero(skill));
+            //logicTree.AddCurrent(base.RefreshCooldownToZero(skill));
             
             logicTree.EndSequence();
             yield return null;

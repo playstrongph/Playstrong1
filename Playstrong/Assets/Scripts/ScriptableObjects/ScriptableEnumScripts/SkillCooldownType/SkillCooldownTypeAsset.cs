@@ -8,7 +8,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
     {
       
 
-        public virtual IEnumerator ReduceCooldown(ISkill skill, int counter)
+        public virtual IEnumerator TurnReduceCooldown(ISkill skill, int counter)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skill.CoroutineTreesAsset.MainVisualTree;
@@ -47,6 +47,8 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             yield return null;
         }
         
+        
+        //Used By Refresh and Reset Basic Actions
         public virtual IEnumerator SetSkillCdToValue(ISkill skill, int counter)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
@@ -65,7 +67,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             yield return null;
         }
 
-        public virtual IEnumerator ResetCooldownToMax(ISkill skill)
+        public virtual IEnumerator TurnResetCooldownToMax(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skill.CoroutineTreesAsset.MainVisualTree;

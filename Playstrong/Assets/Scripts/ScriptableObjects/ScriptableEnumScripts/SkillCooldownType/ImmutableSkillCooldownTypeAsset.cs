@@ -5,8 +5,12 @@ using UnityEngine;
 
 namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
 {
-    [CreateAssetMenu(fileName = "NormalSkillCooldown", menuName = "SO's/Scriptable Enums/SkillCooldownType/NormalSkillCooldown")]
-    public class NormalSkillCooldownTypeAsset : SkillCooldownTypeAsset
+    
+    /// <summary>
+    /// Skill Cooldown only reduces and resets normally during the hero's turn.
+    /// </summary>
+    [CreateAssetMenu(fileName = "ImmutableSkillCooldown", menuName = "SO's/Scriptable Enums/SkillCooldownType/ImmutableSkillCooldown")]
+    public class ImmutableSkillCooldownTypeAsset : SkillCooldownTypeAsset
     {
         public override IEnumerator TurnReduceCooldown(ISkill skill, int counter)
         {
@@ -22,7 +26,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
 
-            logicTree.AddCurrent(base.IncreaseCooldown(skill,counter));
+            //logicTree.AddCurrent(base.IncreaseCooldown(skill,counter));
             
             logicTree.EndSequence();
             yield return null;
@@ -32,12 +36,13 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(base.SetSkillCdToValue(skill,counter));
+            //logicTree.AddCurrent(base.SetSkillCdToValue(skill,counter));
             
             logicTree.EndSequence();
             yield return null;
         }
 
+        
         public override IEnumerator TurnResetCooldownToMax(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
@@ -52,7 +57,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(base.RefreshCooldownToZero(skill));
+            //logicTree.AddCurrent(base.RefreshCooldownToZero(skill));
             
             logicTree.EndSequence();
             yield return null;

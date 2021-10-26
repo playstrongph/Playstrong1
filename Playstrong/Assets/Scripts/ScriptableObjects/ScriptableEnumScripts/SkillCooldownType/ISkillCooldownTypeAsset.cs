@@ -5,10 +5,10 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
 {
     public interface ISkillCooldownTypeAsset
     {
-        IEnumerator ReduceCooldown(ISkill skill, int counter);
+        IEnumerator TurnReduceCooldown(ISkill skill, int counter);
         IEnumerator IncreaseCooldown(ISkill skill, int counter);
         IEnumerator SetSkillCdToValue(ISkill skill, int counter);
-        IEnumerator ResetCooldownToMax(ISkill skill);
+        IEnumerator TurnResetCooldownToMax(ISkill skill);
         IEnumerator RefreshCooldownToZero(ISkill skill);
     }
 }
