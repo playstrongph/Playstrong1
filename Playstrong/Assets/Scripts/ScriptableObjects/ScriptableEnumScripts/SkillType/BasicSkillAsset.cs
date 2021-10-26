@@ -59,35 +59,7 @@ namespace ScriptableObjects.Enums.SkillType
         }
 
 
-        public override IEnumerator SetSkillCdValue(ISkillLogic skillLogic, int counter)
-        {
-            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
-            
-            //logicTree.AddCurrent(skillLogic.UpdateSkillCooldown.SetSkillCdToValue(counter));
-
-            logicTree.EndSequence();
-            yield return null;
-        }
-        
-        public override IEnumerator DisableActiveSkill(ISkill skill)
-        {
-            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            
-            //skill.SkillLogic.UpdateSkillEnabledStatus.SkillDisabled.DisableSkill(skill);
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
-        
-        public override IEnumerator EnableActiveSkill(ISkill skill)
-        {
-            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-
-            //skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
-
-            logicTree.EndSequence();
-            yield return null;
-        }
+       
 
 
     }

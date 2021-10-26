@@ -23,20 +23,14 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
         private void EnableSkillAction(ISkill skill)
         {
             //Register Skill Effect
-            skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill);
-            //TEST
+            skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill);            
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill.Hero);
             
             
             //Set Skill Ready
-            var skillReady = skill.SkillLogic.UpdateSkillReadiness.SkillReady;
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
-            {
-                //skill.SkillLogic.SkillAttributes.SkillReadiness = skillReady;
-                //skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
-                
                 skill.SkillLogic.UpdateSkillReadiness.SetSkillReady();
-            }
+            
             
             //Set Skill Enabled
             var skillEnabled = skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled;
