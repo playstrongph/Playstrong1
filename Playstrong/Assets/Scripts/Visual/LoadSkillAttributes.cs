@@ -31,7 +31,7 @@ namespace Visual
             skillAttributes.SkillReadiness = skillAsset.SkillReadiness;
             
             //Initializations
-            skillAttributes.SkillReference = _skillLogic.Skill;
+            //skillAttributes.SkillReference = _skillLogic.Skill;
            _skillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
             
             CreateUniqueSkillEffectAsset(skillAsset);

@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using References;
 using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
@@ -8,6 +9,7 @@ using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
+using Object = UnityEngine.Object;
 
 namespace Logic
 {
@@ -86,9 +88,20 @@ namespace Logic
             get => skillEffectAsset as ISkillEffectAsset;
             set => skillEffectAsset = value as Object;
         }
-
+        
         //Test
-        public ISkill SkillReference { get; set; }
+        private ISkillLogic _skillLogic;
+
+        public ISkill SkillReference => _skillLogic.Skill;
+
+        private void Awake()
+        {
+            _skillLogic = GetComponent<ISkillLogic>();
+           
+        }
+
+
+        
 
 
     }

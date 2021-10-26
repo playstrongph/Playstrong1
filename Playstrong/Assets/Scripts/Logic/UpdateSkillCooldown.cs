@@ -33,7 +33,6 @@ namespace Logic
             
             logicTree.EndSequence();
             yield return null;
-            
         }
 
         public IEnumerator IncreaseCooldown(int counter)

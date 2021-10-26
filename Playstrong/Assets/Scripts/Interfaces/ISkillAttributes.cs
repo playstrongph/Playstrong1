@@ -25,6 +25,6 @@ namespace Interfaces
 
         ISkillEffectAsset SkillEffectAsset { get; set; }
         
-        ISkill SkillReference { get; set; }
+        ISkill SkillReference { get; }
     }
 }
