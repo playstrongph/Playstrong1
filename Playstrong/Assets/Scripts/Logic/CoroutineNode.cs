@@ -58,6 +58,18 @@ namespace Logic
             _children.Add(node);
             return node;
         }
+        
+        //TEST
+        public CoroutineNode AddChildAtStart(IEnumerator coroutine)
+        {
+            var node = new CoroutineNode(coroutine) { Parent = this };
+            
+            //_children.Add(node);
+            
+            _children.Insert(0,node);
+            
+            return node;
+        }
 
         /// <summary>
         /// Remove all children of this node.

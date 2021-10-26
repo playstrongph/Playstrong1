@@ -1386,6 +1386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5408253336151253653, guid: 56e131b938c74ed419c39d368a67580d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e131b938c74ed419c39d368a67580d, type: 3}
 --- !u!224 &1063781901 stripped

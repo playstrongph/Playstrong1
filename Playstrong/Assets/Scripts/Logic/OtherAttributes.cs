@@ -12,112 +12,122 @@ namespace Logic
 
         [Header("Obsolete Damage Reduction")] 
         [SerializeField]
-        private float _directDamageReduction = 0f;
+        private float directDamageReduction = 0f;
         public float DirectDamageReduction
         {
-            get => _directDamageReduction;
-            set => _directDamageReduction = value;
+            get => directDamageReduction;
+            set => directDamageReduction = value;
         }
+
+        [Header("Fighting Spirit")] [SerializeField]
+        private int fightingSpirit;
+
+        public int FightingSpirit
+        {
+            get => fightingSpirit;
+            set => fightingSpirit = value;
+        }
+
         [Header("Take Damage Reduction")] 
         [SerializeField]
-        private float _takeAllDamageReduction = 0f;
+        private float takeAllDamageReduction = 0f;
         public float TakeAllDamageReduction
         {
-            get => _takeAllDamageReduction;
-            set => _takeAllDamageReduction = value;
+            get => takeAllDamageReduction;
+            set => takeAllDamageReduction = value;
         }
 
         [SerializeField]
-        private float _takeSingleAttackDamageReduction = 0f;
+        private float takeSingleAttackDamageReduction = 0f;
         public float TakeSingleAttackDamageReduction
         {
-            get => _takeSingleAttackDamageReduction;
-            set => _takeSingleAttackDamageReduction = value;
+            get => takeSingleAttackDamageReduction;
+            set => takeSingleAttackDamageReduction = value;
         }
         
         [SerializeField]
-        private float _takeMultiAttackDamageReduction = 0f;
+        private float takeMultiAttackDamageReduction = 0f;
         public float TakeMultiAttackDamageReduction
         {
-            get => _takeMultiAttackDamageReduction;
-            set => _takeMultiAttackDamageReduction = value;
+            get => takeMultiAttackDamageReduction;
+            set => takeMultiAttackDamageReduction = value;
         }
 
-        [SerializeField] private float _takeSkillDamageReduction = 0f;
+        [SerializeField] private float takeSkillDamageReduction = 0f;
 
         public float TakeSkillDamageReduction
         {
-            get => _takeSkillDamageReduction;
-            set => _takeSkillDamageReduction = value;
+            get => takeSkillDamageReduction;
+            set => takeSkillDamageReduction = value;
         }
         
-        [SerializeField] private float _takeNonSkillDamageReduction = 0f;
+        [SerializeField] private float takeNonSkillDamageReduction = 0f;
 
         public float TakeNonSkillDamageReduction
         {
-            get => _takeNonSkillDamageReduction;
-            set => _takeNonSkillDamageReduction = value;
+            get => takeNonSkillDamageReduction;
+            set => takeNonSkillDamageReduction = value;
         }
         
         
         //DEAL DAMAGE REDUCTION
         [Header("Deal Damage Reduction")] 
         [SerializeField]
-        private float _dealAllDamageReduction = 0f;
+        private float dealAllDamageReduction = 0f;
         public float DealAllDamageReduction
         {
-            get => _dealAllDamageReduction;
-            set => _dealAllDamageReduction = value;
+            get => dealAllDamageReduction;
+            set => dealAllDamageReduction = value;
         }
 
         [SerializeField]
-        private float _dealSingleAttackDamageReduction = 0f;
+        private float dealSingleAttackDamageReduction = 0f;
         public float DealSingleAttackDamageReduction
         {
-            get => _dealSingleAttackDamageReduction;
-            set => _dealSingleAttackDamageReduction = value;
+            get => dealSingleAttackDamageReduction;
+            set => dealSingleAttackDamageReduction = value;
         }
         
         [SerializeField]
-        private float _dealMultiAttackDamageReduction = 0f;
+        private float dealMultiAttackDamageReduction = 0f;
         public float DealMultiAttackDamageReduction
         {
-            get => _dealMultiAttackDamageReduction;
-            set => _dealMultiAttackDamageReduction = value;
+            get => dealMultiAttackDamageReduction;
+            set => dealMultiAttackDamageReduction = value;
         }
 
-        [SerializeField] private float _dealSkillDamageReduction = 0f;
+        [SerializeField] private float dealSkillDamageReduction = 0f;
 
         public float DealSkillDamageReduction
         {
-            get => _dealSkillDamageReduction;
-            set => _dealSkillDamageReduction = value;
+            get => dealSkillDamageReduction;
+            set => dealSkillDamageReduction = value;
         }
         
-        [SerializeField] private float _dealNonSkillDamageReduction = 0f;
+        [SerializeField] private float dealNonSkillDamageReduction = 0f;
 
         public float DealNonSkillDamageReduction
         {
-            get => _dealNonSkillDamageReduction;
-            set => _dealNonSkillDamageReduction = value;
+            get => dealNonSkillDamageReduction;
+            set => dealNonSkillDamageReduction = value;
         }
 
         [Header("Damage Multipliers")][SerializeField]
-        private float _criticalDamageMultiplier = 100f;
+        private float criticalDamageMultiplier = 100f;
 
         public float CriticalDamageMultiplier
         {
-            get => _criticalDamageMultiplier;
-            set => _criticalDamageMultiplier = value;
+            get => criticalDamageMultiplier;
+            set => criticalDamageMultiplier = value;
         }
         
         [SerializeField]
-        private float _otherDamageMultiplier = 0f;
+        private float otherDamageMultiplier = 0f;
 
         public float OtherDamageMultiplier
         {
-            get => _otherDamageMultiplier;
-            set => _otherDamageMultiplier = value;
+            get => otherDamageMultiplier;
+            set => otherDamageMultiplier = value;
         }
         
         /// <summary>
@@ -127,69 +137,69 @@ namespace Logic
         [Header("Hero Resistances")]
         
         [SerializeField]
-        private float _healResistance = 0f;
+        private float healResistance = 0f;
 
         public float HealResistance
         {
-            get => _healResistance;
-            set => _healResistance = value;
+            get => healResistance;
+            set => healResistance = value;
         }
         
         [SerializeField]
-        private float _criticalStrikeResistance = 0f;
+        private float criticalStrikeResistance = 0f;
 
         public float CriticalStrikeResistance
         {
-            get => _criticalStrikeResistance;
-            set => _criticalStrikeResistance = value;
+            get => criticalStrikeResistance;
+            set => criticalStrikeResistance = value;
         }
         
         [SerializeField]
-        private float _debuffResistance = 15f;
+        private float debuffResistance = 15f;
 
         public float DebuffResistance
         {
-            get => _debuffResistance;
-            set => _debuffResistance = value;
+            get => debuffResistance;
+            set => debuffResistance = value;
         }
         
         [SerializeField]
-        private float _buffResistance = 0f;
+        private float buffResistance = 0f;
 
         public float BuffResistance
         {
-            get => _buffResistance;
-            set => _buffResistance = value;
+            get => buffResistance;
+            set => buffResistance = value;
             
         }
         
         [SerializeField]
-        private float _skillChanceResistance = 0f;
+        private float skillChanceResistance = 0f;
 
         public float SkillChanceResistance
         {
-            get => _skillChanceResistance;
-            set => _skillChanceResistance = value;
+            get => skillChanceResistance;
+            set => skillChanceResistance = value;
             
         }
         
         [SerializeField]
-        private float _resurrectResistance = 0f;
+        private float resurrectResistance = 0f;
 
         public float ResurrectResistance
         {
-            get => _resurrectResistance;
-            set => _resurrectResistance = value;
+            get => resurrectResistance;
+            set => resurrectResistance = value;
             
         }
         
         [SerializeField]
-        private float _counterAttackResistance = 0f;
+        private float counterAttackResistance = 0f;
 
         public float CounterAttackResistance
         {
-            get => _counterAttackResistance;
-            set => _counterAttackResistance = value;
+            get => counterAttackResistance;
+            set => counterAttackResistance = value;
             
         }
 

@@ -41,6 +41,13 @@ namespace Interfaces
         void AddCurrent(IEnumerator value);
 
         /// <summary>
+        /// Add a coroutine as the last node to be processed
+        /// Used by HeroDies
+        /// </summary>
+        /// <param name="value"></param>
+        void AddLast(IEnumerator value);
+
+        /// <summary>
         /// Add a coroutine as a child of the root node.
         /// </summary>
         /// <param name="value">Coroutine to add.</param>

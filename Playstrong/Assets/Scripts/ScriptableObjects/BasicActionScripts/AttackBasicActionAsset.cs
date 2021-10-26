@@ -79,7 +79,7 @@ namespace ScriptableObjects.BasicActions
     
     private IEnumerator NormalAttack(IHero thisHero, IHero targetHero)
     {
-        Debug.Log("Normal Attack: ");
+        //Debug.Log("Normal Attack: ");
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)

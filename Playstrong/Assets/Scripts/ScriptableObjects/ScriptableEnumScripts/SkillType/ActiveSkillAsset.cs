@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using Interfaces;
-using Logic;
 using References;
 using TMPro;
 using UnityEngine;
-using Visual;
 
-namespace ScriptableObjects.Enums.SkillType
+namespace ScriptableObjects.ScriptableEnumScripts.SkillType
 {
     [CreateAssetMenu(fileName = "ActiveSkill", menuName = "SO's/Skill Type/Active Skill")]
-    public class ActiveSkillAsset : SkillType
+    public class ActiveSkillAsset : Enums.SkillType.SkillType
     {
         public override void SkillCooldownDisplay(TextMeshProUGUI cooldown)
         {

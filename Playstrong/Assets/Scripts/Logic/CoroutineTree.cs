@@ -79,8 +79,16 @@ namespace Logic
         public void AddCurrent(IEnumerator value)
         {
             CurrentNode.AddChild(value);
-            
-            
+        }
+        
+        /// <summary>
+        /// Add a coroutine as child of the current node.
+        /// Last node is the last node to be processed
+        /// </summary>
+        /// <param name="value">Coroutine to add.</param>
+        public void AddLast(IEnumerator value)
+        {
+            CurrentNode.AddChildAtStart(value);
         }
 
         /// <summary>

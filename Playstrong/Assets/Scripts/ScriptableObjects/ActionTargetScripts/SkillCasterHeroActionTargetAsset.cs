@@ -27,7 +27,7 @@ namespace ScriptableObjects.ActionTargets
             var heroTargets = new List<IHero>();
             heroTargets.Clear();
 
-            Debug.Log("Skill Caster Hero1: " +LocalSkill.Hero.HeroName );
+            //Debug.Log("Skill Caster Hero1: " +LocalSkill.Hero.HeroName );
             
             heroTargets.Add(LocalSkill.Hero);
             
@@ -48,7 +48,8 @@ namespace ScriptableObjects.ActionTargets
         public override ISkill SetSkillReference(ISkill skill)
         {
             LocalSkill = skill;
-            Debug.Log("Set Skill Caster Reference: " +LocalSkill.SkillName);
+            
+            //Debug.Log("Set Skill Caster Reference: " +LocalSkill.SkillName);
 
             return LocalSkill;
         }

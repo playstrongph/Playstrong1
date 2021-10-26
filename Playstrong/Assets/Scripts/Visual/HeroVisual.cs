@@ -53,6 +53,11 @@ namespace Visual
         private Object _energyVisual;
         public ISetEnergyVisual EnergyVisual => _energyVisual as ISetEnergyVisual;
 
+        [SerializeField] [RequireInterface(typeof(IFightingSpiritVisual))]
+        private Object _fightingSpiritVisual;
+
+        public IFightingSpiritVisual FightingSpiritVisual => _fightingSpiritVisual as IFightingSpiritVisual;
+
         
         [SerializeField] [RequireInterface(typeof(ILoadHeroVisuals))]
         private Object _loadHeroVisuals;

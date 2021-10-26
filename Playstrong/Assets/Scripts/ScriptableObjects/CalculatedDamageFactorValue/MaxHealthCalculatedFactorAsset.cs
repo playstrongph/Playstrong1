@@ -15,7 +15,7 @@ namespace ScriptableObjects.CalculatedDamageFactorValue
             if (OtherHeroBasis != null)
                 healthFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.HeroAttributes.BaseHealth * percentFactor / 100f);
             
-            Debug.Log("Max Health Factor: " +healthFactor);
+            //Debug.Log("Max Health Factor: " +healthFactor);
 
             return healthFactor;
         }

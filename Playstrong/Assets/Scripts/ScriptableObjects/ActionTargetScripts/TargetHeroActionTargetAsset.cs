@@ -27,7 +27,7 @@ namespace ScriptableObjects.ActionTargetScripts
             
             heroTargets.Add(hero);
             
-            Debug.Log("Hero: " +heroTargets[0].HeroName);
+            //Debug.Log("Hero: " +heroTargets[0].HeroName);
             
             return heroTargets;
         }

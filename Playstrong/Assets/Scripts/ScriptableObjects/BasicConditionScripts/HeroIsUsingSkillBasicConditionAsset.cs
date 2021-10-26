@@ -21,7 +21,7 @@ namespace ScriptableObjects.BasicActions
         {
             var usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(SkillReference);
             
-            Debug.Log("Skill Use Status Value Single Argument: " +usingSkill);
+            //Debug.Log("Skill Use Status Value Single Argument: " +usingSkill);
             
             return usingSkill;
         }
@@ -30,7 +30,7 @@ namespace ScriptableObjects.BasicActions
         {
             var usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(SkillReference);
             
-            Debug.Log("Skill Use Status Value 2 Arguments: " +usingSkill);
+            //Debug.Log("Skill Use Status Value 2 Arguments: " +usingSkill);
             
             return usingSkill;
         }

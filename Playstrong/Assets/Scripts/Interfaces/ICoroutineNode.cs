@@ -36,6 +36,9 @@ namespace Interfaces
         /// <param name="coroutine">Coroutine to add.</param>
         /// <returns></returns>
         CoroutineNode AddChild(IEnumerator coroutine);
+        
+        //TEST
+        CoroutineNode AddChildAtStart(IEnumerator coroutine);
 
         /// <summary>
         /// Remove all children of this node.

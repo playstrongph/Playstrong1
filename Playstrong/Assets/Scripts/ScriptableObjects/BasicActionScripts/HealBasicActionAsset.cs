@@ -38,7 +38,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator TargetAction(IHero thisHero,IHero targetHero)
         {
-            Debug.Log("Heal Basic Action 2args");
+            //Debug.Log("Heal Basic Action 2args");
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var targetHealChance = targetHero.HeroLogic.OtherAttributes.HealChance;
@@ -58,7 +58,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private IEnumerator HealCoroutine(IHero targetHero)
         {
-            Debug.Log("Heal Coroutine");
+            //Debug.Log("Heal Coroutine");
             
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var visualTree = targetHero.CoroutineTreesAsset.MainVisualTree;

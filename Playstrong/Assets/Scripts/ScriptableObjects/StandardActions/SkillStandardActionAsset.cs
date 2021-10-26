@@ -17,7 +17,7 @@ namespace ScriptableObjects.StandardActions
         
         public override void StartAction(IHero targetHero)
         {
-            Debug.Log("" +this.name  +" StartAction targetHero");
+            //Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(SetUsingSkillStatus());

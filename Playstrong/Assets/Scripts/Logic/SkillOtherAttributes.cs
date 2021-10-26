@@ -14,8 +14,8 @@ namespace Logic
             _skillLogic = GetComponent<ISkillLogic>();
         }
 
+
         [Header("Applied Skill Effects")]
-        
         //Factor for overlapping silence effect (e.g. Buff and UniqueEffect)
         //IF silence factor > 0, skill won't be re-enabled
         [SerializeField]
@@ -25,5 +25,7 @@ namespace Logic
             get => disableSkillEffects;
             set => disableSkillEffects = value;
         }
+        
+        
     }
 }

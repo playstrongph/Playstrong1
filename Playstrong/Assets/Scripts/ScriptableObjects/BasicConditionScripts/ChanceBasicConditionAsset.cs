@@ -33,7 +33,7 @@ namespace ScriptableObjects.BasicActions
             var totalChance = chanceValue + heroChance;
             var randomNumber = Random.Range(1, 101);
             
-            Debug.Log("2Hero: " +thisHero.HeroName +" 2Chance: " +thisHero.HeroLogic.HeroAttributes.Chance);
+            //Debug.Log("2Hero: " +thisHero.HeroName +" 2Chance: " +thisHero.HeroLogic.HeroAttributes.Chance);
 
             return randomNumber <= totalChance ? 1 : 0;
         }

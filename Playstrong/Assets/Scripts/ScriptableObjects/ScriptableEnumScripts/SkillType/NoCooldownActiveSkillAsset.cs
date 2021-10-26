@@ -6,6 +6,11 @@ using UnityEngine;
 
 namespace ScriptableObjects.ScriptableEnumScripts.SkillType
 {
+    
+    /// <summary>
+    /// Used by Fighting Spirit Skills
+    /// Cooldown should be set to 999 
+    /// </summary>
     [CreateAssetMenu(fileName = "NoCdActiveSkill", menuName = "SO's/Skill Type/NoCdActiveSkill")]
     public class NoCooldownActiveSkillAsset : Enums.SkillType.SkillType
     {

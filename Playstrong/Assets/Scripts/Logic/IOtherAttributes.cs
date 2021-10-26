@@ -9,6 +9,9 @@
         //TODO: For Cleanup
         float DirectDamageReduction { get; set; }
         
+        //FIGHTING SPIRIT
+        int FightingSpirit { get; set; }
+
         //TAKE DAMAGE REDUCTION
         float TakeAllDamageReduction { get; set; }
         float TakeSingleAttackDamageReduction { get; set; }

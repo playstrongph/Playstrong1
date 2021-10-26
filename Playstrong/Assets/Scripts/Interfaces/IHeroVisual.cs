@@ -21,6 +21,8 @@ namespace Interfaces
         ISetHealthVisual HealthVisual { get; }
         ISetEnergyVisual EnergyVisual { get; }
 
+        IFightingSpiritVisual FightingSpiritVisual { get; }
+
         ILoadHeroVisuals LoadHeroVisuals { get; }
 
         ISetHeroFrameAndGlow SetHeroFrameAndGlow { get; }

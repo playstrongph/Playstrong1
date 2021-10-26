@@ -192,7 +192,7 @@ namespace ScriptableObjects.StandardActions
         //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
         protected IEnumerator StartActionCoroutine(IHero thisHero, IHero targetHero)
         {   
-            Debug.Log("StartActionCoroutine thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
+            //Debug.Log("StartActionCoroutine thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
@@ -325,7 +325,7 @@ namespace ScriptableObjects.StandardActions
         }
         private int FinalConditionValue(IHero thisHero, IHero targetHero)
         {
-            Debug.Log("FinalConditionValue thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
+            //Debug.Log("FinalConditionValue thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);
             return finalCondition;
         }

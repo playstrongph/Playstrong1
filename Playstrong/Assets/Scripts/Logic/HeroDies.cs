@@ -47,6 +47,9 @@ namespace Logic
             logicTree.AddCurrent(HeroTakesFatalDamageEvent(hero));
 
             logicTree.AddCurrent(HeroDiesAction(hero));
+            
+            //TEST - works but causing problems
+            //logicTree.AddRoot(HeroDiesAction(hero));
 
             logicTree.EndSequence();
             yield return null;
@@ -77,11 +80,15 @@ namespace Logic
 
             if (heroHealth <= 0)
             {
-                //TEST
+                
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
                 logicTree.AddCurrent(HeroDeathActions(hero));
-                //logicTree.AddCurrent(AfterHeroDiesEvent(hero));
                 logicTree.AddCurrent(PostHeroDeath(hero));
+                
+                //TEST
+                /*logicTree.AddLast(AfterHeroDiesEvent(hero));
+                logicTree.AddLast(HeroDeathActions(hero));
+                logicTree.AddLast(PostHeroDeath(hero));*/
             }
 
             logicTree.EndSequence();
