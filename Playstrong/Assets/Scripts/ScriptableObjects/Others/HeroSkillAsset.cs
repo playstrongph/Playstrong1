@@ -4,6 +4,7 @@ using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.ScriptableEnumScripts.SkillCooldownType;
 using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
@@ -41,6 +42,11 @@ namespace ScriptableObjects.Others
         private ScriptableObject _skillTarget;
         
         public ISkillTarget SkillTarget => _skillTarget as ISkillTarget;
+
+        [Header("Skill Cooldown Type")] [SerializeField]
+        private ScriptableObject _skillCooldownType;
+
+        public ISkillCooldownTypeAsset SkillCooldownType => _skillCooldownType as ISkillCooldownTypeAsset;
 
         [Header("Skill Graphic")] 
         [SerializeField]
