@@ -98,7 +98,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         
         
         //AUXILIARY METHODS
-        protected void UpdateSkillReadinessStatus(ISkill skill)
+        private void UpdateSkillReadinessStatus(ISkill skill)
         {
             var skillCooldown = skill.SkillLogic.SkillAttributes.Cooldown;
             
@@ -108,7 +108,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             else
                 skill.SkillLogic.SkillAttributes.SkillEnabledStatus.SetSkillNotReady(skill);
         }
-        protected IEnumerator VisualReduceCdAction(ISkill skill,int skillCd)
+        private IEnumerator VisualReduceCdAction(ISkill skill,int skillCd)
         {
              var skillVisual = skill.SkillVisual;
              var visualTree = skill.CoroutineTreesAsset.MainVisualTree;

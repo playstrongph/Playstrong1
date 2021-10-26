@@ -6,6 +6,7 @@ using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
 using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
+using ScriptableObjects.ScriptableEnumScripts.SkillCooldownType;
 using ScriptableObjects.SkillEffects;
 using UnityEngine;
 using Utilities;
@@ -93,6 +94,9 @@ namespace Logic
         private ISkillLogic _skillLogic;
 
         public ISkill SkillReference => _skillLogic.Skill;
+
+        [SerializeField] private ScriptableObject skillCooldownType;
+        public ISkillCooldownTypeAsset SkillCooldownType => skillCooldownType as ISkillCooldownTypeAsset;
 
         private void Awake()
         {

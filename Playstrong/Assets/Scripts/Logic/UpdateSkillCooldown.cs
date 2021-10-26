@@ -19,7 +19,9 @@ namespace Logic
         public IEnumerator ReduceCooldown(int counter)
         {
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            
             var visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
             var skillAttributes = _skillLogic.SkillAttributes;     
             var skillCd = skillAttributes.Cooldown;
             var maxSkillCd = skillAttributes.BaseCooldown;
