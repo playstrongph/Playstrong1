@@ -17,7 +17,7 @@ MonoBehaviour:
   _skillEffect: {fileID: 11400000, guid: fa70014bcc2344d419907c319ec924e8, type: 2}
   _skillType: {fileID: 11400000, guid: a64361a623eab4246ab59ebb5c7f0eaa, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
-  _skillCooldownType: {fileID: 11400000, guid: 9445706b0cd2f014b8f053ed2651a494, type: 2}
+  _skillCooldownType: {fileID: 11400000, guid: 6a46c8f19ce4f59449530498ea1e934c, type: 2}
   _skillIcon: {fileID: 21300000, guid: e8606eec65b9f4244affb2230c63242f, type: 3}
   baseCooldown: 0
   _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
