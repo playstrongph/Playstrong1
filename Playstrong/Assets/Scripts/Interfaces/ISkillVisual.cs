@@ -21,5 +21,8 @@ namespace Interfaces
         ILoadSkillVisuals LoadSkillVisuals { get; }
 
         ISkillCooldownVisual SkillCooldownVisual { get; }
+
+        GameObject FightingSpirit { get; }
+        TextMeshProUGUI FightingSpiritText { get; }
     }
 }

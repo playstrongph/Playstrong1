@@ -35,6 +35,12 @@ namespace Visual
         private ISkillCooldownVisual _skillCooldownVisual;
         public ISkillCooldownVisual SkillCooldownVisual => _skillCooldownVisual;
 
+        [SerializeField] private GameObject _fightingSpirit;
+        public GameObject FightingSpirit => _fightingSpirit;
+        
+        [SerializeField] private TextMeshProUGUI _fightingSpiritText;
+        public TextMeshProUGUI FightingSpiritText => _fightingSpiritText;
+
         private void Awake()
         {
             _loadSkillVisuals = GetComponent<ILoadSkillVisuals>();
