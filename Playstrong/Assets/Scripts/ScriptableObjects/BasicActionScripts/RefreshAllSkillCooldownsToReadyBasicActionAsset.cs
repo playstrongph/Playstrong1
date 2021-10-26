@@ -26,7 +26,7 @@ namespace ScriptableObjects.BasicActionScripts
            foreach (var heroSkillObject in heroSkillObjects)
            {
                var skill = heroSkillObject.GetComponent<ISkill>();
-               logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(skillReadyValue));
+               logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.SetSkillCdToValue(skillReadyValue));
                logicTree.AddCurrent(SetSkillReady(targetHero,skill));
                Debug.Log("SetSkillReady: " +skill.SkillName +" cooldown: " +skill.SkillLogic.SkillAttributes.Cooldown);
                
@@ -51,7 +51,7 @@ namespace ScriptableObjects.BasicActionScripts
             foreach (var heroSkillObject in heroSkillObjects)
             {
                 var skill = heroSkillObject.GetComponent<ISkill>();
-                logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(skillReadyValue));
+                logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.SetSkillCdToValue(skillReadyValue));
                 logicTree.AddCurrent(SetSkillReady(targetHero,skill));
                 Debug.Log("SetSkillReady: " +skill.SkillName +" cooldown: " +skill.SkillLogic.SkillAttributes.Cooldown);
                

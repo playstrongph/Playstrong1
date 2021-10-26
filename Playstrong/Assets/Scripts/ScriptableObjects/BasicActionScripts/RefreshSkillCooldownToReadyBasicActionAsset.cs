@@ -41,7 +41,7 @@ namespace ScriptableObjects.BasicActionScripts
            //TEST - null check not required in final version
            if (_skillToRefresh != null)
            {
-               logicTree.AddCurrent(_skillToRefresh.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(skillReadyValue));
+               logicTree.AddCurrent(_skillToRefresh.SkillLogic.UpdateSkillCooldown.SetSkillCdToValue(skillReadyValue));
                logicTree.AddCurrent(SetSkillReady(targetHero));
                Debug.Log("SetSkillReady: " +_skillToRefresh.SkillName +" cooldown: " +_skillToRefresh.SkillLogic.SkillAttributes.Cooldown);
            }
@@ -73,7 +73,7 @@ namespace ScriptableObjects.BasicActionScripts
             //TEST - null check not required in final version
             if (_skillToRefresh != null)
             {
-                logicTree.AddCurrent(_skillToRefresh.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(skillReadyValue));
+                logicTree.AddCurrent(_skillToRefresh.SkillLogic.UpdateSkillCooldown.SetSkillCdToValue(skillReadyValue));
                 logicTree.AddCurrent(SetSkillReady(targetHero));
             }
 

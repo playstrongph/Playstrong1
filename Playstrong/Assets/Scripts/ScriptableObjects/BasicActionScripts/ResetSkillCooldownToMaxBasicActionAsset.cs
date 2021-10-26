@@ -33,7 +33,7 @@ namespace ScriptableObjects.BasicActionScripts
            
            //var baseCooldown = _skillToReset.SkillLogic.SkillAttributes.BaseCooldown;
            
-           logicTree.AddCurrent(_skillToReset.SkillLogic.ChangeSkillCooldown.SetSkillCdToValue(baseCooldown));
+           logicTree.AddCurrent(_skillToReset.SkillLogic.UpdateSkillCooldown.SetSkillCdToValue(baseCooldown));
 
            logicTree.EndSequence();
            yield return null;

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Logic
 {
-    public class ChangeSkillCooldown : MonoBehaviour, IChangeSkillCooldown
+    public class UpdateSkillCooldown : MonoBehaviour, IUpdateSkillCooldown
     {
         private ISkillLogic _skillLogic;
         

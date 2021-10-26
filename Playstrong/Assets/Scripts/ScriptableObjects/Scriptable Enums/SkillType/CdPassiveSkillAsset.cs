@@ -20,7 +20,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(skill.SkillLogic.ChangeSkillCooldown.ReduceCooldown(counter));
+            logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.ReduceCooldown(counter));
         }
         
         //Reset when skill cooldown = 0, i.e. SkillReadyStatus
@@ -57,7 +57,7 @@ namespace ScriptableObjects.Enums.SkillType
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(skillLogic.ChangeSkillCooldown.SetSkillCdToValue(counter));
+            logicTree.AddCurrent(skillLogic.UpdateSkillCooldown.SetSkillCdToValue(counter));
 
             logicTree.EndSequence();
             yield return null;

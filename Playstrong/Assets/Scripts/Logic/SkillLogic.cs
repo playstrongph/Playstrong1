@@ -32,8 +32,8 @@ namespace Logic
         private ISkillEvents _skillEvents;
         public ISkillEvents SkillEvents => _skillEvents;
 
-        private IChangeSkillCooldown _changeSkillCooldown;
-        public IChangeSkillCooldown ChangeSkillCooldown => _changeSkillCooldown;
+        private IUpdateSkillCooldown _updateSkillCooldown;
+        public IUpdateSkillCooldown UpdateSkillCooldown => _updateSkillCooldown;
 
         private ISkillAttack _skillAttack;
         public ISkillAttack SkillAttack => _skillAttack;
@@ -53,7 +53,7 @@ namespace Logic
             _skill = GetComponentInParent<ISkill>();
             _updateSkillReadiness = GetComponent<IUpdateSkillReadiness>();
             _skillEvents = GetComponent<ISkillEvents>();
-            _changeSkillCooldown = GetComponent<IChangeSkillCooldown>();
+            _updateSkillCooldown = GetComponent<IUpdateSkillCooldown>();
             _skillAttack = GetComponent<ISkillAttack>();
             _updateSkillEnabledStatus = GetComponent<IUpdateSkillEnabledStatus>();
             _skillOtherAttributes = GetComponent<ISkillOtherAttributes>();

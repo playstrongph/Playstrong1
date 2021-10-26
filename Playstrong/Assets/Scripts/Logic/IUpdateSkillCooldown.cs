@@ -2,7 +2,7 @@
 
 namespace Logic
 {
-    public interface IChangeSkillCooldown
+    public interface IUpdateSkillCooldown
     {
         IEnumerator ReduceCooldown(int counter);
         IEnumerator IncreaseCooldown(int counter);
