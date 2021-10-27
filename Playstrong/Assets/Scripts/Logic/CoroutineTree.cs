@@ -73,22 +73,12 @@ namespace Logic
 
         /// <summary>
         /// Add a coroutine as child of the current node.
-        /// Currnet node is the node being processed
+        /// Current node is the node being processed
         /// </summary>
         /// <param name="value">Coroutine to add.</param>
         public void AddCurrent(IEnumerator value)
         {
             CurrentNode.AddChild(value);
-        }
-        
-        /// <summary>
-        /// Add a coroutine as child of the current node.
-        /// Last node is the last node to be processed
-        /// </summary>
-        /// <param name="value">Coroutine to add.</param>
-        public void AddLast(IEnumerator value)
-        {
-            CurrentNode.AddChildAtStart(value);
         }
 
         /// <summary>
@@ -98,8 +88,19 @@ namespace Logic
         public void AddRoot(IEnumerator value)
         {
             Root.AddChild(value);
-            
-            
+        }
+        
+        /// <summary>
+        /// Add a coroutine as a sibling of the current node
+        /// This is processed after all children of the current node
+        /// are done
+        /// </summary>
+        /// <param name="value">Coroutine to add.</param>
+        public void AddSibling(IEnumerator value)
+        {
+            //Note that this is the same as "AddRoot" since the Current Node is essentially always the "Root"
+            //during tree processing.  AddSibling was created in order to be less confusing
+            Root.AddChild(value);
         }
 
         /// <summary>

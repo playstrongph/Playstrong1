@@ -46,10 +46,7 @@ namespace Logic
             
             logicTree.AddCurrent(HeroTakesFatalDamageEvent(hero));
 
-            logicTree.AddCurrent(HeroDiesAction(hero));
-            
-            //TEST - works but causing problems
-            //logicTree.AddRoot(HeroDiesAction(hero));
+            logicTree.AddSibling(HeroDiesAction(hero));
 
             logicTree.EndSequence();
             yield return null;
