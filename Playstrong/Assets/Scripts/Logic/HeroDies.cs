@@ -45,6 +45,10 @@ namespace Logic
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             
             logicTree.AddCurrent(HeroTakesFatalDamageEvent(hero));
+            
+            
+            logicTree.AddCurrent(SetHeroDeadStatusAction(hero));
+
 
             logicTree.AddSibling(HeroDiesAction(hero));
 
@@ -69,7 +73,18 @@ namespace Logic
            
         }
 
+        private IEnumerator SetHeroDeadStatusAction(IHero hero)
+        {
+            var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+            var heroHealth = hero.HeroLogic.HeroAttributes.Health;
 
+            if (heroHealth <= 0)
+                logicTree.AddCurrent(SetHeroDeadStatus(hero));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
         private IEnumerator HeroDiesAction(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
@@ -77,15 +92,9 @@ namespace Logic
 
             if (heroHealth <= 0)
             {
-                
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
                 logicTree.AddCurrent(HeroDeathActions(hero));
                 logicTree.AddCurrent(PostHeroDeath(hero));
-                
-                //TEST
-                /*logicTree.AddLast(AfterHeroDiesEvent(hero));
-                logicTree.AddLast(HeroDeathActions(hero));
-                logicTree.AddLast(PostHeroDeath(hero));*/
             }
 
             logicTree.EndSequence();
@@ -133,17 +142,14 @@ namespace Logic
         private void DeathActions(IHero hero)
         {
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+
+            //Move this earlier to prevent effects such as counterattack when hero dies
+            //logicTree.AddCurrent(SetHeroDeadStatus(hero));
             
-            //if hero is active, end turn
-            //TEST
-            //logicTree.AddCurrent(hero.HeroLogic.HeroStatus.EndHeroTurn(hero.HeroLogic));
-            
-            
-            logicTree.AddCurrent(SetHeroDeadStatus(hero));
-            
+            //Logic
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
             logicTree.AddCurrent(UnRegisterSkills(hero));
-            logicTree.AddCurrent(DisableHeroTurns(hero)); 
+            logicTree.AddCurrent(DisableHeroTurns(hero));
             
             
             //Visual
@@ -151,7 +157,7 @@ namespace Logic
             logicTree.AddCurrent(HideHeroVisuals(hero));
             logicTree.AddCurrent(ResetHeroAttributes(hero));
             
-            //TODO: EndHeroTurn Enumerator
+            
             logicTree.AddCurrent(EndActiveHeroTurn(hero));
             
 
