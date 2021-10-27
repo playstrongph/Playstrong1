@@ -57,6 +57,12 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //TEST
+        public override void SetSkillReady(ISkill skill)
+        {
+            //skill.SkillLogic.SkillAttributes.SkillEnabledStatus.SetSkillReady(skill);
+        }
 
 
     }

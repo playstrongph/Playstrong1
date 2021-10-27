@@ -20,6 +20,12 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
                 EnableSkillAction(skill);
         }
         
+        /// <summary>
+        /// Registers the skill again and updates the status.
+        /// Checks if the skill is NOT the NoSkillCooldown type and has
+        /// a cooldown of zero before setting it to SkillReady
+        /// </summary>
+        /// <param name="skill"></param>
         private void EnableSkillAction(ISkill skill)
         {
             //Register Skill Effect
@@ -27,9 +33,9 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.RegisterSkillEffect(skill.Hero);
             
             
-            //Set Skill Ready
+            //Checks if the skill cooldown type is NOT NoSkillCooldown
             if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
-                skill.SkillLogic.UpdateSkillReadiness.SetSkillReady();
+                skill.SkillLogic.SkillAttributes.SkillCooldownType.SetSkillReady(skill);
             
             
             //Set Skill Enabled

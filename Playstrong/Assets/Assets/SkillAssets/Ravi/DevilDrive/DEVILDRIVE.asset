@@ -16,9 +16,9 @@ MonoBehaviour:
   _description: Attack and STUN all enemies, then decrease their ENERGY to zero. 
     (Costs 70 Fighting Spirit)
   _skillEffect: {fileID: 11400000, guid: 47cbe2a7d52ae4d4d9ee4864aea7fe0b, type: 2}
-  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  _skillType: {fileID: 11400000, guid: d137a82a2606d5a4f993392515662d73, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
-  _skillCooldownType: {fileID: 11400000, guid: 9445706b0cd2f014b8f053ed2651a494, type: 2}
+  _skillCooldownType: {fileID: 11400000, guid: 6a46c8f19ce4f59449530498ea1e934c, type: 2}
   _skillIcon: {fileID: 21300000, guid: 093db7b955771b84eacd0a007dd73590, type: 3}
-  baseCooldown: 1
+  baseCooldown: 0
   _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}

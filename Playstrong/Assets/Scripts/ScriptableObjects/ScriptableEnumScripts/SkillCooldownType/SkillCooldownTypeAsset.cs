@@ -6,8 +6,6 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
 {
     public class SkillCooldownTypeAsset : ScriptableObject, ISkillCooldownTypeAsset
     {
-      
-
         public virtual IEnumerator TurnReduceCooldown(ISkill skill, int counter)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
@@ -92,14 +90,29 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             skillAttributes.Cooldown = 0;
             
             UpdateSkillReadinessStatus(skill);
+            
             visualTree.AddCurrent(VisualReduceCdAction(skill,0));
             
             logicTree.EndSequence();
             yield return null;
         }
         
-        
-        //AUXILIARY METHODS
+        /// <summary>
+        /// Used by NoSkillCooldownType inheritor.  Skill Enabled can't enable
+        /// the skill if it has No Cooldown
+        /// </summary>
+        /// <param name="skill"></param>
+        public virtual void SetSkillReady(ISkill skill)
+        {
+            skill.SkillLogic.UpdateSkillReadiness.SetSkillReady();
+        }
+
+
+        /// <summary>
+        /// Checks if skill is enabled and has a cooldown of zero
+        /// before setting it to skill ready
+        /// </summary>
+        /// <param name="skill"></param>
         private void UpdateSkillReadinessStatus(ISkill skill)
         {
             var skillCooldown = skill.SkillLogic.SkillAttributes.Cooldown;
@@ -110,6 +123,8 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             else
                 skill.SkillLogic.SkillAttributes.SkillEnabledStatus.SetSkillNotReady(skill);
         }
+        
+        
         private IEnumerator VisualReduceCdAction(ISkill skill,int skillCd)
         {
              var skillVisual = skill.SkillVisual;

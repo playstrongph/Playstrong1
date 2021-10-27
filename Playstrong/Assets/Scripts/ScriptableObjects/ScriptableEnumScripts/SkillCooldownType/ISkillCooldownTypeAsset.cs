@@ -10,5 +10,8 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         IEnumerator SetSkillCdToValue(ISkill skill, int counter);
         IEnumerator TurnResetCooldownToMax(ISkill skill);
         IEnumerator RefreshCooldownToZero(ISkill skill);
+        
+        //TEST
+        void SetSkillReady(ISkill skill);
     }
 }
