@@ -3639,26 +3639,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b263c4854133b1479d3011d0d35eb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _directDamageReduction: 0
-  _takeAllDamageReduction: 0
-  _takeSingleAttackDamageReduction: 0
-  _takeMultiAttackDamageReduction: 0
-  _takeSkillDamageReduction: 0
-  _takeNonSkillDamageReduction: 0
-  _dealAllDamageReduction: 0
-  _dealSingleAttackDamageReduction: 0
-  _dealMultiAttackDamageReduction: 0
-  _dealSkillDamageReduction: 0
-  _dealNonSkillDamageReduction: 0
-  _criticalDamageMultiplier: 100
-  _otherDamageMultiplier: 0
-  _healResistance: 0
-  _criticalStrikeResistance: 0
-  _debuffResistance: 0
-  _buffResistance: 0
-  _skillChanceResistance: 0
-  _resurrectResistance: 0
-  _counterAttackResistance: 0
+  directDamageReduction: 0
+  fightingSpirit: 0
+  takeAllDamageReduction: 0
+  takeSingleAttackDamageReduction: 0
+  takeMultiAttackDamageReduction: 0
+  takeSkillDamageReduction: 0
+  takeNonSkillDamageReduction: 0
+  dealAllDamageReduction: 0
+  dealSingleAttackDamageReduction: 0
+  dealMultiAttackDamageReduction: 0
+  dealSkillDamageReduction: 0
+  dealNonSkillDamageReduction: 0
+  criticalDamageMultiplier: 100
+  otherDamageMultiplier: 0
+  healResistance: 0
+  criticalStrikeResistance: 0
+  debuffResistance: 0
+  buffResistance: 0
+  skillChanceResistance: 0
+  resurrectResistance: 0
+  counterAttackResistance: 0
   attackTargetResistance: 0
   penetrateArmorResistance: 0
   energyUpResistance: 0
