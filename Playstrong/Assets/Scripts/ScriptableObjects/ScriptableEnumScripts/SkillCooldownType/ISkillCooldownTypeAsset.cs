@@ -12,6 +12,6 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         IEnumerator RefreshCooldownToZero(ISkill skill);
         
         //TEST
-        void SetSkillReady(ISkill skill);
+        void UpdateSkillReadinessStatus(ISkill skill);
     }
 }

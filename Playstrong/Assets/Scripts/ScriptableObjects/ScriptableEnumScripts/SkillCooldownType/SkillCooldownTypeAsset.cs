@@ -96,16 +96,6 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             logicTree.EndSequence();
             yield return null;
         }
-        
-        /// <summary>
-        /// Used by NoSkillCooldownType inheritor.  Skill Enabled can't enable
-        /// the skill if it has No Cooldown
-        /// </summary>
-        /// <param name="skill"></param>
-        public virtual void SetSkillReady(ISkill skill)
-        {
-            skill.SkillLogic.UpdateSkillReadiness.SetSkillReady();
-        }
 
 
         /// <summary>
@@ -113,7 +103,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
         /// before setting it to skill ready
         /// </summary>
         /// <param name="skill"></param>
-        private void UpdateSkillReadinessStatus(ISkill skill)
+        public virtual void UpdateSkillReadinessStatus(ISkill skill)
         {
             var skillCooldown = skill.SkillLogic.SkillAttributes.Cooldown;
             

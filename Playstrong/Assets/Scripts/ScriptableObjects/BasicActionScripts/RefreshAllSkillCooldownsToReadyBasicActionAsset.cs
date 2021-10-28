@@ -67,7 +67,7 @@ namespace ScriptableObjects.BasicActionScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             //_skillToRefresh.SkillLogic.UpdateSkillReadiness.SetSkillReady();
-            skill.SkillLogic.SkillAttributes.SkillEnabledStatus.SetSkillReady(skill);
+            skill.SkillLogic.SkillAttributes.SkillCooldownType.UpdateSkillReadinessStatus(skill);
             
             logicTree.EndSequence();
             yield return null;
