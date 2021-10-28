@@ -14,14 +14,14 @@ namespace ScriptableObjects.BasicActions
 
         [SerializeField] private int fightingSpiritLimit;
         
-        [SerializeField] private ScriptableObject actionHero;
-        private IActionTargets ActionHero => actionHero as IActionTargets;
+        /*[SerializeField] private ScriptableObject actionHero;
+        private IActionTargets ActionHero => actionHero as IActionTargets;*/
 
         protected override int CheckBasicCondition(IHero thisHero)
         {
-            var hero = ActionHero.GetHeroTarget(thisHero);
+            //var hero = ActionHero.GetHeroTarget(thisHero);
             
-            var fightingSpirit = hero.HeroLogic.OtherAttributes.FightingSpirit;
+            var fightingSpirit = thisHero.HeroLogic.OtherAttributes.FightingSpirit;
             return fightingSpirit >= fightingSpiritLimit ? 1 : 0;
            
 
@@ -29,9 +29,9 @@ namespace ScriptableObjects.BasicActions
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            var hero = ActionHero.GetHeroTarget(thisHero,targetHero);
+            //var hero = ActionHero.GetHeroTarget(thisHero,targetHero);
             
-            var fightingSpirit = hero.HeroLogic.OtherAttributes.FightingSpirit;
+            var fightingSpirit = targetHero.HeroLogic.OtherAttributes.FightingSpirit;
             return fightingSpirit >= fightingSpiritLimit ? 1 : 0;
         }
    

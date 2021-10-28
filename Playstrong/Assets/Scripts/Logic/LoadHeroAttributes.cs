@@ -7,11 +7,15 @@ namespace Logic
     public class LoadHeroAttributes : MonoBehaviour, ILoadHeroAttributes
     {
         private IHeroAttributes _heroAttributes;
+        private IOtherAttributes _otherAttributes;
+        
+        
         private int _initalHeroEnergy = 0;
 
         private void Awake()
         {
             _heroAttributes = GetComponent<IHeroAttributes>();
+            _otherAttributes = GetComponent<IOtherAttributes>();
         }
 
         public void LoadHeroAttributesFromHeroAsset(IHeroAsset heroAsset)
@@ -35,6 +39,9 @@ namespace Logic
             _heroAttributes.Chance = heroAsset.Chance;
             _heroAttributes.BaseChance = heroAsset.Chance;
             _heroAttributes.HeroAssetChance = heroAsset.Chance;
+            
+            //TEST
+            _otherAttributes.FightingSpirit = heroAsset.FightingSpirit;
             
             _heroAttributes.Energy = _initalHeroEnergy;
 

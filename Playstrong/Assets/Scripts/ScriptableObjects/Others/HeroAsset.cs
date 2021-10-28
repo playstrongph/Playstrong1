@@ -47,6 +47,10 @@ namespace ScriptableObjects.Others
         private int _armor;
         public int Armor => _armor;
         
+        [SerializeField]
+        private int _fightingSpirit;
+        public int FightingSpirit => _fightingSpirit;
+        
         [Header("Other Hero Attributes")]
         [SerializeField] [RequireInterface(typeof(IRarityEnumAsset))]
         private ScriptableObject _rarity;

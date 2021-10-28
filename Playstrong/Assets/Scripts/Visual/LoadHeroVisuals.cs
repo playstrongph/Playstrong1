@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using Logic;
 using UnityEngine;
 
 namespace Visual
@@ -8,7 +9,9 @@ namespace Visual
     {
         
         private IHeroVisual _heroVisual;
+        
         private IHeroAttributes _heroAttributes;
+        private IOtherAttributes _otherAttributes;
         
         private int _initialEnergy = 0;
 
@@ -16,6 +19,7 @@ namespace Visual
         {
             _heroVisual = GetComponent<IHeroVisual>();
             _heroAttributes = _heroVisual.Hero.HeroLogic.HeroAttributes;
+            _otherAttributes = _heroVisual.Hero.HeroLogic.OtherAttributes;
 
         }
 
@@ -34,6 +38,9 @@ namespace Visual
             _heroVisual.ArmorVisual.SetArmorText(_heroAttributes.Armor);
             _heroVisual.HealthVisual.SetHealthText(_heroAttributes.Health.ToString());
             _heroVisual.EnergyVisual.SetEnergyTextAndBarFill(_initialEnergy);
+            
+            //Test
+            _heroVisual.FightingSpiritVisual.SetFightingSpiritText(_otherAttributes.FightingSpirit);
             
 
         }

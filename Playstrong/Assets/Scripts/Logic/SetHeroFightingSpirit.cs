@@ -47,12 +47,12 @@ namespace Logic
             _heroLogic.Hero.HeroVisual.FightingSpiritVisual.SetFightingSpiritText(value);
             
             //TEMP
-            if (value>0)
+            /*if (value>0)
                 _heroLogic.Hero.HeroVisual.FightingSpiritVisual.ShowFightingSpiritTextAndIcon();
             else
             {
                 _heroLogic.Hero.HeroVisual.FightingSpiritVisual.HideFightingSpiritTextAndIcon();
-            }
+            }*/
                 
             _visualTree.EndSequence();
             yield return null;

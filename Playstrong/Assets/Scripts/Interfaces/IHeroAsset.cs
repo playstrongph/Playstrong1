@@ -22,6 +22,8 @@ namespace Interfaces
         
         int Armor { get; }
 
+        int FightingSpirit { get; }
+
         IRarityEnumAsset Rarity { get; }
 
         IHeroSkillAsset HeroSkills { get; }
