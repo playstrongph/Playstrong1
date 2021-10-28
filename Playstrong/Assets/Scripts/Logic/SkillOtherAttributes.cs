@@ -27,5 +27,17 @@ namespace Logic
         }
         
         
+        /// <summary>
+        /// Used for tracking hero attribute effects provided by skills
+        /// usually with limits (e.g. Ravi's demon's blood)
+        /// </summary>
+        [SerializeField] private int skillCounters;
+        public int SkillCounters
+        {
+            get => skillCounters;
+            set => skillCounters = value;
+        }
+
+
     }
 }

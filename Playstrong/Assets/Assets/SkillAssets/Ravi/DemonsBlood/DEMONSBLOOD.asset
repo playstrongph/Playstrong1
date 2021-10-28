@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
+  m_Name: DEMONSBLOOD
+  m_EditorClassIdentifier: 
+  skillName: DemonsBlood
+  _description: Whenever you attack or get attacked, gain +15% attack and +3% skill
+    chance (5 times max).  Whenever you get attacked, gain 8% energy and 5 Fighting
+    Spirit.
+  _skillEffect: {fileID: 11400000, guid: c80182576abe9bb4cb5a0fd1ab371770, type: 2}
+  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
+  _skillTarget: {fileID: 11400000, guid: 3b71c2c7a2d6f304cb4c054487b2cb90, type: 2}
+  _skillCooldownType: {fileID: 11400000, guid: 6a46c8f19ce4f59449530498ea1e934c, type: 2}
+  _skillIcon: {fileID: 21300000, guid: acb90f05a30241b448ad8b26d0e63176, type: 3}
+  baseCooldown: 0
+  _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
