@@ -14,9 +14,10 @@ namespace Visual
         [SerializeField] private Image icon;
         
 
-        public void SetFightingSpiritText(string attackValue)
+        public void SetFightingSpiritText(int attackValue)
         {
-            text.text = attackValue;
+            var attackValueString = attackValue.ToString();
+            text.text = attackValueString;
         }
 
         public void HideFightingSpiritTextAndIcon()

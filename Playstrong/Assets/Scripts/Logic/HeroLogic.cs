@@ -104,6 +104,9 @@ namespace Logic
 
         private ISetHeroArmor _setHeroArmor;
         public ISetHeroArmor SetHeroArmor => _setHeroArmor;
+
+        private ISetHeroFightingSpirit _setHeroFightingSpirit;
+        public ISetHeroFightingSpirit SetHeroFightingSpirit => _setHeroFightingSpirit;
         
         private ISetHeroEnergy _setHeroEnergy;
         public ISetHeroEnergy SetHeroEnergy => _setHeroEnergy;
@@ -149,6 +152,7 @@ namespace Logic
             _setHeroSpeed = GetComponent<ISetHeroSpeed>();
             _setHeroHealth = GetComponent<ISetHeroHealth>();
             _setHeroArmor = GetComponent<ISetHeroArmor>();
+            _setHeroFightingSpirit = GetComponent<ISetHeroFightingSpirit>();
             _setHeroEnergy = GetComponent<ISetHeroEnergy>();
             _heroEvents = GetComponent<IHeroEvents>();
             _basicAttackSkillAttributes = GetComponent<ISkillAttributes>();

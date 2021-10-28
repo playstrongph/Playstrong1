@@ -2,7 +2,7 @@
 {
     public interface IFightingSpiritVisual
     {
-        void SetFightingSpiritText(string attackValue);
+        void SetFightingSpiritText(int attackValue);
         void HideFightingSpiritTextAndIcon();
         void ShowFightingSpiritTextAndIcon();
     }
