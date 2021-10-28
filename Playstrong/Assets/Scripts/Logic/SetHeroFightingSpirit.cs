@@ -32,17 +32,18 @@ namespace Logic
             
             var newFightingSpirit = Mathf.Clamp(value, 0, 99999);
 
-            _heroLogic.HeroAttributes.Armor = newFightingSpirit;
+            _heroLogic.OtherAttributes.FightingSpirit = newFightingSpirit;
             
             _visualTree.AddCurrent(SetFightingSpiritVisual(newFightingSpirit));
             
-            yield return null;
             _logicTree.EndSequence();
+            yield return null;
+            
         }
 
         private IEnumerator SetFightingSpiritVisual(int value)
         {
-            
+            Debug.Log("SetFightingSpiritVisual " +value);
             _heroLogic.Hero.HeroVisual.FightingSpiritVisual.SetFightingSpiritText(value);
             
             //TEMP
@@ -53,9 +54,9 @@ namespace Logic
                 _heroLogic.Hero.HeroVisual.FightingSpiritVisual.HideFightingSpiritTextAndIcon();
             }
                 
-            
-            yield return null;
             _visualTree.EndSequence();
+            yield return null;
+            
         }
 
         private void InitializeLocalVariables()

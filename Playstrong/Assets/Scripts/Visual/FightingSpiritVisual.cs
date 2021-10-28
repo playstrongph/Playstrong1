@@ -22,15 +22,23 @@ namespace Visual
 
         public void HideFightingSpiritTextAndIcon()
         {
-            text.enabled = false;
-            icon.enabled = false;
+            //Debug.Log("HideFightingSpiritTextAndIcon");
+            //text.enabled = false;
+            //icon.enabled = false;
+            
+            text.gameObject.SetActive(false);
+            icon.gameObject.SetActive(false);
 
         }
         
         public void ShowFightingSpiritTextAndIcon()
         {
-            text.enabled = true;
-            icon.enabled = true;
+            //Debug.Log("ShowFightingSpiritTextAndIcon");
+            //text.enabled = true;
+            //icon.enabled = true;
+            
+            text.gameObject.SetActive(true);
+            icon.gameObject.SetActive(true);
 
         }
 

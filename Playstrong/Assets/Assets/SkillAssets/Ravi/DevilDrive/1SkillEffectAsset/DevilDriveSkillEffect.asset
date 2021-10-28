@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: DevilDriveSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
+  - {fileID: 11400000, guid: c111f9ecf362d864aba12a4a5a9afbf0, type: 2}
   - {fileID: 11400000, guid: 5c5c4d02813dd944fb36497c1326deeb, type: 2}
   - {fileID: 11400000, guid: 25931a4ea6ae05c47bfe4428b0232d4a, type: 2}
+  - {fileID: 11400000, guid: d4c8c6fe31a2daa4ca3c716be3713191, type: 2}
