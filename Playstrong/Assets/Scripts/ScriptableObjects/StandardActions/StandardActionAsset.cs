@@ -94,12 +94,8 @@ namespace ScriptableObjects.StandardActions
 
         private int _finalAndConditions;
         private int _finalOrConditions;
-        
-        //Test
-        //private IHeroStatusEffect _heroStatusEffect;
-      
-        
-        
+
+
         //Event Based StandardAction
         public IEnumerator RegisterStandardAction(IHero hero)
         {
@@ -166,14 +162,11 @@ namespace ScriptableObjects.StandardActions
         {
             Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TEST 
-            var finalConditionTargetHero = BasicActionTargets.GetHeroTarget(targetHero);
-            
+
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
                 //TESt
-                if (FinalConditionValue(finalConditionTargetHero) > 0)
+                if (FinalConditionValue(newTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
@@ -197,15 +190,12 @@ namespace ScriptableObjects.StandardActions
         {   
             //Debug.Log("StartActionCoroutine thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TEST
-            var finalConditionTargetHero = BasicActionTargets.GetHeroTarget(thisHero,targetHero);
-            
+
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
                 
                 //TEST
-                if (FinalConditionValue(finalConditionTargetHero) > 0)
+                if (FinalConditionValue(newTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
@@ -229,7 +219,7 @@ namespace ScriptableObjects.StandardActions
             
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
-                if (FinalConditionValue(targetHero) > 0)
+                if (FinalConditionValue(newTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero));
@@ -254,7 +244,7 @@ namespace ScriptableObjects.StandardActions
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
                 //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
-                if (FinalConditionValue(thisHero, targetHero) > 0)
+                if (FinalConditionValue(newTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.UndoTargetAction(thisHero,newTargetHero));
@@ -296,9 +286,7 @@ namespace ScriptableObjects.StandardActions
                     //Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
                     //TODO: Clamp to 0,1
                 }
-               
             }
-            
             //Debug.Log("FinalAndCondition Value: " +_finalAndConditions);
             return _finalAndConditions;
         }
@@ -331,7 +319,9 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("FinalOrCondition Value: " +_finalOrConditions);
             return _finalOrConditions;
         }
-        private int FinalConditionValue(IHero thisHero, IHero targetHero)
+        
+        
+        /*private int FinalConditionValue(IHero thisHero, IHero targetHero)
         {
             //Debug.Log("FinalConditionValue thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);
@@ -393,7 +383,7 @@ namespace ScriptableObjects.StandardActions
             
             //Debug.Log("FinalOrCondition Value: " +_finalOrConditions);
             return _finalOrConditions;
-        }
+        }*/
 
 
     }
