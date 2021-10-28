@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
-  m_Name: DemonsBloodSkillEffect
+  m_Script: {fileID: 11500000, guid: 77c0a12f2f51f804fadc3be465c0e0d7, type: 3}
+  m_Name: 3IncreaseEnergy
   m_EditorClassIdentifier: 
-  standardActions:
-  - {fileID: 11400000, guid: d5fb729b99389c34e9cad7d6d1f6df61, type: 2}
+  energyIncrease: 10

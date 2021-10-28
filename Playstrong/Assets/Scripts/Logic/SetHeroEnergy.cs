@@ -56,7 +56,7 @@ namespace Logic
             var boostEnergyChance = _heroLogic.OtherAttributes.BoostEnergyChance;
             var boostEnergyResistance = _heroLogic.OtherAttributes.EnergyUpResistance;
             var netChance = boostEnergyChance - boostEnergyResistance;
-            var randomChance = Random.Range(0f, 100f);
+            var randomChance = Random.Range(1, 101);
 
             if (randomChance < netChance)
             {
@@ -85,7 +85,7 @@ namespace Logic
             var reduceEnergyChance = _heroLogic.OtherAttributes.ReduceEnergyChance;
             var reduceEnergyResistance = _heroLogic.OtherAttributes.ReduceEnergyResistance;
             var netChance = reduceEnergyChance - reduceEnergyResistance;
-            var randomChance = Random.Range(0f, 100f);
+            var randomChance = Random.Range(1, 101);
 
             if (randomChance < netChance)
             {

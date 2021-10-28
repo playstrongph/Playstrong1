@@ -12,9 +12,6 @@ namespace ScriptableObjects.StandardEvents
     public class PostAttackStandardEventAsset : StandardEventsAsset
     {
 
-        
-         
-        
         protected override IEnumerator SubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
            
@@ -24,6 +21,8 @@ namespace ScriptableObjects.StandardEvents
             //skill.SkillLogic.SkillEvents.EDragSkillTarget += standardAction.StartAction;
             
             hero.HeroLogic.HeroEvents.EPostAttack += standardAction.StartAction;
+            
+            Debug.Log("Post Attack: " +hero.HeroName);
             
             logicTree.EndSequence();
             yield return null;

@@ -40,6 +40,20 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
         
+        public override IEnumerator TargetAction(IHero thisHero,IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            SetChangeAttackValue(targetHero);
+
+            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + changeAttackValue;
+            
+            targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
         public override IEnumerator UndoTargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
