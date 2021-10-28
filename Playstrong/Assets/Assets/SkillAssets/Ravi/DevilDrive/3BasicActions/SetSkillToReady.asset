@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a6e024731698940aa57de2cc11b40c, type: 3}
-  m_Name: 1DispelAllBuffs
+  m_Script: {fileID: 11500000, guid: 7e7e9cef44afb4444b396baba67fdfc5, type: 3}
+  m_Name: SetSkillToReady
   m_EditorClassIdentifier: 
+  heroSkillAssetReference: {fileID: 11400000, guid: 0538e8dc0972c564c8dc99a14d5ae6d3,
+    type: 2}

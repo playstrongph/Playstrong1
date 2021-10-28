@@ -118,8 +118,9 @@ namespace Logic
                 //TODO: make this pass by LivingStatus
                 _updateHeroTimers.UpdateTimers();
             }
-            
+
             _logicTree.AddCurrent(ActiveHeroesFound());
+            
             
             _visualTree.EndSequence();
             yield return null;

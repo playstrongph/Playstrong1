@@ -20,7 +20,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
         
         public virtual void SetSkillNotReady(ISkill skill)
         {
-            //If skill is Disabled - do Nothing
+            skill.SkillLogic.UpdateSkillReadiness.SetSkillNotReady();
         }
 
         

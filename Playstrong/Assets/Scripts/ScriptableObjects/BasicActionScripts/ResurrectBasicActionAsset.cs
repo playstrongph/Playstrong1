@@ -116,10 +116,7 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.AddCurrent(ResurrectHeroAnimation(hero));
             
             logicTree.AddCurrent(ShowHeroVisuals(hero));
-            
-            //TEST
-            //logicTree.AddCurrent(SetHeroAliveStatus(hero));
-            
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -234,6 +231,8 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
         
+       
+
         //AUXILIARY METHODS
         private IEnumerator ShowVisuals(IHero hero)
         {
@@ -248,6 +247,8 @@ namespace ScriptableObjects.SkillActionsScripts
             visualTree.EndSequence();
             yield return null;
         }
+        
+       
         
        
         
