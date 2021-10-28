@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c8bf412179cc742babb52dd1a19581, type: 3}
-  m_Name: 3DecreaseEnergy
+  m_Script: {fileID: 11500000, guid: e32eb4f1dd3f6cf48a0170e99c08d244, type: 3}
+  m_Name: CheckFightingSpirit
   m_EditorClassIdentifier: 
-  energyDecrease: 1000
+  fightingSpiritLimit: 70
+  actionHero: {fileID: 11400000, guid: 53134ab63fb935b4ca02c2b81657b68b, type: 2}

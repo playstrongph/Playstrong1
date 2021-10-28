@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9f660c019930049b7e3843ce712d3d, type: 3}
-  m_Name: 1AttackBasicAction
+  m_Name: 3AttackBasicAction
   m_EditorClassIdentifier: 
   flatAdditionalDamage: 0
   calculatedAdditionalDamage: {fileID: 11400000, guid: b33c7f00f550fb3499ee64f8b0e9c639,

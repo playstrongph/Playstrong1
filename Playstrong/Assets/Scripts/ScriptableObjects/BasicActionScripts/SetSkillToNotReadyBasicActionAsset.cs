@@ -91,6 +91,8 @@ namespace ScriptableObjects.BasicActionScripts
         private IEnumerator SetSkillNotReady(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            Debug.Log("Set Skill Not Ready: " +_skillToSetNotReady.SkillName);
 
             _skillToSetNotReady.SkillLogic.SkillAttributes.SkillEnabledStatus.SetSkillNotReady(_skillToSetNotReady);
             
