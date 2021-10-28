@@ -41,7 +41,7 @@ namespace ScriptableObjects.BasicActions
             }
 
 
-            return _skillCounters <= skillCountersLimit ? 1 : 0;
+            return _skillCounters < skillCountersLimit ? 1 : 0;
         }
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
@@ -62,7 +62,7 @@ namespace ScriptableObjects.BasicActions
             }
 
 
-            return _skillCounters <= skillCountersLimit ? 1 : 0;
+            return _skillCounters < skillCountersLimit ? 1 : 0;
         }
    
 

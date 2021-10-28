@@ -167,10 +167,13 @@ namespace ScriptableObjects.StandardActions
             Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            //TEST 
+            var finalConditionTargetHero = BasicActionTargets.GetHeroTarget(targetHero);
             
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
-                if (FinalConditionValue(targetHero) > 0)
+                //TESt
+                if (FinalConditionValue(finalConditionTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
@@ -194,10 +197,15 @@ namespace ScriptableObjects.StandardActions
         {   
             //Debug.Log("StartActionCoroutine thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //TEST
+            var finalConditionTargetHero = BasicActionTargets.GetHeroTarget(thisHero,targetHero);
+            
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
                 
-                if (FinalConditionValue(thisHero, targetHero) > 0)
+                //TEST
+                if (FinalConditionValue(finalConditionTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
