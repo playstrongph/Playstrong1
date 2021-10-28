@@ -11,7 +11,7 @@ namespace Logic
         private ITurnController _turnController;
         
         //TEST
-        private List<GameObject> _allLivingHeroes = new List<GameObject>();
+        private readonly List<IHero> _allLivingHeroes = new List<IHero>();
         
 
         private void Awake()
@@ -27,9 +27,8 @@ namespace Logic
 
         private void UpdateLivingHeroesTimers()
         {
-            foreach (var heroObject in _allLivingHeroes)
+            foreach (var hero in _allLivingHeroes)
             {
-                var hero = heroObject.GetComponent<IHero>();
                 var heroTimer = hero.HeroLogic.HeroTimer;
                 heroTimer.UpdateHeroTimer(_turnController);
             }
@@ -40,14 +39,16 @@ namespace Logic
             var allyHeroes = _turnController.BattleSceneManager.MainPlayer.LivingHeroes;
             var enemyHeroes = _turnController.BattleSceneManager.EnemyPlayer.LivingHeroes;
             
+           
+            
             _allLivingHeroes.Clear();
             
-            foreach (var allyHero in allyHeroes.HeroesList)
+            foreach (var allyHero in allyHeroes.LivingHeroesList)
             {
                 _allLivingHeroes.Add(allyHero);
             }
             
-            foreach (var enemyHero in enemyHeroes.HeroesList)
+            foreach (var enemyHero in enemyHeroes.LivingHeroesList)
             {
                 _allLivingHeroes.Add(enemyHero);
             }

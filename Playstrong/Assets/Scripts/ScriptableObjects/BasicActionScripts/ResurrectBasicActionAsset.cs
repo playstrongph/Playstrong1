@@ -91,6 +91,7 @@ namespace ScriptableObjects.SkillActionsScripts
             //TODO: This is what's causing the problem for skill Resurrect!
             if (netChance>=0)
             {
+                //TEST
                 logicTree.AddCurrent(ResurrectActions(thisHero));    
             }
         }
@@ -115,6 +116,9 @@ namespace ScriptableObjects.SkillActionsScripts
             logicTree.AddCurrent(ResurrectHeroAnimation(hero));
             
             logicTree.AddCurrent(ShowHeroVisuals(hero));
+            
+            //TEST
+            //logicTree.AddCurrent(SetHeroAliveStatus(hero));
             
             logicTree.EndSequence();
             yield return null;
