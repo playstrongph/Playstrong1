@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
-  m_Name: DemonsBloodSkillEffect
+  m_Script: {fileID: 11500000, guid: 9a1695dd6c53247489b5ee8c129bcf16, type: 3}
+  m_Name: IncreaseSkillCounters
   m_EditorClassIdentifier: 
-  standardActions:
-  - {fileID: 11400000, guid: a63aee95f53914d4ebf739cbb724f691, type: 2}
-  - {fileID: 11400000, guid: d5fb729b99389c34e9cad7d6d1f6df61, type: 2}
+  skillCounters: 1
+  heroSkillAsset: {fileID: 11400000, guid: fedd613aba5e02947b86e66356cc48df, type: 2}

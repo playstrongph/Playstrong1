@@ -15,8 +15,8 @@ MonoBehaviour:
   _name: Ravi
   _description: Warrior
   _heroSprite: {fileID: 21300000, guid: f6e8aa2b2f630914e829e0dcef701bc4, type: 3}
-  _health: 22
-  _attack: 15
+  _health: 100
+  _attack: 10
   _speed: 300
   _chance: 0
   _armor: 0
