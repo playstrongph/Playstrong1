@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93f0953c268af7438eba7f2e9b4a034, type: 3}
   m_Name: FinalDamageTaken
   m_EditorClassIdentifier: 
-  percentFactor: 70
+  percentFactor: 100
