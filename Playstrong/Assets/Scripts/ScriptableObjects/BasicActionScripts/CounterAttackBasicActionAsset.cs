@@ -42,8 +42,10 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
+           
             //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
-            logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
+            if(targetHero.HeroLogic.OtherAttributes.HeroInabilityChance <=0)    
+                logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
             
             logicTree.EndSequence();
             yield return null;

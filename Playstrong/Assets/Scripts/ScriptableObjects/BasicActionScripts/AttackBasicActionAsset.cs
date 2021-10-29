@@ -41,11 +41,17 @@ namespace ScriptableObjects.BasicActions
     public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(AttackHero(thisHero,targetHero));
+            
+            //Hero shouldn't be stunned,sleep, or disabled in any way
+            if(thisHero.HeroLogic.OtherAttributes.HeroInabilityChance <=0)    
+                logicTree.AddCurrent(AttackHero(thisHero,targetHero));
+            
             logicTree.EndSequence();
             yield return null;
 
         }
+    
+    
         
 
     private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
