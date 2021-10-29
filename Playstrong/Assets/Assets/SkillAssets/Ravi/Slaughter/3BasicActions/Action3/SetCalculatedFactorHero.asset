@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: f8893bb9ff249ce4a9b94ee7a27ec737, type: 3}
+  m_Name: SetCalculatedFactorHero
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: 2dd928892ba91da4085d423348c842dc, type: 2}
-  _debuffCounters: 1
+  damageFactor: {fileID: 11400000, guid: b91907889ad9f6c4ea50f93e63c65fda, type: 2}

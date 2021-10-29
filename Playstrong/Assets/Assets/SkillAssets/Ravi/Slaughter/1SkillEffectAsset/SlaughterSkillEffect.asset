@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
+  m_Name: SlaughterSkillEffect
   m_EditorClassIdentifier: 
-  _debuffEffectAsset: {fileID: 11400000, guid: 2dd928892ba91da4085d423348c842dc, type: 2}
-  _debuffCounters: 1
+  standardActions:
+  - {fileID: 11400000, guid: 2569fa9fcb6b36845bece26196bf1d20, type: 2}
+  - {fileID: 11400000, guid: ec1e2a3c3982885488324c480f81b5e1, type: 2}

@@ -14,8 +14,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
             var attackFactor = 0;
             
             //Damage Taken Factor
-            if (OtherHeroBasis != null)
-                attackFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.HeroAttributes.Attack * percentFactor / 100f);
+            if (CalculationHeroBasis != null)
+                attackFactor = Mathf.CeilToInt(CalculationHeroBasis.HeroLogic.HeroAttributes.Attack * percentFactor / 100f);
 
             return attackFactor;
         }

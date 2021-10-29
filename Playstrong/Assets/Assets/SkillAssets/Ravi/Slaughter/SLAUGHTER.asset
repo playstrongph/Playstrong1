@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
-  m_Name: BOILINGBLOOD
+  m_Name: SLAUGHTER
   m_EditorClassIdentifier: 
-  skillName: BoilingBlood
-  _description: Whenever you deal CRITICAL STRIKE, chance all allies gain +20% energy.
-  _skillEffect: {fileID: 11400000, guid: 2b4c359c6a4895c4c9f208ecba47c2e2, type: 2}
-  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  skillName: Slaughter
+  _description: Attack target enemy with a 35% chance to STUN.  Heals for 70% of
+    damage dealt.
+  _skillEffect: {fileID: 11400000, guid: a22da40c10bfa924488e1bd2f6f4b461, type: 2}
+  _skillType: {fileID: 11400000, guid: a64361a623eab4246ab59ebb5c7f0eaa, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
-  _skillCooldownType: {fileID: 11400000, guid: 9445706b0cd2f014b8f053ed2651a494, type: 2}
-  _skillIcon: {fileID: 21300000, guid: 21fe8102a0bbe3342ab924664ebca437, type: 3}
+  _skillCooldownType: {fileID: 11400000, guid: 6a46c8f19ce4f59449530498ea1e934c, type: 2}
+  _skillIcon: {fileID: 21300000, guid: d5ce68e863c9b3240a8a8a6fed925a05, type: 3}
   baseCooldown: 0
   _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}

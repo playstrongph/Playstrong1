@@ -17,13 +17,15 @@ namespace ScriptableObjects.DamageAttributeMultiple
             var damageFactor = 0;
             
             //Damage Taken Factor
-            if (OtherHeroBasis != null)
+            if (CalculationHeroBasis != null)
             {
-                damageFactor = Mathf.CeilToInt(OtherHeroBasis.HeroLogic.TakeDamageTest.FinalDamage * percentFactor / 100f);  
+                damageFactor = Mathf.CeilToInt(CalculationHeroBasis.HeroLogic.TakeDamageTest.FinalDamage * percentFactor / 100f);  
                 
-                Debug.Log("FinalDamage: " +OtherHeroBasis.HeroLogic.TakeDamageTest.FinalDamage +" percentFactor: " +percentFactor );
+            
                 
-                Debug.Log("Hero Basis: " +OtherHeroBasis.HeroName +" Damage Factor: " +damageFactor );
+                Debug.Log("FinalDamage: " +CalculationHeroBasis.HeroLogic.TakeDamageTest.FinalDamage +" percentFactor: " +percentFactor );
+                
+                Debug.Log("Hero Basis: " +CalculationHeroBasis.HeroName +" Damage Factor: " +damageFactor );
             }
             
             return damageFactor;

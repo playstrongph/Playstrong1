@@ -18,7 +18,7 @@ namespace ScriptableObjects.DamageAttributeMultiple
         
        [SerializeField] protected int percentFactor;
 
-       protected IHero OtherHeroBasis;
+       protected IHero CalculationHeroBasis;
        
        public virtual float GetCalculatedValue()
         {
@@ -28,7 +28,8 @@ namespace ScriptableObjects.DamageAttributeMultiple
         
         public void SetHeroBasis(IHero hero)
         {
-            OtherHeroBasis = hero;
+            CalculationHeroBasis = hero;
+            
            
         }
 
