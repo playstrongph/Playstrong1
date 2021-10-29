@@ -13,7 +13,7 @@ namespace Logic
     /// </summary>
     public class BasicConditionAsset : ScriptableObject, IBasicConditionAsset
     {
-        //Reference
+        //TODO: For Cleanup - Hard Reference is better
         public IHeroStatusEffect StatusEffectReference { get; set; }
 
         public ISkill SkillReference { get; set; }

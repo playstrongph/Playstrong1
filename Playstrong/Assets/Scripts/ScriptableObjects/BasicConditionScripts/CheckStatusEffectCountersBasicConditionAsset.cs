@@ -12,35 +12,78 @@ namespace ScriptableObjects.BasicActions
     {
         [SerializeField] private int counters;
 
-        protected override int CheckBasicCondition(IHero thisHero)
+        [SerializeField] private ScriptableObject statusEffectAssetCheck;
+        private IStatusEffectAsset StatusEffectAssetCheck => statusEffectAssetCheck as IStatusEffectAsset;
+
+        private IHeroStatusEffect _statusEffectCheck;
+
+        protected override int CheckBasicCondition(IHero targetHero)
         {
-            //Debug.Log("Bomb Status Effect Counters: " +StatusEffectReference.Counters +" Limit: " +counters);
-            if (StatusEffectReference.Counters <= counters)
+            var heroDebuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+            var heroBuffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
+            var heroUniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
+            
+            foreach (var debuff in heroDebuffs)
             {
-                //Debug.Log("Return 1");
-                return 1;    
+                if (debuff.Name == StatusEffectAssetCheck.Name)
+                    _statusEffectCheck = debuff;
+            }
+            
+            foreach (var buff in heroBuffs)
+            {
+                if (buff.Name == StatusEffectAssetCheck.Name)
+                    _statusEffectCheck = buff;
+            }
+            
+            foreach (var uniqueEffect in heroUniqueEffects)
+            {
+                if (uniqueEffect.Name == StatusEffectAssetCheck.Name)
+                    _statusEffectCheck = uniqueEffect;
+            }
+
+
+            if (_statusEffectCheck != null)
+            {
+                return _statusEffectCheck.Counters <= counters ? 1 : 0;
             }
             else
             {
-                //Debug.Log("Return 0");
-                return 0;    
+                return 0;
             }
-
-            
         }
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            //Debug.Log("Bomb Status Effect Counters: " +StatusEffectReference.Counters);
-            if (StatusEffectReference.Counters <= counters)
+            var heroDebuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+            var heroBuffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
+            var heroUniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
+            
+            foreach (var debuff in heroDebuffs)
             {
-                //Debug.Log("Return 1");
-                return 1;    
+                if (debuff.Name == StatusEffectAssetCheck.Name)
+                    _statusEffectCheck = debuff;
+            }
+            
+            foreach (var buff in heroBuffs)
+            {
+                if (buff.Name == StatusEffectAssetCheck.Name)
+                    _statusEffectCheck = buff;
+            }
+            
+            foreach (var uniqueEffect in heroUniqueEffects)
+            {
+                if (uniqueEffect.Name == StatusEffectAssetCheck.Name)
+                    _statusEffectCheck = uniqueEffect;
+            }
+
+
+            if (_statusEffectCheck != null)
+            {
+                return _statusEffectCheck.Counters <= counters ? 1 : 0;
             }
             else
             {
-                //Debug.Log("Return 0");
-                return 0;    
+                return 0;
             }
         }
    
