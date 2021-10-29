@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebd392b902725d4b88f4db7ccbb8653, type: 3}
   m_Name: DecreaseFightingSpirit
   m_EditorClassIdentifier: 
-  flatFightingSpirit: 5
+  flatFightingSpirit: 70

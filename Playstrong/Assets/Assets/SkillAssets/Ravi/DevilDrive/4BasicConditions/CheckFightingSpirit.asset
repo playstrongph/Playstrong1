@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32eb4f1dd3f6cf48a0170e99c08d244, type: 3}
   m_Name: CheckFightingSpirit
   m_EditorClassIdentifier: 
-  fightingSpiritLimit: 5
-  actionHero: {fileID: 11400000, guid: 53134ab63fb935b4ca02c2b81657b68b, type: 2}
+  fightingSpiritLimit: 70
