@@ -93,8 +93,12 @@ namespace Logic
             if (heroHealth <= 0)
             {
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
+                
                 logicTree.AddCurrent(HeroDeathActions(hero));
-                logicTree.AddCurrent(PostHeroDeath(hero));
+                
+                //TEST - Call Resurrect and other effects after Hero Dies Action fully completes
+                //logicTree.AddCurrent(PostHeroDeath(hero));
+                logicTree.AddSibling(PostHeroDeath(hero));
             }
 
             logicTree.EndSequence();
@@ -148,7 +152,9 @@ namespace Logic
             
             //Logic
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
+            
             logicTree.AddCurrent(UnRegisterSkills(hero));
+            
             logicTree.AddCurrent(DisableHeroTurns(hero));
             
             
@@ -309,9 +315,9 @@ namespace Logic
         private void UpdateActiveHeroesList(IHero hero)
         {
             var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            var heroInactiveStatus = turnController.SetHeroStatus.HeroInactive;
             var heroTimerObject = hero.HeroLogic.HeroTimer as Object;
-           
+            
+            Debug.Log("UpdateActiveHeroesList: "+"hero: " +hero.HeroName +" Hero Status: " +hero.HeroLogic.HeroStatus);
             hero.HeroLogic.HeroStatus.RemoveFromActiveHeroesList(turnController, heroTimerObject);
             
             //Transfer to UpdateHeroStatus

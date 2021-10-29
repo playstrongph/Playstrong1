@@ -67,7 +67,11 @@ namespace Logic
             if (TimerValue >= timerFull)
             {
                 turnController.FreezeTimers = true;
-                activeHeroes.Add(this as Object);
+                
+                //prevents double entry of heroes in the activeHeroes List
+                var heroTimerObject = this as Object;
+                if(!activeHeroes.Contains(heroTimerObject))
+                    activeHeroes.Add(heroTimerObject);
             }
         }
 

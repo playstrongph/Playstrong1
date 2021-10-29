@@ -130,6 +130,9 @@ namespace Logic
         private IEnumerator ActiveHeroesFound()
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
+            
+             //TEST - set
+            
 
             _logicTree.AddCurrent(PreHeroStartTurn());
             

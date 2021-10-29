@@ -38,9 +38,8 @@ namespace Logic
         {
             var allyHeroes = _turnController.BattleSceneManager.MainPlayer.LivingHeroes;
             var enemyHeroes = _turnController.BattleSceneManager.EnemyPlayer.LivingHeroes;
-            
-           
-            
+
+
             _allLivingHeroes.Clear();
             
             foreach (var allyHero in allyHeroes.LivingHeroesList)
