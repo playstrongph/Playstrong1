@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardEvent: {fileID: 11400000, guid: f564f280dde53a145a37ebfaf1ded6b6, type: 2}
   eventSubscribers: {fileID: 11400000, guid: 39fd175884341f54391fd10313653e60, type: 2}
-  actionTargets: {fileID: 11400000, guid: adbb9f0125ede8743bdc48f5e5a902d9, type: 2}
+  conditionTargets: {fileID: 11400000, guid: 39fd175884341f54391fd10313653e60, type: 2}
   orBasicConditions: []
   andBasicConditions:
   - {fileID: 11400000, guid: 76b2a2af97c04b94c9eac11e7cc66362, type: 2}
+  actionTargets: {fileID: 11400000, guid: adbb9f0125ede8743bdc48f5e5a902d9, type: 2}
   basicActions:
   - {fileID: 11400000, guid: 80c7c5252d59def4fb6d253144a5f748, type: 2}

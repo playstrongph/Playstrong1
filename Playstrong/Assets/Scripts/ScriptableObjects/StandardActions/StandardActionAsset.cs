@@ -27,17 +27,23 @@ namespace ScriptableObjects.StandardActions
             set => eventSubscribers = value as ScriptableObject;
         }
 
-        [Header("Basic Action Targets")]
-        [SerializeField] private ScriptableObject actionTargets;
+       
+        [Header("BASIC CONDITIONS")]
+        [SerializeField] private ScriptableObject conditionTargets;
 
-        public IActionTargets BasicActionTargets
+        /// <summary>
+        /// If standard action doesn't have a condition,
+        /// default assignment is TargetHero.
+        /// </summary>
+        public IActionTargets BasicConditionTargets
         {
-            get => actionTargets as IActionTargets;
-            set => actionTargets = value as ScriptableObject;
+            get => conditionTargets as IActionTargets;
+            set => conditionTargets = value as ScriptableObject;
         }
         
-
-        [Header("OR Conditions")]
+        
+        
+        //[Header("OR Conditions")]
         [SerializeField] private List<ScriptableObject> orBasicConditions;
 
         public List<ScriptableObject> OrBasicConditionsObjects => orBasicConditions;
@@ -56,7 +62,7 @@ namespace ScriptableObjects.StandardActions
             }
         }
         
-        [Header("AND Conditions")]
+        //[Header("AND Conditions")]
         [SerializeField] private List<ScriptableObject> andBasicConditions;
 
         public List<ScriptableObject> AndBasicConditionsObjects => andBasicConditions;
@@ -74,8 +80,18 @@ namespace ScriptableObjects.StandardActions
                 return basicConditions;
             }
         }
+        
+        [Header("BASIC ACTIONS")]
+        [SerializeField] private ScriptableObject actionTargets;
 
-        [Header("Basic Actions")]
+        public IActionTargets BasicActionTargets
+        {
+            get => actionTargets as IActionTargets;
+            set => actionTargets = value as ScriptableObject;
+        }
+
+
+        //[Header("Basic Actions")]
         [SerializeField] private List<ScriptableObject> basicActions;
         private List<IBasicActionAsset> BasicActions
         {
@@ -165,8 +181,10 @@ namespace ScriptableObjects.StandardActions
 
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
-                //TESt
-                if (FinalConditionValue(newTargetHero) > 0)
+                //NEW TEST
+                var conditionTargetHero = BasicConditionTargets.GetHeroTarget(newTargetHero);
+                //NEW TEST
+                if (FinalConditionValue(conditionTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
@@ -193,9 +211,10 @@ namespace ScriptableObjects.StandardActions
 
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
-                
-                //TEST
-                if (FinalConditionValue(newTargetHero) > 0)
+                //NEW TEST
+                var conditionTargetHero = BasicConditionTargets.GetHeroTarget(thisHero, newTargetHero);
+                //NEW TEST
+                if (FinalConditionValue(thisHero, conditionTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
@@ -219,7 +238,10 @@ namespace ScriptableObjects.StandardActions
             
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
             {
-                if (FinalConditionValue(newTargetHero) > 0)
+                //NEW TEST
+                var conditionTargetHero = BasicConditionTargets.GetHeroTarget(newTargetHero);
+                //NEW TEST
+                if (FinalConditionValue(conditionTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.UndoTargetAction(newTargetHero));
@@ -243,8 +265,10 @@ namespace ScriptableObjects.StandardActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
             {
+                //NEW TEST
+                var conditionTargetHero = BasicConditionTargets.GetHeroTarget(thisHero,newTargetHero);
                 //Debug.Log("Final Condition Value " +FinalConditionValue(thisHero, targetHero));
-                if (FinalConditionValue(newTargetHero) > 0)
+                if (FinalConditionValue(thisHero,conditionTargetHero) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.UndoTargetAction(thisHero,newTargetHero));
@@ -272,8 +296,6 @@ namespace ScriptableObjects.StandardActions
                 //Debug.Log("AndBasicConditions Count: " +AndBasicConditions.Count +" return: " +_finalAndConditions);
                 return _finalAndConditions = 1;    
             }
-
-            
             
             if(AndBasicConditions.Count>0)
             {
@@ -321,7 +343,7 @@ namespace ScriptableObjects.StandardActions
         }
         
         
-        /*private int FinalConditionValue(IHero thisHero, IHero targetHero)
+        private int FinalConditionValue(IHero thisHero, IHero targetHero)
         {
             //Debug.Log("FinalConditionValue thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
             var finalCondition = FinalAndBasicCondition(thisHero,targetHero) * FinalOrBasicCondition(thisHero,targetHero);
@@ -383,7 +405,7 @@ namespace ScriptableObjects.StandardActions
             
             //Debug.Log("FinalOrCondition Value: " +_finalOrConditions);
             return _finalOrConditions;
-        }*/
+        }
 
 
     }
