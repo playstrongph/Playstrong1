@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed794f2ee0fa9564c83d4839864e2b61, type: 3}
   m_Name: SkillCountersWithinLimit
   m_EditorClassIdentifier: 
-  skillCountersLimit: 5
+  skillCountersLimit: 2
   heroSkillAsset: {fileID: 11400000, guid: fedd613aba5e02947b86e66356cc48df, type: 2}

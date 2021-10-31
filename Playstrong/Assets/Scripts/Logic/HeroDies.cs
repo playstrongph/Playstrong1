@@ -95,9 +95,10 @@ namespace Logic
                 logicTree.AddCurrent(AfterHeroDiesEvent(hero));
                 
                 logicTree.AddCurrent(HeroDeathActions(hero));
+
+                //logicTree.AddCurrent(PostHeroDeath(hero));
                 
                 //TEST - Call Resurrect and other effects after Hero Dies Action fully completes
-                //logicTree.AddCurrent(PostHeroDeath(hero));
                 logicTree.AddSibling(PostHeroDeath(hero));
             }
 
@@ -152,26 +153,19 @@ namespace Logic
             
             //Logic
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
-            
             logicTree.AddCurrent(UnRegisterSkills(hero));
-            
             logicTree.AddCurrent(DisableHeroTurns(hero));
             
             
-            //Visual
+            //Visual and Logic
             logicTree.AddCurrent(HeroDiesAnimation(hero));
             logicTree.AddCurrent(HideHeroVisuals(hero));
-            logicTree.AddCurrent(ResetHeroAttributes(hero));
-            
-            
+            logicTree.AddCurrent(ResetHealthAndEnergy(hero));
+
             logicTree.AddCurrent(EndActiveHeroTurn(hero));
-            
 
             //TODO: UpdateHeroStatus Enumerator
             logicTree.AddCurrent(SetHeroInactiveStatus(hero));
-            
-           
-            
         }
 
         private IEnumerator SetHeroDeadStatus(IHero hero)
@@ -243,22 +237,23 @@ namespace Logic
             yield return null;
         }
         
-        private IEnumerator ResetHeroAttributes(IHero hero)
+        private IEnumerator ResetHealthAndEnergy(IHero hero)
         {
             var heroAttributes = hero.HeroLogic.HeroAttributes;
             var heroLogic = hero.HeroLogic;
 
             //Only displayed in Hero Preview
-            heroAttributes.Chance = heroAttributes.BaseChance;
-
+            /*heroAttributes.Chance = heroAttributes.BaseChance;
             heroLogic.SetHeroAttack.SetAttack(heroAttributes.BaseAttack);
             heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
             heroLogic.SetHeroArmor.SetArmor(heroAttributes.BaseArmor);
             heroLogic.SetHeroSpeed.SetSpeed(heroAttributes.BaseSpeed);
+            heroLogic.HeroTimer.ResetHeroTimer();*/
+            
+            //Retain all attributes except for health and energy
+            heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
             heroLogic.HeroTimer.ResetHeroTimer();
-            
-            //TODO: Also reset Other Attributes
-            
+
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();
             yield return null;

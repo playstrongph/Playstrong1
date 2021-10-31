@@ -38,6 +38,7 @@ namespace ScriptableObjects.BasicActions
             if (_skill != null)
             {
                 _skillCounters = _skill.SkillLogic.SkillOtherAttributes.SkillCounters;
+                
             }
 
 
