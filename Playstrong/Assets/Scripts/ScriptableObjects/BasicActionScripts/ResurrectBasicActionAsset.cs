@@ -108,7 +108,6 @@ namespace ScriptableObjects.SkillActionsScripts
 
             logicTree.AddCurrent(EnableHeroTurns(hero));
 
-             //Don't reset    
             logicTree.AddCurrent(ResetHeroAttributes(hero));
          
 
@@ -174,15 +173,15 @@ namespace ScriptableObjects.SkillActionsScripts
             var heroLogic = hero.HeroLogic;
 
             //Only displayed in Hero Preview
-            /*heroAttributes.Chance = heroAttributes.BaseChance;
+            heroAttributes.Chance = heroAttributes.BaseChance;
+
             heroLogic.SetHeroAttack.SetAttack(heroAttributes.BaseAttack);
             heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
             heroLogic.SetHeroArmor.SetArmor(heroAttributes.BaseArmor);
             heroLogic.SetHeroSpeed.SetSpeed(heroAttributes.BaseSpeed);
-            heroLogic.HeroTimer.ResetHeroTimer();*/
+            heroLogic.HeroTimer.ResetHeroTimer();
             
-            
-            heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
+            //TODO: Also reset Other Attributes
             
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
             logicTree.EndSequence();

@@ -61,7 +61,6 @@ namespace Logic
             TimerValuePercentage = Mathf.FloorToInt(TimerValue * 100 / timerFull);
             
             
-            //TODO: Use SetEnergy For this?
             HeroLogic.HeroAttributes.Energy = Mathf.FloorToInt(TimerValuePercentage);
             heroEnergyVisual.SetEnergyTextAndBarFill((int)TimerValuePercentage);
                 
@@ -73,8 +72,6 @@ namespace Logic
                 var heroTimerObject = this as Object;
                 if(!activeHeroes.Contains(heroTimerObject))
                     activeHeroes.Add(heroTimerObject);
-                
-                
             }
         }
 
