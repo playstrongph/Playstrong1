@@ -19,10 +19,12 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
 
             var debuffs = hero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+            Debug.Log("debuffs count: " + debuffs.Count);
             
             foreach (var debuff in debuffs)
             {
                 debuff.StatusEffectDispelStatus.DispelStatusEffect(debuff,hero);
+                Debug.Log("Debuff: " + debuff.Name);
             }
             
             logicTree.EndSequence();
@@ -35,10 +37,12 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             var debuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
+            Debug.Log("debuffs count: " + debuffs.Count);
 
             foreach (var debuff in debuffs)
             {
                 debuff.StatusEffectDispelStatus.DispelStatusEffect(debuff,targetHero);
+                Debug.Log("Debuff: " + debuff.Name);
             }
             
             logicTree.EndSequence();

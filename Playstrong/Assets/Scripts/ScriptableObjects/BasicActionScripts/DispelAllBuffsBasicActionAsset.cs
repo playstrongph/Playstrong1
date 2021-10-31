@@ -23,6 +23,7 @@ namespace ScriptableObjects.SkillActionsScripts
             foreach (var buff in buffs)
             {
                 buff.StatusEffectDispelStatus.DispelStatusEffect(buff,hero);
+                Debug.Log("buff: " + buff.Name);
             }
             
             logicTree.EndSequence();
@@ -39,6 +40,7 @@ namespace ScriptableObjects.SkillActionsScripts
             foreach (var buff in buffs)
             {
                 buff.StatusEffectDispelStatus.DispelStatusEffect(buff,targetHero);
+                Debug.Log("buff: " + buff.Name);
             }
             
             logicTree.EndSequence();
