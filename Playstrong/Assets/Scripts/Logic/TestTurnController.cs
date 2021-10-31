@@ -141,6 +141,32 @@ namespace Logic
             _logicTree.EndSequence();
             yield return null;
         }
+        
+        public IEnumerator UpdateActiveHeroes()
+        {
+            var enemyHeroes = this.BattleSceneManager.EnemyPlayer.LivingHeroes.LivingHeroesList;
+            var allyHeroes = this.BattleSceneManager.MainPlayer.LivingHeroes.LivingHeroesList;
+
+            foreach (var hero in enemyHeroes)
+            {
+                var heroEnergy = hero.HeroLogic.HeroAttributes.Energy;
+                var heroTimer = hero.HeroLogic.HeroTimer;
+                
+                heroTimer.SetHeroTimerValue(this,heroEnergy);
+            }
+            
+            foreach (var hero in allyHeroes)
+            {
+                var heroEnergy = hero.HeroLogic.HeroAttributes.Energy;
+                var heroTimer = hero.HeroLogic.HeroTimer;
+                
+                heroTimer.SetHeroTimerValue(this,heroEnergy);
+            }
+            
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
 
 
         private IEnumerator PreHeroStartTurn()

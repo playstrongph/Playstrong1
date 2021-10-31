@@ -34,5 +34,8 @@ namespace Logic
         IEnumerator SetCurrentHeroInactive();
 
         ITurnControllerEvents TurnControllerEvents { get; }
+        
+        //TEST
+        //IEnumerator UpdateActiveHeroes();
     }
 }

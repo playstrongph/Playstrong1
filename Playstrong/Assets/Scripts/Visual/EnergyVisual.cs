@@ -19,9 +19,7 @@ namespace Visual
         {
             //Clamps the displayed text to 100%
             var energyDisplayText = Mathf.Min(100, energyValue);
-            
             text.text = energyDisplayText.ToString() +"%";
-            
             barFill.fillAmount = energyDisplayText/100f;
         }
         public void SetEnergyTextColor(Color textColor)

@@ -17,6 +17,9 @@ namespace ScriptableObjects.Enums.SkillStatus
 
             logicTree.AddCurrent(turnController.SetCurrentHeroInactive());
             
+            //TEST: UpdateActiveHeroes
+            //logicTree.AddCurrent(turnController.UpdateActiveHeroes());
+            
             logicTree.AddCurrent(turnController.StartNextHeroTurn());
 
             logicTree.EndSequence();

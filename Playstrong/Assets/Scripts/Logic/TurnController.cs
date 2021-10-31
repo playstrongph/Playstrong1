@@ -113,10 +113,10 @@ namespace Logic
 
             while (!_freezeTimers)
             {
+                _updateHeroTimers.UpdateTimers();
                 yield return null;
                 
-                //TODO: make this pass by LivingStatus
-                _updateHeroTimers.UpdateTimers();
+                //_updateHeroTimers.UpdateTimers();
             }
 
             _logicTree.AddCurrent(ActiveHeroesFound());
@@ -130,9 +130,6 @@ namespace Logic
         private IEnumerator ActiveHeroesFound()
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
-            
-             //TEST - set
-            
 
             _logicTree.AddCurrent(PreHeroStartTurn());
             
@@ -225,10 +222,40 @@ namespace Logic
             
             _logicTree.AddCurrent(UpdateStatusEffectCountersEndTurn());
 
+            //TEST: Update Active Heroes List first - possible new additions and removal
+            _logicTree.AddCurrent(UpdateActiveHeroes());
+            
             //Need to sort again because of increase energy effects
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
-            
+
             _logicTree.AddCurrent(StartNextActiveHero());
+            
+            _logicTree.EndSequence();
+            yield return null;
+        }
+
+
+        private IEnumerator UpdateActiveHeroes()
+        {
+            var enemyHeroes = this.BattleSceneManager.EnemyPlayer.LivingHeroes.LivingHeroesList;
+            var allyHeroes = this.BattleSceneManager.MainPlayer.LivingHeroes.LivingHeroesList;
+
+            foreach (var hero in enemyHeroes)
+            {
+                var heroEnergy = hero.HeroLogic.HeroAttributes.Energy;
+                var heroTimer = hero.HeroLogic.HeroTimer;
+                
+                heroTimer.SetHeroTimerValue(this,heroEnergy);
+            }
+            
+            foreach (var hero in allyHeroes)
+            {
+                var heroEnergy = hero.HeroLogic.HeroAttributes.Energy;
+                var heroTimer = hero.HeroLogic.HeroTimer;
+                
+                heroTimer.SetHeroTimerValue(this,heroEnergy);
+            }
+            
             
             _logicTree.EndSequence();
             yield return null;
@@ -304,6 +331,9 @@ namespace Logic
             
             _logicTree.AddCurrent(EndCurrentHeroTurn());
             
+            //TEST
+            _logicTree.AddCurrent(UpdateActiveHeroes());
+            
             _logicTree.AddCurrent(StartNextHeroTurn());
         }
 
@@ -319,13 +349,13 @@ namespace Logic
 
         private IEnumerator ResetEnergyToZero()
         {
-            _visualTree.AddCurrent(ResetEnergyAnimation());
+            _visualTree.AddCurrent(ResetHeroTimerToZero());
             
             _logicTree.EndSequence();
             yield return null;
         }
         
-        private IEnumerator ResetEnergyAnimation()
+        private IEnumerator ResetHeroTimerToZero()
         {
             _activeHeroLogic.HeroTimer.ResetHeroTimer();
             

@@ -152,15 +152,15 @@ namespace Logic
             
             //Logic
             logicTree.AddCurrent(DestroyAllStatusEffects(hero));
-            
             logicTree.AddCurrent(UnRegisterSkills(hero));
-            
             logicTree.AddCurrent(DisableHeroTurns(hero));
             
             
             //Visual
             logicTree.AddCurrent(HeroDiesAnimation(hero));
             logicTree.AddCurrent(HideHeroVisuals(hero));
+            
+            //Only Reset Energy
             logicTree.AddCurrent(ResetHeroAttributes(hero));
             
             
@@ -249,12 +249,16 @@ namespace Logic
             var heroLogic = hero.HeroLogic;
 
             //Only displayed in Hero Preview
-            heroAttributes.Chance = heroAttributes.BaseChance;
-
+            /*heroAttributes.Chance = heroAttributes.BaseChance;
             heroLogic.SetHeroAttack.SetAttack(heroAttributes.BaseAttack);
             heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
             heroLogic.SetHeroArmor.SetArmor(heroAttributes.BaseArmor);
             heroLogic.SetHeroSpeed.SetSpeed(heroAttributes.BaseSpeed);
+            */
+            
+            
+            heroLogic.SetHeroHealth.SetHealth(heroAttributes.BaseHealth);
+            
             heroLogic.HeroTimer.ResetHeroTimer();
             
             //TODO: Also reset Other Attributes
