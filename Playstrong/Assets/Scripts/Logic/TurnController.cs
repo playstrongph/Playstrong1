@@ -228,8 +228,7 @@ namespace Logic
             //Need to sort again because of increase energy effects
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
 
-            //TEST - delay this
-            _logicTree.AddSibling(StartNextActiveHero());
+            _logicTree.AddCurrent(StartNextActiveHero());
             
             _logicTree.EndSequence();
             yield return null;
@@ -266,6 +265,8 @@ namespace Logic
         {
             if (_activeHeroes.Count > 0)
                 _logicTree.AddCurrent(PreHeroStartTurn());
+                //TODO: Change this to PreHeroStartTurn
+                //_logicTree.AddCurrent(StartHeroTurn());
             else
                 _logicTree.AddCurrent(StartHeroTimers());
 
@@ -329,9 +330,10 @@ namespace Logic
             _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);
             
             _logicTree.AddCurrent(EndCurrentHeroTurn());
-
+            
+            //TEST
             _logicTree.AddCurrent(UpdateActiveHeroes());
-
+            
             _logicTree.AddCurrent(StartNextHeroTurn());
         }
 
