@@ -17,7 +17,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalChanceIncrease;
             
-            Debug.Log(" IncreaseCrit Chance 1 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
+            //Debug.Log(" IncreaseCrit Chance 1 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
             
             logicTree.EndSequence();
             yield return null;
@@ -28,7 +28,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalChanceIncrease;
             
-            Debug.Log(" IncreaseCrit Chance 2 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
+            //Debug.Log(" IncreaseCrit Chance 2 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
             
             logicTree.EndSequence();
             yield return null;

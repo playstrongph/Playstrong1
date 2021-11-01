@@ -17,7 +17,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
             targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance -= decreaseCriticalChance;
             
-            Debug.Log("DecreaseCritChance 1 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
+            //Debug.Log("DecreaseCritChance 1 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
             
             logicTree.EndSequence();
             yield return null;
@@ -29,7 +29,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
             targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance -= decreaseCriticalChance;
             
-            Debug.Log("DecreaseCritChance 2 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
+            //Debug.Log("DecreaseCritChance 2 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
             
             logicTree.EndSequence();
             yield return null;
