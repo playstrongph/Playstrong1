@@ -64,12 +64,17 @@ namespace ScriptableObjects.BasicActions
             logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
             logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
             
+            //TODO: PreMultipleAttackEvent
+            
+            
             //Main Attack Phase
             logicTree.AddCurrent(SetNormalOrCriticalAttack(thisHero,targetHero));
             
             //Post Attack Phase
             logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
             logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
+            
+            //TODO: PostMultipleAttackEvent
 
             logicTree.EndSequence();
             yield return null;

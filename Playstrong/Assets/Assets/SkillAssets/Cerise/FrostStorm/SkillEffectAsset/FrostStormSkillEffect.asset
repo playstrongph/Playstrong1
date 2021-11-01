@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: FrostStormSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
+  - {fileID: 11400000, guid: 608b122c70b754a4aadda6c78c9df7d9, type: 2}
   - {fileID: 11400000, guid: 9a14910dbb5c52f4f82fbb8590d612fe, type: 2}
+  - {fileID: 11400000, guid: f1bbaa5f002bac94089acadc6a68d36e, type: 2}
+  - {fileID: 11400000, guid: 58980ee9353405948a0ebd2e63a86f44, type: 2}
