@@ -15,7 +15,7 @@ namespace Logic
         }
 
 
-        [Header("Applied Skill Effects")]
+        [Header("APPLIED SKILL EFFECTS")]
         //Factor for overlapping silence effect (e.g. Buff and UniqueEffect)
         //IF silence factor > 0, skill won't be re-enabled
         [SerializeField]
@@ -37,6 +37,26 @@ namespace Logic
             get => skillCounters;
             set => skillCounters = value;
         }
+
+
+        [Header("SKILL CHANCE")] [SerializeField]
+        private int _criticalChance;
+
+        public int CriticalChance
+        {
+            get => _criticalChance;
+            set => _criticalChance = value;
+        }
+        
+        [Header("SKILL RESISTANCE")] [SerializeField]
+        private int _criticalResistance;
+
+        public int CriticalResistance
+        {
+            get => _criticalResistance;
+            set => _criticalResistance = value;
+        }
+
 
 
     }

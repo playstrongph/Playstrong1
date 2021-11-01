@@ -22,9 +22,9 @@ namespace ScriptableObjects.BasicActions
         private ISkill _skill;
         private int _skillCooldown;
 
-        protected override int CheckBasicCondition(IHero thisHero)
+        protected override int CheckBasicCondition(IHero targetHero)
         {
-            var heroSkillObjects = thisHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
+            var heroSkillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
             
             //Find Skill To Reset to Max Cooldown
             foreach (var heroSkillObject in heroSkillObjects)
@@ -37,6 +37,7 @@ namespace ScriptableObjects.BasicActions
             if (_skill != null)
             {
                 _skillCooldown = _skill.SkillLogic.SkillAttributes.Cooldown;
+                Debug.Log("TargetHero: " +targetHero.HeroName +" Skill: " +_skill.SkillName +" Cooldown: " +_skillCooldown);
             }
             
             return _skillCooldown > 0 ? 1 : 0;
@@ -44,7 +45,7 @@ namespace ScriptableObjects.BasicActions
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            var heroSkillObjects = thisHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
+            var heroSkillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
             
             //Find Skill To Reset to Max Cooldown
             foreach (var heroSkillObject in heroSkillObjects)
@@ -57,6 +58,7 @@ namespace ScriptableObjects.BasicActions
             if (_skill != null)
             {
                 _skillCooldown = _skill.SkillLogic.SkillAttributes.Cooldown;
+                Debug.Log("TargetHero: " +targetHero.HeroName +" Skill: " +_skill.SkillName +" Cooldown: " +_skillCooldown);
             }
             
             return _skillCooldown > 0 ? 1 : 0;

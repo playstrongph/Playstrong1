@@ -42,10 +42,12 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
+            
+            
             //Hero shouldn't be stunned,sleep, or disabled in any way
             if(thisHero.HeroLogic.OtherAttributes.HeroInabilityChance <=0)    
                 logicTree.AddCurrent(AttackHero(thisHero,targetHero));
-            
+
             logicTree.EndSequence();
             yield return null;
 
@@ -58,7 +60,16 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
+            //PreAttack Phase
+            logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
+            logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
+            
+            //Main Attack Phase
             logicTree.AddCurrent(SetNormalOrCriticalAttack(thisHero,targetHero));
+            
+            //Post Attack Phase
+            logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
+            logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -89,46 +100,30 @@ namespace ScriptableObjects.BasicActions
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
-        var dealDamage = thisHero.HeroLogic.DealDamage;
+        //var dealDamage = thisHero.HeroLogic.DealDamage;
+        //var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         
-        //Test - dealDamage should be thisHero not targetHero
+        
         var dealDamageTest = thisHero.HeroLogic.DealDamageTest;
         
-        var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = 0;
         
-        //TEST
+        
         var nonCriticalAttackDamage =
             Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue() +flatAdditionalDamage);
         var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
         
-        //TODO: To be used after DealDamage change
-        //var nonCriticalDamage = attackPower + AdditionalAttackDamage;
-        //var criticalDamage = 0;
         
-        //PRE-ATTACK PHASE
-        logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
-        logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
 
         //MAIN ATTACK PHASE
-        
         //visuals
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
-        
-        //Single/Multiple Target.  Rename to SingleOrMultiAttackType 
-        //TODO:Disable this during test
-        //logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
-        
-        //TEST
+
         logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamageTest(dealDamageTest,thisHero, targetHero, nonCriticalAttackDamage, criticalAttackDamage));
         
         //visuals
         logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
-        
-        //POST ATTACK PHASE
-        logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
-        logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
-            
+
         logicTree.EndSequence();
         yield return null;
     }
@@ -139,12 +134,12 @@ namespace ScriptableObjects.BasicActions
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         //TODO: Obsolete.  Delete during refactoring, currently being used by DragHeroAttack(which shall be removed)
-        var dealDamage = thisHero.HeroLogic.DealDamage;
+        //var dealDamage = thisHero.HeroLogic.DealDamage;
+        //var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         
-        //Test - dealDamage should be thisHero not targetHero
+        
         var dealDamageTest = thisHero.HeroLogic.DealDamageTest;
         
-        var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
         var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
         
         //TEST
@@ -152,24 +147,13 @@ namespace ScriptableObjects.BasicActions
             Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue() +flatAdditionalDamage);
         var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
 
-        //TODO: To be used after DealDamage change
-        //var nonCriticalDamage = attackPower + AdditionalAttackDamage;
-        //var criticalDamage = Mathf.FloorToInt(criticalFactor*nonCriticalDamage);
-
-        //PRE-ATTACK PHASE
-        logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
-        logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
         logicTree.AddCurrent(PreCriticalStrikeEvents(thisHero,targetHero));
 
         //MAIN ATTACK PHASE
         
         //VISUALS
         logicTree.AddCurrent(AttackHeroAnimation(thisHero,targetHero));
-        
-        //DEAL DAMAGE CALL - FOR IMPROVEMENT
-        //Single/Multiple Target TODO:Needs Improvement in Implementation
-        //logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamage(dealDamage,thisHero, targetHero, attackPower, criticalFactor));
-        
+
         logicTree.AddCurrent(SingleOrMultiAttack.DealAttackDamageTest(dealDamageTest,thisHero, targetHero, nonCriticalAttackDamage, criticalAttackDamage));
         
         //VISUALS
@@ -177,9 +161,7 @@ namespace ScriptableObjects.BasicActions
         
         //POST ATTACK PHASE
         logicTree.AddCurrent(PostCriticalStrikeEvents(thisHero,targetHero));
-        logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
-        logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
-            
+
         logicTree.EndSequence();
         yield return null;
     }

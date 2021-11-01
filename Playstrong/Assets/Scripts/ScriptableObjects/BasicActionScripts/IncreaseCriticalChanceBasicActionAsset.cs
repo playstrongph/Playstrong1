@@ -17,11 +17,33 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalChanceIncrease;
             
+            Debug.Log(" IncreaseCrit Chance 1 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalChanceIncrease;
+            
+            Debug.Log(" IncreaseCrit Chance 2 targetHero: " +targetHero.HeroName +" HeroCritChance: " +targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance);
+            
             logicTree.EndSequence();
             yield return null;
         }
         
         public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance -= criticalChanceIncrease;
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator UndoTargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance -= criticalChanceIncrease;
