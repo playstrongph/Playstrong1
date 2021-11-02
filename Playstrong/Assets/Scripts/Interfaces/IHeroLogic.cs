@@ -58,6 +58,7 @@ namespace Interfaces
         IDealDamageTest DealDamageTest { get; }
 
         ITakeDamageTest TakeDamageTest { get; }
+        IStatusEffectImmunityList StatusEffectImmunityList { get; }
 
 
 

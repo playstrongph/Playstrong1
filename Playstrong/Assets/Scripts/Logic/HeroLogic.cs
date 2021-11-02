@@ -140,6 +140,9 @@ namespace Logic
 
         private ITakeDamageTest _takeDamageTest;
         public ITakeDamageTest TakeDamageTest => _takeDamageTest;
+
+        private IStatusEffectImmunityList _statusEffectImmunityList;
+        public IStatusEffectImmunityList StatusEffectImmunityList => _statusEffectImmunityList;
        
         
 
@@ -162,7 +165,8 @@ namespace Logic
             _heroInabilityStatusAssets = GetComponent<IHeroInabilityStatus>();
             _dealDamageTest = GetComponent<IDealDamageTest>();
             _takeDamageTest = GetComponent<ITakeDamageTest>();
-            
+            _statusEffectImmunityList = GetComponent<IStatusEffectImmunityList>();
+
             //_counterAttack = GetComponent<ICounterAttack>();
             //_basicAttack = GetComponent<IBasicAttack>();
         }
