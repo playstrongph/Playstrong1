@@ -28,7 +28,7 @@ namespace ScriptableObjects.SkillActionsScripts
         /// </summary>
         public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             logicTree.AddCurrent(AddDebuffCoroutine(DebuffAsset, DebuffCounters,thisHero,targetHero));
             logicTree.EndSequence();
             yield return null;
@@ -37,9 +37,17 @@ namespace ScriptableObjects.SkillActionsScripts
         private IEnumerator AddDebuffCoroutine(IStatusEffectAsset statusEffectAsset, int statusEffectCounters, IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
             //Check BuffResistances Here
-            var debuffResistance = targetHero.HeroLogic.OtherAttributes.DebuffResistance;
+
+            var immunityResistance = GetImmunityResistance(targetHero, statusEffectAsset);
+            
+            Debug.Log("TargetHero: " +targetHero + " Immunity Resistance: " +immunityResistance);
+
+            var debuffResistance = targetHero.HeroLogic.OtherAttributes.DebuffResistance + immunityResistance;
             var debuffChance = targetHero.HeroLogic.OtherAttributes.DebuffChance;
+            
+            
             var debuffSuccess = debuffChance - debuffResistance;
             var randomChance = Random.Range(0f, 100f);
             
@@ -55,9 +63,27 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
 
+        private int GetImmunityResistance(IHero targetHero,IStatusEffectAsset statusEffectAsset)
+        {
+            var heroImmunities = targetHero.HeroLogic.StatusEffectImmunityList.HeroImmunities;
+            var immunityResistance = 0;
+            
+            foreach (var heroImmunity in heroImmunities)
+            {
+                var statusEffectImmunity = heroImmunity.StatusEffectAsset;
+
+                if (statusEffectAsset.Name == statusEffectImmunity.Name)
+                    immunityResistance = heroImmunity.ImmunityPercentage;
+
+            }
+
+            return immunityResistance;
+
+        }
 
 
-      
+
+
 
 
     }

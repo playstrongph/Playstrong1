@@ -23,6 +23,17 @@ namespace ScriptableObjects.SkillActionsScripts
 
         }
         
+        public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            DisablePassiveSkills(targetHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
         public override IEnumerator UndoTargetAction(IHero targetHero)
         {
            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
@@ -30,6 +41,17 @@ namespace ScriptableObjects.SkillActionsScripts
            EnablePassiveSkills(targetHero);
            
            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        public override IEnumerator UndoTargetAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            EnablePassiveSkills(targetHero);
+           
+            logicTree.EndSequence();
             yield return null;
 
         }

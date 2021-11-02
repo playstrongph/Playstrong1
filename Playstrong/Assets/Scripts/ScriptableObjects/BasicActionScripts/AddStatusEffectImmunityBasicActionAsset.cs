@@ -73,7 +73,7 @@ namespace ScriptableObjects.BasicActionScripts
             foreach (var statusEffectImmunityObject in statusEffectImmunities)
             {
                 var statusEffectImmunity = statusEffectImmunityObject as IHeroStatusEffectImmunity;
-                heroImmunitiesList.AddToStatusEffectImmunityList(statusEffectImmunity);
+                heroImmunitiesList.RemoveFromStatusEffectImmunityList(statusEffectImmunity);
             }
         }
 

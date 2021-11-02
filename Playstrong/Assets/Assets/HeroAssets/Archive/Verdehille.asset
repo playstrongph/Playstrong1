@@ -20,6 +20,7 @@ MonoBehaviour:
   _speed: 200
   _chance: 50
   _armor: 0
+  _fightingSpirit: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
   _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
@@ -27,3 +28,4 @@ MonoBehaviour:
   _heroSkills:
   - {fileID: 11400000, guid: 01c7047b01be2ef4ea69a3e67f820655, type: 2}
   - {fileID: 11400000, guid: 420dc112b16526f44a1ef336b15f4e97, type: 2}
+  - {fileID: 11400000, guid: d8c45263db95a8645b7461b7ae690977, type: 2}
