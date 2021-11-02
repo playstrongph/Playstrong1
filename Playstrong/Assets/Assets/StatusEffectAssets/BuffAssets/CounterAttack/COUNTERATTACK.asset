@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: Counter attacks when attacked.
   _icon: {fileID: 21300000, guid: 6994d71491891f84b878c3c95b551ce8, type: 3}
   _statusEffectType: {fileID: 11400000, guid: 1e4e27ce25219dd4390cf29ffb8d6963, type: 2}
-  updateTiming: {fileID: 11400000, guid: bb73ba4a7bcaaab47a093dbb55b2da84, type: 2}
+  updateTiming: {fileID: 11400000, guid: 680f86b066fa5184ebc8a82b48028533, type: 2}
   _statusEffectInstance: {fileID: 11400000, guid: b663fa3295e51224085223e7b60e477f,
     type: 2}
   _statusEffectDispelStatus: {fileID: 11400000, guid: d4e345ab6bd7f8c40a6e6f2c9394bb97,
@@ -26,6 +26,4 @@ MonoBehaviour:
   maxSkillCounters: 1
   _standardActions:
   - {fileID: 11400000, guid: 04cd0b2dea2ee6c42a3b0fcfc0ddab67, type: 2}
-  - {fileID: 11400000, guid: fe2f6f312076f3b41985a4d675fd67b8, type: 2}
-  - {fileID: 11400000, guid: 25945cbe21558d94ca45434f7ca08809, type: 2}
   - {fileID: 11400000, guid: ddec25436139000438f7f45d91532834, type: 2}

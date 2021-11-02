@@ -22,7 +22,27 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
         
+        public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            targetHero.HeroLogic.OtherAttributes.CounterAttackChance += counterChance;
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
         public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            targetHero.HeroLogic.OtherAttributes.CounterAttackChance -= counterChance;
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator UndoTargetAction(IHero thisHero,IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
