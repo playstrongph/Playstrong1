@@ -11,8 +11,8 @@ namespace ScriptableObjects.StandardEvents
     /// <summary>
     /// Used by StatusEffects and Static Passive Skills
     /// </summary>
-    [CreateAssetMenu(fileName = "NoHeroEvent", menuName = "SO's/StandardEvents/NoHeroEvent")]
-    public class NoHeroEventStandardEventAsset : StandardEventsAsset
+    [CreateAssetMenu(fileName = "StartNow", menuName = "SO's/StandardEvents/StartNow")]
+    public class StartNowStandardEventAsset : StandardEventsAsset
     {
         protected override IEnumerator SubscribeStandardActionCoroutine(IHero hero,IStandardActionAsset standardAction)
         {
