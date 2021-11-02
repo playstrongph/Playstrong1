@@ -6,5 +6,7 @@ namespace Logic
     {
         List<IHeroStatusEffectImmunity> HeroImmunities { get; }
         void AddToStatusEffectImmunityList(IHeroStatusEffectImmunity heroStatusEffectImmunity);
+
+        void RemoveFromStatusEffectImmunityList(IHeroStatusEffectImmunity heroStatusEffectImmunity);
     }
 }

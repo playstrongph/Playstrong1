@@ -39,6 +39,13 @@ namespace Logic
             heroImmunities.Add(heroStatusEffectImmunityObject);
             
         }
+        
+        public void RemoveFromStatusEffectImmunityList(IHeroStatusEffectImmunity heroStatusEffectImmunity)
+        {
+            var heroStatusEffectImmunityObject = heroStatusEffectImmunity as ScriptableObject;
+            heroImmunities.Remove(heroStatusEffectImmunityObject);
+            
+        }
 
 
 

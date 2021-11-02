@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
-  m_Name: AbsoluteDignitySkillEffect
+  m_Script: {fileID: 11500000, guid: 95b2851c32eb30f45b036bf65cb4d687, type: 3}
+  m_Name: StartOfGame
   m_EditorClassIdentifier: 
-  standardActions:
-  - {fileID: 11400000, guid: 16a4c117d3c251f4e8fa285eb872077e, type: 2}

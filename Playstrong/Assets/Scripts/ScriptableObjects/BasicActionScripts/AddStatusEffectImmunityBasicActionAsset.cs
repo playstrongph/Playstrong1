@@ -34,8 +34,39 @@ namespace ScriptableObjects.BasicActionScripts
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public override IEnumerator UndoTargetAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            RemoveImmunity(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator UndoTargetAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+
+            RemoveImmunity(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
         private void AddImmunity(IHero targetHero)
+        {
+            var heroImmunitiesList = targetHero.HeroLogic.StatusEffectImmunityList;
+
+            foreach (var statusEffectImmunityObject in statusEffectImmunities)
+            {
+                var statusEffectImmunity = statusEffectImmunityObject as IHeroStatusEffectImmunity;
+                heroImmunitiesList.AddToStatusEffectImmunityList(statusEffectImmunity);
+            }
+        }
+        
+        private void RemoveImmunity(IHero targetHero)
         {
             var heroImmunitiesList = targetHero.HeroLogic.StatusEffectImmunityList;
 
