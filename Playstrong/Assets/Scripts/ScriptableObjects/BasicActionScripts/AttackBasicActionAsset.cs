@@ -17,6 +17,11 @@ namespace ScriptableObjects.BasicActions
     [CreateAssetMenu(fileName = "AttackBasicAction", menuName = "SO's/BasicActions/AttackBasicAction")]
     public class AttackBasicActionAsset : BasicActionAsset
     {
+        [Header("CRITICAL STRIKE FACTORS")] 
+        [SerializeField] private int defaultCriticalChance;
+        [SerializeField] private int defaultCriticalResistance;
+        
+        [Header("DAMAGE FACTORS")]
         //To be used after revision of DealDamage/TakeDamage
         [SerializeField] private int flatAdditionalDamage;
         
@@ -24,11 +29,11 @@ namespace ScriptableObjects.BasicActions
         [SerializeField] private ScriptableObject calculatedAdditionalDamage;
         private ICalculatedFactorValueAsset CalculatedAdditionalDamage => calculatedAdditionalDamage as ICalculatedFactorValueAsset;
 
-        [Header("Game Animation Asset")]
+        [Header("ATTACK ANIMATION")]
         [SerializeField] private ScriptableObject attackAnimation;
         private IGameAnimations AttackAnimation => attackAnimation as IGameAnimations;
 
-        [Header("Attack Target Type")] [SerializeField]
+        [Header("ATTACK TARGET TYPE")] [SerializeField]
         private ScriptableObject singleOrMultiAttack;
         private ISingleOrMultiAttackTypeAsset SingleOrMultiAttack => singleOrMultiAttack as ISingleOrMultiAttackTypeAsset;
         
@@ -41,9 +46,7 @@ namespace ScriptableObjects.BasicActions
     public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            
-            
+
             //Hero shouldn't be stunned,sleep, or disabled in any way
             if(thisHero.HeroLogic.OtherAttributes.HeroInabilityChance <=0)    
                 logicTree.AddCurrent(AttackHero(thisHero,targetHero));
@@ -84,8 +87,9 @@ namespace ScriptableObjects.BasicActions
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
-        var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
-        var criticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
+        var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance + defaultCriticalChance;
+        var criticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance + defaultCriticalResistance;
+        
         
         var netChance = criticalChance - criticalResistance;
         var randomChance = Random.Range(0f, 100f);
