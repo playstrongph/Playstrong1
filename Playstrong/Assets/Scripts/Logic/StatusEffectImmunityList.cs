@@ -36,6 +36,8 @@ namespace Logic
         public void AddToStatusEffectImmunityList(IHeroStatusEffectImmunity heroStatusEffectImmunity)
         {
             var heroStatusEffectImmunityObject = heroStatusEffectImmunity as ScriptableObject;
+            heroImmunities.Add(heroStatusEffectImmunityObject);
+            
         }
 
 
