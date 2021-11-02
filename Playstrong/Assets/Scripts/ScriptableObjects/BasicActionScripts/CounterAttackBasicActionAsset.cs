@@ -17,9 +17,13 @@ namespace ScriptableObjects.BasicActions
     [CreateAssetMenu(fileName = "CounterAttackBasicAction", menuName = "SO's/BasicActions/CounterAttackBasicAction")]
     public class CounterAttackBasicActionAsset : BasicActionAsset
     {
+        [Header("CRITICAL STRIKE FACTORS")] 
+        [SerializeField] private int defaultSkillCriticalChance;
+        [SerializeField] private int defaultSkillCriticalResistance;
+
+        [Header("DAMAGE FACTORS")]
         //To be used after revision of DealDamage/TakeDamage
         [SerializeField] private int flatAdditionalDamage;
-        
         //To be used after revision of DealDamage/TakeDamage
         [SerializeField] private ScriptableObject calculatedAdditionalDamage;
         private ICalculatedFactorValueAsset CalculatedAdditionalDamage => calculatedAdditionalDamage as ICalculatedFactorValueAsset;
@@ -57,8 +61,8 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
                 
-            var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance;
-            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance;
+            var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance + defaultSkillCriticalChance;
+            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance +defaultSkillCriticalResistance;
             
             var netCounterAttackChance = counterAttackChance - counterAttackResistance;
             netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 0f, 100f);
@@ -66,10 +70,16 @@ namespace ScriptableObjects.BasicActions
 
             if (randomNumber <= netCounterAttackChance)
             {
+                //PRE-ATTACK PHASE
                 logicTree.AddCurrent(BeforeCounterAttackEvents(counterAttacker,originalAttacker));
+                logicTree.AddCurrent(PreSkillAttackEvents(counterAttacker,originalAttacker));
+                logicTree.AddCurrent(PreAttackEvents(counterAttacker,originalAttacker));
                 
                 logicTree.AddCurrent(AttackHero(counterAttacker,originalAttacker));
-
+                
+                //POST ATTACK PHASE
+                logicTree.AddCurrent(PostAttackEvents(counterAttacker,originalAttacker));
+                logicTree.AddCurrent(PostSkillAttackEvents(counterAttacker,originalAttacker));
                 logicTree.AddCurrent(AfterCounterAttackEvents(counterAttacker,originalAttacker));
             }
 
@@ -118,21 +128,13 @@ namespace ScriptableObjects.BasicActions
             //Test - dealDamage should be thisHero not targetHero
             var dealDamageTest = thisHero.HeroLogic.DealDamageTest;
             
-            var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
+            //var attackPower = thisHero.HeroLogic.HeroAttributes.Attack;
             var criticalFactor = 0;
             
-            //TEST
+            
             var nonCriticalAttackDamage =
                 Mathf.CeilToInt(thisHero.HeroLogic.HeroAttributes.Attack + CalculatedAdditionalDamage.GetCalculatedValue() +flatAdditionalDamage);
             var criticalAttackDamage = Mathf.CeilToInt(criticalFactor * nonCriticalAttackDamage);
-            
-            //TODO: To be used after DealDamage change
-            //var nonCriticalDamage = attackPower + AdditionalAttackDamage;
-            //var criticalDamage = 0;
-            
-            //PRE-ATTACK PHASE
-            logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
-            logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
 
             //MAIN ATTACK PHASE
             
@@ -148,11 +150,7 @@ namespace ScriptableObjects.BasicActions
             
             //visuals
             logicTree.AddCurrent(AttackInterval(thisHero,targetHero));
-            
-            //POST ATTACK PHASE
-            logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
-            logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
-                
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -181,8 +179,8 @@ namespace ScriptableObjects.BasicActions
             //var criticalDamage = Mathf.FloorToInt(criticalFactor*nonCriticalDamage);
 
             //PRE-ATTACK PHASE
-            logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
-            logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
+            //logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
+            //logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
             logicTree.AddCurrent(PreCriticalStrikeEvents(thisHero,targetHero));
 
             //MAIN ATTACK PHASE
@@ -201,8 +199,8 @@ namespace ScriptableObjects.BasicActions
             
             //POST ATTACK PHASE
             logicTree.AddCurrent(PostCriticalStrikeEvents(thisHero,targetHero));
-            logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
-            logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
+            //logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
+            //logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
                 
             logicTree.EndSequence();
             yield return null;

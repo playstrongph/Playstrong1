@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9f660c019930049b7e3843ce712d3d, type: 3}
   m_Name: AttackBasicAction
   m_EditorClassIdentifier: 
+  defaultCriticalChance: 100
+  defaultCriticalResistance: 0
   flatAdditionalDamage: 0
   calculatedAdditionalDamage: {fileID: 11400000, guid: 824f0cdbfa58d204dbf72f91bdf8e341,
     type: 2}
