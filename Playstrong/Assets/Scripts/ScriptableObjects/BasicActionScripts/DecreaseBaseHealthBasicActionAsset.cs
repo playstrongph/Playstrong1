@@ -22,8 +22,10 @@ namespace ScriptableObjects.SkillActionsScripts
             
             SetChangeHealthValue(targetHero);
 
-            var newBaseHealthValue = targetHero.HeroLogic.HeroAttributes.BaseHealth - _changeHealthValue;
-            newBaseHealthValue = Mathf.Max(newBaseHealthValue, 0);
+            targetHero.HeroLogic.HeroAttributes.BaseHealth -= _changeHealthValue;
+            targetHero.HeroLogic.HeroAttributes.BaseHealth = Mathf.Max(targetHero.HeroLogic.HeroAttributes.BaseHealth, 0);
+            
+            var newBaseHealthValue = targetHero.HeroLogic.HeroAttributes.BaseHealth;
             
             if(currentHealth > newBaseHealthValue)
                 targetHero.HeroLogic.SetHeroHealth.SetHealth(newBaseHealthValue);
@@ -39,8 +41,10 @@ namespace ScriptableObjects.SkillActionsScripts
             
             SetChangeHealthValue(targetHero);
 
-            var newBaseHealthValue = targetHero.HeroLogic.HeroAttributes.BaseHealth - _changeHealthValue;
-            newBaseHealthValue = Mathf.Max(newBaseHealthValue, 0);
+            targetHero.HeroLogic.HeroAttributes.BaseHealth -= _changeHealthValue;
+            targetHero.HeroLogic.HeroAttributes.BaseHealth = Mathf.Max(targetHero.HeroLogic.HeroAttributes.BaseHealth, 0);
+            
+            var newBaseHealthValue = targetHero.HeroLogic.HeroAttributes.BaseHealth;
             
             if(currentHealth > newBaseHealthValue)
                 targetHero.HeroLogic.SetHeroHealth.SetHealth(newBaseHealthValue);
