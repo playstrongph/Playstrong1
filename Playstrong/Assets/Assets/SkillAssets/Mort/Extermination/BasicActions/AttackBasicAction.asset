@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9f660c019930049b7e3843ce712d3d, type: 3}
   m_Name: AttackBasicAction
   m_EditorClassIdentifier: 
-  defaultSkillCriticalChance: 0
+  defaultSkillCriticalChance: 100
   flatAdditionalDamage: 0
   calculatedAdditionalDamage: {fileID: 11400000, guid: 3ad74713a2993ee4c95005db7c79e9d7,
     type: 2}

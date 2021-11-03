@@ -19,7 +19,7 @@ MonoBehaviour:
   _attack: 8
   _speed: 200
   _chance: 50
-  _armor: 0
+  _armor: 100
   _fightingSpirit: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}

@@ -46,12 +46,14 @@ namespace ScriptableObjects.SkillActionsScripts
 
             var immunityResistance = GetImmunityResistance(targetHero, statusEffectAsset);
             
+            Debug.Log("ThisHero: " +thisHero + " Debuff Chance: " +immunityResistance);
+            
             Debug.Log("TargetHero: " +targetHero + " Immunity Resistance: " +immunityResistance);
 
+            var debuffChance = thisHero.HeroLogic.OtherAttributes.DebuffChance + defaultSkillAddDebuffChance;
             var debuffResistance = targetHero.HeroLogic.OtherAttributes.DebuffResistance + immunityResistance;
-            var debuffChance = targetHero.HeroLogic.OtherAttributes.DebuffChance + defaultSkillAddDebuffChance;
-            
-            
+
+
             var debuffSuccess = debuffChance - debuffResistance;
             var randomChance = Random.Range(0f, 100f);
             

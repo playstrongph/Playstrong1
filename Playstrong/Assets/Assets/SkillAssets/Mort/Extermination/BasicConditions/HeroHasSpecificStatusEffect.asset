@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Script: {fileID: 11500000, guid: ea76b4d0b1c4e5b428bade8232453ea2, type: 3}
+  m_Name: HeroHasSpecificStatusEffect
   m_EditorClassIdentifier: 
-  defaultSkillAddBuffChance: 0
-  _buffEffectAsset: {fileID: 11400000, guid: 12c2ed2a83d411d44ac80c13ba3e6d12, type: 2}
-  _buffCounters: 3
+  statusEffectAsset: {fileID: 11400000, guid: 648b02c272139414e8d8e815c3cb6377, type: 2}
