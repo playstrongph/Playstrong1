@@ -17,9 +17,9 @@ MonoBehaviour:
     additional damage, wth a 50% chance to inflict DEFENSE BREAK(2).  Ignores immunity
     effects if hero has RAGE
   _skillEffect: {fileID: 11400000, guid: 141c32b90bc52f140a73562f9ecf2504, type: 2}
-  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  _skillType: {fileID: 11400000, guid: a64361a623eab4246ab59ebb5c7f0eaa, type: 2}
   _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
-  _skillCooldownType: {fileID: 11400000, guid: 9445706b0cd2f014b8f053ed2651a494, type: 2}
+  _skillCooldownType: {fileID: 11400000, guid: 6a46c8f19ce4f59449530498ea1e934c, type: 2}
   _skillIcon: {fileID: 21300000, guid: 21a8757e58f572a469b22d26a105ab1e, type: 3}
-  baseCooldown: 1
-  _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
+  baseCooldown: 0
+  _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}

@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: ce72b6891979a62439ca683a9cfca0e0, type: 3}
+  m_Name: ChanceBasicCondition
   m_EditorClassIdentifier: 
-  defaultSkillAddDebuffChance: 0
-  _debuffEffectAsset: {fileID: 11400000, guid: f872a5d40fffc5e438271a940d06d02d, type: 2}
-  _debuffCounters: 2
+  chanceValue: 100

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc46338443284e4eb3314f2a852a846, type: 3}
   m_Name: HeroIsUsingSpecificSkill
   m_EditorClassIdentifier: 
-  usingThisSkill: {fileID: 11400000, guid: 01c7047b01be2ef4ea69a3e67f820655, type: 2}
+  usingThisSkill: {fileID: 11400000, guid: d94f218031351464c8cc59f5090ac0fb, type: 2}

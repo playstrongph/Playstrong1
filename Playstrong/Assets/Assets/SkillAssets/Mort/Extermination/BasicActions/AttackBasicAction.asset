@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: AttackBasicAction
   m_EditorClassIdentifier: 
   defaultSkillCriticalChance: 0
-  defaultSkillCriticalResistance: 0
   flatAdditionalDamage: 0
-  calculatedAdditionalDamage: {fileID: 0}
-  attackAnimation: {fileID: 0}
-  singleOrMultiAttack: {fileID: 0}
+  calculatedAdditionalDamage: {fileID: 11400000, guid: 3ad74713a2993ee4c95005db7c79e9d7,
+    type: 2}
+  attackAnimation: {fileID: 11400000, guid: aa966efd8b81e3a4386e48000fed9c48, type: 2}
+  singleOrMultiAttack: {fileID: 11400000, guid: c749d03dc05b12b44900c0b53d970723,
+    type: 2}
   _visualDelay: 0.7
