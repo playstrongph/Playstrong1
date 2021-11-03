@@ -45,19 +45,22 @@ namespace ScriptableObjects.SkillActionsScripts
             //Check BuffResistances Here
 
             var immunityResistance = GetImmunityResistance(targetHero, statusEffectAsset);
-            
-            Debug.Log("ThisHero: " +thisHero + " Debuff Chance: " +immunityResistance);
-            
-            Debug.Log("TargetHero: " +targetHero + " Immunity Resistance: " +immunityResistance);
 
             var debuffChance = thisHero.HeroLogic.OtherAttributes.DebuffChance + defaultSkillAddDebuffChance;
             var debuffResistance = targetHero.HeroLogic.OtherAttributes.DebuffResistance + immunityResistance;
+            
+            Debug.Log("ThisHero: " +thisHero + " Debuff Chance: " +debuffChance);
+            Debug.Log("TargetHero: " +targetHero + " Debuff Resistance: " +debuffResistance);
+            
+            
 
 
             var debuffSuccess = debuffChance - debuffResistance;
-            var randomChance = Random.Range(0f, 100f);
+            var randomChance = Random.Range(1, 101);
             
-            debuffSuccess = Mathf.Clamp(debuffSuccess, 0f, 100f);
+            Debug.Log("Success: " +debuffSuccess +" randomChance: " +randomChance);
+            
+            debuffSuccess = Mathf.Clamp(debuffSuccess, 0, 100);
             
             //Debug.Log("Caster Hero: " +thisHero.HeroName);
             

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Interfaces;
 using Logic;
 using References;
@@ -24,27 +25,22 @@ namespace ScriptableObjects.BasicActions
             var allDebuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
             var allUniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
 
-            _specificStatusEffect = ResetSpecificStatusEffect();
-            
             foreach (var statusEffect in allBuffs)
             {
-                if (statusEffect.Name == StatusEffectAsset.Name)
-                    _specificStatusEffect = statusEffect;
+                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
             }
             
             foreach (var statusEffect in allDebuffs)
             {
-                if (statusEffect.Name == StatusEffectAsset.Name)
-                    _specificStatusEffect = statusEffect;
+                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
             }
             
             foreach (var statusEffect in allUniqueEffects)
             {
-                if (statusEffect.Name == StatusEffectAsset.Name)
-                    _specificStatusEffect = statusEffect;
+                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
             }
 
-            return _specificStatusEffect != null ? 1 : 0;
+            return 0;
         }
 
        
@@ -55,38 +51,25 @@ namespace ScriptableObjects.BasicActions
             var allDebuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
             var allUniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
 
-            _specificStatusEffect = ResetSpecificStatusEffect();
-            
             foreach (var statusEffect in allBuffs)
             {
-                if (statusEffect.Name == StatusEffectAsset.Name)
-                    _specificStatusEffect = statusEffect;
+                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
             }
             
             foreach (var statusEffect in allDebuffs)
             {
-                if (statusEffect.Name == StatusEffectAsset.Name)
-                    _specificStatusEffect = statusEffect;
+                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
             }
             
             foreach (var statusEffect in allUniqueEffects)
             {
-                if (statusEffect.Name == StatusEffectAsset.Name)
-                    _specificStatusEffect = statusEffect;
+                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
             }
 
-            return _specificStatusEffect != null ? 1 : 0;
+            return 0;
         }
         
-        /// <summary>
-        /// Resets the status effect back to null
-        /// since this is a scriptable object
-        /// </summary>
-        /// <returns></returns>
-        private IHeroStatusEffect ResetSpecificStatusEffect()
-        {
-            return null;
-        }
+       
    
 
 

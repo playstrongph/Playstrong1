@@ -44,11 +44,13 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             //Check BuffResistances Here
             var buffResistance = targetHero.HeroLogic.OtherAttributes.BuffResistance;
-            var buffChance = targetHero.HeroLogic.OtherAttributes.BuffChance + defaultSkillAddBuffChance;
-            var buffSuccess = buffChance - buffResistance;
-            var randomChance = Random.Range(0f, 100f);
+            var buffChance = thisHero.HeroLogic.OtherAttributes.BuffChance + defaultSkillAddBuffChance;
             
-            buffSuccess = Mathf.Clamp(buffSuccess, 0f, 100f);
+            
+            var buffSuccess = buffChance - buffResistance;
+            var randomChance = Random.Range(1, 101);
+            
+            buffSuccess = Mathf.Clamp(buffSuccess, 0, 100);
 
             if (randomChance <= buffSuccess)
             {

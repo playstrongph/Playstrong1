@@ -14,6 +14,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator TargetAction(IHero targetHero)
         {
+            Debug.Log("Decrease Debuff Chance");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             targetHero.HeroLogic.OtherAttributes.DebuffChance -= debuffChance;
@@ -24,6 +25,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
+            Debug.Log("Decrease Debuff Chance");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             targetHero.HeroLogic.OtherAttributes.DebuffChance -= debuffChance;

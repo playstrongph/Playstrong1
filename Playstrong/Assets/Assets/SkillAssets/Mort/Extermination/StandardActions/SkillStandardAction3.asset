@@ -15,9 +15,9 @@ MonoBehaviour:
   standardEvent: {fileID: 11400000, guid: f564f280dde53a145a37ebfaf1ded6b6, type: 2}
   eventSubscribers: {fileID: 11400000, guid: 11d7f78cce598874abd239e98efabcf6, type: 2}
   conditionTargets: {fileID: 11400000, guid: 7b10f257199ab244387c32383fd578b0, type: 2}
-  orBasicConditions:
+  orBasicConditions: []
+  andBasicConditions:
   - {fileID: 11400000, guid: bcf0d3bcb49918d41a357a49d032bcd8, type: 2}
-  andBasicConditions: []
   actionTargets: {fileID: 11400000, guid: 11d7f78cce598874abd239e98efabcf6, type: 2}
   basicActions:
   - {fileID: 11400000, guid: 75a45b37f8ce9b4458eeb0a9b627c2ef, type: 2}
