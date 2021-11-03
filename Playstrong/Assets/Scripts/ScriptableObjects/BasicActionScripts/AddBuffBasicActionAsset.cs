@@ -12,7 +12,10 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class AddBuffBasicActionAsset : BasicActionAsset 
     {
-
+        
+        [Header("ADD BUFF FACTORS")] [SerializeField]
+        private int defaultSkillAddBuffChance;
+        
         [SerializeField]
         [RequireInterface(typeof(IStatusEffectAsset))]
         private ScriptableObject _buffEffectAsset;
@@ -41,7 +44,7 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             //Check BuffResistances Here
             var buffResistance = targetHero.HeroLogic.OtherAttributes.BuffResistance;
-            var buffChance = targetHero.HeroLogic.OtherAttributes.BuffChance;
+            var buffChance = targetHero.HeroLogic.OtherAttributes.BuffChance + defaultSkillAddBuffChance;
             var buffSuccess = buffChance - buffResistance;
             var randomChance = Random.Range(0f, 100f);
             

@@ -19,7 +19,7 @@ namespace ScriptableObjects.BasicActions
     {
         [Header("CRITICAL STRIKE FACTORS")] 
         [SerializeField] private int defaultSkillCriticalChance;
-        [SerializeField] private int defaultSkillCriticalResistance;
+        
         
         [Header("DAMAGE FACTORS")]
         //To be used after revision of DealDamage/TakeDamage
@@ -88,7 +88,7 @@ namespace ScriptableObjects.BasicActions
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
         
         var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance + defaultSkillCriticalChance;
-        var criticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance + defaultSkillCriticalResistance;
+        var criticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
         
         
         var netChance = criticalChance - criticalResistance;

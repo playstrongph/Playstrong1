@@ -14,6 +14,10 @@ namespace ScriptableObjects.SkillActionsScripts
     public class AddDebuffBasicActionAsset : BasicActionAsset
     {
 
+        [Header("ADD DEBUFF FACTORS")] [SerializeField]
+        private int defaultSkillAddDebuffChance;
+        
+        
         [SerializeField]
         [RequireInterface(typeof(IStatusEffectAsset))]
         private ScriptableObject _debuffEffectAsset;
@@ -45,7 +49,7 @@ namespace ScriptableObjects.SkillActionsScripts
             Debug.Log("TargetHero: " +targetHero + " Immunity Resistance: " +immunityResistance);
 
             var debuffResistance = targetHero.HeroLogic.OtherAttributes.DebuffResistance + immunityResistance;
-            var debuffChance = targetHero.HeroLogic.OtherAttributes.DebuffChance;
+            var debuffChance = targetHero.HeroLogic.OtherAttributes.DebuffChance + defaultSkillAddDebuffChance;
             
             
             var debuffSuccess = debuffChance - debuffResistance;
