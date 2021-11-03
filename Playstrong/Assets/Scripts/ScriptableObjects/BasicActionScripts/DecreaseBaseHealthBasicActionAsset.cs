@@ -38,9 +38,6 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
 
         }
-        
-        
-        
 
         public override IEnumerator TargetAction(IHero targetHero)
         {
