@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c310fd8ce783f94f91a3a468b2d190c, type: 3}
-  m_Name: DecreaseCounterAttackResistance
+  m_Script: {fileID: 11500000, guid: 2a6ba7c67893aef49926d31599d2aa11, type: 3}
+  m_Name: PostAttack
   m_EditorClassIdentifier: 
-  counterResistance: 200

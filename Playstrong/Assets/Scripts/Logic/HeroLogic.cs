@@ -143,12 +143,13 @@ namespace Logic
 
         private IStatusEffectImmunityList _statusEffectImmunityList;
         public IStatusEffectImmunityList StatusEffectImmunityList => _statusEffectImmunityList;
-       
+
+        private IGetAllHeroSkills _getAllHeroSkills;
+        public IGetAllHeroSkills GetAllHeroSkills => _getAllHeroSkills;
         
 
         private void Awake()
         {
-            
             _takeDamage = GetComponent<ITakeDamage>();
             _endHeroTurn = GetComponent<IEndHeroTurn>();
             _setHeroAttack = GetComponent<ISetHeroAttack>();
@@ -166,9 +167,8 @@ namespace Logic
             _dealDamageTest = GetComponent<IDealDamageTest>();
             _takeDamageTest = GetComponent<ITakeDamageTest>();
             _statusEffectImmunityList = GetComponent<IStatusEffectImmunityList>();
-
-            //_counterAttack = GetComponent<ICounterAttack>();
-            //_basicAttack = GetComponent<IBasicAttack>();
+            _getAllHeroSkills = GetComponent<IGetAllHeroSkills>();
+            
         }
     }
 }

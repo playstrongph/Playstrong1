@@ -51,15 +51,11 @@ namespace ScriptableObjects.BasicActions
             //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
             if (targetHero.HeroLogic.OtherAttributes.HeroInabilityChance <= 0)
             {
-                //TODO: Increase CounterAttackResistance
                 logicTree.AddCurrent(IncreaseCounterResistance(targetHero));
                 
                 logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
-                
-                //TODO: Decrease CounterAttackResistance
+
                 logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
-                
-               
             }
 
             
