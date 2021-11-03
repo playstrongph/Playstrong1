@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
+  m_Name: ADVENTMORTELIX
+  m_EditorClassIdentifier: 
+  skillName: AdventMortelix
+  _description: Gain RAGE(2), then attack and destroy 10% max health of all enemies,
+    dealing 12% of your max HP as additional damage.  Heal yourself for 10% of your
+    max Health.
+  _skillEffect: {fileID: 11400000, guid: 6013fe140dbc2ad4b98eafc7d27d355f, type: 2}
+  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
+  _skillCooldownType: {fileID: 11400000, guid: 9445706b0cd2f014b8f053ed2651a494, type: 2}
+  _skillIcon: {fileID: 21300000, guid: 97532cc52902b07418637fc171032caf, type: 3}
+  baseCooldown: 1
+  _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
