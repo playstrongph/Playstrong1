@@ -14,16 +14,45 @@ namespace ScriptableObjects.SkillActionsScripts
         [SerializeField] private int percentHealth;
 
         private int _changeHealthValue;
+        
+        public override IEnumerator StartAction(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //Bypass living hero check
+            logicTree.AddCurrent(TargetAction(targetHero));
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        public override IEnumerator StartAction(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //Bypass living hero check
+            logicTree.AddCurrent(TargetAction(thisHero,targetHero));
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+        
+        
 
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var currentHealth = targetHero.HeroLogic.HeroAttributes.Health;
-            
+         
             SetChangeHealthValue(targetHero);
 
             targetHero.HeroLogic.HeroAttributes.BaseHealth -= _changeHealthValue;
-            targetHero.HeroLogic.HeroAttributes.BaseHealth = Mathf.Max(targetHero.HeroLogic.HeroAttributes.BaseHealth, 0);
+            
+            //Cap the minimum base health to 1
+            targetHero.HeroLogic.HeroAttributes.BaseHealth = Mathf.Max(targetHero.HeroLogic.HeroAttributes.BaseHealth, 1);
             
             var newBaseHealthValue = targetHero.HeroLogic.HeroAttributes.BaseHealth;
             
@@ -42,7 +71,9 @@ namespace ScriptableObjects.SkillActionsScripts
             SetChangeHealthValue(targetHero);
 
             targetHero.HeroLogic.HeroAttributes.BaseHealth -= _changeHealthValue;
-            targetHero.HeroLogic.HeroAttributes.BaseHealth = Mathf.Max(targetHero.HeroLogic.HeroAttributes.BaseHealth, 0);
+            
+            //Cap the minimum base health to 1
+            targetHero.HeroLogic.HeroAttributes.BaseHealth = Mathf.Max(targetHero.HeroLogic.HeroAttributes.BaseHealth, 1);
             
             var newBaseHealthValue = targetHero.HeroLogic.HeroAttributes.BaseHealth;
             
