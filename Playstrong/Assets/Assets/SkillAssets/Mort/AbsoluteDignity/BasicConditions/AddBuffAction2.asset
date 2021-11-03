@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Name: AddBuffAction2
   m_EditorClassIdentifier: 
-  _buffEffectAsset: {fileID: 11400000, guid: 50732d475489ce24992452d03e55a620, type: 2}
-  _buffCounters: 3
+  _buffEffectAsset: {fileID: 11400000, guid: c205456b22603d14e918b7a6823e6c15, type: 2}
+  _buffCounters: 1

@@ -60,6 +60,8 @@ namespace Interfaces
         ITakeDamageTest TakeDamageTest { get; }
         IStatusEffectImmunityList StatusEffectImmunityList { get; }
 
+        IGetAllHeroSkills GetAllHeroSkills { get; }
+
 
 
 
