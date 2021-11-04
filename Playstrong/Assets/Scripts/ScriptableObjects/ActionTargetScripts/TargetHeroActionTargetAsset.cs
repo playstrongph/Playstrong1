@@ -20,26 +20,28 @@ namespace ScriptableObjects.ActionTargetScripts
         }
         
         //Used by status effects
-        public override List<IHero> GetHeroTargets(IHero hero)
+        public override List<IHero> GetHeroTargets(IHero targetHero)
         {
             var heroTargets = new List<IHero>();
             heroTargets.Clear();
             
-            heroTargets.Add(hero);
+            heroTargets.Add(targetHero);
             
-            //Debug.Log("Hero: " +heroTargets[0].HeroName);
+            Debug.Log("Hero: " +heroTargets[0].HeroName);
             
             return heroTargets;
         }
         
         public override IHero GetHeroTarget(IHero thisHero, IHero targetHero)
         {
+            Debug.Log("TargetHero2: " +targetHero.HeroName);
             return targetHero;
         }
         
-        public override IHero GetHeroTarget(IHero hero)
+        public override IHero GetHeroTarget(IHero targetHero)
         {
-            return hero;
+            Debug.Log("TargetHero1: " +targetHero.HeroName);
+            return targetHero;
         }
             
     }
