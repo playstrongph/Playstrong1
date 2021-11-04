@@ -176,21 +176,27 @@ namespace ScriptableObjects.StandardActions
         
         protected IEnumerator StartActionCoroutine(IHero targetHero)
         {
-            Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(targetHero))
+            var actionTargetHeroes = BasicActionTargets.GetHeroTargets(targetHero);
+            
+            for (var index = 0; index < actionTargetHeroes.Count; index++)
             {
-                //NEW TEST
-                var conditionTargetHero = BasicConditionTargets.GetHeroTarget(newTargetHero);
-                //NEW TEST
-                if (FinalConditionValue(conditionTargetHero) > 0)
+                var newTargetHero = actionTargetHeroes[index];
+
+                //TEST - condition targets taken independent of action targets
+                var conditionTargetHeroes = BasicConditionTargets.GetHeroTargets(targetHero);
+
+                //TEST
+                //If condition target does not need to track action targets (in target hero)
+                //set the index to zero - i.e. there is a specific condition targethero
+                var conditionIndex = conditionTargetHeroes.Count < actionTargetHeroes.Count ? 0 : index;
+
+                if (FinalConditionValue(conditionTargetHeroes[conditionIndex]) > 0)
                 {
                     foreach (var basicAction in BasicActions)
                         logicTree.AddCurrent(basicAction.StartAction(newTargetHero));
                 }
             }
-            
             logicTree.EndSequence();
             yield return null;
         }
@@ -206,21 +212,29 @@ namespace ScriptableObjects.StandardActions
         //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
         protected IEnumerator StartActionCoroutine(IHero thisHero, IHero targetHero)
         {   
-            //Debug.Log("StartActionCoroutine thisHero:" +thisHero.HeroName +"targetHero: " +targetHero.HeroName);
+            
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-
-            foreach (var newTargetHero in BasicActionTargets.GetHeroTargets(thisHero,targetHero))
+            var actionTargetHeroes = BasicActionTargets.GetHeroTargets(thisHero,targetHero);
+            
+            for (var index = 0; index < actionTargetHeroes.Count; index++)
             {
-                //NEW TEST
-                var conditionTargetHero = BasicConditionTargets.GetHeroTarget(thisHero, newTargetHero);
-                //NEW TEST
-                if (FinalConditionValue(thisHero, conditionTargetHero) > 0)
+                var newTargetHero = actionTargetHeroes[index];
+                
+                //TEST - condition targets taken independent of action targets
+                var conditionTargetHeroes = BasicConditionTargets.GetHeroTargets(thisHero, targetHero);
+                
+                //TEST
+                //If condition target does not need to track action targets (in target hero)
+                //set the index to zero - i.e. there is a specific condition targethero
+                var conditionIndex = conditionTargetHeroes.Count < actionTargetHeroes.Count ? 0 : index;
+
+                if (FinalConditionValue(thisHero, conditionTargetHeroes[conditionIndex]) > 0)
                 {
                     foreach (var basicAction in BasicActions)
-                        logicTree.AddCurrent(basicAction.StartAction(thisHero,newTargetHero));
+                        logicTree.AddCurrent(basicAction.StartAction(thisHero, newTargetHero));
                 }
             }
-            
+
             logicTree.EndSequence();
             yield return null;
         }
