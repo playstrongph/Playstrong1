@@ -327,7 +327,7 @@ namespace ScriptableObjects.StandardActions
             if(OrBasicConditions.Count>0)
             {
                 //Default 0 for OR
-                _finalAndConditions = 0;
+                _finalOrConditions = 0;
                 foreach (var basicCondition in OrBasicConditions)
                 {
                     _finalOrConditions += basicCondition.GetValue(targetHero);
@@ -392,7 +392,7 @@ namespace ScriptableObjects.StandardActions
             if(OrBasicConditions.Count>0)
             {
                 //Default 0 for OR
-                _finalAndConditions = 0;
+                _finalOrConditions = 0;
                 foreach (var basicCondition in OrBasicConditions)
                 {
                     _finalOrConditions += basicCondition.GetValue(thisHero,targetHero);
