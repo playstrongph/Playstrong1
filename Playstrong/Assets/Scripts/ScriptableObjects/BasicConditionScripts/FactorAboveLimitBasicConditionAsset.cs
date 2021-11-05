@@ -9,8 +9,12 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "FactorAboveLimit", menuName = "SO's/BasicConditions/FactorAboveLimit")]
     
+    /// <summary>
+    /// Compares calculated factor values - attack, health, buffs, fighting spirit, etc
+    /// with a defined limit.  Returns 1 when the value is greater than the limit 
+    /// </summary>
+    [CreateAssetMenu(fileName = "FactorAboveLimit", menuName = "SO's/BasicConditions/FactorAboveLimit")]
     public class FactorAboveLimitBasicConditionAsset : BasicConditionAsset
     {
 
