@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6036fd5c83e50f94899fe3cde0b4b849, type: 3}
-  m_Name: RefreshSkillCooldownToReady
+  m_Script: {fileID: 11500000, guid: 9e84f118dfde6554f97728fe8e929299, type: 3}
+  m_Name: TargetHero
   m_EditorClassIdentifier: 
-  heroSkillAssetReference: {fileID: 11400000, guid: fab408472d951604c83c415ad584f419,
-    type: 2}

@@ -20,6 +20,11 @@ namespace ScriptableObjects.DamageAttributeMultiple
 
        protected IHero CalculationHeroBasis;
        
+       /// <summary>
+       /// Used in conjunction with SetCalculatedFactor basic action
+       /// when GetCalculatedValue needs to be taken at a specific point in time
+       /// </summary>
+       /// <returns></returns>
        public virtual float GetCalculatedValue()
         {
             var calculatedValue = 0;
@@ -32,18 +37,30 @@ namespace ScriptableObjects.DamageAttributeMultiple
         }
         
         
-        //TEST - remove requirement for SetHeroBasis
+        /*/// <summary>
+        /// Can be used when calculated value does not need to be constant
+        /// or not used across multiple conditions/actions
+        /// </summary>
+        /// <param name="targetHero"></param>
+        /// <returns></returns>
         public virtual float GetCalculatedValue(IHero targetHero)
         {
             var calculatedValue = 0;
             return calculatedValue;
         }
         
+        /// <summary>
+        /// Can be used when calculated value does not need to be constant
+        /// or not used across multiple conditions/actions
+        /// </summary>
+        /// <param name="thisHero"></param>
+        /// <param name="targetHero"></param>
+        /// <returns></returns>
         public virtual float GetCalculatedValue(IHero thisHero, IHero targetHero)
         {
             var calculatedValue = 0;
             return calculatedValue;
-        }
+        }*/
 
     }
 }

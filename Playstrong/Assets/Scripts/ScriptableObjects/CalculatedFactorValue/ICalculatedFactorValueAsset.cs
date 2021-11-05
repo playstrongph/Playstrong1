@@ -23,10 +23,10 @@ namespace ScriptableObjects.CalculatedFactorValue
         float GetCalculatedValue();
         void SetHeroBasis(IHero hero);
         
-        //TEST
+        /*//TEST
         float GetCalculatedValue(IHero targetHero);
 
-        float GetCalculatedValue(IHero thisHero, IHero targetHero);
+        float GetCalculatedValue(IHero thisHero, IHero targetHero);*/
 
 
 

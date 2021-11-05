@@ -11,25 +11,18 @@ namespace ScriptableObjects.DamageAttributeMultiple
     [CreateAssetMenu(fileName = "FightingSpiritFactor", menuName = "SO's/Scriptable Enums/CalculatedFactorValue/FightingSpiritFactor")]
     public class FightingSpiritCalculatedFactorAsset : CalculatedFactorValueAsset
     {
-        public override float GetCalculatedValue(IHero targetHero)
+       
+        public override float GetCalculatedValue()
         {
             var fightingSpirit = 0;
             
-            if (targetHero != null)
-                fightingSpirit = targetHero.HeroLogic.OtherAttributes.FightingSpirit;
+            if (CalculationHeroBasis != null)
+                fightingSpirit = CalculationHeroBasis.HeroLogic.OtherAttributes.FightingSpirit;
 
             return fightingSpirit;
         }
         
-        public override float GetCalculatedValue(IHero thisHero, IHero targetHero)
-        {
-            var fightingSpirit = 0;
-            
-            if (targetHero != null)
-                fightingSpirit = targetHero.HeroLogic.OtherAttributes.FightingSpirit;
-
-            return fightingSpirit;
-        }
+      
        
     }
 }

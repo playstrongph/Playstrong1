@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6036fd5c83e50f94899fe3cde0b4b849, type: 3}
-  m_Name: RefreshSkillCooldownToReady
+  m_Script: {fileID: 11500000, guid: 3b75dc7f80c4f7542b95c9a2cdbb92c2, type: 3}
+  m_Name: FactorAboveLimit
   m_EditorClassIdentifier: 
-  heroSkillAssetReference: {fileID: 11400000, guid: fab408472d951604c83c415ad584f419,
-    type: 2}
+  limit: 99
+  calculatedFactor: {fileID: 11400000, guid: 205f25e5239d69b478758bdbb76e9378, type: 2}

@@ -26,16 +26,13 @@ namespace ScriptableObjects.BasicActions
 
         protected override int CheckBasicCondition(IHero targetHero)
         {
-            return CalculatedFactor.GetCalculatedValue(targetHero) > limit ? 1 : 0;
+            return CalculatedFactor.GetCalculatedValue() > limit ? 1 : 0;
         }
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            return CalculatedFactor.GetCalculatedValue(thisHero,targetHero) > limit ? 1 : 0;
+            return CalculatedFactor.GetCalculatedValue() > limit ? 1 : 0;
         }
-   
-
-
 
     }
 }

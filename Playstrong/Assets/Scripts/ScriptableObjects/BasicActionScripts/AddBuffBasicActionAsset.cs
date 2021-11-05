@@ -13,9 +13,12 @@ namespace ScriptableObjects.SkillActionsScripts
     public class AddBuffBasicActionAsset : BasicActionAsset 
     {
         
-        [Header("ADD BUFF FACTORS")] [SerializeField]
+        [Header("SKILL FACTORS")] [SerializeField]
         private int defaultSkillAddBuffChance;
         
+        
+        
+        [Header("BUFF INFO")] 
         [SerializeField]
         [RequireInterface(typeof(IStatusEffectAsset))]
         private ScriptableObject _buffEffectAsset;
