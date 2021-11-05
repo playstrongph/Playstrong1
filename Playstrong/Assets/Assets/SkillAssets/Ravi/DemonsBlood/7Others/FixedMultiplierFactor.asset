@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17dc0ae1233529a4db08ad1c009d9371, type: 3}
-  m_Name: ZeroDamage
+  m_Script: {fileID: 11500000, guid: b89deb0c956d28347890ddf6e0170384, type: 3}
+  m_Name: FixedMultiplierFactor
   m_EditorClassIdentifier: 
-  percentFactor: 0
+  percentFactor: 100
