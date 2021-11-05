@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FullBurstSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
+  - {fileID: 11400000, guid: b529d54a8cb6cb04a82afea516eef715, type: 2}
   - {fileID: 11400000, guid: f68d091316b1d8e4887315b20f501e47, type: 2}
   - {fileID: 11400000, guid: d3964c7171e2f454a965e2011057bcdb, type: 2}
   - {fileID: 11400000, guid: 8a209a2eb7430f641acbd11e449db8fe, type: 2}

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b75dc7f80c4f7542b95c9a2cdbb92c2, type: 3}
-  m_Name: FactorAboveLimit
+  m_Script: {fileID: 11500000, guid: f8893bb9ff249ce4a9b94ee7a27ec737, type: 3}
+  m_Name: SetCalculatedFactorHero
   m_EditorClassIdentifier: 
-  limit: 49
-  calculatedFactor: {fileID: 11400000, guid: cca67c7153c144043b1039b18100b8bf, type: 2}
+  damageFactor: {fileID: 11400000, guid: 205f25e5239d69b478758bdbb76e9378, type: 2}
