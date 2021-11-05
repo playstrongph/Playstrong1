@@ -16,7 +16,8 @@ MonoBehaviour:
   eventSubscribers: {fileID: 11400000, guid: fd03a888c5c41a341a65564b72eb28ee, type: 2}
   conditionTargets: {fileID: 11400000, guid: fd03a888c5c41a341a65564b72eb28ee, type: 2}
   orBasicConditions: []
-  andBasicConditions: []
+  andBasicConditions:
+  - {fileID: 11400000, guid: 4cba2722e1c4d1b4d95beeb23cf20dda, type: 2}
   actionTargets: {fileID: 11400000, guid: fd03a888c5c41a341a65564b72eb28ee, type: 2}
   basicActions:
   - {fileID: 11400000, guid: 53557a27404ef6241baf4589344ec133, type: 2}

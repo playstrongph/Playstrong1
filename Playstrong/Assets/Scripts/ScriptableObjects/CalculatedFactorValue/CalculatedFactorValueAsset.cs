@@ -29,8 +29,20 @@ namespace ScriptableObjects.DamageAttributeMultiple
         public void SetHeroBasis(IHero hero)
         {
             CalculationHeroBasis = hero;
-            
-           
+        }
+        
+        
+        //TEST - remove requirement for SetHeroBasis
+        public virtual float GetCalculatedValue(IHero targetHero)
+        {
+            var calculatedValue = 0;
+            return calculatedValue;
+        }
+        
+        public virtual float GetCalculatedValue(IHero thisHero, IHero targetHero)
+        {
+            var calculatedValue = 0;
+            return calculatedValue;
         }
 
     }
