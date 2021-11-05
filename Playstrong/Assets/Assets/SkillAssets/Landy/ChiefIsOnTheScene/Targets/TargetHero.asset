@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eeccb0c107f469469eec8d71a649342, type: 3}
-  m_Name: 4IncreaseFightingSpirit
+  m_Script: {fileID: 11500000, guid: 9e84f118dfde6554f97728fe8e929299, type: 3}
+  m_Name: TargetHero
   m_EditorClassIdentifier: 
-  fightingSpiritIncrease: 5
-  calculatedFactor: {fileID: 11400000, guid: bdd0de33235e8cb4bbcd35dad5e19336, type: 2}

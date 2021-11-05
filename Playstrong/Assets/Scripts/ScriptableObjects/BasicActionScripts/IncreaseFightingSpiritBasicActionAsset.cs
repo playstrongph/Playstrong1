@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using ScriptableObjects.CalculatedFactorValue;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using UnityEngine;
 
@@ -10,13 +11,17 @@ namespace ScriptableObjects.SkillActionsScripts
     
     public class IncreaseFightingSpiritBasicActionAsset : BasicActionAsset
     {
-        [SerializeField] private int fightingSpiritIncrease;
+        [SerializeField] private int flatFightingSpiritIncrease;
+
+        [SerializeField] private ScriptableObject calculatedFactor;
+        private ICalculatedFactorValueAsset CalculatedFactor => calculatedFactor as ICalculatedFactorValueAsset;
         
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var fightingSpirit = targetHero.HeroLogic.OtherAttributes.FightingSpirit;
-            var newFightingSpirit = fightingSpirit + fightingSpiritIncrease;
+
+            var newFightingSpirit =  Mathf.FloorToInt(fightingSpirit + flatFightingSpiritIncrease*CalculatedFactor.GetCalculatedValue()); 
 
             targetHero.HeroLogic.SetHeroFightingSpirit.SetFightingSpirit(newFightingSpirit);
 
@@ -28,7 +33,8 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var fightingSpirit = targetHero.HeroLogic.OtherAttributes.FightingSpirit;
-            var newFightingSpirit = fightingSpirit + fightingSpiritIncrease;
+            
+            var newFightingSpirit =  Mathf.FloorToInt(fightingSpirit + flatFightingSpiritIncrease*CalculatedFactor.GetCalculatedValue());
 
             targetHero.HeroLogic.SetHeroFightingSpirit.SetFightingSpirit(newFightingSpirit);
 

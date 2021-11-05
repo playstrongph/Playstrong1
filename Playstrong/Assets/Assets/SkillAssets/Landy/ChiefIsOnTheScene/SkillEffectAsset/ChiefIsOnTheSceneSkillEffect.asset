@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
   m_Name: ChiefIsOnTheSceneSkillEffect
   m_EditorClassIdentifier: 
-  standardActions: []
+  standardActions:
+  - {fileID: 11400000, guid: 92615e9f4b926e64c93005b7b9e76e91, type: 2}
+  - {fileID: 11400000, guid: 733c38ecaf8d3e34b983ae510dec3f89, type: 2}
