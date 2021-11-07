@@ -30,9 +30,17 @@ namespace ScriptableObjects.BasicActions
                 }
             }
 
-            var usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(_specificSkill);
+            //TEST
+            var usingSkill = 0;
+
+            if (_specificSkill != null)
+            {
+                usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(_specificSkill);    
+                Debug.Log("Using Skill 2 Reference: " +_specificSkill.SkillName +" return value: " +usingSkill);
+            }
+
+            Debug.Log("Skill Reference: " +SkillReference+" Using specific skill return value: " +usingSkill);
             
-            Debug.Log("Using Skill 1 Reference: " +_specificSkill.SkillName);
             return usingSkill;
         }
         
@@ -47,11 +55,18 @@ namespace ScriptableObjects.BasicActions
                     _specificSkill = skill;
                 }
             }
-
-            var usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(_specificSkill);
-
             
-            Debug.Log("Using Skill 2 Reference: " +SkillReference.SkillName);
+            //TEST
+            var usingSkill = 0;
+
+            if (_specificSkill != null)
+            {
+                usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(_specificSkill);    
+                Debug.Log("Using Skill 2 Reference: " +_specificSkill.SkillName +" return value: " +usingSkill);
+            }
+
+            Debug.Log("Skill Reference: " +SkillReference+" Using specific skill return value: " +usingSkill);
+            
             return usingSkill;
         }
    

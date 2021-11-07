@@ -28,14 +28,12 @@ namespace ScriptableObjects.ActionTargetScripts
                 heroTargets.Add(otherRandomEnemies[i]);    
             }
 
-           
-
             return heroTargets;
         }
         
-        public override List<IHero> GetHeroTargets(IHero thisHero)
+        public override List<IHero> GetHeroTargets(IHero targetHero)
         {
-            var otherRandomEnemies = ShuffleList(thisHero.GetAllOtherLivingAllyHeroes());
+            var otherRandomEnemies = ShuffleList(targetHero.GetAllOtherLivingAllyHeroes());
             var otherEnemiesCount = Mathf.Min(otherRandomEnemiesCount, otherRandomEnemies.Count);
             var heroTargets = new List<IHero>();
 
@@ -44,7 +42,7 @@ namespace ScriptableObjects.ActionTargetScripts
                 heroTargets.Add(otherRandomEnemies[i]);    
             }
 
-            heroTargets.Add(thisHero);
+            heroTargets.Add(targetHero);
 
             return heroTargets;
         }

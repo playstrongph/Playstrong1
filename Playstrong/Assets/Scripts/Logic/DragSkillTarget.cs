@@ -173,7 +173,7 @@ namespace Logic
             yield return null;
         }
 
-        private IEnumerator SetUsingSkillStatus()
+        /*private IEnumerator SetUsingSkillStatus()
         {
             var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
@@ -202,6 +202,7 @@ namespace Logic
             logicTree.EndSequence();
             yield return null;
         }
+        */
 
 
 

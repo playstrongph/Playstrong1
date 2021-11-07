@@ -16,8 +16,12 @@ namespace Logic
         
         //SKILL REFERENCE
         protected ISkill LocalSkill;
+        
+        //TEST
+        public List<IHero> PresetHeroTargets { get; set; }
 
-        //From SINGLE to Multiple target requirements - used in StandardActions
+
+
         public virtual List<IHero> GetHeroTargets(IHero thisHero, IHero targetHero)
         {
             var heroTargets = new List<IHero>();
@@ -51,7 +55,7 @@ namespace Logic
             return null;
         }
         
-        //TEST
+       
         public virtual IHero SetStatusEffectHero(IHeroStatusEffect heroStatusEffect)
         {
             return StatusEffectLocalHero;
