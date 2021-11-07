@@ -11,26 +11,19 @@ namespace ScriptableObjects.BasicActions
     /// Used when you need the same random targets across different standard actions
     /// Usually because of different basic conditions for the standard actions
     /// </summary>
-    [CreateAssetMenu(fileName = "PresetActionTargets", menuName = "SO's/BasicActions/PresetActionTargets")]
-    public class PresetActionTargetsBasicActionAsset : BasicActionAsset
+    [CreateAssetMenu(fileName = "RandomizeLivingAlliesList", menuName = "SO's/BasicActions/RandomizeLivingAlliesList")]
+    public class RandomizeLivingAlliesBasicActionAsset : BasicActionAsset
     {
-
-        [SerializeField] private ScriptableObject presetTargets;
-        private IActionTargets PresetTargets  => presetTargets as IActionTargets;
-        
-        [SerializeField] private ScriptableObject actionTargets;
-        
-        private IActionTargets ActionTargets  => actionTargets as IActionTargets;
-        
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //You'll only use either 'all' or 'allOther' lists one at a time
+            targetHero.ShuffleAllLivingAllyHeroes();
+            
+            //You'll only use either 'all' or 'allOther' lists one at a time
+            targetHero.ShuffleOtherLivingAllyHeroes();
 
-            PresetTargets.PresetHeroTargets = ActionTargets.GetHeroTargets(targetHero);
-            
-            Debug.Log("PresetAction 1: " + PresetTargets.PresetHeroTargets.Count);
-            
-            
             logicTree.EndSequence();
             yield return null;
         }
@@ -39,9 +32,11 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            PresetTargets.PresetHeroTargets = ActionTargets.GetHeroTargets(thisHero, targetHero);
-           
-            Debug.Log("PresetAction 2: " + PresetTargets.PresetHeroTargets.Count);
+            //You'll only use either 'all' or 'allOther' lists one at a time
+            targetHero.ShuffleAllLivingAllyHeroes();
+            
+            //You'll only use either 'all' or 'allOther' lists one at a time
+            targetHero.ShuffleOtherLivingAllyHeroes();
             
             logicTree.EndSequence();
             yield return null;

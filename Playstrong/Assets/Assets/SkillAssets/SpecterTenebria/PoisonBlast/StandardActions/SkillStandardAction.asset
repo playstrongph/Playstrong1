@@ -19,4 +19,4 @@ MonoBehaviour:
   andBasicConditions: []
   actionTargets: {fileID: 11400000, guid: 38b4ce1be9401bc45831d5fc57e2046c, type: 2}
   basicActions:
-  - {fileID: 11400000, guid: 8327fc3b191aa014596a7b850d712833, type: 2}
+  - {fileID: 11400000, guid: 2f62774e5757b204184fdf82d0ea2c11, type: 2}

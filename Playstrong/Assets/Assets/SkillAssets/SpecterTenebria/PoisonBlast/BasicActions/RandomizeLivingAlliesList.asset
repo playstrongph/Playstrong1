@@ -10,7 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36f9ce786f115b3449252d091237c929, type: 3}
-  m_Name: PresetHeroesBasicAction
+  m_Name: RandomizeLivingAlliesList
   m_EditorClassIdentifier: 
-  presetTargets: {fileID: 11400000, guid: f4658704f9b63e540bb1e2c9513fc76d, type: 2}
-  actionTargets: {fileID: 11400000, guid: f1395dd1f4524ff48a1f2095bbb4485d, type: 2}

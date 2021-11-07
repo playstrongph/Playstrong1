@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51bb7cb6403c1944b21bf228d44a2b3, type: 3}
   m_Name: MaxHealthFactor
   m_EditorClassIdentifier: 
-  percentFactor: 50
+  percentFactor: 5

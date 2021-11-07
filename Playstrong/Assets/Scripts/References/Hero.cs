@@ -156,6 +156,7 @@ namespace References
             foreach (var heroObject in LivingHeroes.HeroesList)
             {
                 var hero = heroObject.GetComponent<IHero>();
+                //Debug.Log("Hero: " +hero.HeroName);
                 
                 if(hero != (IHero)this)
                     AllOtherAllyHeroes.Add(hero);
@@ -166,21 +167,21 @@ namespace References
         
         
         
-        private List<IHero> ShuffleList(List<IHero> heroList)
+        private void ShuffleList(List<IHero> heroList)
         {
-            var randomList = heroList;
-            
             //Randomize the List
-            for (var i = 0; i < randomList.Count; i++) 
+            for (var i = 0; i < heroList.Count; i++) 
             {
-                var temp = randomList[i];
-                var randomIndex = Random.Range(i, randomList.Count);
+                var temp = heroList[i];
+                var randomIndex = Random.Range(i, heroList.Count);
                 
-                randomList[i] = randomList[randomIndex];
-                randomList[randomIndex] = temp;
+                heroList[i] = heroList[randomIndex];
+                heroList[randomIndex] = temp;
+                
             }
-
-            return randomList;
+            
+           
+            
         }
         
         
