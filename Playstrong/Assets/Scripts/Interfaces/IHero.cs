@@ -45,6 +45,11 @@ namespace Interfaces
         List<IHero> GetAllLivingAllyHeroes();
 
         List<IHero> GetAllOtherLivingAllyHeroes();
+        
+        //TEST
+        void ShuffleAllLivingAllyHeroes();
+
+        void ShuffleOtherLivingAllyHeroes();
 
 
 

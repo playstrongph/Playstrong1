@@ -9,6 +9,7 @@ using UnityEngine;
 using Utilities;
 using Visual;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 
 namespace References
@@ -118,14 +119,6 @@ namespace References
                 var hero = heroObject.GetComponent<IHero>();
                 AllAllyHeroes.Add(hero);
             }
-            
-            /*//Note: There is no deadHero at the start, below not really required
-            foreach (var heroObject in DeadHeroes.HeroesList)
-            {
-                var hero = heroObject.GetComponent<IHero>();
-                AllAllyHeroes.Add(hero);
-            }*/
-
             return AllAllyHeroes;
         }
         
@@ -140,17 +133,57 @@ namespace References
                 if(hero != (IHero)this)
                     AllOtherAllyHeroes.Add(hero);
             }
+
+            return AllOtherAllyHeroes;
+        }
+        
+        public void ShuffleAllLivingAllyHeroes()
+        {
+            AllAllyHeroes.Clear();
             
-            //Note: There is no deadHero at the start, below not really required
-            /*foreach (var heroObject in DeadHeroes.HeroesList)
+            foreach (var heroObject in LivingHeroes.HeroesList)
+            {
+                var hero = heroObject.GetComponent<IHero>();
+                AllAllyHeroes.Add(hero);
+            }
+            ShuffleList(AllAllyHeroes);
+        }
+
+        public void ShuffleOtherLivingAllyHeroes()
+        {
+            AllOtherAllyHeroes.Clear();
+            
+            foreach (var heroObject in LivingHeroes.HeroesList)
             {
                 var hero = heroObject.GetComponent<IHero>();
                 
                 if(hero != (IHero)this)
                     AllOtherAllyHeroes.Add(hero);
-            }*/
+            }
 
-            return AllOtherAllyHeroes;
+            ShuffleList(AllOtherAllyHeroes);
         }
+        
+        
+        
+        private List<IHero> ShuffleList(List<IHero> heroList)
+        {
+            var randomList = heroList;
+            
+            //Randomize the List
+            for (var i = 0; i < randomList.Count; i++) 
+            {
+                var temp = randomList[i];
+                var randomIndex = Random.Range(i, randomList.Count);
+                
+                randomList[i] = randomList[randomIndex];
+                randomList[randomIndex] = temp;
+            }
+
+            return randomList;
+        }
+        
+        
+        
     }
 }
