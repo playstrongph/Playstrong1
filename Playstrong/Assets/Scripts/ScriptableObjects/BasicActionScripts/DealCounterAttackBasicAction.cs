@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "IncreaseCounterAttackActionAsset", menuName = "SO's/SkillActions/IncreaseCounterAttackActionAsset")]
+    [CreateAssetMenu(fileName = "DealCounterAttackBasicAction", menuName = "SO's/SkillActions/D/DealCounterAttackBasicAction")]
     
     public class DealCounterAttackBasicAction : BasicActionAsset
     {

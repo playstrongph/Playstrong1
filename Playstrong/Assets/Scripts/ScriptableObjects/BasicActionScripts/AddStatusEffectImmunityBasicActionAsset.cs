@@ -8,7 +8,7 @@ using Utilities;
 
 namespace ScriptableObjects.BasicActionScripts
 {
-    [CreateAssetMenu(fileName = "AddStatusEffectImmunity", menuName = "SO's/BasicActions/AddStatusEffectImmunity")]
+    [CreateAssetMenu(fileName = "AddStatusEffectImmunity", menuName = "SO's/BasicActions/A/AddStatusEffectImmunity")]
     
     public class AddStatusEffectImmunityBasicActionAsset : BasicActionAsset
     {

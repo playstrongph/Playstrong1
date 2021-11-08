@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "IncreaseTakeAllDamageReduction", menuName = "SO's/BasicActions/IncreaseTakeAllDamageReduction")]
+    [CreateAssetMenu(fileName = "IncreaseTakeAllDamageReduction", menuName = "SO's/BasicActions/I/IncreaseTakeAllDamageReduction")]
     
     public class IncreaseTakeAllDamageReductionBasicActionAsset : BasicActionAsset
     {

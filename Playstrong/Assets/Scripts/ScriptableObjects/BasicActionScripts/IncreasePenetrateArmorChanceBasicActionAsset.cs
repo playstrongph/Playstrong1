@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "IncreasePenetrateArmorChance", menuName = "SO's/BasicActions/IncreasePenetrateArmorChance")]
+    [CreateAssetMenu(fileName = "IncreasePenetrateArmorChance", menuName = "SO's/BasicActions/I/IncreasePenetrateArmorChance")]
     
     public class IncreasePenetrateArmorChanceBasicActionAsset : BasicActionAsset
     {

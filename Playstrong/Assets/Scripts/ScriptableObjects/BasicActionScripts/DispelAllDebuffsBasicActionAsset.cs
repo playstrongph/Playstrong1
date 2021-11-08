@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DispelAllDebuffs", menuName = "SO's/BasicActions/DispelAllDebuffs")]
+    [CreateAssetMenu(fileName = "DispelAllDebuffs", menuName = "SO's/BasicActions/D/DispelAllDebuffs")]
     
     public class DispelAllDebuffsBasicActionAsset : BasicActionAsset
     {

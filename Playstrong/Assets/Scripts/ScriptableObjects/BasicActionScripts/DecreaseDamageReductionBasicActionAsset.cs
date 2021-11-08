@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DecreaseDamageReduction", menuName = "SO's/BasicActions/DecreaseDamageReduction")]
+    [CreateAssetMenu(fileName = "DecreaseDamageReduction", menuName = "SO's/BasicActions/D/DecreaseDamageReduction")]
     public class DecreaseDamageReductionBasicActionAsset : BasicActionAsset
     {
         [SerializeField] private int damageReductionValue;

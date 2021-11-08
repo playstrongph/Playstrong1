@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "AttackBasicActionObsolete", menuName = "SO's/BasicActions/AttackBasicActionObsolete")]
+    [CreateAssetMenu(fileName = "AttackBasicActionObsolete", menuName = "SO's/BasicActions/A/AttackBasicActionObsolete")]
     
     public class AttackBasicActionAssetObsolete : BasicActionAsset
     {

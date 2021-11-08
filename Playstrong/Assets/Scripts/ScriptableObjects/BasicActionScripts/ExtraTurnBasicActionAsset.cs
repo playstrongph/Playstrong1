@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "ExtraTurnBasicAction", menuName = "SO's/BasicActions/ExtraTurnBasicAction")]
+    [CreateAssetMenu(fileName = "ExtraTurnBasicAction", menuName = "SO's/BasicActions/E/ExtraTurnBasicAction")]
     
     public class ExtraTurnBasicActionAsset : BasicActionAsset
     {

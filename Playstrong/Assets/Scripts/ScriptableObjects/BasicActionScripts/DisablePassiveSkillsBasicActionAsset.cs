@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DisablePassiveSkills", menuName = "SO's/BasicActions/DisablePassiveSkills")]
+    [CreateAssetMenu(fileName = "DisablePassiveSkills", menuName = "SO's/BasicActions/D/DisablePassiveSkills")]
     
     public class DisablePassiveSkillsBasicActionAsset : BasicActionAsset
     {

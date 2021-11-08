@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "IncreaseAttackTargetResistance", menuName = "SO's/BasicActions/IncreaseAttackTargetResistance")]
+    [CreateAssetMenu(fileName = "IncreaseAttackTargetResistance", menuName = "SO's/BasicActions/I/IncreaseAttackTargetResistance")]
     
     public class IncreaseAttackTargetResistanceBasicActionAsset : BasicActionAsset
     {

@@ -119,6 +119,8 @@ namespace References
                 var hero = heroObject.GetComponent<IHero>();
                 AllAllyHeroes.Add(hero);
             }
+            
+            //Any reason not to randomize this here?
             return AllAllyHeroes;
         }
         
@@ -133,10 +135,12 @@ namespace References
                 if(hero != (IHero)this)
                     AllOtherAllyHeroes.Add(hero);
             }
-
+            
+            //Any reason not to randomize this here?
             return AllOtherAllyHeroes;
         }
         
+        //this can be obsoleted if the 'Get' method gets randomized
         public void ShuffleAllLivingAllyHeroes()
         {
             AllAllyHeroes.Clear();
@@ -148,7 +152,8 @@ namespace References
             }
             ShuffleList(AllAllyHeroes);
         }
-
+        
+        //this can be obsoleted if the 'Get' method gets randomized
         public void ShuffleOtherLivingAllyHeroes()
         {
             AllOtherAllyHeroes.Clear();

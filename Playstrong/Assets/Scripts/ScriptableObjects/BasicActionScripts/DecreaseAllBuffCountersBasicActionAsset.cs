@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DecreaseAllBuffCounters", menuName = "SO's/BasicActions/DecreaseAllBuffCounters")]
+    [CreateAssetMenu(fileName = "DecreaseAllBuffCounters", menuName = "SO's/BasicActions/D/DecreaseAllBuffCounters")]
     
     public class DecreaseAllBuffCountersBasicActionAsset : BasicActionAsset
     {

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DealNonSkillDamage", menuName = "SO's/BasicActions/DealNonSkillDamage")]
+    [CreateAssetMenu(fileName = "DealNonSkillDamage", menuName = "SO's/BasicActions/D/DealNonSkillDamage")]
     
     public class DealNonSkillDamageBasicActionAsset : BasicActionAsset
     {

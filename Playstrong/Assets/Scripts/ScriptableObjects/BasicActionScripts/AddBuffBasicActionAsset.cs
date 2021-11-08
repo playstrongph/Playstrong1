@@ -8,7 +8,7 @@ using Utilities;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "AddBuffAction", menuName = "SO's/BasicActions/AddBuffAction")]
+    [CreateAssetMenu(fileName = "AddBuffAction", menuName = "SO's/BasicActions/A/AddBuffAction")]
     
     public class AddBuffBasicActionAsset : BasicActionAsset 
     {

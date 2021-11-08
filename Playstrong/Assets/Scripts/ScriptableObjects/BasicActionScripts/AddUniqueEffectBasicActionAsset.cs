@@ -9,7 +9,7 @@ using Visual;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "AddUniqueEffect", menuName = "SO's/BasicActions/AddUniqueEffect")]
+    [CreateAssetMenu(fileName = "AddUniqueEffect", menuName = "SO's/BasicActions/A/AddUniqueEffect")]
     
     public class AddUniqueEffectBasicActionAsset : BasicActionAsset
     {

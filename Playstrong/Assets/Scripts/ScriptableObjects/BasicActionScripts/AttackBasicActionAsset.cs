@@ -14,7 +14,7 @@ namespace ScriptableObjects.BasicActions
     /// Basic action used by Skill 1 BasicAttackBasicAction
     /// Basic action used by Skill 2 and Skill 3 when doing skill Attacks
     /// </summary>
-    [CreateAssetMenu(fileName = "AttackBasicAction", menuName = "SO's/BasicActions/AttackBasicAction")]
+    [CreateAssetMenu(fileName = "AttackBasicAction", menuName = "SO's/BasicActions/A/AttackBasicAction")]
     public class AttackBasicActionAsset : BasicActionAsset
     {
         [Header("CRITICAL STRIKE FACTORS")] 

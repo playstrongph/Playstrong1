@@ -11,7 +11,7 @@ namespace ScriptableObjects.SkillActionsScripts
    
     
     //Damage enemy based on ally hero attribute
-    [CreateAssetMenu(fileName = "DealDamage", menuName = "SO's/BasicActions/DealDamage")]
+    [CreateAssetMenu(fileName = "DealDamage", menuName = "SO's/BasicActions/D/DealDamage")]
     
     public class DealDamageBasicActionAsset : BasicActionAsset
     {

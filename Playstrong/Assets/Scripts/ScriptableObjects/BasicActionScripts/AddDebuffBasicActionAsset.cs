@@ -9,7 +9,7 @@ using Visual;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "AddDebuffAction", menuName = "SO's/BasicActions/AddDebuffAction")]
+    [CreateAssetMenu(fileName = "AddDebuffAction", menuName = "SO's/BasicActions/A/AddDebuffAction")]
     
     public class AddDebuffBasicActionAsset : BasicActionAsset
     {
