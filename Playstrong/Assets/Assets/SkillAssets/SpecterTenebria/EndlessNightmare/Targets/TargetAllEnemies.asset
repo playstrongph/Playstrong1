@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: 3b0c3222b9f509d4db670e242a55a936, type: 3}
+  m_Name: TargetAllEnemies
   m_EditorClassIdentifier: 
-  defaultSkillAddDebuffChance: 0
-  _debuffEffectAsset: {fileID: 11400000, guid: 33b0b96c82ddc7c47b1b31b69f6b184d, type: 2}
-  _debuffCounters: 2

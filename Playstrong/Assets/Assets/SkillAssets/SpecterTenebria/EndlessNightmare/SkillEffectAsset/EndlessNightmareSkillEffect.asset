@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
+  m_Name: EndlessNightmareSkillEffect
   m_EditorClassIdentifier: 
-  defaultSkillAddDebuffChance: 0
-  _debuffEffectAsset: {fileID: 11400000, guid: 33b0b96c82ddc7c47b1b31b69f6b184d, type: 2}
-  _debuffCounters: 2
+  standardActions:
+  - {fileID: 11400000, guid: 135f93404f3eec145a11fed0135bb12d, type: 2}
+  - {fileID: 11400000, guid: 43ad29984c91a1746a8e6ff0c068d8f3, type: 2}
