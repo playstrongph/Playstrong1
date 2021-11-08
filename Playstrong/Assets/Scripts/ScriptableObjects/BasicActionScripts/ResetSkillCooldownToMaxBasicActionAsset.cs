@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActionScripts
 {
-    [CreateAssetMenu(fileName = "ResetSkillCooldownToMax", menuName = "SO's/BasicActions/ResetSkillCooldownToMax")]
+    [CreateAssetMenu(fileName = "ResetSkillCooldownToMax", menuName = "SO's/BasicActions/R/ResetSkillCooldownToMax")]
     
     public class ResetSkillCooldownToMaxBasicActionAsset : BasicActionAsset
     {

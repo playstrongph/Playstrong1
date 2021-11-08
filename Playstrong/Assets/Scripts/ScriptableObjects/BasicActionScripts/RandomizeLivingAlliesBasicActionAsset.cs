@@ -11,7 +11,7 @@ namespace ScriptableObjects.BasicActions
     /// Used when you need the same random targets across different standard actions
     /// Usually because of different basic conditions for the standard actions
     /// </summary>
-    [CreateAssetMenu(fileName = "RandomizeLivingAlliesList", menuName = "SO's/BasicActions/RandomizeLivingAlliesList")]
+    [CreateAssetMenu(fileName = "RandomizeLivingAlliesList", menuName = "SO's/BasicActions/R/RandomizeLivingAlliesList")]
     public class RandomizeLivingAlliesBasicActionAsset : BasicActionAsset
     {
         public override IEnumerator TargetAction(IHero targetHero)

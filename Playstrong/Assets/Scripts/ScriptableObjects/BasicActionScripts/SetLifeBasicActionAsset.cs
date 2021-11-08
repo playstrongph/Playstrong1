@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "SetLifeBasicAction", menuName = "SO's/BasicActions/SetLifeBasicAction")]
+    [CreateAssetMenu(fileName = "SetLifeBasicAction", menuName = "SO's/BasicActions/S/SetLifeBasicAction")]
     
     public class SetLifeBasicActionAsset : BasicActionAsset
     {

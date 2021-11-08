@@ -14,7 +14,7 @@ namespace ScriptableObjects.BasicActions
     /// <summary>
     /// Other allies attack after this hero action
     /// </summary>
-    [CreateAssetMenu(fileName = "OtherAlliesAttackBasicAction", menuName = "SO's/BasicActions/OtherAlliesAttackBasicAction")]
+    [CreateAssetMenu(fileName = "OtherAlliesAttackBasicAction", menuName = "SO's/BasicActions/O/OtherAlliesAttackBasicAction")]
     public class OtherAlliesAttackBasicActionAsset : BasicActionAsset
     {
         //Number of other allies that will attack

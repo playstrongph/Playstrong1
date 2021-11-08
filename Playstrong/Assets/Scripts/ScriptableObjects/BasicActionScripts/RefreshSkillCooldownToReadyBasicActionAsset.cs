@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActionScripts
 {
-    [CreateAssetMenu(fileName = "RefreshSkillCooldownToReady", menuName = "SO's/BasicActions/RefreshSkillCooldownToReady")]
+    [CreateAssetMenu(fileName = "RefreshSkillCooldownToReady", menuName = "SO's/BasicActions/R/RefreshSkillCooldownToReady")]
     
     public class RefreshSkillCooldownToReadyBasicActionAsset : BasicActionAsset
     {

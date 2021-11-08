@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "SetCalculatedFactorHero", menuName = "SO's/BasicActions/SetCalculatedFactorHero")]
+    [CreateAssetMenu(fileName = "SetCalculatedFactorHero", menuName = "SO's/BasicActions/S/SetCalculatedFactorHero")]
     
     public class SetCalculatedFactorHeroBasicAction : BasicActionAsset
     {

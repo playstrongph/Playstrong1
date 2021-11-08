@@ -10,7 +10,7 @@ namespace ScriptableObjects.BasicActions
     /// <summary>
     /// This is different from Dispel - removal can't be prevented
     /// </summary>
-    [CreateAssetMenu(fileName = "RemoveStatusEffect", menuName = "SO's/BasicActions/RemoveStatusEffect")]
+    [CreateAssetMenu(fileName = "RemoveStatusEffect", menuName = "SO's/BasicActions/R/RemoveStatusEffect")]
     public class RemoveStatusEffectBasicActionAsset : BasicActionAsset
     {
         [SerializeField] private ScriptableObject statusEffectAsset;

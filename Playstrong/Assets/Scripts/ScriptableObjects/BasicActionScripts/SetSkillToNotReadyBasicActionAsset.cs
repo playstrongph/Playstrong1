@@ -12,7 +12,7 @@ namespace ScriptableObjects.BasicActionScripts
     /// Used by special skills such as Ravi's Devil Drive.  Normal implementation should be to use
     /// RefreshSkillCooldownToReady basic action asset
     /// </summary>
-    [CreateAssetMenu(fileName = "SetSkillToNotReady", menuName = "SO's/BasicActions/SetSkillToNotReady")]
+    [CreateAssetMenu(fileName = "SetSkillToNotReady", menuName = "SO's/BasicActions/S/SetSkillToNotReady")]
     public class SetSkillToNotReadyBasicActionAsset : BasicActionAsset
     {
         [SerializeField] private ScriptableObject heroSkillAssetReference;

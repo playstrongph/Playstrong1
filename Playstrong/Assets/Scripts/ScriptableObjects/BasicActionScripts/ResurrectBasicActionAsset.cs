@@ -10,7 +10,7 @@ using Utilities;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "ResurrectHeroBasicAction", menuName = "SO's/BasicActions/ResurrectHeroBasicAction")]
+    [CreateAssetMenu(fileName = "ResurrectHeroBasicAction", menuName = "SO's/BasicActions/R/ResurrectHeroBasicAction")]
     
     public class ResurrectBasicActionAsset : BasicActionAsset
     {
