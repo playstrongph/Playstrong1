@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Script: {fileID: 11500000, guid: 2d332a162e476774ab6ab45663014f19, type: 3}
+  m_Name: SkillCasterHero
   m_EditorClassIdentifier: 
-  defaultSkillAddBuffChance: 0
-  _buffEffectAsset: {fileID: 11400000, guid: b943e221e71e9154c9577a93dbd9d0ee, type: 2}
-  _buffCounters: 1

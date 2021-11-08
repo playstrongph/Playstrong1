@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: ArbiterVildred
   _description: Thief
   _heroSprite: {fileID: 21300000, guid: d36ae15defa12d742950f39661a7d6ee, type: 3}
-  _health: 100
+  _health: 5
   _attack: 20
   _speed: 225
   _chance: 50

@@ -20,7 +20,7 @@ namespace Logic
         
 
         private Action _showTargetsGlow;
-        private float stealthChanceCompensation = 3000f;
+        private float stealthChanceCompensation = 5000f;
     
         private void Awake()
         {
