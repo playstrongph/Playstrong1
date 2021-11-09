@@ -63,14 +63,18 @@ namespace Visual
                 
                 //Create Basic Action Targets clone and set heroStatusEffectReference
                 standardActionClone.BasicActionTargets = Instantiate(standardAction.BasicActionTargets as ScriptableObject) as IActionTargets;
-                //TODO: Check if there will be a need for the BasicActionTarget to Reference the Skill
                 standardActionClone.BasicActionTargets.SetSkillReference(_skillLogic.Skill);
+                
+                //TEST - Create Basic Condition Targets clone and set heroStatusEffectReference
+                standardActionClone.BasicConditionTargets = Instantiate(standardAction.BasicConditionTargets as ScriptableObject) as IActionTargets;
+                standardActionClone.BasicConditionTargets.SetSkillReference(_skillLogic.Skill);
+                
                 
                 //Create EventSubscribers
                 standardActionClone.EventSubscribers = Instantiate(standardAction.EventSubscribers as ScriptableObject) as IActionTargets;
                 standardActionClone.EventSubscribers.SetSkillReference(_skillLogic.Skill);
                 
-                //TEST - Set Skill Reference
+                //Set Skill Reference
                 var skillStandardActionClone = standardActionClone as ISkillStandardActionAsset;
                 skillStandardActionClone.SetSkillReference(_skillLogic.Skill);
 
@@ -90,6 +94,9 @@ namespace Visual
                     
                     var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
                     basicConditionClone.SkillReference = _skillLogic.Skill;
+                    
+                    
+
                 }
 
                 var k = 0;
@@ -101,6 +108,8 @@ namespace Visual
                     
                     var basicConditionClone = basicConditionCloneObject as IBasicConditionAsset;
                     basicConditionClone.SkillReference = _skillLogic.Skill;
+                    
+                    
                 }
             }
         }

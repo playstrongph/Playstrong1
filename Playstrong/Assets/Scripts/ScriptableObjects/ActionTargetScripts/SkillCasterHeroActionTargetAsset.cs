@@ -24,10 +24,13 @@ namespace ScriptableObjects.ActionTargets
         
         public override List<IHero> GetHeroTargets(IHero hero)
         {
+            Debug.Log("testes Local Skill Hero Targets Hero1: " +LocalSkill.Hero.HeroName );
+            Debug.Log("testes Skill Name Hero1: " +LocalSkill.SkillName );
+            
             var heroTargets = new List<IHero>();
             heroTargets.Clear();
-
-            //Debug.Log("Skill Caster Hero1: " +LocalSkill.Hero.HeroName );
+            
+          
             
             heroTargets.Add(LocalSkill.Hero);
             
