@@ -62,6 +62,8 @@ namespace Logic
         event HeroEvents.HeroEvent EAfterHeroTakesNonSkillDamage;
         event HeroEvents.HeroEvent EBeforeHeroDealsNonSkillDamage;
         event HeroEvents.HeroEvent EAfterHeroDealsNonSkillDamage;
+        
+        event HeroEvents.HeroEvent EAfterHeroesHealthChanges;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PreSkillAttack(IHero initiatorHero, IHero targetHero);
@@ -107,6 +109,9 @@ namespace Logic
         void AfterHeroTakesNonSkillDamage(IHero hero);
         void BeforeHeroDealsNonSkillDamage(IHero hero);
         void AfterHeroDealsNonSkillDamage(IHero hero);
+        
+        //TEST
+        void AfterHeroesHealthChanges(IHero hero);
 
     }
 }

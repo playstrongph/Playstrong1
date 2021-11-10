@@ -19,12 +19,9 @@ namespace ScriptableObjects.DamageAttributeMultiple
             //Damage Taken Factor
             if (CalculationHeroBasis != null)
             {
-                damageFactor = Mathf.CeilToInt(CalculationHeroBasis.HeroLogic.TakeDamageTest.FinalDamage * percentFactor / 100f);  
-                
-            
-                
+                damageFactor = Mathf.CeilToInt(CalculationHeroBasis.HeroLogic.TakeDamageTest.FinalDamage * percentFactor / 100f);
+
                 Debug.Log("FinalDamage: " +CalculationHeroBasis.HeroLogic.TakeDamageTest.FinalDamage +" percentFactor: " +percentFactor );
-                
                 Debug.Log("Hero Basis: " +CalculationHeroBasis.HeroName +" Damage Factor: " +damageFactor );
             }
             

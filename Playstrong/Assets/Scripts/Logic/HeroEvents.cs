@@ -60,6 +60,9 @@ namespace Logic
         public event HeroEvent EAfterHeroDealsMultiAttack;
         public event HeroEvent EBeforeHeroTakesMultiAttack;
         public event HeroEvent EAfterHeroTakesMultiAttack;
+
+        //TEST
+        public event HeroEvent EAfterHeroesHealthChanges;
         
         //Deal and Take Skill Damage Events
         public event HeroEvent EBeforeHeroTakesSkillDamage;
@@ -748,6 +751,23 @@ namespace Logic
                 }
         }
         
+        //TEST
+        public void AfterHeroesHealthChanges(IHero hero)
+        {
+            EAfterHeroesHealthChanges?.Invoke(hero);
+        }
+       
+        
+        private void UnsubscribeAfterHeroesHealthChangesClients()
+        {
+            var clients = EAfterHeroesHealthChanges?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroesHealthChanges -= client as HeroEvent;
+                }
+        }
+        
         
         
         
@@ -799,16 +819,18 @@ namespace Logic
             UnsubscribeBeforeHeroTakesSingleAttackClients();
             UnsubscribeAfterHeroDealsMultiAttackClients();
             UnsubscribeAfterHeroTakesMultiAttackClients();
-
             UnsubscribeBeforeHeroTakesSkillDamageClients();
             UnsubscribeAfterHeroTakesSkillDamageClients();
             UnsubscribeBeforeHeroDealsSkillDamageClients();
             UnsubscribeAfterHeroDealsSkillDamageClients();
-
             UnsubscribeBeforeHeroTakesNonSkillDamageClients();
             UnsubscribeAfterHeroTakesNonSkillDamageClients();
             UnsubscribeBeforeHeroDealsNonSkillDamageClients();
             UnsubscribeAfterHeroDealsNonSkillDamageClients();
+            
+            
+            //TEST
+            UnsubscribeAfterHeroesHealthChangesClients();
         }
     }
 }

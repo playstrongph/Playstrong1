@@ -27,6 +27,10 @@ namespace Logic
         {
             InitializeLocalVariables();
             _logicTree.AddCurrent(SetHealthLogic(value));
+            
+            //TEST - hero event AfterHeroesHealthChanges
+            _logicTree.AddCurrent(AfterHeroesHealthChangesCoroutine());
+            
         }
 
         private IEnumerator SetHealthLogic(int value)
@@ -75,6 +79,17 @@ namespace Logic
             else
                 return Color.white;
             
+        }
+        
+        //EVENTS
+        private IEnumerator AfterHeroesHealthChangesCoroutine()
+        {
+            var logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            _heroLogic.HeroEvents.AfterHeroesHealthChanges(_heroLogic.Hero);
+            
+            logicTree.EndSequence();
+            yield return null;
         }
     }
 }
