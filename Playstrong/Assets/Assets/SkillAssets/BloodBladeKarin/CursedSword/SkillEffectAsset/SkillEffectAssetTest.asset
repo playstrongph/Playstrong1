@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
   m_Name: SkillEffectAssetTest
   m_EditorClassIdentifier: 
-  standardActions: []
+  standardActions:
+  - {fileID: 11400000, guid: 3abf1be948402964ebc7b6a158d64295, type: 2}
+  - {fileID: 11400000, guid: c6c854b109692dd4ca1584f03756da8d, type: 2}
+  - {fileID: 11400000, guid: c4342295f4f454740bad09a161b0e1b0, type: 2}
+  - {fileID: 11400000, guid: 4a1d5ea01381ea349afa397ab3cd1de2, type: 2}

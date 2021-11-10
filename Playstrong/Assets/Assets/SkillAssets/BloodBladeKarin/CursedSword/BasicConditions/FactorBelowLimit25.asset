@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1695dd6c53247489b5ee8c129bcf16, type: 3}
-  m_Name: IncreaseSkillCounters
+  m_Script: {fileID: 11500000, guid: 30249d6abd11e9d46a2a7ef98cd20c64, type: 3}
+  m_Name: FactorBelowLimit25
   m_EditorClassIdentifier: 
-  skillCounters: 4
-  heroSkillAsset: {fileID: 11400000, guid: 69d8e9478233ce04ca45bdc8942ff6c0, type: 2}
+  limit: 1
+  calculatedFactor: {fileID: 11400000, guid: 57c5bfc1ae0ccf54f87c1c9bc90f04d5, type: 2}
+  calculatedLimit: {fileID: 11400000, guid: 7108d00082194434da38bf5d681bc916, type: 2}
