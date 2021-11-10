@@ -28,16 +28,20 @@ namespace ScriptableObjects.BasicActions
 
         protected override int CheckBasicCondition(IHero targetHero)
         {
-            limit += (int)CalculatedLimit.GetCalculatedValue();
+            var totalLimit = limit + (int)CalculatedLimit.GetCalculatedValue();
             
-            return CalculatedFactor.GetCalculatedValue() < limit ? 1 : 0;
+            Debug.Log("Total Limit: " +totalLimit +" Calculated Factor: " +CalculatedFactor.GetCalculatedValue());
+            
+            return CalculatedFactor.GetCalculatedValue() < totalLimit ? 1 : 0;
         }
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            limit += (int)CalculatedLimit.GetCalculatedValue();
+            var totalLimit = limit + (int)CalculatedLimit.GetCalculatedValue();
             
-            return CalculatedFactor.GetCalculatedValue() < limit ? 1 : 0;
+            Debug.Log("Total Limit: " +totalLimit +" Calculated Factor: " +CalculatedFactor.GetCalculatedValue());
+            
+            return CalculatedFactor.GetCalculatedValue() < totalLimit ? 1 : 0;
         }
 
     }

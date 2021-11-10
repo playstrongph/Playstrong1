@@ -15,8 +15,9 @@ namespace ScriptableObjects.CalculatedDamageFactorValue
             if (CalculationHeroBasis != null)
                 healthFactor = Mathf.CeilToInt(CalculationHeroBasis.HeroLogic.HeroAttributes.Health * percentFactor / 100f);
             
-            /*Debug.Log("Hero Basis: " +CalculationHeroBasis.HeroName +" Base Health: " +CalculationHeroBasis.HeroLogic.HeroAttributes.BaseHealth);            
-            Debug.Log("Max Health Factor: " +healthFactor);*/
+            Debug.Log("Hero Basis: " +CalculationHeroBasis.HeroName +"  Health: " +healthFactor);
+            
+            //Debug.Log("Max Health Factor: " +healthFactor);
 
             return healthFactor;
         }
