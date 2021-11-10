@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f5ed4b3364e74697258a5c8218e6c, type: 3}
   m_Name: IncreaseArmor
   m_EditorClassIdentifier: 
-  flatArmor: 25
+  flatArmor: 2
   armorFactor: {fileID: 11400000, guid: aef2ab420c3cd5b4cad0206824d85fd2, type: 2}

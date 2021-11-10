@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe39974ba87be14aaa1b41725e9f19a, type: 3}
   m_Name: IncreaseSpeedBasicAction
   m_EditorClassIdentifier: 
-  flatSpeed: 0
-  percentSpeed: 25
+  flatSpeed: 5
+  percentSpeed: 0
