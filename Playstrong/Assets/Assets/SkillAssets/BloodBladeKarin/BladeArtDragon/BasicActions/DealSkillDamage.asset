@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed89420bd193f94a9793367e1e36bef, type: 3}
+  m_Name: DealSkillDamage
+  m_EditorClassIdentifier: 
+  flatDamageValue: 0
+  calculatedValue: {fileID: 11400000, guid: 74e069102ef26b248867051bce4836ee, type: 2}
+  ignoreArmorChance: 0

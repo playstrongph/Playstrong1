@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
   m_Name: BladeArtDragonSkillEffect
   m_EditorClassIdentifier: 
-  standardActions: []
+  standardActions:
+  - {fileID: 11400000, guid: 86de1c42b8bed984b9e0d46e758c658a, type: 2}
+  - {fileID: 11400000, guid: 85dc7fab73f2e9b44971ad995a29bb14, type: 2}
+  - {fileID: 11400000, guid: a0924fa2dc59a3c42aaef671aa4064b0, type: 2}
