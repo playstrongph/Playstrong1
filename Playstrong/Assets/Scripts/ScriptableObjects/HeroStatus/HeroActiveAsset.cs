@@ -113,7 +113,9 @@ namespace ScriptableObjects.HeroStatus
         public override IEnumerator HeroUsingSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-           
+            
+            Debug.Log("Hero Active Using Skill");
+            
             skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkill();
 
             logicTree.EndSequence();
