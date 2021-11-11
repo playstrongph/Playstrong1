@@ -99,6 +99,18 @@ namespace ScriptableObjects.Enums.SkillType
         }
         
         
+        //NEW TEST - Nov 11 2021
+        public virtual IEnumerator UpdateSkillStatus(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
         //Skill Ready Actions
         protected IEnumerator EnableDragSkillTarget(ISkillLogic skillLogic)
         {
@@ -181,6 +193,8 @@ namespace ScriptableObjects.Enums.SkillType
             visualTree.EndSequence();
             yield return null;
         }
+        
+        
         
 
 

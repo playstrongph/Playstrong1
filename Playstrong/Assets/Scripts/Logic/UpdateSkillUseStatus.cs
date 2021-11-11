@@ -33,6 +33,7 @@ namespace Logic
 
         public void SetUsingSkillStatus()
         {
+            //TODO: Should check skilltype - Active, CDPassive, and Passive
             _skillLogic.SkillAttributes.SkillUseStatus = UsingSkill;
            
         }
@@ -43,9 +44,10 @@ namespace Logic
            
         }
         
-        //TEST
+        
         public void SetUsedLastTurnSkillStatus()
         {
+            //TODO: Should check skilltype - Active, CDPassive, and Passive
             _skillLogic.SkillAttributes.SkillUseStatus = UsedLastTurnSkill;
            
         }

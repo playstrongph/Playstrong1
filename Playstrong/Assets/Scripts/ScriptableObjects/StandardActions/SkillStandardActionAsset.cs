@@ -50,6 +50,7 @@ namespace ScriptableObjects.StandardActions
             Debug.Log("Set Using Skill Status: " +_skillReference.SkillName);
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
             
+           
             _skillReference.SkillLogic.UpdateSkillUseStatus.SetUsingSkillStatus();
             
             logicTree.EndSequence();
@@ -61,6 +62,7 @@ namespace ScriptableObjects.StandardActions
             Debug.Log("SetUsedLastTurnSkillStatus: " +_skillReference.SkillName);
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
             
+           
             _skillReference.SkillLogic.UpdateSkillUseStatus.SetUsedLastTurnSkillStatus();
             
             logicTree.EndSequence();
