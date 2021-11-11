@@ -53,6 +53,7 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private void SetHeroEnergyMax(IHero hero)
         {
+           Debug.Log("Extra Turn: " +hero.HeroName);
             hero.HeroLogic.SetHeroEnergy.SetEnergy(extraTurnEnergyValue);
         }
 
