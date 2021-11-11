@@ -53,16 +53,17 @@ namespace Logic
         /// <summary>
         /// For non-attack damage abilities in skills.  Example - whenever you are attacked, deal 5 damage to your attacker.
         /// </summary>
-        public IEnumerator DealNonAttackSkillDamage(IHero attackerHero, IHero targetHero, int nonAttackSkillDamage)
+        public IEnumerator DealNonAttackSkillDamage(IHero attackerHero, IHero targetHero, int nonAttackSkillDamage, float skillIgnoreArmorChance)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            var ignoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
+            var heroIgnoreArmorChance = attackerHero.HeroLogic.OtherAttributes.PenetrateArmorChance;
+            var totalIgnoreArmorChance = heroIgnoreArmorChance + skillIgnoreArmorChance;
             var finalNonAttackSkillDamage = ComputeNonAttackSkillDamage(nonAttackSkillDamage);
             
 
             logicTree.AddCurrent(BeforeHeroDealsSkillDamage(attackerHero));
             
-            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonAttackSkillDamage(finalNonAttackSkillDamage, ignoreArmorChance));
+            logicTree.AddCurrent(targetHero.HeroLogic.TakeDamageTest.TakeNonAttackSkillDamage(finalNonAttackSkillDamage, totalIgnoreArmorChance));
 
             logicTree.AddCurrent(AfterHeroDealsSkillDamage(attackerHero));
             

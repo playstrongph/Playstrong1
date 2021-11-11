@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a0f6715f90e744fa29abfa5714fad2, type: 3}
+  m_Name: BLADEARTDRAGON
+  m_EditorClassIdentifier: 
+  skillName: BladeArtDragon
+  _description: 'Attack all enemies with addtional 100% damage at the cost of 20%
+    max Health.
+
+    If an enemy dies, take an extra turn.'
+  _skillEffect: {fileID: 11400000, guid: a0a87081db6ab354995e3379b0013247, type: 2}
+  _skillType: {fileID: 11400000, guid: aa38b66489d810c4f84750251a893986, type: 2}
+  _skillTarget: {fileID: 11400000, guid: 2aba88f4ec69a6f488c468489c2c5f3e, type: 2}
+  _skillCooldownType: {fileID: 11400000, guid: 9445706b0cd2f014b8f053ed2651a494, type: 2}
+  _skillIcon: {fileID: 21300000, guid: 788d6b3808c0ff045bcbdbf6f54abb02, type: 3}
+  baseCooldown: 1
+  _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
