@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "HeroIsUsingSpecificSkill", menuName = "SO's/BasicConditions/HeroIsUsingSpecificSkill")]
+    [CreateAssetMenu(fileName = "HeroIsUsingSpecificActiveSkill", menuName = "SO's/BasicConditions/HeroIsUsingSpecificActiveSkill")]
     
-    public class HeroIsUsingSpecificSkillBasicConditionAsset : BasicConditionAsset
+    public class HeroIsUsingSpecificActiveSkillBasicConditionAsset : BasicConditionAsset
     {
 
         [SerializeField] private ScriptableObject usingThisSkill;
@@ -35,7 +35,10 @@ namespace ScriptableObjects.BasicActions
 
             if (_specificSkill != null)
             {
+                //TEST
+               
                 usingSkill = SkillReference.SkillLogic.SkillAttributes.SkillUseStatus.UsingSkill(_specificSkill);    
+                
                 Debug.Log("Using Skill 2 Reference: " +_specificSkill.SkillName +" return value: " +usingSkill);
             }
 
