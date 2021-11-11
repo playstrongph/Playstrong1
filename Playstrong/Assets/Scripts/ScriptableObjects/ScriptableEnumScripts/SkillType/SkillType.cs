@@ -100,11 +100,22 @@ namespace ScriptableObjects.Enums.SkillType
         
         
         //NEW TEST - Nov 11 2021
-        public virtual IEnumerator UpdateSkillStatus(ISkill skill)
+        public virtual IEnumerator HeroUsingSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
+            //For Passive and CDPassive skill
+            skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkill();
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public virtual IEnumerator HeroUsedSkillLastTurn(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
+            skill.SkillLogic.UpdateSkillUseStatus.SetUsedSkillLastTurn();
 
             logicTree.EndSequence();
             yield return null;

@@ -86,6 +86,27 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //NEW TEST - Nov 11 2021
+        public override IEnumerator HeroUsingSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(skill.Hero.HeroLogic.HeroStatus.HeroUsingSkill(skill));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator HeroUsedSkillLastTurn(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(skill.Hero.HeroLogic.HeroStatus.HeroUsedSkillLastTurn(skill));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
 
 

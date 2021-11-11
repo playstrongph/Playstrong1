@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using References;
 using UnityEngine;
 
 namespace ScriptableObjects.Others
@@ -36,6 +37,27 @@ namespace ScriptableObjects.Others
             yield return null;
         }
         
+        
+        //NEW TEST - Nov 11 2021
+        public virtual IEnumerator HeroUsingSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public virtual IEnumerator HeroUsedSkillLastTurn(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
     }
 }

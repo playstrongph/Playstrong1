@@ -11,7 +11,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            skill.SkillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
+            skill.SkillLogic.UpdateSkillUseStatus.SetHeroNotUsingSkill();
             
             //skill.SkillLogic.SkillAttributes.SkillType.ReduceSkillCd(skill, value);
 

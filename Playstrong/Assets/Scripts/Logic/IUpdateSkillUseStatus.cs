@@ -7,10 +7,14 @@ namespace Logic
         //ISkillUseStatusAsset UsingSkill { get; }
         //ISkillUseStatusAsset NotUsingSkill { get; }
 
-        void SetUsingSkillStatus();
+        void SetHeroUsingSkill();
 
-        void SetNotUsingSkillStatus();
-        void SetUsedLastTurnSkillStatus();
+        void SetHeroNotUsingSkill();
+        void SetHeroUsedSkillLastTurn();
+        
+        //TEST NEW - Nov 11 2021
+        void SetUsingSkill();
 
+        void SetUsedSkillLastTurn();
     }
 }

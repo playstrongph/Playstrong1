@@ -2,6 +2,7 @@
 using System.Collections;
 using Interfaces;
 using Logic;
+using References;
 using ScriptableObjects.Others;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -106,10 +107,28 @@ namespace ScriptableObjects.HeroStatus
             _visualTree.EndSequence();
             yield return null;
         }
-
         
+        
+        //NEW TEST - Nov 11 2021
+        public override IEnumerator HeroUsingSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+           
+            skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkill();
 
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator HeroUsedSkillLastTurn(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            skill.SkillLogic.UpdateSkillUseStatus.SetUsedSkillLastTurn();
 
+            logicTree.EndSequence();
+            yield return null;
+        }
 
 
 

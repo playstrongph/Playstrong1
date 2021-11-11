@@ -51,7 +51,7 @@ namespace ScriptableObjects.StandardActions
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
             
            
-            _skillReference.SkillLogic.UpdateSkillUseStatus.SetUsingSkillStatus();
+            _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsingSkill();
             
             logicTree.EndSequence();
             yield return null;
@@ -63,7 +63,7 @@ namespace ScriptableObjects.StandardActions
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
             
            
-            _skillReference.SkillLogic.UpdateSkillUseStatus.SetUsedLastTurnSkillStatus();
+            _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsedSkillLastTurn();
             
             logicTree.EndSequence();
             yield return null;
