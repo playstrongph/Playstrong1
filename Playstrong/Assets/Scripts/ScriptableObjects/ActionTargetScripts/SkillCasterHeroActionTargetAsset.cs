@@ -24,14 +24,9 @@ namespace ScriptableObjects.ActionTargets
         
         public override List<IHero> GetHeroTargets(IHero hero)
         {
-            Debug.Log("testes Local Skill Hero Targets Hero1: " +LocalSkill.Hero.HeroName );
-            Debug.Log("testes Skill Name Hero1: " +LocalSkill.SkillName );
-            
             var heroTargets = new List<IHero>();
+            
             heroTargets.Clear();
-            
-          
-            
             heroTargets.Add(LocalSkill.Hero);
             
             return heroTargets;

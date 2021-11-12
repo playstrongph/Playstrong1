@@ -19,6 +19,11 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             yield return null;
 
         }
+        
+         public override int UsingSkill(ISkill skill)
+         {
+           return 1;
+         }
 
     }
 }

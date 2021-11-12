@@ -131,11 +131,12 @@ namespace Logic
             
             //TODO - need to transfer this to Include CD Passive Effects in the future
             //_logicTree.AddCurrent(SetNotUsingSkillStatus());
+            
+            _logicTree.AddCurrent(HeroEndTurn());
 
             //TEST
-            _logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
-
-            _logicTree.AddCurrent(HeroEndTurn());
+            //TODO: Timing of this is causing the problem
+            _logicTree.AddSibling(SetUsedLastTurnSkillStatus()); 
         }
         
         
@@ -189,7 +190,7 @@ namespace Logic
         private IEnumerator SetUsedLastTurnSkillStatus()
         {
             var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
-            
+
             //_targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetUsedLastTurnSkillStatus();
             logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.SkillAttributes.SkillType.HeroUsedActiveOrBasicSkill(_targetSkill.Skill));
             

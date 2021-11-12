@@ -310,6 +310,7 @@ namespace Logic
             
             //This seems to work better than addCurrent for now
             _logicTree.AddSibling(EndCurrentHeroTurn());
+            
             _logicTree.AddSibling(StartNextHeroTurn());
         }
 
