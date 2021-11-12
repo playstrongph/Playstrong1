@@ -26,13 +26,18 @@ namespace ScriptableObjects.Enums.SkillType
         //Reset when skill cooldown = 0, i.e. SkillReadyStatus
         public override void ResetSkillCd(ISkill skill)
         {
-            skill.SkillLogic.SkillAttributes.SkillReadiness.ResetSkillCooldown(skill);
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //skill.SkillLogic.SkillAttributes.SkillReadiness.ResetSkillCooldown(skill);
+            
+            logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.TurnResetCooldownToMax());
         }
         
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
             
             visualTree.AddCurrent(HideCooldownText(skillLogic));
 

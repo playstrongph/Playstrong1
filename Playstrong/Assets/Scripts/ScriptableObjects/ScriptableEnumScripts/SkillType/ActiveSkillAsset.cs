@@ -35,6 +35,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillType
 
             logicTree.AddCurrent(EnableDragSkillTarget(skillLogic));
             logicTree.AddCurrent(EnableTargetVisual(skillLogic));
+            
             visualTree.AddCurrent(VisualEnableSkillGlow(skillLogic));
             visualTree.AddCurrent(HideCooldownText(skillLogic));
 
