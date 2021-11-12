@@ -2,6 +2,7 @@
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.StandardActions;
 
 namespace ScriptableObjects.Enums.SkillStatus
 {
@@ -11,10 +12,13 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         void StartAction(IHeroAction skillAction, IHero thisHero, IHero targetHero);
 
-        void ResetSkillCooldown(ISkill skill);
+        void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero thisHero,
+            IHero targetHero);
 
-        //IEnumerator SetActiveSkillReady(ISkillLogic skillLogic);
-
-        IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic);
+        void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero targetHero);
+        
+        
+        /*void ResetSkillCooldown(ISkill skill);
+       IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic);*/
     }
 }

@@ -3,6 +3,7 @@ using Interfaces;
 using Logic;
 using References;
 using ScriptableObjects.Enums.SkillStatus;
+using ScriptableObjects.StandardActions;
 using UnityEngine;
 
 namespace ScriptableObjects.Scriptable_Enums.SkillReadiness
@@ -21,19 +22,35 @@ namespace ScriptableObjects.Scriptable_Enums.SkillReadiness
             logicTree.AddCurrent(skillAction.StartAction(thisHero,targetHero));
         }
 
-        public virtual void ResetSkillCooldown(ISkill skill)
-        {
-        }
 
+        /// <summary>
+        /// Executes StartAction for skills when skill is Ready
+        /// </summary>
+        public virtual void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero thisHero, IHero targetHero)
+        {
+            
+            
+        }
+        
+        /// <summary>
+        /// Executes StartAction for skills when skill is Ready
+        /// </summary>
+        public virtual void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero targetHero)
+        {
+            
+        }
         
         
-        public virtual IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic)
+        /*public virtual void ResetSkillCooldown(ISkill skill)
+        {
+        }*/
+        /*public virtual IEnumerator SetCdPassiveSkillReady(ISkillLogic skillLogic)
         {
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
 
             logicTree.EndSequence();
             yield return null;
-        }
+        }*/
         
         
 

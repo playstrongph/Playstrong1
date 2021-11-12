@@ -1,6 +1,7 @@
 ﻿using Interfaces;
 using References;
 using ScriptableObjects.Scriptable_Enums.SkillReadiness;
+using ScriptableObjects.StandardActions;
 using UnityEngine;
 
 namespace ScriptableObjects.Enums.SkillStatus
@@ -18,11 +19,25 @@ namespace ScriptableObjects.Enums.SkillStatus
             logicTree.AddCurrent(skillType.SetSkillReady(skillLogic));
         }
 
-        public override void ResetSkillCooldown(ISkill skill)
+        public override void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero thisHero, IHero targetHero)
         {
-            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.TurnResetCooldownToMax());
-
+            skillStandardActionAsset.SkillStartActionCoroutines(thisHero,targetHero);
+            
         }
+        
+        
+        public override void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero targetHero)
+        {
+            skillStandardActionAsset.SkillStartActionCoroutines(targetHero);
+        }
+        
+        
+        /*public override void ResetSkillCooldown(ISkill skill)
+       {
+           var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+           logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.TurnResetCooldownToMax());
+
+       }*/
+        
     }
 }
