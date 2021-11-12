@@ -271,6 +271,9 @@ namespace Logic
             //Debug.Log("Set Current Hero Inactive: " +_activeHeroLogic.Hero.HeroName);
             //Set Hero Status to Inactive
             _activeHeroLogic.HeroStatus = _setHeroStatus.HeroInactive;
+            
+            //TEST Nov 12 2021
+            //_logicTree.AddCurrent(UpdateHeroActionPhase());
 
             _logicTree.EndSequence(); 
             yield return null;
@@ -283,7 +286,7 @@ namespace Logic
             
             _logicTree.AddCurrent(HeroEndTurnEvent());
             
-            //Test
+            //TEST Nov 12 2021
             _logicTree.AddCurrent(SetCurrentHeroInactive());
             
             _logicTree.AddCurrent(UpdateHeroActionPhase());
@@ -302,9 +305,12 @@ namespace Logic
             
             _visualTree.AddCurrentWait(_endTurnDelaySeconds, _visualTree);
             
-            _logicTree.AddCurrent(EndCurrentHeroTurn());
+            //_logicTree.AddCurrent(EndCurrentHeroTurn());
+            //_logicTree.AddCurrent(StartNextHeroTurn());
             
-            _logicTree.AddCurrent(StartNextHeroTurn());
+            //This seems to work better than addCurrent for now
+            _logicTree.AddSibling(EndCurrentHeroTurn());
+            _logicTree.AddSibling(StartNextHeroTurn());
         }
 
         private void InitializeActiveHeroLogic()

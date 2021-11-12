@@ -43,7 +43,7 @@ namespace ScriptableObjects.Others
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            Debug.Log("Hero Inactive Using Skill");
+            Debug.Log("Hero Inactive Using Skill: " +skill.Hero.HeroName);
 
             logicTree.EndSequence();
             yield return null;

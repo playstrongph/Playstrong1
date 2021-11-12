@@ -114,7 +114,7 @@ namespace ScriptableObjects.HeroStatus
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            Debug.Log("Hero Active Using Skill");
+            Debug.Log("Hero Active Using Skill: " +skill.Hero.HeroName);
             
             skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkill();
 
