@@ -125,22 +125,23 @@ namespace Logic
             _logicTree.AddCurrent(SetUsingActiveOrBasicSkillStatus());
             
             //Reset first in consideration for skill refresh effects
+            //This causes a problem of setting the skill status to SkillNot Ready 
+            //SkillReadiness is used by StartAction to run logic
+            //TODO: Carve out setskillready from ResetSkillCooldown
             _logicTree.AddCurrent(ResetSkillCooldown());
             
             _logicTree.AddCurrent(UseSkillEffect());
             
-            //TODO - need to transfer this to Include CD Passive Effects in the future
-            //_logicTree.AddCurrent(SetNotUsingSkillStatus());
+            //TODO: SetSkillNotReady only here
             
+
             _logicTree.AddCurrent(HeroEndTurn());
 
             //TEST
             //TODO: Timing of this is causing the problem
             _logicTree.AddSibling(SetUsedLastTurnSkillStatus()); 
         }
-        
-        
-        
+
         private IEnumerator UseSkillEffect()
         {
             var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
