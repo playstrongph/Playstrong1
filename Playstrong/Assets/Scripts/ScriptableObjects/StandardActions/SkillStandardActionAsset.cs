@@ -31,7 +31,9 @@ namespace ScriptableObjects.StandardActions
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            
             logicTree.AddCurrent(SetUsingSkillStatus());
+            
             //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
             logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
             
