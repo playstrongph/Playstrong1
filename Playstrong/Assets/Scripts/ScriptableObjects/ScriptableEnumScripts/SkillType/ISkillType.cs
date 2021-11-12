@@ -30,9 +30,9 @@ namespace ScriptableObjects.Enums.SkillType
         IEnumerator EnablePassiveSkill(ISkill skill);
         
         //NEW TEST - Nov 11 2021
-        IEnumerator HeroUsingSkill(ISkill skill);
+        IEnumerator HeroUsingPassiveSkill(ISkill skill);
 
-        IEnumerator HeroUsedSkillLastTurn(ISkill skill);
+        IEnumerator HeroUsedPassiveSkill(ISkill skill);
 
     }
 }

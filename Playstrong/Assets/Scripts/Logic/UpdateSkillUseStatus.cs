@@ -31,31 +31,31 @@ namespace Logic
             _skillLogic = GetComponent<ISkillLogic>();
         }
 
-        public void SetHeroUsingSkill()
+        public void SetHeroUsingPassiveSkill()
         {
             //TODO: Should check skilltype - Active, CDPassive, and Passive
             //_skillLogic.SkillAttributes.SkillUseStatus = UsingSkill;
 
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree; 
             
-            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillType.HeroUsingSkill(_skillLogic.Skill));
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillType.HeroUsingPassiveSkill(_skillLogic.Skill));
 
         }
 
-        public void SetHeroNotUsingSkill()
-        {
-            _skillLogic.SkillAttributes.SkillUseStatus = NotUsingSkill;
-           
-        }
-        
-        
-        public void SetHeroUsedSkillLastTurn()
+        public void SetHeroUsedPassiveSkill()
         {
             //TODO: Should check skilltype - Active, CDPassive, and Passive
             //_skillLogic.SkillAttributes.SkillUseStatus = UsedLastTurnSkill;
             var logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree; 
             
-            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillType.HeroUsedSkillLastTurn(_skillLogic.Skill));
+            logicTree.AddCurrent(_skillLogic.SkillAttributes.SkillType.HeroUsedPassiveSkill(_skillLogic.Skill));
+           
+        }
+        
+        //Used by both Passive and Active Skills
+        public void SetHeroNotUsingSkill()
+        {
+            _skillLogic.SkillAttributes.SkillUseStatus = NotUsingSkill;
            
         }
         

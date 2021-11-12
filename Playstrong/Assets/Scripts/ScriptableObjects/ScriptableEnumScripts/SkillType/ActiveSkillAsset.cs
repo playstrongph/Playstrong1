@@ -88,21 +88,25 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillType
         }
         
         //NEW TEST - Nov 11 2021
-        public override IEnumerator HeroUsingSkill(ISkill skill)
+        public override IEnumerator HeroUsingPassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(skill.Hero.HeroLogic.HeroStatus.HeroUsingSkill(skill));
+            //TEST Nov 12 - Do nothing
+            //TODO: Transfer to DragSkillTarget
+            //logicTree.AddCurrent(skill.Hero.HeroLogic.HeroStatus.HeroUsingSkill(skill));
 
             logicTree.EndSequence();
             yield return null;
         }
         
-        public override IEnumerator HeroUsedSkillLastTurn(ISkill skill)
+        public override IEnumerator HeroUsedPassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(skill.Hero.HeroLogic.HeroStatus.HeroUsedSkillLastTurn(skill));
+            //TEST Nov 12 - Do nothing
+            //TODO: Transfer to DragSkillTarget
+            //logicTree.AddCurrent(skill.Hero.HeroLogic.HeroStatus.HeroUsedSkillLastTurn(skill));
 
             logicTree.EndSequence();
             yield return null;

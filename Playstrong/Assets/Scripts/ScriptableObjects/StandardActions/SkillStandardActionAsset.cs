@@ -20,11 +20,12 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            logicTree.AddCurrent(SetUsingSkillStatus());
+            //TODO: ActiveSkillTransfer to DragSkillTargetEvent
+            logicTree.AddCurrent(SetUsingPassiveSkillStatus());
             
             logicTree.AddCurrent(StartActionCoroutine(targetHero));
 
-            logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
+            logicTree.AddCurrent(SetHeroUsedPassiveSkill());
         }
         
         public override void StartAction(IHero thisHero, IHero targetHero)
@@ -32,12 +33,12 @@ namespace ScriptableObjects.StandardActions
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             
-            logicTree.AddCurrent(SetUsingSkillStatus());
+            logicTree.AddCurrent(SetUsingPassiveSkillStatus());
             
             //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
             logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
             
-            logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
+            logicTree.AddCurrent(SetHeroUsedPassiveSkill());
         }
 
         public void SetSkillReference(ISkill skill)
@@ -47,25 +48,25 @@ namespace ScriptableObjects.StandardActions
         }
         
         
-        private IEnumerator SetUsingSkillStatus()
+        private IEnumerator SetUsingPassiveSkillStatus()
         {
             Debug.Log("Set Using Skill Status: " +_skillReference.SkillName);
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
             
            
-            _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsingSkill();
+            _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsingPassiveSkill();
             
             logicTree.EndSequence();
             yield return null;
         }
 
-        private IEnumerator SetUsedLastTurnSkillStatus()
+        private IEnumerator SetHeroUsedPassiveSkill()
         {
             Debug.Log("SetUsedLastTurnSkillStatus: " +_skillReference.SkillName);
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
             
            
-            _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsedSkillLastTurn();
+            _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsedPassiveSkill();
             
             logicTree.EndSequence();
             yield return null;
