@@ -20,12 +20,21 @@ namespace ScriptableObjects.StandardActions
             //Debug.Log("" +this.name  +" StartAction targetHero");
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            //TODO: ActiveSkillTransfer to DragSkillTargetEvent
-            logicTree.AddCurrent(SetUsingPassiveSkillStatus());
+           
+            //logicTree.AddCurrent(SetUsingPassiveSkillStatus());
+            //logicTree.AddCurrent(StartActionCoroutine(targetHero));
+            //logicTree.AddCurrent(SetHeroUsedPassiveSkill());
             
-            logicTree.AddCurrent(StartActionCoroutine(targetHero));
-
-            logicTree.AddCurrent(SetHeroUsedPassiveSkill());
+            var skillReady = _skillReference.SkillLogic.UpdateSkillReadiness.SkillReady;
+            var skillReadinessStatus = _skillReference.SkillLogic.SkillAttributes.SkillReadiness;
+            if (skillReadinessStatus == skillReady)
+            {
+                logicTree.AddCurrent(SetUsingPassiveSkillStatus());
+                logicTree.AddCurrent(StartActionCoroutine(targetHero));
+                logicTree.AddCurrent(SetHeroUsedPassiveSkill());
+            }
+            
+            
             
             
         }
@@ -33,15 +42,20 @@ namespace ScriptableObjects.StandardActions
         public override void StartAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            //TEST Nov 12 2021
+            //logicTree.AddCurrent(SetUsingPassiveSkillStatus());
+            //logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
+            //logicTree.AddCurrent(SetHeroUsedPassiveSkill());
             
-            
-            logicTree.AddCurrent(SetUsingPassiveSkillStatus());
-            
-            //Has to be Coroutine to ensure GetHeroTargets are taken at the right time
-            logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
-            
-            logicTree.AddCurrent(SetHeroUsedPassiveSkill());
-            
+            var skillReady = _skillReference.SkillLogic.UpdateSkillReadiness.SkillReady;
+            var skillReadinessStatus = _skillReference.SkillLogic.SkillAttributes.SkillReadiness;
+            if (skillReadinessStatus == skillReady)
+            {
+                logicTree.AddCurrent(SetUsingPassiveSkillStatus());
+                logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
+                logicTree.AddCurrent(SetHeroUsedPassiveSkill());
+            }
+
             
         }
 
