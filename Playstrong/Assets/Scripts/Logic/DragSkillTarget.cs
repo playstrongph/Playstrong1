@@ -160,7 +160,7 @@ namespace Logic
         {
             var skill = _targetSkill.Skill;
             
-            skill.SkillLogic.SkillAttributes.SkillType.ResetSkillCd(skill);
+            skill.SkillLogic.SkillAttributes.SkillType.ResetActiveSkillCd(skill);
 
             _logicTree.EndSequence();
             yield return null;

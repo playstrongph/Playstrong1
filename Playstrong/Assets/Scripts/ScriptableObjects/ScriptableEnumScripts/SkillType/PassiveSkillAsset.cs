@@ -21,7 +21,7 @@ namespace ScriptableObjects.Enums.SkillType
            //Do nothing for Passive Skills
         }
         
-        public override void ResetSkillCd(ISkill skill)
+        public override void ResetActiveSkillCd(ISkill skill)
         {
             //Do nothing for Passive Skills
         }

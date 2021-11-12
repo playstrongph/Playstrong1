@@ -18,7 +18,7 @@ namespace ScriptableObjects.Enums.SkillType
             Debug.Log("Do Nothing Base Code for ReduceSkillCd");
         }
 
-        public virtual void ResetSkillCd(ISkill skill)
+        public virtual void ResetActiveSkillCd(ISkill skill)
         {
             Debug.Log("Do Nothing Base Code for ResetSkillCd");
         }

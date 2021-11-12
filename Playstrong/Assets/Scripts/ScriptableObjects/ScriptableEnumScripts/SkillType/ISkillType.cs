@@ -13,7 +13,7 @@ namespace ScriptableObjects.Enums.SkillType
 
         void ReduceSkillCd(ISkill skill, int counter);
 
-        void ResetSkillCd(ISkill skill);
+        void ResetActiveSkillCd(ISkill skill);
         
         IEnumerator SetSkillReady(ISkillLogic skillLogic);
 

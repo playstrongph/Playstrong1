@@ -61,7 +61,8 @@ namespace ScriptableObjects.SkillCondition.BaseClassScripts
                 SkillAttributes.SkillReadiness.StartAction(skillAction,thisHero,targetHero);  //Checks Skill Readiness before calling start action
             }   
             
-            SkillAttributes.SkillType.ResetSkillCd(SkillAttributes.SkillReference);
+            //OBsolete
+            //SkillAttributes.SkillType.ResetSkillCd(SkillAttributes.SkillReference);
             
             
             _logicTree.EndSequence();

@@ -24,13 +24,12 @@ namespace ScriptableObjects.Enums.SkillType
         }
         
         //Reset when skill cooldown = 0, i.e. SkillReadyStatus
-        public override void ResetSkillCd(ISkill skill)
+        public override void ResetActiveSkillCd(ISkill skill)
         {
-            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            //var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            //logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.TurnResetCooldownToMax());
             
-            //skill.SkillLogic.SkillAttributes.SkillReadiness.ResetSkillCooldown(skill);
-            
-            logicTree.AddCurrent(skill.SkillLogic.UpdateSkillCooldown.TurnResetCooldownToMax());
+            //TODO: Create own reset for CDPassiveSkill
         }
         
         public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
