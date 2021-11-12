@@ -16,9 +16,9 @@ namespace ScriptableObjects.Others
 
         IEnumerator EndHeroTurn(IHeroLogic heroLogic);
         
-       //NEW TEST - Nov 11 2021
+       /*//Cleanup
        IEnumerator HeroUsingSkill(ISkill skill);
 
-       IEnumerator HeroUsedSkillLastTurn(ISkill skill);
+       IEnumerator HeroUsedSkillLastTurn(ISkill skill);*/
     }
 }

@@ -38,7 +38,7 @@ namespace ScriptableObjects.Others
         }
         
         
-        //NEW TEST - Nov 11 2021
+        /*//Cleanup
         public virtual IEnumerator HeroUsingSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
@@ -57,7 +57,7 @@ namespace ScriptableObjects.Others
 
             logicTree.EndSequence();
             yield return null;
-        }
+        }*/
 
     }
 }
