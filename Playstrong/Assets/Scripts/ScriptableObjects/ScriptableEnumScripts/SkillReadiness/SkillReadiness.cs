@@ -28,7 +28,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillReadiness
         /// </summary>
         public virtual void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero thisHero, IHero targetHero)
         {
-            
+            Debug.Log("Skill Not Ready SkillStartAction");
             
         }
         
@@ -37,7 +37,7 @@ namespace ScriptableObjects.Scriptable_Enums.SkillReadiness
         /// </summary>
         public virtual void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero targetHero)
         {
-            
+            Debug.Log("Skill Not Ready SkillStartAction");
         }
         
         

@@ -17,7 +17,7 @@ namespace ScriptableObjects.Enums.SkillStatus
 
             logicTree.AddCurrent(turnController.SetCurrentHeroInactive());
             
-            logicTree.AddCurrent(turnController.StartNextHeroTurn());
+            logicTree.AddSibling(turnController.StartNextHeroTurn());
 
             logicTree.EndSequence();
             yield return null;

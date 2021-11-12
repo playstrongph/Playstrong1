@@ -22,6 +22,8 @@ namespace ScriptableObjects.StandardActions
         public override void StartAction(IHero targetHero)
         {
             _skillReference.SkillLogic.SkillAttributes.SkillReadiness.SkillStartAction(this,targetHero);
+
+            //SkillStartActionCoroutines(targetHero);
         }
         
         /// <summary>
@@ -30,6 +32,8 @@ namespace ScriptableObjects.StandardActions
         public override void StartAction(IHero thisHero, IHero targetHero)
         {
             _skillReference.SkillLogic.SkillAttributes.SkillReadiness.SkillStartAction(this,thisHero,targetHero);
+            
+            //SkillStartActionCoroutines(thisHero, targetHero);
         }
 
         public void SetSkillReference(ISkill skill)

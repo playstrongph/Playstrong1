@@ -21,6 +21,7 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         public override void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero thisHero, IHero targetHero)
         {
+            Debug.Log("Skill Ready SkillStartAction: ");
             skillStandardActionAsset.SkillStartActionCoroutines(thisHero,targetHero);
             
         }
@@ -28,6 +29,7 @@ namespace ScriptableObjects.Enums.SkillStatus
         
         public override void SkillStartAction(ISkillStandardActionAsset skillStandardActionAsset, IHero targetHero)
         {
+            Debug.Log("Skill Ready SkillStartAction");
             skillStandardActionAsset.SkillStartActionCoroutines(targetHero);
         }
         
