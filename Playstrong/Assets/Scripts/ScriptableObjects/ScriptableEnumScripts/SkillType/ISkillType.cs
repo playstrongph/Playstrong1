@@ -38,5 +38,7 @@ namespace ScriptableObjects.Enums.SkillType
 
         IEnumerator HeroUsedActiveOrBasicSkill(ISkill skill);
 
+        void ResetCdPassiveSkillCd(ISkill skill);
+
     }
 }

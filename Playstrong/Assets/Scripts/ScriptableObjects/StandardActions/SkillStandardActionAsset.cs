@@ -26,6 +26,8 @@ namespace ScriptableObjects.StandardActions
             logicTree.AddCurrent(StartActionCoroutine(targetHero));
 
             logicTree.AddCurrent(SetHeroUsedPassiveSkill());
+            
+            
         }
         
         public override void StartAction(IHero thisHero, IHero targetHero)
@@ -39,6 +41,8 @@ namespace ScriptableObjects.StandardActions
             logicTree.AddCurrent(StartActionCoroutine(thisHero,targetHero));
             
             logicTree.AddCurrent(SetHeroUsedPassiveSkill());
+            
+            
         }
 
         public void SetSkillReference(ISkill skill)
@@ -68,9 +72,14 @@ namespace ScriptableObjects.StandardActions
            
             _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsedPassiveSkill();
             
+            //TEST Nov 12 2021
+            _skillReference.SkillLogic.SkillAttributes.SkillType.ResetCdPassiveSkillCd(_skillReference);
+            
             logicTree.EndSequence();
             yield return null;
         }
+
+       
 
     }
 

@@ -23,6 +23,11 @@ namespace ScriptableObjects.Enums.SkillType
             Debug.Log("Do Nothing Base Code for ResetSkillCd");
         }
         
+        public virtual void ResetCdPassiveSkillCd(ISkill skill)
+        {
+            Debug.Log("Do Nothing Base Code for ResetSkillCd");
+        }
+        
         
         //For CD Passive and Active skills
         public virtual IEnumerator SetSkillReady(ISkillLogic skillLogic)
