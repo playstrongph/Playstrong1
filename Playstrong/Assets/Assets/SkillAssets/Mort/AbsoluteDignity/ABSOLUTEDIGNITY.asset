@@ -17,9 +17,9 @@ MonoBehaviour:
     to give HASTE(2) to yourself and EVASION to all allies after a critical hit on
     your basic attack.
   _skillEffect: {fileID: 11400000, guid: f6d520af3ce55f247896389f23f29ad6, type: 2}
-  _skillType: {fileID: 11400000, guid: c58cdcbcd3991694fb383542d9f511ef, type: 2}
+  _skillType: {fileID: 11400000, guid: 6d28ee769e2563b478d2976e48050998, type: 2}
   _skillTarget: {fileID: 11400000, guid: 3b71c2c7a2d6f304cb4c054487b2cb90, type: 2}
   _skillCooldownType: {fileID: 11400000, guid: 6a46c8f19ce4f59449530498ea1e934c, type: 2}
   _skillIcon: {fileID: 21300000, guid: fb08e6a90e549bf42ab0a7cab68b41a7, type: 3}
-  baseCooldown: 0
-  _skillStatus: {fileID: 11400000, guid: 74eaab40c0c798f46a7362d722544b16, type: 2}
+  baseCooldown: 2
+  _skillStatus: {fileID: 11400000, guid: d7d6112467699b74c969df4ec7d06823, type: 2}
