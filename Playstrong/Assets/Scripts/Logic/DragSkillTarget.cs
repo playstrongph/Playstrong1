@@ -122,7 +122,7 @@ namespace Logic
         private void UseHeroSkill()
         {
             //TODO - need to transfer this to Include CD Passive Effects in the future
-            //_logicTree.AddCurrent(SetUsingSkillStatus());
+            _logicTree.AddCurrent(SetUsingActiveOrBasicSkillStatus());
             
             //Reset first in consideration for skill refresh effects
             _logicTree.AddCurrent(ResetSkillCooldown());
@@ -133,7 +133,7 @@ namespace Logic
             //_logicTree.AddCurrent(SetNotUsingSkillStatus());
 
             //TEST
-            //_logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
+            _logicTree.AddCurrent(SetUsedLastTurnSkillStatus());
 
             _logicTree.AddCurrent(HeroEndTurn());
         }
@@ -173,36 +173,40 @@ namespace Logic
             yield return null;
         }
 
-        /*private IEnumerator SetUsingSkillStatus()
+        private IEnumerator SetUsingActiveOrBasicSkillStatus()
         {
             var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
-            _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkillStatus();
+            //_targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.s();
+            logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.SkillAttributes.SkillType.HeroUsingActiveOrBasicSkill(_targetSkill.Skill));
             
             logicTree.EndSequence();
             yield return null;
         }
         
-        private IEnumerator SetNotUsingSkillStatus()
-        {
-            var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
-            
-            _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
-            
-            logicTree.EndSequence();
-            yield return null;
-        }
+        
         
         private IEnumerator SetUsedLastTurnSkillStatus()
         {
             var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
             
-            _targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetUsedLastTurnSkillStatus();
+            //_targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetUsedLastTurnSkillStatus();
+            logicTree.AddCurrent(_targetSkill.Skill.SkillLogic.SkillAttributes.SkillType.HeroUsedActiveOrBasicSkill(_targetSkill.Skill));
+            
             
             logicTree.EndSequence();
             yield return null;
         }
-        */
+        
+        /*private IEnumerator SetNotUsingSkillStatus()
+        {
+            var logicTree = _targetSkill.Skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            //_targetSkill.Skill.SkillLogic.UpdateSkillUseStatus.SetNotUsingSkillStatus();
+            
+            logicTree.EndSequence();
+            yield return null;
+        }*/
 
 
 

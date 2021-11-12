@@ -34,5 +34,9 @@ namespace ScriptableObjects.Enums.SkillType
 
         IEnumerator HeroUsedPassiveSkill(ISkill skill);
 
+        IEnumerator HeroUsingActiveOrBasicSkill(ISkill skill);
+
+        IEnumerator HeroUsedActiveOrBasicSkill(ISkill skill);
+
     }
 }

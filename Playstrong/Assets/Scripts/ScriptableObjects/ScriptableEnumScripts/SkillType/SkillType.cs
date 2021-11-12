@@ -99,7 +99,7 @@ namespace ScriptableObjects.Enums.SkillType
         }
         
         
-        //NEW TEST - Nov 11 2021
+        //NEW TEST START - Nov 11 2021
         public virtual IEnumerator HeroUsingPassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
@@ -121,6 +121,43 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public virtual IEnumerator HeroUsingActiveOrBasicSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //For Active and Basic skill
+            //skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkill();
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public virtual IEnumerator HeroUsedActiveOrBasicSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //For Active and Basic skill
+            //skill.SkillLogic.UpdateSkillUseStatus.SetUsedSkillLastTurn();
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        
+        
+        //NEW TEST END - Nov 11 2021
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
         //Skill Ready Actions

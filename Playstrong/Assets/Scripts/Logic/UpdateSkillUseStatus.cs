@@ -62,6 +62,9 @@ namespace Logic
         
         //TEST NEW - Nov 11 2021
         
+        /// <summary>
+        /// Final set using skill method to be used by skill type
+        /// </summary>
         public void SetUsingSkill()
         {
             _skillLogic.SkillAttributes.SkillUseStatus = UsingSkill;

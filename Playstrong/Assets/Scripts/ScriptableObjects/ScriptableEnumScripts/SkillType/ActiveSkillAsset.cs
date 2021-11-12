@@ -111,6 +111,28 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        public override IEnumerator HeroUsingActiveOrBasicSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //For Active and Basic skill
+            skill.SkillLogic.UpdateSkillUseStatus.SetUsingSkill();
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        public override IEnumerator HeroUsedActiveOrBasicSkill(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            //For Active and Basic skill
+            skill.SkillLogic.UpdateSkillUseStatus.SetUsedSkillLastTurn();
+
+            logicTree.EndSequence();
+            yield return null;
+        }
 
 
 
