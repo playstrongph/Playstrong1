@@ -74,8 +74,8 @@ namespace ScriptableObjects.BasicActions
             var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance +defaultSkillCriticalResistance;
             
             var netCounterAttackChance = counterAttackChance - counterAttackResistance;
-            netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 0f, 100f);
-            var randomNumber = Random.Range(0f, 100f);
+            netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 1, 101);
+            var randomNumber = Random.Range(0, 100);
 
             if (randomNumber <= netCounterAttackChance)
             {

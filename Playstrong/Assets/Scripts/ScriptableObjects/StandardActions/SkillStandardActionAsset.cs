@@ -86,8 +86,7 @@ namespace ScriptableObjects.StandardActions
         {
             Debug.Log("SetUsedLastTurnSkillStatus: " +_skillReference.SkillName);
             var logicTree = _skillReference.Hero.CoroutineTreesAsset.MainLogicTree;
-            
-           
+
             _skillReference.SkillLogic.UpdateSkillUseStatus.SetHeroUsedPassiveSkill();
             
             //TEST Nov 12 2021

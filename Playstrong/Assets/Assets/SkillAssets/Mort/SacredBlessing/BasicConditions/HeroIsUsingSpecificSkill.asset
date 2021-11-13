@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
-  m_Name: AbsoluteDignitySkillEffect
+  m_Script: {fileID: 11500000, guid: 1bc46338443284e4eb3314f2a852a846, type: 3}
+  m_Name: HeroIsUsingSpecificSkill
   m_EditorClassIdentifier: 
-  standardActions:
-  - {fileID: 11400000, guid: 16a4c117d3c251f4e8fa285eb872077e, type: 2}
-  - {fileID: 11400000, guid: 853f29e0ed4c381438c249438f76af0e, type: 2}
+  usingThisSkill: {fileID: 11400000, guid: d94f218031351464c8cc59f5090ac0fb, type: 2}
