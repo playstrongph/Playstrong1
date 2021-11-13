@@ -81,6 +81,8 @@ namespace Logic
             {
                 var skill = skillObject.GetComponent<ISkill>();
                 var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+                
+                logicTree.AddCurrent(UpdateSkillReadinessBasedOnCooldown(skill));
 
                 logicTree.AddCurrent(SkillReadinessStatusAction(skill));
             }
@@ -91,6 +93,18 @@ namespace Logic
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
             
             skill.SkillLogic.SkillAttributes.SkillReadiness.StatusAction(skill.SkillLogic);
+            
+            logicTree.EndSequence();
+            yield return null;
+
+        }
+        
+       
+        private IEnumerator UpdateSkillReadinessBasedOnCooldown(ISkill skill)
+        {
+            var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            skill.SkillLogic.SkillAttributes.SkillCooldownType.UpdateSkillReadinessStatus(skill);
             
             logicTree.EndSequence();
             yield return null;

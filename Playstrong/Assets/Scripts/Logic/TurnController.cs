@@ -131,9 +131,6 @@ namespace Logic
         {
             _logicTree.AddCurrent(_sortHeroesByEnergy.SortByEnergy());
             
-             //TEST - set
-            
-
             _logicTree.AddCurrent(PreHeroStartTurn());
             
             _logicTree.EndSequence();
@@ -433,8 +430,9 @@ namespace Logic
 
         private IEnumerator UpdateHeroSkillsCooldown(IHeroLogic heroLogic)
         {
-            var updateSkills = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
-            _logicTree.AddCurrent(updateSkills);
+            var updateSkillCooldown = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkills();
+            
+            _logicTree.AddCurrent(updateSkillCooldown);
             
             _logicTree.EndSequence();
             yield return null;
@@ -442,8 +440,9 @@ namespace Logic
         
         private IEnumerator UpdateHeroSkillsReadinessStatus(IHeroLogic heroLogic)
         {
-            var updateSkills = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkillReadinessStatus();
-            _logicTree.AddCurrent(updateSkills);
+            var updateSkillReadiness = heroLogic.Hero.HeroSkills.Skills.GetComponent<ISkillsPanel>().UpdateHeroSkills.UpdateSkillReadinessStatus();
+            
+            _logicTree.AddCurrent(updateSkillReadiness);
             
             _logicTree.EndSequence();
             yield return null;
