@@ -19,6 +19,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             skillAttributes.Cooldown = skillCd;
 
             UpdateSkillReadinessStatus(skill);
+            
             visualTree.AddCurrent(VisualReduceCdAction(skill,skillCd));
             
             logicTree.EndSequence();
@@ -59,6 +60,7 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             skillAttributes.Cooldown = skillCd;
 
             UpdateSkillReadinessStatus(skill);
+            
             visualTree.AddCurrent(VisualReduceCdAction(skill,skillCd));
             
             logicTree.EndSequence();
@@ -72,9 +74,10 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             var skillAttributes = skill.SkillLogic.SkillAttributes;
             var maxSkillCd = skillAttributes.BaseCooldown;
             
-            skillAttributes.Cooldown = maxSkillCd;  
+            skillAttributes.Cooldown = maxSkillCd;
             
-            UpdateSkillReadinessStatus(skill);
+            //SkillReadiness Update done separately
+
             visualTree.AddCurrent(VisualReduceCdAction(skill, maxSkillCd));
             
             logicTree.EndSequence();

@@ -118,28 +118,38 @@ namespace Logic
         }
         
         
-
+        /// <summary>
+        /// Don't rearrange the order of the coroutines called
+        /// </summary>
         private void UseHeroSkill()
         {
-            //TODO - need to transfer this to Include CD Passive Effects in the future
-            _logicTree.AddCurrent(SetUsingActiveOrBasicSkillStatus());
             
-            //Reset first in consideration for skill refresh effects
-            //This causes a problem of setting the skill status to SkillNot Ready 
-            //SkillReadiness is used by StartAction to run logic
-            //TODO: Carve out setskillready from ResetSkillCooldown
+            _logicTree.AddCurrent(SetUsingActiveOrBasicSkillStatus());
+
+            //This needs to be called before UseSkillEffect in consideration for skill cooldown reduction
+            //actions
             _logicTree.AddCurrent(ResetSkillCooldown());
             
             _logicTree.AddCurrent(UseSkillEffect());
             
-            //TODO: SetSkillNotReady only here
-            
+            //This needs to be called after UseSkillEffect since skillreadiness (SkillReady state) is a prerequisite
+            //in SkillStandardAction's StartAction
+            _logicTree.AddCurrent(UpdateSkillReadiness());
 
             _logicTree.AddCurrent(HeroEndTurn());
 
-            //TEST
-            //TODO: Timing of this is causing the problem
             _logicTree.AddSibling(SetUsedLastTurnSkillStatus()); 
+        }
+        
+        //TEST Nov/13/2021
+        private IEnumerator UpdateSkillReadiness()
+        {
+            var logicTree = _targetSkill.Skill.CoroutineTreesAsset.MainLogicTree;
+            
+            _targetSkill.Skill.SkillLogic.SkillAttributes.SkillCooldownType.UpdateSkillReadinessStatus(_targetSkill.Skill);
+            
+            logicTree.EndSequence();
+            yield return null;
         }
 
         private IEnumerator UseSkillEffect()
