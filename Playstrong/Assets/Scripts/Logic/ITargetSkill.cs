@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using References;
+using UnityEngine;
 
 namespace Logic
 {
@@ -9,5 +10,7 @@ namespace Logic
         ITargetPreview SkillPreview { get; }
         IDragSkillTarget DragSkillTarget { get; }
         IGetSkillTargets GetSkillTargets { get; }
+
+        GameObject TargetSkillGameObject { get; }
     }
 }

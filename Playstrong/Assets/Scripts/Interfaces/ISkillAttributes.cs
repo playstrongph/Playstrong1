@@ -29,5 +29,7 @@ namespace Interfaces
         ISkill SkillReference { get; }
 
         ISkillCooldownTypeAsset SkillCooldownType { get; set; }
+
+        ISkillDisplayTypeAsset SkillDisplayType { get; set; }
     }
 }

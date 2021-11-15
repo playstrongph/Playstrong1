@@ -30,10 +30,14 @@ namespace Visual
             skillAttributes.SkillTarget = skillAsset.SkillTarget;
             skillAttributes.SkillReadiness = skillAsset.SkillReadiness;
             skillAttributes.SkillCooldownType = skillAsset.SkillCooldownType;
+            skillAttributes.SkillDisplayType = skillAsset.SkillDisplayType;
+            
+       
             
             //Initializations
             //skillAttributes.SkillReference = _skillLogic.Skill;
            _skillLogic.UpdateSkillUseStatus.SetHeroNotUsingSkill();
+           skillAttributes.SkillDisplayType.ApplySkillDisplay(_skillLogic.Skill);
             
             CreateUniqueSkillEffectAsset(skillAsset);
 

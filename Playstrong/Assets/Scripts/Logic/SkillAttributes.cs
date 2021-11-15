@@ -102,6 +102,17 @@ namespace Logic
             get => skillCooldownType as ISkillCooldownTypeAsset;
             set => skillCooldownType = value as ScriptableObject;
         }
+        
+        
+        [SerializeField]
+        private ScriptableObject _skillDisplayType;
+
+        public ISkillDisplayTypeAsset SkillDisplayType
+        {
+            get => _skillDisplayType as ISkillDisplayTypeAsset;
+            set => _skillDisplayType = value as ScriptableObject;
+        }
+
 
         private void Awake()
         {

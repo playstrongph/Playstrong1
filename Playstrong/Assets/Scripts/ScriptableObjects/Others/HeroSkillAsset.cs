@@ -4,6 +4,7 @@ using ScriptableObjects.Enums;
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using ScriptableObjects.ScriptableEnumScripts.SkillCooldownType;
 using ScriptableObjects.SkillEffects;
 using UnityEngine;
@@ -64,7 +65,12 @@ namespace ScriptableObjects.Others
         [RequireInterface(typeof(ISkillReadiness))]
         private Object _skillStatus;
         public ISkillReadiness SkillReadiness => _skillStatus as ISkillReadiness;
-        
+
+        [Header("Skill Display Type")] [SerializeField]
+        private ScriptableObject _skillDisplayType;
+
+        public ISkillDisplayTypeAsset SkillDisplayType => _skillDisplayType as ISkillDisplayTypeAsset;
+
 
 
 

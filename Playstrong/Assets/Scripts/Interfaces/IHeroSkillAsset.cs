@@ -2,6 +2,7 @@
 using ScriptableObjects.Enums.SkillStatus;
 using ScriptableObjects.Enums.SkillTarget;
 using ScriptableObjects.Enums.SkillType;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using ScriptableObjects.ScriptableEnumScripts.SkillCooldownType;
 using ScriptableObjects.SkillEffects;
 using UnityEngine;
@@ -27,6 +28,9 @@ namespace Interfaces
         ISkillReadiness SkillReadiness { get; }
 
         ISkillCooldownTypeAsset SkillCooldownType { get; }
+
+        ISkillDisplayTypeAsset SkillDisplayType { get; }
+
 
     }
 }

@@ -24,12 +24,19 @@ namespace Logic
        
         private IGetSkillTargets _getSkillTargets;
         public IGetSkillTargets GetSkillTargets => _getSkillTargets;
+        
+        //TEST
+        public GameObject TargetSkillGameObject { get; set; }
+
 
         private void Awake()
         {
             _skillPreview = GetComponent<ITargetPreview>();
             _dragSkillTarget = GetComponent<IDragSkillTarget>();
             _getSkillTargets = GetComponent<IGetSkillTargets>();
+            
+            //TEST
+            TargetSkillGameObject = this.gameObject;
         }
     }
 }

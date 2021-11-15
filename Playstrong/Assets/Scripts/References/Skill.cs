@@ -3,6 +3,7 @@ using Interfaces;
 using Logic;
 using ScriptableObjects;
 using ScriptableObjects.Others;
+using ScriptableObjects.Scriptable_Enums.SkillEnabledStatus;
 using UnityEngine;
 using Utilities;
 using Visual;
@@ -62,6 +63,7 @@ namespace References
             set => _panelSkill = value as Object;
         }
 
-        
+       
+
     }
 }
