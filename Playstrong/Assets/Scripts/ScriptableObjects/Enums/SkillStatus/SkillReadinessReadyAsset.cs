@@ -12,6 +12,8 @@ namespace ScriptableObjects.Enums.SkillStatus
 
         public override void StatusAction(ISkillLogic skillLogic)
         {
+            Debug.Log("Skill Readiness Ready Asset Status Action: " +skillLogic.Skill.SkillName);
+            
             var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             var skillType = skillLogic.SkillAttributes.SkillType;
             

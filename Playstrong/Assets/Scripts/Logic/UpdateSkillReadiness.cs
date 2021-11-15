@@ -28,6 +28,8 @@ namespace Logic
 
         public void SetSkillReady()
         {
+            Debug.Log("Set Skill Ready: " +_skillLogic.Skill.SkillName);
+            
             _skillLogic.SkillAttributes.SkillReadiness = SkillReady;
             _skillLogic.SkillAttributes.SkillReadiness.StatusAction(_skillLogic);
         }

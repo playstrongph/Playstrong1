@@ -19,6 +19,8 @@ namespace ScriptableObjects.Enums.SkillStatus
         
         public override void StatusAction(ISkillLogic skillLogic)
         {
+            Debug.Log("Skill Readiness Passive Asset Status Action: " +skillLogic.Skill.SkillName);
+            
             _skillLogic = skillLogic;
             _logicTree = _skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
             _visualTree = _skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;

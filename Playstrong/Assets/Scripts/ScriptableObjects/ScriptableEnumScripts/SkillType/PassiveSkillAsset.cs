@@ -55,5 +55,18 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        //TEST
+        public override IEnumerator SetSkillReady(ISkillLogic skillLogic)
+        {
+            var logicTree = skillLogic.Skill.CoroutineTreesAsset.MainLogicTree;
+            var visualTree = skillLogic.Skill.CoroutineTreesAsset.MainVisualTree;
+            
+            
+            visualTree.AddCurrent(HideCooldownText(skillLogic));
+
+            logicTree.EndSequence();
+            yield return null;
+        }
     }
 }

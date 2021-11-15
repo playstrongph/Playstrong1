@@ -57,11 +57,12 @@ namespace ScriptableObjects.ScriptableEnumScripts.SkillCooldownType
             logicTree.EndSequence();
             yield return null;
         }
-
-        public override void UpdateSkillReadinessStatus(ISkill skill)
+        
+        //TEST - Passive skills need to be set ready again
+        /*public override void UpdateSkillReadinessStatus(ISkill skill)
         {
            
-        }
+        }*/
 
 
     }
