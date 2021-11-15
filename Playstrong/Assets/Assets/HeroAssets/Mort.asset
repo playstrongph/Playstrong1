@@ -15,11 +15,11 @@ MonoBehaviour:
   _name: Mort
   _description: Knight
   _heroSprite: {fileID: 21300000, guid: 49420473791e70d4b96e871454675daa, type: 3}
-  _health: 50
-  _attack: 8
-  _speed: 290
+  _health: 61
+  _attack: 10
+  _speed: 103
   _chance: 0
-  _armor: 0
+  _armor: 12
   _fightingSpirit: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}

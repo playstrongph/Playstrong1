@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c24186e941d1bc4ab2c6e9d5770755d, type: 3}
-  m_Name: BloodBladeKarin
+  m_Name: ChallengerDominiel
   m_EditorClassIdentifier: 
-  _name: BloodBladeKarin
-  _description: Thief
-  _heroSprite: {fileID: 21300000, guid: cbb5bc62c09962644b8de88d2c65ff44, type: 3}
-  _health: 59
-  _attack: 11
-  _speed: 111
+  _name: ChallengerDominiel
+  _description: Mage
+  _heroSprite: {fileID: 21300000, guid: 3c6ad0d8cf2236341b83e261ea1d546a, type: 3}
+  _health: 45
+  _attack: 12
+  _speed: 101
   _chance: 0
-  _armor: 10
+  _armor: 12
   _fightingSpirit: 0
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
   _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
-  _heroSkills:
-  - {fileID: 11400000, guid: 382d818762e63764599fe4ccbbfb8f68, type: 2}
-  - {fileID: 11400000, guid: 69d8e9478233ce04ca45bdc8942ff6c0, type: 2}
-  - {fileID: 11400000, guid: bf62ef90be2c0a64cbd337a5a27df747, type: 2}
+  _heroSkills: []

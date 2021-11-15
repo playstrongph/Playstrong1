@@ -15,11 +15,11 @@ MonoBehaviour:
   _name: Landy
   _description: Ranger
   _heroSprite: {fileID: 21300000, guid: 0869bc2f1f6bc2c498f84d4f508098a2, type: 3}
-  _health: 50
-  _attack: 5
-  _speed: 300
+  _health: 60
+  _attack: 12
+  _speed: 112
   _chance: 0
-  _armor: 0
+  _armor: 12
   _fightingSpirit: 50
   _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
   _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
