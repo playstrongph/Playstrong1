@@ -62,6 +62,6 @@ namespace References
             set => _panelSkill = value as Object;
         }
 
-
+        
     }
 }
