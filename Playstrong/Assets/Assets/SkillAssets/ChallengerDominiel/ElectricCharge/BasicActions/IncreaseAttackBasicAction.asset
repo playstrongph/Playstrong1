@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
-  m_Name: ElectricChargeSkillEffect
+  m_Script: {fileID: 11500000, guid: 9e82aa56d8c111045acccc5de3908b39, type: 3}
+  m_Name: IncreaseAttackBasicAction
   m_EditorClassIdentifier: 
-  standardActions:
-  - {fileID: 11400000, guid: cb9aa88865afd0c46b4ff00559490882, type: 2}
-  - {fileID: 11400000, guid: 122e29190d8dd2549b38c07d81acedb4, type: 2}
+  flatAttack: 0
+  percentAttack: 50
