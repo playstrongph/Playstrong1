@@ -84,6 +84,8 @@ namespace ScriptableObjects.SkillActionsScripts
 
         private void SetChangeAttackValue(IHero hero)
         {
+            changeAttackValue = 0;
+            
             var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
             changeAttackValue = Mathf.FloorToInt(baseAttack * percentAttack/100) + flatAttack;
         }

@@ -23,8 +23,6 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             //Unregister Skill
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill);
             skill.SkillLogic.SkillAttributes.SkillEffectAsset.UnregisterSkillEffect(skill.Hero);
-            
-          
         }
         
         

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DecreaseAttack
   m_EditorClassIdentifier: 
   flatAttack: 0
-  percentAttack: 50
-  calculatedValue: {fileID: 11400000, guid: 66daf5991560d1e4b84aa236f33ec1ad, type: 2}
+  percentAttack: 0
+  calculatedValue: {fileID: 11400000, guid: 5fdd13978c62cef40bdbd9fddef95940, type: 2}

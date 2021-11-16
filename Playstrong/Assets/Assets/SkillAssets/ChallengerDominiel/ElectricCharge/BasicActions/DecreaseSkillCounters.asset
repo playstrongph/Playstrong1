@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480f21affea1c07429ac5d096d171ecf, type: 3}
   m_Name: DecreaseSkillCounters
   m_EditorClassIdentifier: 
-  skillCounters: 1
-  calculatedValue: {fileID: 11400000, guid: aef2ab420c3cd5b4cad0206824d85fd2, type: 2}
-  heroSkillAsset: {fileID: 11400000, guid: 69d8e9478233ce04ca45bdc8942ff6c0, type: 2}
+  skillCounters: 0
+  calculatedValue: {fileID: 11400000, guid: 3972b0f54e306244f88ab9e0148ba8b3, type: 2}
+  heroSkillAsset: {fileID: 11400000, guid: 0cce697a78ea7f04fb7427e19a474622, type: 2}

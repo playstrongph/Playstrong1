@@ -2,6 +2,7 @@
 using Interfaces;
 using Logic;
 using References;
+using ScriptableObjects.CalculatedFactorValue;
 using ScriptableObjects.SkillActionsScripts.BaseClassScripts;
 using UnityEngine;
 
@@ -13,10 +14,14 @@ namespace ScriptableObjects.SkillActionsScripts
     {
         [SerializeField] private int skillCounters;
 
+        [SerializeField] private ScriptableObject calculatedValue;
+        private ICalculatedFactorValueAsset CalculatedValue => calculatedValue as ICalculatedFactorValueAsset;
+        
+
         [SerializeField] private ScriptableObject heroSkillAsset;
         private IHeroSkillAsset HeroSkillAsset => heroSkillAsset as IHeroSkillAsset;
 
-        private ISkill _skillToIncreaseCounters;
+        private ISkill _skillToDecreaseCounters;
         
 
         public override IEnumerator TargetAction(IHero targetHero)
@@ -30,14 +35,16 @@ namespace ScriptableObjects.SkillActionsScripts
             {
                 var skill = heroSkillObject.GetComponent<ISkill>();
                 if (skill.SkillName == HeroSkillAsset.SkillName)
-                    _skillToIncreaseCounters = skill;
+                    _skillToDecreaseCounters = skill;
             }
             
-            if (_skillToIncreaseCounters != null)
+            if (_skillToDecreaseCounters != null)
             {
-                _skillToIncreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters -= skillCounters;
-                _skillToIncreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters = 
-                    Mathf.Max(_skillToIncreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters, 0);
+                var totalSkillCounters = skillCounters + (int)CalculatedValue.GetCalculatedValue(); 
+                    
+                _skillToDecreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters -= totalSkillCounters;
+                _skillToDecreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters = 
+                    Mathf.Max(_skillToDecreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters, 0);
             }
             
             logicTree.EndSequence();
@@ -55,14 +62,16 @@ namespace ScriptableObjects.SkillActionsScripts
             {
                 var skill = heroSkillObject.GetComponent<ISkill>();
                 if (skill.SkillName == HeroSkillAsset.SkillName)
-                    _skillToIncreaseCounters = skill;
+                    _skillToDecreaseCounters = skill;
             }
             
-            if (_skillToIncreaseCounters != null)
+            if (_skillToDecreaseCounters != null)
             {
-                _skillToIncreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters -= skillCounters;
-                _skillToIncreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters = 
-                    Mathf.Max(_skillToIncreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters, 0);
+                var totalSkillCounters = skillCounters + (int)CalculatedValue.GetCalculatedValue(); 
+                
+                _skillToDecreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters -= totalSkillCounters;
+                _skillToDecreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters = 
+                    Mathf.Max(_skillToDecreaseCounters.SkillLogic.SkillOtherAttributes.SkillCounters, 0);
             }
             
             logicTree.EndSequence();
