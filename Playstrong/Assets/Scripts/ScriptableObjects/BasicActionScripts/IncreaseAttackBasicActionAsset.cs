@@ -57,7 +57,7 @@ namespace ScriptableObjects.SkillActionsScripts
         public override IEnumerator UndoTargetAction(IHero targetHero)
         {
             
-            Debug.Log("Undo Target Action: ");
+            Debug.Log("Increase Attack UndoTargetAction1: "+targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack - changeAttackValue;
@@ -70,6 +70,7 @@ namespace ScriptableObjects.SkillActionsScripts
         
         public override IEnumerator UndoTargetAction(IHero thisHero, IHero targetHero)
         {
+            Debug.Log("Increase Attack UndoTargetAction2: "+targetHero.HeroName);
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
             var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack - changeAttackValue;
