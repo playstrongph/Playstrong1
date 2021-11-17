@@ -7,23 +7,27 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DecreaseAttack", menuName = "SO's/BasicActions/D/DecreaseAttack")]
+    [CreateAssetMenu(fileName = "DecreaseCalculatedPassiveAttack", menuName = "SO's/BasicActions/D/DecreaseCalculatedPassiveAttack")]
     
-    public class DecreaseAttackBasicActionAsset : BasicActionAsset
+    public class DecreaseCalculatedPassiveAttackBasicActionAsset : BasicActionAsset
     {
         [SerializeField] private int flatAttack;
         [SerializeField] private int percentAttack;
-        
-        private int changeAttackValue;
+
+        [SerializeField] private ScriptableObject calculatedValue;
+        private ICalculatedFactorValueAsset CalculatedValue => calculatedValue as ICalculatedFactorValueAsset;
+
+        private int _changeAttackValue;
 
         public override IEnumerator TargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             SetChangeAttackValue(targetHero);
-
-            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack - changeAttackValue;
             
+            targetHero.HeroLogic.PassiveSkillHeroAttributes.Attack -= _changeAttackValue;
+            
+            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack - _changeAttackValue;
             targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
 
             logicTree.EndSequence();
@@ -36,20 +40,22 @@ namespace ScriptableObjects.SkillActionsScripts
             
             SetChangeAttackValue(targetHero);
 
-            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack - changeAttackValue;
+            targetHero.HeroLogic.PassiveSkillHeroAttributes.Attack -= _changeAttackValue;
             
+            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack - _changeAttackValue;
             targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
 
             logicTree.EndSequence();
             yield return null;
         }
         
-        public override IEnumerator UndoTargetAction(IHero targetHero)
+        /*public override IEnumerator UndoTargetAction(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-
-            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + changeAttackValue;
             
+            targetHero.HeroLogic.PassiveSkillHeroAttributes.Attack += _changeAttackValue;
+            
+            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + _changeAttackValue;
             targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
 
             logicTree.EndSequence();
@@ -59,23 +65,24 @@ namespace ScriptableObjects.SkillActionsScripts
         public override IEnumerator UndoTargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-
-            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + changeAttackValue;
             
+            targetHero.HeroLogic.PassiveSkillHeroAttributes.Attack += _changeAttackValue;
+            
+            var newAttackValue = targetHero.HeroLogic.HeroAttributes.Attack + _changeAttackValue;
             targetHero.HeroLogic.SetHeroAttack.SetAttack(newAttackValue);
 
             logicTree.EndSequence();
             yield return null;
-        }
+        }*/
 
 
         private void SetChangeAttackValue(IHero hero)
         {
-            changeAttackValue = 0;
+            _changeAttackValue = 0;
             
             var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
-            changeAttackValue = Mathf.FloorToInt(baseAttack * percentAttack / 100) + flatAttack;
-
+            _changeAttackValue = Mathf.FloorToInt(baseAttack * percentAttack/100) + flatAttack 
+                + (int)CalculatedValue.GetCalculatedValue();
         }
 
       

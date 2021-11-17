@@ -7,13 +7,16 @@ using UnityEngine;
 
 namespace ScriptableObjects.SkillActionsScripts
 {
-    [CreateAssetMenu(fileName = "DecreaseAttack", menuName = "SO's/BasicActions/D/DecreaseAttack")]
+    [CreateAssetMenu(fileName = "DecreaseCalculatedAttack", menuName = "SO's/BasicActions/D/DecreaseCalculatedAttack")]
     
-    public class DecreaseAttackBasicActionAsset : BasicActionAsset
+    public class DecreaseCalculatedAttackBasicActionAsset : BasicActionAsset
     {
         [SerializeField] private int flatAttack;
         [SerializeField] private int percentAttack;
-        
+
+        [SerializeField] private ScriptableObject calculatedValue;
+        private ICalculatedFactorValueAsset CalculatedValue => calculatedValue as ICalculatedFactorValueAsset;
+
         private int changeAttackValue;
 
         public override IEnumerator TargetAction(IHero targetHero)
@@ -74,8 +77,8 @@ namespace ScriptableObjects.SkillActionsScripts
             changeAttackValue = 0;
             
             var baseAttack = hero.HeroLogic.HeroAttributes.BaseAttack;
-            changeAttackValue = Mathf.FloorToInt(baseAttack * percentAttack / 100) + flatAttack;
-
+            changeAttackValue = Mathf.FloorToInt(baseAttack * percentAttack/100) + flatAttack 
+                + (int)CalculatedValue.GetCalculatedValue();
         }
 
       
