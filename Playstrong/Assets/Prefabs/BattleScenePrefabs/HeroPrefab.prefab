@@ -3555,6 +3555,7 @@ GameObject:
   - component: {fileID: 5639694036447639177}
   - component: {fileID: 1917377127}
   - component: {fileID: 641180951}
+  - component: {fileID: 5197566928254707821}
   m_Layer: 0
   m_Name: HeroLogic
   m_TagString: Untagged
@@ -3966,6 +3967,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e34bdfbb231e4c4799a4fc422867aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5197566928254707821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820792406562021600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f5d0cea5169854ea568efb36ec8978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 0
+  speed: 0
+  chance: 0
+  counterAttackChance: 0
+  criticalStrikeChance: 0
+  criticalStrikeResistance: 0
+  debuffResistance: 0
+  attackTargetResistance: 0
+  criticalDamageMultiplier: 0
 --- !u!1 &3820792406563672979
 GameObject:
   m_ObjectHideFlags: 0

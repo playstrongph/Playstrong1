@@ -146,6 +146,10 @@ namespace Logic
 
         private IGetAllHeroSkills _getAllHeroSkills;
         public IGetAllHeroSkills GetAllHeroSkills => _getAllHeroSkills;
+
+        private IPassiveSkillHeroAttributes _passiveSkillHeroAttributes;
+        public IPassiveSkillHeroAttributes PassiveSkillHeroAttributes => _passiveSkillHeroAttributes;
+        
         
 
         private void Awake()
@@ -168,7 +172,8 @@ namespace Logic
             _takeDamageTest = GetComponent<ITakeDamageTest>();
             _statusEffectImmunityList = GetComponent<IStatusEffectImmunityList>();
             _getAllHeroSkills = GetComponent<IGetAllHeroSkills>();
-            
+            _passiveSkillHeroAttributes = GetComponent<IPassiveSkillHeroAttributes>();
+
         }
     }
 }

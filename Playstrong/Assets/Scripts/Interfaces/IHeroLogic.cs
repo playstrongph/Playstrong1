@@ -62,6 +62,8 @@ namespace Interfaces
 
         IGetAllHeroSkills GetAllHeroSkills { get; }
 
+        IPassiveSkillHeroAttributes PassiveSkillHeroAttributes { get; }
+
 
 
 
