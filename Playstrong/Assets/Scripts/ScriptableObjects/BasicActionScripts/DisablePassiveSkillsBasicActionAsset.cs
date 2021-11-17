@@ -61,6 +61,9 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
+            //TEST
+            logicTree.AddCurrent(targetHero.HeroLogic.PassiveSkillHeroAttributes.DisablePassiveAttributes());
+            
             var skillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
             foreach (var skillObject in skillObjects)
             {
@@ -74,6 +77,9 @@ namespace ScriptableObjects.SkillActionsScripts
         private void EnablePassiveSkills(IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            //TEST
+            logicTree.AddCurrent(targetHero.HeroLogic.PassiveSkillHeroAttributes.EnablePassiveAttributes());
             
             var skillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
             foreach (var skillObject in skillObjects)
