@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using Interfaces;
 using UnityEngine;
 
 namespace Logic
 {
-    public class PassiveSkillHeroAttributes : MonoBehaviour
+    public class PassiveSkillHeroAttributes : MonoBehaviour, IPassiveSkillHeroAttributes
     {
         [Header("BASIC HERO ATTRIBUTES")]
         [SerializeField] private int attack;
@@ -74,10 +75,97 @@ namespace Logic
             get => criticalDamageMultiplier;
             set => criticalDamageMultiplier = value;
         }
-      
 
+        //References
+        private IHeroLogic _heroLogic;
 
+        private void Awake()
+        {
+            _heroLogic = GetComponent<IHeroLogic>();
+        }
+        
+        //Called during SEAL and other passive skill silence effects
+        public IEnumerator DisablePassiveAttributes()
+        {
+            var logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            var heroAttributes = _heroLogic.HeroAttributes;
+            var otherHeroAttributes = _heroLogic.OtherAttributes;
 
+            //Attack
+            var newAttackValue = heroAttributes.Attack - Attack;
+            _heroLogic.SetHeroAttack.SetAttack(newAttackValue);
+            
+            //Speed
+            var newSpeedValue = heroAttributes.Speed - Speed;
+            _heroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
+            
+           //Chance
+           heroAttributes.Chance -= Chance;
+           
+           //CounterAttackChance
+           otherHeroAttributes.CounterAttackChance -= CounterAttackChance;
+           
+           //CriticalStrikeChance
+           otherHeroAttributes.CriticalStrikeChance -= CriticalStrikeChance;
+           
+           //CriticalStrikeResistance
+           otherHeroAttributes.CriticalStrikeResistance -= CriticalStrikeResistance;
+           
+           //DebuffResistance
+           otherHeroAttributes.DebuffResistance -= DebuffResistance;
+           
+           //AttackTargetResistance
+           otherHeroAttributes.AttackTargetResistance -= AttackTargetResistance;
+           
+           //CriticalDamage Multiplier
+           otherHeroAttributes.CriticalDamageMultiplier -= CriticalDamageMultiplier;
 
+           logicTree.EndSequence();
+           yield return null;
+        }
+        
+        //Called after removing SEAL and other passive skill silence effects
+        public IEnumerator EnablePassiveAttributes()
+        {
+            var logicTree = _heroLogic.Hero.CoroutineTreesAsset.MainLogicTree;
+            var heroAttributes = _heroLogic.HeroAttributes;
+            var otherHeroAttributes = _heroLogic.OtherAttributes;
+
+            //Attack
+            var newAttackValue = heroAttributes.Attack + Attack;
+            _heroLogic.SetHeroAttack.SetAttack(newAttackValue);
+            
+            //Speed
+            var newSpeedValue = heroAttributes.Speed + Speed;
+            _heroLogic.SetHeroSpeed.SetSpeed(newSpeedValue);
+            
+            //Chance
+            heroAttributes.Chance += Chance;
+           
+            //CounterAttackChance
+            otherHeroAttributes.CounterAttackChance += CounterAttackChance;
+           
+            //CriticalStrikeChance
+            otherHeroAttributes.CriticalStrikeChance += CriticalStrikeChance;
+           
+            //CriticalStrikeResistance
+            otherHeroAttributes.CriticalStrikeResistance += CriticalStrikeResistance;
+           
+            //DebuffResistance
+            otherHeroAttributes.DebuffResistance += DebuffResistance;
+           
+            //AttackTargetResistance
+            otherHeroAttributes.AttackTargetResistance += AttackTargetResistance;
+           
+            //CriticalDamage Multiplier
+            otherHeroAttributes.CriticalDamageMultiplier += CriticalDamageMultiplier;
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+        
+        
+        
     }
 }
