@@ -117,6 +117,9 @@ namespace Logic
            //CriticalStrikeChance
            otherHeroAttributes.CriticalStrikeChance -= CriticalStrikeChance;
            
+           //SkillChanceBonus
+           otherHeroAttributes.SkillChanceBonus -= SkillChanceBonus;
+           
            //CriticalStrikeResistance
            otherHeroAttributes.CriticalStrikeResistance -= CriticalStrikeResistance;
            
@@ -156,6 +159,9 @@ namespace Logic
            
             //CriticalStrikeChance
             otherHeroAttributes.CriticalStrikeChance += CriticalStrikeChance;
+            
+            //SkillChanceBonus
+            otherHeroAttributes.SkillChanceBonus += SkillChanceBonus;
            
             //CriticalStrikeResistance
             otherHeroAttributes.CriticalStrikeResistance += CriticalStrikeResistance;
