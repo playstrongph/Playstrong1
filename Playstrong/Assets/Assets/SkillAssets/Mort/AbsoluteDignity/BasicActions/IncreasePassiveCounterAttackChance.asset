@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction
+  m_Script: {fileID: 11500000, guid: 127eb825b8959674898dea60e40c3569, type: 3}
+  m_Name: IncreasePassiveCounterAttackChance
   m_EditorClassIdentifier: 
-  defaultSkillAddDebuffChance: 0
-  _debuffEffectAsset: {fileID: 11400000, guid: 589f41d41b0623c48bccbf41a606cbc8, type: 2}
-  _debuffCounters: 1
+  counterChance: 100

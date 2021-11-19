@@ -51,9 +51,8 @@ namespace Logic
             get => skillChanceBonus;
             set => skillChanceBonus = value;
         }
-        
-        
-        
+
+
         [Header("OTHER HERO RESISTANCE ATTRIBUTES")]
         [SerializeField] private int criticalStrikeResistance;
         public int CriticalStrikeResistance
