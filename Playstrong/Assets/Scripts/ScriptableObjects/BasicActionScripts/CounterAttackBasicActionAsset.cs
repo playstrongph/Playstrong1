@@ -51,21 +51,35 @@ namespace ScriptableObjects.BasicActions
             //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
             if (targetHero.HeroLogic.OtherAttributes.HeroInabilityChance <= 0)
             {
-                logicTree.AddCurrent(IncreaseCounterResistance(targetHero));
+                /*logicTree.AddSibling(IncreaseCounterResistance(targetHero));                
+                logicTree.AddSibling(CounterAttackHero(targetHero,thisHero));
+                logicTree.AddSibling(DecreaseCounterResistance(targetHero));*/
                 
-                logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
-
-                logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
+                logicTree.AddSibling(CounterAttackActions(thisHero,targetHero));
             }
-
-            
             
             logicTree.EndSequence();
             yield return null;
 
         }
-    
-    
+
+
+        private IEnumerator CounterAttackActions(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(IncreaseCounterResistance(targetHero));
+                
+            logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
+
+            logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
+            
+            logicTree.EndSequence();
+            yield return null;
+            
+        }
+
+
         private IEnumerator CounterAttackHero(IHero counterAttacker, IHero originalAttacker)
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
