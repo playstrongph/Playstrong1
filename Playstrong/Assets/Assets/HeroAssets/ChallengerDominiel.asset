@@ -28,3 +28,4 @@ MonoBehaviour:
   _heroSkills:
   - {fileID: 11400000, guid: e2a01a2e15c26614aaa2a39c64a9ac78, type: 2}
   - {fileID: 11400000, guid: 0cce697a78ea7f04fb7427e19a474622, type: 2}
+  - {fileID: 11400000, guid: 2c5f95381406d5f469d8c5546d6def2f, type: 2}
