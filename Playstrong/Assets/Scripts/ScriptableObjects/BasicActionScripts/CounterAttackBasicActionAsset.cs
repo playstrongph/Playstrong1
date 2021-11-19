@@ -19,7 +19,8 @@ namespace ScriptableObjects.BasicActions
     {
         [Header("CRITICAL STRIKE FACTORS")] 
         [SerializeField] private int defaultSkillCriticalChance;
-        [SerializeField] private int defaultSkillCriticalResistance;
+        
+        //[SerializeField] private int defaultSkillCriticalResistance;
 
         [Header("DAMAGE FACTORS")]
         //To be used after revision of DealDamage/TakeDamage
@@ -51,11 +52,11 @@ namespace ScriptableObjects.BasicActions
             //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
             if (targetHero.HeroLogic.OtherAttributes.HeroInabilityChance <= 0)
             {
-                /*logicTree.AddSibling(IncreaseCounterResistance(targetHero));                
-                logicTree.AddSibling(CounterAttackHero(targetHero,thisHero));
-                logicTree.AddSibling(DecreaseCounterResistance(targetHero));*/
+                logicTree.AddCurrent(IncreaseCounterResistance(targetHero));         
                 
-                logicTree.AddSibling(CounterAttackActions(thisHero,targetHero));
+                logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
+                
+                logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
             }
             
             logicTree.EndSequence();
@@ -63,33 +64,20 @@ namespace ScriptableObjects.BasicActions
 
         }
 
-
-        private IEnumerator CounterAttackActions(IHero thisHero, IHero targetHero)
-        {
-            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            logicTree.AddCurrent(IncreaseCounterResistance(targetHero));
-                
-            logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
-
-            logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
-            
-            logicTree.EndSequence();
-            yield return null;
-            
-        }
-
-
         private IEnumerator CounterAttackHero(IHero counterAttacker, IHero originalAttacker)
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
-                
-            var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance + defaultSkillCriticalChance;
-            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance +defaultSkillCriticalResistance;
+
+            var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance;
+            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance;
             
             var netCounterAttackChance = counterAttackChance - counterAttackResistance;
             netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 1, 101);
             var randomNumber = Random.Range(0, 100);
+            
+            //TEST - Increase this hero's counterAttackResistance
+            //counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance += 500;
+            //logicTree.AddCurrent(IncreaseCounterResistance(counterAttacker));
 
             if (randomNumber <= netCounterAttackChance)
             {
@@ -105,7 +93,11 @@ namespace ScriptableObjects.BasicActions
                 logicTree.AddCurrent(PostSkillAttackEvents(counterAttacker,originalAttacker));
                 logicTree.AddCurrent(AfterCounterAttackEvents(counterAttacker,originalAttacker));
             }
-
+            
+            //TEST - Decrease this hero's counterAttackResistance
+            //counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance -= 500;
+            //logicTree.AddCurrent(DecreaseCounterResistance(counterAttacker));
+            
             logicTree.EndSequence();
             yield return null;
         }
@@ -125,7 +117,7 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
-            var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance;
+            var criticalChance = thisHero.HeroLogic.OtherAttributes.CriticalStrikeChance + defaultSkillCriticalChance;
             var criticalResistance = targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance;
             
             var netChance = criticalChance - criticalResistance;
