@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3929097575565e43a465133a84f57cb, type: 3}
-  m_Name: IncreaseAttackTargetResistance
+  m_Script: {fileID: 11500000, guid: f2bc003c403993e40a8eee0125fa9387, type: 3}
+  m_Name: IncreasePassiveAttackTargetResistance
   m_EditorClassIdentifier: 
-  attackTargetResistance: 1000
+  attackTargetResistance: 10000
