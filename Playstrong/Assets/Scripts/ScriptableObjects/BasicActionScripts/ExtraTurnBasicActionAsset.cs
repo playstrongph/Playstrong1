@@ -12,17 +12,21 @@ namespace ScriptableObjects.SkillActionsScripts
     public class ExtraTurnBasicActionAsset : BasicActionAsset
     {
 
-        [SerializeField] private ScriptableObject actionTarget;
-        private IActionTargets ActionTarget => actionTarget as IActionTargets;
+        /*[SerializeField] private ScriptableObject actionTarget;
+        private IActionTargets ActionTarget => actionTarget as IActionTargets;*/
         
         //Need to set exaggeratedly big
         private int extraTurnEnergyValue = 10000;
         
-        public override IEnumerator TargetAction(IHero hero)
+        public override IEnumerator TargetAction(IHero targetHero)
         {
-           var logicTree = hero.CoroutineTreesAsset.MainLogicTree;
+           var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-           var extraTurnHero = ActionTarget.GetHeroTarget(hero);
+           //var extraTurnHero = ActionTarget.GetHeroTarget(hero);
+           
+           //TEST
+           var extraTurnHero = targetHero;
+           
            
            //Set Hero Energy
            SetHeroEnergyMax(extraTurnHero);
@@ -39,7 +43,10 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
-            var extraTurnHero = ActionTarget.GetHeroTarget(thisHero,targetHero);
+            //TEST
+            //var extraTurnHero = ActionTarget.GetHeroTarget(thisHero,targetHero);
+
+            var extraTurnHero = targetHero;
             
             //Set Hero Energy
             SetHeroEnergyMax(extraTurnHero);
@@ -51,17 +58,23 @@ namespace ScriptableObjects.SkillActionsScripts
             yield return null;
         }
 
-        private void SetHeroEnergyMax(IHero hero)
+        private void SetHeroEnergyMax(IHero targetHero)
         {
-           Debug.Log("Extra Turn: " +hero.HeroName);
-            hero.HeroLogic.SetHeroEnergy.SetEnergy(extraTurnEnergyValue);
+           Debug.Log("Extra Turn: " +targetHero.HeroName);
+           targetHero.HeroLogic.SetHeroEnergy.SetEnergy(extraTurnEnergyValue);
         }
 
-        private void UpdateActiveHeroesList(IHero hero)
+        private void UpdateActiveHeroesList(IHero targetHero)
         {
-            var turnController = hero.LivingHeroes.Player.BattleSceneManager.TurnController;
-            var heroTimer = hero.HeroLogic.HeroTimer as Object;
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            var turnController = targetHero.LivingHeroes.Player.BattleSceneManager.TurnController;
+            var heroTimer = targetHero.HeroLogic.HeroTimer as Object;
+            
+            
             turnController.ActiveHeroes.Add(heroTimer);
+            
+            //test
+            logicTree.AddCurrent(turnController.SortHeroesByEnergy.SortByEnergy());
         }
 
 

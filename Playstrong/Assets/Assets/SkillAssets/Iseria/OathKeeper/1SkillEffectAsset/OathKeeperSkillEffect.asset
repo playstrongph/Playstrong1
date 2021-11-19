@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: OathKeeperSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
+  - {fileID: 11400000, guid: 66976b00fdab28442b93263c668a0c39, type: 2}
   - {fileID: 11400000, guid: a48d239f188b0c94a92a5210c410d9f8, type: 2}
