@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Interfaces;
 using References;
 using TMPro;
@@ -103,8 +104,6 @@ namespace ScriptableObjects.Enums.SkillType
             yield return null;
         }
         
-        
-        //NEW TEST START - Nov 11 2021
         public virtual IEnumerator HeroUsingPassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
@@ -150,19 +149,11 @@ namespace ScriptableObjects.Enums.SkillType
         }
         
         
-        
-        //NEW TEST END - Nov 11 2021
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        //NEW TEST - 20 Nov 2021
+        public virtual ISkillType GetBasicSKill()
+        {
+            return null;
+        }
 
 
         //Skill Ready Actions

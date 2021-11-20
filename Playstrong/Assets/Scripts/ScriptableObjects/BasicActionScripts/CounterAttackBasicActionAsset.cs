@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Interfaces;
 using Logic;
+using References;
 using ScriptableObjects.AnimationSOscripts;
 using ScriptableObjects.CalculatedFactorValue;
 using ScriptableObjects.DamageAttributeMultiple;
@@ -98,7 +99,12 @@ namespace ScriptableObjects.BasicActions
                 logicTree.AddCurrent(PreSkillAttackEvents(counterAttacker,originalAttacker));
                 logicTree.AddCurrent(PreAttackEvents(counterAttacker,originalAttacker));
 
-                logicTree.AddCurrent(AttackHero(counterAttacker,originalAttacker));
+                
+                //TEST - 20 Nov 2021
+                //logicTree.AddCurrent(AttackHero(counterAttacker,originalAttacker));
+                logicTree.AddCurrent(BasicSkillAttackHero(counterAttacker,originalAttacker));
+                
+                
 
                 //POST ATTACK PHASE
                 logicTree.AddCurrent(PostAttackEvents(counterAttacker,originalAttacker));
@@ -113,7 +119,51 @@ namespace ScriptableObjects.BasicActions
             logicTree.EndSequence();
             yield return null;
         }
+        
+        
+        //TEST - 20 Nov 2021
+        private IEnumerator BasicSkillAttackHero(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
+            //FindBasicSKill
+            var basicSkill = GetBasicSkill(thisHero);
+
+            var standardActions = basicSkill.SkillLogic.SkillAttributes.SkillEffectAsset.StandardActions;
+
+            foreach (var standardAction in standardActions)
+            {
+                standardAction.StartAction(thisHero,targetHero);
+            }
+
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private ISkill GetBasicSkill(IHero thisHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            ISkill basicSkill = null;
+            
+            //FindBasicSKill
+            var skillObjects = thisHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
+            foreach (var skillObject in skillObjects)
+            {
+                var skill = skillObject.GetComponent<ISkill>();
+
+                if (skill.SkillLogic.SkillAttributes.SkillType.GetBasicSKill() != null)
+                    basicSkill = skill;
+            }
+            
+            return basicSkill;
+        }
+        
+        
+        
+        
+
+
 
         private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {

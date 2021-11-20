@@ -104,6 +104,13 @@ namespace ScriptableObjects.Enums.SkillType
             logicTree.EndSequence();
             yield return null;
         }
+        
+        
+        //NEW TEST - 20 Nov 2021
+        public override ISkillType GetBasicSKill()
+        {
+            return this;
+        }
 
 
        

@@ -29,7 +29,6 @@ namespace ScriptableObjects.Enums.SkillType
 
         IEnumerator EnablePassiveSkill(ISkill skill);
         
-        //NEW TEST - Nov 11 2021
         IEnumerator HeroUsingPassiveSkill(ISkill skill);
 
         IEnumerator HeroUsedPassiveSkill(ISkill skill);
@@ -39,6 +38,10 @@ namespace ScriptableObjects.Enums.SkillType
         IEnumerator HeroUsedActiveOrBasicSkill(ISkill skill);
 
         void ResetCdPassiveSkillCd(ISkill skill);
+        
+        
+        //NEW TEST - 20 Nov 2021
+        ISkillType GetBasicSKill();
 
     }
 }
