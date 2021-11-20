@@ -62,7 +62,7 @@ namespace ScriptableObjects.BasicActions
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             //TEST
-            logicTree.AddCurrent(ResetAntiCounterResistance(thisHero));
+            //logicTree.AddCurrent(ResetAntiCounterResistance(thisHero));
             
             //PreAttack Phase
             logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));

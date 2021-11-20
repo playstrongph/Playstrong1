@@ -111,10 +111,13 @@ namespace ScriptableObjects.BasicActions
                 logicTree.AddCurrent(PostSkillAttackEvents(counterAttacker,originalAttacker));
                 logicTree.AddCurrent(AfterCounterAttackEvents(counterAttacker,originalAttacker));
             }
+            else
+            {
+               logicTree.AddCurrent(ReSetAntiCounterResistance(originalAttacker));
+               //logicTree.AddCurrent(ReSetAntiCounterResistance(counterAttacker));
+            }
             
-            //TEST - Decrease this hero's counterAttackResistance
-            //counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance -= 500;
-            //logicTree.AddCurrent(DecreaseCounterResistance(counterAttacker));
+            
             
             logicTree.EndSequence();
             yield return null;
@@ -310,10 +313,19 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
 
-            //counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance += _antiCounterAttackResistance;
-            
             //TEST
             counterAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance = _antiCounterAttackResistance;
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator ReSetAntiCounterResistance(IHero counterAttacker)
+        {
+            var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
+
+            //TEST
+            counterAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance = 0;
             
             logicTree.EndSequence();
             yield return null;
