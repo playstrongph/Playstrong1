@@ -41,7 +41,7 @@ namespace ScriptableObjects.BasicActions
         private float _visualDelay = 0.7f;
 
         private int _finalAttackValue;
-        private int _counterAttackResistance = 200;
+        private int _antiCounterAttackResistance = 200;
         
         //TARGET ACTION    
         public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
@@ -52,16 +52,27 @@ namespace ScriptableObjects.BasicActions
             //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
             if (targetHero.HeroLogic.OtherAttributes.HeroInabilityChance <= 0)
             {
-                logicTree.AddCurrent(IncreaseCounterResistance(targetHero));         
+                //logicTree.AddCurrent(SetAntiCounterResistance(targetHero));
+                //logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
+                //logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
                 
-                logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
-                
-                logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
+                logicTree.AddSibling(CounterAttackActions(thisHero,targetHero));
             }
             
             logicTree.EndSequence();
             yield return null;
+        }
 
+        private IEnumerator CounterAttackActions(IHero thisHero, IHero targetHero)
+        {
+            var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
+            
+            logicTree.AddCurrent(SetAntiCounterResistance(targetHero));         
+                
+            logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
+            
+            logicTree.EndSequence();
+            yield return null;
         }
 
         private IEnumerator CounterAttackHero(IHero counterAttacker, IHero originalAttacker)
@@ -69,7 +80,8 @@ namespace ScriptableObjects.BasicActions
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
 
             var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance;
-            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance;
+            var counterAttackResistance = originalAttacker.HeroLogic.OtherAttributes.CounterAttackResistance 
+                                          + originalAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance;
             
             var netCounterAttackChance = counterAttackChance - counterAttackResistance;
             netCounterAttackChance = Mathf.Clamp(netCounterAttackChance, 1, 101);
@@ -244,11 +256,14 @@ namespace ScriptableObjects.BasicActions
             yield return null;
         }
 
-        private IEnumerator IncreaseCounterResistance(IHero counterAttacker)
+        private IEnumerator SetAntiCounterResistance(IHero counterAttacker)
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
 
-            counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance += _counterAttackResistance;
+            //counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance += _antiCounterAttackResistance;
+            
+            //TEST
+            counterAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance = _antiCounterAttackResistance;
             
             logicTree.EndSequence();
             yield return null;
@@ -258,7 +273,7 @@ namespace ScriptableObjects.BasicActions
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
 
-            counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance -= _counterAttackResistance;
+            counterAttacker.HeroLogic.OtherAttributes.CounterAttackResistance -= _antiCounterAttackResistance;
             
             logicTree.EndSequence();
             yield return null;

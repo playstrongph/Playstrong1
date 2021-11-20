@@ -62,7 +62,7 @@ namespace ScriptableObjects.BasicActions
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
             
             //TEST
-            logicTree.AddCurrent(SetSkillCounterAttackResistance(thisHero));
+            logicTree.AddCurrent(ResetAntiCounterResistance(thisHero));
             
             //PreAttack Phase
             logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
@@ -76,7 +76,7 @@ namespace ScriptableObjects.BasicActions
             logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
             
             //TEST
-            logicTree.AddCurrent(ResetSkillCounterAttackResistance(thisHero));
+            //logicTree.AddCurrent(ResetSkillCounterAttackResistance(thisHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -175,13 +175,13 @@ namespace ScriptableObjects.BasicActions
     }
     
     //AUXILIARY METHODS
-    private IEnumerator SetSkillCounterAttackResistance(IHero thisHero)
+    private IEnumerator ResetAntiCounterResistance(IHero thisHero)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree; 
             
-        thisHero.HeroLogic.OtherAttributes.CounterAttackResistance += defaultSkillCounterAttackResistance;
+        thisHero.HeroLogic.OtherAttributes.AntiCounterAttackResistance = 0;
         
-        Debug.Log("thisHero: " +thisHero.HeroName +" Increase CounterResistance: " +thisHero.HeroLogic.OtherAttributes.CounterAttackResistance );
+        //Debug.Log("thisHero: " +thisHero.HeroName +" Increase CounterResistance: " +thisHero.HeroLogic.OtherAttributes.CounterAttackResistance );
 
         logicTree.EndSequence();
         yield return null;

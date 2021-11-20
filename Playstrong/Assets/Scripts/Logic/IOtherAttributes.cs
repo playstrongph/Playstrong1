@@ -41,6 +41,8 @@
         float SkillChanceResistance { get; set; }
         float ResurrectResistance { get; set; }
         float CounterAttackResistance { get; set; }
+
+        float AntiCounterAttackResistance { get; set; }
         float AttackTargetResistance { get; set; }
         float PenetrateArmorResistance { get; set; }
         float EnergyUpResistance { get; set; }

@@ -202,6 +202,17 @@ namespace Logic
             set => counterAttackResistance = value;
             
         }
+        
+        [SerializeField]
+        private float antiCounterAttackResistance = 0f;
+        
+        //Prevents counterattack of counterattack (infinite loop)
+        public float AntiCounterAttackResistance
+        {
+            get => antiCounterAttackResistance;
+            set => antiCounterAttackResistance = value;
+            
+        }
 
         [SerializeField] private float attackTargetResistance = 0f;
 
