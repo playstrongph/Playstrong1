@@ -1,4 +1,5 @@
-﻿using Interfaces;
+﻿using System.Collections.Generic;
+using Interfaces;
 using Logic;
 using References;
 using ScriptableObjects.CalculatedFactorValue;
@@ -37,30 +38,21 @@ namespace ScriptableObjects.DamageAttributeMultiple
         }
         
         
-        /*/// <summary>
-        /// Can be used when calculated value does not need to be constant
-        /// or not used across multiple conditions/actions
-        /// </summary>
-        /// <param name="targetHero"></param>
-        /// <returns></returns>
-        public virtual float GetCalculatedValue(IHero targetHero)
+        protected List<int> ShuffleList(List<int> values)
         {
-            var calculatedValue = 0;
-            return calculatedValue;
+            var randomList = values;
+            
+            //Randomize the List
+            for (int i = 0; i < randomList.Count; i++) 
+            {
+                var temp = randomList[i];
+                int randomIndex = Random.Range(i, randomList.Count);
+                randomList[i] = randomList[randomIndex];
+                randomList[randomIndex] = temp;
+            }
+
+            return randomList;
         }
-        
-        /// <summary>
-        /// Can be used when calculated value does not need to be constant
-        /// or not used across multiple conditions/actions
-        /// </summary>
-        /// <param name="thisHero"></param>
-        /// <param name="targetHero"></param>
-        /// <returns></returns>
-        public virtual float GetCalculatedValue(IHero thisHero, IHero targetHero)
-        {
-            var calculatedValue = 0;
-            return calculatedValue;
-        }*/
 
     }
 }
