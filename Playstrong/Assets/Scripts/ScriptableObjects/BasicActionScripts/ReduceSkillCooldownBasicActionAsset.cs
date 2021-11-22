@@ -27,17 +27,19 @@ namespace ScriptableObjects.BasicActionScripts
         {
            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
            var heroSkillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
-           var newSkillCooldownValue = flatReduceCounters + (int)CalculatedReduceCounters.GetCalculatedValue();
+           var totalCooldownReduction = flatReduceCounters + (int)CalculatedReduceCounters.GetCalculatedValue();
 
            //Find Skill To Reduce CD
            foreach (var heroSkillObject in heroSkillObjects)
            {
                var skill = heroSkillObject.GetComponent<ISkill>();
                
-               Debug.Log("skill name: " +skill.SkillName +" HeroSkillAsset Name: " +HeroSkillAssetReference.SkillName );
+               //Debug.Log("skill name: " +skill.SkillName +" HeroSkillAsset Name: " +HeroSkillAssetReference.SkillName );
                if (skill.SkillName == HeroSkillAssetReference.SkillName)
                    _skillToRefresh = skill;
            }
+
+           var newSkillCooldownValue = _skillToRefresh.SkillLogic.SkillAttributes.Cooldown - totalCooldownReduction;
 
            //TEST - null check not required in final version
            if (_skillToRefresh != null)
@@ -49,21 +51,23 @@ namespace ScriptableObjects.BasicActionScripts
 
         }
         
-        public override IEnumerator TargetAction(IHero thisHero,IHero targetHero)
+        public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             var heroSkillObjects = targetHero.HeroSkills.Skills.GetComponent<ISkillsPanel>().SkillList;
-            var newSkillCooldownValue = flatReduceCounters + (int)CalculatedReduceCounters.GetCalculatedValue();
+            var totalCooldownReduction = flatReduceCounters + (int)CalculatedReduceCounters.GetCalculatedValue();
 
             //Find Skill To Reduce CD
             foreach (var heroSkillObject in heroSkillObjects)
             {
                 var skill = heroSkillObject.GetComponent<ISkill>();
                
-                Debug.Log("skill name: " +skill.SkillName +" HeroSkillAsset Name: " +HeroSkillAssetReference.SkillName );
+                //Debug.Log("skill name: " +skill.SkillName +" HeroSkillAsset Name: " +HeroSkillAssetReference.SkillName );
                 if (skill.SkillName == HeroSkillAssetReference.SkillName)
                     _skillToRefresh = skill;
             }
+
+            var newSkillCooldownValue = _skillToRefresh.SkillLogic.SkillAttributes.Cooldown - totalCooldownReduction;
 
             //TEST - null check not required in final version
             if (_skillToRefresh != null)
