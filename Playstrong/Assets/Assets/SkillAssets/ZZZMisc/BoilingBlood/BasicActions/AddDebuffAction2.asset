@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AddDebuffAction2
   m_EditorClassIdentifier: 
   defaultSkillAddDebuffChance: 0
-  _debuffEffectAsset: {fileID: 11400000, guid: 0f7ba4d90cea7b0418e79bc4235620d1, type: 2}
+  _debuffEffectAsset: {fileID: 11400000, guid: 33b0b96c82ddc7c47b1b31b69f6b184d, type: 2}
   _debuffCounters: 1

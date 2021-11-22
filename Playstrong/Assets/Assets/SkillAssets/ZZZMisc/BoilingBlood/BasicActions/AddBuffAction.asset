@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AddBuffAction
   m_EditorClassIdentifier: 
   defaultSkillAddBuffChance: 0
-  _buffEffectAsset: {fileID: 11400000, guid: b943e221e71e9154c9577a93dbd9d0ee, type: 2}
-  _buffCounters: 1
+  _buffEffectAsset: {fileID: 11400000, guid: 1e00842da0ee87841a5473f348f1990e, type: 2}
+  _buffCounters: 5
