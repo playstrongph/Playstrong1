@@ -75,7 +75,9 @@ namespace ScriptableObjects.BasicActions
             }
             else
             {
-                logicTree.AddCurrent(ReSetAntiCounterResistance(originalAttacker));
+                //Should Reset the Counter Resistance only after completion of the counterattack 
+                //in case of multi-counterattack with 2 or more targets that also have counterattack
+                logicTree.AddSibling(ReSetAntiCounterResistance(originalAttacker));
 
             }
             
