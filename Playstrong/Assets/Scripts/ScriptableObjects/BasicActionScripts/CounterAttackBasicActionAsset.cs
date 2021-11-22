@@ -48,15 +48,10 @@ namespace ScriptableObjects.BasicActions
         public override IEnumerator TargetAction(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-           
+
             //From the event: "thisHero" is the original attacker, "targetHero" is the counter-attacker
             if (targetHero.HeroLogic.OtherAttributes.HeroInabilityChance <= 0)
             {
-                //logicTree.AddCurrent(SetAntiCounterResistance(targetHero));
-                //logicTree.AddCurrent(CounterAttackHero(targetHero,thisHero));
-                //logicTree.AddCurrent(DecreaseCounterResistance(targetHero));
-                
                 logicTree.AddSibling(CounterAttackActions(thisHero,targetHero));
             }
             
@@ -78,6 +73,9 @@ namespace ScriptableObjects.BasicActions
 
         private IEnumerator CounterAttackHero(IHero counterAttacker, IHero originalAttacker)
         {
+
+            Debug.Log("DEBUG123 CounterAttacker: " +counterAttacker.HeroName +" OriginalAttacker: " +originalAttacker.HeroName);
+            
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
 
             var counterAttackChance = counterAttacker.HeroLogic.OtherAttributes.CounterAttackChance;
@@ -94,10 +92,13 @@ namespace ScriptableObjects.BasicActions
 
             if (randomNumber <= netCounterAttackChance)
             {
+                Debug.Log("DEBUG123 CounterAttack Success: " +counterAttacker.HeroName);
+                
                 //PRE-ATTACK PHASE
+                
                 logicTree.AddCurrent(BeforeCounterAttackEvents(counterAttacker,originalAttacker));
-                logicTree.AddCurrent(PreSkillAttackEvents(counterAttacker,originalAttacker));
-                logicTree.AddCurrent(PreAttackEvents(counterAttacker,originalAttacker));
+                //logicTree.AddCurrent(PreSkillAttackEvents(counterAttacker,originalAttacker));
+                //logicTree.AddCurrent(PreAttackEvents(counterAttacker,originalAttacker));
 
                 
                 //TEST - 20 Nov 2021
@@ -107,14 +108,17 @@ namespace ScriptableObjects.BasicActions
                 
 
                 //POST ATTACK PHASE
-                logicTree.AddCurrent(PostAttackEvents(counterAttacker,originalAttacker));
-                logicTree.AddCurrent(PostSkillAttackEvents(counterAttacker,originalAttacker));
+                //logicTree.AddCurrent(PostAttackEvents(counterAttacker,originalAttacker));
+                //logicTree.AddCurrent(PostSkillAttackEvents(counterAttacker,originalAttacker));
+                
                 logicTree.AddCurrent(AfterCounterAttackEvents(counterAttacker,originalAttacker));
+                
+               
             }
             else
             {
-               logicTree.AddCurrent(ReSetAntiCounterResistance(originalAttacker));
-               //logicTree.AddCurrent(ReSetAntiCounterResistance(counterAttacker));
+                logicTree.AddCurrent(ReSetAntiCounterResistance(originalAttacker));
+
             }
             
             
@@ -312,7 +316,9 @@ namespace ScriptableObjects.BasicActions
         private IEnumerator SetAntiCounterResistance(IHero counterAttacker)
         {
             var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
-
+            
+            Debug.Log("DEBUG123 SetAntiCounterResistance t0 200: " +counterAttacker.HeroName);
+            
             //TEST
             counterAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance = _antiCounterAttackResistance;
             
@@ -320,12 +326,14 @@ namespace ScriptableObjects.BasicActions
             yield return null;
         }
         
-        private IEnumerator ReSetAntiCounterResistance(IHero counterAttacker)
+        private IEnumerator ReSetAntiCounterResistance(IHero originalAttacker)
         {
-            var logicTree = counterAttacker.CoroutineTreesAsset.MainLogicTree;
-
+            var logicTree = originalAttacker.CoroutineTreesAsset.MainLogicTree;
+            
+            Debug.Log("DEBUG123 SetAntiCounterResistance to ZERO: " +originalAttacker.HeroName);
+            
             //TEST
-            counterAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance = 0;
+            originalAttacker.HeroLogic.OtherAttributes.AntiCounterAttackResistance = 0;
             
             logicTree.EndSequence();
             yield return null;
