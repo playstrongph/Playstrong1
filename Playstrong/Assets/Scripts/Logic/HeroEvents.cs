@@ -60,9 +60,11 @@ namespace Logic
         public event HeroEvent EAfterHeroDealsMultiAttack;
         public event HeroEvent EBeforeHeroTakesMultiAttack;
         public event HeroEvent EAfterHeroTakesMultiAttack;
-
-        //TEST
         public event HeroEvent EAfterHeroesHealthChanges;
+        
+        //TEST 23/11/2021
+        public event HeroEvent EAfterHeroEnablesPassiveSkill;
+        
         
         //Deal and Take Skill Damage Events
         public event HeroEvent EBeforeHeroTakesSkillDamage;
@@ -768,8 +770,22 @@ namespace Logic
                 }
         }
         
-        
-        
+       
+        public void AfterHeroEnablesPassiveSkill(IHero hero)
+        {
+            Debug.Log("AfterHeroEnablesPassiveSkill");
+            
+            EAfterHeroEnablesPassiveSkill?.Invoke(hero);
+        }
+        private void UnsubscribeEAfterHeroEnablesPassiveSkillClients()
+        {
+            var clients = EAfterHeroEnablesPassiveSkill?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroEnablesPassiveSkill -= client as HeroEvent;
+                }
+        }
         
         
         private void OnDestroy()
@@ -827,10 +843,10 @@ namespace Logic
             UnsubscribeAfterHeroTakesNonSkillDamageClients();
             UnsubscribeBeforeHeroDealsNonSkillDamageClients();
             UnsubscribeAfterHeroDealsNonSkillDamageClients();
-            
+            UnsubscribeAfterHeroesHealthChangesClients();
             
             //TEST
-            UnsubscribeAfterHeroesHealthChangesClients();
+            UnsubscribeEAfterHeroEnablesPassiveSkillClients();
         }
     }
 }

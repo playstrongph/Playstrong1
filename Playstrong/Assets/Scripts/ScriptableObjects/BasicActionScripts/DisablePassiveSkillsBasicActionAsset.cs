@@ -86,6 +86,9 @@ namespace ScriptableObjects.SkillActionsScripts
             {
                 var skill = skillObject.GetComponent<ISkill>();
                 logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.EnablePassiveSkill(skill));
+                
+                
+                
 
             }
         }

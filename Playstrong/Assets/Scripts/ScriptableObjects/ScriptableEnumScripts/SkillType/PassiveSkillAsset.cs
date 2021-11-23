@@ -49,9 +49,16 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator EnablePassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
+            
+            
 
             skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
-
+            
+            //TEST 23/11/2021: Not implemented for CdPassiveSkill
+            skill.Hero.HeroLogic.HeroEvents.AfterHeroEnablesPassiveSkill(skill.Hero);
+            
+            Debug.Log("PassiveSkill AfterHeroEnablesPassiveSkill");
+            
             logicTree.EndSequence();
             yield return null;
         }
