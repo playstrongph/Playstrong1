@@ -15,8 +15,8 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.PassiveSkillHeroAttributes.CriticalStrikeChance += criticalResistance;
-            targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalResistance;
+            targetHero.HeroLogic.PassiveSkillHeroAttributes.CriticalStrikeResistance += criticalResistance;
+            targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance += criticalResistance;
             
             logicTree.EndSequence();
             yield return null;
@@ -26,8 +26,8 @@ namespace ScriptableObjects.SkillActionsScripts
         {
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            targetHero.HeroLogic.PassiveSkillHeroAttributes.CriticalStrikeChance += criticalResistance;
-            targetHero.HeroLogic.OtherAttributes.CriticalStrikeChance += criticalResistance;
+            targetHero.HeroLogic.PassiveSkillHeroAttributes.CriticalStrikeResistance += criticalResistance;
+            targetHero.HeroLogic.OtherAttributes.CriticalStrikeResistance += criticalResistance;
             
             logicTree.EndSequence();
             yield return null;

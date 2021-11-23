@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Script: {fileID: 11500000, guid: 9a1695dd6c53247489b5ee8c129bcf16, type: 3}
+  m_Name: IncreaseSkillCounters
   m_EditorClassIdentifier: 
-  defaultSkillAddBuffChance: 0
-  _buffEffectAsset: {fileID: 11400000, guid: 50732d475489ce24992452d03e55a620, type: 2}
-  _buffCounters: 5
+  skillCounters: 1
+  heroSkillAsset: {fileID: 11400000, guid: cad22b3097f733140b87b34f2dcae0c0, type: 2}

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d3395b83de2643b9e526dde22e21d, type: 3}
-  m_Name: AddBuffAction
+  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
+  m_Name: DragonKnightsWillSkillEffect
   m_EditorClassIdentifier: 
-  defaultSkillAddBuffChance: 0
-  _buffEffectAsset: {fileID: 11400000, guid: 50732d475489ce24992452d03e55a620, type: 2}
-  _buffCounters: 5
+  standardActions:
+  - {fileID: 11400000, guid: 1cae4b385c2774040b9f4fb2ba7cdfb1, type: 2}
