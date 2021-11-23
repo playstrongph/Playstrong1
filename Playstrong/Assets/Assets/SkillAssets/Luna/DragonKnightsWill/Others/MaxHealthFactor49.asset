@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30249d6abd11e9d46a2a7ef98cd20c64, type: 3}
-  m_Name: FactorBelowLimit50
+  m_Script: {fileID: 11500000, guid: b51bb7cb6403c1944b21bf228d44a2b3, type: 3}
+  m_Name: MaxHealthFactor49
   m_EditorClassIdentifier: 
-  limit: 0
-  calculatedFactor: {fileID: 11400000, guid: 6fd5c309453c5eb4082e9ea1e65c2a71, type: 2}
-  calculatedLimit: {fileID: 11400000, guid: ae206e97bdacd584397b2d19c2fc1d76, type: 2}
+  percentFactor: 50
