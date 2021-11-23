@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limit: 49
   calculatedFactor: {fileID: 11400000, guid: cca67c7153c144043b1039b18100b8bf, type: 2}
+  calculatedLimit: {fileID: 11400000, guid: c45367f59ca096c49bd9ce1b373de585, type: 2}

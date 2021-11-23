@@ -30,7 +30,7 @@ namespace ScriptableObjects.BasicActions
         {
             var totalLimit = limit + (int)CalculatedLimit.GetCalculatedValue();
             
-            Debug.Log("Total Limit: " +totalLimit +" Calculated Factor: " +CalculatedFactor.GetCalculatedValue());
+            //Debug.Log("Total Limit: " +totalLimit +" Calculated Factor: " +CalculatedFactor.GetCalculatedValue());
             
             return CalculatedFactor.GetCalculatedValue() < totalLimit ? 1 : 0;
         }
@@ -39,7 +39,7 @@ namespace ScriptableObjects.BasicActions
         {
             var totalLimit = limit + (int)CalculatedLimit.GetCalculatedValue();
             
-            Debug.Log("Total Limit: " +totalLimit +" Calculated Factor: " +CalculatedFactor.GetCalculatedValue());
+            //Debug.Log("Total Limit: " +totalLimit +" Calculated Factor: " +CalculatedFactor.GetCalculatedValue());
             
             return CalculatedFactor.GetCalculatedValue() < totalLimit ? 1 : 0;
         }

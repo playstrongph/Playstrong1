@@ -23,15 +23,22 @@ namespace ScriptableObjects.BasicActions
         [SerializeField] private ScriptableObject calculatedFactor;
         
         private ICalculatedFactorValueAsset CalculatedFactor => calculatedFactor as ICalculatedFactorValueAsset;
+        
+        [SerializeField] private ScriptableObject calculatedLimit;
+        private ICalculatedFactorValueAsset CalculatedLimit => calculatedLimit as ICalculatedFactorValueAsset;
 
         protected override int CheckBasicCondition(IHero targetHero)
         {
-            return CalculatedFactor.GetCalculatedValue() > limit ? 1 : 0;
+            var totalLimit = limit + (int)CalculatedLimit.GetCalculatedValue();
+            
+            return CalculatedFactor.GetCalculatedValue() > totalLimit ? 1 : 0;
         }
         
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            return CalculatedFactor.GetCalculatedValue() > limit ? 1 : 0;
+            var totalLimit = limit + (int)CalculatedLimit.GetCalculatedValue();
+            
+            return CalculatedFactor.GetCalculatedValue() > totalLimit ? 1 : 0;
         }
 
     }
