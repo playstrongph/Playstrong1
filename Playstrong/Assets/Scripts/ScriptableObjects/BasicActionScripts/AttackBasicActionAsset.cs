@@ -19,9 +19,10 @@ namespace ScriptableObjects.BasicActions
     {
         [Header("CRITICAL STRIKE FACTORS")] 
         [SerializeField] private int defaultSkillCriticalChance = 0;
-        [SerializeField] private int defaultSkillCounterAttackResistance = 0;
-        
-        
+
+        [SerializeField] private int defaultAdditionalCriticalDamage = 0;
+
+
         [Header("DAMAGE FACTORS")]
         //To be used after revision of DealDamage/TakeDamage
         [SerializeField] private int flatAdditionalDamage;
@@ -60,10 +61,7 @@ namespace ScriptableObjects.BasicActions
     private IEnumerator AttackHero(IHero thisHero, IHero targetHero)
         {
             var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree;
-            
-            //TEST
-            //logicTree.AddCurrent(ResetAntiCounterResistance(thisHero));
-            
+
             //PreAttack Phase
             logicTree.AddCurrent(PreSkillAttackEvents(thisHero,targetHero));
             logicTree.AddCurrent(PreAttackEvents(thisHero,targetHero));
@@ -74,9 +72,6 @@ namespace ScriptableObjects.BasicActions
             //Post Attack Phase
             logicTree.AddCurrent(PostAttackEvents(thisHero,targetHero));
             logicTree.AddCurrent(PostSkillAttackEvents(thisHero,targetHero));
-            
-            //TEST
-            //logicTree.AddCurrent(ResetSkillCounterAttackResistance(thisHero));
 
             logicTree.EndSequence();
             yield return null;
@@ -148,7 +143,7 @@ namespace ScriptableObjects.BasicActions
         
         var dealDamageTest = thisHero.HeroLogic.DealDamageTest;
         
-        var criticalFactor = thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier/100;
+        var criticalFactor = (thisHero.HeroLogic.OtherAttributes.CriticalDamageMultiplier + defaultAdditionalCriticalDamage)/100f ;
         
         //TEST
         var nonCriticalAttackDamage =
@@ -187,7 +182,7 @@ namespace ScriptableObjects.BasicActions
         yield return null;
     }
     
-    private IEnumerator ResetSkillCounterAttackResistance(IHero thisHero)
+    /*private IEnumerator ResetSkillCounterAttackResistance(IHero thisHero)
     {
         var logicTree = thisHero.CoroutineTreesAsset.MainLogicTree; 
             
@@ -197,7 +192,7 @@ namespace ScriptableObjects.BasicActions
 
         logicTree.EndSequence();
         yield return null;
-    }
+    }*/
 
 
     //VISUALS

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8f96ecd6d1f0d4e9970e648e92d605, type: 3}
   m_Name: ReduceSkillCooldown
   m_EditorClassIdentifier: 
-  heroSkillAssetReference: {fileID: 11400000, guid: bf62ef90be2c0a64cbd337a5a27df747,
+  heroSkillAssetReference: {fileID: 11400000, guid: 3041bf601a9880145a193c190d8122d3,
     type: 2}
   flatReduceCounters: 0
   calculatedReduceCounters: {fileID: 11400000, guid: ee10d5ef86497fa46bc31318f238a4cb,
