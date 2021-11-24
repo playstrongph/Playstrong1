@@ -49,13 +49,12 @@ namespace ScriptableObjects.Enums.SkillType
         public override IEnumerator EnablePassiveSkill(ISkill skill)
         {
             var logicTree = skill.CoroutineTreesAsset.MainLogicTree;
-            
-            
 
-            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
+            //skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
+            logicTree.AddCurrent(EnablePassiveSkillCoroutine(skill));
 
-            //skill.Hero.HeroLogic.HeroEvents.AfterHeroEnablesPassiveSkill(skill.Hero);
-           
+            //TODO - Assess if this is also needed for CD Skill Passive
+            logicTree.AddCurrent(AfterHeroEnablesPassiveSkillEvent(skill.Hero));
             
             logicTree.EndSequence();
             yield return null;
@@ -70,6 +69,27 @@ namespace ScriptableObjects.Enums.SkillType
             
             visualTree.AddCurrent(HideCooldownText(skillLogic));
 
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        //Hero Event
+        private IEnumerator AfterHeroEnablesPassiveSkillEvent(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.AfterHeroEnablesPassiveSkill(targetHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+        
+        private IEnumerator EnablePassiveSkillCoroutine(ISkill skill)
+        {
+            var logicTree = skill.Hero.CoroutineTreesAsset.MainLogicTree;
+            
+            skill.SkillLogic.UpdateSkillEnabledStatus.SkillEnabled.EnableSkill(skill);
+            
             logicTree.EndSequence();
             yield return null;
         }
