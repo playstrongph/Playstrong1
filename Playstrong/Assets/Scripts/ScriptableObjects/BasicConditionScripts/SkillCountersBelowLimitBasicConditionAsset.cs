@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace ScriptableObjects.BasicActions
 {
-    [CreateAssetMenu(fileName = "SkillCountersWithinLimit", menuName = "SO's/BasicConditions/SkillCountersWithinLimit")]
+    [CreateAssetMenu(fileName = "SkillCountersBelowLimit", menuName = "SO's/BasicConditions/SkillCountersBelowLimit")]
     
-    public class SkillCountersWithinLimitBasicConditionAsset : BasicConditionAsset
+    public class SkillCountersBelowLimitBasicConditionAsset : BasicConditionAsset
     {
 
         [SerializeField] private int skillCountersLimit;

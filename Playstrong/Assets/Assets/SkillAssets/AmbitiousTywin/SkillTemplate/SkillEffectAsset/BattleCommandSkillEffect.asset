@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
   m_Name: BattleCommandSkillEffect
   m_EditorClassIdentifier: 
-  standardActions: []
+  standardActions:
+  - {fileID: 11400000, guid: 1c677e14d2a84484eb03dd376584b61f, type: 2}
+  - {fileID: 11400000, guid: 626e8cfec59552542b0c0364fe2f899f, type: 2}
+  - {fileID: 11400000, guid: b610cf339f9756346af6ebf97c139e67, type: 2}

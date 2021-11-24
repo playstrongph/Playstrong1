@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ced613c75f86b4e937980e259d1624, type: 3}
-  m_Name: AddDebuffAction2
+  m_Script: {fileID: 11500000, guid: 0b6c23c9efb7bbb4b90d05c7c76c339e, type: 3}
+  m_Name: SkillCountersEqualsLimit
   m_EditorClassIdentifier: 
-  defaultSkillAddDebuffChance: 0
-  _debuffEffectAsset: {fileID: 11400000, guid: 33b0b96c82ddc7c47b1b31b69f6b184d, type: 2}
-  _debuffCounters: 5
+  skillCountersLimit: 1
+  heroSkillAsset: {fileID: 11400000, guid: 7c6280277e5c3ff47a1a352a0ee8cc2d, type: 2}

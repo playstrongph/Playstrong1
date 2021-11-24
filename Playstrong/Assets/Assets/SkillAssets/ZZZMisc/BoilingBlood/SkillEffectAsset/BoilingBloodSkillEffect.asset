@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: BoilingBloodSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
+  - {fileID: 11400000, guid: 70a10f085d7b6ff4fb66a5d325d61942, type: 2}
   - {fileID: 11400000, guid: 90b8fa9d0d175a4419c7bc7b4d4e5ac3, type: 2}
   - {fileID: 11400000, guid: 1e568486e45c7774285f2eda64ec3ba5, type: 2}

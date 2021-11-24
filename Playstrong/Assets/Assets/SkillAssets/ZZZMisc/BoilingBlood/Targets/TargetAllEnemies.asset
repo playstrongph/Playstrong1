@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04241b90b9785ea4380549f9648b4f76, type: 3}
-  m_Name: SkillCountersAboveLimit
+  m_Script: {fileID: 11500000, guid: 3b0c3222b9f509d4db670e242a55a936, type: 3}
+  m_Name: TargetAllEnemies
   m_EditorClassIdentifier: 
-  skillCountersLimit: 0
-  heroSkillAsset: {fileID: 11400000, guid: 7c6280277e5c3ff47a1a352a0ee8cc2d, type: 2}
