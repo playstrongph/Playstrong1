@@ -107,6 +107,20 @@ namespace Logic
             return randomList;
         }
         
+        protected List<IHeroStatusEffect> ShuffleStatusEffectsList(List<IHeroStatusEffect> statusEffectsList)
+        {
+            //Randomize the List
+            for (int i = 0; i < statusEffectsList.Count; i++) 
+            {
+                var temp = statusEffectsList[i];
+                int randomIndex = Random.Range(i, statusEffectsList.Count);
+                statusEffectsList[i] = statusEffectsList[randomIndex];
+                statusEffectsList[randomIndex] = temp;
+            }
+
+            return statusEffectsList;
+        }
+        
         
 
     }
