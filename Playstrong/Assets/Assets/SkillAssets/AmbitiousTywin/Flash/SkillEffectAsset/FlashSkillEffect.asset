@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7a12187fae5964fa7a8bebb3bf97e8, type: 3}
+  m_Name: FlashSkillEffect
+  m_EditorClassIdentifier: 
+  standardActions:
+  - {fileID: 11400000, guid: ed50697f99cf0f44fb89445a7ef6893b, type: 2}
+  - {fileID: 11400000, guid: 717b920a9bd61ed4b964e46a7d647b8f, type: 2}
+  - {fileID: 11400000, guid: 648b24f7197abcd40b7a86e0a1369870, type: 2}
