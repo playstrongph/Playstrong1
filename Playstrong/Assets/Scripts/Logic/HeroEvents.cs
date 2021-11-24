@@ -773,8 +773,6 @@ namespace Logic
        
         public void AfterHeroEnablesPassiveSkill(IHero hero)
         {
-            Debug.Log("AfterHeroEnablesPassiveSkill");
-            
             EAfterHeroEnablesPassiveSkill?.Invoke(hero);
         }
         private void UnsubscribeEAfterHeroEnablesPassiveSkillClients()

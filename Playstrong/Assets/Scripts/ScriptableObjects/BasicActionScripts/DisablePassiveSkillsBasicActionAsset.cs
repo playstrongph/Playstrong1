@@ -86,16 +86,26 @@ namespace ScriptableObjects.SkillActionsScripts
             {
                 var skill = skillObject.GetComponent<ISkill>();
                 logicTree.AddCurrent(skill.SkillLogic.SkillAttributes.SkillType.EnablePassiveSkill(skill));
-                
-                
-                
-
+                //skill.Hero.HeroLogic.HeroEvents.AfterHeroEnablesPassiveSkill(skill.Hero);
             }
+            
+            //TEST Nov 24 2021
+            logicTree.AddCurrent(AfterHeroEnablesPassiveSkillEvent(targetHero));
         }
-        
-        
-        
-        
+
+        //TEST Nov 24 2021
+        private IEnumerator AfterHeroEnablesPassiveSkillEvent(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.AfterHeroEnablesPassiveSkill(targetHero);
+            
+            logicTree.EndSequence();
+            yield return null;
+        }
+
+
+
 
 
 

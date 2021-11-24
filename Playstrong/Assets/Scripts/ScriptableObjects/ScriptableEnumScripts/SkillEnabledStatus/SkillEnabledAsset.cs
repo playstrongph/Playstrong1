@@ -41,7 +41,10 @@ namespace ScriptableObjects.Scriptable_Enums.SkillEnabledStatus
             //if (skill.SkillLogic.SkillAttributes.Cooldown <= 0)
                 //skill.SkillLogic.SkillAttributes.SkillCooldownType.SetSkillReady(skill);
             skill.SkillLogic.SkillAttributes.SkillCooldownType.UpdateSkillReadinessStatus(skill);
-
+            
+            //TEST 24 Nov 2021
+            //skill.Hero.HeroLogic.HeroEvents.AfterHeroEnablesPassiveSkill(skill.Hero);
+    
         }
         
         public override void SetSkillReady(ISkill skill)
