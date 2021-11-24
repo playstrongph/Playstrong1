@@ -21,14 +21,11 @@ namespace ScriptableObjects.SkillActionsScripts
            
 
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
-            //var debuffs = ShuffleStatusEffectsList(targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs);
-            
-            var debuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-
+            var debuffs = ShuffleStatusEffectsList(targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs);
 
             var count = Mathf.Min(dispelCount, debuffs.Count);
             
-            Debug.Log("DispelDebuffs targetHero: " +targetHero.HeroName +" Debuffs Count: " +debuffs.Count +" Dispel Count: " +dispelCount +" count: " +count );
+            //Debug.Log("DispelDebuffs targetHero: " +targetHero.HeroName +" Debuffs Count: " +debuffs.Count +" Dispel Count: " +dispelCount +" count: " +count );
 
             for (int i = 0; i < count; i++)
             {
@@ -44,13 +41,10 @@ namespace ScriptableObjects.SkillActionsScripts
 
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
 
-            //var debuffs = ShuffleStatusEffectsList(targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs);
-            
-            var debuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-
+            var debuffs = ShuffleStatusEffectsList(targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs);
             var count = Mathf.Min(dispelCount, debuffs.Count);
 
-            Debug.Log("DispelDebuffs targetHero: " +targetHero.HeroName +" Debuffs Count: " +debuffs.Count +" Dispel Count: " +dispelCount +" count: " +count );
+            //Debug.Log("DispelDebuffs targetHero: " +targetHero.HeroName +" Debuffs Count: " +debuffs.Count +" Dispel Count: " +dispelCount +" count: " +count );
 
             for (int i = 0; i < count; i++)
             {
