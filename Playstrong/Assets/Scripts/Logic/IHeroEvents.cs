@@ -63,9 +63,10 @@ namespace Logic
         event HeroEvents.HeroEvent EBeforeHeroDealsNonSkillDamage;
         event HeroEvents.HeroEvent EAfterHeroDealsNonSkillDamage;
         event HeroEvents.HeroEvent EAfterHeroesHealthChanges;
+        event HeroEvents.HeroEvent EAfterHeroEnablesPassiveSkill;
         
         //TEST
-        event HeroEvents.HeroEvent EAfterHeroEnablesPassiveSkill;
+        event HeroEvents.HeroEvent EAfterHeroGetsDebuffed;
 
         void PreAttack(IHero initiatorHero, IHero targetHero);
         void PreSkillAttack(IHero initiatorHero, IHero targetHero);
@@ -112,9 +113,10 @@ namespace Logic
         void BeforeHeroDealsNonSkillDamage(IHero hero);
         void AfterHeroDealsNonSkillDamage(IHero hero);
         void AfterHeroesHealthChanges(IHero hero);
-        
-        //TEST
         void AfterHeroEnablesPassiveSkill(IHero hero);
+        
+        //TEST - 24 Nov 2021
+        void AfterHeroGetsDebuffed(IHero hero);
 
     }
 }

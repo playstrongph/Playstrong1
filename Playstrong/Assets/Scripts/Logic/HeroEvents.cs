@@ -61,9 +61,10 @@ namespace Logic
         public event HeroEvent EBeforeHeroTakesMultiAttack;
         public event HeroEvent EAfterHeroTakesMultiAttack;
         public event HeroEvent EAfterHeroesHealthChanges;
-        
-        //TEST 23/11/2021
         public event HeroEvent EAfterHeroEnablesPassiveSkill;
+        
+        //TEST 24 Nov 2021
+        public event HeroEvent EAfterHeroGetsDebuffed;
         
         
         //Deal and Take Skill Damage Events
@@ -785,6 +786,20 @@ namespace Logic
                 }
         }
         
+        public void AfterHeroGetsDebuffed(IHero hero)
+        {
+            EAfterHeroGetsDebuffed?.Invoke(hero);
+        }
+        private void UnsubscribeEAfterHeroGetsDebuffedClients()
+        {
+            var clients = EAfterHeroGetsDebuffed?.GetInvocationList();
+            if (clients != null)
+                foreach (var client in clients)
+                {
+                    EAfterHeroGetsDebuffed -= client as HeroEvent;
+                }
+        }
+        
         
         private void OnDestroy()
         {
@@ -842,9 +857,10 @@ namespace Logic
             UnsubscribeBeforeHeroDealsNonSkillDamageClients();
             UnsubscribeAfterHeroDealsNonSkillDamageClients();
             UnsubscribeAfterHeroesHealthChangesClients();
-            
-            //TEST
             UnsubscribeEAfterHeroEnablesPassiveSkillClients();
+            
+            //TEST - 24 Nov 2021
+            UnsubscribeEAfterHeroGetsDebuffedClients();
         }
     }
 }

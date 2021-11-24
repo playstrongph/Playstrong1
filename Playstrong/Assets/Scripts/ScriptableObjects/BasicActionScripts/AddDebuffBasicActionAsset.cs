@@ -63,11 +63,14 @@ namespace ScriptableObjects.SkillActionsScripts
             debuffSuccess = Mathf.Clamp(debuffSuccess, 0, 100);
             
             //Debug.Log("Caster Hero: " +thisHero.HeroName);
-            
-            if(randomChance<= debuffSuccess)
+
+            if (randomChance <= debuffSuccess)
+            {
                 DebuffAsset.StatusEffectInstance.AddStatusEffect(targetHero, statusEffectAsset, statusEffectCounters,thisHero);
-       
-            
+                //TODO: Enumerator - Hero is debuffed event 
+                logicTree.AddCurrent(AfterHeroGetsDebuffedEvent(targetHero));
+            }
+
             logicTree.EndSequence();
             yield return null;
         }
@@ -88,6 +91,16 @@ namespace ScriptableObjects.SkillActionsScripts
 
             return immunityResistance;
 
+        }
+
+        private IEnumerator AfterHeroGetsDebuffedEvent(IHero targetHero)
+        {
+            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
+            
+            targetHero.HeroLogic.HeroEvents.AfterHeroGetsDebuffed(targetHero);
+
+            logicTree.EndSequence();
+            yield return null;
         }
 
 
