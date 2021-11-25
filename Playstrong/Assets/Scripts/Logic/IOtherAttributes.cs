@@ -1,4 +1,6 @@
-﻿namespace Logic
+﻿using Interfaces;
+
+namespace Logic
 {
     public interface IOtherAttributes
     {   
@@ -8,7 +10,9 @@
         
         //TODO: For Cleanup
         float DirectDamageReduction { get; set; }
-        
+
+        IFactionEnumAsset Faction { get; set; }
+
         //FIGHTING SPIRIT
         int FightingSpirit { get; set; }
 

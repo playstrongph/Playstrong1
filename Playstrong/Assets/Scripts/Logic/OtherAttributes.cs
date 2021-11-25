@@ -5,10 +5,19 @@ using UnityEngine;
 namespace Logic
 {
     public class OtherAttributes : MonoBehaviour, IOtherAttributes
-    {   
+    {
         /// <summary>
         /// Damage Multipliers
         /// </summary>
+
+        [Header("Hero Faction")] [SerializeField]
+        private ScriptableObject faction;
+
+        public IFactionEnumAsset Faction
+        {
+            get => faction as IFactionEnumAsset;
+            set => faction = value as ScriptableObject;
+        }
 
         [Header("Obsolete Damage Reduction")] 
         [SerializeField]

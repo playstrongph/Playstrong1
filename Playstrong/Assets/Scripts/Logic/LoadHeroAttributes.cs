@@ -42,6 +42,7 @@ namespace Logic
             
             //TEST
             _otherAttributes.FightingSpirit = heroAsset.FightingSpirit;
+            _otherAttributes.Faction = heroAsset.Faction;
             
             _heroAttributes.Energy = _initalHeroEnergy;
 

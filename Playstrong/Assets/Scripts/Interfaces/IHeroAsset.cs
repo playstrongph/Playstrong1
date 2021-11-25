@@ -32,6 +32,8 @@ namespace Interfaces
 
         ITargetStatus TargetStatus { get; }
 
+        IFactionEnumAsset Faction { get; }
+
 
     }
 }

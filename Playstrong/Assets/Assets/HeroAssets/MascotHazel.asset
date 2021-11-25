@@ -27,3 +27,4 @@ MonoBehaviour:
   _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
   _heroSkills:
   - {fileID: 11400000, guid: e70f0f87f9ea36744beab24ef305c1d3, type: 2}
+  - {fileID: 11400000, guid: 98039025129155f4797cd36d99c9c6db, type: 2}
