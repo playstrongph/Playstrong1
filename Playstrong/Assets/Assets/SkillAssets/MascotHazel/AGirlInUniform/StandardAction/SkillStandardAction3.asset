@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0694fedca59ad04f8b58b7f0d0fb82c, type: 3}
+  m_Name: SkillStandardAction3
+  m_EditorClassIdentifier: 
+  standardEvent: {fileID: 11400000, guid: f564f280dde53a145a37ebfaf1ded6b6, type: 2}
+  eventSubscribers: {fileID: 11400000, guid: bfb0efab9d204884ca935a6cbc7f15a0, type: 2}
+  conditionTargets: {fileID: 11400000, guid: 6b92682b54c955f429bec6a379571343, type: 2}
+  orBasicConditions: []
+  andBasicConditions:
+  - {fileID: 11400000, guid: a775b5ebab3656145a97ef1df0b3ab70, type: 2}
+  actionTargets: {fileID: 11400000, guid: 6b92682b54c955f429bec6a379571343, type: 2}
+  basicActions:
+  - {fileID: 11400000, guid: ac205751f7f1fce4fa51d5f4cb7cc3d6, type: 2}
+  - {fileID: 11400000, guid: 055d393abbf383a4096dcb636783a72d, type: 2}
+  - {fileID: 11400000, guid: b5997298f1c009745b4d848a073f8b0e, type: 2}

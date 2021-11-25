@@ -14,59 +14,25 @@ namespace ScriptableObjects.BasicActions
     public class HeroBelongsToSpecificFactionBasicConditionAsset : BasicConditionAsset
     {
 
-        [SerializeField] private ScriptableObject statusEffectAsset;
-        private IStatusEffectAsset StatusEffectAsset => statusEffectAsset as IStatusEffectAsset;
+        [SerializeField] private ScriptableObject faction;
+        private IFactionEnumAsset Faction  => faction as IFactionEnumAsset;
 
-        private IHeroStatusEffect _specificStatusEffect;
+       
 
         protected override int CheckBasicCondition(IHero targetHero)
         {
-            var allBuffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
-            var allDebuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-            var allUniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
+            var heroFaction = targetHero.HeroLogic.OtherAttributes.Faction;
 
-            foreach (var statusEffect in allBuffs)
-            {
-                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
-            }
-            
-            foreach (var statusEffect in allDebuffs)
-            {
-                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
-            }
-            
-            foreach (var statusEffect in allUniqueEffects)
-            {
-                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
-            }
-
-            return 0;
+            return heroFaction == Faction ? 1 : 0;
         }
 
        
 
         protected override int CheckBasicCondition(IHero thisHero,IHero targetHero)
         {
-            var allBuffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
-            var allDebuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
-            var allUniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
+            var heroFaction = targetHero.HeroLogic.OtherAttributes.Faction;
 
-            foreach (var statusEffect in allBuffs)
-            {
-                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
-            }
-            
-            foreach (var statusEffect in allDebuffs)
-            {
-                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
-            }
-            
-            foreach (var statusEffect in allUniqueEffects)
-            {
-                return statusEffect.Name == StatusEffectAsset.Name ? 1 : 0;
-            }
-
-            return 0;
+            return heroFaction == Faction ? 1 : 0;
         }
         
        
