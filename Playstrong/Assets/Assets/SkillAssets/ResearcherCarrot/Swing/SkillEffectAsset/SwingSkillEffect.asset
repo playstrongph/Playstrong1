@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SwingSkillEffect
   m_EditorClassIdentifier: 
   standardActions:
+  - {fileID: 11400000, guid: 12e883684ac88e646b77fb1d3bc8b513, type: 2}
+  - {fileID: 11400000, guid: 9c108ba82eca32246bd47afb5d0d90d0, type: 2}
   - {fileID: 11400000, guid: 9a8a9a3f12dd93140a27edab3b525848, type: 2}
