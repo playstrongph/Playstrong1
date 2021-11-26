@@ -24,40 +24,32 @@ namespace ScriptableObjects.SkillActionsScripts
            var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
            
            var allStatusEffects = new List<IHeroStatusEffect>();
+           var triggerStatusEffects = new List<IHeroStatusEffect>();
            var buffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
            var debuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
            var uniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
-           
+
            allStatusEffects.AddRange(buffs);
            allStatusEffects.AddRange(debuffs);
            allStatusEffects.AddRange(uniqueEffects);
-            
-           
-           
+
+           //Fina all statusEffects
            foreach (var statusEffect in allStatusEffects)
            {
-               
                if (statusEffect.Name == SpecificStatusEffectAsset.Name)
-                   _statusEffect = statusEffect;
-               
+                   triggerStatusEffects.Add(statusEffect);
            }
-           
-           
-           
-
-        
-
-           if (_statusEffect != null)
+            
+           //Trigger Status Effect
+           foreach (var statusEffect in triggerStatusEffects)
            {
-               Debug.Log("TriggerStatusEffect 1: " +_statusEffect.Name);
-               
-               foreach (var standardAction in _statusEffect.StatusEffectAsset.StandardActions)
+               foreach (var standardAction in statusEffect.StatusEffectAsset.StandardActions)
                {
                    standardAction.StartAction(targetHero);
                }
-               
-               
-               _statusEffect.DecreaseStatusEffectCounters.DecreaseCounters(1);
+                
+               statusEffect.DecreaseStatusEffectCounters.DecreaseCounters(1);
+
            }
 
            logicTree.EndSequence();
@@ -70,35 +62,33 @@ namespace ScriptableObjects.SkillActionsScripts
             var logicTree = targetHero.CoroutineTreesAsset.MainLogicTree;
             
             var allStatusEffects = new List<IHeroStatusEffect>();
+            var triggerStatusEffects = new List<IHeroStatusEffect>();
             var buffs = targetHero.HeroStatusEffects.HeroBuffEffects.HeroBuffs;
             var debuffs = targetHero.HeroStatusEffects.HeroDebuffEffects.HeroDebuffs;
             var uniqueEffects = targetHero.HeroStatusEffects.HeroUniqueEffects.UniqueEffects;
-           
+
             allStatusEffects.AddRange(buffs);
             allStatusEffects.AddRange(debuffs);
             allStatusEffects.AddRange(uniqueEffects);
-            
-            
-            
+
+            //Fina all statusEffects
             foreach (var statusEffect in allStatusEffects)
             {
-              
                 if (statusEffect.Name == SpecificStatusEffectAsset.Name)
-                    _statusEffect = statusEffect;
+                    triggerStatusEffects.Add(statusEffect);
             }
             
-            if (_statusEffect != null)
+            //Trigger Status Effect
+            foreach (var statusEffect in triggerStatusEffects)
             {
-                Debug.Log("TriggerStatusEffect 2: " +_statusEffect.Name);
-                //_statusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
-                foreach (var standardAction in _statusEffect.StatusEffectAsset.StandardActions)
+                foreach (var standardAction in statusEffect.StatusEffectAsset.StandardActions)
                 {
                     standardAction.StartAction(thisHero,targetHero);
                 }
+                
+                statusEffect.DecreaseStatusEffectCounters.DecreaseCounters(1);
 
-                _statusEffect.DecreaseStatusEffectCounters.DecreaseCounters(1);
             }
-
 
             logicTree.EndSequence();
             yield return null;
