@@ -31,14 +31,34 @@ namespace ScriptableObjects.SkillActionsScripts
            allStatusEffects.AddRange(buffs);
            allStatusEffects.AddRange(debuffs);
            allStatusEffects.AddRange(uniqueEffects);
-
+            
+           
+           
            foreach (var statusEffect in allStatusEffects)
            {
+               
                if (statusEffect.Name == SpecificStatusEffectAsset.Name)
                    _statusEffect = statusEffect;
+               
            }
+           
+           
+           
 
-           _statusEffect?.StatusEffectAsset.ApplyStatusEffect(targetHero);
+        
+
+           if (_statusEffect != null)
+           {
+               Debug.Log("TriggerStatusEffect 1: " +_statusEffect.Name);
+               
+               foreach (var standardAction in _statusEffect.StatusEffectAsset.StandardActions)
+               {
+                   standardAction.StartAction(targetHero);
+               }
+               
+               
+               _statusEffect.DecreaseStatusEffectCounters.DecreaseCounters(1);
+           }
 
            logicTree.EndSequence();
            yield return null;
@@ -57,14 +77,28 @@ namespace ScriptableObjects.SkillActionsScripts
             allStatusEffects.AddRange(buffs);
             allStatusEffects.AddRange(debuffs);
             allStatusEffects.AddRange(uniqueEffects);
-
+            
+            
+            
             foreach (var statusEffect in allStatusEffects)
             {
+              
                 if (statusEffect.Name == SpecificStatusEffectAsset.Name)
                     _statusEffect = statusEffect;
             }
             
-            _statusEffect?.StatusEffectAsset.ApplyStatusEffect(targetHero);
+            if (_statusEffect != null)
+            {
+                Debug.Log("TriggerStatusEffect 2: " +_statusEffect.Name);
+                //_statusEffect.StatusEffectAsset.ApplyStatusEffect(targetHero);
+                foreach (var standardAction in _statusEffect.StatusEffectAsset.StandardActions)
+                {
+                    standardAction.StartAction(thisHero,targetHero);
+                }
+
+                _statusEffect.DecreaseStatusEffectCounters.DecreaseCounters(1);
+            }
+
 
             logicTree.EndSequence();
             yield return null;

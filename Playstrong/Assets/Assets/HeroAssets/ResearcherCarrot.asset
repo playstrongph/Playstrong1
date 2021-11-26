@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c24186e941d1bc4ab2c6e9d5770755d, type: 3}
+  m_Name: ResearcherCarrot
+  m_EditorClassIdentifier: 
+  _name: ResearcherCarrot
+  _description: Mage
+  _heroSprite: {fileID: 21300000, guid: 8dc0cf5e33475ad4ca4762d9659239df, type: 3}
+  _health: 40
+  _attack: 11
+  _speed: 110
+  _chance: 0
+  _armor: 12
+  _fightingSpirit: 0
+  _rarity: {fileID: 11400000, guid: f9d4ba09fb6a6b64a81770e2f40c4a28, type: 2}
+  _faction: {fileID: 11400000, guid: 383878eff9e06ba4ca427bfadb6e2dc6, type: 2}
+  _creatureType: {fileID: 11400000, guid: 51527faf0d006d34e9d9aae3d8fbdaa4, type: 2}
+  _targetStatus: {fileID: 11400000, guid: caac5edcb57a9b74485ff91877f2ca25, type: 2}
+  _heroSkills:
+  - {fileID: 11400000, guid: a0a9195dc0a0361459de6f15510f98f6, type: 2}
