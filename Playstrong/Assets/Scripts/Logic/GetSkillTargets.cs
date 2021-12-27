@@ -25,6 +25,7 @@ namespace Logic
         /// Can either be EnemyTargets or AllyTargets
         /// </summary>
         private List<Action> _getValidTargets = new List<Action>();
+        
         private Action _showTargetsGlow;
 
         private int _targetIndex = 0;
@@ -48,8 +49,16 @@ namespace Logic
             _showTargetsGlow = NoAction;
         }
         
-        
-        
+        private void OnMouseDown()
+        {
+            _showTargetsGlow();
+        }
+
+        private void OnMouseUp()
+        {
+            HideSkillTargetsGlow();
+        }
+
         public List<IHero> GetValidTargets()
         {
            
@@ -73,13 +82,6 @@ namespace Logic
             var thisHero =  _targetSkill.Skill.Hero;
             _validTargets.Clear();
             
-            /*var allies = thisHero.LivingHeroes.HeroesList;
-            foreach (var ally in allies)
-            {
-                var allyHero = ally.GetComponent<IHero>();
-                _validTargets.Add(allyHero);
-            }*/
-            
             _validTargets = new List<IHero>(thisHero.GetAllLivingAllyHeroes());
         }
         
@@ -87,20 +89,10 @@ namespace Logic
         {
             var thisHero =  _targetSkill.Skill.Hero;
             _validTargets.Clear();
-
-            /*var allies = thisHero.LivingHeroes.HeroesList;
-            foreach (var ally in allies)
-            {
-                var allyHero = ally.GetComponent<IHero>();
-                _validTargets.Add(allyHero);
-            }*/
-
+            
             _validTargets = new List<IHero>(thisHero.GetAllOtherLivingAllyHeroes());
-
-
         }
-        
-        //TODO: Copy from GetAttackTarget
+
         private void GetEnemyTargets()
         {
             _validTargets.Clear();
@@ -199,15 +191,6 @@ namespace Logic
             }
         }
         
-        private void OnMouseDown()
-        {
-            _showTargetsGlow();
-        }
-
-        private void OnMouseUp()
-        {
-            HideSkillTargetsGlow();
-        }    
         
 
         public void EnableGlows()
